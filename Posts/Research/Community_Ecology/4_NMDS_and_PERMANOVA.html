@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Zhehao Hu">
+<meta name="dcterms.date" content="2024-06-28">
+
+<title>4 NMDS and PERMANOVA – Zhehao Hu</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Zhehao Hu</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="https://github.com/zzzhehao" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://instagram.com/zhehao.hu_" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-instagram"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">4 NMDS and PERMANOVA</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../images/loading_cat.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About me</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-nmds" id="toc-what-is-nmds" class="nav-link active" data-scroll-target="#what-is-nmds">What is NMDS</a>
+  <ul class="collapse">
+  <li><a href="#stress" id="toc-stress" class="nav-link" data-scroll-target="#stress">Stress</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#running-nmds" id="toc-running-nmds" class="nav-link" data-scroll-target="#running-nmds">Running NMDS</a></li>
+  <li><a href="#visualizing-nmds" id="toc-visualizing-nmds" class="nav-link" data-scroll-target="#visualizing-nmds">Visualizing NMDS</a>
+  <ul class="collapse">
+  <li><a href="#try-run-a-permanova" id="toc-try-run-a-permanova" class="nav-link" data-scroll-target="#try-run-a-permanova">Try run a PERMANOVA</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">4 NMDS and PERMANOVA</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:hu_zhehao@hotmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.biologie.uni-hamburg.de/en.html">
+            Department of Biology, Universität Hamburg
+            </a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 28, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-is-nmds" class="level1">
+<h1>What is NMDS</h1>
+<p>The <strong>non-metric multi-dimensional scaling (NMDS)</strong> is, as its name implicates, the MDS for non-metric data (recall the widely used metric MDS is the PCoA).</p>
+<p>According to the definition from <a href="https://en.wikipedia.org/wiki/Multidimensional_scaling#:~:text=of%20the%20dissimilarities.-,Non%2Dmetric%20multidimensional%20scaling%20(NMDS)">Wikipedia</a>, the NMDS finds a non-parametric monotonic relationship between the dissimilarities in the item-item matrix and the Euclidean distance between items, and the location of each item in the low-dimensional space.</p>
+<p>Translate this into simplified language, it says the NMDS …</p>
+<ul>
+<li>highlights the similarities between samples of multidimensional measurements.</li>
+<li>reduces the dimensions of the multidimensional data, but the number of dimensions are predefined, in contrast to PCA and PCoA, which always show the most important two axes.</li>
+<li>analyses distance matrix, which is commonly a dissimilarity distance matrix.</li>
+<li>is a visualization method, it has thus less precision and much less accountability for further usage of the analysis result in compare to the PCA. For a statistical assessment, additional tests regarding to particular hypothesis must be performed, and that’s why we are combining NMDS with PERMANOVA.</li>
+<li>uses a rank based approach (which makes NMDS a non-metric technic), this rank is maintained consistent while reducing dimensions (monotonic).</li>
+<li>is an iterative algorithm, which use stress values to guide the iteration (Details 4 in <code>?metaMDS</code>). NMDS tries to improve the iteration by randomly choosing starting point. This is similar to monte carlo algorithm, which trade its accuracy for its efficiency. This randomization part makes the NMDS not 100% reproducible.</li>
+</ul>
+<section id="stress" class="level2">
+<h2 class="anchored" data-anchor-id="stress">Stress</h2>
+<p>The inconsistency between original high-dimensional data and the reduced low-dimensional data is measured by the <strong>stress</strong> in each iteration. The value ranges from 0 to 1, where 0 means a perfect fit and 1 means no fit.</p>
+<p>Generally, stress values below 0.2 are considered acceptable, below 0.1 is good. The stress value should be reported with NMDS while publishing results.</p>
+<p>Higher number of samples often leads to higher stress value, also a very low stress value might indicate that the dataset is too small for the NMDS.</p>
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<p>We will use the <code>metaNDS()</code> from package <code>vegan</code> to calculate the NMDS and visualize the result using <code>ordiplot()</code>. As demonstration, we use a tadpole abundance data (subgenus) collected in a Madagascan rain forest:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tadpoleSp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 29 45</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tadpoleSp[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [29 × 6] (S3: tbl_df/tbl/data.frame)
+ $ Boophis albilabris   : num [1:29] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Boophis albipunctatus: num [1:29] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Boophis andohahela   : num [1:29] 18 0 0 1 0 0 0 0 0 0 ...
+ $ Boophis ankaratra    : num [1:29] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Boophis elenae       : num [1:29] 75 0 40 0 0 0 0 0 0 0 ...
+ $ Boophis luteus       : num [1:29] 29 0 0 0 0 0 0 0 0 0 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="running-nmds" class="level1">
+<h1>Running NMDS</h1>
+<p>The <code>metaMDS</code> has an argument <code>autotransform</code> defaults to TRUE, which arbitrarily transform data if they exceeded certain sizes. However, the transformation should better be done independently.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tadNMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(tadpoleSp, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The above command will print out stress values from each iteration. The result with the least stress value can also be called out afterwards:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+metaMDS(comm = tadpoleSp, k = 2, autotransform = FALSE) 
+
+global Multidimensional Scaling using monoMDS
+
+Data:     tadpoleSp 
+Distance: bray 
+
+Dimensions: 2 
+Stress:     0.1713525 
+Stress type 1, weak ties
+Best solution was not repeated after 20 tries
+The best solution was from try 20 (random start)
+Scaling: centring, PC rotation, halfchange scaling 
+Species: expanded scores based on 'tadpoleSp' </code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-nmds" class="level1">
+<h1>Visualizing NMDS</h1>
+<p><code>ordiplot</code> is a function specialized on ordination result from <code>vegan</code>. We can control the representation of sites or species easily using <code>type</code> and <code>display</code> argument. A simple plot with points will look like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(env)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["stream"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["dttm"],"align":["right"]},{"label":["site"],"name":[3],"type":["chr"],"align":["left"]},{"label":["S (hddd°mm,mmm°)"],"name":[4],"type":["chr"],"align":["left"]},{"label":["E (hddd°mm,mmm°)"],"name":[5],"type":["chr"],"align":["left"]},{"label":["altitude [m asl]"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["date coordinates were taken"],"name":[7],"type":["chr"],"align":["left"]},{"label":["stream slope [cm/30m]"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["temperature [°C]"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Width (m)"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Depth (cm)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["volume in m³ auf 30m"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["FRock"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["FGravel"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["FSand"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["FLeaves"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["SRock"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["SGravel"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["SSand"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["SLeaves"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["sum fast"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["sum slow"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["sum all"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["sum rock"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["sum gravel"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["sum sand"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["sum leaves"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Simpson-Index of categories as measured in the field (FR, FG,…)"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Simpson-Index of categories without fast/slow (R, G,…)"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["Living plants"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["Overhanging plants"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["Canopy cover"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["≤ 5 cm"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["5-30 cm"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["> 30 cm"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["≤ 5 cm / ha"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["5-30 cm / ha"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["> 30 cm / ha"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["leaf litter depth"],"name":[39],"type":["chr"],"align":["left"]},{"label":["canopy cover"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["slope [cm/m]"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["slope (StDev)"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["slope (minimum) [cm/m]"],"name":[43],"type":["dbl"],"align":["right"]},{"label":["slope (maximum) [cm/m]"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["Blatt"],"name":[45],"type":["dbl"],"align":["right"]},{"label":["Zweig"],"name":[46],"type":["dbl"],"align":["right"]},{"label":["Ast"],"name":[47],"type":["dbl"],"align":["right"]},{"label":["Boden"],"name":[48],"type":["dbl"],"align":["right"]},{"label":["Laubsch."],"name":[49],"type":["dbl"],"align":["right"]},{"label":["Baum"],"name":[50],"type":["dbl"],"align":["right"]},{"label":["Fels"],"name":[51],"type":["dbl"],"align":["right"]},{"label":["br. Blatt"],"name":[52],"type":["dbl"],"align":["right"]},{"label":["Wasser"],"name":[53],"type":["dbl"],"align":["right"]},{"label":["Stamm"],"name":[54],"type":["dbl"],"align":["right"]},{"label":["number of habitat type recordings WITHOUT Luft"],"name":[55],"type":["dbl"],"align":["right"]},{"label":["Simpsons-Index"],"name":[56],"type":["dbl"],"align":["right"]},{"label":["trees/branches/twigs/leafes"],"name":[57],"type":["dbl"],"align":["right"]},{"label":["Boophis ind"],"name":[58],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ambatolahy II","2":"2007-03-08","3":"Ambatolahy II","4":"21°14,468'","5":"047°25,591'","6":"965","7":"39467","8":"118.0","9":"18.699999999999999","10":"10.090000","11":"26.857143","12":"81.296571","13":"41.938776","14":"19.693878","15":"20.612245","16":"5.918367","17":"2.8571429","18":"0.1020408","19":"7.142857","20":"1.7346939","21":"88.16327","22":"11.836735","23":"100.00000","24":"44.7959184","25":"19.7959184","26":"27.75510","27":"7.653061","28":"0.7405248","29":"0.6840942","30":"0.10204082","31":"0.6734694","32":"0.8367347","33":"68.25","34":"7.00","35":"0.00","36":"24138.785","37":"2475.7728","38":"0.00000","39":"3.25","40":"70.00","41":"30.00","42":"16.329932","43":"10","44":"50","45":"64","46":"11","47":"5","48":"19","49":"38","50":"20","51":"22","52":"4","53":"2","54":"1","55":"186","56":"0.8033711","57":"101","58":"221"},{"1":"Ambatolahy III","2":"2007-03-10","3":"Ambatolahy III","4":"21°14,464'","5":"047°25,624'","6":"973","7":"39484","8":"192.0","9":"18.399999999999999","10":"1.845000","11":"7.529412","12":"4.167529","13":"7.058824","14":"25.294118","15":"40.000000","16":"11.764706","17":"0.5882353","18":"1.1764706","19":"8.823529","20":"5.2941176","21":"84.11765","22":"15.882353","23":"100.00000","24":"7.6470588","25":"26.4705882","26":"48.82353","27":"17.058824","28":"0.7539757","29":"0.6632414","30":"0.23529412","31":"1.0000000","32":"1.0000000","33":"88.00","34":"2.75","35":"0.25","36":"31124.001","37":"972.6250","38":"88.42046","39":"4.25","40":"72.50","41":"43.75","42":"40.285440","43":"0","44":"85","45":"91","46":"22","47":"0","48":"17","49":"46","50":"6","51":"2","52":"0","53":"1","54":"0","55":"185","56":"0.6760870","57":"119","58":"180"},{"1":"Ambatovory Barrage","2":"2007-02-21","3":"Ambatovory","4":"21°13,862'","5":"047°25,436'","6":"1028","7":"39464","8":"78.0","9":"no data","10":"2.392857","11":"22.111111","12":"15.872619","13":"27.037037","14":"21.111111","15":"10.740741","16":"2.222222","17":"4.4444444","18":"4.8148148","19":"28.518519","20":"1.1111111","21":"61.11111","22":"38.888889","23":"100.00000","24":"31.4814815","25":"25.9259259","26":"39.25926","27":"3.333333","28":"0.7924790","29":"0.6852891","30":"0.18518519","31":"0.7407407","32":"0.8888889","33":"17.75","34":"7.25","35":"0.75","36":"6277.852","37":"2564.1933","38":"265.26137","39":"3.8125","40":"52.50","41":"51.75","42":"36.998874","43":"0","44":"83","45":"82","46":"5","47":"3","48":"18","49":"15","50":"0","51":"38","52":"1","53":"18","54":"0","55":"180","56":"0.7238982","57":"90","58":"93"},{"1":"Ambodiamontana","2":"2007-02-23","3":"Ambodiamontana","4":"21°15,249'","5":"047°25,197'","6":"935","7":"39482","8":"348.0","9":"20.5","10":"2.377000","11":"8.904762","12":"6.349986","13":"6.243333","14":"19.503333","15":"40.248095","16":"12.429524","17":"0.4761905","18":"0.9523810","19":"9.780000","20":"10.3661905","21":"78.42429","22":"21.574762","23":"99.99905","24":"6.7195238","25":"20.4557143","26":"50.02810","27":"22.795714","28":"0.7678741","29":"0.6579688","30":"0.09523810","31":"1.0000000","32":"1.0000000","33":"40.75","34":"4.75","35":"0.50","36":"14412.534","37":"1679.9887","38":"176.84091","39":"3.1875","40":"85.00","41":"62.50","42":"35.707142","43":"10","44":"90","45":"58","46":"26","47":"13","48":"21","49":"53","50":"4","51":"2","52":"0","53":"2","54":"7","55":"186","56":"0.7865155","57":"108","58":"62"},{"1":"B 100","2":"2007-03-23","3":"P100","4":"21°15,840'","5":"047°25,098'","6":"982","7":"dry season 2008","8":"315.0","9":"18.899999999999999","10":"1.665000","11":"2.968750","12":"1.482891","13":"5.625000","14":"10.000000","15":"41.250000","16":"15.000000","17":"1.8750000","18":"0.6250000","19":"11.250000","20":"14.3750000","21":"71.87500","22":"28.125000","23":"100.00000","24":"7.5000000","25":"10.6250000","26":"52.50000","27":"29.375000","28":"0.7681503","29":"0.6274463","30":"0.12500000","31":"0.9375000","32":"1.0000000","33":"73.50","34":"14.75","35":"0.25","36":"25995.614","37":"5216.8070","38":"88.42046","39":"2.9375","40":"86.25","41":"37.50","42":"25.980762","43":"0","44":"55","45":"39","46":"0","47":"1","48":"19","49":"87","50":"9","51":"0","52":"0","53":"5","54":"11","55":"171","56":"0.6729274","57":"60","58":"48"},{"1":"Belle Vue","2":"2007-03-12","3":"Belle vue (Ankerana)","4":"21°15,582'","5":"047°25,320'","6":"963","7":"dry season 2008","8":"119.5","9":"19.100000000000001","10":"2.495000","11":"2.770833","12":"2.073969","13":"5.416667","14":"9.212917","15":"46.759167","16":"15.092500","17":"0.8333333","18":"1.7129167","19":"12.546250","20":"8.4258333","21":"76.48125","22":"23.518333","23":"99.99958","24":"6.2500000","25":"10.9258333","26":"59.30542","27":"23.518333","28":"0.7312651","29":"0.5829580","30":"0.20833333","31":"1.0000000","32":"0.8750000","33":"46.00","34":"7.50","35":"0.25","36":"16269.364","37":"2652.6137","38":"88.42046","39":"3.125","40":"72.50","41":"52.50","42":"27.233558","43":"20","44":"85","45":"53","46":"9","47":"5","48":"29","49":"74","50":"2","51":"5","52":"0","53":"1","54":"2","55":"180","56":"0.7180012","57":"71","58":"120"},{"1":"Bevoahazo","2":"2007-03-22","3":"Bevoahazo","4":"21°11,898'","5":"047°29,721'","6":"722","7":"39490","8":"268.0","9":"20.5","10":"2.062000","11":"7.210526","12":"4.460432","13":"2.105263","14":"19.952105","15":"49.760526","16":"9.425789","17":"1.0526316","18":"1.0526316","19":"13.540526","20":"3.1100000","21":"81.24368","22":"18.755789","23":"99.99947","24":"3.1578947","25":"21.0047368","26":"63.30105","27":"12.535789","28":"0.6906322","29":"0.5439001","30":"0.00000000","31":"0.6842105","32":"1.0000000","33":"16.00","34":"1.50","35":"0.50","36":"5658.909","37":"530.5227","38":"176.84091","39":"4.4375","40":"77.50","41":"27.75","42":"31.478829","43":"0","44":"73","45":"41","46":"9","47":"3","48":"16","49":"34","50":"28","51":"38","52":"0","53":"3","54":"2","55":"174","56":"0.8255930","57":"83","58":"105"},{"1":"Bibiango Old Bridge","2":"2007-02-25","3":"Bibiango Old Bridge","4":"21°15,442'","5":"047°25,099'","6":"961","7":"39488","8":"310.5","9":"19.5","10":"2.110000","11":"6.900000","12":"4.367700","13":"24.500000","14":"21.000000","15":"30.500000","16":"10.500000","17":"1.0000000","18":"1.0000000","19":"8.500000","20":"3.0000000","21":"86.50000","22":"13.500000","23":"100.00000","24":"25.5000000","25":"22.0000000","26":"39.00000","27":"13.500000","28":"0.7914141","29":"0.7234848","30":"0.00000000","31":"0.8500000","32":"0.9500000","33":"44.75","34":"6.00","35":"0.25","36":"15827.262","37":"2122.0910","38":"88.42046","39":"3.34375","40":"65.00","41":"43.75","42":"36.827300","43":"0","44":"85","45":"59","46":"5","47":"4","48":"26","49":"44","50":"8","51":"9","52":"0","53":"2","54":"0","55":"157","56":"0.7498775","57":"76","58":"102"},{"1":"E 100","2":"2007-03-14","3":"E100","4":"S21°15,806","5":"47°25,510","6":"949","7":"dry season 2008","8":"58.0","9":"19.210000000000001","10":"2.080000","11":"6.868421","12":"4.285895","13":"4.210526","14":"10.526316","15":"64.736842","16":"10.000000","17":"0.5263158","18":"0.0000000","19":"6.842105","20":"3.1578947","21":"89.47368","22":"10.526316","23":"100.00000","24":"4.7368421","25":"10.5263158","26":"71.57895","27":"13.157895","28":"0.5579339","29":"0.4616246","30":"0.15789474","31":"0.9473684","32":"0.8947368","33":"59.00","34":"6.00","35":"0.50","36":"20867.228","37":"2122.0910","38":"176.84091","39":"4.0625","40":"70.00","41":"41.25","42":"17.969882","43":"15","44":"55","45":"36","46":"2","47":"3","48":"2","49":"75","50":"15","51":"0","52":"0","53":"0","54":"2","55":"135","56":"0.6112769","57":"58","58":"245"},{"1":"Fompohonina II","2":"2007-03-15","3":"Fompohonina II","4":"21°16,075'","5":"047°25,421'","6":"950","7":"39468","8":"42.0","9":"18.800000000000001","10":"2.640000","11":"6.250000","12":"4.950000","13":"6.666667","14":"4.166667","15":"56.666667","16":"10.833333","17":"1.2500000","18":"0.8333333","19":"12.500000","20":"7.0833333","21":"78.33333","22":"21.666667","23":"100.00000","24":"7.9166667","25":"5.0000000","26":"69.16667","27":"17.916667","28":"0.6465699","29":"0.4855850","30":"0.26086957","31":"0.9090909","32":"1.0000000","33":"52.00","34":"5.75","35":"0.25","36":"18391.455","37":"2033.6705","38":"88.42046","39":"2.1875","40":"77.50","41":"34.25","42":"18.929694","43":"0","44":"40","45":"35","46":"21","47":"9","48":"14","49":"35","50":"21","51":"8","52":"4","53":"2","54":"3","55":"152","56":"0.8453294","57":"89","58":"332"},{"1":"Fompohonina III","2":"2007-03-16","3":"Fompohonina III","4":"21°15,907'","5":"047°25,349'","6":"1012","7":"39481","8":"48.0","9":"18.899999999999999","10":"2.000000","11":"6.789474","12":"4.073684","13":"0.000000","14":"1.052632","15":"52.865263","16":"20.409298","17":"0.5263158","18":"0.0000000","19":"5.292281","20":"19.8536842","21":"74.32719","22":"25.672281","23":"99.99947","24":"0.5263158","25":"1.0526316","26":"58.15754","27":"40.262982","28":"0.6429419","29":"0.5045611","30":"0.05263158","31":"0.7368421","32":"0.9473684","33":"28.50","34":"5.50","35":"0.50","36":"10079.932","37":"1945.2501","38":"176.84091","39":"2.625","40":"77.50","41":"34.25","42":"16.820127","43":"20","44":"56","45":"57","46":"5","47":"2","48":"26","49":"84","50":"6","51":"0","52":"0","53":"0","54":"3","55":"183","56":"0.6735723","57":"73","58":"138"},{"1":"Fompohonina IV","2":"2007-03-20","3":"Fompohonina IV","4":"21°16,110'","5":"047°25,546'","6":"982","7":"39471","8":"157.0","9":"19.5","10":"2.200000","11":"6.800000","12":"4.488000","13":"22.500000","14":"10.000000","15":"54.000000","16":"11.000000","17":"0.5000000","18":"0.0000000","19":"1.000000","20":"1.0000000","21":"97.50000","22":"2.500000","23":"100.00000","24":"23.0000000","25":"10.0000000","26":"55.00000","27":"12.000000","28":"0.6418687","29":"0.6264646","30":"0.10000000","31":"1.0000000","32":"1.0000000","33":"92.25","34":"4.00","35":"0.75","36":"32627.149","37":"1414.7273","38":"265.26137","39":"3.375","40":"82.50","41":"47.50","42":"12.583057","43":"30","44":"60","45":"52","46":"10","47":"4","48":"39","49":"55","50":"16","51":"12","52":"0","53":"1","54":"3","55":"192","56":"0.7931937","57":"85","58":"108"},{"1":"Fompohonina River","2":"2007-02-26","3":"Fompohonina river","4":"21°16,106'","5":"047°25,483'","6":"972","7":"dry season 2008","8":"28.0","9":"19.5","10":"5.695000","11":"26.490909","12":"45.259718","13":"25.818182","14":"55.090909","15":"8.000000","16":"3.454545","17":"0.0000000","18":"1.2727273","19":"3.636364","20":"2.7272727","21":"92.36364","22":"7.636364","23":"100.00000","24":"25.8181818","25":"56.3636364","26":"11.63636","27":"6.181818","28":"0.6262827","29":"0.6043376","30":"0.10909091","31":"0.7272727","32":"0.6909091","33":"47.00","34":"3.75","35":"0.25","36":"16623.046","37":"1326.3069","38":"88.42046","39":"4.4000000000000004","40":"45.00","41":"23.75","42":"41.104542","43":"0","44":"85","45":"101","46":"25","47":"6","48":"9","49":"18","50":"9","51":"0","52":"0","53":"0","54":"1","55":"169","56":"0.6062271","57":"142","58":"73"},{"1":"Imaloka","2":"2007-03-01","3":"Imaloka","4":"21°14,529'","5":"047°27,938'","6":"957","7":"39469","8":"56.0","9":"20.5","10":"7.155000","11":"27.571429","12":"59.182071","13":"6.259714","14":"25.974000","15":"44.480571","16":"6.428571","17":"0.4285714","18":"1.2857143","19":"9.285714","20":"5.8571429","21":"83.14286","22":"16.857143","23":"100.00000","24":"6.6882857","25":"27.2597143","26":"53.76629","27":"12.285714","28":"0.7216113","29":"0.6232750","30":"0.05797101","31":"0.8260870","32":"0.7681159","33":"33.25","34":"7.50","35":"0.25","36":"11759.921","37":"2652.6137","38":"88.42046","39":"7.59375","40":"62.50","41":"34.25","42":"19.155069","43":"14","44":"53","45":"56","46":"19","47":"10","48":"10","49":"38","50":"11","51":"0","52":"1","53":"1","54":"2","55":"148","56":"0.7646626","57":"98","58":"301"},{"1":"Kidonavo","2":"2007-02-19","3":"Kidonavo","4":"21°13,540'","5":"047°22,210'","6":"1147","7":"39489","8":"0.0","9":"no data","10":"5.355000","11":"84.326923","12":"135.471202","13":"0.000000","14":"0.000000","15":"0.000000","16":"0.000000","17":"8.4615385","18":"10.3846154","19":"63.076923","20":"18.0769231","21":"0.00000","22":"100.000000","23":"100.00000","24":"8.4615385","25":"10.3846154","26":"37.88462","27":"18.076923","28":"0.5570797","29":"0.6619236","30":"0.36538462","31":"0.7692308","32":"0.8461538","33":"39.50","34":"8.75","35":"0.25","36":"13970.432","37":"3094.7160","38":"88.42046","39":"6","40":"65.00","41":"29.75","42":"21.453438","43":"14","44":"60","45":"54","46":"11","47":"22","48":"28","49":"29","50":"9","51":"0","52":"2","53":"3","54":"0","55":"158","56":"0.7951302","57":"96","58":"79"},{"1":"Mariavaratra","2":"2007-02-20","3":"Mariavaratra","4":"21°15,806'","5":"047°25,135'","6":"955","7":"dry season 2008","8":"178.5","9":"no data","10":"5.445000","11":"23.092593","12":"37.721750","13":"25.134630","14":"40.454630","15":"5.723889","16":"6.666667","17":"3.1481481","18":"5.3703704","19":"9.983148","20":"3.5185185","21":"77.97981","22":"22.020185","23":"100.00000","24":"28.2827778","25":"45.8250000","26":"15.70704","27":"10.185185","28":"0.7579466","29":"0.6817884","30":"0.07407407","31":"0.6666667","32":"0.5555556","33":"13.50","34":"2.25","35":"1.25","36":"4774.705","37":"795.7841","38":"442.10228","39":"2.625","40":"50.00","41":"43.75","42":"9.464847","43":"30","44":"50","45":"64","46":"22","47":"4","48":"16","49":"51","50":"0","51":"18","52":"0","53":"2","54":"0","55":"177","56":"0.7559065","57":"90","58":"114"},{"1":"Ranomena","2":"2007-03-19","3":"Ranomena","4":"21°12,736'","5":"047°26,010'","6":"1144","7":"39485","8":"18.0","9":"19","10":"3.290000","11":"32.379310","12":"31.958379","13":"0.000000","14":"4.764828","15":"34.137931","16":"19.592414","17":"0.6896552","18":"6.1755172","19":"14.388621","20":"20.2506897","21":"58.49517","22":"41.504483","23":"99.99966","24":"0.6896552","25":"10.9403448","26":"48.18172","27":"39.843103","28":"0.7850793","29":"0.6003162","30":"0.35714286","31":"0.9642857","32":"0.6785714","33":"75.00","34":"7.00","35":"0.50","36":"26526.137","37":"2475.7728","38":"176.84091","39":"5.375","40":"57.50","41":"18.75","42":"21.746647","43":"0","44":"40","45":"67","46":"2","47":"1","48":"7","49":"34","50":"12","51":"0","52":"33","53":"14","54":"3","55":"173","56":"0.7659632","57":"85","58":"183"},{"1":"Sahamalaotra Bridge","2":"2007-02-22","3":"Sahamalaotra BRIDGE","4":"21°14,113'","5":"047°23,767'","6":"1144","7":"39487","8":"960.0","9":"no data","10":"3.000000","11":"20.296296","12":"18.266667","13":"0.000000","14":"0.000000","15":"74.814815","16":"12.222222","17":"0.0000000","18":"0.3703704","19":"8.888889","20":"3.7037037","21":"87.03704","22":"12.962963","23":"100.00000","24":"0.0000000","25":"0.3703704","26":"83.70370","27":"15.925926","28":"0.4202519","29":"0.2767594","30":"0.18518519","31":"0.7777778","32":"1.0000000","33":"54.50","34":"5.50","35":"0.00","36":"19275.660","37":"1945.2501","38":"0.00000","39":"no data","40":"67.50","41":"34.50","42":"17.916473","43":"18","44":"50","45":"82","46":"12","47":"5","48":"31","49":"20","50":"3","51":"0","52":"3","53":"0","54":"0","55":"156","56":"0.6643507","57":"102","58":"268"},{"1":"Sahamalaotra Farihin Drakotomainty","2":"2007-03-06","3":"Sahamalaotra Farihin-Drakotomainty (something like that)","4":"21°14,216'","5":"047°23,810'","6":"1124","7":"39479","8":"69.0","9":"18.399999999999999","10":"2.840000","11":"8.320000","12":"7.088640","13":"0.000000","14":"36.044400","15":"29.244400","16":"11.333200","17":"0.4000000","18":"0.4000000","19":"15.333200","20":"7.2444000","21":"76.62200","22":"23.377600","23":"99.99960","24":"0.4000000","25":"36.4444000","26":"44.57760","27":"18.577600","28":"0.7504239","29":"0.6403361","30":"0.16000000","31":"0.8000000","32":"0.9600000","33":"45.00","34":"7.00","35":"0.00","36":"15915.682","37":"2475.7728","38":"0.00000","39":"7.75","40":"82.50","41":"27.00","42":"18.938497","43":"0","44":"44","45":"45","46":"16","47":"10","48":"34","49":"32","50":"9","51":"0","52":"2","53":"3","54":"1","55":"152","56":"0.8037644","57":"81","58":"230"},{"1":"Sahamalaotra Small Stream","2":"2007-02-27","3":"Sahamalaotra SMALL","4":"21°14,366'","5":"047°23,709'","6":"1138","7":"39487","8":"300.0","9":"no data","10":"1.670000","11":"7.400000","12":"3.707400","13":"13.333333","14":"16.666667","15":"38.666667","16":"12.666667","17":"0.0000000","18":"0.0000000","19":"9.333333","20":"9.3333333","21":"81.33333","22":"18.666667","23":"100.00000","24":"13.3333333","25":"16.6666667","26":"48.00000","27":"22.000000","28":"0.7792593","29":"0.6824691","30":"0.20000000","31":"0.9333333","32":"0.9333333","33":"48.00","34":"8.00","35":"0.75","36":"16976.728","37":"2829.4546","38":"265.26137","39":"4.0625","40":"62.50","41":"46.50","42":"12.476645","43":"30","44":"60","45":"71","46":"11","47":"1","48":"20","49":"66","50":"13","51":"3","52":"0","53":"2","54":"0","55":"187","56":"0.7149675","57":"96","58":"36"},{"1":"Sahateza Pond Donald","2":"2007-03-02","3":"Sahateza Pond Donald","4":"21°15,476'","5":"047°21,583'","6":"1147","7":"39483","8":"42.0","9":"20","10":"5.900000","11":"28.964286","12":"51.266786","13":"10.535714","14":"46.964286","15":"21.428571","16":"3.392857","17":"1.7857143","18":"0.3571429","19":"12.857143","20":"2.6785714","21":"82.32143","22":"17.678571","23":"100.00000","24":"12.3214286","25":"47.3214286","26":"30.89286","27":"6.071429","28":"0.7107942","29":"0.6442572","30":"0.03571429","31":"0.5357143","32":"0.9285714","33":"38.75","34":"6.25","35":"0.25","36":"13705.171","37":"2210.5114","38":"88.42046","39":"4.0625","40":"47.50","41":"42.50","42":"11.930353","43":"34","44":"60","45":"58","46":"8","47":"2","48":"22","49":"65","50":"5","51":"0","52":"0","53":"2","54":"1","55":"163","56":"0.6967356","57":"74","58":"288"},{"1":"Sakaroa","2":"2007-03-21","3":"Sakaroa River","4":"21°15,889'","5":"047°24,730'","6":"930","7":"39461","8":"27.0","9":"18","10":"6.925000","11":"27.313433","12":"56.743657","13":"20.298507","14":"19.477612","15":"42.578657","16":"10.000000","17":"0.0000000","18":"0.1658209","19":"3.283582","20":"4.1956716","21":"92.35478","22":"7.645075","23":"99.99985","24":"20.2985075","25":"19.6434328","26":"45.86224","27":"14.195672","28":"0.7340636","29":"0.6966904","30":"0.04545455","31":"0.7878788","32":"0.8939394","33":"34.50","34":"10.75","35":"0.75","36":"12202.023","37":"3802.0796","38":"265.26137","39":"5.625","40":"65.00","41":"38.00","42":"13.589211","43":"20","44":"49","45":"66","46":"11","47":"12","48":"13","49":"45","50":"14","51":"0","52":"0","53":"12","54":"1","55":"174","56":"0.7680553","57":"104","58":"743"},{"1":"Talatakely Piste X 175","2":"2007-02-24","3":"Piste X175","4":"21°15,846'","5":"047°25,161","6":"966","7":"dry season 2008","8":"425.0","9":"20","10":"2.540000","11":"2.438095","12":"1.857829","13":"4.347826","14":"11.787391","15":"34.589565","16":"12.705217","17":"1.3043478","18":"3.0434783","19":"15.217391","20":"17.0047826","21":"63.43000","22":"36.570000","23":"100.00000","24":"5.6521739","25":"14.8308696","26":"49.80696","27":"29.710000","28":"0.8032927","29":"0.6449173","30":"0.09090909","31":"0.8636364","32":"1.0000000","33":"69.00","34":"5.50","35":"0.25","36":"24404.046","37":"1945.2501","38":"88.42046","39":"3.375","40":"86.25","41":"35.00","42":"19.578900","43":"15","44":"60","45":"46","46":"15","47":"3","48":"42","49":"50","50":"14","51":"8","52":"0","53":"2","54":"4","55":"184","56":"0.8007246","57":"82","58":"13"},{"1":"Up the waterfall","2":"2007-03-17","3":"Up the waterfall","4":"21°15,315'","5":"047°24,767'","6":"1055","7":"39491","8":"335.0","9":"18","10":"2.339000","11":"9.650000","12":"6.771405","13":"16.954500","14":"20.727500","15":"41.863500","16":"6.954500","17":"1.0000000","18":"2.0000000","19":"7.000000","20":"3.5000000","21":"86.50000","22":"13.500000","23":"100.00000","24":"17.9545000","25":"22.7275000","26":"48.86350","27":"10.454500","28":"0.7490655","29":"0.6731473","30":"0.00000000","31":"0.9000000","32":"0.9500000","33":"40.75","34":"6.75","35":"0.25","36":"14412.534","37":"2387.3523","38":"88.42046","39":"11.25","40":"60.00","41":"45.00","42":"19.148542","43":"30","44":"70","45":"62","46":"23","47":"1","48":"1","49":"64","50":"16","51":"6","52":"0","53":"5","54":"5","55":"183","56":"0.7408875","57":"107","58":"59"},{"1":"ValBio","2":"2007-03-04","3":"ValBio stream","4":"21°15,191'","5":"047°25,271'","6":"929","7":"dry season 2008","8":"467.0","9":"20.600000000000001","10":"1.480000","11":"6.535714","12":"2.901857","13":"20.714286","14":"7.142857","15":"51.428571","16":"11.428571","17":"0.0000000","18":"0.0000000","19":"8.571429","20":"0.7142857","21":"90.71429","22":"9.285714","23":"100.00000","24":"20.7142857","25":"7.1428571","26":"60.00000","27":"12.142857","28":"0.6737786","29":"0.5830757","30":"0.00000000","31":"1.0000000","32":"1.0000000","33":"74.75","34":"9.25","35":"0.75","36":"26437.717","37":"3271.5569","38":"265.26137","39":"3.625","40":"70.00","41":"27.50","42":"18.929694","43":"0","44":"40","45":"45","46":"11","47":"0","48":"39","49":"49","50":"12","51":"2","52":"0","53":"0","54":"8","55":"166","56":"0.7767798","57":"76","58":"10"},{"1":"Vatoharanana","2":"2007-03-24","3":"Vatoharanana","4":"21°17,338'","5":"047°25,765'","6":"1016","7":"39471","8":"8.0","9":"19.300000000000001","10":"9.353000","11":"42.511111","12":"119.281927","13":"31.888889","14":"18.222222","15":"31.111111","16":"2.000000","17":"2.1111111","18":"4.1111111","19":"5.555556","20":"2.7777778","21":"82.30769","22":"14.395604","23":"96.70330","24":"33.6263736","25":"22.0879121","26":"36.26374","27":"4.725275","28":"0.7587360","29":"0.6910484","30":"0.01111111","31":"0.4555556","32":"0.5111111","33":"34.25","34":"4.75","35":"0.25","36":"12113.603","37":"1679.9887","38":"88.42046","39":"12.0666666666667","40":"47.50","41":"28.50","42":"16.921387","43":"10","44":"50","45":"42","46":"13","47":"9","48":"5","49":"41","50":"12","51":"3","52":"4","53":"30","54":"6","55":"165","56":"0.8277901","57":"82","58":"809"},{"1":"Vatolampy","2":"2007-03-07","3":"Vatolampy I","4":"21°14,874'","5":"047°24,267'","6":"1084","7":"39477","8":"368.0","9":"18.399999999999999","10":"3.437000","11":"8.590909","12":"8.858086","13":"27.222121","14":"22.010909","15":"26.735455","16":"15.348788","17":"1.5151515","18":"0.3030303","19":"4.517879","20":"2.3460606","21":"91.31727","22":"8.682121","23":"99.99939","24":"28.7372727","25":"22.3139394","26":"31.25333","27":"17.694848","28":"0.7874522","29":"0.7460957","30":"0.09375000","31":"0.8181818","32":"0.9090909","33":"22.50","34":"8.50","35":"1.25","36":"7957.841","37":"3006.2955","38":"442.10228","39":"2.375","40":"72.50","41":"58.50","42":"11.357817","43":"42","44":"68","45":"67","46":"12","47":"4","48":"6","49":"45","50":"5","51":"21","52":"5","53":"2","54":"1","55":"168","56":"0.7491446","57":"89","58":"55"},{"1":"Vatolampy II","2":"2007-03-11","3":"Vatolampy II","4":"21°14,833'","5":"047°24,229'","6":"1080","7":"39478","8":"264.0","9":"17.699999999999999","10":"2.131000","11":"11.300000","12":"7.224090","13":"15.000000","14":"15.000000","15":"45.000000","16":"7.000000","17":"1.0000000","18":"1.0000000","19":"13.500000","20":"2.5000000","21":"82.00000","22":"18.000000","23":"100.00000","24":"16.0000000","25":"16.0000000","26":"58.50000","27":"9.500000","28":"0.7359091","29":"0.6035859","30":"0.00000000","31":"0.9000000","32":"1.0000000","33":"77.00","34":"10.25","35":"0.00","36":"27233.501","37":"3625.2387","38":"0.00000","39":"2.25","40":"72.50","41":"17.50","42":"28.722813","43":"0","44":"60","45":"58","46":"10","47":"7","48":"25","49":"46","50":"22","51":"12","52":"0","53":"1","54":"0","55":"181","56":"0.7942910","57":"97","58":"98"},{"1":"Waterfall II","2":"2007-03-18","3":"Waterfall 2","4":"21°15,117'","5":"047°25,348'","6":"930","7":"dry season 2008","8":"465.0","9":"19.5","10":"1.575000","11":"8.846154","12":"4.179808","13":"23.076923","14":"21.538462","15":"30.000000","16":"15.384615","17":"1.5384615","18":"2.3076923","19":"5.384615","20":"0.7692308","21":"90.00000","22":"10.000000","23":"100.00000","24":"24.6153846","25":"23.8461538","26":"35.38462","27":"16.153846","28":"0.7908673","29":"0.7386289","30":"0.23076923","31":"1.0000000","32":"0.8461538","33":"46.50","34":"6.25","35":"0.00","36":"16446.205","37":"2210.5114","38":"0.00000","39":"3.25","40":"68.75","41":"65.00","42":"10.000000","43":"50","44":"70","45":"64","46":"17","47":"10","48":"10","49":"53","50":"8","51":"6","52":"0","53":"6","54":"0","55":"174","56":"0.7556309","57":"99","58":"117"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> env<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" ist kein
+Grafikparameter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in text.default(...): "add" ist kein Grafikparameter</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, depth, <span class="at">main =</span> <span class="st">'Depth'</span>, <span class="at">col =</span> <span class="st">'darkgreen'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Family: gaussian 
+Link function: identity 
+
+Formula:
+y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
+
+Estimated degrees of freedom:
+6.64  total = 7.64 
+
+REML score: 109.5915     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" ist kein
+Grafikparameter
+Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" ist kein
+Grafikparameter</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, altitude, <span class="at">main =</span> <span class="st">'Altitude'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/showing_depth_data-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Family: gaussian 
+Link function: identity 
+
+Formula:
+y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
+
+Estimated degrees of freedom:
+0.849  total = 1.85 
+
+REML score: 168.5419     </code></pre>
+</div>
+</div>
+<section id="try-run-a-permanova" class="level2">
+<h2 class="anchored" data-anchor-id="try-run-a-permanova">Try run a PERMANOVA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adonis2</span>(<span class="at">formula =</span> tadpoleSp<span class="sc">~</span>depth<span class="sc">*</span>altitude)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for adonis under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
+
+adonis2(formula = tadpoleSp ~ depth * altitude)
+               Df SumOfSqs      R2      F Pr(&gt;F)    
+depth           1   1.1285 0.14888 5.1393  0.001 ***
+altitude        1   0.1086 0.01433 0.4946  0.878    
+depth:altitude  1   0.8534 0.11259 3.8865  0.001 ***
+Residual       25   5.4894 0.72421                  
+Total          28   7.5799 1.00000                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/zzzhehao\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© By Zhehao Hu, 2024</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Source code of this website is available at <a href="zzzhehao.github.io">zzzhehao.github.io</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

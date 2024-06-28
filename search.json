@@ -1,0 +1,43 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "About me"
+    ]
+  },
+  {
+    "objectID": "Posts/Research/Community_Ecology/4_NMDS_and_PERMANOVA.html",
+    "href": "Posts/Research/Community_Ecology/4_NMDS_and_PERMANOVA.html",
+    "title": "4 NMDS and PERMANOVA",
+    "section": "",
+    "text": "The non-metric multi-dimensional scaling (NMDS) is, as its name implicates, the MDS for non-metric data (recall the widely used metric MDS is the PCoA).\nAccording to the definition from Wikipedia, the NMDS finds a non-parametric monotonic relationship between the dissimilarities in the item-item matrix and the Euclidean distance between items, and the location of each item in the low-dimensional space.\nTranslate this into simplified language, it says the NMDS …\n\nhighlights the similarities between samples of multidimensional measurements.\nreduces the dimensions of the multidimensional data, but the number of dimensions are predefined, in contrast to PCA and PCoA, which always show the most important two axes.\nanalyses distance matrix, which is commonly a dissimilarity distance matrix.\nis a visualization method, it has thus less precision and much less accountability for further usage of the analysis result in compare to the PCA. For a statistical assessment, additional tests regarding to particular hypothesis must be performed, and that’s why we are combining NMDS with PERMANOVA.\nuses a rank based approach (which makes NMDS a non-metric technic), this rank is maintained consistent while reducing dimensions (monotonic).\nis an iterative algorithm, which use stress values to guide the iteration (Details 4 in ?metaMDS). NMDS tries to improve the iteration by randomly choosing starting point. This is similar to monte carlo algorithm, which trade its accuracy for its efficiency. This randomization part makes the NMDS not 100% reproducible.\n\n\n\nThe inconsistency between original high-dimensional data and the reduced low-dimensional data is measured by the stress in each iteration. The value ranges from 0 to 1, where 0 means a perfect fit and 1 means no fit.\nGenerally, stress values below 0.2 are considered acceptable, below 0.1 is good. The stress value should be reported with NMDS while publishing results.\nHigher number of samples often leads to higher stress value, also a very low stress value might indicate that the dataset is too small for the NMDS."
+  },
+  {
+    "objectID": "Posts/Research/Community_Ecology/4_NMDS_and_PERMANOVA.html#stress",
+    "href": "Posts/Research/Community_Ecology/4_NMDS_and_PERMANOVA.html#stress",
+    "title": "4 NMDS and PERMANOVA",
+    "section": "",
+    "text": "The inconsistency between original high-dimensional data and the reduced low-dimensional data is measured by the stress in each iteration. The value ranges from 0 to 1, where 0 means a perfect fit and 1 means no fit.\nGenerally, stress values below 0.2 are considered acceptable, below 0.1 is good. The stress value should be reported with NMDS while publishing results.\nHigher number of samples often leads to higher stress value, also a very low stress value might indicate that the dataset is too small for the NMDS."
+  },
+  {
+    "objectID": "Posts/Research/Community_Ecology/4_NMDS_and_PERMANOVA.html#try-run-a-permanova",
+    "href": "Posts/Research/Community_Ecology/4_NMDS_and_PERMANOVA.html#try-run-a-permanova",
+    "title": "4 NMDS and PERMANOVA",
+    "section": "Try run a PERMANOVA",
+    "text": "Try run a PERMANOVA\n\nadonis2(formula = tadpoleSp~depth*altitude)\n\nPermutation test for adonis under reduced model\nTerms added sequentially (first to last)\nPermutation: free\nNumber of permutations: 999\n\nadonis2(formula = tadpoleSp ~ depth * altitude)\n               Df SumOfSqs      R2      F Pr(&gt;F)    \ndepth           1   1.1285 0.14888 5.1393  0.001 ***\naltitude        1   0.1086 0.01433 0.4946  0.878    \ndepth:altitude  1   0.8534 0.11259 3.8865  0.001 ***\nResidual       25   5.4894 0.72421                  \nTotal          28   7.5799 1.00000                  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Zhehao Hu",
+    "section": "",
+    "text": "4 NMDS and PERMANOVA\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nZhehao Hu\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]
