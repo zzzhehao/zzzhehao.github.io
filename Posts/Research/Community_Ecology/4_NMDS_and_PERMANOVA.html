@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Zhehao Hu">
-<meta name="dcterms.date" content="2024-06-28">
+<meta name="dcterms.date" content="2024-06-29">
 
-<title>4 NMDS and PERMANOVA – Zhehao Hu</title>
+<title>Community Ecology 4 - NMDS and PERMANOVA – Zhehao Hu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,8 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
@@ -130,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">4 NMDS and PERMANOVA</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Community Ecology 4 - NMDS and PERMANOVA</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -169,16 +167,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-nmds" id="toc-what-is-nmds" class="nav-link active" data-scroll-target="#what-is-nmds">What is NMDS</a>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The problem</a></li>
+  <li><a href="#what-is-nmds" id="toc-what-is-nmds" class="nav-link" data-scroll-target="#what-is-nmds">What is NMDS?</a>
   <ul class="collapse">
   <li><a href="#stress" id="toc-stress" class="nav-link" data-scroll-target="#stress">Stress</a></li>
   </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#running-nmds" id="toc-running-nmds" class="nav-link" data-scroll-target="#running-nmds">Running NMDS</a></li>
-  <li><a href="#visualizing-nmds" id="toc-visualizing-nmds" class="nav-link" data-scroll-target="#visualizing-nmds">Visualizing NMDS</a>
+  <li><a href="#visualizing-nmds" id="toc-visualizing-nmds" class="nav-link" data-scroll-target="#visualizing-nmds">Visualizing NMDS</a></li>
+  <li><a href="#fitting-environmental-data-using-vegan" id="toc-fitting-environmental-data-using-vegan" class="nav-link" data-scroll-target="#fitting-environmental-data-using-vegan">Fitting environmental data using <code>vegan</code></a></li>
+  <li><a href="#plotting-nmds-using-ggplot2" id="toc-plotting-nmds-using-ggplot2" class="nav-link" data-scroll-target="#plotting-nmds-using-ggplot2">Plotting NMDS using <code>ggplot2</code></a>
   <ul class="collapse">
-  <li><a href="#try-run-a-permanova" id="toc-try-run-a-permanova" class="nav-link" data-scroll-target="#try-run-a-permanova">Try run a PERMANOVA</a></li>
+  <li><a href="#spider-plot" id="toc-spider-plot" class="nav-link" data-scroll-target="#spider-plot">Spider plot</a></li>
+  <li><a href="#hull-plot" id="toc-hull-plot" class="nav-link" data-scroll-target="#hull-plot">Hull plot</a></li>
+  <li><a href="#continuous-variable-fitting-surface" id="toc-continuous-variable-fitting-surface" class="nav-link" data-scroll-target="#continuous-variable-fitting-surface">Continuous variable: fitting surface</a></li>
   </ul></li>
+  <li><a href="#what-matters" id="toc-what-matters" class="nav-link" data-scroll-target="#what-matters">What matters?</a></li>
+  <li><a href="#permanova" id="toc-permanova" class="nav-link" data-scroll-target="#permanova">PERMANOVA</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">4 NMDS and PERMANOVA</h1>
+<h1 class="title">Community Ecology 4 - NMDS and PERMANOVA</h1>
 </div>
 
 
@@ -213,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 28, 2024</p>
+      <p class="date">June 29, 2024</p>
     </div>
   </div>
   
@@ -225,10 +231,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="what-is-nmds" class="level1">
-<h1>What is NMDS</h1>
-<p>The <strong>non-metric multi-dimensional scaling (NMDS)</strong> is, as its name implicates, the MDS for non-metric data (recall the widely used metric MDS is the PCoA).</p>
-<p>According to the definition from <a href="https://en.wikipedia.org/wiki/Multidimensional_scaling#:~:text=of%20the%20dissimilarities.-,Non%2Dmetric%20multidimensional%20scaling%20(NMDS)">Wikipedia</a>, the NMDS finds a non-parametric monotonic relationship between the dissimilarities in the item-item matrix and the Euclidean distance between items, and the location of each item in the low-dimensional space.</p>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
+<p>We have multidimensional data in ecology, almost always, and they are huge. Since an n-dimensional data requires an n-dimensional space to be 1:1 displayed, if we want to have at least an overview, we need to reduce dimensions. There’s a few technics can achieve that, which are called as <strong>multidimensional scaling (MDS)</strong>, the widely used metric MDS is PCoA and its special type PCA using euclidean distance.</p>
+</section>
+<section id="what-is-nmds" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-nmds">What is NMDS?</h2>
+<p>The <strong>non-metric multidimensional scaling (NMDS)</strong> is, as its name implicates, the MDS for non-metric data. Which can be more convenient in ecology, since the ecological data often don’t follow the normal distribution.</p>
+<p>As <a href="https://en.wikipedia.org/wiki/Multidimensional_scaling#:~:text=of%20the%20dissimilarities.-,Non%2Dmetric%20multidimensional%20scaling%20(NMDS)">Wikipedia</a> explains, the NMDS finds a non-parametric monotonic relationship between the dissimilarities in the item-item matrix and the Euclidean distance between items, and the location of each item in the low-dimensional space.</p>
 <p>Translate this into simplified language, it says the NMDS …</p>
 <ul>
 <li>highlights the similarities between samples of multidimensional measurements.</li>
@@ -236,24 +246,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>analyses distance matrix, which is commonly a dissimilarity distance matrix.</li>
 <li>is a visualization method, it has thus less precision and much less accountability for further usage of the analysis result in compare to the PCA. For a statistical assessment, additional tests regarding to particular hypothesis must be performed, and that’s why we are combining NMDS with PERMANOVA.</li>
 <li>uses a rank based approach (which makes NMDS a non-metric technic), this rank is maintained consistent while reducing dimensions (monotonic).</li>
-<li>is an iterative algorithm, which use stress values to guide the iteration (Details 4 in <code>?metaMDS</code>). NMDS tries to improve the iteration by randomly choosing starting point. This is similar to monte carlo algorithm, which trade its accuracy for its efficiency. This randomization part makes the NMDS not 100% reproducible.</li>
+<li>is an iterative algorithm, which use stress values to guide the iteration (see <code>?metaMDS</code> Details#4). NMDS tries to improve the iteration by randomly choosing starting point.</li>
 </ul>
-<section id="stress" class="level2">
-<h2 class="anchored" data-anchor-id="stress">Stress</h2>
-<p>The inconsistency between original high-dimensional data and the reduced low-dimensional data is measured by the <strong>stress</strong> in each iteration. The value ranges from 0 to 1, where 0 means a perfect fit and 1 means no fit.</p>
+<section id="stress" class="level3">
+<h3 class="anchored" data-anchor-id="stress">Stress</h3>
+<p>The inconsistency between the original high-dimensional data and the reduced low-dimensional data is measured by <strong>stress</strong> in each iteration. The value ranges from 0 to 1, where 0 means a <em>perfecto</em> fit and 1 means a <em>big yikes</em>.</p>
 <p>Generally, stress values below 0.2 are considered acceptable, below 0.1 is good. The stress value should be reported with NMDS while publishing results.</p>
 <p>Higher number of samples often leads to higher stress value, also a very low stress value might indicate that the dataset is too small for the NMDS.</p>
 </section>
 </section>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<p>We will use the <code>metaNDS()</code> from package <code>vegan</code> to calculate the NMDS and visualize the result using <code>ordiplot()</code>. As demonstration, we use a tadpole abundance data (subgenus) collected in a Madagascan rain forest:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tadpoleSp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>We will use the <code>metaNDS()</code> from package <code>vegan</code> to calculate the NMDS and visualize the result using <code>ordiplot()</code>. As demonstration, we use a tadpole abundance data collected in a Madagascan rain forest:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"ProjectAnalysis/Data_Manipulation/tadpole_clean.R"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tadpoleSp <span class="ot">&lt;-</span> tadpoleSp[, <span class="sc">-</span><span class="dv">1</span>] <span class="co">#drop first column (transects)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tadpoleSp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 29 45</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tadpoleSp[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tadpoleSp[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [29 × 6] (S3: tbl_df/tbl/data.frame)
  $ Boophis albilabris   : num [1:29] 0 0 0 0 0 0 0 0 0 0 ...
@@ -265,14 +279,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="running-nmds" class="level1">
-<h1>Running NMDS</h1>
-<p>The <code>metaMDS</code> has an argument <code>autotransform</code> defaults to TRUE, which arbitrarily transform data if they exceeded certain sizes. However, the transformation should better be done independently.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tadNMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(tadpoleSp, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="running-nmds" class="level2">
+<h2 class="anchored" data-anchor-id="running-nmds">Running NMDS</h2>
+<p>The <code>metaMDS</code> has an argument <code>autotransform</code> defaults to TRUE, which arbitrarily transforms data if they exceeded certain sizes. However, the transformation should better be done independently.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tadNMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(tadpoleSp, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The above command will print out stress values from each iteration. The result with the least stress value can also be called out afterwards:</p>
-<div class="cell">
+<p>The code above will print out stress values from each iteration. The result with the least stress value can also be called out afterwards:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tadNMDS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -284,52 +299,64 @@ Data:     tadpoleSp
 Distance: bray 
 
 Dimensions: 2 
-Stress:     0.1713525 
+Stress:     0.1713697 
 Stress type 1, weak ties
 Best solution was not repeated after 20 tries
-The best solution was from try 20 (random start)
+The best solution was from try 11 (random start)
 Scaling: centring, PC rotation, halfchange scaling 
 Species: expanded scores based on 'tadpoleSp' </code></pre>
 </div>
 </div>
 </section>
-<section id="visualizing-nmds" class="level1">
-<h1>Visualizing NMDS</h1>
-<p><code>ordiplot</code> is a function specialized on ordination result from <code>vegan</code>. We can control the representation of sites or species easily using <code>type</code> and <code>display</code> argument. A simple plot with points will look like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="visualizing-nmds" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-nmds">Visualizing NMDS</h2>
+<p><code>ordiplot</code> is a function specialized on visualizing ordination result from <code>vegan</code>. We can control the representation of sites or species easily using <code>type</code> and <code>display</code> argument. A simple plot with points will look like this:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(env)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or with the site displayed in their numbers:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">"species"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>) <span class="co"># orditorp plots text by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["stream"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["dttm"],"align":["right"]},{"label":["site"],"name":[3],"type":["chr"],"align":["left"]},{"label":["S (hddd°mm,mmm°)"],"name":[4],"type":["chr"],"align":["left"]},{"label":["E (hddd°mm,mmm°)"],"name":[5],"type":["chr"],"align":["left"]},{"label":["altitude [m asl]"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["date coordinates were taken"],"name":[7],"type":["chr"],"align":["left"]},{"label":["stream slope [cm/30m]"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["temperature [°C]"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Width (m)"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Depth (cm)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["volume in m³ auf 30m"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["FRock"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["FGravel"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["FSand"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["FLeaves"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["SRock"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["SGravel"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["SSand"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["SLeaves"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["sum fast"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["sum slow"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["sum all"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["sum rock"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["sum gravel"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["sum sand"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["sum leaves"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Simpson-Index of categories as measured in the field (FR, FG,…)"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Simpson-Index of categories without fast/slow (R, G,…)"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["Living plants"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["Overhanging plants"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["Canopy cover"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["≤ 5 cm"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["5-30 cm"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["> 30 cm"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["≤ 5 cm / ha"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["5-30 cm / ha"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["> 30 cm / ha"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["leaf litter depth"],"name":[39],"type":["chr"],"align":["left"]},{"label":["canopy cover"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["slope [cm/m]"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["slope (StDev)"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["slope (minimum) [cm/m]"],"name":[43],"type":["dbl"],"align":["right"]},{"label":["slope (maximum) [cm/m]"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["Blatt"],"name":[45],"type":["dbl"],"align":["right"]},{"label":["Zweig"],"name":[46],"type":["dbl"],"align":["right"]},{"label":["Ast"],"name":[47],"type":["dbl"],"align":["right"]},{"label":["Boden"],"name":[48],"type":["dbl"],"align":["right"]},{"label":["Laubsch."],"name":[49],"type":["dbl"],"align":["right"]},{"label":["Baum"],"name":[50],"type":["dbl"],"align":["right"]},{"label":["Fels"],"name":[51],"type":["dbl"],"align":["right"]},{"label":["br. Blatt"],"name":[52],"type":["dbl"],"align":["right"]},{"label":["Wasser"],"name":[53],"type":["dbl"],"align":["right"]},{"label":["Stamm"],"name":[54],"type":["dbl"],"align":["right"]},{"label":["number of habitat type recordings WITHOUT Luft"],"name":[55],"type":["dbl"],"align":["right"]},{"label":["Simpsons-Index"],"name":[56],"type":["dbl"],"align":["right"]},{"label":["trees/branches/twigs/leafes"],"name":[57],"type":["dbl"],"align":["right"]},{"label":["Boophis ind"],"name":[58],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ambatolahy II","2":"2007-03-08","3":"Ambatolahy II","4":"21°14,468'","5":"047°25,591'","6":"965","7":"39467","8":"118.0","9":"18.699999999999999","10":"10.090000","11":"26.857143","12":"81.296571","13":"41.938776","14":"19.693878","15":"20.612245","16":"5.918367","17":"2.8571429","18":"0.1020408","19":"7.142857","20":"1.7346939","21":"88.16327","22":"11.836735","23":"100.00000","24":"44.7959184","25":"19.7959184","26":"27.75510","27":"7.653061","28":"0.7405248","29":"0.6840942","30":"0.10204082","31":"0.6734694","32":"0.8367347","33":"68.25","34":"7.00","35":"0.00","36":"24138.785","37":"2475.7728","38":"0.00000","39":"3.25","40":"70.00","41":"30.00","42":"16.329932","43":"10","44":"50","45":"64","46":"11","47":"5","48":"19","49":"38","50":"20","51":"22","52":"4","53":"2","54":"1","55":"186","56":"0.8033711","57":"101","58":"221"},{"1":"Ambatolahy III","2":"2007-03-10","3":"Ambatolahy III","4":"21°14,464'","5":"047°25,624'","6":"973","7":"39484","8":"192.0","9":"18.399999999999999","10":"1.845000","11":"7.529412","12":"4.167529","13":"7.058824","14":"25.294118","15":"40.000000","16":"11.764706","17":"0.5882353","18":"1.1764706","19":"8.823529","20":"5.2941176","21":"84.11765","22":"15.882353","23":"100.00000","24":"7.6470588","25":"26.4705882","26":"48.82353","27":"17.058824","28":"0.7539757","29":"0.6632414","30":"0.23529412","31":"1.0000000","32":"1.0000000","33":"88.00","34":"2.75","35":"0.25","36":"31124.001","37":"972.6250","38":"88.42046","39":"4.25","40":"72.50","41":"43.75","42":"40.285440","43":"0","44":"85","45":"91","46":"22","47":"0","48":"17","49":"46","50":"6","51":"2","52":"0","53":"1","54":"0","55":"185","56":"0.6760870","57":"119","58":"180"},{"1":"Ambatovory Barrage","2":"2007-02-21","3":"Ambatovory","4":"21°13,862'","5":"047°25,436'","6":"1028","7":"39464","8":"78.0","9":"no data","10":"2.392857","11":"22.111111","12":"15.872619","13":"27.037037","14":"21.111111","15":"10.740741","16":"2.222222","17":"4.4444444","18":"4.8148148","19":"28.518519","20":"1.1111111","21":"61.11111","22":"38.888889","23":"100.00000","24":"31.4814815","25":"25.9259259","26":"39.25926","27":"3.333333","28":"0.7924790","29":"0.6852891","30":"0.18518519","31":"0.7407407","32":"0.8888889","33":"17.75","34":"7.25","35":"0.75","36":"6277.852","37":"2564.1933","38":"265.26137","39":"3.8125","40":"52.50","41":"51.75","42":"36.998874","43":"0","44":"83","45":"82","46":"5","47":"3","48":"18","49":"15","50":"0","51":"38","52":"1","53":"18","54":"0","55":"180","56":"0.7238982","57":"90","58":"93"},{"1":"Ambodiamontana","2":"2007-02-23","3":"Ambodiamontana","4":"21°15,249'","5":"047°25,197'","6":"935","7":"39482","8":"348.0","9":"20.5","10":"2.377000","11":"8.904762","12":"6.349986","13":"6.243333","14":"19.503333","15":"40.248095","16":"12.429524","17":"0.4761905","18":"0.9523810","19":"9.780000","20":"10.3661905","21":"78.42429","22":"21.574762","23":"99.99905","24":"6.7195238","25":"20.4557143","26":"50.02810","27":"22.795714","28":"0.7678741","29":"0.6579688","30":"0.09523810","31":"1.0000000","32":"1.0000000","33":"40.75","34":"4.75","35":"0.50","36":"14412.534","37":"1679.9887","38":"176.84091","39":"3.1875","40":"85.00","41":"62.50","42":"35.707142","43":"10","44":"90","45":"58","46":"26","47":"13","48":"21","49":"53","50":"4","51":"2","52":"0","53":"2","54":"7","55":"186","56":"0.7865155","57":"108","58":"62"},{"1":"B 100","2":"2007-03-23","3":"P100","4":"21°15,840'","5":"047°25,098'","6":"982","7":"dry season 2008","8":"315.0","9":"18.899999999999999","10":"1.665000","11":"2.968750","12":"1.482891","13":"5.625000","14":"10.000000","15":"41.250000","16":"15.000000","17":"1.8750000","18":"0.6250000","19":"11.250000","20":"14.3750000","21":"71.87500","22":"28.125000","23":"100.00000","24":"7.5000000","25":"10.6250000","26":"52.50000","27":"29.375000","28":"0.7681503","29":"0.6274463","30":"0.12500000","31":"0.9375000","32":"1.0000000","33":"73.50","34":"14.75","35":"0.25","36":"25995.614","37":"5216.8070","38":"88.42046","39":"2.9375","40":"86.25","41":"37.50","42":"25.980762","43":"0","44":"55","45":"39","46":"0","47":"1","48":"19","49":"87","50":"9","51":"0","52":"0","53":"5","54":"11","55":"171","56":"0.6729274","57":"60","58":"48"},{"1":"Belle Vue","2":"2007-03-12","3":"Belle vue (Ankerana)","4":"21°15,582'","5":"047°25,320'","6":"963","7":"dry season 2008","8":"119.5","9":"19.100000000000001","10":"2.495000","11":"2.770833","12":"2.073969","13":"5.416667","14":"9.212917","15":"46.759167","16":"15.092500","17":"0.8333333","18":"1.7129167","19":"12.546250","20":"8.4258333","21":"76.48125","22":"23.518333","23":"99.99958","24":"6.2500000","25":"10.9258333","26":"59.30542","27":"23.518333","28":"0.7312651","29":"0.5829580","30":"0.20833333","31":"1.0000000","32":"0.8750000","33":"46.00","34":"7.50","35":"0.25","36":"16269.364","37":"2652.6137","38":"88.42046","39":"3.125","40":"72.50","41":"52.50","42":"27.233558","43":"20","44":"85","45":"53","46":"9","47":"5","48":"29","49":"74","50":"2","51":"5","52":"0","53":"1","54":"2","55":"180","56":"0.7180012","57":"71","58":"120"},{"1":"Bevoahazo","2":"2007-03-22","3":"Bevoahazo","4":"21°11,898'","5":"047°29,721'","6":"722","7":"39490","8":"268.0","9":"20.5","10":"2.062000","11":"7.210526","12":"4.460432","13":"2.105263","14":"19.952105","15":"49.760526","16":"9.425789","17":"1.0526316","18":"1.0526316","19":"13.540526","20":"3.1100000","21":"81.24368","22":"18.755789","23":"99.99947","24":"3.1578947","25":"21.0047368","26":"63.30105","27":"12.535789","28":"0.6906322","29":"0.5439001","30":"0.00000000","31":"0.6842105","32":"1.0000000","33":"16.00","34":"1.50","35":"0.50","36":"5658.909","37":"530.5227","38":"176.84091","39":"4.4375","40":"77.50","41":"27.75","42":"31.478829","43":"0","44":"73","45":"41","46":"9","47":"3","48":"16","49":"34","50":"28","51":"38","52":"0","53":"3","54":"2","55":"174","56":"0.8255930","57":"83","58":"105"},{"1":"Bibiango Old Bridge","2":"2007-02-25","3":"Bibiango Old Bridge","4":"21°15,442'","5":"047°25,099'","6":"961","7":"39488","8":"310.5","9":"19.5","10":"2.110000","11":"6.900000","12":"4.367700","13":"24.500000","14":"21.000000","15":"30.500000","16":"10.500000","17":"1.0000000","18":"1.0000000","19":"8.500000","20":"3.0000000","21":"86.50000","22":"13.500000","23":"100.00000","24":"25.5000000","25":"22.0000000","26":"39.00000","27":"13.500000","28":"0.7914141","29":"0.7234848","30":"0.00000000","31":"0.8500000","32":"0.9500000","33":"44.75","34":"6.00","35":"0.25","36":"15827.262","37":"2122.0910","38":"88.42046","39":"3.34375","40":"65.00","41":"43.75","42":"36.827300","43":"0","44":"85","45":"59","46":"5","47":"4","48":"26","49":"44","50":"8","51":"9","52":"0","53":"2","54":"0","55":"157","56":"0.7498775","57":"76","58":"102"},{"1":"E 100","2":"2007-03-14","3":"E100","4":"S21°15,806","5":"47°25,510","6":"949","7":"dry season 2008","8":"58.0","9":"19.210000000000001","10":"2.080000","11":"6.868421","12":"4.285895","13":"4.210526","14":"10.526316","15":"64.736842","16":"10.000000","17":"0.5263158","18":"0.0000000","19":"6.842105","20":"3.1578947","21":"89.47368","22":"10.526316","23":"100.00000","24":"4.7368421","25":"10.5263158","26":"71.57895","27":"13.157895","28":"0.5579339","29":"0.4616246","30":"0.15789474","31":"0.9473684","32":"0.8947368","33":"59.00","34":"6.00","35":"0.50","36":"20867.228","37":"2122.0910","38":"176.84091","39":"4.0625","40":"70.00","41":"41.25","42":"17.969882","43":"15","44":"55","45":"36","46":"2","47":"3","48":"2","49":"75","50":"15","51":"0","52":"0","53":"0","54":"2","55":"135","56":"0.6112769","57":"58","58":"245"},{"1":"Fompohonina II","2":"2007-03-15","3":"Fompohonina II","4":"21°16,075'","5":"047°25,421'","6":"950","7":"39468","8":"42.0","9":"18.800000000000001","10":"2.640000","11":"6.250000","12":"4.950000","13":"6.666667","14":"4.166667","15":"56.666667","16":"10.833333","17":"1.2500000","18":"0.8333333","19":"12.500000","20":"7.0833333","21":"78.33333","22":"21.666667","23":"100.00000","24":"7.9166667","25":"5.0000000","26":"69.16667","27":"17.916667","28":"0.6465699","29":"0.4855850","30":"0.26086957","31":"0.9090909","32":"1.0000000","33":"52.00","34":"5.75","35":"0.25","36":"18391.455","37":"2033.6705","38":"88.42046","39":"2.1875","40":"77.50","41":"34.25","42":"18.929694","43":"0","44":"40","45":"35","46":"21","47":"9","48":"14","49":"35","50":"21","51":"8","52":"4","53":"2","54":"3","55":"152","56":"0.8453294","57":"89","58":"332"},{"1":"Fompohonina III","2":"2007-03-16","3":"Fompohonina III","4":"21°15,907'","5":"047°25,349'","6":"1012","7":"39481","8":"48.0","9":"18.899999999999999","10":"2.000000","11":"6.789474","12":"4.073684","13":"0.000000","14":"1.052632","15":"52.865263","16":"20.409298","17":"0.5263158","18":"0.0000000","19":"5.292281","20":"19.8536842","21":"74.32719","22":"25.672281","23":"99.99947","24":"0.5263158","25":"1.0526316","26":"58.15754","27":"40.262982","28":"0.6429419","29":"0.5045611","30":"0.05263158","31":"0.7368421","32":"0.9473684","33":"28.50","34":"5.50","35":"0.50","36":"10079.932","37":"1945.2501","38":"176.84091","39":"2.625","40":"77.50","41":"34.25","42":"16.820127","43":"20","44":"56","45":"57","46":"5","47":"2","48":"26","49":"84","50":"6","51":"0","52":"0","53":"0","54":"3","55":"183","56":"0.6735723","57":"73","58":"138"},{"1":"Fompohonina IV","2":"2007-03-20","3":"Fompohonina IV","4":"21°16,110'","5":"047°25,546'","6":"982","7":"39471","8":"157.0","9":"19.5","10":"2.200000","11":"6.800000","12":"4.488000","13":"22.500000","14":"10.000000","15":"54.000000","16":"11.000000","17":"0.5000000","18":"0.0000000","19":"1.000000","20":"1.0000000","21":"97.50000","22":"2.500000","23":"100.00000","24":"23.0000000","25":"10.0000000","26":"55.00000","27":"12.000000","28":"0.6418687","29":"0.6264646","30":"0.10000000","31":"1.0000000","32":"1.0000000","33":"92.25","34":"4.00","35":"0.75","36":"32627.149","37":"1414.7273","38":"265.26137","39":"3.375","40":"82.50","41":"47.50","42":"12.583057","43":"30","44":"60","45":"52","46":"10","47":"4","48":"39","49":"55","50":"16","51":"12","52":"0","53":"1","54":"3","55":"192","56":"0.7931937","57":"85","58":"108"},{"1":"Fompohonina River","2":"2007-02-26","3":"Fompohonina river","4":"21°16,106'","5":"047°25,483'","6":"972","7":"dry season 2008","8":"28.0","9":"19.5","10":"5.695000","11":"26.490909","12":"45.259718","13":"25.818182","14":"55.090909","15":"8.000000","16":"3.454545","17":"0.0000000","18":"1.2727273","19":"3.636364","20":"2.7272727","21":"92.36364","22":"7.636364","23":"100.00000","24":"25.8181818","25":"56.3636364","26":"11.63636","27":"6.181818","28":"0.6262827","29":"0.6043376","30":"0.10909091","31":"0.7272727","32":"0.6909091","33":"47.00","34":"3.75","35":"0.25","36":"16623.046","37":"1326.3069","38":"88.42046","39":"4.4000000000000004","40":"45.00","41":"23.75","42":"41.104542","43":"0","44":"85","45":"101","46":"25","47":"6","48":"9","49":"18","50":"9","51":"0","52":"0","53":"0","54":"1","55":"169","56":"0.6062271","57":"142","58":"73"},{"1":"Imaloka","2":"2007-03-01","3":"Imaloka","4":"21°14,529'","5":"047°27,938'","6":"957","7":"39469","8":"56.0","9":"20.5","10":"7.155000","11":"27.571429","12":"59.182071","13":"6.259714","14":"25.974000","15":"44.480571","16":"6.428571","17":"0.4285714","18":"1.2857143","19":"9.285714","20":"5.8571429","21":"83.14286","22":"16.857143","23":"100.00000","24":"6.6882857","25":"27.2597143","26":"53.76629","27":"12.285714","28":"0.7216113","29":"0.6232750","30":"0.05797101","31":"0.8260870","32":"0.7681159","33":"33.25","34":"7.50","35":"0.25","36":"11759.921","37":"2652.6137","38":"88.42046","39":"7.59375","40":"62.50","41":"34.25","42":"19.155069","43":"14","44":"53","45":"56","46":"19","47":"10","48":"10","49":"38","50":"11","51":"0","52":"1","53":"1","54":"2","55":"148","56":"0.7646626","57":"98","58":"301"},{"1":"Kidonavo","2":"2007-02-19","3":"Kidonavo","4":"21°13,540'","5":"047°22,210'","6":"1147","7":"39489","8":"0.0","9":"no data","10":"5.355000","11":"84.326923","12":"135.471202","13":"0.000000","14":"0.000000","15":"0.000000","16":"0.000000","17":"8.4615385","18":"10.3846154","19":"63.076923","20":"18.0769231","21":"0.00000","22":"100.000000","23":"100.00000","24":"8.4615385","25":"10.3846154","26":"37.88462","27":"18.076923","28":"0.5570797","29":"0.6619236","30":"0.36538462","31":"0.7692308","32":"0.8461538","33":"39.50","34":"8.75","35":"0.25","36":"13970.432","37":"3094.7160","38":"88.42046","39":"6","40":"65.00","41":"29.75","42":"21.453438","43":"14","44":"60","45":"54","46":"11","47":"22","48":"28","49":"29","50":"9","51":"0","52":"2","53":"3","54":"0","55":"158","56":"0.7951302","57":"96","58":"79"},{"1":"Mariavaratra","2":"2007-02-20","3":"Mariavaratra","4":"21°15,806'","5":"047°25,135'","6":"955","7":"dry season 2008","8":"178.5","9":"no data","10":"5.445000","11":"23.092593","12":"37.721750","13":"25.134630","14":"40.454630","15":"5.723889","16":"6.666667","17":"3.1481481","18":"5.3703704","19":"9.983148","20":"3.5185185","21":"77.97981","22":"22.020185","23":"100.00000","24":"28.2827778","25":"45.8250000","26":"15.70704","27":"10.185185","28":"0.7579466","29":"0.6817884","30":"0.07407407","31":"0.6666667","32":"0.5555556","33":"13.50","34":"2.25","35":"1.25","36":"4774.705","37":"795.7841","38":"442.10228","39":"2.625","40":"50.00","41":"43.75","42":"9.464847","43":"30","44":"50","45":"64","46":"22","47":"4","48":"16","49":"51","50":"0","51":"18","52":"0","53":"2","54":"0","55":"177","56":"0.7559065","57":"90","58":"114"},{"1":"Ranomena","2":"2007-03-19","3":"Ranomena","4":"21°12,736'","5":"047°26,010'","6":"1144","7":"39485","8":"18.0","9":"19","10":"3.290000","11":"32.379310","12":"31.958379","13":"0.000000","14":"4.764828","15":"34.137931","16":"19.592414","17":"0.6896552","18":"6.1755172","19":"14.388621","20":"20.2506897","21":"58.49517","22":"41.504483","23":"99.99966","24":"0.6896552","25":"10.9403448","26":"48.18172","27":"39.843103","28":"0.7850793","29":"0.6003162","30":"0.35714286","31":"0.9642857","32":"0.6785714","33":"75.00","34":"7.00","35":"0.50","36":"26526.137","37":"2475.7728","38":"176.84091","39":"5.375","40":"57.50","41":"18.75","42":"21.746647","43":"0","44":"40","45":"67","46":"2","47":"1","48":"7","49":"34","50":"12","51":"0","52":"33","53":"14","54":"3","55":"173","56":"0.7659632","57":"85","58":"183"},{"1":"Sahamalaotra Bridge","2":"2007-02-22","3":"Sahamalaotra BRIDGE","4":"21°14,113'","5":"047°23,767'","6":"1144","7":"39487","8":"960.0","9":"no data","10":"3.000000","11":"20.296296","12":"18.266667","13":"0.000000","14":"0.000000","15":"74.814815","16":"12.222222","17":"0.0000000","18":"0.3703704","19":"8.888889","20":"3.7037037","21":"87.03704","22":"12.962963","23":"100.00000","24":"0.0000000","25":"0.3703704","26":"83.70370","27":"15.925926","28":"0.4202519","29":"0.2767594","30":"0.18518519","31":"0.7777778","32":"1.0000000","33":"54.50","34":"5.50","35":"0.00","36":"19275.660","37":"1945.2501","38":"0.00000","39":"no data","40":"67.50","41":"34.50","42":"17.916473","43":"18","44":"50","45":"82","46":"12","47":"5","48":"31","49":"20","50":"3","51":"0","52":"3","53":"0","54":"0","55":"156","56":"0.6643507","57":"102","58":"268"},{"1":"Sahamalaotra Farihin Drakotomainty","2":"2007-03-06","3":"Sahamalaotra Farihin-Drakotomainty (something like that)","4":"21°14,216'","5":"047°23,810'","6":"1124","7":"39479","8":"69.0","9":"18.399999999999999","10":"2.840000","11":"8.320000","12":"7.088640","13":"0.000000","14":"36.044400","15":"29.244400","16":"11.333200","17":"0.4000000","18":"0.4000000","19":"15.333200","20":"7.2444000","21":"76.62200","22":"23.377600","23":"99.99960","24":"0.4000000","25":"36.4444000","26":"44.57760","27":"18.577600","28":"0.7504239","29":"0.6403361","30":"0.16000000","31":"0.8000000","32":"0.9600000","33":"45.00","34":"7.00","35":"0.00","36":"15915.682","37":"2475.7728","38":"0.00000","39":"7.75","40":"82.50","41":"27.00","42":"18.938497","43":"0","44":"44","45":"45","46":"16","47":"10","48":"34","49":"32","50":"9","51":"0","52":"2","53":"3","54":"1","55":"152","56":"0.8037644","57":"81","58":"230"},{"1":"Sahamalaotra Small Stream","2":"2007-02-27","3":"Sahamalaotra SMALL","4":"21°14,366'","5":"047°23,709'","6":"1138","7":"39487","8":"300.0","9":"no data","10":"1.670000","11":"7.400000","12":"3.707400","13":"13.333333","14":"16.666667","15":"38.666667","16":"12.666667","17":"0.0000000","18":"0.0000000","19":"9.333333","20":"9.3333333","21":"81.33333","22":"18.666667","23":"100.00000","24":"13.3333333","25":"16.6666667","26":"48.00000","27":"22.000000","28":"0.7792593","29":"0.6824691","30":"0.20000000","31":"0.9333333","32":"0.9333333","33":"48.00","34":"8.00","35":"0.75","36":"16976.728","37":"2829.4546","38":"265.26137","39":"4.0625","40":"62.50","41":"46.50","42":"12.476645","43":"30","44":"60","45":"71","46":"11","47":"1","48":"20","49":"66","50":"13","51":"3","52":"0","53":"2","54":"0","55":"187","56":"0.7149675","57":"96","58":"36"},{"1":"Sahateza Pond Donald","2":"2007-03-02","3":"Sahateza Pond Donald","4":"21°15,476'","5":"047°21,583'","6":"1147","7":"39483","8":"42.0","9":"20","10":"5.900000","11":"28.964286","12":"51.266786","13":"10.535714","14":"46.964286","15":"21.428571","16":"3.392857","17":"1.7857143","18":"0.3571429","19":"12.857143","20":"2.6785714","21":"82.32143","22":"17.678571","23":"100.00000","24":"12.3214286","25":"47.3214286","26":"30.89286","27":"6.071429","28":"0.7107942","29":"0.6442572","30":"0.03571429","31":"0.5357143","32":"0.9285714","33":"38.75","34":"6.25","35":"0.25","36":"13705.171","37":"2210.5114","38":"88.42046","39":"4.0625","40":"47.50","41":"42.50","42":"11.930353","43":"34","44":"60","45":"58","46":"8","47":"2","48":"22","49":"65","50":"5","51":"0","52":"0","53":"2","54":"1","55":"163","56":"0.6967356","57":"74","58":"288"},{"1":"Sakaroa","2":"2007-03-21","3":"Sakaroa River","4":"21°15,889'","5":"047°24,730'","6":"930","7":"39461","8":"27.0","9":"18","10":"6.925000","11":"27.313433","12":"56.743657","13":"20.298507","14":"19.477612","15":"42.578657","16":"10.000000","17":"0.0000000","18":"0.1658209","19":"3.283582","20":"4.1956716","21":"92.35478","22":"7.645075","23":"99.99985","24":"20.2985075","25":"19.6434328","26":"45.86224","27":"14.195672","28":"0.7340636","29":"0.6966904","30":"0.04545455","31":"0.7878788","32":"0.8939394","33":"34.50","34":"10.75","35":"0.75","36":"12202.023","37":"3802.0796","38":"265.26137","39":"5.625","40":"65.00","41":"38.00","42":"13.589211","43":"20","44":"49","45":"66","46":"11","47":"12","48":"13","49":"45","50":"14","51":"0","52":"0","53":"12","54":"1","55":"174","56":"0.7680553","57":"104","58":"743"},{"1":"Talatakely Piste X 175","2":"2007-02-24","3":"Piste X175","4":"21°15,846'","5":"047°25,161","6":"966","7":"dry season 2008","8":"425.0","9":"20","10":"2.540000","11":"2.438095","12":"1.857829","13":"4.347826","14":"11.787391","15":"34.589565","16":"12.705217","17":"1.3043478","18":"3.0434783","19":"15.217391","20":"17.0047826","21":"63.43000","22":"36.570000","23":"100.00000","24":"5.6521739","25":"14.8308696","26":"49.80696","27":"29.710000","28":"0.8032927","29":"0.6449173","30":"0.09090909","31":"0.8636364","32":"1.0000000","33":"69.00","34":"5.50","35":"0.25","36":"24404.046","37":"1945.2501","38":"88.42046","39":"3.375","40":"86.25","41":"35.00","42":"19.578900","43":"15","44":"60","45":"46","46":"15","47":"3","48":"42","49":"50","50":"14","51":"8","52":"0","53":"2","54":"4","55":"184","56":"0.8007246","57":"82","58":"13"},{"1":"Up the waterfall","2":"2007-03-17","3":"Up the waterfall","4":"21°15,315'","5":"047°24,767'","6":"1055","7":"39491","8":"335.0","9":"18","10":"2.339000","11":"9.650000","12":"6.771405","13":"16.954500","14":"20.727500","15":"41.863500","16":"6.954500","17":"1.0000000","18":"2.0000000","19":"7.000000","20":"3.5000000","21":"86.50000","22":"13.500000","23":"100.00000","24":"17.9545000","25":"22.7275000","26":"48.86350","27":"10.454500","28":"0.7490655","29":"0.6731473","30":"0.00000000","31":"0.9000000","32":"0.9500000","33":"40.75","34":"6.75","35":"0.25","36":"14412.534","37":"2387.3523","38":"88.42046","39":"11.25","40":"60.00","41":"45.00","42":"19.148542","43":"30","44":"70","45":"62","46":"23","47":"1","48":"1","49":"64","50":"16","51":"6","52":"0","53":"5","54":"5","55":"183","56":"0.7408875","57":"107","58":"59"},{"1":"ValBio","2":"2007-03-04","3":"ValBio stream","4":"21°15,191'","5":"047°25,271'","6":"929","7":"dry season 2008","8":"467.0","9":"20.600000000000001","10":"1.480000","11":"6.535714","12":"2.901857","13":"20.714286","14":"7.142857","15":"51.428571","16":"11.428571","17":"0.0000000","18":"0.0000000","19":"8.571429","20":"0.7142857","21":"90.71429","22":"9.285714","23":"100.00000","24":"20.7142857","25":"7.1428571","26":"60.00000","27":"12.142857","28":"0.6737786","29":"0.5830757","30":"0.00000000","31":"1.0000000","32":"1.0000000","33":"74.75","34":"9.25","35":"0.75","36":"26437.717","37":"3271.5569","38":"265.26137","39":"3.625","40":"70.00","41":"27.50","42":"18.929694","43":"0","44":"40","45":"45","46":"11","47":"0","48":"39","49":"49","50":"12","51":"2","52":"0","53":"0","54":"8","55":"166","56":"0.7767798","57":"76","58":"10"},{"1":"Vatoharanana","2":"2007-03-24","3":"Vatoharanana","4":"21°17,338'","5":"047°25,765'","6":"1016","7":"39471","8":"8.0","9":"19.300000000000001","10":"9.353000","11":"42.511111","12":"119.281927","13":"31.888889","14":"18.222222","15":"31.111111","16":"2.000000","17":"2.1111111","18":"4.1111111","19":"5.555556","20":"2.7777778","21":"82.30769","22":"14.395604","23":"96.70330","24":"33.6263736","25":"22.0879121","26":"36.26374","27":"4.725275","28":"0.7587360","29":"0.6910484","30":"0.01111111","31":"0.4555556","32":"0.5111111","33":"34.25","34":"4.75","35":"0.25","36":"12113.603","37":"1679.9887","38":"88.42046","39":"12.0666666666667","40":"47.50","41":"28.50","42":"16.921387","43":"10","44":"50","45":"42","46":"13","47":"9","48":"5","49":"41","50":"12","51":"3","52":"4","53":"30","54":"6","55":"165","56":"0.8277901","57":"82","58":"809"},{"1":"Vatolampy","2":"2007-03-07","3":"Vatolampy I","4":"21°14,874'","5":"047°24,267'","6":"1084","7":"39477","8":"368.0","9":"18.399999999999999","10":"3.437000","11":"8.590909","12":"8.858086","13":"27.222121","14":"22.010909","15":"26.735455","16":"15.348788","17":"1.5151515","18":"0.3030303","19":"4.517879","20":"2.3460606","21":"91.31727","22":"8.682121","23":"99.99939","24":"28.7372727","25":"22.3139394","26":"31.25333","27":"17.694848","28":"0.7874522","29":"0.7460957","30":"0.09375000","31":"0.8181818","32":"0.9090909","33":"22.50","34":"8.50","35":"1.25","36":"7957.841","37":"3006.2955","38":"442.10228","39":"2.375","40":"72.50","41":"58.50","42":"11.357817","43":"42","44":"68","45":"67","46":"12","47":"4","48":"6","49":"45","50":"5","51":"21","52":"5","53":"2","54":"1","55":"168","56":"0.7491446","57":"89","58":"55"},{"1":"Vatolampy II","2":"2007-03-11","3":"Vatolampy II","4":"21°14,833'","5":"047°24,229'","6":"1080","7":"39478","8":"264.0","9":"17.699999999999999","10":"2.131000","11":"11.300000","12":"7.224090","13":"15.000000","14":"15.000000","15":"45.000000","16":"7.000000","17":"1.0000000","18":"1.0000000","19":"13.500000","20":"2.5000000","21":"82.00000","22":"18.000000","23":"100.00000","24":"16.0000000","25":"16.0000000","26":"58.50000","27":"9.500000","28":"0.7359091","29":"0.6035859","30":"0.00000000","31":"0.9000000","32":"1.0000000","33":"77.00","34":"10.25","35":"0.00","36":"27233.501","37":"3625.2387","38":"0.00000","39":"2.25","40":"72.50","41":"17.50","42":"28.722813","43":"0","44":"60","45":"58","46":"10","47":"7","48":"25","49":"46","50":"22","51":"12","52":"0","53":"1","54":"0","55":"181","56":"0.7942910","57":"97","58":"98"},{"1":"Waterfall II","2":"2007-03-18","3":"Waterfall 2","4":"21°15,117'","5":"047°25,348'","6":"930","7":"dry season 2008","8":"465.0","9":"19.5","10":"1.575000","11":"8.846154","12":"4.179808","13":"23.076923","14":"21.538462","15":"30.000000","16":"15.384615","17":"1.5384615","18":"2.3076923","19":"5.384615","20":"0.7692308","21":"90.00000","22":"10.000000","23":"100.00000","24":"24.6153846","25":"23.8461538","26":"35.38462","27":"16.153846","28":"0.7908673","29":"0.7386289","30":"0.23076923","31":"1.0000000","32":"0.8461538","33":"46.50","34":"6.25","35":"0.00","36":"16446.205","37":"2210.5114","38":"0.00000","39":"3.25","40":"68.75","41":"65.00","42":"10.000000","43":"50","44":"70","45":"64","46":"17","47":"10","48":"10","49":"53","50":"8","51":"6","52":"0","53":"6","54":"0","55":"174","56":"0.7556309","57":"99","58":"117"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> env<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" ist kein
-Grafikparameter</code></pre>
+</section>
+<section id="fitting-environmental-data-using-vegan" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-environmental-data-using-vegan">Fitting environmental data using <code>vegan</code></h2>
+<p>Available environmental data could be combined with NMDS to identify potential driver in the community composition and help explain their clustering patterns.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(env[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [29 × 6] (S3: tbl_df/tbl/data.frame)
+ $ stream          : chr [1:29] "Ambatolahy II" "Ambatolahy III" "Ambatovory Barrage" "Ambodiamontana" ...
+ $ date            : POSIXct[1:29], format: "2007-03-08" "2007-03-10" ...
+ $ site            : chr [1:29] "Ambatolahy II" "Ambatolahy III" "Ambatovory" "Ambodiamontana" ...
+ $ S (hddd°mm,mmm°): chr [1:29] "21°14,468'" "21°14,464'" "21°13,862'" "21°15,249'" ...
+ $ E (hddd°mm,mmm°): chr [1:29] "047°25,591'" "047°25,624'" "047°25,436'" "047°25,197'" ...
+ $ altitude [m asl]: num [1:29] 965 973 1028 935 982 ...</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in text.default(...): "add" ist kein Grafikparameter</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, depth, <span class="at">main =</span> <span class="st">'Depth'</span>, <span class="at">col =</span> <span class="st">'darkgreen'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The two variable I’m showing here are both continuous, which will automatically result a 3d-representation, those are the two axes from NMDS and the third axis showing the environmental variable. Since we only have two dimensions, the third variable is represented as a projection of the 3d-surface. We use <code>ordisurf</code> here to fit a smooth surface to the environmental data, which calls <code>gam()</code> (generalized additive model) in the background (I might get back to this with more detailed explanation in the future).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, depth, <span class="at">main =</span> <span class="st">'Depth'</span>, <span class="at">col =</span> <span class="st">'darkgreen'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Family: gaussian 
@@ -339,25 +366,19 @@ Formula:
 y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 
 Estimated degrees of freedom:
-6.64  total = 7.64 
+6.81  total = 7.81 
 
-REML score: 109.5915     </code></pre>
+REML score: 109.042     </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" ist kein
-Grafikparameter
-Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" ist kein
-Grafikparameter</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, altitude, <span class="at">main =</span> <span class="st">'Altitude'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, altitude, <span class="at">main =</span> <span class="st">'Altitude'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/showing_depth_data-1.png" class="img-fluid figure-img" width="1152"></p>
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/showing_depth_data-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -370,35 +391,270 @@ Formula:
 y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 
 Estimated degrees of freedom:
-0.849  total = 1.85 
+0.893  total = 1.89 
 
-REML score: 168.5419     </code></pre>
+REML score: 168.5154     </code></pre>
 </div>
 </div>
-<section id="try-run-a-permanova" class="level2">
-<h2 class="anchored" data-anchor-id="try-run-a-permanova">Try run a PERMANOVA</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adonis2</span>(<span class="at">formula =</span> tadpoleSp<span class="sc">~</span>depth<span class="sc">*</span>altitude)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="plotting-nmds-using-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-nmds-using-ggplot2">Plotting NMDS using <code>ggplot2</code></h2>
+<p>If you have ever worked with <code>ggplot2</code> and its enormous family, you probably can’t go back to basic R plots. Fortunately, there’s a way to plot, not only the NMDS, also other ordination analyses from <code>vegan</code> using <code>ggplot2</code>. This can make our plot more precise and customizable.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We continue with the already available NMDS result from earlier, which is stored inside <code>tadNMDS</code>. The only thing we need to do, is to extract the coordinates from the points we want to plot, and then apply them in a ggplot-way.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract NMDS scores</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>siteCoord <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">scores</span>(tadNMDS)<span class="sc">$</span>sites)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>spCoord <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">scores</span>(tadNMDS)<span class="sc">$</span>species)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_aes</span>() <span class="sc">+</span> <span class="co"># available in source code Rmd</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">MoMAColor</span>() <span class="sc">+</span> <span class="co"># available in source code Rmd</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> spCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">1.6</span>, <span class="dv">2</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">color =</span> <span class="st">"#222222"</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">label =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(siteCoord))), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">1.8</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">check_overlap =</span> T)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/extract_points_and_plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Fitting environmental data with ggplot could be a bit complex. First we need to manually apply those on our NMDS:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>en <span class="ot">&lt;-</span> <span class="fu">envfit</span>(tadNMDS, env.comp[, <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>, <span class="fu">ncol</span>(env.comp)<span class="sc">:</span><span class="fu">ncol</span>(env.comp))], <span class="at">permutation =</span> <span class="dv">0</span>, <span class="at">na.rm =</span> T) <span class="co"># only fitting a subset of the data</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>en</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+***VECTORS
+
+                         NMDS1    NMDS2     r2
+altitude [m asl]      -0.78651  0.61758 0.1076
+stream slope [cm/30m]  0.76696  0.64170 0.5461
+temperature [°C]      -0.25368  0.96729 0.1871
+Width (m)             -0.92674 -0.37571 0.6397
+Depth (cm)            -0.95637 -0.29214 0.7817
+
+***FACTORS:
+
+Centroids:
+                    NMDS1   NMDS2
+Speed_cat[50,60)  -0.8420  0.2476
+Speed_cat[60,70)   0.8150  1.0054
+Speed_cat[70,80)   0.5360 -0.1509
+Speed_cat[80,90)  -0.1156 -0.2092
+Speed_cat[90,100) -0.0682  0.1230
+
+Goodness of fit:
+              r2
+Speed_cat 0.2252
+
+5 Beobachtungen als fehlend gelöscht</code></pre>
+</div>
+</div>
+<p><code>envfit</code> distinguishes the variables into <em>vectors</em> (continuous) or <em>factor</em> (categorical) variables. For each category (in each categorical variable), the centroid coordinates was calculated, which represents the center of the mass and the average coordination of all points belong to that category.</p>
+<section id="spider-plot" class="level3">
+<h3 class="anchored" data-anchor-id="spider-plot">Spider plot</h3>
+<p>The centroids can be used to plot a spider plot:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cat <span class="ot">&lt;-</span> <span class="st">"Speed_cat"</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>catlvl <span class="ot">&lt;-</span> <span class="fu">row.names</span>(en<span class="sc">$</span>factors<span class="sc">$</span>centroids) </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(catlvl, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="fu">nchar</span>(cat)) <span class="ot">&lt;-</span> <span class="st">''</span> <span class="co"># fix envfit rownames and extract categories</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(en<span class="sc">$</span>factors<span class="sc">$</span>centroids) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cat =</span> catlvl)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>segs <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="fu">cbind</span>(siteCoord, <span class="at">cat =</span> env.comp<span class="sc">$</span>Speed_cat)), </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="fu">setNames</span>(centroids, <span class="fu">c</span>(<span class="st">"cN1"</span>, <span class="st">'cN2'</span>, <span class="st">'cat'</span>)))</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="co"># prepare geom_segment data</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">color =</span> env.comp<span class="sc">$</span>Speed_cat), <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> segs, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">xend =</span> cN1, <span class="at">yend =</span> cN2, <span class="at">shape =</span> cat, <span class="at">color =</span> cat)) <span class="sc">+</span> <span class="co"># lines</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> centroids, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">shape =</span> cat, <span class="at">color =</span> cat), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="co"># centroid points</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">label =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(siteCoord))), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">1.8</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">check_overlap =</span> T) <span class="sc">+</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="st">"Fast stream percentage"</span>), <span class="at">shape =</span> <span class="st">"none"</span>)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/spider_plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hull-plot" class="level3">
+<h3 class="anchored" data-anchor-id="hull-plot">Hull plot</h3>
+<p>Sometimes another hull plot will give a better overview:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>chullBorder <span class="ot">&lt;-</span> <span class="cf">function</span>(site, cat) { <span class="co"># extract outline points</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  site <span class="ot">&lt;-</span> <span class="fu">cbind</span>(site, cat) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cat)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  borders <span class="ot">&lt;-</span> site <span class="sc">%&gt;%</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_map</span>(<span class="sc">~</span> <span class="fu">chull</span>(.[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)])) <span class="co"># extract outline points index</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  hulls <span class="ot">&lt;-</span> <span class="fu">map2</span>(<span class="at">.x =</span> borders, <span class="at">.y =</span> <span class="fu">split</span>(site, site<span class="sc">$</span>cat), <span class="cf">function</span>(x, y){</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(y[x,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)])</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  }) <span class="sc">%&gt;%</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map2_dfr</span>(., <span class="fu">seq_along</span>(.), <span class="sc">~</span> <span class="fu">mutate</span>(.x, <span class="at">cat =</span> <span class="fu">factor</span>(.y))) <span class="co"># prepare geom_polygon data</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>hulls <span class="ot">&lt;-</span> <span class="fu">chullBorder</span>(siteCoord, env.comp<span class="sc">$</span>Speed_cat)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> hulls, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">fill =</span> cat), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># hull</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">color =</span> env.comp<span class="sc">$</span>Speed_cat), <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="st">"Fast stream percentage"</span>), <span class="at">fill =</span> <span class="st">"none"</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/hullplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="continuous-variable-fitting-surface" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-variable-fitting-surface">Continuous variable: fitting surface</h3>
+<p>To fit a smooth surface on our data, we still use <code>ordisurf</code> from <code>vegan</code> to do the calculation, but we do not let it plot the result directly.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> <span class="fu">ordisurf</span>(tadNMDS <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>alt <span class="ot">&lt;-</span> <span class="fu">ordisurf</span>(tadNMDS <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>slope <span class="ot">&lt;-</span> <span class="fu">ordisurf</span>(tadNMDS <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">stream slope [cm/30m]</span><span class="st">`</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As I mentioned before, the environmental variable of the surface is stored in the third axis, if we take look at the ordination object <code>ordisurf</code> produces (try <code>str(depth)</code>, I will not show it here since it is a very huge object), we can find a <code>$grid</code> list containing all the coordinates. We simply need to extract them and plot them on our ggplots.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>extract.xyz <span class="ot">&lt;-</span> <span class="cf">function</span>(obj) {</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  xy <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">x =</span> obj<span class="sc">$</span>grid<span class="sc">$</span>x, <span class="at">y =</span> obj<span class="sc">$</span>grid<span class="sc">$</span>y)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  xyz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(xy, <span class="fu">c</span>(obj<span class="sc">$</span>grid<span class="sc">$</span>z))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(xyz) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(xyz)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>contour.depth <span class="ot">&lt;-</span> <span class="fu">extract.xyz</span>(<span class="at">obj =</span> depth)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>contour.alt <span class="ot">&lt;-</span> <span class="fu">extract.xyz</span>(<span class="at">obj =</span> alt)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>contour.slope <span class="ot">&lt;-</span> <span class="fu">extract.xyz</span>(<span class="at">obj =</span> slope)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomtextpath)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.depth <span class="ot">&lt;-</span> p.NMDS.sp.st <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textcontour</span>(<span class="at">data =</span> contour.depth, <span class="fu">aes</span>(x, y, <span class="at">z =</span> z), <span class="at">color =</span> <span class="fu">moma.colors</span>(<span class="st">"OKeeffe"</span>)[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.35</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Depth"</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.alt <span class="ot">&lt;-</span> p.NMDS.sp.st <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textcontour</span>(<span class="at">data =</span> contour.alt, <span class="fu">aes</span>(x, y, <span class="at">z =</span> z), <span class="at">color =</span> <span class="fu">moma.colors</span>(<span class="st">"OKeeffe"</span>)[<span class="dv">3</span>]) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.35</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Altitude"</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.slope <span class="ot">&lt;-</span> p.NMDS.sp.st <span class="sc">+</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textcontour</span>(<span class="at">data =</span> contour.slope, <span class="fu">aes</span>(x, y, <span class="at">z =</span> z), <span class="at">color =</span> <span class="fu">moma.colors</span>(<span class="st">"OKeeffe"</span>)[<span class="dv">5</span>]) <span class="sc">+</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.35</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Stream slope"</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed <span class="ot">&lt;-</span> p.NMDS.sp.st_Speed <span class="sc">+</span> </span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.25</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Fast stream percentage"</span>), <span class="at">size =</span> <span class="dv">7</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.fit <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  p.NMDS.sp.st.depth, p.NMDS.sp.st.alt, p.NMDS.sp.st.slope, p.NMDS.sp.st_Speed, </span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"hv"</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4_NMDS_and_PERMANOVA_files/figure-html/ggfitplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="what-matters" class="level2">
+<h2 class="anchored" data-anchor-id="what-matters">What matters?</h2>
+<p>Now, as we have all these fancy plots, let’s talk about what we can interpret from them.</p>
+</section>
+<section id="permanova" class="level2">
+<h2 class="anchored" data-anchor-id="permanova">PERMANOVA</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adonis2</span>(tadpoleSp <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span><span class="sc">+</span>env.comp<span class="sc">$</span><span class="st">`</span><span class="at">stream slope [cm/30m]</span><span class="st">`</span><span class="sc">+</span>env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span><span class="sc">+</span>env.comp<span class="sc">$</span>Speed_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Permutation test for adonis under reduced model
 Terms added sequentially (first to last)
 Permutation: free
 Number of permutations: 999
 
-adonis2(formula = tadpoleSp ~ depth * altitude)
-               Df SumOfSqs      R2      F Pr(&gt;F)    
-depth           1   1.1285 0.14888 5.1393  0.001 ***
-altitude        1   0.1086 0.01433 0.4946  0.878    
-depth:altitude  1   0.8534 0.11259 3.8865  0.001 ***
-Residual       25   5.4894 0.72421                  
-Total          28   7.5799 1.00000                  
+adonis2(formula = tadpoleSp ~ env.comp$`altitude [m asl]` + env.comp$`stream slope [cm/30m]` + env.comp$`Depth (cm)` + env.comp$Speed_cat)
+                                 Df SumOfSqs      R2      F Pr(&gt;F)    
+env.comp$`altitude [m asl]`       1   0.2140 0.02823 0.9943  0.429    
+env.comp$`stream slope [cm/30m]`  1   0.5500 0.07257 2.5556  0.010 ** 
+env.comp$`Depth (cm)`             1   0.7581 0.10001 3.5222  0.001 ***
+env.comp$Speed_cat                5   1.7533 0.23131 1.6293  0.017 *  
+Residual                         20   4.3045 0.56789                  
+Total                            28   7.5799 1.00000                  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adonis2</span>(tadpoleSp <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">stream slope [cm/30m]</span><span class="st">`</span><span class="sc">+</span>env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span><span class="sc">+</span>env.comp<span class="sc">$</span>Speed_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for adonis under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
+
+adonis2(formula = tadpoleSp ~ env.comp$`stream slope [cm/30m]` + env.comp$`Depth (cm)` + env.comp$Speed_cat)
+                                 Df SumOfSqs      R2      F Pr(&gt;F)    
+env.comp$`stream slope [cm/30m]`  1   0.5393 0.07115 2.5654  0.005 ** 
+env.comp$`Depth (cm)`             1   0.8467 0.11171 4.0274  0.001 ***
+env.comp$Speed_cat                5   1.7788 0.23467 1.6922  0.009 ** 
+Residual                         21   4.4150 0.58247                  
+Total                            28   7.5799 1.00000                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adonis2</span>(tadpoleSp <span class="sc">~</span> env.comp<span class="sc">$</span>Speed_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for adonis under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
 
-
+adonis2(formula = tadpoleSp ~ env.comp$Speed_cat)
+                   Df SumOfSqs      R2      F Pr(&gt;F)
+env.comp$Speed_cat  5   1.5430 0.20356 1.1757  0.213
+Residual           23   6.0369 0.79644              
+Total              28   7.5799 1.00000              </code></pre>
+</div>
+</div>
 </section>
+<section id="acknowledgement" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h2>
+<p>I thank here the codes and examples shared by</p>
+<ul>
+<li><a href="https://jkzorz.github.io/2020/04/04/NMDS-extras.html">Dr.&nbsp;Jackie Zorz</a></li>
+<li><a href="https://chrischizinski.github.io/rstats/vegan-ggplot2/">Dr.&nbsp;Christopher Chizinski</a></li>
+<li><a href="https://stackoverflow.com/a/75507179/24065650">Allan Cameron</a></li>
+</ul>
+<p>for helping me finish this post.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -829,7 +1085,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>© By Zhehao Hu, 2024</p>
 </div>   
     <div class="nav-footer-center">
-<p>Source code of this website is available at <a href="zzzhehao.github.io">zzzhehao.github.io</a></p>
+<p>Source code of this website is available at <a href="https://github.com/zzzhehao/zzzhehao.github.io">github.com/zzzhehao</a></p>
 </div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a></p>
