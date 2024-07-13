@@ -1,0 +1,15 @@
+#quarto-content {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+} 
+
+#bio {
+  height: 50vh;
+
+/*  background-image: url('./images/okinawa_crab.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+}
