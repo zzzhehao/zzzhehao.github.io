@@ -1,0 +1,26 @@
+---
+title: "Gallery"
+---
+
+<div class="gallery-grid">
+  <div class="album-thumbnail" data-album="album1">
+    <img src="path/to/thumbnail1.jpg" alt="Album 1">
+    <div class="album-title">Album 1</div>
+  </div>
+  <div class="album-thumbnail" data-album="album2">
+    <img src="path/to/thumbnail2.jpg" alt="Album 2">
+    <div class="album-title">Album 2</div>
+  </div>
+  <!-- Add more album thumbnails as needed -->
+</div>
+
+<div id="fullscreen-gallery" class="fullscreen-gallery">
+  <button id="close-gallery" class="close-button">&times;</button>
+  <div class="gallery-content">
+    <button id="prev-image" class="nav-button prev-button"></button>
+    <img id="current-image" src="" alt="Current Image">
+    <button id="next-image" class="nav-button next-button"></button>
+  </div>
+</div>
+
+<script src="gallery.js"></script>
