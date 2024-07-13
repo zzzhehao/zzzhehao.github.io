@@ -1,16 +1,20 @@
 ---
-title: Community Ecology 1 - NMDS and PERMANOVA
+title: Community Ecology 1 - NMDS, PERMDISP and PERMANOVA
 date: "2024-06-29"
 draft: false
 ---
 
+<!-- This post arranges and summarises the practical part "betapart" and "community metrics" from the course _Community Ecology_. -->
+
 ## The problem
 
-We have multidimensional data in ecology, almost always, and they are huge. Since an n-dimensional data requires an n-dimensional space to be 1:1 displayed, if we want to have at least an overview, we need to reduce dimensions. There's a few technics can achieve that, which are called as **multidimensional scaling (MDS)**, the widely used metric MDS is PCoA and its special type PCA using euclidean distance.
+We have multidimensional data in ecology, almost always, and they are huge. Since an n-dimensional data requires an n-dimensional space to be 1:1 displayed, if we want to have at least an overview, we need to reduce dimensions. 
+
+For example, we have a species abundance data that can be used for describing the difference between communities. What if we have additional habitat data from each community and we want to find out which environmental condition is effecting the community composition? There's a few technics can help us answer these questions, which are called as **MultiDimensional Scaling (MDS)**, the widely used metric MDS is PCoA and its special type PCA when calculating euclidean distance.
 
 ## What is NMDS?
 
-The **non-metric multidimensional scaling (NMDS)** is, as its name implicates, the MDS for non-metric data. Which can be more convenient in ecology, since the ecological data often don't follow the normal distribution. 
+The **Non-metric MultiDimensional Scaling (NMDS)** is, as its name implicates, the MDS for non-metric data. Which can be more convenient in analyzing ecology data, since the ecological data often don't follow the normal distribution. 
 
 As [Wikipedia](https://en.wikipedia.org/wiki/Multidimensional_scaling#:~:text=of%20the%20dissimilarities.-,Non%2Dmetric%20multidimensional%20scaling%20(NMDS)) explains, the NMDS finds a non-parametric monotonic relationship between the dissimilarities in the item-item matrix and the Euclidean distance between items, and the location of each item in the low-dimensional space.
 
@@ -27,7 +31,7 @@ Translate this into simplified language, it says the NMDS ...
 
 The inconsistency between the original high-dimensional data and the reduced low-dimensional data is measured by **stress** in each iteration. The value ranges from 0 to 1, where 0 means a _perfecto_ fit and 1 means a _big yikes_.
 
-Generally, stress values below 0.2 are considered acceptable, below 0.1 is good. The stress value should be reported with NMDS while publishing results.
+Generally, stress values below 0.2 are considered acceptable, below 0.1 are good. The stress value should be reported with NMDS while publishing results.
 
 Higher number of samples often leads to higher stress value, also a very low stress value might indicate that the dataset is too small for the NMDS.
 
@@ -42,11 +46,11 @@ knitr::opts_knit$set(root.dir=path) # Use proj wd (effects from next)
 knitr::opts_chunk$set(fig.align = 'center')
 ```
 
-We will use the `metaNDS()` from package `vegan` to calculate the NMDS and visualize the result using `ordiplot()`. As demonstration, we use a tadpole abundance data collected in a Madagascan rain forest:
+We will use the `metaNDS()` from package `vegan` to calculate NMDS and visualize the result using `ordiplot()`. As demonstration, we use a tadpole abundance data collected in a Madagascan rain forest:
 
 ```{r data_import, echo=T, message=F, warning=F}
 source("ProjectAnalysis/Data_Manipulation/tadpole_clean.R")
-tadpoleSp <- tadpoleSp[, -1] #drop first column (transects)
+tadpoleSp <- tadpoleSp[, -1] # drop first column (transects)
 ```
 
 ```{r show_tadpole}
@@ -83,7 +87,7 @@ ordiplot(tadNMDS, type = "p", display = "species")
 orditorp(tadNMDS, display = "site") # orditorp plots text by default
 ```
 
-## Fitting environmental data using `vegan`
+### Fitting environmental data using `vegan`
 
 Available environmental data could be combined with NMDS to identify potential driver in the community composition and help explain their clustering patterns.
 
@@ -108,7 +112,7 @@ orditorp(tadNMDS, display = "site", add = TRUE)
 ordisurf(tadNMDS, altitude, main = 'Altitude', col = 'blue', add = TRUE)
 ```
 
-## Plotting NMDS using `ggplot2`
+### Plotting NMDS using `ggplot2`
 
 If you have ever worked with `ggplot2` and its enormous family, you probably can't go back to basic R plots. Fortunately, there's a way to plot, not only the NMDS, also other ordination analyses from `vegan` using `ggplot2`. This can make our plot more precise and customizable.
 
@@ -147,8 +151,8 @@ spCoord <- as_tibble(scores(tadNMDS)$species)
 
 p.NMDS.sp <- ggplot()+
   coord_equal() +
-  theme_aes() + # available in source code Rmd
-  MoMAColor() + # available in source code Rmd
+  theme_aes() + # set themes, available in source code Rmd
+  MoMAColor() + # use MoMA color palattes, available in source code Rmd
   theme(aspect.ratio = 1) +
   geom_point(data = spCoord, aes(x = NMDS1, y = NMDS2), size = 2, shape = 3, color = "red", alpha = 0.9) +
   ylim(-1.6, 2)
@@ -169,158 +173,212 @@ en
 
 `envfit` distinguishes the variables into *vectors* (continuous) or *factor* (categorical) variables. For each category (in each categorical variable), the centroid coordinates was calculated, which represents the center of the mass and the average coordination of all points belong to that category.
 
-### Spider plot
+The five vector variables are self-explained, `Speed_cat` represents the proportion of fast stream inside the sampled transect in five categories, e.g. a transect in which 74% of itself has fast stream is put in the category [70,80).
+
+#### Spider plot
 
 The centroids can be used to plot a spider plot:
 
-```{r spider_plot, warning=F, message=F}
-cat <- "Speed_cat"
-catlvl <- row.names(en$factors$centroids) 
-str_sub(catlvl, start = 1, end = nchar(cat)) <- '' # fix envfit rownames and extract categories
-centroids <- as_tibble(en$factors$centroids) %>% mutate(cat = catlvl)
+<!-- ```{r spider_plot, warning=F, message=F, include=F} -->
+<!-- cat <- "Speed_cat" -->
+<!-- catlvl <- row.names(en$factors$centroids)  -->
+<!-- str_sub(catlvl, start = 1, end = nchar(cat)) <- '' # fix envfit rownames and extract categories -->
+<!-- centroids <- as_tibble(en$factors$centroids) %>% mutate(cat = catlvl) -->
 
-segs <- left_join(
-  as_tibble(cbind(siteCoord, cat = env.comp$Speed_cat)), 
-  as_tibble(setNames(centroids, c("cN1", 'cN2', 'cat')))
-  ) # prepare geom_segment data
+<!-- segs <- left_join( -->
+<!--   as_tibble(cbind(siteCoord, cat = env.comp$speed_cat)),  -->
+<!--   as_tibble(setNames(centroids, c("cN1", 'cN2', 'cat'))) -->
+<!--   ) # prepare geom_segment data -->
 
-p.NMDS.sp.st_Speed <- p.NMDS.sp +
-  geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$Speed_cat), size = 3.5, alpha = 0.8) +
-  geom_segment(data = segs, aes(x = NMDS1, y = NMDS2, xend = cN1, yend = cN2, shape = cat, color = cat)) + # lines
-  geom_point(data = centroids, aes(x = NMDS1, y = NMDS2, shape = cat, color = cat), size = 4) + # centroid points
-  geom_text(data = siteCoord, aes(x = NMDS1, y = NMDS2, label = c(1:nrow(siteCoord))), color = "white", size = 1.8, alpha = 1, check_overlap = T) +
-  guides(color = guide_legend("Fast stream percentage"), shape = "none")
+<!-- p.NMDS.sp.st_Speed <- p.NMDS.sp + -->
+<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$Speed_cat), size = 3.5, alpha = 0.8) + -->
+<!--   geom_segment(data = segs, aes(x = NMDS1, y = NMDS2, xend = cN1, yend = cN2, shape = cat, color = cat)) + # lines -->
+<!--   geom_point(data = centroids, aes(x = NMDS1, y = NMDS2, shape = cat, color = cat), size = 4) + # centroid points -->
+<!--   geom_text(data = siteCoord, aes(x = NMDS1, y = NMDS2, label = c(1:nrow(siteCoord))), color = "white", size = 1.8, alpha = 1, check_overlap = T) + -->
+<!--   guides(color = guide_legend("Fast stream percentage"), shape = "none") -->
 
-p.NMDS.sp.st_Speed
-```
+<!-- p.NMDS.sp.st_Speed -->
+<!-- ``` -->
 
-### Hull plot
+<!-- #### Hull plot -->
 
-Sometimes another hull plot will give a better overview:
+<!-- Sometimes another hull plot will give a better overview: -->
 
-```{r hullplot, warning=F, message=F}
-chullBorder <- function(site, cat) { # extract outline points
-  site <- cbind(site, cat) %>% group_by(cat)
-  
-  borders <- site %>%
-    group_map(~ chull(.[, c(1,2)])) # extract outline points index
-  
-  hulls <- map2(.x = borders, .y = split(site, site$cat), function(x, y){
-    return(y[x,c(1,2)])
-  }) %>%
-    map2_dfr(., seq_along(.), ~ mutate(.x, cat = factor(.y))) # prepare geom_polygon data
-}
+<!-- ```{r hullplot, warning=F, message=F} -->
+<!-- chullBorder <- function(site, cat) { # extract outline points -->
+<!--   site <- cbind(site, cat) %>% group_by(cat) -->
 
-hulls <- chullBorder(siteCoord, env.comp$Speed_cat)
+<!--   borders <- site %>% -->
+<!--     group_map(~ chull(.[, c(1,2)])) # extract outline points index -->
 
-p.NMDS.sp.st_Speed <- p.NMDS.sp +
-  geom_polygon(data = hulls, aes(x = NMDS1, y = NMDS2, fill = cat), alpha = 0.3) + # hull
-  geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$Speed_cat), size = 3.5, alpha = 0.8) +
-  guides(color = guide_legend("Fast stream percentage"), fill = "none")
+<!--   hulls <- map2(.x = borders, .y = split(site, site$cat), function(x, y){ -->
+<!--     return(y[x,c(1,2)]) -->
+<!--   }) %>% -->
+<!--     map2_dfr(., seq_along(.), ~ mutate(.x, cat = factor(.y))) # prepare geom_polygon data -->
+<!-- } -->
 
-p.NMDS.sp.st_Speed
-```
+<!-- hulls <- chullBorder(siteCoord, env.comp$Speed_cat) -->
 
-### Continuous variable: fitting surface
+<!-- p.NMDS.sp.st_Speed <- p.NMDS.sp + -->
+<!--   geom_polygon(data = hulls, aes(x = NMDS1, y = NMDS2, fill = cat), alpha = 0.3) + # hull -->
+<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$Speed_cat), size = 3.5, alpha = 0.8) + -->
+<!--   guides(color = guide_legend("Fast stream percentage"), fill = "none") -->
 
-To fit a smooth surface on our data, we still use `ordisurf` from `vegan` to do the calculation, but we do not let it plot the result directly. 
+<!-- p.NMDS.sp.st_Speed -->
+<!-- ``` -->
 
-```{r ggfit}
-depth <- ordisurf(tadNMDS ~ env.comp$`Depth (cm)`, plot = FALSE)
-alt <- ordisurf(tadNMDS ~ env.comp$`altitude [m asl]`, plot = FALSE)
-slope <- ordisurf(tadNMDS ~ env.comp$`stream slope [cm/30m]`, plot = FALSE)
-```
+<!-- ```{r slope cat} -->
+<!-- summary(env.comp$`stream slope [cm/30m]`) -->
+<!-- slope_hulls <- chullBorder(siteCoord, env.comp$slope_cat) -->
 
-As I mentioned before, the environmental variable of the surface is stored in the third axis, if we take look at the ordination object `ordisurf` produces (try `str(depth)`, I will not show it here since it is a very huge object), we can find a `$grid` list containing all the coordinates. We simply need to extract them and plot them on our ggplots.
+<!-- p.NMDS.sp.st_slope <- p.NMDS.sp + -->
+<!--   geom_polygon(data = slope_hulls, aes(x = NMDS1, y = NMDS2, fill = cat), alpha = 0.3) + # hull -->
+<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$slope_cat), size = 3.5, alpha = 0.8) + -->
+<!--   guides(color = guide_legend("Fast stream percentage"), fill = "none") -->
 
-```{r}
-extract.xyz <- function(obj) {
-  xy <- expand.grid(x = obj$grid$x, y = obj$grid$y)
-  xyz <- cbind(xy, c(obj$grid$z))
-  names(xyz) <- c("x", "y", "z")
-  return(xyz)
-}
+<!-- p.NMDS.sp.st_slope -->
+<!-- ``` -->
 
-contour.depth <- extract.xyz(obj = depth)
-contour.alt <- extract.xyz(obj = alt)
-contour.slope <- extract.xyz(obj = slope)
-```
+<!-- ```{r deep_cat} -->
+<!-- summary(env.comp$`stream slope [cm/30m]`) -->
+<!-- slope_hulls <- chullBorder(siteCoord, env.comp$slope_cat) -->
 
+<!-- p.NMDS.sp.st_slope <- p.NMDS.sp + -->
+<!--   geom_polygon(data = slope_hulls, aes(x = NMDS1, y = NMDS2, fill = cat), alpha = 0.3) + # hull -->
+<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$slope_cat), size = 3.5, alpha = 0.8) + -->
+<!--   guides(color = guide_legend("Fast stream percentage"), fill = "none") -->
 
-```{r ggfitplot, warning=F, message=F, fig.width=10, fig.height=11}
-library(geomtextpath)
-p.NMDS.sp.st.depth <- p.NMDS.sp.st +
-  geom_textcontour(data = contour.depth, aes(x, y, z = z), color = moma.colors("OKeeffe")[2]) +
-  geom_text(aes(-0.35, 1.75, label = "Depth"), size = 8, fill = "black", fontface = "bold")
-
-p.NMDS.sp.st.alt <- p.NMDS.sp.st +
-  geom_textcontour(data = contour.alt, aes(x, y, z = z), color = moma.colors("OKeeffe")[3]) +
-  geom_text(aes(-0.35, 1.75, label = "Altitude"), size = 8, fill = "black", fontface = "bold") +
-  ylab("")
-
-p.NMDS.sp.st.slope <- p.NMDS.sp.st +
-  geom_textcontour(data = contour.slope, aes(x, y, z = z), color = moma.colors("OKeeffe")[5]) +
-  geom_text(aes(-0.35, 1.75, label = "Stream slope"), size = 8, fill = "black", fontface = "bold")
-
-library(ggpubr)
-p.NMDS.sp.st_Speed <- p.NMDS.sp.st_Speed + 
-  guides(color = "none", fill = "none") +
-  geom_text(aes(-0.25, 1.75, label = "Fast stream percentage"), size = 7, fill = "black", fontface = "bold") +
-  ylab("")
-
-  
-  
-p.NMDS.sp.st.fit <- ggarrange(
-  p.NMDS.sp.st.depth, p.NMDS.sp.st.alt, p.NMDS.sp.st.slope, p.NMDS.sp.st_Speed, 
-  ncol = 2, nrow = 2,
-  align = "hv"
-  )
-p.NMDS.sp.st.fit
-```
-
-`geom_contour_filled` can also filled up the space between surface levels and make fancier plots, but it is more often used in visualizing meteorological data (maybe see `metR` ?).
-
-```{r geom_contour_filled, warning=F, message=F}
-p.NMDS.sp.st.depth <- ggplot(data = spCoord, aes(x = NMDS1, y = NMDS2))+
-  geom_contour_filled(data = contour.depth, aes(x, y, z = z), alpha = 0.9) +
-  geom_point(data = spCoord, aes(x = NMDS1, y = NMDS2), size = 2, shape = 3, color = "red", alpha = 1) +
-  geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2), color = "#222222", size = 3.5, alpha = 0.5) +
-  geom_text(data = siteCoord, aes(x = NMDS1, y = NMDS2, label = c(1:nrow(siteCoord))), color = "white", size = 1.8, alpha = 1, check_overlap = T) +
-  scale_fill_manual(values = moma.colors("Ernst", 20)) +
-  coord_equal() +
-  theme_aes() + # available in source code Rmd
-  theme(aspect.ratio = 1, legend.position = "none") +
-  ylim(-1.6, 2) 
-  # geom_text(aes(-0.35, 1.75, label = "Depth"), size = 8, fill = "black", fontface = "bold")
-
-p.NMDS.sp.st.depth
-```
-
-## What matters?
-
-Now, as we have all these fancy plots, let's talk about what we can interpret from them. 
+<!-- p.NMDS.sp.st_slope -->
+<!-- ``` -->
 
 
 
+<!-- #### Continuous variable: fitting surface -->
 
+<!-- To fit a smooth surface on our data, we still use `ordisurf` from `vegan` to do the calculation, but we do not let it plot the result directly.  -->
 
-## PERMANOVA
+<!-- ```{r ggfit} -->
+<!-- depth <- ordisurf(tadNMDS ~ env.comp$`Depth (cm)`, plot = FALSE) -->
+<!-- alt <- ordisurf(tadNMDS ~ env.comp$`altitude [m asl]`, plot = FALSE) -->
+<!-- slope <- ordisurf(tadNMDS ~ env.comp$`stream slope [cm/30m]`, plot = FALSE) -->
+<!-- ``` -->
 
-```{r permanova}
-adonis2(tadpoleSp ~ env.comp$`altitude [m asl]`+env.comp$`stream slope [cm/30m]`+env.comp$`Depth (cm)`+env.comp$Speed_cat)
-adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`+env.comp$`Depth (cm)`+env.comp$Speed_cat)
-adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`)
-```
+<!-- As I mentioned before, the environmental variable of the surface is stored in the third axis, if we take look at the ordination object `ordisurf` produces (try `str(depth)`, I will not show it here since it is a very huge object), we can find a `$grid` list containing all the coordinates. We simply need to extract them and plot them on our ggplots. -->
 
+<!-- ```{r} -->
+<!-- extract.xyz <- function(obj) { -->
+<!--   xy <- expand.grid(x = obj$grid$x, y = obj$grid$y) -->
+<!--   xyz <- cbind(xy, c(obj$grid$z)) -->
+<!--   names(xyz) <- c("x", "y", "z") -->
+<!--   return(xyz) -->
+<!-- } -->
 
+<!-- contour.depth <- extract.xyz(obj = depth) -->
+<!-- contour.alt <- extract.xyz(obj = alt) -->
+<!-- contour.slope <- extract.xyz(obj = slope) -->
+<!-- ``` -->
+
+<!-- `geom_textcontour` from package `geomtextpath` can easily make a nice ggplot-layer of the surface contour. We can then combine all plots together and have our final plot: -->
+
+<!-- ```{r ggfitplot, warning=F, message=F, fig.width=10, fig.height=11} -->
+<!-- library(geomtextpath) -->
+<!-- p.NMDS.sp.st.depth <- p.NMDS.sp.st + -->
+<!--   geom_textcontour(data = contour.depth, aes(x, y, z = z), color = moma.colors("OKeeffe")[2]) + -->
+<!--   geom_text(aes(-0.25, 1.75, label = "Depth"), size = 7, fill = "black", fontface = "bold") -->
+
+<!-- p.NMDS.sp.st.alt <- p.NMDS.sp.st + -->
+<!--   geom_textcontour(data = contour.alt, aes(x, y, z = z), color = moma.colors("OKeeffe")[3]) + -->
+<!--   geom_text(aes(-0.25, 1.75, label = "Altitude"), size = 7, fill = "black", fontface = "bold") + -->
+<!--   ylab("") -->
+
+<!-- p.NMDS.sp.st.slope <- p.NMDS.sp.st + -->
+<!--   geom_textcontour(data = contour.slope, aes(x, y, z = z), color = moma.colors("OKeeffe")[5]) + -->
+<!--   geom_text(aes(-0.25, 1.75, label = "Stream slope"), size = 7, fill = "black", fontface = "bold") -->
+
+<!-- # include speed plot -->
+<!-- p.NMDS.sp.st_Speed <- p.NMDS.sp.st_Speed +  -->
+<!--   guides(color = "none", fill = "none") + -->
+<!--   geom_text(aes(-0.25, 1.75, label = "Fast stream percentage"), size = 7, fill = "black", fontface = "bold") + -->
+<!--   ylab("") -->
+
+<!-- # arrange -->
+<!-- library(ggpubr) -->
+<!-- p.NMDS.sp.st.fit <- ggarrange( -->
+<!--   p.NMDS.sp.st.depth, p.NMDS.sp.st.alt, p.NMDS.sp.st.slope, p.NMDS.sp.st_Speed,  -->
+<!--   ncol = 2, nrow = 2, -->
+<!--   align = "hv") -->
+
+<!-- p.NMDS.sp.st.fit -->
+<!-- ``` -->
+
+<!-- `geom_contour_filled` can also filled up the space between surface levels and make fancier plots, but it is more often used in visualizing meteorological data (maybe see `metR` ?). -->
+
+<!-- ```{r geom_contour_filled, warning=F, message=F} -->
+<!-- p.NMDS.sp.st.depth <- ggplot(data = spCoord, aes(x = NMDS1, y = NMDS2))+ -->
+<!--   geom_contour_filled(data = contour.depth, aes(x, y, z = z), alpha = 0.9) + -->
+<!--   geom_point(data = spCoord, aes(x = NMDS1, y = NMDS2), size = 2, shape = 3, color = "red", alpha = 1) + -->
+<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2), color = "#222222", size = 3.5, alpha = 0.5) + -->
+<!--   geom_text(data = siteCoord, aes(x = NMDS1, y = NMDS2, label = c(1:nrow(siteCoord))), color = "white", size = 1.8, alpha = 1, check_overlap = T) + -->
+<!--   scale_fill_manual(values = moma.colors("Ernst", 20)) + -->
+<!--   coord_equal() + -->
+<!--   theme_aes() + # available in source code Rmd -->
+<!--   theme(aspect.ratio = 1, legend.position = "none") + -->
+<!--   ylim(-1.6, 2)  -->
+<!--   # geom_text(aes(-0.35, 1.75, label = "Depth"), size = 8, fill = "black", fontface = "bold") -->
+
+<!-- p.NMDS.sp.st.depth -->
+<!-- ``` -->
+
+<!-- ### What matters? -->
+
+<!-- Now, as we have all these fancy plots, let's talk about what we can interpret from them.  -->
+
+<!-- First, we noticed that there are two variables showing **planar** surfaces: the altitude and the stream slope. The consistent parallel surface contour shows that these two variables change at a constant rate (consistent gradient) across the NMDS space, also means the relationships between these variables and the NMDS axes are linear. -->
+
+<!-- - *OK, but what does that even mean?* -->
+
+<!-- The interpretation of a planar surface in NMDS can be tricky. The consistent gradient itself indicates a smooth transition of that environmental condition through our studied communities, this is possibly the case for altitude. But do these gradients explain the variation in our community? We have to dive a bit deeper to answer that question. And here comes PERMANOVA to the game. -->
+
+<!-- ## PERMANOVA -->
+
+<!-- **PERmutational Multivariate ANalysis of VAriance (PERMANOVA)** is w -->
+
+<!-- @bakker2024 explained PERMANOVA test and @bakker2024a explained PERMDISP -->
+
+<!-- ```{r permanova} -->
+<!-- alt <- env.comp$`altitude [m asl]` -->
+<!-- slope <- env.comp$`stream slope [cm/30m]` -->
+<!-- dep <- env.comp$`Depth (cm)` -->
+<!-- speed <- env.comp$Speed_cat -->
+
+<!-- adonis2(tadpoleSp ~ alt*slope*dep*speed)  -->
+<!--   # adonis2(tadpoleSp ~ slope*dep*Speed_cat) -->
+<!-- # adonis2(tadpoleSp ~ env.comp$`altitude [m asl]`* env.comp$`stream slope [cm/30m]`* env.comp$`Depth (cm)`* env.comp$Speed_cat) -->
+<!-- # adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`* env.comp$`Depth (cm)`* env.comp$Speed_cat) -->
+
+<!-- # adonis2(tadpoleSp ~ env.comp$`Depth (cm)`* env.comp$Speed_cat) -->
+<!-- # adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`* env.comp$Speed_cat) -->
+<!-- # adonis2(tadpoleSp ~ env.comp$Speed_cat) -->
+<!-- ``` -->
+
+<!-- ```{r PERMDISP} -->
+<!-- library(betapart) -->
+<!-- dist <- beta.pair.abund(tadpoleSp, index.family = "bray") -->
+<!-- perm <- betadisper(dist[[3]], env.comp$Speed_cat) # a multivariate analogue of Levene's test for homogeneity of variances -->
+<!-- anova(perm) -->
+<!-- ``` -->
 
 
 ## Acknowledgement
 
-I thank here the codes and examples shared by 
+I hereby express my thanks to the codes and examples shared by 
 
 - [Dr. Jackie Zorz](https://jkzorz.github.io/2020/04/04/NMDS-extras.html)
 - [Dr. Christopher Chizinski](https://chrischizinski.github.io/rstats/vegan-ggplot2/)
 - [Allan Cameron](https://stackoverflow.com/a/75507179/24065650)
 
 for helping me finish this post.
+
+---
+
+**Issues? Comments? Improvements?** I'm happy to hear your opinions on this post and my website. Find my source code at [github](https://github.com/zzzhehao/zzzhehao.github.io/tree/main) or [contact me](mailto:hu_zhehao@hotmail.com).

@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Zhehao Hu"
+  site-url: https://zzzhehao.github.io
+  description: "Zhehao Hu's Personal Website"
   
   navbar: 
     tools: 
@@ -12,33 +14,8 @@ website:
       - icon: instagram
         href: https://instagram.com/zhehao.hu_
     search: true
-    background: $Keloe-1-rgba
-  
-  sidebar: 
-    style: "docked"
-    logo: "images/loading_cat.png"
-    pinned: true
-    alignment: center
-    background: $Keloe-2-rgba
-    collapse-level: 1
-    contents: 
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About me
-    
-  page-footer: 
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)"
-    left: "&copy; By Zhehao Hu, 2024"
-    center: "Source code of this website is available at [github.com/zzzhehao](https://github.com/zzzhehao/zzzhehao.github.io)"
-    background: $Keloe-1-rgba
-    border: false
+    background: transparent
 
-format:
+format: 
   html:
-    theme: 
-      - flatly
-      - theme.scss
-    toc: true
-    code-copy: true
-    code-overflow: wrap
+    theme: theme.scss
