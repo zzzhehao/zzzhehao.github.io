@@ -1,7 +1,7 @@
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
   }
   
   .album-thumbnail {
@@ -16,18 +16,32 @@
     object-fit: cover;
   }
   
-  .album-title {
+  .album-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 10px;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
   }
   
-  .album-thumbnail:hover .album-title {
+  .album-title {
+    text-align: center;
+    padding: 10px;
+    
+    /* Font properties */
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .album-thumbnail:hover .album-overlay {
     opacity: 1;
   }
   

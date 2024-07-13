@@ -1,16 +1,26 @@
 ---
 title: "Gallery"
+format: html
 ---
-
+<body>
 <div class="gallery-grid">
-  <div class="album-thumbnail" data-album="album1">
-    <img src="path/to/thumbnail1.jpg" alt="Album 1">
-    <div class="album-title">Album 1</div>
+
+<!-- Album 1 -->
+<div class="album-thumbnail" data-album="album1">
+  <img src="thumbnails/nova.jpg" alt="Album 1">
+  <div class="album-overlay">
+<div class="album-title">Album 1</div>
   </div>
-  <div class="album-thumbnail" data-album="album2">
-    <img src="path/to/thumbnail2.jpg" alt="Album 2">
-    <div class="album-title">Album 2</div>
+</div>
+
+<!-- Album2 -->
+<div class="album-thumbnail" data-album="album1">
+  <img src="thumbnails/nova.jpg" alt="Album 2">
+  <div class="album-overlay">
+<div class="album-title">Album 2</div>
   </div>
+</div>
+
   <!-- Add more album thumbnails as needed -->
 </div>
 
@@ -24,3 +34,4 @@ title: "Gallery"
 </div>
 
 <script src="gallery.js"></script>
+</body>

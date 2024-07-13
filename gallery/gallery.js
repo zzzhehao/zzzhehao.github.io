@@ -1,3 +1,4 @@
+console.log("Gallery script loaded");
 document.addEventListener('DOMContentLoaded', () => {
     const galleryGrid = document.querySelector('.gallery-grid');
     const fullscreenGallery = document.getElementById('fullscreen-gallery');
