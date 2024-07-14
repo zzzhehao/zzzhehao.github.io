@@ -50,7 +50,7 @@ format:
   ">
   
 <!-- Left part -->
-<div style="width: 60%;">
+<div style="width: 100%;">
   <span style="font-size:3rem;line-height:0.7">Zhehao Hu</span>
 
   <span style="font-size:0.9rem">My interest is my strongest strength.</span>
@@ -67,11 +67,12 @@ format:
 </div>
     
   <!-- Right part  -->
-  <div style="width: 40%;">
+  <!-- <div style="width: 40%;"> -->
   
 <!-- Right part text -->
+<!-- To enable this column set left width to 60% -->
 
-  </div>
+  <!-- </div> --> 
   
 </div>
 </div>
