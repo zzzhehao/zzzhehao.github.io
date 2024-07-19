@@ -18,3 +18,4 @@ include-after-body:
   - text: |
       <script src="gallery.js"></script>
 ```
+2. Don't ask me about the Javascript, Css and HTML in this gallery project -- I asked [Perplexity](https://perplexity.ai), I really have no idea in front end development, but I do recommend Perplexity for coding and information searching -- it is really powerful.

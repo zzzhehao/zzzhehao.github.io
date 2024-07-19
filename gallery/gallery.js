@@ -1,111 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM fully loaded and parsed');
-  
   const galleryGrid = document.querySelector('.gallery-grid');
-  console.log('Gallery grid:', galleryGrid);
-
   const fullscreenGallery = document.getElementById('fullscreen-gallery');
-  console.log('Fullscreen gallery:', fullscreenGallery);
-
   const closeButton = document.getElementById('close-gallery');
-  console.log('Close button:', closeButton);
-
-  const currentImage = document.getElementById('current-image');
-  console.log('Current image:', currentImage);
-
   const prevButton = document.getElementById('prev-image');
-  console.log('Previous button:', prevButton);
-
   const nextButton = document.getElementById('next-image');
-  console.log('Next button:', nextButton);
+  const image1 = document.getElementById('gallery-image-1');
+  const image2 = document.getElementById('gallery-image-2');
 
   let currentAlbum = [];
   let currentIndex = 0;
+  let activeImage = image1;
+  let inactiveImage = image2;
+  let isTransitioning = false;
 
-  if (galleryGrid) {
-    galleryGrid.addEventListener('click', (e) => {
-      console.log('Click event on gallery grid');
-      const thumbnail = e.target.closest('.album-thumbnail');
-      if (thumbnail) {
-        console.log('Thumbnail clicked:', thumbnail.dataset.album);
-        const albumName = thumbnail.dataset.album;
-        openGallery(albumName);
-      }
-    });
-  } else {
-    console.error('Gallery grid not found');
+  function logStatus(message) {
+    console.log(`[Gallery Status] ${message}`);
   }
 
-  if (closeButton) {
-    closeButton.addEventListener('click', closeGallery);
-  } else {
-    console.error('Close button not found');
-  }
+  galleryGrid.addEventListener('click', (e) => {
+    const thumbnail = e.target.closest('.album-thumbnail');
+    if (thumbnail) {
+      const albumName = thumbnail.dataset.album;
+      openGallery(albumName);
+    }
+  });
 
-  if (prevButton) {
-    prevButton.addEventListener('click', showPreviousImage);
-  } else {
-    console.error('Previous button not found');
-  }
-
-  if (nextButton) {
-    nextButton.addEventListener('click', showNextImage);
-  } else {
-    console.error('Next button not found');
-  }
+  closeButton.addEventListener('click', closeGallery);
+  prevButton.addEventListener('click', showPreviousImage);
+  nextButton.addEventListener('click', showNextImage);
 
   function openGallery(albumName) {
-    console.log('Opening gallery for album:', albumName);
+    logStatus(`Opening gallery for album: ${albumName}`);
     currentAlbum = fetchAlbumImages(albumName);
-    console.log('Fetched images:', currentAlbum);
     currentIndex = 0;
-    updateGalleryImage();
+
     if (fullscreenGallery) {
       fullscreenGallery.style.display = 'block';
-      console.log('Fullscreen gallery should now be visible');
-    } else {
-      console.error('Fullscreen gallery element not found');
+      document.body.classList.add('gallery-open');
+
+      // Reset images
+      image1.src = '';
+      image2.src = '';
+      image1.classList.remove('active');
+      image2.classList.remove('active');
+
+      // Load the first image
+      activeImage = image1;
+      inactiveImage = image2;
+      loadImage(currentAlbum[currentIndex], activeImage, () => {
+        activeImage.classList.add('active');
+        logStatus('First image loaded and displayed');
+      });
     }
   }
 
   function closeGallery() {
-    console.log('Closing gallery');
+    logStatus('Closing gallery');
     if (fullscreenGallery) {
       fullscreenGallery.style.display = 'none';
-    } else {
-      console.error('Fullscreen gallery element not found');
+      document.body.classList.remove('gallery-open');
+  
+      // Clear both images when closing
+      image1.src = '';
+      image2.src = '';
+      image1.classList.remove('active');
+      image2.classList.remove('active');
+  
+      // Reset the transition flag
+      isTransitioning = false;
     }
   }
 
   function showPreviousImage() {
-    console.log('Showing previous image');
-    currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
-    updateGalleryImage();
-  }
-
-  function showNextImage() {
-    console.log('Showing next image');
-    currentIndex = (currentIndex + 1) % currentAlbum.length;
-    updateGalleryImage();
-  }
-
-  function updateGalleryImage() {
-    if (currentAlbum.length > 0) {
-      if (currentImage) {
-        currentImage.src = currentAlbum[currentIndex];
-        console.log('Updated image src:', currentImage.src);
-      } else {
-        console.error('Current image element not found');
-      }
-    } else {
-      console.log('No images in the current album');
+    if (!isTransitioning) {
+      currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+      updateGalleryImage();
     }
   }
 
+  function showNextImage() {
+    if (!isTransitioning) {
+      currentIndex = (currentIndex + 1) % currentAlbum.length;
+      updateGalleryImage();
+    }
+  }
+
+  function updateGalleryImage() {
+    if (currentAlbum.length > 0 && !isTransitioning) {
+      isTransitioning = true;
+      logStatus(`Updating gallery image to index: ${currentIndex}`);
+
+      loadImage(currentAlbum[currentIndex], inactiveImage, () => {
+        activeImage.classList.remove('active');
+        inactiveImage.classList.add('active');
+
+        [activeImage, inactiveImage] = [inactiveImage, activeImage];
+
+        setTimeout(() => {
+          isTransitioning = false;
+          logStatus('Image transition complete');
+        }, 500);
+      });
+    }
+  }
+
+  function loadImage(src, imgElement, onLoadCallback) {
+    logStatus(`Loading image: ${src}`);
+    imgElement.src = src;
+    imgElement.onload = () => {
+      logStatus(`Image loaded successfully: ${src}`);
+      onLoadCallback();
+    };
+    imgElement.onerror = () => {
+      console.error(`Failed to load image: ${src}`);
+      isTransitioning = false;
+    };
+  }
+
   function fetchAlbumImages(albumName) {
-    console.log('Fetching images for album:', albumName);
     const albums = {
-      'Nova': ['album/copenhagen/copenhagen1.jpg', 'album/copenhagen/copenhagen2.jpg'],
+      'Nova': ['album/copenhagen/copenhagen1.jpg', 'album/copenhagen/copenhagen2.jpg', 'album/copenhagen/copenhagen5.jpg'],
       'Cope': ['album/copenhagen/copenhagen3.jpg', 'album/copenhagen/copenhagen4.jpg']
     };
     return albums[albumName] || [];

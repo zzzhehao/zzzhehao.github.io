@@ -30,9 +30,13 @@ include-after-body:
   <button id="close-gallery" class="close-button">&times;</button>
   <div class="gallery-content">
   <button id="prev-image" class="nav-button prev-button"></button>
-  <img id="current-image" src="" alt="Current Image">
+  <div class="image-container">
+  <img id="gallery-image-1" class="gallery-image" src="" alt="Gallery Image 1">
+  <img id="gallery-image-2" class="gallery-image" src="" alt="Gallery Image 2">
+  </div>
   <button id="next-image" class="nav-button next-button"></button>
   </div>
 </div>
 
 # This is my gallery
+
