@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           isTransitioning = false;
           logStatus('Image transition complete');
-        }, 500);
+        }, 700);
       });
     }
   }
