@@ -1,37 +1,38 @@
 ---
 title: "Gallery"
 format: html
+include-after-body: 
+  - text: |
+      <script src="gallery.js"></script>
 ---
-<body>
+
 <div class="gallery-grid">
 
 <!-- Album 1 -->
-<div class="album-thumbnail" data-album="album1">
-  <img src="thumbnails/nova.jpg" alt="Album 1">
+<div class="album-thumbnail" data-album="Nova">
+  <img src="thumbnails/nova.jpg" alt="Nova">
   <div class="album-overlay">
-<div class="album-title">Album 1</div>
+<div class="album-title">Nova</div>
   </div>
 </div>
 
 <!-- Album2 -->
-<div class="album-thumbnail" data-album="album1">
-  <img src="thumbnails/nova.jpg" alt="Album 2">
+<div class="album-thumbnail" data-album="Cope">
+  <img src="album/copenhagen/copenhagen1.jpg" alt="Cope">
   <div class="album-overlay">
-<div class="album-title">Album 2</div>
+<div class="album-title">Cope</div>
   </div>
 </div>
 
-  <!-- Add more album thumbnails as needed -->
 </div>
 
 <div id="fullscreen-gallery" class="fullscreen-gallery">
   <button id="close-gallery" class="close-button">&times;</button>
   <div class="gallery-content">
-    <button id="prev-image" class="nav-button prev-button"></button>
-    <img id="current-image" src="" alt="Current Image">
-    <button id="next-image" class="nav-button next-button"></button>
+  <button id="prev-image" class="nav-button prev-button"></button>
+  <img id="current-image" src="" alt="Current Image">
+  <button id="next-image" class="nav-button next-button"></button>
   </div>
 </div>
 
-<script src="gallery.js"></script>
-</body>
+# This is my gallery

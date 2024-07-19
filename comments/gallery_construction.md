@@ -9,3 +9,12 @@ This comment notes some insight while trying to construct gallery (gallery/index
 4. A brilliant show case of automatically extract photo exif and show them while inspecting photo, can maybe used otherwise, [example](https://rfsaldanha.github.io/photos/photos.html) and [source code](https://github.com/rfsaldanha/rfsaldanha.github.io/blob/main/photos/photos.qmd) 
 5. Also see [lightbox tool](https://github.com/quarto-ext/lightbox?tab=readme-ov-file)
 6. **Design**: [hamada hideaki](https://github.com/quarto-ext/lightbox?tab=readme-ov-file) 
+
+### 2024/07/19
+
+1. Quarto treats Javascript differently (although I don't know Javascript at all but certainly it is a bit complexer than in pure html), use following front matter yaml header to include the script:
+```yaml
+include-after-body: 
+  - text: |
+      <script src="gallery.js"></script>
+```

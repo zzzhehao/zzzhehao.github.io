@@ -1,56 +1,113 @@
-console.log("Gallery script loaded");
 document.addEventListener('DOMContentLoaded', () => {
-    const galleryGrid = document.querySelector('.gallery-grid');
-    const fullscreenGallery = document.getElementById('fullscreen-gallery');
-    const closeButton = document.getElementById('close-gallery');
-    const currentImage = document.getElementById('current-image');
-    const prevButton = document.getElementById('prev-image');
-    const nextButton = document.getElementById('next-image');
+  console.log('DOM fully loaded and parsed');
   
-    let currentAlbum = [];
-    let currentIndex = 0;
-  
+  const galleryGrid = document.querySelector('.gallery-grid');
+  console.log('Gallery grid:', galleryGrid);
+
+  const fullscreenGallery = document.getElementById('fullscreen-gallery');
+  console.log('Fullscreen gallery:', fullscreenGallery);
+
+  const closeButton = document.getElementById('close-gallery');
+  console.log('Close button:', closeButton);
+
+  const currentImage = document.getElementById('current-image');
+  console.log('Current image:', currentImage);
+
+  const prevButton = document.getElementById('prev-image');
+  console.log('Previous button:', prevButton);
+
+  const nextButton = document.getElementById('next-image');
+  console.log('Next button:', nextButton);
+
+  let currentAlbum = [];
+  let currentIndex = 0;
+
+  if (galleryGrid) {
     galleryGrid.addEventListener('click', (e) => {
+      console.log('Click event on gallery grid');
       const thumbnail = e.target.closest('.album-thumbnail');
       if (thumbnail) {
+        console.log('Thumbnail clicked:', thumbnail.dataset.album);
         const albumName = thumbnail.dataset.album;
         openGallery(albumName);
       }
     });
-  
+  } else {
+    console.error('Gallery grid not found');
+  }
+
+  if (closeButton) {
     closeButton.addEventListener('click', closeGallery);
+  } else {
+    console.error('Close button not found');
+  }
+
+  if (prevButton) {
     prevButton.addEventListener('click', showPreviousImage);
+  } else {
+    console.error('Previous button not found');
+  }
+
+  if (nextButton) {
     nextButton.addEventListener('click', showNextImage);
-  
-    function openGallery(albumName) {
-      // Fetch album images (you'll need to implement this based on your data structure)
-      currentAlbum = fetchAlbumImages(albumName);
-      currentIndex = 0;
-      updateGalleryImage();
+  } else {
+    console.error('Next button not found');
+  }
+
+  function openGallery(albumName) {
+    console.log('Opening gallery for album:', albumName);
+    currentAlbum = fetchAlbumImages(albumName);
+    console.log('Fetched images:', currentAlbum);
+    currentIndex = 0;
+    updateGalleryImage();
+    if (fullscreenGallery) {
       fullscreenGallery.style.display = 'block';
+      console.log('Fullscreen gallery should now be visible');
+    } else {
+      console.error('Fullscreen gallery element not found');
     }
-  
-    function closeGallery() {
+  }
+
+  function closeGallery() {
+    console.log('Closing gallery');
+    if (fullscreenGallery) {
       fullscreenGallery.style.display = 'none';
+    } else {
+      console.error('Fullscreen gallery element not found');
     }
-  
-    function showPreviousImage() {
-      currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
-      updateGalleryImage();
+  }
+
+  function showPreviousImage() {
+    console.log('Showing previous image');
+    currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+    updateGalleryImage();
+  }
+
+  function showNextImage() {
+    console.log('Showing next image');
+    currentIndex = (currentIndex + 1) % currentAlbum.length;
+    updateGalleryImage();
+  }
+
+  function updateGalleryImage() {
+    if (currentAlbum.length > 0) {
+      if (currentImage) {
+        currentImage.src = currentAlbum[currentIndex];
+        console.log('Updated image src:', currentImage.src);
+      } else {
+        console.error('Current image element not found');
+      }
+    } else {
+      console.log('No images in the current album');
     }
-  
-    function showNextImage() {
-      currentIndex = (currentIndex + 1) % currentAlbum.length;
-      updateGalleryImage();
-    }
-  
-    function updateGalleryImage() {
-      currentImage.src = currentAlbum[currentIndex];
-    }
-  
-    function fetchAlbumImages(albumName) {
-      // Implement this function to return an array of image URLs for the given album
-      // This could involve fetching data from a JSON file or your server
-      return ['path/to/image1.jpg', 'path/to/image2.jpg', 'path/to/image3.jpg'];
-    }
-  });
+  }
+
+  function fetchAlbumImages(albumName) {
+    console.log('Fetching images for album:', albumName);
+    const albums = {
+      'Nova': ['album/copenhagen/copenhagen1.jpg', 'album/copenhagen/copenhagen2.jpg'],
+      'Cope': ['album/copenhagen/copenhagen3.jpg', 'album/copenhagen/copenhagen4.jpg']
+    };
+    return albums[albumName] || [];
+  }
+});
