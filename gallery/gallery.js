@@ -118,10 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function fetchAlbumImages(albumName) {
-    const albums = {
-      'Nova': ['album/copenhagen/copenhagen1.jpg', 'album/copenhagen/copenhagen2.jpg', 'album/copenhagen/copenhagen5.jpg'],
-      'Cope': ['album/copenhagen/copenhagen3.jpg', 'album/copenhagen/copenhagen4.jpg']
+    const albumConfig = {
+      // Setup albums here
+      'copenhagen capriccio': { count: 70, prefix: 'copenhagen-capriccio' },
+      'adria': { count: 39, prefix: 'adria' },
+      'taiwan23': { count: 42, prefix: 'taiwan23'}
     };
-    return albums[albumName] || [];
+
+    const config = albumConfig[albumName];
+    if (!config) return [];
+
+    const { count, prefix } = config;
+    const folderName = prefix.toLowerCase().replace(/\s+/g, '-');
+    
+    return Array.from({ length: count }, (_, i) => 
+      `album/${folderName}/${prefix.toLowerCase()}-${i + 1}.jpg`
+    );
   }
 });

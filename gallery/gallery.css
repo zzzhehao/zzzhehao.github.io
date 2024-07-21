@@ -1,20 +1,46 @@
+/* Align title with grid */
+.quarto-title-block {
+  max-width: 2560px; /* Match the max-width of the gallery grid */
+  margin: 0 auto;
+  padding: 30px 30px 0; /* Match the left and right padding of the gallery grid */
+}
+
+.quarto-title {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Adjust content padding */
+.quarto-container-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Ensure full width for title banner */
+.quarto-title-banner {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50% + 30px);
+  padding-right: calc(50vw - 50% + 30px);
+}
+
+/* Gallery things */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust min size as needed */
   gap: 30px;
-  width: 100%;
-  max-width: 1200px; /* Increased from 100px */
+  width: calc(100% - 60px); /* Subtract 60px to leave 30px on each side */
+  max-width: 2560px; /* Set a max-width to prevent extreme stretching on very wide screens */
   margin: 0 auto;
-  padding: 0 15px; /* Add some padding on small screens */
+  padding: 30px; /* Add padding to create space on the sides */
 }
 
 .album-thumbnail {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 1;
   width: 100%;
-  max-width: 100%;
-  /* background-color: #bd2525; for debuggung */
+  max-width: 500px; /* Increased max-width for larger thumbnails */
+  aspect-ratio: 1 / 1;
 }
 
 .album-thumbnail img {
@@ -22,14 +48,14 @@
   height: 100%;
   object-fit: cover;
 }
-  
+
 .album-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,12 +66,11 @@
 .album-title {
   text-align: center;
   padding: 10px;
-  
-  /* Font properties */
-  font-size: 1.2rem;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Times New Roman', serif;
   font-weight: bold;
   color: #333;
+  /* Base font size - will be adjusted with media queries */
+  font-size: 1rem;
 }
 
 .album-thumbnail:hover .album-overlay {
@@ -116,25 +141,6 @@ body.gallery-open .navbar {
   opacity: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 thumbnails per row */
-  }
-}
-
-@media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 thumbnails per row */
-  }
-}
-
-@media (max-width: 600px) {
-  .gallery-grid {
-    grid-template-columns: 1fr; /* 1 thumbnail per row */
-  }
-}
-
 /* Loading indicator */
 .image-container {
   position: relative;
@@ -175,4 +181,62 @@ body.gallery-open .navbar {
 
 .gallery-image.active {
   opacity: 1;
+}
+
+/* Responsive adjustments for grid */
+@media (max-width: 1600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+/* Responsive font sizes for album titles */
+@media (min-width: 300px) {
+  .album-title {
+    font-size: calc(0.8rem + 0.5vw);
+  }
+}
+
+@media (min-width: 600px) {
+  .album-title {
+    font-size: calc(1rem + 0.5vw);
+  }
+}
+
+@media (min-width: 900px) {
+  .album-title {
+    font-size: calc(1.2rem + 0.5vw);
+  }
+}
+
+@media (min-width: 1200px) {
+  .album-title {
+    font-size: calc(1.2rem + 0.5vw);
+  }
+}
+
+@media (min-width: 1600px) {
+  .album-title {
+    font-size: calc(1.2rem + 0.5vw);
+  }
 }
