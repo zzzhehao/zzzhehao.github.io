@@ -120,9 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function fetchAlbumImages(albumName) {
     const albumConfig = {
       // Setup albums here
-      'copenhagen capriccio': { count: 70, prefix: 'copenhagen-capriccio' },
+      'best-of-film': { count: 36, prefix: 'best-of-film'},
+      'taiwan23': { count: 42, prefix: 'taiwan23'},
       'adria': { count: 39, prefix: 'adria' },
-      'taiwan23': { count: 42, prefix: 'taiwan23'}
+      'copenhagen': { count: 70, prefix: 'copenhagen' },
+      'berlin21': { count: 11, prefix: 'berlin21'},
+      'kihh21': { count: 66, prefix: 'kihh21'},
+      'life21': { count: 204, prefix: 'life21'},
+      'tl': { count: 190, prefix: 'tl'},
+      'boltenhagen': { count: 27, prefix: 'boltenhagen'},
+      'life20': { count: 173, prefix: 'life20'},
+      'tokyo18': { count: 69, prefix: 'tokyo18'}
     };
 
     const config = albumConfig[albumName];

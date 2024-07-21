@@ -5,21 +5,39 @@ include-after-body:
   - text: |
       <script src="gallery.js"></script>
 albums:
-  - name: "copenhagen capriccio" 
-    display_name: "Copenhagen Capriccio, 2021"
-    thumbnail: "thumbnails/copenhagen-capriccio.jpg"
-    prefix: "copenhagen-capriccio"
-    count: 70
-  - name: "adria"
-    display_name: "Adria, 2022"
-    thumbnail: "thumbnails/adria.jpg"
-    prefix: "adria"
-    count: 39
+  - name: "best-of-film" 
+    display_name: "Best of Film"
+    thumbnail: "thumbnails/best-of-film.jpg"
   - name: "taiwan23"
     display_name: "Taiwan, 2023"
     thumbnail: "thumbnails/taiwan23.jpg"
-    prefix: "taiwan23"
-    count: 42
+  - name: "adria"
+    display_name: "Adria, 2022"
+    thumbnail: "thumbnails/adria.jpg"
+  - name: "copenhagen" 
+    display_name: "Copenhagen Capriccio, 2021"
+    thumbnail: "thumbnails/copenhagen.jpg"
+  - name: "berlin21"
+    display_name: "Berlin, 2021"
+    thumbnail: "thumbnails/berlin21.jpg"
+  - name: "kihh21"
+    display_name: "Kiel & Hamburg, 2021"
+    thumbnail: "thumbnails/kihh21.jpg"
+  - name: "life21"
+    display_name: "Life, 2021"
+    thumbnail: "thumbnails/life21.jpg"
+  - name: "tl"
+    display_name: "Time Limit, 2021"
+    thumbnail: "thumbnails/tl.jpg"
+  - name: "boltenhagen"
+    display_name: "Boltenhagen, 2020"
+    thumbnail: "thumbnails/boltenhagen.jpg"
+  - name: "life20"
+    display_name: "Life, 2020"
+    thumbnail: "thumbnails/life20.jpg"
+  - name: "tokyo18"
+    display_name: "Tokyo, 2018"
+    thumbnail: "thumbnails/tokyo18.jpg"
 ---
 
 <!-- Album configuration in yaml header
