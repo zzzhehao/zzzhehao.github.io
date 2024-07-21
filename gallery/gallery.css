@@ -219,24 +219,24 @@ body.gallery-open .navbar {
 
 @media (min-width: 600px) {
   .album-title {
-    font-size: calc(1rem + 0.5vw);
+    font-size: calc(0.9rem + 0.5vw);
   }
 }
 
 @media (min-width: 900px) {
   .album-title {
-    font-size: calc(1.2rem + 0.5vw);
+    font-size: calc(0.9rem + 0.5vw);
   }
 }
 
 @media (min-width: 1200px) {
   .album-title {
-    font-size: calc(1.2rem + 0.5vw);
+    font-size: calc(0.9rem + 0.5vw);
   }
 }
 
 @media (min-width: 1600px) {
   .album-title {
-    font-size: calc(1.2rem + 0.5vw);
+    font-size: calc(0.9rem + 0.5vw);
   }
 }
