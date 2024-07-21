@@ -1,6 +1,6 @@
 ---
-# title: "About Me"
-# author: "Zhehao Hu"
+title: "About Me"
+author: "Zhehao Hu"
 format:
   html:
     toc: true
