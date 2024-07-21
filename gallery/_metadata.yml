@@ -1,0 +1,4 @@
+format:
+  html:
+    css: gallery.css
+    page-layout: full

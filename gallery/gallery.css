@@ -1,0 +1,242 @@
+/* Align title with grid */
+.quarto-title-block {
+  max-width: 2560px; /* Match the max-width of the gallery grid */
+  margin: 0 auto;
+  padding: 30px 30px 0; /* Match the left and right padding of the gallery grid */
+}
+
+.quarto-title {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Adjust content padding */
+.quarto-container-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Ensure full width for title banner */
+.quarto-title-banner {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50% + 30px);
+  padding-right: calc(50vw - 50% + 30px);
+}
+
+/* Gallery things */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust min size as needed */
+  gap: 30px;
+  width: calc(100% - 60px); /* Subtract 60px to leave 30px on each side */
+  max-width: 2560px; /* Set a max-width to prevent extreme stretching on very wide screens */
+  margin: 0 auto;
+  padding: 30px; /* Add padding to create space on the sides */
+}
+
+.album-thumbnail {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px; /* Increased max-width for larger thumbnails */
+  aspect-ratio: 1 / 1;
+}
+
+.album-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.album-title {
+  text-align: center;
+  padding: 10px;
+  font-family: 'Times New Roman', serif;
+  font-weight: bold;
+  color: #333;
+  /* Base font size - will be adjusted with media queries */
+  font-size: 1rem;
+}
+
+.album-thumbnail:hover .album-overlay {
+  opacity: 1;
+}
+
+.fullscreen-gallery {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+  z-index: 1000;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Changed from left to right */
+  background: none;
+  border: none;
+  color: black;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.gallery-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 50px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 20px;
+}
+
+.prev-button::before {
+  content: "‹";
+}
+
+.next-button::before {
+  content: "›";
+}
+
+body.gallery-open .navbar {
+  display: none;
+}
+
+#current-image {
+  max-width: 80%;
+  max-height: 80%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#current-image.fade-out {
+  opacity: 0;
+}
+
+/* Loading indicator */
+.image-container {
+  position: relative;
+  width: calc(100% - 120px); /* Adjust based on the width of your nav buttons */
+  height: 80%;
+  margin: 0 auto;
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.gallery-image.active {
+  opacity: 1;
+}
+
+/* Responsive adjustments for grid */
+@media (max-width: 1600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+/* Responsive font sizes for album titles */
+@media (min-width: 300px) {
+  .album-title {
+    font-size: calc(0.8rem + 0.5vw);
+  }
+}
+
+@media (min-width: 600px) {
+  .album-title {
+    font-size: calc(0.9rem + 0.5vw);
+  }
+}
+
+@media (min-width: 900px) {
+  .album-title {
+    font-size: calc(0.9rem + 0.5vw);
+  }
+}
+
+@media (min-width: 1200px) {
+  .album-title {
+    font-size: calc(0.9rem + 0.5vw);
+  }
+}
+
+@media (min-width: 1600px) {
+  .album-title {
+    font-size: calc(0.9rem + 0.5vw);
+  }
+}
