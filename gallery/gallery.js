@@ -120,7 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function fetchAlbumImages(albumName) {
     const albumConfig = {
       // Setup albums here
+      // template: '': { count: , prefix: ''},
       'best-of-film': { count: 36, prefix: 'best-of-film'},
+      'dasyueshan24': { count: 55, prefix: 'dasyueshan24'},
+      'okinawa23': { count: 31, prefix: 'okinawa23'},
       'taiwan23': { count: 42, prefix: 'taiwan23'},
       'adria': { count: 39, prefix: 'adria' },
       'copenhagen': { count: 70, prefix: 'copenhagen' },

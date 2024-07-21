@@ -134,17 +134,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>This comment notes some insight while trying to construct gallery (gallery/index.qmd and its belongings).</p>
+<p>This comment notes some insights while trying to construct the gallery (<code>gallery/index.qmd</code> and its belongings).</p>
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section">2024/07/14</h3>
 <ol type="1">
-<li>Quarto is sensitive to tabs, especially when dealing with html. If see html code in preview, try delete tabs in the line.</li>
-<li>Quarto may need some other effort to let JS script be called in .qmd using html <code>&lt;script&gt;</code> and operate.
+<li>Quarto is sensitive to tabs, especially when dealing with html. If seeing html code printed out in the preview, try delete tabs in the line. Sometimes three tabs can already cause difference.</li>
+<li>Quarto may need some other effort to let JS be called in .qmd using html <code>&lt;script&gt;</code> and operate.
 <ul>
 <li>see <a href="https://github.com/quarto-dev/quarto-cli/discussions/4179">here</a> and maybe also <a href="https://forum.posit.co/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758">here</a>.</li>
 </ul></li>
 <li>An example may involving batch construct <a href="https://b.bapt.xyz/posts/gallery/#generating-the-page-with-quarto">here</a></li>
-<li>A brilliant show case of automatically extract photo exif and show them while inspecting photo, can maybe used otherwise, <a href="https://rfsaldanha.github.io/photos/photos.html">example</a> and <a href="https://github.com/rfsaldanha/rfsaldanha.github.io/blob/main/photos/photos.qmd">source code</a></li>
+<li>A brilliant show case of automatically extracting photo exif and showing them while inspecting photo, can maybe used otherwise, <a href="https://rfsaldanha.github.io/photos/photos.html">example</a> and <a href="https://github.com/rfsaldanha/rfsaldanha.github.io/blob/main/photos/photos.qmd">source code</a></li>
 <li>Also see <a href="https://github.com/quarto-ext/lightbox?tab=readme-ov-file">lightbox tool</a></li>
 <li><strong>Design</strong>: <a href="https://github.com/quarto-ext/lightbox?tab=readme-ov-file">hamada hideaki</a></li>
 </ol>
@@ -152,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="section-1" class="level3">
 <h3 class="anchored" data-anchor-id="section-1">2024/07/19</h3>
 <ol type="1">
-<li>Quarto treats Javascript differently (although I don’t know Javascript at all but certainly it is a bit complexer than in pure html), use following front matter yaml header to include the script:</li>
+<li>Quarto treats Javascript differently (although I don’t know Javascript at all but certainly it is a bit more complex than in pure html), use following front matter yaml header to include the script:</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">include-after-body</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">  - </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="ch">|</span></span>
