@@ -10,6 +10,16 @@ website:
   description: "Zhehao Hu's Personal Website"
   
   navbar: 
+    left: 
+      - text: "About me"
+        menu: 
+          - personal/aboutme.qmd
+          - research/asbiologist.qmd
+          - gallery/asphotographer.qmd
+      - text: "Gallery"
+        href: gallery/gallery.qmd
+      - text: "Posts"
+        href: research/posts.qmd
     tools: 
       - icon: github
         href: https://github.com/zzzhehao

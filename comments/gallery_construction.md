@@ -1,3 +1,8 @@
+---
+title: "Comment 1 - Constructing gallery"
+author: "Zhehao Hu"
+---
+
 This comment notes some insights while trying to construct the gallery (`gallery/index.qmd` and its belongings).
 
 ### 2024/07/14
@@ -19,3 +24,10 @@ include-after-body:
       <script src="gallery.js"></script>
 ```
 2. Don't ask me about the Javascript, Css and HTML in this gallery project -- I asked [Perplexity](https://perplexity.ai), I really have no idea in front end development, but I do recommend Perplexity for coding and information searching -- it is really powerful.
+
+### 2024/07/22
+
+1. It has become a bit confusing for me about where I should store the picture inside quarto website. At the beginning I somehow realized that the picture is rendered (or "called") once the quarto has converted .qmd into html, so it should be stored under `_site/` and the pathway should be in term of the relative path there from responsible html file. But as I accidentally tried `$ quarto render --cache-refresh` today it deleted every image under `_site/`, I think quarto just reset `_site/` and then re-rendered the whole website. And when I tried to preview my page, I noticed the error in console that the image was actually called directly from quarto project root.
+- So I stored my image earlier at `root/_site/image/my-photos.jpg`, but the error message said that quarto was trying to find the image at `root/image/my-photos.jpg`.
+
+2. Turned out the quarto might has set `_site` as the root while rendering, not the project root, so in the error message the file path went directly from `_site/`. So in conclusion, use `$ quarto render --cache-refresh` carefully, it will delete all images.

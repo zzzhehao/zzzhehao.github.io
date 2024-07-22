@@ -1,0 +1,42 @@
+/*-- scss:rules --*/
+
+body, html {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/okinawa_crab.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5; // Adjust this value to control the image opacity
+    z-index: -2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(217, 208, 199, 0.5); // Your overlay color
+    z-index: -1;
+  }
+}
+
+// Ensure all direct children of body are above the background
+body > * {
+  position: relative;
+  z-index: 1;
+}

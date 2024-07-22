@@ -1,0 +1,13 @@
+/*-- scss:rules --*/
+
+// Change dropdown menu background color
+.dropdown-menu {
+    background-color: rgba(217, 208, 199, 1); // Replace with your preferred color
+  }
+  
+  // Remove blue outline on active dropdown
+  .navbar .dropdown-toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
