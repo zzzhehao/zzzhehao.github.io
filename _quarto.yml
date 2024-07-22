@@ -32,12 +32,6 @@ website:
     search: true
     background: transparent
 
-  page-footer: 
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)"
-    left: "&copy; By Zhehao Hu, 2024. Source code available at [github.com](https://github.com/zzzhehao/zzzhehao.github.io/tree/main)"
-    background: $black
-    border: false
-
 format: 
   html:
     theme: 

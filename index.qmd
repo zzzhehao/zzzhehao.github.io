@@ -1,5 +1,6 @@
 ---
 navbar: false
+page-footer: false
 
 format: 
   html:
