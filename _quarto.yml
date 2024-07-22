@@ -35,6 +35,9 @@ website:
     search: true
     background: transparent
 
+  body-footer: |
+    Copyright 2024 Zhehao Hu. Source code available at [github.com](https://github.com/zzzhehao)
+    
 format: 
   html:
     theme: 
