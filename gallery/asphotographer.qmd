@@ -1,6 +1,5 @@
 ---
-title: "Me as a Photographer"
-# bg: red plane
+title: "As a Photographer"
 format: 
   html:
     page-layout: article

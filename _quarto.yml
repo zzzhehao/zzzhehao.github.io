@@ -13,9 +13,12 @@ website:
     left: 
       - text: "About me"
         menu: 
-          - personal/aboutme.qmd
-          - research/asbiologist.qmd
-          - gallery/asphotographer.qmd
+          - text: "Personal"
+            href: personal/aboutme.qmd
+          - text: "As a Biology Student"
+            href: research/asbiologist.qmd
+          - text: "As a Photographer"
+            href: gallery/asphotographer.qmd
       - text: "Gallery"
         href: gallery/gallery.qmd
       - text: "Posts"
@@ -29,24 +32,10 @@ website:
     search: true
     background: transparent
 
-  # sidebar: 
-  #   style: "docked"
-  #   logo: "images/happy_hu.jpg"
-  #   pinned: true
-  #   alignment: center
-  #   background: $Keloe-2-rgba
-  #   collapse-level: 1
-  #   contents: 
-  #     - href: index.qmd
-  #       text: Home
-  #     - href: about.qmd
-  #       text: About me
-
   page-footer: 
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)"
-    left: "&copy; By Zhehao Hu, 2024"
-    center: "Source code of this website is available at [github.com/zzzhehao](https://github.com/zzzhehao/zzzhehao.github.io/tree/main)"
-    background: $Keloe-1-rgba
+    left: "&copy; By Zhehao Hu, 2024. Source code available at [github.com](https://github.com/zzzhehao/zzzhehao.github.io/tree/main)"
+    background: $black
     border: false
 
 format: 
