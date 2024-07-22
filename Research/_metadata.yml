@@ -10,14 +10,10 @@ author:
         country: Germany
         url: https://www.biologie.uni-hamburg.de/en.html
 
-project:
-  type: website
-
 format:
   html:
-    theme: 
-      - flatly
-      - ../color-code.scss
+    css: 
+      - bg-research.css
     toc: true
     toc-depth: 4
     code-copy: true

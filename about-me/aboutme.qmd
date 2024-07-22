@@ -2,13 +2,12 @@
 title: ""
 author: ""
 title-block-style: none
-
 format:
   html:
     toc: true
     toc-depth: 2
+    css: ../
 ---
-
 <style>
 body {
     height: 100vh;

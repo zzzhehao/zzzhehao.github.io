@@ -14,11 +14,11 @@ website:
       - text: "About me"
         menu: 
           - text: "Personal"
-            href: personal/aboutme.qmd
+            href: about-me/aboutme.qmd
           - text: "As a Biology Student"
-            href: research/asbiologist.qmd
+            href: about-me/asbiologist.qmd
           - text: "As a Photographer"
-            href: gallery/asphotographer.qmd
+            href: about-me/asphotographer.qmd
       - text: "Gallery"
         href: gallery/gallery.qmd
       - text: "Posts"
@@ -40,4 +40,6 @@ website:
 
 format: 
   html:
-    theme: color-code.scss
+    theme: 
+      - theme/color-code.scss
+      - theme/custom-nav.scss

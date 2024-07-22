@@ -10,7 +10,7 @@ author:
 
 format:
   html:
-    theme: 
+    css: 
       - flatly
       - personal.scss
     toc: true
