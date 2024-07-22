@@ -1,5 +1,8 @@
 project:
   type: website
+  resources: 
+    - "*.jpg"
+    - "*.png"
   render: 
     - "*"
     - "!comments/*"
@@ -10,6 +13,19 @@ website:
   description: "Zhehao Hu's Personal Website"
   
   navbar: 
+    left: 
+      - text: "About me"
+        menu: 
+          - text: "Personal"
+            href: about-me/aboutme.qmd
+          - text: "As a Biology Student"
+            href: about-me/asbiologist.qmd
+          - text: "As a Photographer"
+            href: about-me/asphotographer.qmd
+      - text: "Gallery"
+        href: gallery/gallery.qmd
+      - text: "Posts"
+        href: research/posts.qmd
     tools: 
       - icon: github
         href: https://github.com/zzzhehao
@@ -21,4 +37,6 @@ website:
 
 format: 
   html:
-    theme: theme.scss
+    theme: 
+      - theme/color-code.scss
+      - theme/custom-nav.scss

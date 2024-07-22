@@ -1,5 +1,6 @@
 ---
 navbar: false
+page-footer: false
 
 format: 
   html:
@@ -27,7 +28,7 @@ format:
 <div style="
   height: 100vh;
   width: 100%;
-  background-image: url('./images/red_plane.jpg');
+  background-image: url('./assets/images/red_plane.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -57,11 +58,11 @@ format:
 
   <br><br>
 
-### As a [*Photographer.*](gallery/index.qmd)
+### As a [*Photographer.*](about-me/asphotographer.qmd)
 
-### As a [*Biology student.*](https://github.com/zzzhehao)
+### As a [*Biology student.*](about-me/asbiologist.qmd)
 
-### As a [*Normal Person*.](about.qmd)
+### As a [*Normal Person*.](about-me/aboutme.qmd)
 
   <br><br><br>
 </div>

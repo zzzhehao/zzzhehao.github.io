@@ -1,0 +1,29 @@
+.custom-footer {
+  flex-shrink: 0;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.custom-footer span {
+  white-space: nowrap;
+  margin: 5px 10px;
+}
+
+.custom-footer a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Ensure the footer doesn't overlap content on small screens */
+@media screen and (max-width: 600px) {
+  .custom-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}

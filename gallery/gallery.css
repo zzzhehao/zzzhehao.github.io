@@ -1,8 +1,9 @@
 /* Align title with grid */
 .quarto-title-block {
-  max-width: 2560px; /* Match the max-width of the gallery grid */
+
+  max-width: 2560px;
   margin: 0 auto;
-  padding: 30px 30px 0; /* Match the left and right padding of the gallery grid */
+  padding: 30px 30px 0;
 }
 
 .quarto-title {
@@ -27,19 +28,20 @@
 /* Gallery things */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust min size as needed */
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  width: calc(100% - 60px); /* Subtract 60px to leave 30px on each side */
-  max-width: 2560px; /* Set a max-width to prevent extreme stretching on very wide screens */
+  width: calc(100% - 60px);
+  max-width: 2560px;
   margin: 0 auto;
-  padding: 30px; /* Add padding to create space on the sides */
+  padding: 30px;
 }
 
 .album-thumbnail {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 500px; /* Increased max-width for larger thumbnails */
+  max-width: 400px;
   aspect-ratio: 1 / 1;
 }
 
@@ -55,7 +57,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  background: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +71,6 @@
   font-family: 'Times New Roman', serif;
   font-weight: bold;
   color: #333;
-  /* Base font size - will be adjusted with media queries */
   font-size: 1rem;
 }
 
@@ -91,7 +92,8 @@
 .close-button {
   position: absolute;
   top: 20px;
-  right: 20px; /* Changed from left to right */
+
+  right: 20px;
   background: none;
   border: none;
   color: black;
@@ -144,7 +146,8 @@ body.gallery-open .navbar {
 /* Loading indicator */
 .image-container {
   position: relative;
-  width: calc(100% - 120px); /* Adjust based on the width of your nav buttons */
+
+  width: calc(100% - 120px);
   height: 80%;
   margin: 0 auto;
 }
@@ -219,24 +222,70 @@ body.gallery-open .navbar {
 
 @media (min-width: 600px) {
   .album-title {
-    font-size: calc(0.9rem + 0.5vw);
+    font-size: calc(1rem + 0.5vw);
   }
 }
 
 @media (min-width: 900px) {
   .album-title {
-    font-size: calc(0.9rem + 0.5vw);
+    font-size: calc(1.2rem + 0.5vw);
   }
 }
 
 @media (min-width: 1200px) {
   .album-title {
-    font-size: calc(0.9rem + 0.5vw);
+    font-size: calc(1.4rem + 0.5vw);
   }
 }
 
 @media (min-width: 1600px) {
   .album-title {
-    font-size: calc(0.9rem + 0.5vw);
+    font-size: calc(1.6rem + 0.5vw);
+  }
+}
+
+/* Responsive adjustments for fullscreen gallery */
+@media (max-width: 768px) {
+  .gallery-content {
+    padding: 0 20px;
+  }
+
+  .image-container {
+    width: calc(100% - 60px);
+    height: 90%;
+  }
+
+  .nav-button {
+    font-size: 30px;
+    padding: 10px;
+  }
+
+  .close-button {
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+  }
+
+  .gallery-image {
+    object-fit: scale-down;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-content {
+    padding: 0 10px;
+  }
+
+  .image-container {
+    width: calc(100% - 40px);
+  }
+
+  .nav-button {
+    font-size: 24px;
+    padding: 5px;
+  }
+
+  .close-button {
+    font-size: 24px;
   }
 }
