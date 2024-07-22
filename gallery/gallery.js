@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const folderName = prefix.toLowerCase().replace(/\s+/g, '-');
     
     return Array.from({ length: count }, (_, i) => 
-      `album/${folderName}/${prefix.toLowerCase()}-${i + 1}.jpg`
+      `../assets/gallery/album/${folderName}/${prefix.toLowerCase()}-${i + 1}.jpg`
     );
   }
 });

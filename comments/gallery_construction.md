@@ -23,11 +23,11 @@ include-after-body:
   - text: |
       <script src="gallery.js"></script>
 ```
-2. Don't ask me about the Javascript, Css and HTML in this gallery project -- I asked [Perplexity](https://perplexity.ai), I really have no idea in front end development, but I do recommend Perplexity for coding and information searching -- it is really powerful.
+2. I asked [Perplexity](https://perplexity.ai) a lot while constructing my site, I really have no idea in front end development, but I do recommend Perplexity for coding and information searching -- it is really powerful.
 
-### 2024/07/22
+### 2024/07/22 !! important
 
-1. It has become a bit confusing for me about where I should store the picture inside quarto website. At the beginning I somehow realized that the picture is rendered (or "called") once the quarto has converted .qmd into html, so it should be stored under `_site/` and the pathway should be in term of the relative path there from responsible html file. But as I accidentally tried `$ quarto render --cache-refresh` today it deleted every image under `_site/`, I think quarto just reset `_site/` and then re-rendered the whole website. And when I tried to preview my page, I noticed the error in console that the image was actually called directly from quarto project root.
-- So I stored my image earlier at `root/_site/image/my-photos.jpg`, but the error message said that quarto was trying to find the image at `root/image/my-photos.jpg`.
-
-2. Turned out the quarto might has set `_site` as the root while rendering, not the project root, so in the error message the file path went directly from `_site/`. So in conclusion, use `$ quarto render --cache-refresh` carefully, it will delete all images.
+- For everyone have assets in their webstie, spend some time reading [Quarto documentation](https://quarto.org/docs/websites/website-tools.html#site-resources).
+- I was confused as hell today as every time I run `$ quarto render` it just delete every image I stored under `_site/`, then I realized the way that I managed the assets must not have been legitimate. So even though this took me whole night to figure out but it certainly prevented a huge mess up in the foreseeable future.
+- Briefly, put all assets file outside the output file and manage as you want, but specify them in `_quarto.yml` using 'resource' option, incase you somehow not direclty linked them (e.g. my gallery's full-screen view is calling those images via JavaScript). Everything under 'resource' option will be forcibly exported by quarto in its output and could be used normally. I think this should be the most legitimate way that won't mess up in the future.
+- Honestly, I rolled back like 5 times this evening to find this out.
