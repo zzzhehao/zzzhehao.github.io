@@ -19,6 +19,26 @@ website:
     search: true
     background: transparent
 
+  # sidebar: 
+  #   style: "docked"
+  #   logo: "images/happy_hu.jpg"
+  #   pinned: true
+  #   alignment: center
+  #   background: $Keloe-2-rgba
+  #   collapse-level: 1
+  #   contents: 
+  #     - href: index.qmd
+  #       text: Home
+  #     - href: about.qmd
+  #       text: About me
+
+  page-footer: 
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)"
+    left: "&copy; By Zhehao Hu, 2024"
+    center: "Source code of this website is available at [github.com/zzzhehao](https://github.com/zzzhehao/zzzhehao.github.io/tree/main)"
+    background: $Keloe-1-rgba
+    border: false
+
 format: 
   html:
-    theme: theme.scss
+    theme: color-code.scss

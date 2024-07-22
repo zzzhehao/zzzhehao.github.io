@@ -1,6 +1,12 @@
 ---
 title: "Gallery"
-format: html
+format: 
+  html:
+    css: gallery.css
+website:
+  navbar:
+    background: transparent
+# Gallery config
 include-after-body: 
   - text: |
       <script src="gallery.js"></script>

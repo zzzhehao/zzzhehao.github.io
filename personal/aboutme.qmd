@@ -1,6 +1,8 @@
 ---
-title: "About Me"
-author: "Zhehao Hu"
+title: ""
+author: ""
+title-block-style: none
+
 format:
   html:
     toc: true
@@ -11,7 +13,7 @@ format:
 body {
     height: 100vh;
     width: 100%;
-    background-image: url('../images/red_plane.jpg');
+    background-image: url('../../images/red_plane.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,7 +41,7 @@ At this point I have finished my B.Sc. in Biology and am currently pursuing my M
 
 ## What I do in free time
 
-Taking photos is one of my major hobby in personal life. 
+Photography is one of my major hobby in personal life. 
 
 # Contact Me
 

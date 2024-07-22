@@ -57,11 +57,11 @@ format:
 
   <br><br>
 
-### As a [*Photographer.*](gallery/index.qmd)
+### As a [*Photographer.*](gallery/asphotographer.qmd)
 
-### As a [*Biology student.*](https://github.com/zzzhehao)
+### As a [*Biology student.*](research/asbiologist.qmd)
 
-### As a [*Normal Person*.](about.qmd)
+### As a [*Normal Person*.](personal/aboutme.qmd)
 
   <br><br><br>
 </div>

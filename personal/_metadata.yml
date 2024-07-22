@@ -1,5 +1,3 @@
-bibliography: 
-  - ../../../../Obsidian/Cafe AgX HQ 2.0/005 Tools/Academic/Bib/MSc.bib
 author: 
   - name: Zhehao Hu
     email: hu_zhehao@hotmail.com
@@ -10,14 +8,11 @@ author:
         country: Germany
         url: https://www.biologie.uni-hamburg.de/en.html
 
-project:
-  type: website
-
 format:
   html:
     theme: 
       - flatly
-      - ../color-code.scss
+      - personal.scss
     toc: true
     toc-depth: 4
     code-copy: true

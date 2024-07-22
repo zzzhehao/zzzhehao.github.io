@@ -1,0 +1,24 @@
+---
+title: "Me as a Photographer"
+# bg: red plane
+format: 
+  html:
+    page-layout: article
+    css: ../bg-red-plane.css
+    # include-in-header: 
+    #   text: |
+    #     <style>
+    #       body, html {
+    #         height: 100vh;
+    #         width: 100%;
+    #         background-image: url('../images/red_plane.jpg');
+    #         background-size: cover;
+    #         background-position: center;
+    #         background-repeat: no-repeat;
+    #         display: flex;
+    #         flex-direction: column;
+    #         justify-content: center;
+    #       }
+    #     </style>
+---
+
