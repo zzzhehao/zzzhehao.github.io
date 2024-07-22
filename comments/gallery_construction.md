@@ -1,3 +1,4 @@
+
 ---
 title: "Comment 1 - Constructing gallery"
 author: "Zhehao Hu"
@@ -12,17 +13,21 @@ This comment notes some insights while trying to construct the gallery (`gallery
     - see [here](https://github.com/quarto-dev/quarto-cli/discussions/4179) and maybe also [here](https://forum.posit.co/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758).
 3. An example may involving batch construct [here](https://b.bapt.xyz/posts/gallery/#generating-the-page-with-quarto)
 4. A brilliant show case of automatically extracting photo exif and showing them while inspecting photo, can maybe used otherwise, [example](https://rfsaldanha.github.io/photos/photos.html) and [source code](https://github.com/rfsaldanha/rfsaldanha.github.io/blob/main/photos/photos.qmd) 
+
 5. Also see [lightbox tool](https://github.com/quarto-ext/lightbox?tab=readme-ov-file)
 6. **Design**: [hamada hideaki](https://github.com/quarto-ext/lightbox?tab=readme-ov-file) 
 
 ### 2024/07/19
 
+
 1. Quarto treats Javascript differently (although I don't know Javascript at all but certainly it is a bit more complex than in pure html), use following front matter yaml header to include the script:
+
 ```yaml
 include-after-body: 
   - text: |
       <script src="gallery.js"></script>
 ```
+
 2. I asked [Perplexity](https://perplexity.ai) a lot while constructing my site, I really have no idea in front end development, but I do recommend Perplexity for coding and information searching -- it is really powerful.
 
 ### 2024/07/22 !! important
