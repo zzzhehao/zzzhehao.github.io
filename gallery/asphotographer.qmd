@@ -4,6 +4,8 @@ format:
   html:
     page-layout: article
     theme: ../theme/style.scss
+    include-after-body: 
+      - photography-footer.html
 ---
 
 # what blabla

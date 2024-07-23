@@ -10,5 +10,3 @@ format:
             background-color: #F2F2F2;
           }
           </style>
-    include-after-body: 
-      - photography-footer.html
