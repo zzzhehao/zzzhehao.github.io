@@ -8,3 +8,7 @@ listing:
 ---
 
 # I want to say something
+
+```{r}
+print("TESTE")
+```

@@ -15,16 +15,13 @@ $font-size-root: 1rem;
     --accent-color: #{$accent-color};
     --second-accent-color: #{$second-accent-color};
     --mute-color-dark: #{$AgainAgain-5-hex};
-    --background-color: #{$red_plane-6-hex};
+    --background: #{$red_plane-6-hex};
 }
 
-body {
-    background-color: var(--background-color);
-    color: var(--black);
-    accent-color: var(--accent-color);
-}
-
+$body-bg: $paper;
+$body-color: $ink1;
 $link-color: $accent-color;
 
-$code-block-bg: #{light_grey};
-$code-bg: #{$light_grey};
+$code-block-bg: $paper-grey;
+$code-bg: $paper-grey;
+$kbd-color: $paper-dark-grey;

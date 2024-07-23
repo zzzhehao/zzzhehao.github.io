@@ -10,9 +10,6 @@ author:
 
 format:
   html:
-    css: 
-      - flatly
-      - personal.scss
     toc: true
     toc-depth: 4
     code-copy: true
