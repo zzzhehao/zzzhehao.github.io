@@ -12,8 +12,6 @@ author:
 
 format:
   html:
-    css: 
-      - bg-research.css
     toc: true
     toc-depth: 4
     code-copy: true

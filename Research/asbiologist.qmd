@@ -2,7 +2,7 @@
 title: "As a Biology Student"
 format:
     html:
-        css: ../research/bg-research.css
+        css: bg-research.css
 ---
 
 I study Biology.

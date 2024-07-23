@@ -1,13 +1,31 @@
+@import 'color';
 /*-- scss:rules --*/
 
-// Change dropdown menu background color
+// Change dropdown menu background color and make it flexible
 .dropdown-menu {
-    background-color: rgba(217, 208, 199, 1); // Replace with your preferred color
+  background-color: #{$white}; // Replace with your preferred color
+  width: auto; // Allow the width to be flexible
+  max-width: max-content;
+  // min-width: max-content; // Ensure the width is at least as wide as the longest item
+  white-space: nowrap; // Prevent text wrapping
+}
+
+// Remove blue outline on active dropdown
+.navbar .dropdown-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// Ensure dropdown items don't wrap
+.dropdown-item {
+  white-space: nowrap;
+  // width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+// Optional: Add max-width to prevent extremely wide dropdowns on large screens
+@media (min-width: 768px) {
+  .dropdown-menu {
+    max-width: 300px; // Adjust this value as needed
   }
-  
-  // Remove blue outline on active dropdown
-  .navbar .dropdown-toggle:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  
+}

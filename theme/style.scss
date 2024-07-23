@@ -1,0 +1,30 @@
+// color code
+@import 'color';
+
+// style setting
+/*-- scss:defaults --*/
+
+// font
+$font-size-root: 1rem;
+
+// theme color
+:root{
+    --black: #{$black};
+    --white: #{$white};
+    --canvas: #{$summer-vintage-sojamilk};
+    --accent-color: #{$accent-color};
+    --second-accent-color: #{$second-accent-color};
+    --mute-color-dark: #{$AgainAgain-5-hex};
+    --background-color: #{$red_plane-6-hex};
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--black);
+    accent-color: var(--accent-color);
+}
+
+$link-color: $accent-color;
+
+$code-block-bg: #{light_grey};
+$code-bg: #{$light_grey};

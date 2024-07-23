@@ -1,0 +1,9 @@
+---
+title: "Videos"
+format: 
+  html:
+    page-layout: article
+    theme: ../theme/style.scss
+    toc: false
+---
+

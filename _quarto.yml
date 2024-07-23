@@ -14,18 +14,26 @@ website:
   
   navbar: 
     left: 
-      - text: "About me"
+      - text: "Photography"
         menu: 
-          - text: "Personal"
-            href: about-me/aboutme.qmd
-          - text: "As a Biology Student"
-            href: about-me/asbiologist.qmd
+          - text: "Albums"
+            href: gallery/gallery.qmd
+          - text: "Videos"
+            href: gallery/videos.qmd
           - text: "As a Photographer"
-            href: about-me/asphotographer.qmd
-      - text: "Gallery"
-        href: gallery/gallery.qmd
-      - text: "Posts"
-        href: research/posts.qmd
+            href: gallery/asphotographer.qmd
+
+      - text: "Research"
+        menu:
+          - text: "Posts"
+            href: research/posts.qmd
+          - text: "As a Biology Student"
+            href: research/asbiologist.qmd
+      - text: "Personal"
+        menu:
+          - text: "About Me"
+            href: personal/aboutme.qmd
+
     tools: 
       - icon: github
         href: https://github.com/zzzhehao
@@ -35,11 +43,11 @@ website:
     search: true
     background: transparent
 
-  body-footer: |
-    Copyright 2024 Zhehao Hu. Source code available at [github.com](https://github.com/zzzhehao)
-    
+  # body-footer: |
+  #   © 2024 Zhehao Hu. Source code available at [github.com](https://github.com/zzzhehao).
+
 format: 
   html:
     theme: 
-      - theme/color-code.scss
+      - theme/style.scss
       - theme/custom-nav.scss

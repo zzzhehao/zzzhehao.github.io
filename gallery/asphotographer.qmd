@@ -1,0 +1,10 @@
+---
+title: "As a Photographer"
+format: 
+  html:
+    page-layout: article
+    theme: ../theme/style.scss
+---
+
+# what blabla
+
