@@ -12,6 +12,7 @@ author:
 
 format:
   html:
+    css: ../theme/text-justify.css
     toc: true
     toc-depth: 4
     code-copy: true
