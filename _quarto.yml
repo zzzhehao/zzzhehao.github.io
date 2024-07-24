@@ -48,8 +48,6 @@ website:
 
 format: 
   html:
-    css:
-      - theme/style.css
     theme: 
-      - theme/style.scss
-      - theme/custom-nav.scss
+      light: [theme/style.scss, theme/custom-nav.scss]
+      dark: [theme/style-dark.scss, theme/custom-nav-dark.scss]

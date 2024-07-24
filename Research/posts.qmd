@@ -6,9 +6,3 @@ listing:
     contents: 
         community-ecology
 ---
-
-# I want to say something
-
-```{r}
-print("TESTE")
-```

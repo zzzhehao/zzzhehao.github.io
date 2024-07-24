@@ -1,5 +1,5 @@
 // color code
-@import 'color';
+@import 'color-dark';
 
 // style setting
 /*-- scss:defaults --*/
@@ -9,8 +9,9 @@ $font-size-root: 1rem;
 
 // theme color
 :root{
-    --black: #{$black};
+    --black: #{$black-cus};
     --white: #{$white};
+    --dark-grey: #{$dark-grey};
     --canvas: #{$summer-vintage-sojamilk};
     --accent-color: #{$accent-color};
     --second-accent-color: #{$second-accent-color};
@@ -19,17 +20,17 @@ $font-size-root: 1rem;
 }
 
 body {
+    color: var(--white);
     .cell-output {
-        background-color: #dfdcd8;
+        background-color: var(--black);
         border-radius: 4px;
-        /* color: #625f5c !important; */
-      }
+    }
 }
 
-$body-bg: $paper;
-$body-color: $ink1;
+$body-bg: $black-abs;
+$body-color: $white;
 $link-color: $accent-color;
 
-$code-block-bg: $paper-grey;
-$code-bg: $paper-grey;
-$kbd-color: $paper-dark-grey;
+$code-block-bg: $dark-grey;
+$code-bg: $dark-grey;
+$kbd-color: $dark-grey;

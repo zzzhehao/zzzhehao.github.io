@@ -2,11 +2,13 @@
 
 /*-- colors --*/
 $white-abs: #ffffff;
-$white: #F2F2F2;
-$dark-grey: #888;
+$white: #edebea;
+$dark-grey: #5e5e5e;
 $light-grey: #e5e5e5;
-$black: #333;
-$black-abs: #000000;
+$grey: #A4A5A6;
+$black: #A7A8A9; // this is only for code output styling since its controlled somewhere by default
+$black-cus: #3e3e3e;
+$black-abs: #282828;
 
 /* Color Theme Swatches in Hex */
 $AgainAgain-1-hex: #F2BA52; 
@@ -40,6 +42,9 @@ $summer-vintage-teal: #025951;
 $summer-vintage-orange: #BF500F;
 $summer-vintage-sand: #D9965B;
 $summer-vintage-sojamilk: #F2E6DF;
+
+// dark unique
+$dark: $gray-800;
 
 $accent-color: $AgainAgain-3-hex;
 $second-accent-color: $summer-vintage-orange;

@@ -16,4 +16,4 @@ format:
     toc-depth: 4
     code-copy: true
     code-overflow: wrap
-    highlight-style: gruvbox
+    highlight-style: atom-one
