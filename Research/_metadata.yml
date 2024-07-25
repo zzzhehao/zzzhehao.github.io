@@ -12,7 +12,9 @@ author:
 
 format:
   html:
-    css: ../theme/text-justify.css
+    css: 
+      - ../theme/text-justify.css
+      - caption-left.css
     toc: true
     toc-depth: 4
     code-copy: true
