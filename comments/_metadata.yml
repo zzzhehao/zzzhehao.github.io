@@ -1,0 +1,21 @@
+author: 
+  - name: Zhehao Hu
+    email: hu_zhehao@hotmail.com
+    url: https://zzzhehao.github.io
+    affiliations:
+      - name: Department of Biology, Universität Hamburg
+        city: Hamburg
+        country: Germany
+        url: https://www.biologie.uni-hamburg.de/en.html
+
+format:
+  html:
+    css: 
+      - ../theme/text-justify.css
+      - caption-center.css
+    toc: true
+    toc-depth: 4
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: atom-one
+    include-after-body: research-footer.html
