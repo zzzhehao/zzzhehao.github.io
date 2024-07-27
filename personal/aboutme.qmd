@@ -1,26 +1,12 @@
 ---
 title: ""
 author: ""
-title-block-style: none
 format:
   html:
     toc: true
     toc-depth: 2
-    css: ../
+    include-in-header: ../theme/bg-red-plane.html
 ---
-<style>
-body {
-    height: 100vh;
-    width: 100%;
-    background-image: url('../assets/images/red_plane.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* background-color: rgba(200, 200, 200, 1); */
-    color: #F2E6DF;
-}
-</style>
 
 # About Me
 
@@ -51,5 +37,3 @@ I am always happy to hear your thoughts, comments, questions, and I am excited f
 - Instagram: [zhehao.hu_](https://instagram.com/zhehao.hu_)
 
 Looking forward to hear from you!
-
-- - -

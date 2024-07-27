@@ -1,0 +1,28 @@
+<style>
+    @import '../theme/_color.scss';
+    
+    .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../assets/images/red_plane.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: -2;
+    }
+
+    body {
+        color: var(--white);
+        position: relative;
+    }
+
+    figcaption {
+        color: #cecece;
+    }
+</style>
+
+<div class="background-container"></div>

@@ -42,3 +42,47 @@ include-after-body:
     - The alternative is to build the footer directly with html. But if you want to keep the project tidy and clean, the best way is to create the footer separately in one file and assign it via `_metadata.yml`, otherwise it will be a catastrophe if I want to change the footer across website in a later point. And this, my friend, is a horrible quest for someone who has no idea about html, because you can encounter numerous strange problems like footer completely destroy quarto's default layout or forcibly expanding page height and show unnessary scroller, etc. But I found [this](https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide#add-a-footer-below-blog-posts) and modified upon it. I totally love it. Now I can put anything I want in the footer and even make variations of it.
 
 - [SCSS Variable List](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss)
+
+### 2024/07/27 Custom Background
+
+- Customizing background with image is quite easy in pure HTML/CSS, but in quarto it might be messy if TOC is enabled. Direclty use `body {background-image}` will let TOC stuck at highlighting the last element regardless where you are.
+- To bypass this it needs to define another class, and use it inside the .qmd body. To avoid a two-step workflow, I no longer use css to achieve custom background but use HTML file specifying css. So the step is create a html file:
+    ```html
+    <style>
+        .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('image.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: -2;
+        }
+
+        /* If you want to mute the background a bit */
+        .background-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(39, 45, 50, 0.6);
+        z-index: -1;
+        }
+    </style>
+
+    <!-- You need to call the section to finally insert image. When calling upper part using CSS, you will need to manually insert the part below in MD body. -->
+    <div class="background-container"></div>
+    <div class="background-overlay"></div>
+    ```
+- Call this html file in yaml header via:
+    ```yml
+    format:
+    html:
+        include-in-header: bg-research.html
+    ```
+- The idea is to bypass the utilization of body section which is used by quarto. (Omg I'm actually starting to understand HTML and CSS)
