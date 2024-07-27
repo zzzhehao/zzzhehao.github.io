@@ -20,3 +20,4 @@ format:
     code-copy: true
     code-overflow: wrap
     highlight-style: atom-one
+    include-after-body: research-footer.html

@@ -87,8 +87,13 @@ include-after-body:
         include-in-header: bg.html
     ```
 - The idea is to bypass the utilization of body section which is used by quarto. (Omg I'm actually starting to understand HTML and CSS)
-- Since the image url is relative, it will not work if the .qmd file is at different level. If the background is not widely used across the website, the path can be corrected by inserting
+- See next point. ~~Since the image url is relative, it will not work if the .qmd file is at different level. If the background is not widely used across the website, the path can be corrected by inserting following right after yml header (oh dear I really understand HTML and CSS now)~~
     ```html
     <div class="background-container"; style="background-image: url('corrected/image.jpg');"></div>
     ```
-    right after yml header (oh dear I really understand HTML and CSS now)
+- I ran into the same problem when I try to apply footer.html to files at different level, then I realize this must not be legitimate. I did some searching and it turns out it's a common knowledge in front-end developing that `/` directly uses the project root. So just put following in `_quarto.yml` and then use absolute path in html.
+    ```yml
+    project:
+      execute-dir: project
+    ```
+    
