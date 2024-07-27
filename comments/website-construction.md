@@ -75,7 +75,8 @@ include-after-body:
         }
     </style>
 
-    <!-- You need to call the section to finally insert image. When calling upper part using CSS, you will need to manually insert the part below in MD body. -->
+    <!-- You need to call the section to finally insert image.
+    When calling upper part using CSS, you will need to manually insert the part below in MD body. -->
     <div class="background-container"></div>
     <div class="background-overlay"></div>
     ```
@@ -83,6 +84,11 @@ include-after-body:
     ```yml
     format:
     html:
-        include-in-header: bg-research.html
+        include-in-header: bg.html
     ```
 - The idea is to bypass the utilization of body section which is used by quarto. (Omg I'm actually starting to understand HTML and CSS)
+- Since the image url is relative, it will not work if the .qmd file is at different level. If the background is not widely used across the website, the path can be corrected by inserting
+    ```html
+    <div class="background-container"; style="background-image: url('corrected/image.jpg');"></div>
+    ```
+    right after yml header (oh dear I really understand HTML and CSS now)
