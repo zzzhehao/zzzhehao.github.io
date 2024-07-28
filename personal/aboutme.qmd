@@ -12,7 +12,7 @@ format:
 
 👋 Hi, I am Zhehao.
 
-If you are wondering how to speak my name, it's 'dʒe hao', as 哲豪 written in Chinese. I was born in Japan but technically I am a Taiwanese citizen, I spent my first six years in Tokyo [(東京)](https://www.google.com/maps/@35.6732346,139.7532873,11.45z?entry=ttu)
+If you are wondering how to speak my name, it's like 'dʒe hao', as 哲豪 written in Chinese. I was born in Japan but technically I am a Taiwanese citizen, I spent my first six years in Tokyo [(東京)](https://www.google.com/maps/@35.6732346,139.7532873,11.45z?entry=ttu)
 near Tamagawa (Tama-River) [(多摩川)](https://www.google.com/maps/@35.6223228,139.5730771,14.62z?entry=ttu)
 - which separate the capital and the neighboring district Kanagawa-Ken (神奈川県) is separated. I then went to school in Kunshan [(昆山)](https://www.google.com/maps/@31.3803707,120.9563431,14.08z?entry=ttu)
 , a small city neighbouring Shanghai [(上海)](https://www.google.com/maps/@31.1458601,121.2870183,9.81z?entry=ttu)
@@ -22,13 +22,15 @@ when I spend time with my folks.
 
 ## What I study
 
-At this point I have finished my B.Sc. in Biology and am currently pursuing my M.Sc degree. I have specialized myself in molecular biology, ecolutionary ecology, and bioinformatics through various experiences. But I am also interested in many other fields in general, such as microbiology, immunology, biotechnology that involves bioimaging, animal physiology, especially the adaptation of marine species, and I aim to combine my interests with my strength to contribute the research in a interdisciplinary way.
+At this point I have finished my B.Sc. in Biology and am currently pursuing my M.Sc degree. I have specialized myself in molecular biology, ecolutionary ecology, and biostatistics through various experiences. But I am also interested in many other fields in general, such as microbiology, immunology, biotechnology, animal physiology, especially the adaptation of marine species, and I aim to combine my interests with my strength to contribute the research in a interdisciplinary way.
+
+You can find more detailed introduction of me as a biology student [here](/research/asbiologist.qmd)
 
 ## What I do in free time
 
 Photography is one of my major hobby in personal life. 
 
-# Contact Me
+<!-- # Contact Me
 
 I am always happy to hear your thoughts, comments, questions, and I am excited for new connections! Use these contacts to reach me:
 
@@ -36,4 +38,4 @@ I am always happy to hear your thoughts, comments, questions, and I am excited f
 - GitHub: [zzzhehao](https://github.com/zzzhehao)
 - Instagram: [zhehao.hu_](https://instagram.com/zhehao.hu_)
 
-Looking forward to hear from you!
+Looking forward to hear from you! -->
