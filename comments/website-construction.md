@@ -109,7 +109,7 @@ This comment notes some things not widely mentioned on the internet and can be c
     <div class="background-container"; style="background-image: url('corrected/image.jpg');"></div>
     ```
 
-- I ran into the same problem when I try to apply footer.html to files at different level, then I realize this must not be legitimate. I did some searching and it turns out it's a common knowledge in front-end developing that `/` directly uses the project root. So just put following in `_quarto.yml` and then use absolute path in html.
+- I ran into the same problem when I try to apply footer.html to files at different level, then I realize this must not be legitimate. I did some searching and it turns out it's a common knowledge in front-end developing that `/` directly uses the project root. So just put following in `_quarto.yml` and then use absolute path in html (but not in yaml, there you still need to define the relative path)
 
     ```yaml
     project:
