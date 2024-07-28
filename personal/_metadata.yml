@@ -14,3 +14,4 @@ format:
     toc-depth: 4
     code-copy: true
     code-overflow: wrap
+    include-after-body: ../research/research-footer.html
