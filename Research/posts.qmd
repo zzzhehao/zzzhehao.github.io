@@ -6,3 +6,7 @@ listing:
     contents: 
         community-ecology
 ---
+
+:::{.mini}
+Some test for dark theme
+:::
