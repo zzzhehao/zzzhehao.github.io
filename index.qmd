@@ -57,7 +57,7 @@ format:
 
   <br><br>
 
-### As a [*Photographer.*](gallery/asphotographer.qmd)
+### As a [*Photographer.*](gallery/gallery.qmd)
 
 ### As a [*Biology student.*](research/asbiologist.qmd)
 

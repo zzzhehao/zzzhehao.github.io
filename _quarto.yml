@@ -20,10 +20,10 @@ website:
         menu: 
           - text: "Albums"
             href: gallery/gallery.qmd
-          - text: "Videos"
-            href: gallery/videos.qmd
-          - text: "As a Photographer"
-            href: gallery/asphotographer.qmd
+          # - text: "Videos"
+          #   href: gallery/videos.qmd
+          # - text: "As a Photographer"
+          #   href: gallery/asphotographer.qmd
 
       - text: "Research"
         menu:
