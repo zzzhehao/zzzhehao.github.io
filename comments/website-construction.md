@@ -2,7 +2,7 @@
 title: "Comment"
 author: "Zhehao Hu"
 ---
-! This file is not meant to be included in the website, if it renders weirdly, try open it on GitHub.
+This file is not meant to be included in the website, if it renders weirdly, try open it on GitHub.
 
 This comment notes some things not widely mentioned on the internet and can be confusing for beginners while trying to construct the website.
 
@@ -109,10 +109,16 @@ This comment notes some things not widely mentioned on the internet and can be c
     <div class="background-container"; style="background-image: url('corrected/image.jpg');"></div>
     ```
 
-- I ran into the same problem when I try to apply footer.html to files at different level, then I realize this must not be legitimate. I did some searching and it turns out it's a common knowledge in front-end developing that `/` directly uses the project root. So just put following in `_quarto.yml` and then use absolute path in html (but not in yaml, there you still need to define the relative path)
+- I ran into the same problem when I try to apply footer.html to files at different level, then I realize this must not be legitimate. I did some searching and it turns out it's a common knowledge in front-end developing that `/` directly uses the project root. So just put following in `_quarto.yml` and then use absolute path in html (but not in yaml, there you still need to define the relative path) 
 
     ```yaml
     project:
       execute-dir: project
     ```
     
+### 2024/07/28 404 page and project path
+
+- Following up last point, I ran into an even weirder situation while designing 404 page (type whatever under my site to see it). I wanted to use custom background but the problem is 404 page could be rendered everywhere at any depth as the user ran into invalid address. Which means the image I use is at different relative location to the rendered 404 page.
+- I found [this discussion](https://github.com/quarto-dev/quarto-cli/issues/5284#issuecomment-1533526078) and one of the developer stated that we can use project path (same as the one mentioned in the last point) in yaml header, but it seems not be a simple `/` but rather a `./`, but I am not hundred percent sure. 
+- I also found [this issue](https://github.com/quarto-dev/quarto-cli/issues/3788) and it further confused me plus it's been labeled as a future feature that has been delayed twice, so I gave up with this.
+- Weird thing is, I somehow couldn't use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the `theme/bg-red-plane-2.html` since I don't need it anywhere so I don't want to touch it. If you also have similar problem, maybe check it out.

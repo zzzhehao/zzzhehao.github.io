@@ -2,29 +2,12 @@
 format: 
   html:
     page-layout: custom
-    include-in-header: theme/bg-red-plane.html
+    include-in-header: ./theme/bg-red-plane-2.html
     code-block-background: false
 execute: 
   eval: false
 ---
 <style>
-    body, html {
-    font-family: 'Times New Roman';
-    color: #F2E6DF;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    }
-    a {
-    color: #f2a94f; 
-    text-decoration: none;
-    }
-    a:hover {
-    text-decoration: underline;
-    }
-    .background-container {
-    background-image: url('/assets/images/red-plane-2.jpg');
-    }
     .sourceCode {
     background-color: transparent !important;
     border: none !important;
@@ -77,7 +60,8 @@ open.page("MyLove.html")
 
 <br>
 
-  <p style="font-size: 1.3rem"><a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report this issue</a> or <a href="https://github.com/zzzhehao/zzzhehao.github.io">return to homepage</a></p>
+  <p>Please check if you typed the address correctly.</p>
+  <p style="font-size: 1rem"><a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report this issue</a> or <a href="https://github.com/zzzhehao/zzzhehao.github.io">return to homepage</a></p>
 
 </div>
     
