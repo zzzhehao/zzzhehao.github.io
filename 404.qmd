@@ -1,0 +1,106 @@
+---
+format: 
+  html:
+    page-layout: custom
+    include-in-header: theme/bg-red-plane.html
+    code-block-background: false
+execute: 
+  eval: false
+---
+<style>
+    body, html {
+    font-family: 'Times New Roman';
+    color: #F2E6DF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+    a {
+    color: #f2a94f; 
+    text-decoration: none;
+    }
+    a:hover {
+    text-decoration: underline;
+    }
+    .background-container {
+    background-image: url('/assets/images/red-plane-2.jpg');
+    }
+    .sourceCode {
+    background-color: transparent !important;
+    border: none !important;
+    }
+</style>
+
+<div style="
+  height: 93vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+">
+<!-- <div> -->
+  <div style="
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  ">
+  
+  <div style="
+  width: 65%; 
+  display: flex;
+  justify-content: space-between;
+  ">
+  
+<!-- Left part -->
+<div style="width: 100%;">
+  <span style="font-size:4rem; ">Ooops...</span><br>
+  <span style="font-size:2rem">we seem to have run into a dead end...</span>
+
+  <br>
+
+```{r}
+open.page <- function (destination) {
+    if (!is.na(destination)) {
+        page <- load(destination)
+        ruturn(page)
+    } else {
+        return("404")
+    }
+}
+
+open.page("MyLove.html")
+```
+
+<br>
+
+  <p style="font-size: 1.3rem"><a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report this issue</a> or <a href="https://github.com/zzzhehao/zzzhehao.github.io">return to homepage</a></p>
+
+</div>
+    
+  <!-- Right part  -->
+  <!-- <div style="width: 40%;"> -->
+  
+<!-- Right part text -->
+<!-- To enable this column set left width to 60% -->
+
+  <!-- </div> --> 
+  
+</div>
+</div>
+  
+  <!-- footer -->
+  <footer style="
+    padding: 10px 20px 10px 0;
+    text-align: right;
+    font-family: 'Arial';
+    color: #F2E6DF;
+    width: 100%;
+    font-size: 0.7rem;
+  ">
+    <p style="margin: 0;">© 2024 Zhehao Hu. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io"><span style="text-decoration: underline;">github.com</span></a>.</p>
+  </footer>
+</div>
