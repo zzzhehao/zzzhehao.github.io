@@ -30,9 +30,9 @@ website:
       - text: "Research"
         menu:
           - text: "Posts"
-            href: research/posts.qmd
+            href: biology-research/posts.qmd
           - text: "As a Biology Student"
-            href: research/asbiologist.qmd
+            href: biology-research/asbiologist.qmd
       - text: "Personal"
         menu:
           - text: "About Me"
@@ -54,6 +54,7 @@ website:
 
 format: 
   html:
+    highlight-style: arrow-light
     theme: 
       light: [theme/style.scss, theme/custom-nav.scss, theme/callouts.scss]
       dark: [theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss]

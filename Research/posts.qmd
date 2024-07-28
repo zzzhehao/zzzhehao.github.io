@@ -1,9 +1,0 @@
----
-title: "Posts"
-author: ""
-affiliation: ""
-listing: 
-    contents: 
-        community-ecology
-draft: true
----

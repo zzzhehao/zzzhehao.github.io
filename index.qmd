@@ -53,7 +53,7 @@ format:
 <div style="width: 100%;">
   <span style="font-size:3rem;line-height:0.7">Zhehao Hu</span>
 
-  <span style="font-size:0.9rem">My interest is my strongest strength.</span>
+  <span style="font-size:0.9rem">Read. Think. Write.</span>
 
   <br><br>
 

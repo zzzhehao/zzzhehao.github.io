@@ -1,23 +1,22 @@
 ---
-title: ""
+title: "About me"
 author: ""
+date: "2024-07-28"
 format:
   html:
     toc: true
     toc-depth: 2
     include-in-header: ../theme/bg-red-plane.html
+execute: 
+  eval: false
 ---
-
-# About Me
 
 👋 Hi, I am Zhehao.
 
 If you are wondering how to speak my name, it's like 'dʒe hao', as 哲豪 written in Chinese. I was born in Japan but technically I am a Taiwanese citizen, I spent my first six years in Tokyo [(東京)](https://www.google.com/maps/@35.6732346,139.7532873,11.45z?entry=ttu)
-near Tamagawa (Tama-River) [(多摩川)](https://www.google.com/maps/@35.6223228,139.5730771,14.62z?entry=ttu)
-- which separate the capital and the neighboring district Kanagawa-Ken (神奈川県) is separated. I then went to school in Kunshan [(昆山)](https://www.google.com/maps/@31.3803707,120.9563431,14.08z?entry=ttu)
-, a small city neighbouring Shanghai [(上海)](https://www.google.com/maps/@31.1458601,121.2870183,9.81z?entry=ttu)
-until 2016, since then I went to high school in [Schwerin (Germany, MV)](https://www.google.com/maps/@53.6647976,11.447494,11.51z?entry=ttu) 
-and started my degree program in [Hamburg](https://www.google.com/maps/@53.5526666,9.9925612,12.29z?entry=ttu) since 2020. Recently I am more often staying in Kaohsiung [(高雄)](https://www.google.com/maps/@22.6578342,120.3375094,11.71z?entry=ttu) 
+near Tamagawa (Tama-River) [(多摩川)](https://www.google.com/maps/@35.6223228,139.5730771,14.62z?entry=ttu). Then I move to Kunshan [(昆山)](https://www.google.com/maps/@31.3803707,120.9563431,14.08z?entry=ttu)
+, a small city near Shanghai [(上海)](https://www.google.com/maps/@31.1458601,121.2870183,9.81z?entry=ttu), for school. Since 2016, I went to high school in [Schwerin (Germany, MV)](https://www.google.com/maps/@53.6647976,11.447494,11.51z?entry=ttu) 
+and started my degree program in [Hamburg](https://www.google.com/maps/@53.5526666,9.9925612,12.29z?entry=ttu) in 2020. Recently I am more often staying in Kaohsiung [(高雄)](https://www.google.com/maps/@22.6578342,120.3375094,11.71z?entry=ttu) 
 when I spend time with my folks. 
 
 ## What I study
@@ -28,4 +27,44 @@ You can find more detailed introduction of me as a biology student [here](/resea
 
 ## What I do in free time
 
+### Photography
+
 Photography is one of my major hobby in personal life. 
+
+### Coffee
+
+### Coding
+
+### Coding & Coffee
+
+I also drink coffee virtually.
+
+```{r}
+library(kitchen)
+
+Cappuccino <- function(coffee, type) {
+  if (type == "whole") {
+    coffee <- grind(coffee, size = extra_fine)
+  }
+  
+  espresso <- Moka.pot(coffee, size = 2, heat_level = medium, min = 5)
+  foam <- froth(milk)
+  milk <- steam(milk)
+  cappuccino <- latte.art(espresso, foam, milk)
+  
+  return(cappuccino)
+}
+
+Coffee <- Cappuccino(Okinawa_Sango_Roast, "whole")
+Sip(Coffee)
+```
+
+Okay that's enough.
+
+### Hiking
+
+### Diving
+
+### Bouldering
+
+### Others

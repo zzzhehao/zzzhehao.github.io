@@ -57,7 +57,7 @@ execute:
 > open.page("MyLove.html")
 ```
 
-```
+```{txt}
 [1] "404 Not Found"
 ```
 
