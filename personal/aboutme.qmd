@@ -24,18 +24,8 @@ when I spend time with my folks.
 
 At this point I have finished my B.Sc. in Biology and am currently pursuing my M.Sc degree. I have specialized myself in molecular biology, ecolutionary ecology, and biostatistics through various experiences. But I am also interested in many other fields in general, such as microbiology, immunology, biotechnology, animal physiology, especially the adaptation of marine species, and I aim to combine my interests with my strength to contribute the research in a interdisciplinary way.
 
-You can find more detailed introduction of me as a biology student [here](/research/asbiologist.qmd)
+You can find more detailed introduction of me as a biology student [here](/research/asbiologist.qmd).
 
 ## What I do in free time
 
 Photography is one of my major hobby in personal life. 
-
-<!-- # Contact Me
-
-I am always happy to hear your thoughts, comments, questions, and I am excited for new connections! Use these contacts to reach me:
-
-- E-Mail: [hu_zhehao@hotmail.com](mailto:hu_zhehao@hotmail.com)
-- GitHub: [zzzhehao](https://github.com/zzzhehao)
-- Instagram: [zhehao.hu_](https://instagram.com/zhehao.hu_)
-
-Looking forward to hear from you! -->

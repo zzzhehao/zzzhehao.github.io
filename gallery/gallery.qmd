@@ -1,8 +1,10 @@
 ---
 title: "Albums"
+abstract: "More albums from the past are on the way. Please give me a couple days and check back again! 😊"
 format: 
   html:
     css: gallery.css
+    toc: false
 website:
   navbar:
     background: transparent

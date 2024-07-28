@@ -4,8 +4,10 @@ affiliation: ""
 author: ""
 ---
 
-[2024-07-27] New page: [Me as a biology student](../research/asbiologist.qmd) 
+[2024-07-28] New page: [About me](/personal/aboutme.qmd)
 
-[2024-07-22] New page: [Gallery](../gallery/gallery.qmd)
+[2024-07-27] New page: [Me as a biology student](/research/asbiologist.qmd) 
+
+[2024-07-22] New page: [Gallery](/gallery/gallery.qmd)
 
 [2024-06-28] Initialize the website.

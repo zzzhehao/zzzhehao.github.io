@@ -5,8 +5,5 @@ affiliation: ""
 listing: 
     contents: 
         community-ecology
+draft: true
 ---
-
-:::{.mini}
-Some test for dark theme
-:::

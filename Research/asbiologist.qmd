@@ -18,7 +18,7 @@ Another passion of mine lies in the ocean. The magical power of the ocean has at
 
 I love thinking, sometimes even a bit too much. I have lost count of how many times I sat on the rocks, looking at the starlight's reflection in the great lake of Schwerin, thinking about how vastly wide the universe is, and how insanely long time flows. Every time I think about this, I am amazed by the complexity of life, which blooms so brightly and desperately in the eye of Laplace’s demon.
 
-![Schweriner Schloss under the stars](../assets/images/schwerin-starlight.jpg){width=60%}
+<!-- ![Schweriner Schloss under the stars](../assets/images/schwerin-starlight.jpg){width=60%} -->
 
 All of this, and much more, have ultimately led me on the path of becoming a biologist. 
 

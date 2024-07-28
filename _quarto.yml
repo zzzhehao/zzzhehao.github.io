@@ -11,8 +11,10 @@ project:
 
 website:
   title: "Zhehao Hu"
-  site-url: https://zzzhehao.github.io
+  site-url: https://zzzhehao.github.io/
+  site-path: https://zzzhehao.github.io/
   description: "Zhehao Hu's Personal Website"
+  draft-mode: unlinked
   
   navbar: 
     left: 
