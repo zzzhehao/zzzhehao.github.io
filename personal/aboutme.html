@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-07-30">
 
-<title>aboutme – Zhehao Hu</title>
+<title>About me – Zhehao Hu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -35,10 +71,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,11 +107,59 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+    @import '../theme/_color.scss';
+    @import '../theme/style.scss';
+    
+    .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../assets/images/red-plane.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: -2;
+    }
+
+    body {
+        color: #e9e5df;
+        position: relative;
+    }
+
+    figcaption {
+        color: #cecece;
+    }
+
+    .contact-links a {
+        color: var(--mute-color-dark);
+    }
+
+    .cus-footer {
+        color: var(--ink1);
+    }
+
+    .sourceCode {
+    background-color: transparent !important;
+    border: none !important;
+    }
+
+    .abstract-callout {
+        border: 3px solid #e9e5df;
+    }
+</style>
+
+</head><body class="nav-fixed"><div class="background-container"></div>
 
 
-</head>
+<link rel="stylesheet" href="../theme/text-justify.css">
+<link rel="stylesheet" href="../theme/caption-center.css">
 
-<body class="nav-fixed">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -81,11 +170,60 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Zhehao Hu</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-photography" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Photography</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
+        <li>
+    <a class="dropdown-item" href="../gallery/gallery.html">
+ <span class="dropdown-text">Albums</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../biology-research/posts.html">
+ <span class="dropdown-text">Posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../biology-research/asbiologist.html">
+ <span class="dropdown-text">As a Biology Student</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-personal" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Personal</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-personal">    
+        <li>
+    <a class="dropdown-item" href="../personal/aboutme.html">
+ <span class="dropdown-text">About Me</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../personal/news.qmd"> 
+<span class="menu-text">What’s new</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
     <a href="https://github.com/zzzhehao" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
     <a href="https://instagram.com/zhehao.hu_" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-instagram"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -97,62 +235,341 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
+  <ul>
+  <li><a href="#what-i-study" id="toc-what-i-study" class="nav-link active" data-scroll-target="#what-i-study">What I study</a></li>
+  <li><a href="#what-i-do-in-free-time" id="toc-what-i-do-in-free-time" class="nav-link" data-scroll-target="#what-i-do-in-free-time">What I do in free time</a>
   <ul class="collapse">
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a>
-  <ul class="collapse">
-  <li><a href="#what-i-study" id="toc-what-i-study" class="nav-link" data-scroll-target="#what-i-study">What I study</a></li>
-  <li><a href="#what-i-do-in-free-time" id="toc-what-i-do-in-free-time" class="nav-link" data-scroll-target="#what-i-do-in-free-time">What I do in free time</a></li>
+  <li><a href="#photography" id="toc-photography" class="nav-link" data-scroll-target="#photography">Photography</a></li>
+  <li><a href="#coding" id="toc-coding" class="nav-link" data-scroll-target="#coding">Coding</a></li>
+  <li><a href="#coffee" id="toc-coffee" class="nav-link" data-scroll-target="#coffee">Coffee</a></li>
+  <li><a href="#hiking" id="toc-hiking" class="nav-link" data-scroll-target="#hiking">Hiking</a></li>
+  <li><a href="#diving" id="toc-diving" class="nav-link" data-scroll-target="#diving">Diving</a></li>
+  <li><a href="#vinyl" id="toc-vinyl" class="nav-link" data-scroll-target="#vinyl">Vinyl</a></li>
+  <li><a href="#miscellaneous" id="toc-miscellaneous" class="nav-link" data-scroll-target="#miscellaneous">Miscellaneous</a></li>
   </ul></li>
-  <li><a href="#contact-me" id="toc-contact-me" class="nav-link" data-scroll-target="#contact-me">Contact Me</a></li>
+  <li><a href="#some-random-facts-about-me" id="toc-some-random-facts-about-me" class="nav-link" data-scroll-target="#some-random-facts-about-me">Some random facts about me</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">About me</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 30, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <style>
-body {
-    height: 100vh;
-    width: 100%;
-    background-image: url('../images/red_plane.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* background-color: rgba(200, 200, 200, 1); */
-    color: #F2E6DF;
-}
+  .background-container {
+    background-image: url('../assets/images/summer-cloud-3.jpg');
+  }
+  .cus-footer {
+    color: #e9e5df;
+  }
 </style>
-<section id="about-me" class="level1">
-<h1>About Me</h1>
-<p>👋 Hi, I am Zhehao.</p>
-<p>If you are wondering how to speak my name, it’s ‘dʒe hao’, as 哲豪 written in Chinese. I was born in Japan but technically I am a Taiwanese citizen, I spent my first six years in Tokyo <a href="https://www.google.com/maps/@35.6732346,139.7532873,11.45z?entry=ttu">(東京)</a> near Tamagawa (Tama-River) <a href="https://www.google.com/maps/@35.6223228,139.5730771,14.62z?entry=ttu">(多摩川)</a> - which separate the capital and the neighboring district Kanagawa-Ken (神奈川県) is separated. I then went to school in Kunshan <a href="https://www.google.com/maps/@31.3803707,120.9563431,14.08z?entry=ttu">(昆山)</a> , a small city neighbouring Shanghai <a href="https://www.google.com/maps/@31.1458601,121.2870183,9.81z?entry=ttu">(上海)</a> until 2016, since then I went to high school in <a href="https://www.google.com/maps/@53.6647976,11.447494,11.51z?entry=ttu">Schwerin (Germany, MV)</a> and started my degree program in <a href="https://www.google.com/maps/@53.5526666,9.9925612,12.29z?entry=ttu">Hamburg</a> since 2020. Recently I am more often staying in Kaohsiung <a href="https://www.google.com/maps/@22.6578342,120.3375094,11.71z?entry=ttu">(高雄)</a> when I spend time with my folks.</p>
+<p><br></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 65%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="../assets/images/hu-profile.jpg" class="img-fluid" style="width:100.0%"></td>
+<td style="text-align: left;">👋 Hi, I am Zhehao. <br><br>I’m a M.Sc. Biology student based in Hamburg. I’m passionate about Evolution, Ecology and Bioinformatics. <br><br>I build this website to share my notes, works, thoughts and nonsense. Hope you enjoy my texts and my photos.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="abstract-callout">
+<p>A short version for people don’t want to read all my nonsense</p>
+<div class="abstract-callout-container">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;"><strong>Zhehao</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Biology student</td>
+<td style="text-align: left;">Universität Hamburg</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">E-Mail</td>
+<td style="text-align: left;"><a href="mailto:hu_zhehao@hotmail.com">hu_zhehao@hotmail.com</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Specialization</td>
+<td style="text-align: left;">Molecular Biology, Evolutionary Ecology, Bioinformatics</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cities I lived</td>
+<td style="text-align: left;">Tokyo, Kunshan, Schwerin, Hamburg, Kaohsiung</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hobby</td>
+<td style="text-align: left;">Photography, Coding, Coffee, Hiking, Diving, Jazz, Old stuffs (Vinyl, Film, etc.)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Other pages for details:</td>
+<td style="text-align: left;"><a href="../biology-research/asbiologist.html">As Biology student</a><br>- <a href="../biology-research/posts.html">Research related posts</a><br>- <a href="../gallery/gallery.html">Albums</a></td>
+</tr>
+</tbody>
+</table>
+<p><em>Read. Think. Write.</em></p>
+</div>
+</div>
+<p><br></p>
+<p>If you are wondering how to speak my name, it’s like ‘dʒe hao’, as 哲豪 written in Chinese. I was born in Japan but technically I am a Taiwanese citizen, I spent my first six years in Tokyo <a href="https://www.google.com/maps/@35.6732346,139.7532873,11.45z?entry=ttu">(東京)</a> near Tamagawa (Tama-River) <a href="https://www.google.com/maps/@35.6223228,139.5730771,14.62z?entry=ttu">(多摩川)</a>. Then I move to Kunshan <a href="https://www.google.com/maps/@31.3803707,120.9563431,14.08z?entry=ttu">(昆山)</a> , a small city near Shanghai <a href="https://www.google.com/maps/@31.1458601,121.2870183,9.81z?entry=ttu">(上海)</a>, for school. Since 2016, I went to high school in <a href="https://www.google.com/maps/@53.6647976,11.447494,11.51z?entry=ttu">Schwerin (Germany, MV)</a> and started my degree program in <a href="https://www.google.com/maps/@53.5526666,9.9925612,12.29z?entry=ttu">Hamburg</a> in 2020. Recently I am more often staying in Kaohsiung <a href="https://www.google.com/maps/@22.6578342,120.3375094,11.71z?entry=ttu">(高雄)</a> when I spend time with my folks.</p>
 <section id="what-i-study" class="level2">
 <h2 class="anchored" data-anchor-id="what-i-study">What I study</h2>
-<p>At this point I have finished my B.Sc. in Biology and am currently pursuing my M.Sc degree. I have specialized myself in molecular biology, ecolutionary ecology, and bioinformatics through various experiences. But I am also interested in many other fields in general, such as microbiology, immunology, biotechnology that involves bioimaging, animal physiology, especially the adaptation of marine species, and I aim to combine my interests with my strength to contribute the research in a interdisciplinary way.</p>
+<p>At this point I have finished my B.Sc. in Biology and am currently pursuing my M.Sc degree. I have specialized in molecular biology, evolutionary ecology, and biostatistics through various experiences. But I am also interested in many other fields in general, such as microbiology, immunology, biotechnology, animal physiology, especially the adaptation of marine species, and I aim to combine my interests with my strength to contribute the research in an interdisciplinary way.</p>
+<p>You can find more detailed introduction about my academic journey <a href="../biology-research/asbiologist.html">here</a>.</p>
 </section>
 <section id="what-i-do-in-free-time" class="level2">
 <h2 class="anchored" data-anchor-id="what-i-do-in-free-time">What I do in free time</h2>
-<p>Taking photos is one of my major hobby in personal life.</p>
+<section id="photography" class="level3">
+<h3 class="anchored" data-anchor-id="photography">Photography</h3>
+<p>Photography is one of my major hobbies in personal life. It has also brought me to the current career path, I did once consider making it as my profession, but after all, I was not bold enough to overcome the fear of being jobless. (Is studying evolution any better 🤨!?)</p>
+<p>I casaully take photos in digital and analog films, and casually take some jobs like concerts recording, wedding photography, etc. I actually want to make creative and not business-driven projects, but I’m casual, so I never have made something so far 😕. Earlier I used to run a tiny business for developing and scanning films, but only to avoid the chemicals expiring because there are not so many films to process from me. As I got more and more to do for my career, I cut it out too and now I only casually develop films for friends (still charged, of course, but you can get my way of processing if you like, see my film photos <a href="../gallery/gallery.html">here</a>).</p>
+<p>Of course, I still casually do some other things more than just taking photo. I casually shoot some super-8 film for special events in my life, and I casually experiment with the cyanotype technique on sunny days. I also casually modified an instax camera and fused it with my Mamiya RB67, and if I go diving, I will casually grab a GoPro and drift in the water.</p>
+<p>Casually, you can also see me have a camera around my neck or hung on my shouder but not seeing me taking any photo.</p>
+<p>You know, I’m just staying casual.</p>
+<p>Photography has taught me how to live my life in a positive way, it gave me the ability to notice the small things which made the world a wonderful place. Sometimes I also want to feel the moment by myself and not be distracted by thinking how to take a good photo, and I also don’t want to turn this all into stressful work.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/images/hu-taking-photo.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Me casually taking a photo"><img src="../assets/images/hu-taking-photo.jpg" class="img-fluid figure-img" style="width:60.0%" alt="Me casually taking a photo"></a></p>
+<figcaption>Me casually taking a photo</figcaption>
+</figure>
+</div>
+</section>
+<section id="coding" class="level3">
+<h3 class="anchored" data-anchor-id="coding">Coding</h3>
+<p>This one is quite obvious, I mean, who would have ever casually thought “well today’s a nice day, let’s make a website” and then spent countless hours reading through those dry and dull documents tasting like well-done steak just to make a full-customized and “once being set up then easy to maintain” website?</p>
+<p>But seriously, I already had the idea of making a personal website for a while, I tried for several options, such as Squarespace, Notion, etc. They are all good at some points, but also really restricted. Squarespace has fancy templates but costs money and is not easy to construct. Notion is, honestly after I started writing in pure Markdown with Obsidian, I just can’t work with Notion’s file management logic and UI design anymore, although making personal website is not its main feature anyway. Also the entire cloud-based storage is a huge bomb that can go off unexpectedly anytime.</p>
+<p>The main reason for me to make a site is to share my notes. Everytime I tried so hard writing good notes, but in the end I’m the only one reading it makes me feel kind of sad. Especially during one course I had not long ago, I worked with R and combined methods posted by different people on their own websites and made a really good plot, which I cracked the code by myself and never saw anywhere before. I wanted to share it, I first tried Rpubs but that thing was like centuries old and certainly not actively well maintained anymore, then I learned about <a href="https://quarto.org">Quarto</a> and ended up here. Despite some weird things and restrictions that require extra bypass (I logged them <a href="../comments/website-construction.html">here</a>), Quarto is really easy to learn and start with to build a website for those who has no experience in front-end developing.</p>
+<p>Saying that, I have general interest in programming too, not the SQL-database management or the front/back-end developing kind of programming, but the “I don’t need financial analysis app because I have my own R shiny app for it” kind of thing. I really enjoy the feeling of solving problems with programming, but I’m definetely not commited for business-scale huge projects which are probably gonna consume my lifetime.</p>
+<p>I like keeping it casual, you know? 😏 (okay this starts to sound a bit wrong)</p>
+</section>
+<section id="coffee" class="level3">
+<h3 class="anchored" data-anchor-id="coffee">Coffee</h3>
+<p>Who knows me personally knows also that I drink a lot coffee and love the vibe. I have no interest in becoming a coffee taster or a barista but I love to try different coffee brands and drink with others, preferably while listening to some jazz from Cannonbal Adderley and talking about Jean-Paul Satre and Edvard Munch, or about the cute kitty you saw on the street and the new leaf my Monstera has grown lately.</p>
+<p>By the way, I also drink coffee virtually.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kitchen)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Cappuccino <span class="ot">&lt;-</span> <span class="cf">function</span>(coffee, type) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (type <span class="sc">==</span> <span class="st">"whole"</span>) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    coffee <span class="ot">&lt;-</span> <span class="fu">grind</span>(coffee, <span class="at">size =</span> extra_fine)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  espresso <span class="ot">&lt;-</span> <span class="fu">Moka.pot</span>(coffee, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">heat_level =</span> medium, <span class="at">min =</span> <span class="dv">5</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  foam <span class="ot">&lt;-</span> <span class="fu">froth</span>(milk)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  milk <span class="ot">&lt;-</span> <span class="fu">steam</span>(milk)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  cappuccino <span class="ot">&lt;-</span> <span class="fu">latte.art</span>(espresso, foam, milk)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(cappuccino)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Coffee <span class="ot">&lt;-</span> <span class="fu">Cappuccino</span>(Okinawa_Sango_Roast, <span class="st">"whole"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">Sip</span>(Coffee)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hiking" class="level3">
+<h3 class="anchored" data-anchor-id="hiking">Hiking</h3>
+<p>To prevent making myself in a glass-wearing-nerd stereotype, I alwo want to say I love hiking too. Earlier I was more into the ocean, but at some point, I started to miss the mountains too. But as you know, the Northern Germany has only plain, so if not on vacation, I am just occasionally hiking around Hamburg and the small town nereby. I usually plan for a hike about 3-4 days earlier, depending on the weather forecast, preferably starting early on weekdays (like 8 or 9 a.m.), if you are interested, just reach out!</p>
+<p>If I get away from cities far enough, I also take all chances to do some astrophotography, although not very professional because the gears are SUPER expensive and I also want to keep it casual (i.e.&nbsp;even if I have the equipments, I woule be too lazy to carry some 20 kg gear and spend hours setting up, not to mention maintaining them regularly).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/images/starlight-schwarzwald.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Northern sky at a night in Schwarzwald, my favourite constellation is Orion and my favourite star (beside the Sun) is Antares, they have a nice background story"><img src="../assets/images/starlight-schwarzwald.jpg" class="img-fluid figure-img" style="width:60.0%" alt="Northern sky at a night in Schwarzwald, my favourite constellation is Orion and my favourite star (beside the Sun) is Antares, they have a nice background story"></a></p>
+<figcaption>Northern sky at a night in Schwarzwald, my favourite constellation is Orion and my favourite star (beside the Sun) is Antares, they have a nice background story</figcaption>
+</figure>
+</div>
+</section>
+<section id="diving" class="level3">
+<h3 class="anchored" data-anchor-id="diving">Diving</h3>
+<p>After I learned to dive in 2022, I have already been to some places for diving. I totally love the feeling of not feeling gravity and just chill in my trim. With my study background, you know I dive for the stunning creatures in the water, so I’m not very sporty in this, I don’t (want to) dive in caves, I don’t go deeper than the normal gas allows me (I’ve been to 42 m and it really made my brain heavy), and so far I don’t see any reason for me to go further for tech dive in the near future.</p>
+<p>So yeah, I’m also keeping this casual. I just love messing around with Nemo and searching for some beautiful sea slugs. Also I absolutely love night dive, most creatures are more active at night and while people plan the night dive always at smaller depth, it lasts longer with the gas. I once encountered 9 octopus and three eels (one of them was even during the hunting) within an hour’s dive, it felt like heaven and was really the best dive I had so far.</p>
+<p>Or maybe not? I also love another dive where a sea turtle swam past me unbothered (they are in that attitude most of the time, I hope I can have the same mindset).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/images/sea-slug-kenting.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Probably Chromodoris elisabethina in Kenting (GoPro’s shitty focus)"><img src="../assets/images/sea-slug-kenting.jpg" class="img-fluid figure-img" style="width:60.0%" alt="Probably Chromodoris elisabethina in Kenting (GoPro’s shitty focus)"></a></p>
+<figcaption>Probably <em>Chromodoris elisabethina</em> in Kenting (GoPro’s shitty focus)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/images/green-sea-turtle.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Green Sea Turtle, also in Kenting"><img src="../assets/images/green-sea-turtle.jpg" class="img-fluid figure-img" style="width:60.0%" alt="Green Sea Turtle, also in Kenting"></a></p>
+<figcaption>Green Sea Turtle, also in Kenting</figcaption>
+</figure>
+</div>
+</section>
+<section id="vinyl" class="level3">
+<h3 class="anchored" data-anchor-id="vinyl">Vinyl</h3>
+<p>I already mentioned my love to some old suff, i.e.&nbsp;the analog photography. I have integrated my daily life into it. Another old stuff I love is the vinyl. What so attracts me is not the vinyl itself, but the music on it. Although its special sound quality does make itself different from digital music (recording technique). It’s my speculation, I haven’t looked deep into it yet, but since it’s an analog technique, it should share some similarity with the film, i.e.&nbsp;the logarithmic response to recorded signal and thus resulted in uneven “transformation” of signal at different intensity. The reason why the film image makes people feel “comfortable” is the higher compression rate in the highlight region. Even if it is really bright, compares to digital images, the transition seems smoother and it has less overflow. If you watched <em>Oppemheimer</em> replayed in film, not necessarily the IMAX 70 mm, then you should be able to understand what I mean. At the scene where Oppenheimer walks through the press in the courthouse, the whole screen was very bright, but the film held everything together. This would be hard for a digital camera to do, and it would also look different. I always say that film has higher dynamic range at the highlight is exactly what I mean here.</p>
+<p>Certainly, the fundamental difference between analog and digital techniques lies in the sampling method, but I’m skeptical about whether the normal playback system, as well as the human’s hearing is able to differentiate the continuous signal and digital audio with 48 kHz sample rate. I believe more that the reason which makes vinyl sounds different is similar to the film, it has certain ranges of uneven distribution of resolution and it makes the music sound more vivd and alive. I always describe the digital music a bit “sharp”, and it easily makes my brain tired, comparably the vinyl does this thing much less. Let’s say the analog method features a natural smooth cut-off at edges.</p>
+<p>Saying that, go back to my main point, I love vinyl but I love the music on it more. I listen to a lot of old songs, one reason is that I’m so into Jazz and the last century was the golden time of the golden time of the jazz (no it’s not a typo). There’s certainly some bias within, that the most music which survived till today should be one of the best, the others which were not so famous, had eventually vanished in the history. I go crazy for the classics, but I also embrace this part of music which is going to be forgotten. I have this one disk of songs from local sailors (since Hamburg is a port city), probably really old folk ballads, my pure guess, from the mid to late 19th century.</p>
+<p>Back to jazz, I simply prefer jazz from early time better, like from Eddie Higgins, Cannonball Adderley, Acker Bilk, John Coltrane, Frank Sinatra, and so many more. From New Orleans, Swing, Big Bands, Bebop, to Cool Jazz, Hard bop, Latin Jazz (Bossa Nova!). Fusion is also one of my favorite, I really love the early sci-fi kind of music made by Spyro gyra, The Rippingtons, and Yellowjacket. Honestly, even if it comes to the ultra-classic pieces like Autumn Leaves, many old versions just totally roll out the new ones.</p>
+<p>Besides that, I’m also very into pop and country music from the late 20th century, I probably got influenced by my parents on this point, like <em>Yesterday once more</em> from Carpenters was one of my favorite song when I was a kid, and now I have countless playlists from that time. <em>Both Sides, Now</em> from Joni Mitchell, <em>Say You, Say Me</em> from Lionel Richie, <em>Sometimes When We Touch</em> by Dan Hill, <em>Poems, Prayers and Promises</em> from John Denver, <em>Don’t Know Much</em> by Linda Ronstadt and Aaron Neville, <em>Nothing’s Gonna Change My Love for You</em> from George Benson, <em>Tears in Heaven</em> by Eric Clapton? You must have heard at least one, probably all of them, they are just so perfect 📀.</p>
+</section>
+<section id="miscellaneous" class="level3">
+<h3 class="anchored" data-anchor-id="miscellaneous">Miscellaneous</h3>
+<section id="plants" class="level4">
+<h4 class="anchored" data-anchor-id="plants">Plants</h4>
+<p>Despite I had terrible grade in Botanic (the exam was really hard and I really can’t remember all the Poaceae morphology), I am a plant lover. If you are walking with me on the street and suddenly realize that I’ve been quiet for a while, I’m probably stuck in some random bush 100 meters behind you. I also have some plants at home (not always plants; I once harvested some unexpected mushrooms 🍄‍🟫). There’s a Monstera that I adopted from IKEA three years ago, and now it’s causing me headache since it grew too fast and I have to regularly give away some cuttings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../assets/images/Monstera.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Monstera being wild"><img src="../assets/images/Monstera.jpg" class="img-fluid figure-img" style="width:60.0%" alt="Monstera being wild"></a></p>
+<figcaption>Monstera being wild</figcaption>
+</figure>
+</div>
+</section>
+<section id="cooking" class="level4">
+<h4 class="anchored" data-anchor-id="cooking">Cooking</h4>
+<p>This one is quite reasonable, since what people do in the molecular lab is nothing more than cooking all the time, although it requires a different knowlegde system and we are not cooking for food (the parafilm is eatable tho), but the game is quite the same.</p>
+<p>I don’t actually label myself with cooking as one of my hobbies because normally I don’t spend a lot time cooking, since it often turns into the situation of “Cooked with the power of four, made the portion of two, ate the whole by myself”. I mean if I can’t share it then where’s the point? So for myself, I just cook whatever is convenient (and maybe consider nutrition from time to time).</p>
+<p>But I always love cooking with my friends and trying different things, although I rarely stick to recipes, as long as I don’t have deadline coming up and my friends are staying casual, instead of trying to make some gala dinner with my 1.5 m<sup>2</sup>-kitchen. I mean that’s not cooking, that’s cooked, especially when you have to clean up the mess.</p>
+</section>
+<section id="animals" class="level4">
+<h4 class="anchored" data-anchor-id="animals">Animals</h4>
+<p>I don’t know if I even need to mention this, but specifically I love cats. I don’t live with any because I still don’t see a stable future even for myself, so I’m not dragging another innocent life into it, but I always take any chance I have to pet cats. Fortunately I just know one cat who shows his unconditional love to me so actively every time I meet him.</p>
 </section>
 </section>
-<section id="contact-me" class="level1">
-<h1>Contact Me</h1>
-<p>I am always happy to hear your thoughts, comments, questions, and I am excited for new connections! Use these contacts to reach me:</p>
+</section>
+<section id="some-random-facts-about-me" class="level2">
+<h2 class="anchored" data-anchor-id="some-random-facts-about-me">Some random facts about me</h2>
 <ul>
-<li>E-Mail: <a href="mailto:hu_zhehao@hotmail.com">hu_zhehao@hotmail.com</a></li>
-<li>GitHub: <a href="https://github.com/zzzhehao">zzzhehao</a></li>
-<li>Instagram: <a href="https://instagram.com/zhehao.hu_">zhehao.hu_</a></li>
+<li><p>I’m allergic to Timothy - <a href="https://en.wikipedia.org/wiki/Timothy_(grass)#Description">the grass</a> tho - and it was the only plant I recognized during the field excursions from botanic module. Interestingly this grass is also called as Cat-Tail-Grass (猫尾草) in Chinese and Common Cat’s Tail in English.</p></li>
+<li><p>I mishear a lot of things. My Chinese friends love the story of 辣条金枪鱼.</p></li>
+<li><p>I love cleaning and reparing old cameras, although not well enough for me to start a business, but I did fix several old cameras of mine on my own.</p></li>
 </ul>
-<p>Looking forward to hear from you!</p>
+<hr>
+<p>I really appreciate that you read so far, it feels really great when people are willing to listen to me talking nonsense. If your interests aligned with mine somehow, don’t hesitate to reach out! Also there is more on my website, please check them out too!</p>
+<ul>
+<li><a href="../gallery/gallery.html">Photo Albums</a></li>
+<li><a href="../biology-research/asbiologist.html">Me as a Biology Studen</a></li>
+</ul>
 
 
 </section>
 
 </main> <!-- /main -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    .contact-links {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .contact-links a {
+        flex: 1;
+        text-align: left;
+        font-size: 1rem;
+        /* color: #888; */
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-links a:hover {
+        color: #f2a94f;
+    }
+
+    .contact-links a i {
+        margin-right: 10px;
+    }
+
+    .cus-footer {
+        /* API for custom background to change font color etc */
+    }
+
+    @media (max-width: 720px) {
+        .contact-links {
+            justify-content: space-around;
+        }
+
+        .contact-links a {
+            flex: 0 1 auto;
+            text-align: center;
+        }
+
+        .contact-links a span {
+            display: none;
+        }
+
+        .contact-links a i {
+            margin-right: 0;
+        }
+    }
+</style>
+
+<!-- <div style="color: #333; padding: 20px 0;"> -->
+<div>
+    <hr>
+
+    <div style="
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    ">
+        <!-- Left: Logo -->
+        <div style="
+            flex-shrink: 0;
+            margin-right: 30px; /* Space between logo and content */
+            padding-left: 30px; /* Space between logo and left edge */
+        ">
+            <img src="../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
+        </div>
+
+        <!-- Right: Content -->
+        <div class="cus-footer" ;="" style="
+            flex: 1;
+            min-width: 250px; /* Ensures the content doesn't get too narrow */
+            font-size: 0.8rem;
+        ">
+        
+            <h5>Something you like? Reach out to me!</h5>
+            <div class="contact-links">
+                <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
+                <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
+                <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
+                <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
+            </div>
+            <hr>
+            
+            <p>Issues on the website?  <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
+            <p>© 2024 Zhehao Hu.</p>
+            
+            
+        </div>
+    </div>
+    <hr>
+</div>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -173,6 +590,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -245,7 +806,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/zzzhehao\.github\.io");
+      var filterRegex = new RegExp("https:\/\/zzzhehao\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -574,6 +1135,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

@@ -2,23 +2,26 @@
 .quarto-title-block {
   max-width: 2560px;
   margin: 0 auto;
-  padding: 30px 30px 0;
+  padding: 60px 60px 0;
 }
 
 .quarto-title {
-  margin-left: 0;
+  margin-left: 10;
   margin-right: 0;
 }
 
 /* Adjust content padding */
 .quarto-container-body {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 60px 60px 0;
+  /* padding-left: 10px;
+  padding-right: 0; */
+  max-width: 1200px; /* Set a max-width for the body content */
+  margin: 0 auto; /* Center the body content */
 }
 
 /* Ensure full width for title banner */
 .quarto-title-banner {
-  margin-left: calc(-50vw + 50%);
+  /* margin-left: calc(-50vw + 50%); */
   margin-right: calc(-50vw + 50%);
   padding-left: calc(50vw - 50% + 30px);
   padding-right: calc(50vw - 50% + 30px);
@@ -27,6 +30,7 @@
 /* Gallery things */
 .gallery-grid {
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   width: calc(100% - 60px);
@@ -90,6 +94,7 @@
 .close-button {
   position: absolute;
   top: 20px;
+
   right: 20px;
   background: none;
   border: none;
@@ -143,6 +148,7 @@ body.gallery-open .navbar {
 /* Loading indicator */
 .image-container {
   position: relative;
+
   width: calc(100% - 120px);
   height: 80%;
   margin: 0 auto;

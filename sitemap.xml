@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zzzhehao.github.io/gallery/index.html</loc>
-    <lastmod>2024-07-21T22:15:33.521Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/aboutme.html</loc>
-    <lastmod>2024-07-21T20:17:40.152Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/gallery/asphotographer.html</loc>
-    <lastmod>2024-07-21T19:43:16.106Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/comments/gallery_construction.html</loc>
-    <lastmod>2024-07-21T19:49:47.517Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/research/community-ecology/1_NMDS_and_PERMANOVA.html</loc>
-    <lastmod>2024-07-21T12:23:02.071Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/research/asbiologist.html</loc>
-    <lastmod>2024-07-21T19:44:08.879Z</lastmod>
+    <loc>https://zzzhehao.github.io/gallery/gallery.html</loc>
+    <lastmod>2024-07-31T09:12:16.836Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/index.html</loc>
-    <lastmod>2024-07-21T20:17:34.174Z</lastmod>
+    <lastmod>2024-07-31T09:12:16.837Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/biology-research/asbiologist.html</loc>
+    <lastmod>2024-07-31T09:12:16.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/comments/tips.html</loc>
+    <lastmod>2024-07-31T09:12:16.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/comments/website-construction.html</loc>
+    <lastmod>2024-07-31T09:12:16.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/personal/blogs.html</loc>
+    <lastmod>2024-07-31T09:12:16.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/biology-research/posts.html</loc>
+    <lastmod>2024-07-31T09:12:16.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/gallery/videos.html</loc>
+    <lastmod>2024-07-31T09:12:16.837Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/news.html</loc>
+    <lastmod>2024-07-31T09:12:16.837Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/personal/aboutme.html</loc>
+    <lastmod>2024-07-31T09:15:01.013Z</lastmod>
   </url>
 </urlset>
