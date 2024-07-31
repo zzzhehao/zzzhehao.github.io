@@ -10,6 +10,7 @@ format:
     include-in-header: ../theme/bg-red-plane.html
 execute: 
   eval: false
+lightbox: true
 ---
 
 ```{=html}
@@ -142,19 +143,29 @@ So yeah, I'm also keeping this casual. I just love messing around with Nemo and 
 
 Or maybe not? I also love another dive where a sea turtle swam past me unbothered (they are in that attitude most of the time, I hope I can have the same mindset). 
 
+![Probably *Chromodoris elisabethina* in Kenting (GoPro's shitty focus)](/assets/images/sea-slug-kenting.jpg){width="60%"}
+
+![Green Sea Turtle, also in Kenting](/assets/images/green-sea-turtle.jpg){width="60%"}
+
 ### Vinyl
 
 I already mentioned my love to some old suff, i.e. the analog photography. I have integrated my daily life into it. Another old stuff I love is the vinyl. What so attracts me is not the vinyl itself, but the music on it. Although its special sound quality does make itself different from digital music (recording technique). It's my speculation, I haven't looked deep into it yet, but since it's an analog technique, it should share some similarity with the film, i.e. the logarithmic response to recorded signal and thus resulted in uneven "transformation" of signal at different intensity. The reason why the film image makes people feel "comfortable" is the higher compression rate in the highlight region. Even if it is really bright, compares to digital images, the transition seems smoother and it has less overflow. If you watched *Oppemheimer* replayed in film, not necessarily the IMAX 70 mm, then you should be able to understand what I mean. At the scene where Oppenheimer walks through the press in the courthouse, the whole screen was very bright, but the film held everything together. This would be hard for a digital camera to do, and it would also look different. I always say that film has higher dynamic range at the highlight is exactly what I mean here. 
 
 Certainly, the fundamental difference between analog and digital techniques lies in the sampling method, but I'm skeptical about whether the normal playback system, as well as the human's hearing is able to differentiate the continuous signal and digital audio with 48 kHz sample rate. I believe more that the reason which makes vinyl sounds different is similar to the film, it has certain ranges of uneven distribution of resolution and it makes the music sound more vivd and alive. I always describe the digital music a bit "sharp", and it easily makes my brain tired, comparably the vinyl does this thing much less. Let's say the analog method features a natural smooth cut-off at edges.
 
-Saying that, go back to my main point, I love vinyl but I love the music on it more. I listen to a lot of old songs, one reason is that I'm so into Jazz and the last century was the golden time of the golden time of the jazz (no it's not a typo). There's certainly some bias within, that the most music which survived till today should be one of the best, the others which were not so famous, had eventually vanished in the history. I go crazy for the classics, but I also embrace this part of music which is going to be forgotten. I have this one disk of songs from local sailors (since Hamburg is a port city), probably really old folk ballads, I guess originated from the mid to late 19th century, which are something I can't find any information about online and I should probably go check the archive of our library for.
+Saying that, go back to my main point, I love vinyl but I love the music on it more. I listen to a lot of old songs, one reason is that I'm so into Jazz and the last century was the golden time of the golden time of the jazz (no it's not a typo). There's certainly some bias within, that the most music which survived till today should be one of the best, the others which were not so famous, had eventually vanished in the history. I go crazy for the classics, but I also embrace this part of music which is going to be forgotten. I have this one disk of songs from local sailors (since Hamburg is a port city), probably really old folk ballads, my pure guess, from the mid to late 19th century. 
 
 Back to jazz, I simply prefer jazz from early time better, like from Eddie Higgins, Cannonball Adderley, Acker Bilk, John Coltrane, Frank Sinatra, and so many more. From New Orleans, Swing, Big Bands, Bebop, to Cool Jazz, Hard bop, Latin Jazz (Bossa Nova!). Fusion is also one of my favorite, I really love the early sci-fi kind of music made by Spyro gyra, The Rippingtons, and Yellowjacket. Honestly, even if it comes to the ultra-classic pieces like Autumn Leaves, many old versions just totally roll out the new ones.
 
 Besides that, I'm also very into pop and country music from the late 20th century, I probably got influenced by my parents on this point, like *Yesterday once more* from Carpenters was one of my favorite song when I was a kid, and now I have countless playlists from that time. *Both Sides, Now* from Joni Mitchell, *Say You, Say Me* from Lionel Richie, *Sometimes When We Touch* by Dan Hill, *Poems, Prayers and Promises* from John Denver, *Don't Know Much* by Linda Ronstadt and Aaron Neville, *Nothing's Gonna Change My Love for You* from George Benson, *Tears in Heaven* by Eric Clapton? You must have heard at least one, probably all of them, they are just so perfect 📀. 
 
 ### Miscellaneous
+
+#### Plants
+
+Despite I had terrible grade in Botanic (the exam was really hard and I really can't remember all the Poaceae morphology), I am a plant lover. If you are walking with me on the street and suddenly realize that I've been quiet for a while, I'm probably stuck in some random bush 100 meters behind you. I also have some plants at home (not always plants; I once harvested some unexpected mushrooms 🍄‍🟫). There's a Monstera that I adopted from IKEA three years ago, and now it's causing me headache since it grew too fast and I have to regularly give away some cuttings.
+
+![Monstera being wild](/assets/images/Monstera.jpg){width="60%"}
 
 #### Cooking 
 
