@@ -1,9 +1,9 @@
-@import '_color.scss';
+@import 'color-dark';
 /*-- scss:rules --*/
 
 // Change dropdown menu background color and make it flexible
 .dropdown-menu {
-  background-color: #{$white}; // Replace with your preferred color
+  background-color: #{$black-abs}; // Replace with your preferred color
   width: auto; // Allow the width to be flexible
   max-width: max-content;
   // min-width: max-content; // Ensure the width is at least as wide as the longest item
@@ -13,6 +13,8 @@
 .navbar {
   font-weight: 500;
   font-size: 110%;
+  background-color: #{$black-abs};
+  color: #{$accent-color};
 }
 
 // Remove blue outline on active dropdown

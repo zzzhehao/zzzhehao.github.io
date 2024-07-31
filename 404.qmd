@@ -1,33 +1,23 @@
 ---
-navbar: false
-
 format: 
   html:
     page-layout: custom
-    include-in-header: 
-      text: |
-        <style>
-          body, html {
-            font-family: 'Times New Roman';
-            color: #F2E6DF;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-          }
-          a {
-            color: #F2E6DF;
-            text-decoration: none;
-          }
-          a:hover {
-            text-decoration: underline;
-          }
-        </style>
+    include-in-header: ./theme/bg-red-plane-2.html
+    code-block-background: false
+    highlight-style: arrow-light
+execute: 
+  eval: false
 ---
+<style>
+    .sourceCode {
+    background-color: transparent !important;
+    border: none !important;
+    }
+</style>
 
 <div style="
-  height: 100vh;
+  height: 93vh;
   width: 100%;
-  background-image: url('./assets/images/red-plane.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -35,7 +25,7 @@ format:
   flex-direction: column;
   justify-content: center;
 ">
-
+<!-- <div> -->
   <div style="
     flex: 1;
     display: flex;
@@ -51,19 +41,32 @@ format:
   
 <!-- Left part -->
 <div style="width: 100%;">
-  <span style="font-size:3rem;line-height:0.7">Zhehao Hu</span>
+  <span style="font-size:4rem; ">Ooops...</span><br>
+  <span style="font-size:2rem">we seem to have run into a dead end...</span>
 
-  <span style="font-size:0.9rem">Read. Think. Write.</span>
+  <br>
 
-  <br><br>
+```{r}
+> open.page <- function (destination) {
++   if (find(destination)) {
++       page <- load(where(destination))
++       ruturn(page)
++   } else {
++       return("404 Not Found")
++   }
++ }
+> open.page("MyLove.html")
+```
 
-### As a [*Photographer.*](gallery/gallery.qmd)
+```{txt}
+[1] "404 Not Found"
+```
 
-### As a [*Biology student.*](biology-research/asbiologist.qmd)
+<br>
 
-### As a [*Normal Person*.](personal/aboutme.qmd)
+  <p>Please check if you typed the address correctly.</p>
+  <p style="font-size: 1rem"><a href="https://github.com/zzzhehao/zzzhehao.github.io">Return to homepage</a> or <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report the issue</a></p>
 
-  <br><br><br>
 </div>
     
   <!-- Right part  -->
@@ -78,7 +81,7 @@ format:
 </div>
   
   <!-- footer -->
-  <footer style="
+  <!-- <footer style="
     padding: 10px 20px 10px 0;
     text-align: right;
     font-family: 'Arial';
@@ -87,5 +90,5 @@ format:
     font-size: 0.7rem;
   ">
     <p style="margin: 0;">© 2024 Zhehao Hu. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io"><span style="text-decoration: underline;">github.com</span></a>.</p>
-  </footer>
+  </footer> -->
 </div>

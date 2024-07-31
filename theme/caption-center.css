@@ -1,0 +1,21 @@
+/* figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+figure img {
+    max-width: 80%;
+    height: auto;
+}
+  
+figcaption {
+    align-self: flex-start;
+    margin-left: 10%; 
+    margin-top: 0.5em;
+} */
+
+.figure {
+    margin: auto;
+    text-align: center;
+}

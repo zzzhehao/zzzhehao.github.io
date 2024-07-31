@@ -1,0 +1,38 @@
+// color code
+@import 'color';
+
+// style setting
+/*-- scss:defaults --*/
+
+// font
+$font-size-root: 1rem;
+
+// theme color
+:root{
+    --black: #{$black};
+    --white: #{$white};
+    --light-grey: #{$light-grey};
+    --ink1: #{$ink1};
+    --canvas: #{$summer-vintage-sojamilk};
+    --accent-color: #{$accent-color};
+    --second-accent-color: #{$second-accent-color};
+    --mute-color-dark: #{$AgainAgain-5-hex};
+    --background: #{$red_plane-6-hex};
+}
+
+body {
+    .cell-output {
+        background-color: #dfdcd8;
+        border-radius: 4px;
+        /* color: #625f5c !important; */
+      }
+}
+
+$body-bg: $paper;
+$body-color: $ink1;
+$link-color: $accent-color;
+
+$code-block-bg: $paper-grey;
+$code-bg: $paper-grey;
+$code-color: #74431C;
+$kbd-color: $paper-dark-grey;

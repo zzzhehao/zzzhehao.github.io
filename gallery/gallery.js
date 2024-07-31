@@ -121,18 +121,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const albumConfig = {
       // Setup albums here
       // template: '': { count: , prefix: ''},
-      'best-of-film': { count: 36, prefix: 'best-of-film'},
-      'dasyueshan24': { count: 55, prefix: 'dasyueshan24'},
-      'okinawa23': { count: 31, prefix: 'okinawa23'},
-      'taiwan23': { count: 42, prefix: 'taiwan23'},
-      'adria': { count: 39, prefix: 'adria' },
-      'copenhagen': { count: 70, prefix: 'copenhagen' },
+      'adria': { count: 69, prefix: 'adria' },
       'berlin21': { count: 11, prefix: 'berlin21'},
-      'kihh21': { count: 66, prefix: 'kihh21'},
-      'life21': { count: 204, prefix: 'life21'},
-      'tl': { count: 190, prefix: 'tl'},
+      'best-of-film': { count: 36, prefix: 'best-of-film'},
       'boltenhagen': { count: 27, prefix: 'boltenhagen'},
+      'copenhagen': { count: 70, prefix: 'copenhagen' },
+      'dasyueshan24': { count: 55, prefix: 'dasyueshan24'},
+      'kihh21': { count: 66, prefix: 'kihh21'},
       'life20': { count: 173, prefix: 'life20'},
+      'life21': { count: 204, prefix: 'life21'},
+      'life22': { count: 132, prefix: 'life22'},
+      'life23': { count: 44, prefix: 'life23'},
+      'okinawa23': { count: 31, prefix: 'okinawa23'},
+      'taiwan23': { count: 105, prefix: 'taiwan23'},
+      'tl': { count: 190, prefix: 'tl'},
       'tokyo18': { count: 69, prefix: 'tokyo18'}
     };
 

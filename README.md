@@ -1,11 +1,12 @@
 # zzzhehao.github.io
 
+![LICENSE](https://img.shields.io/badge/License-MIT-orange)
+
 This is the source code for my website [zzzhehao.github.io](https://zzzhehao.github.io), feel free to share and use.
 
-You are currently on the branch `main` where all MD (.qmd, .rmd) and CSS files are stored. The default branch `gh-pages` operates the website and is thus not tracked and rendered by Quarto.
-
-I left some notes documenting thoughts and weird things in `comments` that I didn't find others mentioning on the internet. These notes may help someone who is constructing a website without prior knowledge of front-end development, like me. They are not index from anywhere on the website, but you can find them by searching "comment".
 
 ## Quarto
 
-I use [Quarto](https://quarto.org) to build this website. 
+I use [Quarto](https://quarto.org) to build this website, it's powerful and easy to start with. I write Rmd in RStudio for notes and write other pages in Qmd or pure HTML in [Positron](https://github.com/posit-dev/positron).
+
+I left some notes documenting thoughts and tips in [comments](https://zzzhehao.github.io/comments/website-construction.html) that may keep people stuck with problems or things hard to find on the internet. These notes may help someone who is constructing a website without prior knowledge of front-end development, like me.

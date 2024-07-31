@@ -3,29 +3,43 @@ project:
   resources: 
     - "*.jpg"
     - "*.png"
+    - "*.pdf"
   render: 
     - "*"
     - "!comments/*"
+  execute-dir: project
 
 website:
   title: "Zhehao Hu"
-  site-url: https://zzzhehao.github.io
+  site-url: https://zzzhehao.github.io/
+  site-path: ./
   description: "Zhehao Hu's Personal Website"
+  draft-mode: unlinked
   
   navbar: 
     left: 
-      - text: "About me"
+      - text: "Photography"
         menu: 
-          - text: "Personal"
-            href: about-me/aboutme.qmd
+          - text: "Albums"
+            href: gallery/gallery.qmd
+          # - text: "Videos"
+          #   href: gallery/videos.qmd
+          # - text: "As a Photographer"
+          #   href: gallery/asphotographer.qmd
+
+      - text: "Research"
+        menu:
+          - text: "Posts"
+            href: biology-research/posts.qmd
           - text: "As a Biology Student"
-            href: about-me/asbiologist.qmd
-          - text: "As a Photographer"
-            href: about-me/asphotographer.qmd
-      - text: "Gallery"
-        href: gallery/gallery.qmd
-      - text: "Posts"
-        href: research/posts.qmd
+            href: biology-research/asbiologist.qmd
+      - text: "Personal"
+        menu:
+          - text: "About Me"
+            href: personal/aboutme.qmd
+      - text: "What's new"
+        href: personal/news.qmd
+
     tools: 
       - icon: github
         href: https://github.com/zzzhehao
@@ -35,8 +49,12 @@ website:
     search: true
     background: transparent
 
+  # body-footer: |
+  #   © 2024 Zhehao Hu. Source code available at [github.com](https://github.com/zzzhehao).
+
 format: 
   html:
+    highlight-style: arrow-light
     theme: 
-      - theme/color-code.scss
-      - theme/custom-nav.scss
+      light: [theme/style.scss, theme/custom-nav.scss, theme/callouts.scss]
+      dark: [theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss]

@@ -1,8 +1,10 @@
 ---
-title: "Gallery"
+title: "Albums"
+abstract: "More albums are on the way. Please give me a couple days and check back again! 😊"
 format: 
   html:
     css: gallery.css
+    toc: false
 website:
   navbar:
     background: transparent
@@ -17,15 +19,24 @@ albums:
   - name: "dasyueshan24"
     display_name: "Dasyueshan, 2024"
     thumbnail: "../assets/gallery/thumbnails/dasyueshan24.jpg"
+  - name: "life23"
+    display_name: "Life, 2023"
+    thumbnail: "../assets/gallery/thumbnails/life23.jpg"
   - name: "okinawa23"
     display_name: "Okinawa, 2023"
     thumbnail: "../assets/gallery/thumbnails/okinawa23.jpg"
   - name: "taiwan23"
     display_name: "Taiwan, 2023"
     thumbnail: "../assets/gallery/thumbnails/taiwan23.jpg"
+  - name: "life22"
+    display_name: "Life, 2022"
+    thumbnail: "../assets/gallery/thumbnails/life22.jpg"
   - name: "adria"
     display_name: "Adria, 2022"
     thumbnail: "../assets/gallery/thumbnails/adria.jpg"
+  - name: "life21"
+    display_name: "Life, 2021"
+    thumbnail: "../assets/gallery/thumbnails/life21.jpg"
   - name: "copenhagen" 
     display_name: "Copenhagen Capriccio, 2021"
     thumbnail: "../assets/gallery/thumbnails/copenhagen.jpg"
@@ -35,18 +46,15 @@ albums:
   - name: "kihh21"
     display_name: "Kiel & Hamburg, 2021"
     thumbnail: "../assets/gallery/thumbnails/kihh21.jpg"
-  - name: "life21"
-    display_name: "Life, 2021"
-    thumbnail: "../assets/gallery/thumbnails/life21.jpg"
   - name: "tl"
     display_name: "Time Limit, 2021"
     thumbnail: "../assets/gallery/thumbnails/tl.jpg"
-  - name: "boltenhagen"
-    display_name: "Boltenhagen, 2020"
-    thumbnail: "../assets/gallery/thumbnails/boltenhagen.jpg"
   - name: "life20"
     display_name: "Life, 2020"
     thumbnail: "../assets/gallery/thumbnails/life20.jpg"
+  - name: "boltenhagen"
+    display_name: "Boltenhagen, 2020"
+    thumbnail: "../assets/gallery/thumbnails/boltenhagen.jpg"
   - name: "tokyo18"
     display_name: "Tokyo, 2018"
     thumbnail: "../assets/gallery/thumbnails/tokyo18.jpg"

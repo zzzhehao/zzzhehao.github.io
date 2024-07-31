@@ -1,0 +1,11 @@
+---
+title: "As a Photographer"
+format: 
+  html:
+    page-layout: article
+    theme: ../theme/style.scss
+    include-after-body: 
+      - photography-footer.html
+draft: true
+---
+

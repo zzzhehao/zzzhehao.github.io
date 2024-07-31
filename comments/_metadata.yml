@@ -12,9 +12,10 @@ format:
   html:
     css: 
       - ../theme/text-justify.css
-      - ../theme/caption-center.css
+      - caption-center.css
     toc: true
     toc-depth: 4
     code-copy: true
     code-overflow: wrap
-    include-after-body: personal-footer.html
+    highlight-style: atom-one
+    include-after-body: research-footer.html

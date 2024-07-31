@@ -1,0 +1,101 @@
+---
+title: "As a Biology Student"
+date: "2024-07-27"
+format:
+    html:
+        include-in-header: bg-research.html
+---
+
+"I don’t know why I came. I just ended up here. And I am happy with it. "
+
+![Me being happy in the wild](/assets/images/hu-happy-in-wild.jpg.jpg){width="45%"}
+
+## Was it my choice, or my fate?
+
+I grew up in urban cities, but it did not keep me away from nature. Tamagawa (多摩川), a river that flows through Tokyo, shaped my first memories of nature. I have been interested in natural science since then. Yet, my four years in Schwerin had the most impact on my career choice. Schwerin was a small town surrounded by lakes, with nature within walking distance. I spent a lot of time wandering through the nature park and forests with my camera, which gradually drew me into this fantastic field. Birds, with their high mobility and integrated lifestyle with humans, became my favorite. Besides their freedom of flight, which I dreamed of at countless moments, I was also attracted to their elegance and intelligence.
+
+![Seagull breeding its kid](../assets/images/seagull.jpg){width=60%}
+
+Another passion of mine lies in the ocean. The magical power of the ocean has attracted me in so many ways, too many to sort through. It feels like a born instinct how the sounds of waves, the blue of the depths, and the twinkling of the water trigger my emotions and actions. 
+
+I love thinking, sometimes even a bit too much. I have lost count of how many times I sat on the rocks, looking at the starlight's reflection in the great lake of Schwerin, thinking about how vastly wide the universe is, and how insanely long time flows. Every time I think about this, I am amazed by the complexity of life, which blooms so brightly and desperately in the eye of Laplace’s demon.
+
+<!-- ![Schweriner Schloss under the stars](../assets/images/schwerin-starlight.jpg){width=60%} -->
+
+All of this, and much more, have ultimately led me on the path of becoming a biologist. 
+
+## University
+
+I started my degree program in 2020 at [Universität Hamburg](https://www.biologie.uni-hamburg.de/en.html) and received my bachelor's degree at 2024. Currently, I am further pursuing my master degree.
+
+Besides the basic modules obligatory for everyone studying biology, I attended various elective courses during my bachelor and master studies. Many of them have already paid off with knowledge and skills later on, and some have meaningfully shaped my current specialization.
+
+### Molecular Biology
+
+Like many others, I thought about how my studies could support my future. The first time I stood at the crossroads, molecular biology, or specifically, biotechnology, seemed the most promising. But as I delved deeper, I noticed my lack of constant passion for the technology. They mean more as techniques and methods to me, not as research itself. I needed something more "biological" to immerse myself in. For the first time, I felt eager to answer questions at the front line of research. The questions which are confusing researchers, but also reveal the beauty of life. At the meantime, I had some new experience outside the lab, which reminded me on my original passion. This has made me decide that I don’t want to commit myself to a career that is totally inside the lab, but to take advantage of my knowledge and skills gained in this field to support my career that combines molecular biology with something else.
+
+### The first HiWi
+
+All I have now, and who I have become, could never have been possible if I hadn't sent that email back in 2022. It was the second time I saw the hiring ad for a student assistant. The professors in our department hire students yearly to assist with bachelor basic courses, particularly *Animal Physiology* in my case. Since these courses are mandatory, the number of attendees is high. In the first normal year after COVID, they faced a shortage of hands. Many others, who might have considered the job, were worried about whether they could be up to it, like I was. But seeing the ad twice?
+
+:::{.mini}
+“Well, maybe my German is not good enough, maybe I didn’t have the best grade in that course, but why not give it a try?” 
+:::
+
+I took it as a reminder of my fate and the last chance to get on that ride. And this, my friend, changed my life. Or anyway, my life would have to change at some point, but with this decision, I held the opportunity tight in my hand, even if I did not realize it back then.
+
+It turned out the three-week job went very well. I had a good time and learned a lot, even though I was the one teaching others. This experience helped me overcome my anxiety in front of people, taught me the joy of helping others, and provided me with my first network in my career - with my future thesis supervisor, Dr. Kim Rohlfing.
+
+### Bachelor thesis
+
+Kim was a very talkative and passionate person. During the week we led the course together, she told me a lot about the research group she was in, the elective courses they offered, and their research. I must admit, my first choice for the thesis was another group, but eventually, I asked Kim for an opportunity. At that point, I was still planning to build my career path toward molecular technology.
+
+The research group was called “Molecular Evolutionary Biology” and run by Prof. Dr. Susanne Dobler, who taught the fundamental evolution course. I was assigned a fascinating topic about *Wolbachia*, a stunning bacteria in many insects with impressive witchcraft — manipulating the host’s reproduction behavior, and more. The deeper I dived into it, the more amazed I was. Researchers worldwide have dedicated decades to studying this bacteria, and even more are joining, but still, it is shrouded in mysteries, and this excited me.
+<!-- ([Learn more about my thesis and Wolbachia.](../research/blogs/bachelor-thesis.qmd)) -->
+
+Eventually, I have come to realize that evolution was exactly what caught me on this path in the first place. I learned about the basic concept of modern evolutionary theory when I was young, and since then, I have always tried to explain things with it. That’s also how I explained the universe to myself and why the universe amazes me every time. And the topic I dived into, not only *Wolbachia* but the research on things we don’t know about countless lives on this planet, i.e. the biodiversity, how it works, how it was shaped, and where it will go, the complexity of life, is exactly the radiant flower that dazzles Laplace’s demon.
+
+The year in the research group was the most precious year I had during the program. I even had the opportunity to attend an academic conference, the DZG (German Zoological Society) annual meeting in Kassel as an undergraduate student. As I wrote in the acknowledgments of my thesis, I can’t express enough gratitude to Kim, my supervisor, who offered the opportunities in the first place; to Susanne, our group leader, for showing me how an honored researcher should be; to Mario Röpcke, a fellow PhD student in the group, and to Dr. Shabnam Mohammadi, for the various help they offered during the year. I will treasure this memory for the rest of my life.
+
+![Me and my poster](../assets/images/hu-poster.jpg){width=60%}
+
+### Going Further
+
+With my passion for evolution clarified, my goal became clear. Evolution does not stand alone; it is nothing more than ecology and genetics in relation to time. With that in mind, I began my master’s program and attended two courses - *Evolutionary Systematics* and *Community Ecology*. The former strengthened my understanding of evolution. As the course ended, I wrote this text in my notes:
+
+::: {.mini}
+*This course has given me the tools to see the driving forces behind the universe. I've come to understand that evolution is not just about the historical development of species. Rather, it's like an invisible hand from time itself, shaping our world.*
+:::
+
+
+The other one, *Community Ecology*, finally knitted a network between evolution and ecology for me by showing me how they interact with each other, and clarified how the conservation strategy works. Upon that, it also ‘officially’ connected data science with my career, by teaching us to deal with complex ecological data.
+
+## Data Science - The Parallel
+
+The importance of data science is nowadays no longer a news. I had a slight interest in it since a few years ago, and actually, my fourth preference when applying the university was data science (you can guess my third, it was not related to biology either). Although I am totally happy that I got accepted by B.Sc. biology program at UHH the day after my application, but the interest has remained. The bachelor biology program was reformed after two years after I started, where four semesters of data science course were brought into program to teach students R and be able to utilize digital methods to conduct basic statistical analysis. My program did not have that, we even brought F-table into exam to do some hand-made ANOVA. 
+
+But I got lucky, I chose to start taking elective course earlier than suggested and replaced the basic biostatistics module with *Data Analysis in Ecology (with R)* (what I mean by ‘replace’ was actually skipping the basic module because the attendance was not checked). That was where I learned R and was introduced to the world of reproducible research.
+
+Even if I hadn't taken course back then, I guess I would have still learned R at some point. As our lecturer suggested, I have used R regularly since then, including in my thesis and the *Community Ecology* course. I love the feeling of searching for new results in the sea of data, it's like a magical power that can find peace in a chaotic world. This evoked more interest inside me, such as building this website. Despite all the convenient features provided by Quarto, it still requires a certain level of project management skill to keep everythings clean, tidy, and understandable.
+
+Earlier this year, I had some time without university courses, I used it to attend courses on *Coursera*, where many universities offer various courses. I introduced myself to bioinformatics, from simple motif finding to genome assembly, further to sequence comparison and ultimately to big data, in hope that I will use this knowledge in my future career (I’m sure I will).
+
+## The Aim
+
+After mentioning all the topic I’m up to, I hope you have received a broad overview of what I did and what I am doing. But I must admit, as I am still pursuing my master degree, I’m still not completely sure of the exact specific topic I will push toward, It will more probably be a spontaneous decision based on availability of different opportunities, but I certainly have some personal interest, such as the marine mammals, crustacean, sea birds, reptiles, *Wolbachia* of course (but less in insects themselves tho), some Crsutaceans (e.g. Rhizocephala is a very stunning group in view of evolution, also in physiology, developmental biology, and morphology, they are just too unique). 
+
+Beside all I mentioned, I also learn new things from other branches out of general interest, such as other courses I attended: molecular parasitology, molecular immunology, biodiversity of marine deep-sea habitats, biodiversity of fungi, etc. I am encouraged by a concept to do this:
+
+:::{.mini}
+“T-shaped people", those with a depth of knowledge in at least one discipline and a breadth of knowledge about innovation and entrepreneurship that allows them to work effectively with professionals on other disciplines to bring their ideas to life.”
+
+― Tina Seelig, *What I Wish I Knew When I Was 20*
+:::
+
+Interdisciplinarity has become an important aspect of research nowadays, especially in such complex subject like biology, I am extremely certain that I will work with people from other disciplines, and my goal is to contribute to research, particularly in species evolution, in view of its interaction with the environment and the humans, especially in terms of conservation, in an interdisciplinary way. 
+
+## CV
+
+I want to thank you all for reading this far. I hope my words give you a better idea of who I am, but there are also some points I did not mention. For more information, you can find my CV [here](/biology-research/CV.pdf).
+
+I will be very happy if you find my story and my future vision align with your interest. If so, please don’t hesitate to reach out! Also please check the posts I wrote, I appreciate any advices and comments!
