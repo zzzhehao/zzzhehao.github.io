@@ -38,7 +38,7 @@ website:
           - text: "About Me"
             href: personal/aboutme.qmd
       - text: "What's new"
-        href: personal/news.qmd
+        href: news.qmd
 
     tools: 
       - icon: github
