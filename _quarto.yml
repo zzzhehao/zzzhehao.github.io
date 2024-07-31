@@ -51,7 +51,6 @@ website:
 
   # body-footer: |
   #   © 2024 Zhehao Hu. Source code available at [github.com](https://github.com/zzzhehao).
-
 format: 
   html:
     highlight-style: arrow-light
