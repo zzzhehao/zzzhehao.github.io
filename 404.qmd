@@ -4,6 +4,7 @@ format:
     page-layout: custom
     include-in-header: ./theme/bg-red-plane-2.html
     code-block-background: false
+    highlight-style: arrow-light
 execute: 
   eval: false
 ---
@@ -64,7 +65,7 @@ execute:
 <br>
 
   <p>Please check if you typed the address correctly.</p>
-  <p style="font-size: 1rem"><a href="https://github.com/zzzhehao/zzzhehao.github.io">Return to homepage</a> or <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report this issue</a></p>
+  <p style="font-size: 1rem"><a href="https://github.com/zzzhehao/zzzhehao.github.io">Return to homepage</a> or <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report the issue</a></p>
 
 </div>
     

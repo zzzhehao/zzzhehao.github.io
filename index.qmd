@@ -59,7 +59,7 @@ format:
 
 ### As a [*Photographer.*](gallery/gallery.qmd)
 
-### As a [*Biology student.*](research/asbiologist.qmd)
+### As a [*Biology student.*](biology-research/asbiologist.qmd)
 
 ### As a [*Normal Person*.](personal/aboutme.qmd)
 

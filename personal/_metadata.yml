@@ -10,6 +10,9 @@ author:
 
 format:
   html:
+    css: 
+      - ../theme/text-justify.css
+      - ../theme/caption-center.css
     toc: true
     toc-depth: 4
     code-copy: true

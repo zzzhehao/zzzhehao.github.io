@@ -9,12 +9,12 @@ author:
         city: Hamburg
         country: Germany
         url: https://www.biologie.uni-hamburg.de/en.html
-
+lightbox: true
 format:
   html:
     css: 
       - ../theme/text-justify.css
-      - caption-center.css
+      - ../theme/caption-center.css
     toc: true
     toc-depth: 4
     code-copy: true

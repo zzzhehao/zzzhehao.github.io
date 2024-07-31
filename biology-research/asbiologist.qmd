@@ -8,6 +8,8 @@ format:
 
 "I don’t know why I came. I just ended up here. And I am happy with it. "
 
+![Me being happy in the wild](/assets/images/hu-happy-in-wild.jpg.jpg){width="45%"}
+
 ## Was it my choice, or my fate?
 
 I grew up in urban cities, but it did not keep me away from nature. Tamagawa (多摩川), a river that flows through Tokyo, shaped my first memories of nature. I have been interested in natural science since then. Yet, my four years in Schwerin had the most impact on my career choice. Schwerin was a small town surrounded by lakes, with nature within walking distance. I spent a lot of time wandering through the nature park and forests with my camera, which gradually drew me into this fantastic field. Birds, with their high mobility and integrated lifestyle with humans, became my favorite. Besides their freedom of flight, which I dreamed of at countless moments, I was also attracted to their elegance and intelligence.
@@ -80,9 +82,9 @@ Earlier this year, I had some time without university courses, I used it to atte
 
 ## The Aim
 
-After mentioning all the topic I’m up to, I hope you have received a broad overview of what I did and what I am doing. But I must admit, as I am still pursuing my master degree, I’m still not completely sure of the exact specific topic I will push toward, It will more probably be a spontaneous decision based on availability of different opportunities. Beside all I mentioned, I also learn new things from other branches out of general interest, such as other courses I attended: molecular parasitology, molecular immunology, biodiversity of marine deep-sea habitats, biodiversity of fungi, etc. I am encouraged by a concept to do this:
-<!-- The main idea is to shape myself into a T-shaped person (concept by Tina Seelig) with a depth of knowledge in certain disciplines and a breadth of knowledge about others, which will allow me to work effectively with professionals from different background and bring new things to life.  -->
+After mentioning all the topic I’m up to, I hope you have received a broad overview of what I did and what I am doing. But I must admit, as I am still pursuing my master degree, I’m still not completely sure of the exact specific topic I will push toward, It will more probably be a spontaneous decision based on availability of different opportunities, but I certainly have some personal interest, such as the marine mammals, crustacean, sea birds, reptiles, *Wolbachia* of course (but less in insects themselves tho), some Crsutaceans (e.g. Rhizocephala is a very stunning group in view of evolution, also in physiology, developmental biology, and morphology, they are just too unique). 
 
+Beside all I mentioned, I also learn new things from other branches out of general interest, such as other courses I attended: molecular parasitology, molecular immunology, biodiversity of marine deep-sea habitats, biodiversity of fungi, etc. I am encouraged by a concept to do this:
 
 :::{.mini}
 “T-shaped people", those with a depth of knowledge in at least one discipline and a breadth of knowledge about innovation and entrepreneurship that allows them to work effectively with professionals on other disciplines to bring their ideas to life.”
@@ -94,6 +96,6 @@ Interdisciplinarity has become an important aspect of research nowadays, especia
 
 ## CV
 
-I want to thank you all for reading this far. I hope my words give you a better idea of who I am, but there are also some points I did not mention. For more information, you can find my CV [here](/research/CV.pdf).
+I want to thank you all for reading this far. I hope my words give you a better idea of who I am, but there are also some points I did not mention. For more information, you can find my CV [here](/biology-research/CV.pdf).
 
 I will be very happy if you find my story and my future vision align with your interest. If so, please don’t hesitate to reach out! Also please check the posts I wrote, I appreciate any advices and comments!

@@ -6,7 +6,6 @@ format:
     theme: ../theme/style.scss
     include-after-body: 
       - photography-footer.html
+draft: true
 ---
-
-# what blabla
 
