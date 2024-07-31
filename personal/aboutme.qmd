@@ -167,6 +167,8 @@ Despite I had terrible grade in Botanic (the exam was really hard and I really c
 
 ![Monstera being wild](/assets/images/Monstera.jpg){width="60%"}
 
+![I really have no idea how it came into my house](/assets/images/mushroom-in-pot.jpg){width="60%"}
+
 #### Cooking 
 
 This one is quite reasonable, since what people do in the molecular lab is nothing more than cooking all the time, although it requires a different knowlegde system and we are not cooking for food (the parafilm is eatable tho), but the game is quite the same.
@@ -192,5 +194,4 @@ I don't know if I even need to mention this, but specifically I love cats. I don
 I really appreciate that you read so far, it feels really great when people are willing to listen to me talking nonsense. If your interests aligned with mine somehow, don't hesitate to reach out! Also there is more on my website, please check them out too!
 
 - [Photo Albums](/gallery/gallery.qmd)
-- [Me as a Biology Studen](/biology-research/asbiologist.qmd)
-
+- [Me as a Biology Student](/biology-research/asbiologist.qmd)
