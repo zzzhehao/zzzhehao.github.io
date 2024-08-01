@@ -1,0 +1,9 @@
+---
+title: "*Wolbachia* and the Beetles"
+date: "2024-08-15"
+lightbox: true
+abstract: "*Wolbachia*, the most shinning star of reproductive bacteria, has been showered by researchers' attention for decades. What does its magical power to do with our female-only beetle species? How can the beetle survive this? And how did the hand of evolution shaped all this?"
+draft: true
+---
+
+## Who's Wolbachia
