@@ -57,3 +57,5 @@ format:
     theme: 
       light: [theme/style.scss, theme/custom-nav.scss, theme/callouts.scss]
       dark: [theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss]
+execute: 
+  freeze: auto
