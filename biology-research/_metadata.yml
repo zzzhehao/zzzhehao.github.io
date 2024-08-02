@@ -9,6 +9,8 @@ author:
         city: Hamburg
         country: Germany
         url: https://www.biologie.uni-hamburg.de/en.html
+date: last-modified
+date-format: long
 lightbox: true
 format:
   html:
