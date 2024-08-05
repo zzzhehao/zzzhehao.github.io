@@ -1,0 +1,119 @@
+---
+title: 3 vegan - diversity, rarefaction, and species richness
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+draft: true
+execute: 
+  echo: true
+  eval: false
+---
+
+```{r setup}
+library(tidyverse)
+library(dplyr)
+library(vegan)
+library(readxl)
+library(rmarkdown)
+
+setwd("/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology")
+community<- read_excel("Practice/Diversity_test_data.xlsx", sheet = "Test")
+```
+
+# Raw
+
+`?vegdist`: **Gower**, **Bray--Curtis**, indices are good in detecting underlying ecological gradients (Faith et al. 1987). Why using dissimilarity instead similarity?
+
+our samples: rarefaction set to minimal sample size of 5, a descent analysis will take this out and analyse is again.
+
+---
+
+## Data
+
+We use the data from `Diversity_test_data.xlsx`:
+
+```{r echo=FALSE}
+str(community)
+paged_table(head(community))
+```
+
+## Diversity
+### Introduction of diversity index
+
+A diversity index is a mathematical measure of speceis diversity in a given community, it is based on the **species richness** (the number of species present) and the **species abundance** (the number of individuals per species). 
+
+There are two types of diversity indices:
+
+- dominance indices
+- information statistic indices
+
+### Shannon Index (H)
+
+$$
+H = - \sum^{s}_{i=1}p_i \ln p_i
+$$
+
+The **Shannon index** is an information statistic index, which means it assumes all species are represented in a sample and that they are randomly sampled, where $p$ is the proportion ($\frac{n}{N}$) of individuals of one particular species found ($n$) divided by the total number of individuals found ($N$), and $s$ is the number of species.
+
+### Simpson index (D)
+
+$$
+D = \frac{1}{ \sum\limits^{s}_{i=1} p_i^2}
+$$
+The **Simpson index** is a dominance index, meaning it gives more weight to common or dominant species. 
+
+
+`vegan::diversity()` calculates the ecological diversity indices, with Shannon index being default, Simpson or Invisimpson index can also be choosed.
+
+```{r}
+simpson <- diversity(community[,3:11], "simpson") 
+simpson 
+
+shannon <- diversity(community[,3:11])
+shannon #Typically ranges from 1.5 - 3.4, higher = more diverse 
+```
+
+```{r echo=FALSE}
+par(mfrow = c(1, 2))  # use par to generate panels with 1 row of 2 graphs
+hist(simpson)
+hist(shannon)
+```
+
+Simpson index shows the probability of randomly drawing two observations given the observations are from different species.
+
+Shannon index gives more importance to rare species, therefore shows higher frequency of the intermediate value.
+
+## Dissimilarity
+
+```{r echo=FALSE}
+par(mfrow = c(1, 2))
+bray = vegdist(community[,3:11], "bray") #Bray-Curtis does not include joint absences 
+gower = vegdist(community[,3:11], "gower") #Gower includes joint absences
+hist(bray, xlim = range(0.0,1.0))
+hist(gower, xlim = range(0.0,1.0))
+```
+
+## Rarefaction, Species richness
+
+```{r}
+spAbund <- rowSums(community[,3:11])
+spAbund
+raremin <- min(spAbund)
+raremin
+```
+
+```{r}
+sRare <- rarefy(community[1,3:11], sample = raremin)
+sRare
+```
+
+
+
+```{r}
+require(reshape2)
+community$transect <- rownames(community[,3:11]) 
+
+str(melt(community))
+#tidyrare <- rarecurve(community[,3:11], tidy = TRUE)
+#paged_table(tidyrare)
+```
+
+

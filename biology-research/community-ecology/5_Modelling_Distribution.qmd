@@ -1,0 +1,5 @@
+---
+title: 3 vegan - diversity, rarefaction, and species richness
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+draft: true
+---

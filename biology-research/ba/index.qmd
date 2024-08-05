@@ -1,9 +1,29 @@
 ---
 title: "*Wolbachia* and the Beetles"
-date: "2024-08-15"
 lightbox: true
-abstract: "*Wolbachia*, the most shinning star of reproductive bacteria, has been showered by researchers' attention for decades. What does its magical power to do with our female-only beetle species? How can the beetle survive this? And how did the hand of evolution shaped all this?"
+abstract: "*Wolbachia*, the most shinning star of reproductive bacteria, has been showered by researchers' spotlight for decades. What does its magical power to do with our female-only beetle species? How can the beetle survive this? And how did the hand of evolution shaped all of this?"
 draft: true
+css: ../../theme/checkbox.css
 ---
 
-## Who's Wolbachia
+:::{.disclaimer}
+
+This is a instroduction of my bachelor thesis, a part of the research project conducted by the research group [*Molecular Evolutionary Biology*](https://www.biologie.uni-hamburg.de/en/forschung/evolutionsbiologie/molevolbio.html) at University of Hamburg, led by **Prof. Dr. Susanne Dobler**. **Dr. Kim Rohlfing** designed the experiment and supervised me while conducting the experiment and analysing the data. 
+
+📌  A Chinese version is planned for future. 中文版本将会在未来更新。
+
+:::
+
+## Who's Wolbachia?
+
+:::{.theorem-title}
+
+Definition
+
+::::{.theorem-container}
+
+Blabalaasdf
+
+::::
+
+:::
