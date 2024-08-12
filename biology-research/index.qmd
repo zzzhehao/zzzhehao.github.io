@@ -3,5 +3,4 @@ title: "Posts"
 author: ""
 affiliation: ""
 listing: default
-draft: true
 ---
