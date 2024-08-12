@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Zhehao Hu">
+<meta name="dcterms.date" content="2024-08-05">
+
+<title>Community Ecology - Niche Overlap Analysis using stable isotope data and nicheROVER – Zhehao Hu</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<meta name="quarto:status" content="draft">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../theme/text-justify.css">
+<link rel="stylesheet" href="../../theme/caption-center.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Zhehao Hu</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-photography" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Photography</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
+        <li>
+    <a class="dropdown-item" href="../../gallery/gallery.html">
+ <span class="dropdown-text">Albums</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../biology-research/index.html">
+ <span class="dropdown-text">Posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../biology-research/asbiologist.html">
+ <span class="dropdown-text">As a Biology Student</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-personal" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Personal</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-personal">    
+        <li>
+    <a class="dropdown-item" href="../../personal/aboutme.html">
+ <span class="dropdown-text">About Me</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">What’s new</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/zzzhehao" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://instagram.com/zhehao.hu_" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-instagram"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#niche-region-and-niche-overlap-metrics" id="toc-niche-region-and-niche-overlap-metrics" class="nav-link active" data-scroll-target="#niche-region-and-niche-overlap-metrics">Niche Region and Niche Overlap Metrics</a></li>
+  <li><a href="#why-using-sia" id="toc-why-using-sia" class="nav-link" data-scroll-target="#why-using-sia">Why using SIA?</a></li>
+  <li><a href="#terminologies" id="toc-terminologies" class="nav-link" data-scroll-target="#terminologies">Terminologies</a>
+  <ul>
+  <li><a href="#covariance-covariance-matrix" id="toc-covariance-covariance-matrix" class="nav-link" data-scroll-target="#covariance-covariance-matrix">Covariance, covariance matrix</a></li>
+  <li><a href="#bayesian-statistics" id="toc-bayesian-statistics" class="nav-link" data-scroll-target="#bayesian-statistics">Bayesian statistics</a></li>
+  <li><a href="#further-useful-concepts" id="toc-further-useful-concepts" class="nav-link" data-scroll-target="#further-useful-concepts">Further useful concepts:</a></li>
+  </ul></li>
+  <li><a href="#simulating-random-data" id="toc-simulating-random-data" class="nav-link" data-scroll-target="#simulating-random-data">Simulating random data</a>
+  <ul>
+  <li><a href="#normal-inverse-wishart-niw-distribution" id="toc-normal-inverse-wishart-niw-distribution" class="nav-link" data-scroll-target="#normal-inverse-wishart-niw-distribution">Normal-Inverse-Wishart (NIW) distribution</a></li>
+  <li><a href="#drawing-with-niw.post" id="toc-drawing-with-niw.post" class="nav-link" data-scroll-target="#drawing-with-niw.post">Drawing with <code>niw.post()</code></a></li>
+  </ul></li>
+  <li><a href="#visualizing-niche-parameters" id="toc-visualizing-niche-parameters" class="nav-link" data-scroll-target="#visualizing-niche-parameters">Visualizing niche parameters</a>
+  <ul>
+  <li><a href="#plot-intepretation" id="toc-plot-intepretation" class="nav-link" data-scroll-target="#plot-intepretation">Plot intepretation</a></li>
+  </ul></li>
+  <li><a href="#d-projection-of-a-subset-of-a-niche-region" id="toc-d-projection-of-a-subset-of-a-niche-region" class="nav-link" data-scroll-target="#d-projection-of-a-subset-of-a-niche-region">2-d projection of a subset of a niche region</a></li>
+  <li><a href="#benthic-or-pelagic-fish" id="toc-benthic-or-pelagic-fish" class="nav-link" data-scroll-target="#benthic-or-pelagic-fish">Benthic or pelagic fish???????</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Community Ecology - Niche Overlap Analysis using stable isotope data and nicheROVER</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:hu_zhehao@hotmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.biologie.uni-hamburg.de/en.html">
+            Department of Biology, University of Hamburg
+            </a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    Stable isotope analysis (SIA) provides numerous information while assessing species’ ecological niche, the R package <em>nicheROVER</em> offers an insightful analysis using stable isotope data.
+  </div>
+</div>
+
+
+</header>
+
+
+<div class="{mini}">
+<p>This is a note from the course <em>Community Ecology</em> offered by <a href="https://www.biologie.uni-hamburg.de/en.html" target="_blank">University of Hamburg</a> and led by <a href="https://www.researchgate.net/profile/Paula-Eterovick-2" target="_blank">Dr.&nbsp;Paula Cabral Eterovick</a>. Source code available at <a href="https://github.com/zzzhehao" target="_blank">github.com</a></p>
+</div>
+<section id="niche-region-and-niche-overlap-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="niche-region-and-niche-overlap-metrics">Niche Region and Niche Overlap Metrics</h2>
+<p>A new probabilistic method for quantifing n-dimensional ecological niche and niche overlap <span class="citation" data-cites="swanson2015">(<a href="#ref-swanson2015" role="doc-biblioref">Swanson et al. 2015</a>)</span>.</p>
+<p>We use the script written by Martin Lysy, Heidi Swanson which can be found <a href="https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html" target="_blank">here</a>, which requires the package “nicheROVER”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nicheROVER)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(fish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>“Fish” is a <strong>fish stable isotope dataset</strong> integrated in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four arctic fish species (ARCS, BDWF, LKWF, LSCS). Use <code>?fish</code> for more details.</p>
+<div class="cell">
+<div id="tbl-fish" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: <code>fish</code> dataset
+</figcaption>
+<div aria-describedby="tbl-fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["D15N"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["D13C"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["D34S"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"ARCS","2":"12.18","3":"-23.89","4":"13.07"},{"1":"ARCS","2":"11.19","3":"-23.79","4":"13.77"},{"1":"ARCS","2":"12.05","3":"-22.88","4":"14.03"},{"1":"ARCS","2":"11.25","3":"-24.98","4":"14.18"},{"1":"ARCS","2":"12.08","3":"-25.82","4":"11.84"},{"1":"ARCS","2":"11.54","3":"-25.69","4":"11.23"},{"1":"ARCS","2":"12.64","3":"-22.72","4":"12.46"},{"1":"ARCS","2":"11.25","3":"-24.79","4":"14.62"},{"1":"ARCS","2":"10.94","3":"-26.99","4":"11.26"},{"1":"ARCS","2":"13.18","3":"-22.47","4":"11.74"},{"1":"ARCS","2":"12.60","3":"-24.45","4":"14.44"},{"1":"ARCS","2":"11.14","3":"-24.05","4":"14.63"},{"1":"ARCS","2":"11.48","3":"-24.34","4":"13.92"},{"1":"ARCS","2":"12.97","3":"-24.66","4":"12.75"},{"1":"ARCS","2":"11.95","3":"-22.51","4":"14.16"},{"1":"ARCS","2":"12.49","3":"-23.17","4":"14.37"},{"1":"ARCS","2":"13.30","3":"-24.66","4":"14.57"},{"1":"ARCS","2":"13.46","3":"-22.89","4":"14.87"},{"1":"ARCS","2":"12.57","3":"-22.42","4":"15.06"},{"1":"ARCS","2":"12.81","3":"-23.65","4":"15.14"},{"1":"ARCS","2":"12.89","3":"-22.78","4":"14.76"},{"1":"ARCS","2":"12.79","3":"-24.46","4":"15.27"},{"1":"ARCS","2":"13.33","3":"-22.35","4":"13.50"},{"1":"ARCS","2":"12.37","3":"-22.87","4":"15.82"},{"1":"ARCS","2":"11.27","3":"-25.21","4":"15.08"},{"1":"ARCS","2":"11.42","3":"-24.24","4":"14.16"},{"1":"ARCS","2":"14.40","3":"-23.19","4":"13.83"},{"1":"ARCS","2":"12.95","3":"-22.76","4":"15.60"},{"1":"ARCS","2":"12.62","3":"-22.80","4":"15.50"},{"1":"ARCS","2":"13.25","3":"-23.15","4":"15.85"},{"1":"ARCS","2":"12.45","3":"-25.04","4":"14.09"},{"1":"ARCS","2":"13.51","3":"-23.09","4":"15.35"},{"1":"ARCS","2":"13.54","3":"-22.95","4":"15.16"},{"1":"ARCS","2":"13.12","3":"-21.72","4":"15.37"},{"1":"ARCS","2":"13.14","3":"-22.46","4":"15.02"},{"1":"ARCS","2":"13.84","3":"-22.84","4":"15.45"},{"1":"ARCS","2":"12.61","3":"-24.41","4":"13.70"},{"1":"ARCS","2":"13.72","3":"-24.99","4":"16.26"},{"1":"ARCS","2":"12.33","3":"-25.51","4":"13.58"},{"1":"ARCS","2":"11.08","3":"-24.42","4":"11.26"},{"1":"ARCS","2":"11.61","3":"-24.45","4":"14.96"},{"1":"ARCS","2":"12.54","3":"-24.11","4":"15.23"},{"1":"ARCS","2":"11.93","3":"-24.24","4":"12.46"},{"1":"ARCS","2":"12.33","3":"-24.08","4":"14.67"},{"1":"ARCS","2":"12.13","3":"-23.83","4":"16.09"},{"1":"ARCS","2":"12.45","3":"-25.02","4":"14.67"},{"1":"ARCS","2":"13.04","3":"-25.66","4":"13.90"},{"1":"ARCS","2":"14.16","3":"-25.05","4":"15.64"},{"1":"ARCS","2":"14.17","3":"-24.56","4":"15.72"},{"1":"ARCS","2":"11.48","3":"-23.73","4":"15.09"},{"1":"ARCS","2":"12.56","3":"-23.26","4":"15.54"},{"1":"ARCS","2":"13.09","3":"-22.97","4":"15.52"},{"1":"ARCS","2":"12.90","3":"-23.45","4":"15.64"},{"1":"ARCS","2":"12.56","3":"-24.96","4":"16.67"},{"1":"ARCS","2":"13.09","3":"-25.67","4":"15.65"},{"1":"ARCS","2":"13.42","3":"-23.83","4":"15.53"},{"1":"ARCS","2":"12.87","3":"-24.18","4":"15.73"},{"1":"ARCS","2":"13.66","3":"-22.00","4":"14.99"},{"1":"ARCS","2":"13.33","3":"-23.97","4":"13.83"},{"1":"ARCS","2":"13.24","3":"-25.02","4":"15.22"},{"1":"ARCS","2":"13.35","3":"-23.69","4":"15.03"},{"1":"ARCS","2":"12.87","3":"-22.96","4":"15.21"},{"1":"ARCS","2":"11.96","3":"-25.78","4":"13.55"},{"1":"ARCS","2":"12.90","3":"-23.76","4":"16.04"},{"1":"ARCS","2":"13.05","3":"-25.54","4":"15.81"},{"1":"ARCS","2":"12.19","3":"-24.39","4":"14.77"},{"1":"ARCS","2":"13.50","3":"-22.93","4":"14.83"},{"1":"ARCS","2":"12.50","3":"-23.79","4":"15.56"},{"1":"ARCS","2":"11.47","3":"-24.86","4":"14.76"},{"1":"BDWF","2":"9.58","3":"-26.63","4":"9.28"},{"1":"BDWF","2":"5.91","3":"-28.75","4":"-9.49"},{"1":"BDWF","2":"9.45","3":"-24.99","4":"-5.09"},{"1":"BDWF","2":"8.13","3":"-24.33","4":"0.12"},{"1":"BDWF","2":"6.21","3":"-25.02","4":"-0.97"},{"1":"BDWF","2":"9.52","3":"-26.29","4":"-1.40"},{"1":"BDWF","2":"8.71","3":"-25.46","4":"-6.61"},{"1":"BDWF","2":"10.02","3":"-27.03","4":"-7.69"},{"1":"BDWF","2":"9.17","3":"-24.57","4":"-14.89"},{"1":"BDWF","2":"7.59","3":"-24.20","4":"2.11"},{"1":"BDWF","2":"9.29","3":"-27.61","4":"3.80"},{"1":"BDWF","2":"9.31","3":"-27.42","4":"-3.52"},{"1":"BDWF","2":"7.48","3":"-28.98","4":"-9.09"},{"1":"BDWF","2":"9.23","3":"-26.85","4":"-4.02"},{"1":"BDWF","2":"9.04","3":"-23.49","4":"-15.69"},{"1":"BDWF","2":"9.60","3":"-32.23","4":"8.04"},{"1":"BDWF","2":"8.04","3":"-29.03","4":"-9.18"},{"1":"BDWF","2":"11.94","3":"-27.14","4":"-9.18"},{"1":"BDWF","2":"10.14","3":"-27.50","4":"3.18"},{"1":"BDWF","2":"9.23","3":"-24.67","4":"-14.49"},{"1":"BDWF","2":"9.10","3":"-27.16","4":"6.39"},{"1":"BDWF","2":"10.11","3":"-25.78","4":"-18.00"},{"1":"BDWF","2":"8.69","3":"-23.28","4":"3.39"},{"1":"BDWF","2":"9.42","3":"-24.07","4":"5.45"},{"1":"BDWF","2":"9.26","3":"-29.24","4":"10.04"},{"1":"BDWF","2":"10.03","3":"-25.32","4":"3.74"},{"1":"BDWF","2":"10.61","3":"-27.24","4":"4.82"},{"1":"BDWF","2":"9.70","3":"-27.52","4":"-16.05"},{"1":"BDWF","2":"9.76","3":"-25.05","4":"4.60"},{"1":"BDWF","2":"9.43","3":"-23.47","4":"6.13"},{"1":"BDWF","2":"8.04","3":"-23.54","4":"4.47"},{"1":"BDWF","2":"8.71","3":"-29.20","4":"10.82"},{"1":"BDWF","2":"7.57","3":"-22.65","4":"2.17"},{"1":"BDWF","2":"9.36","3":"-31.02","4":"6.43"},{"1":"BDWF","2":"9.27","3":"-26.67","4":"-20.16"},{"1":"BDWF","2":"9.53","3":"-28.10","4":"-20.05"},{"1":"BDWF","2":"9.26","3":"-23.62","4":"7.59"},{"1":"BDWF","2":"10.19","3":"-25.92","4":"6.54"},{"1":"BDWF","2":"9.60","3":"-29.12","4":"-10.52"},{"1":"BDWF","2":"9.81","3":"-26.80","4":"8.37"},{"1":"BDWF","2":"9.82","3":"-28.85","4":"8.95"},{"1":"BDWF","2":"9.31","3":"-26.82","4":"-11.87"},{"1":"BDWF","2":"9.15","3":"-27.45","4":"9.28"},{"1":"BDWF","2":"9.47","3":"-29.74","4":"9.15"},{"1":"BDWF","2":"9.44","3":"-28.88","4":"-21.24"},{"1":"BDWF","2":"10.60","3":"-27.41","4":"-7.61"},{"1":"BDWF","2":"9.57","3":"-29.03","4":"-15.66"},{"1":"BDWF","2":"9.24","3":"-24.61","4":"5.66"},{"1":"BDWF","2":"9.65","3":"-27.50","4":"0.57"},{"1":"BDWF","2":"9.19","3":"-22.95","4":"4.14"},{"1":"BDWF","2":"8.33","3":"-27.97","4":"-0.73"},{"1":"BDWF","2":"9.52","3":"-26.59","4":"-16.20"},{"1":"BDWF","2":"9.13","3":"-26.89","4":"-15.92"},{"1":"BDWF","2":"9.20","3":"-26.21","4":"-1.98"},{"1":"BDWF","2":"9.57","3":"-27.58","4":"-8.05"},{"1":"BDWF","2":"5.99","3":"-27.77","4":"-0.26"},{"1":"BDWF","2":"6.29","3":"-24.07","4":"-5.81"},{"1":"BDWF","2":"9.49","3":"-27.91","4":"3.36"},{"1":"BDWF","2":"9.21","3":"-27.66","4":"-18.19"},{"1":"BDWF","2":"10.30","3":"-25.08","4":"2.51"},{"1":"BDWF","2":"9.50","3":"-28.18","4":"-15.03"},{"1":"BDWF","2":"10.98","3":"-27.71","4":"2.99"},{"1":"BDWF","2":"9.64","3":"-29.04","4":"9.29"},{"1":"BDWF","2":"9.14","3":"-23.94","4":"3.53"},{"1":"BDWF","2":"10.19","3":"-27.34","4":"-13.14"},{"1":"BDWF","2":"10.02","3":"-28.06","4":"-12.39"},{"1":"BDWF","2":"9.12","3":"-28.63","4":"-6.97"},{"1":"BDWF","2":"9.61","3":"-26.75","4":"-14.54"},{"1":"BDWF","2":"9.44","3":"-26.90","4":"-20.08"},{"1":"BDWF","2":"9.83","3":"-26.89","4":"-16.19"},{"1":"BDWF","2":"13.21","3":"-24.58","4":"17.43"},{"1":"LKWF","2":"12.51","3":"-26.03","4":"1.10"},{"1":"LKWF","2":"11.72","3":"-28.68","4":"8.28"},{"1":"LKWF","2":"12.32","3":"-26.35","4":"5.55"},{"1":"LKWF","2":"11.52","3":"-26.45","4":"-2.20"},{"1":"LKWF","2":"11.45","3":"-26.42","4":"4.83"},{"1":"LKWF","2":"9.49","3":"-25.62","4":"-7.52"},{"1":"LKWF","2":"11.87","3":"-26.02","4":"0.50"},{"1":"LKWF","2":"13.62","3":"-23.92","4":"10.87"},{"1":"LKWF","2":"11.51","3":"-27.26","4":"-9.42"},{"1":"LKWF","2":"10.92","3":"-25.05","4":"6.74"},{"1":"LKWF","2":"11.46","3":"-24.96","4":"7.37"},{"1":"LKWF","2":"10.66","3":"-26.51","4":"6.21"},{"1":"LKWF","2":"11.45","3":"-26.72","4":"6.40"},{"1":"LKWF","2":"10.13","3":"-25.55","4":"1.30"},{"1":"LKWF","2":"10.12","3":"-26.87","4":"3.51"},{"1":"LKWF","2":"10.88","3":"-25.80","4":"8.25"},{"1":"LKWF","2":"12.60","3":"-26.16","4":"7.06"},{"1":"LKWF","2":"10.88","3":"-27.95","4":"7.85"},{"1":"LKWF","2":"11.92","3":"-24.24","4":"3.24"},{"1":"LKWF","2":"10.63","3":"-24.51","4":"6.22"},{"1":"LKWF","2":"9.87","3":"-28.23","4":"-0.91"},{"1":"LKWF","2":"10.94","3":"-25.65","4":"7.15"},{"1":"LKWF","2":"11.64","3":"-23.93","4":"5.12"},{"1":"LKWF","2":"10.96","3":"-24.09","4":"8.00"},{"1":"LKWF","2":"10.66","3":"-25.65","4":"7.16"},{"1":"LKWF","2":"12.08","3":"-23.06","4":"10.90"},{"1":"LKWF","2":"11.14","3":"-26.81","4":"-1.70"},{"1":"LKWF","2":"10.84","3":"-28.79","4":"3.85"},{"1":"LKWF","2":"12.10","3":"-25.20","4":"9.61"},{"1":"LKWF","2":"11.25","3":"-23.80","4":"8.65"},{"1":"LKWF","2":"11.42","3":"-25.13","4":"7.91"},{"1":"LKWF","2":"11.57","3":"-25.22","4":"9.75"},{"1":"LKWF","2":"10.59","3":"-25.24","4":"6.53"},{"1":"LKWF","2":"11.36","3":"-22.62","4":"11.10"},{"1":"LKWF","2":"12.83","3":"-23.66","4":"10.19"},{"1":"LKWF","2":"11.21","3":"-25.20","4":"5.87"},{"1":"LKWF","2":"9.64","3":"-26.05","4":"4.02"},{"1":"LKWF","2":"12.71","3":"-25.96","4":"-0.11"},{"1":"LKWF","2":"10.15","3":"-24.78","4":"2.65"},{"1":"LKWF","2":"10.08","3":"-24.29","4":"7.67"},{"1":"LKWF","2":"10.16","3":"-21.57","4":"9.33"},{"1":"LKWF","2":"10.97","3":"-23.72","4":"13.56"},{"1":"LKWF","2":"10.70","3":"-25.81","4":"-0.76"},{"1":"LKWF","2":"10.73","3":"-24.80","4":"8.11"},{"1":"LKWF","2":"11.57","3":"-24.10","4":"10.64"},{"1":"LKWF","2":"9.53","3":"-23.51","4":"9.37"},{"1":"LKWF","2":"12.70","3":"-25.74","4":"10.97"},{"1":"LKWF","2":"10.70","3":"-24.01","4":"10.01"},{"1":"LKWF","2":"11.63","3":"-24.78","4":"8.10"},{"1":"LKWF","2":"11.24","3":"-24.43","4":"12.64"},{"1":"LKWF","2":"11.09","3":"-23.14","4":"8.24"},{"1":"LKWF","2":"12.01","3":"-22.59","4":"13.66"},{"1":"LKWF","2":"10.55","3":"-26.06","4":"8.12"},{"1":"LKWF","2":"9.53","3":"-26.62","4":"-5.72"},{"1":"LKWF","2":"9.56","3":"-28.15","4":"6.59"},{"1":"LKWF","2":"11.50","3":"-24.65","4":"6.67"},{"1":"LKWF","2":"11.45","3":"-24.00","4":"10.61"},{"1":"LKWF","2":"11.24","3":"-23.81","4":"8.11"},{"1":"LKWF","2":"10.04","3":"-23.16","4":"8.62"},{"1":"LKWF","2":"10.22","3":"-24.15","4":"9.00"},{"1":"LKWF","2":"9.88","3":"-23.43","4":"6.85"},{"1":"LKWF","2":"10.34","3":"-25.55","4":"8.16"},{"1":"LKWF","2":"10.58","3":"-25.21","4":"0.73"},{"1":"LKWF","2":"10.56","3":"-24.25","4":"10.48"},{"1":"LKWF","2":"9.91","3":"-24.95","4":"2.78"},{"1":"LKWF","2":"10.66","3":"-25.31","4":"2.49"},{"1":"LKWF","2":"9.69","3":"-23.32","4":"11.89"},{"1":"LSCS","2":"11.50","3":"-26.15","4":"14.97"},{"1":"LSCS","2":"11.46","3":"-26.71","4":"9.54"},{"1":"LSCS","2":"11.29","3":"-25.46","4":"6.13"},{"1":"LSCS","2":"12.08","3":"-24.98","4":"11.13"},{"1":"LSCS","2":"11.90","3":"-26.84","4":"11.93"},{"1":"LSCS","2":"9.41","3":"-24.92","4":"9.16"},{"1":"LSCS","2":"11.87","3":"-27.04","4":"0.87"},{"1":"LSCS","2":"10.71","3":"-26.04","4":"8.46"},{"1":"LSCS","2":"12.14","3":"-25.46","4":"0.21"},{"1":"LSCS","2":"11.14","3":"-25.32","4":"11.29"},{"1":"LSCS","2":"11.45","3":"-25.26","4":"10.16"},{"1":"LSCS","2":"11.87","3":"-27.40","4":"7.26"},{"1":"LSCS","2":"11.06","3":"-26.56","4":"5.49"},{"1":"LSCS","2":"10.16","3":"-25.58","4":"9.82"},{"1":"LSCS","2":"11.64","3":"-29.50","4":"11.27"},{"1":"LSCS","2":"11.64","3":"-25.56","4":"14.93"},{"1":"LSCS","2":"12.82","3":"-24.37","4":"5.99"},{"1":"LSCS","2":"10.85","3":"-26.43","4":"13.74"},{"1":"LSCS","2":"11.28","3":"-25.74","4":"3.88"},{"1":"LSCS","2":"12.77","3":"-24.32","4":"12.16"},{"1":"LSCS","2":"12.52","3":"-25.19","4":"14.42"},{"1":"LSCS","2":"12.09","3":"-27.17","4":"13.05"},{"1":"LSCS","2":"11.14","3":"-25.22","4":"10.82"},{"1":"LSCS","2":"11.45","3":"-24.46","4":"11.05"},{"1":"LSCS","2":"12.36","3":"-23.84","4":"12.35"},{"1":"LSCS","2":"10.94","3":"-25.12","4":"12.15"},{"1":"LSCS","2":"11.29","3":"-26.18","4":"10.88"},{"1":"LSCS","2":"10.90","3":"-24.22","4":"12.86"},{"1":"LSCS","2":"12.41","3":"-25.40","4":"2.86"},{"1":"LSCS","2":"10.91","3":"-25.76","4":"12.13"},{"1":"LSCS","2":"11.64","3":"-26.65","4":"8.86"},{"1":"LSCS","2":"12.50","3":"-24.22","4":"13.95"},{"1":"LSCS","2":"11.98","3":"-26.30","4":"10.56"},{"1":"LSCS","2":"13.30","3":"-24.72","4":"14.45"},{"1":"LSCS","2":"12.82","3":"-24.21","4":"13.41"},{"1":"LSCS","2":"11.65","3":"-27.55","4":"13.34"},{"1":"LSCS","2":"11.71","3":"-25.34","4":"11.46"},{"1":"LSCS","2":"11.92","3":"-25.47","4":"11.50"},{"1":"LSCS","2":"11.92","3":"-25.86","4":"6.60"},{"1":"LSCS","2":"11.88","3":"-25.63","4":"11.65"},{"1":"LSCS","2":"12.14","3":"-24.82","4":"12.18"},{"1":"LSCS","2":"12.13","3":"-24.42","4":"14.22"},{"1":"LSCS","2":"12.08","3":"-24.40","4":"14.62"},{"1":"LSCS","2":"10.71","3":"-24.81","4":"12.48"},{"1":"LSCS","2":"11.81","3":"-23.93","4":"15.07"},{"1":"LSCS","2":"11.12","3":"-24.42","4":"12.69"},{"1":"LSCS","2":"11.77","3":"-27.25","4":"7.53"},{"1":"LSCS","2":"12.60","3":"-25.97","4":"10.91"},{"1":"LSCS","2":"11.95","3":"-25.58","4":"10.80"},{"1":"LSCS","2":"11.74","3":"-24.37","4":"14.06"},{"1":"LSCS","2":"11.58","3":"-24.30","4":"14.47"},{"1":"LSCS","2":"10.62","3":"-23.91","4":"11.76"},{"1":"LSCS","2":"11.72","3":"-23.94","4":"13.94"},{"1":"LSCS","2":"10.96","3":"-23.90","4":"13.85"},{"1":"LSCS","2":"11.77","3":"-24.85","4":"12.85"},{"1":"LSCS","2":"11.68","3":"-24.06","4":"14.85"},{"1":"LSCS","2":"12.75","3":"-23.95","4":"13.98"},{"1":"LSCS","2":"11.30","3":"-24.62","4":"12.66"},{"1":"LSCS","2":"11.02","3":"-24.63","4":"10.67"},{"1":"LSCS","2":"13.32","3":"-23.28","4":"13.91"},{"1":"LSCS","2":"13.54","3":"-23.24","4":"14.34"},{"1":"LSCS","2":"11.63","3":"-23.82","4":"13.59"},{"1":"LSCS","2":"11.87","3":"-23.75","4":"15.20"},{"1":"LSCS","2":"11.44","3":"-23.43","4":"14.35"},{"1":"LSCS","2":"11.24","3":"-23.96","4":"14.87"},{"1":"LSCS","2":"11.96","3":"-23.20","4":"13.03"},{"1":"LSCS","2":"10.91","3":"-23.99","4":"12.49"},{"1":"LSCS","2":"12.94","3":"-24.42","4":"17.90"},{"1":"LSCS","2":"11.78","3":"-26.57","4":"10.32"},{"1":"LSCS","2":"12.02","3":"-24.89","4":"11.27"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="why-using-sia" class="level2">
+<h2 class="anchored" data-anchor-id="why-using-sia">Why using SIA?</h2>
+<p><strong>Stable isotope analysis (SIA)</strong> is a powerful tool in ecological niche analysis. Many physicochemical and biochemical processes are sensitive to differences in the dissociation energies of molecules, which often depend on the mass of the elements from which these molecules are made. Thus, the isotopic composition of many materials (expressed as <span class="math inline">\(\delta\)</span>-values), including the tissues of organisms, often contains a label of the process that created it <span class="citation" data-cites="newsome2007a">(<a href="#ref-newsome2007a" role="doc-biblioref">Newsome et al. 2007</a>)</span>. These “signatures” provides detailed insights into their ecological roles and interactions.</p>
+<div id="tbl-SIAs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-SIAs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: A few common isotope system and expected patterns in <span class="math inline">\(\delta\)</span>-values, subsetted from <span class="citation" data-cites="newsome2007a">(<a href="#ref-newsome2007a" role="doc-biblioref">Newsome et al. 2007</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-SIAs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gradient</th>
+<th>Isotope system</th>
+<th>High <span class="math inline">\(\delta\)</span>-values</th>
+<th>Low <span class="math inline">\(\delta\)</span>-values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Trophic level</td>
+<td><span class="math inline">\(\delta ^{13} C\)</span>/<span class="math inline">\(\delta ^{15} N\)</span></td>
+<td>High levels</td>
+<td>Low levels</td>
+</tr>
+<tr class="even">
+<td>C3-C4 Vegetation</td>
+<td><span class="math inline">\(\delta ^{13} C\)</span></td>
+<td>C<sub>4</sub> plants</td>
+<td>C<sub>3</sub> plants</td>
+</tr>
+<tr class="odd">
+<td>Marine-terrestrial</td>
+<td><span class="math inline">\(\delta ^{15} N\)</span>/<span class="math inline">\(\delta ^{13} C\)</span>/<span class="math inline">\(\delta ^{34} S\)</span></td>
+<td>High levels</td>
+<td>Low levels</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Reading list for more details in isotopic and atomic ecology</strong>:</p>
+<ul>
+<li><span class="citation" data-cites="newsome2007a">Newsome et al. (<a href="#ref-newsome2007a" role="doc-biblioref">2007</a>)</span></li>
+<li><span class="citation" data-cites="michel2021">Michel (<a href="#ref-michel2021" role="doc-biblioref">2021</a>)</span></li>
+<li><span class="citation" data-cites="moyo2021">Moyo et al. (<a href="#ref-moyo2021" role="doc-biblioref">2021</a>)</span></li>
+<li><span class="citation" data-cites="2024"><span>“Atomic <span>Ecology</span> - <span>Analyzing Stable Isotope Data</span>”</span> (<a href="#ref-2024" role="doc-biblioref">2024</a>)</span></li>
+</ul>
+</section>
+<section id="terminologies" class="level2">
+<h2 class="anchored" data-anchor-id="terminologies">Terminologies</h2>
+<p>Before we start analyzing our data, there are some concepts and prior knowledge need to be checked:</p>
+<section id="covariance-covariance-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="covariance-covariance-matrix">Covariance, covariance matrix</h3>
+<p><strong>Covariance</strong> is a measure of the joint variability of two variables, the sign of the covariance shows the tendency, i.e.&nbsp;one of the three possible linear relationshipss between two variables, which are:</p>
+<ul>
+<li>negative linear relationship, covariance is &lt; 0</li>
+<li>no linear relationship, covariance is around 0</li>
+<li>positive linear relationship, covariance is &gt; 0</li>
+</ul>
+<p>The variance is a special case of the covariance in which the two variables are identical. The covariance itself is sensitive to the scale of the data, and it does not provide information of in what extent the two variables correlate with each other and how well the linear correlation fits the data. All these characteristics make covariance difficult to interpret, but it has become an important step stone for many interesting subsequent analysis, such as PCA, correlation analysis, etc..</p>
+<p>A <strong>covariance matrix</strong> is a square matrix giving the covariance between each pair of elements, which is always symmetric and the diagonal elements present the variance of each variable.</p>
+<p>For more information about covariance:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=qtaqvPAeEJY" target="_blank">StatQuest</a> on YouTube (simply and clearly explained)</li>
+</ul>
+</section>
+<section id="bayesian-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-statistics">Bayesian statistics</h3>
+<p><span class="citation" data-cites="vandeschoot2021">van de Schoot et al. (<a href="#ref-vandeschoot2021" role="doc-biblioref">2021</a>)</span> described the very foundation idea of the bayesian statistics as following:</p>
+<p>Bayesian statistics is an approach to data analysis based on Bayes’ theorem, where available knowledge about parameters in a statistical model is updated with the information in observed data. The background knowledge is expressed as a <strong>prior</strong> distribution and combined with observational data in the form of a likelihood function to determine the <strong>posterior distribution</strong>.</p>
+<p>The bayesian statistics based on the <strong>Bayes’ theorem</strong>, which is mathematically stated as following:</p>
+<p><span class="math display">\[
+P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+\]</span></p>
+<p>where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are events and <span class="math inline">\(P(B)\neq 0\)</span>,</p>
+<ul>
+<li><span class="math inline">\(P(A|B)\)</span>: the probability of event <span class="math inline">\(A\)</span> occurring given that <span class="math inline">\(B\)</span> is true. It is also called the <strong>posterior probability</strong> (briefly <em>posterior</em>) of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>.</li>
+<li><span class="math inline">\(P(B|A)\)</span> is also a conditional probability: the probability of event&nbsp;<span class="math inline">\(B\)</span> occurring given that&nbsp;<span class="math inline">\(A\)</span> is true. It can also be interpreted as the likelihood of <span class="math inline">\(A\)</span> given a fixed <span class="math inline">\(B\)</span> because <span class="math inline">\(P(B|A)=L(A|B)\)</span>. (<span class="math inline">\(L\)</span>: likelihood)</li>
+<li><span class="math inline">\(P(A)\)</span> and <span class="math inline">\(P(B)\)</span> are the probabilities of observing <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> respectively without any given conditions; they are known as the <strong>prior probability</strong> and marginal probability.</li>
+</ul>
+</section>
+<section id="further-useful-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="further-useful-concepts">Further useful concepts:</h3>
+<ul>
+<li>Multivariate probability distribution</li>
+<li>Random vector</li>
+</ul>
+</section>
+</section>
+<section id="simulating-random-data" class="level2">
+<h2 class="anchored" data-anchor-id="simulating-random-data">Simulating random data</h2>
+<p>First of all, let’s take a view of isotope data of each species:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(fish[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], fish[<span class="dv">1</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  species      D15N      D13C      D34S
+1    ARCS 12.609420 -23.96812 14.565652
+2    BDWF  9.270282 -26.70352 -3.149437
+3    LKWF 11.036418 -25.15299  6.101493
+4    LSCS 11.721000 -25.15471 11.451429</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(fish[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], fish[<span class="dv">1</span>], sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  species      D15N     D13C     D34S
+1    ARCS 0.8227695 1.099111 1.243363
+2    BDWF 1.1546972 2.014880 9.884178
+3    LKWF 0.9122628 1.499837 4.765955
+4    LSCS 0.7325401 1.216689 3.410886</code></pre>
+</div>
+</div>
+<p>The script uses <code>niw.post()</code> (random drawing from the posterior distribution with the Normal-Inverse-Wishart prior) to draw simulated data points.</p>
+<section id="normal-inverse-wishart-niw-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="normal-inverse-wishart-niw-distribution">Normal-Inverse-Wishart (NIW) distribution</h3>
+<p><span class="math display">\[
+P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)
+\]</span></p>
+<p><strong>An explanation from <a href="https://datamicroscopes.github.io/niw.html#:~:text=Since%20the%20normal%20inverse%2DWishart,when%20we%20define%20our%20model." target="_blank">datamicroscope</a></strong>:</p>
+<p>In practice, real valued data is commonly assumed to be distributed normally, or Gaussian. We could assume that conditioned on species, the measurement data followed a multivariate normal (above mentioned).</p>
+<p>The normal inverse-Wishart distribution allows us to learn the underlying parameters of each normal distribution, its mean μs and its covariance <span class="math inline">\(\Sigma_s\)</span>. Since the normal inverse-Wishart is the conjugate prior of the multivariate normal, the posterior distribution of a multivariate normal with a normal inverse-Wishart prior also follows a normal inverse-Wishart distribution. This allows us to infer the distirbution over values of <span class="math inline">\(\mu_s\)</span> and <span class="math inline">\(\Sigma_s\)</span> when we define our model.</p>
+<p><strong>The explanation from <a href="https://en.wikipedia.org/wiki/Inverse-Wishart_distribution#:~:text=In%20statistics%2C%20the%20inverse%20Wishart,of%20a%20multivariate%20normal%20distribution." target="_blank">wikipedia</a></strong>:</p>
+<p>In statistics, the inverse Wishart distribution, also called the inverted Wishart distribution, is a probability distribution defined on real-valued positive-definite matrices. <strong>In Bayesian statistics it is used as the conjugate prior for the covariance matrix of a multivariate normal distribution</strong>.</p>
+<p><strong>Another explanation from <a href="https://arxiv.org/html/2405.16088v1#" target="_blank">arxiv</a></strong>:</p>
+<p>The normal-inverse-Wishart (NIW) distribution is commonly used as a prior distribution for the mean (<span class="math inline">\(\mu\)</span>) and covariance (<span class="math inline">\(\Sigma\)</span>) parameters of a multivariate normal distribution.</p>
+<p><strong>My explanation of this formula</strong>:</p>
+<p>The probability of finding a specie given a <strong>normal distribution</strong> (<span class="math inline">\(N\)</span>) of <span class="math inline">\(\mu\)</span> as niche parameter mean and <span class="math inline">\(\Sigma\)</span> as niche parameter covariance.</p>
+</section>
+<section id="drawing-with-niw.post" class="level3">
+<h3 class="anchored" data-anchor-id="drawing-with-niw.post">Drawing with <code>niw.post()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate parameter draws from the "default" posteriors of each species</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>nsamples <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fish.par <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(fish), fish<span class="sc">$</span>species,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">function</span>(ii) <span class="fu">niw.post</span>(<span class="at">nsamples =</span> nsamples, <span class="at">X =</span> fish[ii,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This resamples <code>nsamples</code>=1000 times from NIW distribution for each row in <code>fish</code> to generate the simulation data. As we categorized the observation by <code>fish$species</code>, we obtain a list of 4 with each of them containing a <code>nsample</code> long vector of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span> based on NIW distribution given the original data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simulation data of the first specie</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># num [1:3, 1:3, 1:1000] means a 3x3x1000 multi-dimentional array</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fish.par[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 2
+ $ mu   : num [1:1000, 1:3] 12.6 12.6 12.5 12.6 12.6 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : NULL
+  .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
+ $ Sigma: num [1:3, 1:3, 1:1000] 0.718 0.265 0.403 0.265 1.401 ...
+  ..- attr(*, "dimnames")=List of 3
+  .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
+  .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
+  .. ..$ : NULL</code></pre>
+</div>
+</div>
+<p>This step and data structure is critical to later apply <code>niche.par.plot()</code>. For such reason, this step can be stored as a function for later utilization:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>niche.par <span class="ot">&lt;-</span> <span class="cf">function</span>(data, index, n, pars) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  par <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data), <span class="at">INDEX =</span> index,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                <span class="cf">function</span>(r) <span class="fu">niw.post</span>(<span class="at">nsamples =</span> n, <span class="at">X =</span> data[r, pars]))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="visualizing-niche-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-niche-parameters">Visualizing niche parameters</h2>
+<p>As mentioned above, the description (<code>?niche.par.plot()</code>) states the first argument has to be a <em>list with nspecies = length(niche.par), each element of which is a list with parameters mu and Sigma</em>. Use <code>plot.index</code>, <code>plot.mu</code> or <code>plot.Sigma</code> to select which <span class="math inline">\(\mu\)</span> or <span class="math inline">\(\Sigma\)</span> to plot, see details in the document.</p>
+<div class="cell" data-layout-align="left">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>clrs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span>) <span class="co"># colors for each species</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mu1 (del15N), mu2 (del13C), and Sigma12 </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, .<span class="dv">5</span>, .<span class="dv">1</span>)<span class="sc">+</span>.<span class="dv">1</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">pty=</span><span class="st">"s"</span>, <span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">niche.par.plot</span>(fish.par, <span class="at">col =</span> clrs, <span class="at">plot.index =</span> <span class="dv">1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">niche.par.plot</span>(fish.par, <span class="at">col =</span> clrs, <span class="at">plot.index =</span> <span class="dv">2</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">niche.par.plot</span>(fish.par, <span class="at">col =</span> clrs, <span class="at">plot.index =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">names</span>(fish.par), <span class="at">fill =</span> clrs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="2_nicheROVER-_Niche_Overlap_Analysis_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="2_nicheROVER-_Niche_Overlap_Analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="plot-intepretation" class="level3">
+<h3 class="anchored" data-anchor-id="plot-intepretation">Plot intepretation</h3>
+</section>
+</section>
+<section id="d-projection-of-a-subset-of-a-niche-region" class="level2">
+<h2 class="anchored" data-anchor-id="d-projection-of-a-subset-of-a-niche-region">2-d projection of a subset of a niche region</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nsamples <span class="ot">&lt;-</span> <span class="dv">10</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fish.par <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(fish), fish<span class="sc">$</span>species,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">function</span>(ii) <span class="fu">niw.post</span>(<span class="at">nsamples =</span> nsamples, <span class="at">X =</span> fish[ii,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># format data for plotting function</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>fish.data <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(fish), fish<span class="sc">$</span>species, <span class="cf">function</span>(ii) <span class="at">X =</span> fish[ii,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">niche.plot</span>(<span class="at">niche.par =</span> fish.par, <span class="at">niche.data =</span> fish.data, <span class="at">pfrac =</span> .<span class="dv">05</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">iso.names =</span> <span class="fu">expression</span>(delta<span class="sc">^</span>{<span class="dv">15</span>}<span class="sc">*</span>N, delta<span class="sc">^</span>{<span class="dv">13</span>}<span class="sc">*</span>C, delta<span class="sc">^</span>{<span class="dv">34</span>}<span class="sc">*</span>S),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> clrs, <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="st">"Isotope Ratio (per mil)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="2_nicheROVER-_Niche_Overlap_Analysis_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="2_nicheROVER-_Niche_Overlap_Analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="864"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="benthic-or-pelagic-fish" class="level2">
+<h2 class="anchored" data-anchor-id="benthic-or-pelagic-fish">Benthic or pelagic fish???????</h2>
+<p>According to <span class="citation" data-cites="newsome2007a">Newsome et al. (<a href="#ref-newsome2007a" role="doc-biblioref">2007</a>)</span> in table 1, also (find another source, maybe <span class="citation" data-cites="duffilltelsnig2019">Duffill Telsnig et al. (<a href="#ref-duffilltelsnig2019" role="doc-biblioref">2019</a>)</span>), we can use isotope system <span class="math inline">\(\delta^{13}C\)</span> and <span class="math inline">\(\delta^{34}\)</span>S to estimate in which water column the species live. Comparing the estimated niche described by <span class="math inline">\(\delta^{13}\)</span>C and <span class="math inline">\(\delta^{34}\)</span>S of ARCS and BDWF, we see ARCS has more narrow region with higher <span class="math inline">\(\delta\)</span> values, meanwhile BDWF has a broader range with much part of it having lower <span class="math inline">\(\delta\)</span> values.</p>
+<p>By searching for available ecological data of these two species, we knoe ARCS typically inhabits shallow coastal waters, while BDWF is a clear bottom feeder.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-2024" class="csl-entry" role="listitem">
+<span>“Atomic <span>Ecology</span> - <span>Analyzing Stable Isotope Data</span>.”</span> 2024. https://sites.google.com/view/brianhayden/teaching/analyzing-stable-isotope-data.
+</div>
+<div id="ref-duffilltelsnig2019" class="csl-entry" role="listitem">
+Duffill Telsnig, Jessica I., Simon Jennings, Aileen C. Mill, Nicola D. Walker, Andrew C. Parnell, and Nicholas V. C. Polunin. 2019. <span>“Estimating Contributions of Pelagic and Benthic Pathways to Consumer Production in Coupled Marine Food Webs.”</span> Edited by Andrew Jackson. <em>Journal of Animal Ecology</em> 88 (3): 405–15. <a href="https://doi.org/10.1111/1365-2656.12929">https://doi.org/10.1111/1365-2656.12929</a>.
+</div>
+<div id="ref-michel2021" class="csl-entry" role="listitem">
+Michel, Loïc. 2021. <span>“<span>Stable isotopes as descriptors of ecological niches</span>,”</span> December. <a href="https://doi.org/10.5281/zenodo.5765530">https://doi.org/10.5281/zenodo.5765530</a>.
+</div>
+<div id="ref-moyo2021" class="csl-entry" role="listitem">
+Moyo, Sydney, Hayat Bennadji, Danielle Laguaite, Anna A. Pérez-Umphrey, Allison M. Snider, Andrea Bonisoli-Alquati, Jill A. Olin, et al. 2021. <span>“Stable Isotope Analyses Identify Trophic Niche Partitioning Between Sympatric Terrestrial Vertebrates in Coastal Saltmarshes with Differing Oiling Histories.”</span> <em>PeerJ</em> 9 (July): e11392. <a href="https://doi.org/10.7717/peerj.11392">https://doi.org/10.7717/peerj.11392</a>.
+</div>
+<div id="ref-newsome2007a" class="csl-entry" role="listitem">
+Newsome, Seth D., Carlos Martinez Del Rio, Stuart Bearhop, and Donald L. Phillips. 2007. <span>“A Niche for Isotopic Ecology.”</span> <em>Frontiers in Ecology and the Environment</em> 5 (8): 429–36. <a href="https://doi.org/10.1890/060150.1">https://doi.org/10.1890/060150.1</a>.
+</div>
+<div id="ref-swanson2015" class="csl-entry" role="listitem">
+Swanson, Heidi K., Martin Lysy, Michael Power, Ashley D. Stasko, Jim D. Johnson, and James D. Reist. 2015. <span>“A New Probabilistic Method for Quantifying <span><em>n</em></span> -Dimensional Ecological Niches and Niche Overlap.”</span> <em>Ecology</em> 96 (2): 318–24. <a href="https://doi.org/10.1890/14-0235.1">https://doi.org/10.1890/14-0235.1</a>.
+</div>
+<div id="ref-vandeschoot2021" class="csl-entry" role="listitem">
+van de Schoot, Rens, Sarah Depaoli, Ruth King, Bianca Kramer, Kaspar Märtens, Mahlet G. Tadesse, Marina Vannucci, et al. 2021. <span>“Bayesian Statistics and Modelling.”</span> <em>Nature Reviews Methods Primers</em> 1 (1): 1–26. <a href="https://doi.org/10.1038/s43586-020-00001-2">https://doi.org/10.1038/s43586-020-00001-2</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    .contact-links {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .contact-links a {
+        flex: 1;
+        text-align: left;
+        font-size: 1rem;
+        color: #888;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-links a:hover {
+        color: #f2a94f;
+    }
+
+    .contact-links a i {
+        margin-right: 10px;
+    }
+
+    @media (max-width: 720px) {
+        .contact-links {
+            justify-content: space-around;
+        }
+
+        .contact-links a {
+            flex: 0 1 auto;
+            text-align: center;
+        }
+
+        .contact-links a span {
+            display: none;
+        }
+
+        .contact-links a i {
+            margin-right: 0;
+        }
+    }
+</style>
+
+<!-- <div style="color: #333; padding: 20px 0;"> -->
+<div>
+    <hr>
+
+    <div style="
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    ">
+        <!-- Left: Logo -->
+        <div style="
+            flex-shrink: 0;
+            margin-right: 30px; /* Space between logo and content */
+            padding-left: 30px; /* Space between logo and left edge */
+        ">
+            <img src="../../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
+        </div>
+
+        <!-- Right: Content -->
+        <div style="
+            flex: 1;
+            min-width: 250px; /* Ensures the content doesn't get too narrow */
+            font-size: 0.8rem;
+        ">
+        
+            <h5>Something you like? Reach out to me!</h5>
+            <div class="contact-links">
+                <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
+                <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
+                <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
+                <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
+            </div>
+            <hr>
+            
+            <p>Issues on the website?  <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
+            <p>© 2024 Zhehao Hu.</p>
+            
+            
+        </div>
+    </div>
+    <hr>
+</div>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/zzzhehao\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

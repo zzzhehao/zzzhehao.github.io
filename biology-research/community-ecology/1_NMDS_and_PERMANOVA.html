@@ -148,7 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../../biology-research/posts.html">
+    <a class="dropdown-item" href="../../biology-research/index.html">
  <span class="dropdown-text">Posts</span></a>
   </li>  
         <li>
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../personal/news.qmd"> 
+    <a class="nav-link" href="../../news.html"> 
 <span class="menu-text">What’s new</span></a>
   </li>  
 </ul>
@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
             <a href="https://www.biologie.uni-hamburg.de/en.html">
-            Department of Biology, Universität Hamburg
+            Department of Biology, University of Hamburg
             </a>
           </p>
       </div>
@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-is-nmds" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-nmds">What is NMDS?</h2>
 <p>The <strong>Non-metric MultiDimensional Scaling (NMDS)</strong> is, as its name implicates, the MDS for non-metric data. Which can be more convenient in analyzing ecology data, since the ecological data often don’t follow the normal distribution.</p>
-<p>As <a href="https://en.wikipedia.org/wiki/Multidimensional_scaling#:~:text=of%20the%20dissimilarities.-,Non%2Dmetric%20multidimensional%20scaling%20(NMDS)">Wikipedia</a> explains, the NMDS finds a non-parametric monotonic relationship between the dissimilarities in the item-item matrix and the Euclidean distance between items, and the location of each item in the low-dimensional space.</p>
+<p>As <a href="https://en.wikipedia.org/wiki/Multidimensional_scaling#:~:text=of%20the%20dissimilarities.-,Non%2Dmetric%20multidimensional%20scaling%20(NMDS)" target="_blank">Wikipedia</a> explains, the NMDS finds a non-parametric monotonic relationship between the dissimilarities in the item-item matrix and the Euclidean distance between items, and the location of each item in the low-dimensional space.</p>
 <p>Translate this into simplified language, it says the NMDS …</p>
 <ul>
 <li>highlights the similarities between samples of multidimensional measurements.</li>
@@ -323,10 +323,10 @@ Data:     tadpoleSp
 Distance: bray 
 
 Dimensions: 2 
-Stress:     0.1713697 
+Stress:     0.1713525 
 Stress type 1, weak ties
 Best solution was not repeated after 20 tries
-The best solution was from try 11 (random start)
+The best solution was from try 12 (random start)
 Scaling: centring, PC rotation, halfchange scaling 
 Species: expanded scores based on 'tadpoleSp' </code></pre>
 </div>
@@ -389,9 +389,9 @@ Formula:
 y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 
 Estimated degrees of freedom:
-6.81  total = 7.81 
+6.64  total = 7.64 
 
-REML score: 109.0379     </code></pre>
+REML score: 109.5925     </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -414,9 +414,9 @@ Formula:
 y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 
 Estimated degrees of freedom:
-0.893  total = 1.89 
+0.849  total = 1.85 
 
-REML score: 168.5154     </code></pre>
+REML score: 168.5419     </code></pre>
 </div>
 </div>
 </section>
@@ -462,12 +462,12 @@ REML score: 168.5154     </code></pre>
 ***VECTORS
 
                          NMDS1    NMDS2     r2
-altitude [m asl]      -0.78644  0.61767 0.1076
-stream slope [cm/30m]  0.76696  0.64169 0.5461
-temperature [°C]      -0.25369  0.96729 0.1871
-Width (m)             -0.92673 -0.37573 0.6397
-Depth (cm)            -0.95638 -0.29211 0.7817
-species_richness      -0.84244 -0.53878 0.7386
+altitude [m asl]      -0.80681  0.59081 0.1046
+stream slope [cm/30m]  0.76356  0.64574 0.5515
+temperature [°C]      -0.25382  0.96725 0.1909
+Width (m)             -0.92954 -0.36871 0.6336
+Depth (cm)            -0.95328 -0.30208 0.7877
+species_richness      -0.83828 -0.54524 0.7466
 
 5 Beobachtungen als fehlend gelöscht</code></pre>
 </div>
@@ -625,13 +625,13 @@ species_richness      -0.84244 -0.53878 0.7386
 <h2 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h2>
 <p>I hereby express my thanks to the codes and examples shared by</p>
 <ul>
-<li><a href="https://jkzorz.github.io/2020/04/04/NMDS-extras.html">Dr.&nbsp;Jackie Zorz</a></li>
-<li><a href="https://chrischizinski.github.io/rstats/vegan-ggplot2/">Dr.&nbsp;Christopher Chizinski</a></li>
-<li><a href="https://stackoverflow.com/a/75507179/24065650">Allan Cameron</a></li>
+<li><a href="https://jkzorz.github.io/2020/04/04/NMDS-extras.html" target="_blank">Dr.&nbsp;Jackie Zorz</a></li>
+<li><a href="https://chrischizinski.github.io/rstats/vegan-ggplot2/" target="_blank">Dr.&nbsp;Christopher Chizinski</a></li>
+<li><a href="https://stackoverflow.com/a/75507179/24065650" target="_blank">Allan Cameron</a></li>
 </ul>
 <p>for helping me finish this post.</p>
 <hr>
-<p><strong>Issues? Comments? Improvements?</strong> I’m happy to hear your opinions on this post and my website. Find my source code at <a href="https://github.com/zzzhehao/zzzhehao.github.io/tree/main">github</a> or <a href="mailto:hu_zhehao@hotmail.com">contact me</a>.</p>
+<p><strong>Issues? Comments? Improvements?</strong> I’m happy to hear your opinions on this post and my website. Find my source code at <a href="https://github.com/zzzhehao/zzzhehao.github.io/tree/main" target="_blank">github</a> or <a href="mailto:hu_zhehao@hotmail.com" target="_blank">contact me</a>.</p>
 
 
 </section>
@@ -1290,7 +1290,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

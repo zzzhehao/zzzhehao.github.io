@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
+<meta name="author" content="Zhehao Hu">
+<meta name="dcterms.date" content="2024-08-05">
 
-<title>Posts – Zhehao Hu</title>
+<title>3 vegan - diversity, rarefaction, and species richness – Zhehao Hu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,29 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +104,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
+<meta name="quarto:status" content="draft">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -131,18 +136,18 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../theme/text-justify.css">
-<link rel="stylesheet" href="../theme/caption-center.css">
+<link rel="stylesheet" href="../../theme/text-justify.css">
+<link rel="stylesheet" href="../../theme/caption-center.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zhehao Hu</span>
     </a>
   </div>
@@ -158,7 +163,7 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
         <li>
-    <a class="dropdown-item" href="../gallery/gallery.html">
+    <a class="dropdown-item" href="../../gallery/gallery.html">
  <span class="dropdown-text">Albums</span></a>
   </li>  
     </ul>
@@ -169,11 +174,11 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../biology-research/posts.html">
+    <a class="dropdown-item" href="../../biology-research/index.html">
  <span class="dropdown-text">Posts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../biology-research/asbiologist.html">
+    <a class="dropdown-item" href="../../biology-research/asbiologist.html">
  <span class="dropdown-text">As a Biology Student</span></a>
   </li>  
     </ul>
@@ -184,13 +189,13 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-personal">    
         <li>
-    <a class="dropdown-item" href="../personal/aboutme.html">
+    <a class="dropdown-item" href="../../personal/aboutme.html">
  <span class="dropdown-text">About Me</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../personal/news.qmd"> 
+    <a class="nav-link" href="../../news.html"> 
 <span class="menu-text">What’s new</span></a>
   </li>  
 </ul>
@@ -207,22 +212,60 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#raw" id="toc-raw" class="nav-link active" data-scroll-target="#raw">Raw</a>
+  <ul>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#diversity" id="toc-diversity" class="nav-link" data-scroll-target="#diversity">Diversity</a>
+  <ul class="collapse">
+  <li><a href="#introduction-of-diversity-index" id="toc-introduction-of-diversity-index" class="nav-link" data-scroll-target="#introduction-of-diversity-index">Introduction of diversity index</a></li>
+  <li><a href="#shannon-index-h" id="toc-shannon-index-h" class="nav-link" data-scroll-target="#shannon-index-h">Shannon Index (H)</a></li>
+  <li><a href="#simpson-index-d" id="toc-simpson-index-d" class="nav-link" data-scroll-target="#simpson-index-d">Simpson index (D)</a></li>
+  </ul></li>
+  <li><a href="#dissimilarity" id="toc-dissimilarity" class="nav-link" data-scroll-target="#dissimilarity">Dissimilarity</a></li>
+  <li><a href="#rarefaction-species-richness" id="toc-rarefaction-species-richness" class="nav-link" data-scroll-target="#rarefaction-species-richness">Rarefaction, Species richness</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posts</h1>
+<h1 class="title">3 vegan - diversity, rarefaction, and species richness</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:hu_zhehao@hotmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.biologie.uni-hamburg.de/en.html">
+            Department of Biology, University of Hamburg
+            </a>
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 5, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -232,45 +275,89 @@ window.Quarto = {
 </header>
 
 
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>community<span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Practice/Diversity_test_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Test"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="raw" class="level1">
+<h1>Raw</h1>
+<p><code>?vegdist</code>: <strong>Gower</strong>, <strong>Bray–Curtis</strong>, indices are good in detecting underlying ecological gradients (Faith et al.&nbsp;1987). Why using dissimilarity instead similarity?</p>
+<p>our samples: rarefaction set to minimal sample size of 5, a descent analysis will take this out and analyse is again.</p>
+<hr>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>We use the data from <code>Diversity_test_data.xlsx</code>:</p>
+</section>
+<section id="diversity" class="level2">
+<h2 class="anchored" data-anchor-id="diversity">Diversity</h2>
+<section id="introduction-of-diversity-index" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-of-diversity-index">Introduction of diversity index</h3>
+<p>A diversity index is a mathematical measure of speceis diversity in a given community, it is based on the <strong>species richness</strong> (the number of species present) and the <strong>species abundance</strong> (the number of individuals per species).</p>
+<p>There are two types of diversity indices:</p>
+<ul>
+<li>dominance indices</li>
+<li>information statistic indices</li>
+</ul>
+</section>
+<section id="shannon-index-h" class="level3">
+<h3 class="anchored" data-anchor-id="shannon-index-h">Shannon Index (H)</h3>
+<p><span class="math display">\[
+H = - \sum^{s}_{i=1}p_i \ln p_i
+\]</span></p>
+<p>The <strong>Shannon index</strong> is an information statistic index, which means it assumes all species are represented in a sample and that they are randomly sampled, where <span class="math inline">\(p\)</span> is the proportion (<span class="math inline">\(\frac{n}{N}\)</span>) of individuals of one particular species found (<span class="math inline">\(n\)</span>) divided by the total number of individuals found (<span class="math inline">\(N\)</span>), and <span class="math inline">\(s\)</span> is the number of species.</p>
+</section>
+<section id="simpson-index-d" class="level3">
+<h3 class="anchored" data-anchor-id="simpson-index-d">Simpson index (D)</h3>
+<p><span class="math display">\[
+D = \frac{1}{ \sum\limits^{s}_{i=1} p_i^2}
+\]</span> The <strong>Simpson index</strong> is a dominance index, meaning it gives more weight to common or dominant species.</p>
+<p><code>vegan::diversity()</code> calculates the ecological diversity indices, with Shannon index being default, Simpson or Invisimpson index can also be choosed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>simpson <span class="ot">&lt;-</span> <span class="fu">diversity</span>(community[,<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>], <span class="st">"simpson"</span>) </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>simpson </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="fu">diversity</span>(community[,<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>shannon <span class="co">#Typically ranges from 1.5 - 3.4, higher = more diverse </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Simpson index shows the probability of randomly drawing two observations given the observations are from different species.</p>
+<p>Shannon index gives more importance to rare species, therefore shows higher frequency of the intermediate value.</p>
+</section>
+</section>
+<section id="dissimilarity" class="level2">
+<h2 class="anchored" data-anchor-id="dissimilarity">Dissimilarity</h2>
+</section>
+<section id="rarefaction-species-richness" class="level2">
+<h2 class="anchored" data-anchor-id="rarefaction-species-richness">Rarefaction, Species richness</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>spAbund <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(community[,<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>spAbund</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>raremin <span class="ot">&lt;-</span> <span class="fu">min</span>(spAbund)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>raremin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sRare <span class="ot">&lt;-</span> <span class="fu">rarefy</span>(community[<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>], <span class="at">sample =</span> raremin)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sRare</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(reshape2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>community<span class="sc">$</span>transect <span class="ot">&lt;-</span> <span class="fu">rownames</span>(community[,<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>]) </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">melt</span>(community))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#tidyrare &lt;- rarecurve(community[,3:11], tidy = TRUE)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#paged_table(tidyrare)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1722417136834" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2022">
-<div class="thumbnail">
-<p><a href="../biology-research/asbiologist.html" class="no-external"></a></p><a href="../biology-research/asbiologist.html" class="no-external">
-<p class="card-img-top"><img src="../assets/images/hu-happy-in-wild.jpg.jpg" alt="Me being happy in the wild"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../biology-research/asbiologist.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../biology-research/asbiologist.html" class="no-external">As a Biology Student</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../biology-research/asbiologist.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../biology-research/asbiologist.html" class="no-external">“I don’t know why I came. I just ended up here. And I am happy with it.”</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../biology-research/asbiologist.html" class="no-external">
-<div class="listing-date">
-Jul 27, 2024
-</div>
-<div class="listing-author">
-Zhehao Hu
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     .contact-links {
@@ -332,7 +419,7 @@ No matching items
             margin-right: 30px; /* Space between logo and content */
             padding-left: 30px; /* Space between logo and left edge */
         ">
-            <img src="../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
+            <img src="../../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
         </div>
 
         <!-- Right: Content -->

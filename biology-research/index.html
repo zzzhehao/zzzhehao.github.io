@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="">
+<meta name="dcterms.date" content="2024-08-12">
 
-<title>Latest Updates – Zhehao Hu</title>
+<title>Posts – Zhehao Hu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,7 +72,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../theme/text-justify.css">
 <link rel="stylesheet" href="../theme/caption-center.css">
@@ -109,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../biology-research/posts.html">
+    <a class="dropdown-item" href="../biology-research/index.html">
  <span class="dropdown-text">Posts</span></a>
   </li>  
         <li>
@@ -130,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="../personal/news.html" aria-current="page"> 
+    <a class="nav-link" href="../news.html"> 
 <span class="menu-text">What’s new</span></a>
   </li>  
 </ul>
@@ -155,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Latest Updates</h1>
+<h1 class="title">Posts</h1>
 </div>
 
 
@@ -163,6 +224,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 12, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -172,14 +239,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>[2024-07-28] New page: <a href="../personal/aboutme.html">About me</a></p>
-<p>[2024-07-27] New page: <a href="../research/asbiologist.qmd">Me as a biology student</a></p>
-<p>[2024-07-22] New page: <a href="../gallery/gallery.html">Gallery</a></p>
-<p>[2024-06-28] Initialize the website.</p>
 
 
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1723452939977" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2022">
+<div class="thumbnail">
+<p><a href="../biology-research/asbiologist.html" class="no-external"></a></p><a href="../biology-research/asbiologist.html" class="no-external">
+<p class="card-img-top"><img src="../assets/images/hu-happy-in-wild.jpg.jpg" alt="Me being happy in the wild"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../biology-research/asbiologist.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../biology-research/asbiologist.html" class="no-external">As a Biology Student</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../biology-research/asbiologist.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../biology-research/asbiologist.html" class="no-external">“I don’t know why I came. I just ended up here. And I am happy with it.”</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../biology-research/asbiologist.html" class="no-external">
+<div class="listing-date">
+July 27, 2024
+</div>
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     .contact-links {
@@ -192,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
         flex: 1;
         text-align: left;
         font-size: 1rem;
-        /* color: #888; */
+        color: #888;
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -204,10 +302,6 @@ ul.task-list li input[type="checkbox"] {
 
     .contact-links a i {
         margin-right: 10px;
-    }
-
-    .cus-footer {
-        /* API for custom background to change font color etc */
     }
 
     @media (max-width: 720px) {
@@ -249,7 +343,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
 
         <!-- Right: Content -->
-        <div class="cus-footer" ;="" style="
+        <div style="
             flex: 1;
             min-width: 250px; /* Ensures the content doesn't get too narrow */
             font-size: 0.8rem;

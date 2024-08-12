@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../biology-research/posts.html">
+    <a class="dropdown-item" href="../biology-research/index.html">
  <span class="dropdown-text">Posts</span></a>
   </li>  
         <li>
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../personal/news.qmd"> 
+    <a class="nav-link" href="../news.html"> 
 <span class="menu-text">What’s new</span></a>
   </li>  
 </ul>
@@ -323,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Following up last point, I ran into an even weirder situation while designing 404 page (type whatever under my site to see it). I wanted to use custom background but the problem is 404 page could be rendered everywhere at any depth as the user ran into invalid address. Which means the image I use is at different relative location to the rendered 404 page.</li>
 <li>I found <a href="https://github.com/quarto-dev/quarto-cli/issues/5284#issuecomment-1533526078">this discussion</a> and one of the developer stated that we can use project path (same as the one mentioned in the last point) in yaml header, but it seems not be a simple <code>/</code> but rather a <code>./</code>, but I am not hundred percent sure.</li>
 <li>I also found <a href="https://github.com/quarto-dev/quarto-cli/issues/3788">this issue</a> and it further confused me plus it’s been labeled as a future feature that has been delayed twice, so I gave up with this.</li>
-<li>Weird thing is, I somehow couldn’t use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the <code>theme/bg-red-plane-2.html</code> since I don’t need it anywhere so I don’t want to touch it. If you also have similar problem, maybe check it out.</li>
+<li>Weird thing is, I somehow couldn’t use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the <code>theme/bg-red-plane-2.html</code> since I don’t need it anywhere else so I don’t want to touch it. If you also have similar problem, maybe check it out.</li>
 </ul>
 
 
