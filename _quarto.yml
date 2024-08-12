@@ -30,7 +30,7 @@ website:
       - text: "Research"
         menu:
           - text: "Posts"
-            href: biology-research/posts.qmd
+            href: biology-research/index.qmd
           - text: "As a Biology Student"
             href: biology-research/asbiologist.qmd
       - text: "Personal"
