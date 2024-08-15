@@ -9,6 +9,9 @@ project:
     - "!comments/*"
   execute-dir: project
 
+bibliography:
+  - ../../Obsidian/Cafe AgX HQ 2.0/003 Management/Research & Career/research-writing/bib/biology-research.bib
+
 website:
   title: "Zhehao Hu"
   site-url: https://zzzhehao.github.io/

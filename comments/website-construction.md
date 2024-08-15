@@ -122,3 +122,19 @@ This comment notes some things not widely mentioned on the internet and can be c
 - I found [this discussion](https://github.com/quarto-dev/quarto-cli/issues/5284#issuecomment-1533526078) and one of the developer stated that we can use project path (same as the one mentioned in the last point) in yaml header, but it seems not be a simple `/` but rather a `./`, but I am not hundred percent sure. 
 - I also found [this issue](https://github.com/quarto-dev/quarto-cli/issues/3788) and it further confused me plus it's been labeled as a future feature that has been delayed twice, so I gave up with this.
 - Weird thing is, I somehow couldn't use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the `theme/bg-red-plane-2.html` since I don't need it anywhere else so I don't want to touch it. If you also have similar problem, maybe check it out.
+
+<!-- ### 2024/08/13 Avoid using absolute path from system root - setup crontab to sync files
+
+- I was still struggling with file path in quarto. I recently rearranged my zotero files and I now save the main library structure at local but use zotfile and betterbix to store the assets in iCloud so I can access from different location.
+- The things is, my quarto project, including the one I use for research writing, are both local. I tried many ways but couldn't let pandoc recognize the .bib file I stored in iCloud. (I tried relative path, environment variables both in _environment or in /.zshrc)
+- So I came up with the solution that I will store the bib file local, and let cron (a tool built in the Unix/Linux system) to sync that file to icloud automatically. 
+- The setup:
+    - `$ crontab -e` to open editor (probably in terminal)
+    
+    ```bash
+    */30 * * * * cp /path/to/source/file /path/to/destination/ >> /path/to/log/file 2>&1
+    ```
+
+    to setup, where `*/30 * * * *` means excute every 30 minutes.
+    - If you are using default editor (vim) like me, hit esc, type `:wq`, hit enter, then it should show `crontab: installing new crontab`.
+    - `$ crontab -l` to see if it is installed correctly. -->
