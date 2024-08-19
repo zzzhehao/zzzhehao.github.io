@@ -326,7 +326,7 @@ Dimensions: 2
 Stress:     0.1713525 
 Stress type 1, weak ties
 Best solution was not repeated after 20 tries
-The best solution was from try 12 (random start)
+The best solution was from try 18 (random start)
 Scaling: centring, PC rotation, halfchange scaling 
 Species: expanded scores based on 'tadpoleSp' </code></pre>
 </div>
@@ -391,7 +391,7 @@ y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 Estimated degrees of freedom:
 6.64  total = 7.64 
 
-REML score: 109.5925     </code></pre>
+REML score: 109.5843     </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -416,7 +416,7 @@ y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 Estimated degrees of freedom:
 0.849  total = 1.85 
 
-REML score: 168.5419     </code></pre>
+REML score: 168.5418     </code></pre>
 </div>
 </div>
 </section>
@@ -462,14 +462,14 @@ REML score: 168.5419     </code></pre>
 ***VECTORS
 
                          NMDS1    NMDS2     r2
-altitude [m asl]      -0.80681  0.59081 0.1046
-stream slope [cm/30m]  0.76356  0.64574 0.5515
-temperature [°C]      -0.25382  0.96725 0.1909
-Width (m)             -0.92954 -0.36871 0.6336
-Depth (cm)            -0.95328 -0.30208 0.7877
-species_richness      -0.83828 -0.54524 0.7466
+altitude [m asl]      -0.80678  0.59085 0.1046
+stream slope [cm/30m]  0.76350  0.64581 0.5515
+temperature [°C]      -0.25387  0.96724 0.1909
+Width (m)             -0.92950 -0.36882 0.6336
+Depth (cm)            -0.95325 -0.30217 0.7877
+species_richness      -0.83823 -0.54531 0.7466
 
-5 Beobachtungen als fehlend gelöscht</code></pre>
+5 observations deleted due to missingness</code></pre>
 </div>
 </div>
 <p><code>envfit</code> distinguishes the variables into <em>vectors</em> (continuous) or <em>factor</em> (categorical) variables. For each category (in each categorical variable), the centroid coordinates was calculated, which represents the center of the mass and the average coordination of all points belong to that category.</p>
@@ -1290,7 +1290,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
