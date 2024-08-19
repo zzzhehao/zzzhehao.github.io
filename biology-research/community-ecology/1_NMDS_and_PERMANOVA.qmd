@@ -123,7 +123,7 @@ library(ggplot2)
 We continue with the already available NMDS result from earlier, which is stored inside `tadNMDS`. The only thing we need to do, is to extract the coordinates from the points we want to plot, and then apply them in a ggplot-way. 
 
 ```{r aes_setting, echo=F, warning=F, message=F}
-theme_aes <- function(clp = "Klein", base_family = "serif", ...){
+theme_aes <- function(base_family = "serif", ...){
   theme_bw(base_family = base_family, ...) +
     theme(
       plot.title = element_text(size = 12),

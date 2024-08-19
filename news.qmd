@@ -10,6 +10,8 @@ author: ""
 ::::
 :::
 
+[2024-08-19] New album: [Life, 2024](/gallery/gallery.qmd)
+
 [2024-08-13] New page: [Motion Pictures](/gallery/motion-pictures.qmd)
 
 [2024-08-12] Update: [CV](/biology-research/CV_Zhehao_Hu.pdf)
