@@ -25,6 +25,8 @@ website:
         menu: 
           - text: "Albums"
             href: gallery/gallery.qmd
+          - text: "Color palette"
+            href: photography/color_palette.qmd
           # - text: "Videos"
           #   href: gallery/videos.qmd
           # - text: "As a Photographer"
