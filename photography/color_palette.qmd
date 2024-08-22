@@ -9,76 +9,22 @@ include-after-body:
 
 ```{r}
 #| echo: false
-#| output: asis
+#| output: false
 #| warning: false
 
 library(yaml)
 library(glue)
 library(knitr)
+library(tidyverse)
+```
 
-# print(getwd())
+```{r}
+#| echo: false
+#| output: asis
+#| warning: false
+
 # Read the YAML file
 palettes <- yaml.load_file("photography/color_palette/palettes.yml")
-
-# Function to generate HTML for a single palette
-# generate_palette_html <- function(palette) {
-#   # Generate color bar HTML
-#   color_bar <- glue('<div class="color-bar">')
-#   for (color in palette$colors) {
-#     color_bar <- paste0(color_bar, glue('<div style="flex: 1; background-color: {color};"></div>'))
-#   }
-#   color_bar <- paste0(color_bar, '</div>')
-  
-#   # Generate image gallery HTML
-#   image_gallery <- '
-#   <div class="image-gallery">
-#   <button id="prev-image-{palette$title}" class="nav-button prev-button"></button>
-#   <div class="image-container">
-#   '
-
-#   if (length(palette$photos) > 1) {
-#     image_gallery <- '
-#   <button id="prev-image-{palette$title}" class="nav-button prev-button"></button>
-#   <div class="image-container">
-#     '
-#     for (i in seq_along(palette$photos)) {
-#       image_gallery <- paste0(image_gallery, glue('
-  
-#   <img id="gallery-image-{i}-{palette$title}" class="gallery-image" src="../assets/palettes/{palette$photos[i]}" alt="Gallery Image {i}">
-#       '))
-#     }
-#     image_gallery <- paste0(image_gallery, '
-#   </div>
-#   <button id="next-image-{palette$title}" class="nav-button next-button"></button>
-#     ')
-#   } else {
-#     image_gallery <- glue('<img src="../assets/palettes/{palette$photos[1]}" alt="{palette$title}" class="gallery-image">')
-#   }
-  
-#   html <- glue('
-#   <div class="palette-container">
-#     <h2>{palette$title}</h2>
-#     <div class="palette-flex-container">
-#     <div class="color-bar-container">
-#     {color_bar}
-#     <p>{palette$caption}</p>
-#     </div>
-#     <div class="image-gallery-container">
-#     {image_gallery}
-#     </div>
-#     </div>
-#   </div>
-# ')
-  
-#   cat(html)
-# }
-
-# # Generate HTML for all palettes
-# for (palette in palettes) {
-#   generate_palette_html(palette)
-# }
-
-# ===== New
 
 generate_palette_html <- function(palette) {
   # Generate color bar HTML
@@ -95,18 +41,17 @@ generate_palette_html <- function(palette) {
   # Generate image gallery HTML
   if (length(palette$photos) > 1) {
     image_gallery <- '
+  <div class="image-gallery-container">
   <div class="image-gallery">
-  <button class="nav-button prev-button"></button>
-  <div class="image-container">
     '
     for (i in seq_along(palette$photos)) {
       image_gallery <- paste0(image_gallery, glue('
-  <img id="gallery-image-{i}-{palette$title}" class="gallery-image" src="../assets/palettes/{palette$photos[i]}" alt="Gallery Image {i}">
-      '))
+
+<img id="gallery-image-{i}-{palette$title}" class="gallery-image" src="../assets/palettes/{palette$photos[i]}" alt="Gallery Image {i}">'))
     }
     image_gallery <- paste0(image_gallery, '
   </div>
-  <button class="nav-button next-button"></button>
+  <button class="nav-button"></button>
   </div>
     ')
   } else {
@@ -116,30 +61,44 @@ generate_palette_html <- function(palette) {
   </div>
     ')
   }
+
+  # Generate CSS-formatted palette
+  css_palette <- paste0("/* Color Theme ", palette$title, " */\n")
+  for (i in seq_along(palette$colors)) {
+    css_palette <- paste0(css_palette, ".", tolower(gsub(" ", "-", palette$title)), "-hex-", i, ": { color: ", palette$colors[i], "; }\n")
+  }
+
+  # Generate R vector format
+  r_vector <- paste0('c(', paste(shQuote(palette$colors), collapse = ', '), ")")
   
   # Combine all elements
   html <- glue('
   <div class="palette-container">
-    <h2>{palette$title}</h2>
-    <p class="palette-caption">{palette$caption}</p>
-    <div class="palette-flex-container">
-    <div class="color-bar-container">
-    {color_bar}
-    <button class="copy-palette-button" data-palette="{paste(palette$colors, collapse=',')}">Copy Palette</button>
-    </div>
-    <div class="image-gallery-container">
-    {image_gallery}
-    </div>
-    </div>
+  <h2>{palette$title}</h2>
+  <p class="palette-caption">{palette$caption}</p>
+  <div class="palette-flex-container">
+  <div class="color-bar-container">
+  <div class="color-bar-wrapper">
+  {color_bar}
+  </div>
+  <div class="button-container">
+  <button class="copy-palette-button" data-palette="{css_palette}">Copy as CSS</button>
+  <button class="copy-r-vector-button" data-vector="{r_vector}">Copy as R Vector</button>
+  </div>
+  </div>
+  <div class="image-gallery-container">
+  {image_gallery}
+  </div>
+  </div>
   </div>
   ')
   
-  cat(html)
+  return(html)  # Return the HTML instead of using cat()
 }
 
 # Generate HTML for all palettes
-for (palette in palettes) {
-  generate_palette_html(palette)
-}
+html_output <- map(palettes, generate_palette_html) %>% 
+  reduce(paste, sep = "\n")
 
+cat(html_output)
 ```
