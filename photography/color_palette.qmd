@@ -16,6 +16,8 @@ library(yaml)
 library(glue)
 library(knitr)
 library(tidyverse)
+# Read the YAML file
+palettes <- yaml.load_file("photography/color_palette/palettes.yml")
 ```
 
 ```{r}
@@ -23,18 +25,26 @@ library(tidyverse)
 #| output: asis
 #| warning: false
 
-# Read the YAML file
-palettes <- yaml.load_file("photography/color_palette/palettes.yml")
-
 generate_palette_html <- function(palette) {
   # Generate color bar HTML
   color_bar <- '<div class="color-bar">'
-  for (color in palette$colors) {
-    color_bar <- paste0(color_bar, glue('
+  rows <- ceiling(length(palette$colors) / 5)
+  colors_per_row <- ceiling(length(palette$colors) / rows)
+
+  for (row in 1:rows) {
+    color_bar <- paste0(color_bar, '<div class="color-row">')
+    start_index <- (row - 1) * colors_per_row + 1
+    end_index <- min(row * colors_per_row, length(palette$colors))
+    
+    for (i in start_index:end_index) {
+      color <- palette$colors[i]
+      color_bar <- paste0(color_bar, glue('
   <div class="color-section" style="background-color: {color};">
   <span class="color-code" data-color="{color}">{color}</span>
   </div>
-    '))
+      '))
+    }
+    color_bar <- paste0(color_bar, '</div>')
   }
   color_bar <- paste0(color_bar, '</div>')
   

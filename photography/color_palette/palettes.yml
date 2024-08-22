@@ -1,23 +1,55 @@
-- title: "Sunset Hues"
-  photos: 
-    - "adria-1.jpg"
-    - "adria-2.jpg"
-  caption: "Inspired by a beautiful sunset"
-  colors: 
-    - "#FF6B6B"
-    - "#4ECDC4"
-    - "#45B7D1"
-    - "#F7D794"
-    - "#E84A5F"
-    - "#E84A5F"
-
-- title: "Forest Greens"
-  photos: 
-    - "adria-3.jpg"
-  caption: "Colors from a lush forest"
+- title: "Porco"
+  photos:
+  - "Porco-1.jpg"
+  - "Porco-2.jpg"
+  - "Porco-3.jpg"
+  - "Porco-4.jpg"
+  - "Porco-5.jpg"
+  caption: ""
   colors:
-    - "#2D6A4F"
-    - "#40916C"
-    - "#52B788"
-    - "#74C69D"
-    - "#95D5B2"
+    - "#8191A6"
+    - "#A3AFBF"
+    - "#D9CFCC"
+    - "#1A261C"
+    - "#4B5918"
+    - "#7C8C04"
+    - "#732937"
+    - "#D93D04"
+    - "#BF9B7A"
+
+- title: "Alsterpark 1"
+  photos: 
+    - "alsterpark-1-1.jpg"
+    - "alsterpark-1-2.jpg"
+  caption: ""
+  colors: 
+    - "#11261A"
+    - "#3B4018"
+    - "#8C793E"
+    - "#BF9649"
+    - "#734D2C"
+
+- title: "Copenhagen 1"
+  photos: 
+    - "copenhagen-1-1.jpg"
+  caption: ""
+  colors:
+    - "#011C26"
+    - "#03738C"
+    - "#F2D479"
+    - "#F29F05"
+    - "#F2F0F0"
+    - "#F27405"
+    - "#BF2604"
+    - "#590202"
+- title: "Copenhagen 2"
+  photos:
+    - "copenhagen-2-1.jpg"
+  caption: ""
+  colors:
+  - "#BDE3F2"
+  - "#F2EFEB"
+  - "#F2784B"
+  - "#592525"
+  - "#BFA75E"
+  - "#0E2608"
