@@ -1,11 +1,51 @@
+- title: "Hamburg Sunshine"
+  photos: 
+  - "hamburg-sunshine.jpg"
+  captions: "Yashica Mat-124G | Kodak Portra 160"
+  colors:
+  - "#F2EDEB"
+  - "#CEE8F2"
+  - "#F2B66D"
+  - "#BF4904"
+  - "#D96704"
+  - "#8C1C03"
+  - "#025928"
+  - "#09080D"
+
+- title: "Elphi"
+  photos: 
+  - "elphi.jpg"
+  caption: "Mamiya RB67 | Mamiya Sekro-NB 127mm f/3.8 | Kodak Ektar 100"
+  colors:
+  - "#466C8C"
+  - "#BBF2F2"
+  - "#DFF2F2"
+  - "#F2D1B3"
+  - "#BF634E"
+  - "#8C3D35"
+  - "#2A131B"
+
+- title: "Elbfähre"
+  photos:
+  - "elbfaehre.jpg"
+  caption: "Yashica Mat-124G | Kodak Portra 400"
+  colors:
+  - "#DCE8F2"
+  - "#024873"
+  - "#F2BF27"
+  - "#F27405"
+  - "#F2B749"
+  - "#BF4904"
+  - "#011F26"
+
 - title: "Porco"
   photos:
+  - "Porco.jpg"
   - "Porco-1.jpg"
   - "Porco-2.jpg"
   - "Porco-3.jpg"
   - "Porco-4.jpg"
-  - "Porco-5.jpg"
-  caption: ""
+  caption: "Nikon D850 | Nikkor AF-S 85mm f/1.8"
   colors:
     - "#8191A6"
     - "#A3AFBF"
@@ -19,9 +59,9 @@
 
 - title: "Alsterpark 1"
   photos: 
-    - "alsterpark-1-1.jpg"
+    - "alsterpark-1.jpg"
     - "alsterpark-1-2.jpg"
-  caption: ""
+  caption: "Lumix S5 | Nikkor AF 80-200mm f/2.8"
   colors: 
     - "#11261A"
     - "#3B4018"
@@ -31,8 +71,8 @@
 
 - title: "Copenhagen 1"
   photos: 
-    - "copenhagen-1-1.jpg"
-  caption: ""
+    - "copenhagen-1.jpg"
+  caption: "Yashica Mat-124G | Kodak Portra 160"
   colors:
     - "#011C26"
     - "#03738C"
@@ -42,10 +82,11 @@
     - "#F27405"
     - "#BF2604"
     - "#590202"
+
 - title: "Copenhagen 2"
   photos:
-    - "copenhagen-2-1.jpg"
-  caption: ""
+    - "copenhagen-2.jpg"
+  caption: "Yashica Mat-124G | Kodak Portra 160"
   colors:
   - "#BDE3F2"
   - "#F2EFEB"
@@ -53,3 +94,45 @@
   - "#592525"
   - "#BFA75E"
   - "#0E2608"
+
+- title: "Copenhagen 3"
+  photos:
+  - "copenhagen-3.jpg"
+  - "copenhagen-3-2.jpg"
+  caption: "Yashica Mat-124G | Kodak Portra 160"
+  colors:
+  - "#CEE4F2"
+  - "#348E8C"
+  - "#025373"
+  - "#F2D6BD"
+  - "#732C02"
+  - "#BF0404"
+  - "#C16326"
+  - "#F29F05"
+
+- title: "Aaaaaa!"
+  photos:
+  - "Aaaaaa.jpg"
+  caption: "Mamiya RB67 | Mamiya Sekor-NB 127mm f/3.8 | Kodak Portra 400"
+  colors:
+  - "#A63247"
+  - "#F2BF91"
+  - "#A66C4B"
+  - "#BFA18F"
+  - "#F2F0F2"
+  - "#586B73"
+  - "#6A7371"
+  - "#262F40"
+
+- title: "Adria"
+  photo: 
+  - "adria.jpg"
+  caption: "Yashica Mat-124G | Kodak Portra 160"
+  colors:
+  - "#6A95A6"
+  - "#ADCCD9"
+  - "#DCEEF2"
+  - "#0A0D0C"
+  - "#1E2625"
+  - "#49593E"
+  - "#D9B07E"
