@@ -1,0 +1,22 @@
+- title: "Sunset Hues"
+  photos: 
+    - "adria-1.jpg"
+    - "adria-2.jpg"
+  caption: "Inspired by a beautiful sunset"
+  colors: 
+    - "#FF6B6B"
+    - "#4ECDC4"
+    - "#45B7D1"
+    - "#F7D794"
+    - "#E84A5F"
+
+- title: "Forest Greens"
+  photos: 
+    - "adria-3.jpg"
+  caption: "Colors from a lush forest"
+  colors:
+    - "#2D6A4F"
+    - "#40916C"
+    - "#52B788"
+    - "#74C69D"
+    - "#95D5B2"

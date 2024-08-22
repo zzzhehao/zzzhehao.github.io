@@ -123,18 +123,8 @@ This comment notes some things not widely mentioned on the internet and can be c
 - I also found [this issue](https://github.com/quarto-dev/quarto-cli/issues/3788) and it further confused me plus it's been labeled as a future feature that has been delayed twice, so I gave up with this.
 - Weird thing is, I somehow couldn't use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the `theme/bg-red-plane-2.html` since I don't need it anywhere else so I don't want to touch it. If you also have similar problem, maybe check it out.
 
-<!-- ### 2024/08/13 Avoid using absolute path from system root - setup crontab to sync files
+### 2024/08/20 Shiny Dashboard with multiple pages
 
-- I was still struggling with file path in quarto. I recently rearranged my zotero files and I now save the main library structure at local but use zotfile and betterbix to store the assets in iCloud so I can access from different location.
-- The things is, my quarto project, including the one I use for research writing, are both local. I tried many ways but couldn't let pandoc recognize the .bib file I stored in iCloud. (I tried relative path, environment variables both in _environment or in /.zshrc)
-- So I came up with the solution that I will store the bib file local, and let cron (a tool built in the Unix/Linux system) to sync that file to icloud automatically. 
-- The setup:
-    - `$ crontab -e` to open editor (probably in terminal)
-    
-    ```bash
-    */30 * * * * cp /path/to/source/file /path/to/destination/ >> /path/to/log/file 2>&1
-    ```
+It's not really from this website construction - but I was lately working with implementing a Quarto dashboard with interactivity by shiny. Positron has currently the problem that when you open other page than the original rendered one in its viewer, also in your browser, it will not automatically load it. You need hit refresh to load that page.
 
-    to setup, where `*/30 * * * *` means excute every 30 minutes.
-    - If you are using default editor (vim) like me, hit esc, type `:wq`, hit enter, then it should show `crontab: installing new crontab`.
-    - `$ crontab -l` to see if it is installed correctly. -->
+With page here I mean every formatting you achived by putting things under a secon heading 1. 

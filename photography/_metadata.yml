@@ -1,0 +1,13 @@
+date: last-modified
+date-format: long
+format:
+  html:
+    page-layout: article
+    css: 
+      - ../theme/text-justify.css
+      - ../theme/caption-center.css
+    toc: true
+    toc-depth: 4
+    code-copy: true
+    code-overflow: wrap
+    include-after-body: ../personal/personal-footer.html

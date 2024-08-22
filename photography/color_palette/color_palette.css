@@ -1,0 +1,143 @@
+/* Palette container */
+.palette-container {
+  margin-bottom: 40px;
+}
+
+.palette-caption {
+  margin-bottom: 20px;
+}
+
+/* Flex container for color bar and image gallery */
+.palette-flex-container {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* Color bar styles */
+.color-bar-container {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.color-bar {
+  display: flex;
+  flex-grow: 1;
+}
+
+.color-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.color-code {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.copy-palette-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Image gallery styles */
+.image-gallery-container {
+  flex: 0 0 40%;
+  position: relative;
+}
+
+.image-gallery {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  position: relative;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.gallery-image:first-child {
+  display: block;
+}
+
+/* Navigation buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 24px;
+}
+
+.prev-button {
+  left: -40px;
+}
+
+.next-button {
+  right: -40px;
+}
+
+.prev-button::before {
+  content: "‹";
+}
+
+.next-button::before {
+  content: "›";
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .palette-flex-container {
+    flex-direction: column;
+  }
+
+  .color-bar-container,
+  .image-gallery-container {
+    flex: 0 0 100%;
+  }
+
+  .image-gallery-container {
+    margin-top: 20px;
+  }
+
+  .nav-button {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .prev-button {
+    left: 10px;
+  }
+
+  .next-button {
+    right: 10px;
+  }
+}

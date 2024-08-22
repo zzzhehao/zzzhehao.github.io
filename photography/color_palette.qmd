@@ -1,0 +1,145 @@
+---
+title: "Color palette"
+format: html
+css: color_palette/color_palette.css
+include-after-body: 
+  - text: |
+      <script src="color_palette.js"></script>
+---
+
+```{r}
+#| echo: false
+#| output: asis
+#| warning: false
+
+library(yaml)
+library(glue)
+library(knitr)
+
+# print(getwd())
+# Read the YAML file
+palettes <- yaml.load_file("photography/color_palette/palettes.yml")
+
+# Function to generate HTML for a single palette
+# generate_palette_html <- function(palette) {
+#   # Generate color bar HTML
+#   color_bar <- glue('<div class="color-bar">')
+#   for (color in palette$colors) {
+#     color_bar <- paste0(color_bar, glue('<div style="flex: 1; background-color: {color};"></div>'))
+#   }
+#   color_bar <- paste0(color_bar, '</div>')
+  
+#   # Generate image gallery HTML
+#   image_gallery <- '
+#   <div class="image-gallery">
+#   <button id="prev-image-{palette$title}" class="nav-button prev-button"></button>
+#   <div class="image-container">
+#   '
+
+#   if (length(palette$photos) > 1) {
+#     image_gallery <- '
+#   <button id="prev-image-{palette$title}" class="nav-button prev-button"></button>
+#   <div class="image-container">
+#     '
+#     for (i in seq_along(palette$photos)) {
+#       image_gallery <- paste0(image_gallery, glue('
+  
+#   <img id="gallery-image-{i}-{palette$title}" class="gallery-image" src="../assets/palettes/{palette$photos[i]}" alt="Gallery Image {i}">
+#       '))
+#     }
+#     image_gallery <- paste0(image_gallery, '
+#   </div>
+#   <button id="next-image-{palette$title}" class="nav-button next-button"></button>
+#     ')
+#   } else {
+#     image_gallery <- glue('<img src="../assets/palettes/{palette$photos[1]}" alt="{palette$title}" class="gallery-image">')
+#   }
+  
+#   html <- glue('
+#   <div class="palette-container">
+#     <h2>{palette$title}</h2>
+#     <div class="palette-flex-container">
+#     <div class="color-bar-container">
+#     {color_bar}
+#     <p>{palette$caption}</p>
+#     </div>
+#     <div class="image-gallery-container">
+#     {image_gallery}
+#     </div>
+#     </div>
+#   </div>
+# ')
+  
+#   cat(html)
+# }
+
+# # Generate HTML for all palettes
+# for (palette in palettes) {
+#   generate_palette_html(palette)
+# }
+
+# ===== New
+
+generate_palette_html <- function(palette) {
+  # Generate color bar HTML
+  color_bar <- '<div class="color-bar">'
+  for (color in palette$colors) {
+    color_bar <- paste0(color_bar, glue('
+  <div class="color-section" style="background-color: {color};">
+  <span class="color-code" data-color="{color}">{color}</span>
+  </div>
+    '))
+  }
+  color_bar <- paste0(color_bar, '</div>')
+  
+  # Generate image gallery HTML
+  if (length(palette$photos) > 1) {
+    image_gallery <- '
+  <div class="image-gallery">
+  <button class="nav-button prev-button"></button>
+  <div class="image-container">
+    '
+    for (i in seq_along(palette$photos)) {
+      image_gallery <- paste0(image_gallery, glue('
+  <img id="gallery-image-{i}-{palette$title}" class="gallery-image" src="../assets/palettes/{palette$photos[i]}" alt="Gallery Image {i}">
+      '))
+    }
+    image_gallery <- paste0(image_gallery, '
+  </div>
+  <button class="nav-button next-button"></button>
+  </div>
+    ')
+  } else {
+    image_gallery <- glue('
+  <div class="image-gallery">
+  <img src="../assets/palettes/{palette$photos[1]}" alt="{palette$title}" class="gallery-image">
+  </div>
+    ')
+  }
+  
+  # Combine all elements
+  html <- glue('
+  <div class="palette-container">
+    <h2>{palette$title}</h2>
+    <p class="palette-caption">{palette$caption}</p>
+    <div class="palette-flex-container">
+    <div class="color-bar-container">
+    {color_bar}
+    <button class="copy-palette-button" data-palette="{paste(palette$colors, collapse=',')}">Copy Palette</button>
+    </div>
+    <div class="image-gallery-container">
+    {image_gallery}
+    </div>
+    </div>
+  </div>
+  ')
+  
+  cat(html)
+}
+
+# Generate HTML for all palettes
+for (palette in palettes) {
+  generate_palette_html(palette)
+}
+
+```
