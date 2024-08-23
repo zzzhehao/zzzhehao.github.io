@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -107,6 +127,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-R0FB3TL998"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
+</script>
 <meta name="quarto:status" content="draft">
 
 
@@ -139,6 +168,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../gallery/gallery.html">
  <span class="dropdown-text">Albums</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../gallery/motion-pictures.html">
+ <span class="dropdown-text">Motion Picture</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../photography/color_palette.html">
@@ -208,8 +241,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#plotting-nmds-using-ggplot2" id="toc-plotting-nmds-using-ggplot2" class="nav-link" data-scroll-target="#plotting-nmds-using-ggplot2">Plotting NMDS using <code>ggplot2</code></a>
   <ul class="collapse">
   <li><a href="#spider-plot" id="toc-spider-plot" class="nav-link" data-scroll-target="#spider-plot">Spider plot</a></li>
+  <li><a href="#hull-plot" id="toc-hull-plot" class="nav-link" data-scroll-target="#hull-plot">Hull plot</a></li>
+  <li><a href="#continuous-variable-fitting-surface" id="toc-continuous-variable-fitting-surface" class="nav-link" data-scroll-target="#continuous-variable-fitting-surface">Continuous variable: fitting surface</a></li>
   </ul></li>
+  <li><a href="#what-matters" id="toc-what-matters" class="nav-link" data-scroll-target="#what-matters">What matters?</a></li>
   </ul></li>
+  <li><a href="#permanova" id="toc-permanova" class="nav-link" data-scroll-target="#permanova">PERMANOVA</a></li>
   <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a></li>
   </ul>
 </nav>
@@ -257,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<!-- This post arranges and summarises the practical part "betapart" and "community metrics" from the course _Community Ecology_. -->
+<p>This post arranges and summarises the practical part “betapart” and “community metrics” from the course <em>Community Ecology</em>.</p>
 <section id="the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
 <p>We have multidimensional data in ecology, almost always, and they are huge. Since an n-dimensional data requires an n-dimensional space to be 1:1 displayed, if we want to have at least an overview, we need to reduce dimensions.</p>
@@ -287,15 +324,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 <p>We will use the <code>metaNDS()</code> from package <code>vegan</code> to calculate NMDS and visualize the result using <code>ordiplot()</code>. As demonstration, we use a tadpole abundance data collected in a Madagascan rain forest:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"ProjectAnalysis/Data_Manipulation/tadpole_clean.R"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tadpoleSp <span class="ot">&lt;-</span> tadpoleSp[, <span class="sc">-</span><span class="dv">1</span>] <span class="co"># drop first column (transects)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"ProjectAnalysis/Data_Manipulation/tadpole_clean.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: readxl</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+New names:
+New names:
+• `` -&gt; `...33`
+• `` -&gt; `...34`
+• `` -&gt; `...47`
+• `` -&gt; `...61`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tadpoleSp <span class="ot">&lt;-</span> tadpoleSp[, <span class="sc">-</span><span class="dv">1</span>] <span class="co"># drop first column (transects)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tadpoleSp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tadpoleSp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 29 45</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tadpoleSp[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tadpoleSp[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [29 × 6] (S3: tbl_df/tbl/data.frame)
  $ Boophis albilabris   : num [1:29] 0 0 0 0 0 0 0 0 0 0 ...
@@ -311,11 +364,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="running-nmds">Running NMDS</h2>
 <p>The <code>metaMDS</code> has an argument <code>autotransform</code> defaults to TRUE, which arbitrarily transforms data if they exceeded certain sizes. However, the transformation should better be done independently.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tadNMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(tadpoleSp, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tadNMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(tadpoleSp, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Run 0 stress 0.1735794 
+Run 1 stress 0.17264 
+... New best solution
+... Procrustes: rmse 0.02695798  max resid 0.1240144 
+Run 2 stress 0.1713525 
+... New best solution
+... Procrustes: rmse 0.05894403  max resid 0.2680586 
+Run 3 stress 0.1740996 
+Run 4 stress 0.1875591 
+Run 5 stress 0.1726399 
+Run 6 stress 0.1896046 
+Run 7 stress 0.1723656 
+Run 8 stress 0.1720071 
+Run 9 stress 0.1726399 
+Run 10 stress 0.1720071 
+Run 11 stress 0.1720071 
+Run 12 stress 0.1713525 
+... New best solution
+... Procrustes: rmse 3.774636e-05  max resid 0.0001039525 
+... Similar to previous best
+Run 13 stress 0.1726399 
+Run 14 stress 0.1889796 
+Run 15 stress 0.1735749 
+Run 16 stress 0.1878376 
+Run 17 stress 0.1747957 
+Run 18 stress 0.1875593 
+Run 19 stress 0.188171 
+Run 20 stress 0.2536357 
+*** Best solution repeated 1 times</code></pre>
+</div>
 </div>
 <p>The code above will print out stress values from each iteration. The result with the least stress value can also be called out afterwards:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tadNMDS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tadNMDS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -329,8 +413,8 @@ Distance: bray
 Dimensions: 2 
 Stress:     0.1713525 
 Stress type 1, weak ties
-Best solution was not repeated after 20 tries
-The best solution was from try 18 (random start)
+Best solution was repeated 1 time in 20 tries
+The best solution was from try 12 (random start)
 Scaling: centring, PC rotation, halfchange scaling 
 Species: expanded scores based on 'tadpoleSp' </code></pre>
 </div>
@@ -340,23 +424,23 @@ Species: expanded scores based on 'tadpoleSp' </code></pre>
 <h2 class="anchored" data-anchor-id="visualizing-nmds">Visualizing NMDS</h2>
 <p><code>ordiplot</code> is a function specialized on visualizing ordination result from <code>vegan</code>. We can control the representation of sites or species easily using <code>type</code> and <code>display</code> argument. A simple plot with points will look like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>or with the site displayed in their numbers:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">"species"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>) <span class="co"># orditorp plots text by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">"species"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>) <span class="co"># orditorp plots text by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -365,7 +449,7 @@ Species: expanded scores based on 'tadpoleSp' </code></pre>
 <h3 class="anchored" data-anchor-id="fitting-environmental-data-using-vegan">Fitting environmental data using <code>vegan</code></h3>
 <p>Available environmental data could be combined with NMDS to identify potential driver in the community composition and help explain their clustering patterns.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(env[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(env[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]) <span class="co"># only showing the first 6 variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [29 × 6] (S3: tbl_df/tbl/data.frame)
  $ stream          : chr [1:29] "Ambatolahy II" "Ambatolahy III" "Ambatovory Barrage" "Ambodiamontana" ...
@@ -378,12 +462,19 @@ Species: expanded scores based on 'tadpoleSp' </code></pre>
 </div>
 <p>The two variable I’m showing here are both continuous, which will automatically result a 3d-representation, those are the two axes from NMDS and the third axis showing the environmental variable. Since we only have two dimensions, the third variable is represented as a projection of the 3d-surface. We use <code>ordisurf</code> here to fit a smooth surface to the environmental data, which calls <code>gam()</code> (generalized additive model) in the background (I might get back to this with more detailed explanation in the future).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, depth, <span class="at">main =</span> <span class="st">'Depth'</span>, <span class="at">col =</span> <span class="st">'darkgreen'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" is not a graphical
+parameter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in text.default(...): "add" is not a graphical parameter</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, depth, <span class="at">main =</span> <span class="st">'Depth'</span>, <span class="at">col =</span> <span class="st">'darkgreen'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Family: gaussian 
@@ -395,17 +486,23 @@ y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 Estimated degrees of freedom:
 6.64  total = 7.64 
 
-REML score: 109.5843     </code></pre>
+REML score: 109.5861     </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, altitude, <span class="at">main =</span> <span class="st">'Altitude'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(tadNMDS, <span class="at">type =</span> <span class="st">"p"</span>, <span class="at">display =</span> <span class="st">'species'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">orditorp</span>(tadNMDS, <span class="at">display =</span> <span class="st">"site"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" is not a graphical
+parameter
+Warning in plot.xy(xy.coords(x, y), type = type, ...): "add" is not a graphical
+parameter</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordisurf</span>(tadNMDS, altitude, <span class="at">main =</span> <span class="st">'Altitude'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/showing_depth_data-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="1_NMDS_and_PERMANOVA_files/figure-html/showing_depth_data-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1152"></a></p>
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -428,50 +525,152 @@ REML score: 168.5418     </code></pre>
 <h3 class="anchored" data-anchor-id="plotting-nmds-using-ggplot2">Plotting NMDS using <code>ggplot2</code></h3>
 <p>If you have ever worked with <code>ggplot2</code> and its enormous family, you probably can’t go back to basic R plots. Fortunately, there’s a way to plot, not only the NMDS, also other ordination analyses from <code>vegan</code> using <code>ggplot2</code>. This can make our plot more precise and customizable.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We continue with the already available NMDS result from earlier, which is stored inside <code>tadNMDS</code>. The only thing we need to do, is to extract the coordinates from the points we want to plot, and then apply them in a ggplot-way.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract NMDS scores</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>siteCoord <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">scores</span>(tadNMDS)<span class="sc">$</span>sites)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>spCoord <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">scores</span>(tadNMDS)<span class="sc">$</span>species)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_aes</span>() <span class="sc">+</span> <span class="co"># set themes, available in source code Rmd</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">MoMAColor</span>() <span class="sc">+</span> <span class="co"># use MoMA color palattes, available in source code Rmd</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> spCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">1.6</span>, <span class="dv">2</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">color =</span> <span class="st">"#222222"</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">label =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(siteCoord))), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">1.8</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">check_overlap =</span> T)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>theme_aes <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_family =</span> <span class="st">"serif"</span>, ...){</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> base_family, ...) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks.length =</span> <span class="fu">unit</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="st">"in"</span>),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">margin=</span><span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.3</span>,<span class="fl">0.3</span>,<span class="fl">0.3</span>), <span class="st">"cm"</span>)),</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">margin=</span><span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.3</span>,<span class="fl">0.3</span>,<span class="fl">0.3</span>), <span class="st">"cm"</span>)),</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">aspect.ratio =</span> <span class="dv">1</span>,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>),</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey98"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>} <span class="co"># theme modified from original by https://www.usgs.gov/</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MoMAColors)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>MoMAColor <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">clp =</span> <span class="st">"Klein"</span>){</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># list(scale_color_manual(values = moma.colors(clp)),</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># scale_fill_manual(values = moma.colors(clp)))</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'#8191A6'</span>, <span class="st">'#1A261C'</span>, <span class="st">'#7C8C04'</span>, <span class="st">'#D93D04'</span>, <span class="st">'#BF9B7A'</span>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="fu">scale_color_manual</span>(<span class="at">values =</span> cl),</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> cl))</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>plt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'#03738C'</span>, <span class="st">'#F2D479'</span>, <span class="st">'#F29F05'</span>, <span class="st">'#F27405'</span>, <span class="st">'#BF2604'</span>, <span class="st">'#590202'</span>)</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>zhehaoColor <span class="ot">&lt;-</span> <span class="cf">function</span>(colorcodes, n) {</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>  color_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(colorcodes)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">color_ramp</span>(n))</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract NMDS scores</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>siteCoord <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">scores</span>(tadNMDS)<span class="sc">$</span>sites)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>spCoord <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">scores</span>(tadNMDS)<span class="sc">$</span>species)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_aes</span>() <span class="sc">+</span> <span class="co"># set themes, available in source code Rmd</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">MoMAColor</span>() <span class="sc">+</span> <span class="co"># use MoMA color palattes, available in source code Rmd</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> spCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">1.6</span>, <span class="dv">2</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">color =</span> <span class="st">"#222222"</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">label =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(siteCoord))), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">1.8</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">check_overlap =</span> T)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/extract_points_and_plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="1_NMDS_and_PERMANOVA_files/figure-html/extract_points_and_plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></a></p>
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Fitting environmental data with ggplot could be a bit complex. First we need to manually apply those on our NMDS:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>en <span class="ot">&lt;-</span> <span class="fu">envfit</span>(tadNMDS, env.comp[, <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>, <span class="fu">ncol</span>(env.comp)<span class="sc">:</span><span class="fu">ncol</span>(env.comp))], <span class="at">permutation =</span> <span class="dv">0</span>, <span class="at">na.rm =</span> T) <span class="co"># only fitting a subset of the data</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>en</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>en <span class="ot">&lt;-</span> <span class="fu">envfit</span>(tadNMDS, env.comp[, <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>, (<span class="fu">ncol</span>(env.comp)<span class="sc">-</span><span class="dv">10</span>)<span class="sc">:</span><span class="fu">ncol</span>(env.comp))], <span class="at">permutation =</span> <span class="dv">0</span>, <span class="at">na.rm =</span> T) <span class="co"># only fitting a subset of the data</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>en</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 ***VECTORS
 
                          NMDS1    NMDS2     r2
-altitude [m asl]      -0.80678  0.59085 0.1046
-stream slope [cm/30m]  0.76350  0.64581 0.5515
-temperature [°C]      -0.25387  0.96724 0.1909
-Width (m)             -0.92950 -0.36882 0.6336
-Depth (cm)            -0.95325 -0.30217 0.7877
-species_richness      -0.83823 -0.54531 0.7466
+altitude [m asl]      -0.80675  0.59089 0.1046
+stream slope [cm/30m]  0.76354  0.64576 0.5515
+temperature [°C]      -0.25381  0.96725 0.1909
+Width (m)             -0.92952 -0.36876 0.6336
+Depth (cm)            -0.95328 -0.30208 0.7877
+species_richness      -0.83828 -0.54525 0.7465
+
+***FACTORS:
+
+Centroids:
+                            NMDS1   NMDS2
+speed_cat[0,75.6]          0.3293  0.2737
+speed_cat(75.6,81.3]       0.4305 -0.2070
+speed_cat(81.3,83.9]      -0.6332 -0.1741
+speed_cat(83.9,89.7]       0.2186 -0.2396
+speed_cat(89.7,97.5]      -0.0688  0.1255
+slope_cat[0,42]           -0.8110 -0.2604
+slope_cat(42,86]           0.0907 -0.4364
+slope_cat(86,250]          0.2253  0.0406
+slope_cat(250,340]         0.4919 -0.0101
+slope_cat(340,960]         0.5518  0.4228
+depth_cat[2.44,6.8]        0.6882  0.2724
+depth_cat(6.8,7.69]        0.3492 -0.1106
+depth_cat(7.69,11]         0.4333 -0.1023
+depth_cat(11,27]          -0.6302 -0.1085
+depth_cat(27,84.3]        -0.9068 -0.2653
+rock_cat[0,5.29]           0.1472 -0.2625
+rock_cat(5.29,7.7]         0.3919  0.0888
+rock_cat(7.7,17.6]        -0.2531  0.0678
+rock_cat(17.6,25.6]        0.3454  0.0861
+rock_cat(25.6,44.8]       -0.6960 -0.2554
+sand_cat[11.6,35.9]       -0.6053  0.1080
+sand_cat(35.9,46.3]       -0.1628 -0.6566
+sand_cat(46.3,50]          0.2953  0.1719
+sand_cat(50,58.8]          0.2545  0.0536
+sand_cat(58.8,83.7]        0.5173 -0.0010
+volume_cat[1.48,4.13]      0.7613  0.4631
+volume_cat(4.13,4.58]      0.4186 -0.1923
+volume_cat(4.58,8.53]      0.4164 -0.2017
+volume_cat(8.53,47.7]     -0.7810  0.1142
+volume_cat(47.7,135]      -0.8881 -0.3155
+overhang_cat[0.456,0.733] -0.8195 -0.0743
+overhang_cat(0.733,0.804]  0.0989 -0.5584
+overhang_cat(0.804,0.9]    0.2467  0.1024
+overhang_cat(0.9,0.979]    0.1033 -0.2028
+overhang_cat(0.979,1]      0.5873  0.1937
+canopy_cat[0.511,0.842]   -0.9356 -0.3258
+canopy_cat(0.842,0.898]    0.3300 -0.4865
+canopy_cat(0.898,0.95]     0.0612  0.2019
+canopy_cat(0.95,1]         0.4669  0.1484
+preycomp_cat[4,50.2]       0.6394 -0.2956
+preycomp_cat(50.2,69.2]    0.0741 -0.1649
+preycomp_cat(69.2,131]     0.1483  0.3536
+preycomp_cat(131,196]     -0.1405  0.3756
+preycomp_cat(196,372]     -0.3106 -0.4188
+pred_cat[8,36]             0.4168 -0.0472
+pred_cat(36,47]            0.4844 -0.0868
+pred_cat(47,69.8]          0.6247  0.4619
+pred_cat(69.8,110]        -1.1925  0.2503
+pred_cat(110,343]         -0.2069 -0.6426
+
+Goodness of fit:
+                 r2
+speed_cat    0.1914
+slope_cat    0.4129
+depth_cat    0.4903
+rock_cat     0.2072
+sand_cat     0.2701
+volume_cat   0.5832
+overhang_cat 0.3332
+canopy_cat   0.4096
+preycomp_cat 0.2457
+pred_cat     0.5961
 
 5 observations deleted due to missingness</code></pre>
 </div>
@@ -481,149 +680,338 @@ species_richness      -0.83823 -0.54531 0.7466
 <section id="spider-plot" class="level4">
 <h4 class="anchored" data-anchor-id="spider-plot">Spider plot</h4>
 <p>The centroids can be used to plot a spider plot:</p>
-<!-- ```{r spider_plot, warning=F, message=F, include=F} -->
-<!-- cat <- "Speed_cat" -->
-<!-- catlvl <- row.names(en$factors$centroids)  -->
-<!-- str_sub(catlvl, start = 1, end = nchar(cat)) <- '' # fix envfit rownames and extract categories -->
-<!-- centroids <- as_tibble(en$factors$centroids) %>% mutate(cat = catlvl) -->
-<!-- segs <- left_join( -->
-<!--   as_tibble(cbind(siteCoord, cat = env.comp$speed_cat)),  -->
-<!--   as_tibble(setNames(centroids, c("cN1", 'cN2', 'cat'))) -->
-<!--   ) # prepare geom_segment data -->
-<!-- p.NMDS.sp.st_Speed <- p.NMDS.sp + -->
-<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$Speed_cat), size = 3.5, alpha = 0.8) + -->
-<!--   geom_segment(data = segs, aes(x = NMDS1, y = NMDS2, xend = cN1, yend = cN2, shape = cat, color = cat)) + # lines -->
-<!--   geom_point(data = centroids, aes(x = NMDS1, y = NMDS2, shape = cat, color = cat), size = 4) + # centroid points -->
-<!--   geom_text(data = siteCoord, aes(x = NMDS1, y = NMDS2, label = c(1:nrow(siteCoord))), color = "white", size = 1.8, alpha = 1, check_overlap = T) + -->
-<!--   guides(color = guide_legend("Fast stream percentage"), shape = "none") -->
-<!-- p.NMDS.sp.st_Speed -->
-<!-- ``` -->
-<!-- #### Hull plot -->
-<!-- Sometimes another hull plot will give a better overview: -->
-<!-- ```{r hullplot, warning=F, message=F} -->
-<!-- chullBorder <- function(site, cat) { # extract outline points -->
-<!--   site <- cbind(site, cat) %>% group_by(cat) -->
-<!--   borders <- site %>% -->
-<!--     group_map(~ chull(.[, c(1,2)])) # extract outline points index -->
-<!--   hulls <- map2(.x = borders, .y = split(site, site$cat), function(x, y){ -->
-<!--     return(y[x,c(1,2)]) -->
-<!--   }) %>% -->
-<!--     map2_dfr(., seq_along(.), ~ mutate(.x, cat = factor(.y))) # prepare geom_polygon data -->
-<!-- } -->
-<!-- hulls <- chullBorder(siteCoord, env.comp$Speed_cat) -->
-<!-- p.NMDS.sp.st_Speed <- p.NMDS.sp + -->
-<!--   geom_polygon(data = hulls, aes(x = NMDS1, y = NMDS2, fill = cat), alpha = 0.3) + # hull -->
-<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$Speed_cat), size = 3.5, alpha = 0.8) + -->
-<!--   guides(color = guide_legend("Fast stream percentage"), fill = "none") -->
-<!-- p.NMDS.sp.st_Speed -->
-<!-- ``` -->
-<!-- ```{r slope cat} -->
-<!-- summary(env.comp$`stream slope [cm/30m]`) -->
-<!-- slope_hulls <- chullBorder(siteCoord, env.comp$slope_cat) -->
-<!-- p.NMDS.sp.st_slope <- p.NMDS.sp + -->
-<!--   geom_polygon(data = slope_hulls, aes(x = NMDS1, y = NMDS2, fill = cat), alpha = 0.3) + # hull -->
-<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$slope_cat), size = 3.5, alpha = 0.8) + -->
-<!--   guides(color = guide_legend("Fast stream percentage"), fill = "none") -->
-<!-- p.NMDS.sp.st_slope -->
-<!-- ``` -->
-<!-- ```{r deep_cat} -->
-<!-- summary(env.comp$`stream slope [cm/30m]`) -->
-<!-- slope_hulls <- chullBorder(siteCoord, env.comp$slope_cat) -->
-<!-- p.NMDS.sp.st_slope <- p.NMDS.sp + -->
-<!--   geom_polygon(data = slope_hulls, aes(x = NMDS1, y = NMDS2, fill = cat), alpha = 0.3) + # hull -->
-<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2, color = env.comp$slope_cat), size = 3.5, alpha = 0.8) + -->
-<!--   guides(color = guide_legend("Fast stream percentage"), fill = "none") -->
-<!-- p.NMDS.sp.st_slope -->
-<!-- ``` -->
-<!-- #### Continuous variable: fitting surface -->
-<!-- To fit a smooth surface on our data, we still use `ordisurf` from `vegan` to do the calculation, but we do not let it plot the result directly.  -->
-<!-- ```{r ggfit} -->
-<!-- depth <- ordisurf(tadNMDS ~ env.comp$`Depth (cm)`, plot = FALSE) -->
-<!-- alt <- ordisurf(tadNMDS ~ env.comp$`altitude [m asl]`, plot = FALSE) -->
-<!-- slope <- ordisurf(tadNMDS ~ env.comp$`stream slope [cm/30m]`, plot = FALSE) -->
-<!-- ``` -->
-<!-- As I mentioned before, the environmental variable of the surface is stored in the third axis, if we take look at the ordination object `ordisurf` produces (try `str(depth)`, I will not show it here since it is a very huge object), we can find a `$grid` list containing all the coordinates. We simply need to extract them and plot them on our ggplots. -->
-<!-- ```{r} -->
-<!-- extract.xyz <- function(obj) { -->
-<!--   xy <- expand.grid(x = obj$grid$x, y = obj$grid$y) -->
-<!--   xyz <- cbind(xy, c(obj$grid$z)) -->
-<!--   names(xyz) <- c("x", "y", "z") -->
-<!--   return(xyz) -->
-<!-- } -->
-<!-- contour.depth <- extract.xyz(obj = depth) -->
-<!-- contour.alt <- extract.xyz(obj = alt) -->
-<!-- contour.slope <- extract.xyz(obj = slope) -->
-<!-- ``` -->
-<!-- `geom_textcontour` from package `geomtextpath` can easily make a nice ggplot-layer of the surface contour. We can then combine all plots together and have our final plot: -->
-<!-- ```{r ggfitplot, warning=F, message=F, fig.width=10, fig.height=11} -->
-<!-- library(geomtextpath) -->
-<!-- p.NMDS.sp.st.depth <- p.NMDS.sp.st + -->
-<!--   geom_textcontour(data = contour.depth, aes(x, y, z = z), color = moma.colors("OKeeffe")[2]) + -->
-<!--   geom_text(aes(-0.25, 1.75, label = "Depth"), size = 7, fill = "black", fontface = "bold") -->
-<!-- p.NMDS.sp.st.alt <- p.NMDS.sp.st + -->
-<!--   geom_textcontour(data = contour.alt, aes(x, y, z = z), color = moma.colors("OKeeffe")[3]) + -->
-<!--   geom_text(aes(-0.25, 1.75, label = "Altitude"), size = 7, fill = "black", fontface = "bold") + -->
-<!--   ylab("") -->
-<!-- p.NMDS.sp.st.slope <- p.NMDS.sp.st + -->
-<!--   geom_textcontour(data = contour.slope, aes(x, y, z = z), color = moma.colors("OKeeffe")[5]) + -->
-<!--   geom_text(aes(-0.25, 1.75, label = "Stream slope"), size = 7, fill = "black", fontface = "bold") -->
-<!-- # include speed plot -->
-<!-- p.NMDS.sp.st_Speed <- p.NMDS.sp.st_Speed +  -->
-<!--   guides(color = "none", fill = "none") + -->
-<!--   geom_text(aes(-0.25, 1.75, label = "Fast stream percentage"), size = 7, fill = "black", fontface = "bold") + -->
-<!--   ylab("") -->
-<!-- # arrange -->
-<!-- library(ggpubr) -->
-<!-- p.NMDS.sp.st.fit <- ggarrange( -->
-<!--   p.NMDS.sp.st.depth, p.NMDS.sp.st.alt, p.NMDS.sp.st.slope, p.NMDS.sp.st_Speed,  -->
-<!--   ncol = 2, nrow = 2, -->
-<!--   align = "hv") -->
-<!-- p.NMDS.sp.st.fit -->
-<!-- ``` -->
-<!-- `geom_contour_filled` can also filled up the space between surface levels and make fancier plots, but it is more often used in visualizing meteorological data (maybe see `metR` ?). -->
-<!-- ```{r geom_contour_filled, warning=F, message=F} -->
-<!-- p.NMDS.sp.st.depth <- ggplot(data = spCoord, aes(x = NMDS1, y = NMDS2))+ -->
-<!--   geom_contour_filled(data = contour.depth, aes(x, y, z = z), alpha = 0.9) + -->
-<!--   geom_point(data = spCoord, aes(x = NMDS1, y = NMDS2), size = 2, shape = 3, color = "red", alpha = 1) + -->
-<!--   geom_point(data = siteCoord, aes(x = NMDS1, y = NMDS2), color = "#222222", size = 3.5, alpha = 0.5) + -->
-<!--   geom_text(data = siteCoord, aes(x = NMDS1, y = NMDS2, label = c(1:nrow(siteCoord))), color = "white", size = 1.8, alpha = 1, check_overlap = T) + -->
-<!--   scale_fill_manual(values = moma.colors("Ernst", 20)) + -->
-<!--   coord_equal() + -->
-<!--   theme_aes() + # available in source code Rmd -->
-<!--   theme(aspect.ratio = 1, legend.position = "none") + -->
-<!--   ylim(-1.6, 2)  -->
-<!--   # geom_text(aes(-0.35, 1.75, label = "Depth"), size = 8, fill = "black", fontface = "bold") -->
-<!-- p.NMDS.sp.st.depth -->
-<!-- ``` -->
-<!-- ### What matters? -->
-<!-- Now, as we have all these fancy plots, let's talk about what we can interpret from them.  -->
-<!-- First, we noticed that there are two variables showing **planar** surfaces: the altitude and the stream slope. The consistent parallel surface contour shows that these two variables change at a constant rate (consistent gradient) across the NMDS space, also means the relationships between these variables and the NMDS axes are linear. -->
-<!-- - *OK, but what does that even mean?* -->
-<!-- The interpretation of a planar surface in NMDS can be tricky. The consistent gradient itself indicates a smooth transition of that environmental condition through our studied communities, this is possibly the case for altitude. But do these gradients explain the variation in our community? We have to dive a bit deeper to answer that question. And here comes PERMANOVA to the game. -->
-<!-- ## PERMANOVA -->
-<!-- **PERmutational Multivariate ANalysis of VAriance (PERMANOVA)** is w -->
-<!-- @bakker2024 explained PERMANOVA test and @bakker2024a explained PERMDISP -->
-<!-- ```{r permanova} -->
-<!-- alt <- env.comp$`altitude [m asl]` -->
-<!-- slope <- env.comp$`stream slope [cm/30m]` -->
-<!-- dep <- env.comp$`Depth (cm)` -->
-<!-- speed <- env.comp$Speed_cat -->
-<!-- adonis2(tadpoleSp ~ alt*slope*dep*speed)  -->
-<!--   # adonis2(tadpoleSp ~ slope*dep*Speed_cat) -->
-<!-- # adonis2(tadpoleSp ~ env.comp$`altitude [m asl]`* env.comp$`stream slope [cm/30m]`* env.comp$`Depth (cm)`* env.comp$Speed_cat) -->
-<!-- # adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`* env.comp$`Depth (cm)`* env.comp$Speed_cat) -->
-<!-- # adonis2(tadpoleSp ~ env.comp$`Depth (cm)`* env.comp$Speed_cat) -->
-<!-- # adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`* env.comp$Speed_cat) -->
-<!-- # adonis2(tadpoleSp ~ env.comp$Speed_cat) -->
-<!-- ``` -->
-<!-- ```{r PERMDISP} -->
-<!-- library(betapart) -->
-<!-- dist <- beta.pair.abund(tadpoleSp, index.family = "bray") -->
-<!-- perm <- betadisper(dist[[3]], env.comp$Speed_cat) # a multivariate analogue of Levene's test for homogeneity of variances -->
-<!-- anova(perm) -->
-<!-- ``` -->
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>cat <span class="ot">&lt;-</span> <span class="st">"speed_cat"</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>cats <span class="ot">&lt;-</span> <span class="fu">row.names</span>(en<span class="sc">$</span>factors<span class="sc">$</span>centroids)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>catlvl <span class="ot">&lt;-</span> cats[<span class="fu">which</span>(<span class="fu">str_detect</span>(cats, <span class="fu">regex</span>(<span class="fu">str_c</span>(<span class="st">"^"</span>,cat, <span class="at">collapse =</span> <span class="st">""</span>))))]</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(en<span class="sc">$</span>factors<span class="sc">$</span>centroids) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cat =</span> cats)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>centroids <span class="sc">%&lt;&gt;%</span> .[<span class="fu">which</span>(centroids<span class="sc">$</span>cat <span class="sc">%in%</span> catlvl),]</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(catlvl, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="fu">nchar</span>(cat)) <span class="ot">&lt;-</span> <span class="st">''</span> <span class="co"># fix envfit rownames and extract categories </span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(centroids<span class="sc">$</span>cat, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="fu">nchar</span>(cat)) <span class="ot">&lt;-</span> <span class="st">''</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>segs <span class="ot">&lt;-</span> <span class="fu">left_join</span>( </span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(<span class="fu">cbind</span>(siteCoord, <span class="at">cat =</span> <span class="fu">factor</span>(env.comp[[cat]]))),</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(<span class="fu">setNames</span>(centroids, <span class="fu">c</span>(<span class="st">"cN1"</span>, <span class="st">'cN2'</span>, <span class="st">'cat'</span>)))</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>) <span class="co"># prepare geom_segment data </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(cat)`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">color =</span> segs<span class="sc">$</span>cat), <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_segment</span>(<span class="at">data =</span> segs, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">xend =</span> cN1, <span class="at">yend =</span> cN2, <span class="at">shape =</span> cat, <span class="at">color =</span> cat)) <span class="sc">+</span> <span class="co"># lines </span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">data =</span> centroids, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">shape =</span> cat, <span class="at">color =</span> cat), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="co"># centroid points </span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">label =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(siteCoord))), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">1.8</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">check_overlap =</span> T) <span class="sc">+</span> </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="st">"Fast stream percentage"</span>), <span class="at">shape =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(data = segs, aes(x = NMDS1, y = NMDS2, xend = cN1, :
+Ignoring unknown aesthetics: shape</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hull-plot" class="level4">
+<h4 class="anchored" data-anchor-id="hull-plot">Hull plot</h4>
+<p>Sometimes another hull plot will give a better overview:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>chullBorder <span class="ot">&lt;-</span> <span class="cf">function</span>(site, cat) { <span class="co"># extract outline points </span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  site <span class="ot">&lt;-</span> <span class="fu">cbind</span>(site, cat) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cat) </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  borders <span class="ot">&lt;-</span> site <span class="sc">%&gt;%</span> </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_map</span>(<span class="sc">~</span> <span class="fu">chull</span>(.[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)])) <span class="co"># extract outline points index </span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  hulls <span class="ot">&lt;-</span> <span class="fu">map2</span>(<span class="at">.x =</span> borders, <span class="at">.y =</span> <span class="fu">split</span>(site, site<span class="sc">$</span>cat), <span class="cf">function</span>(x, y){ </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(y[x,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]) </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  }) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map2_dfr</span>(., <span class="fu">seq_along</span>(.), <span class="sc">~</span> <span class="fu">mutate</span>(.x, <span class="at">cat =</span> <span class="fu">factor</span>(.y))) <span class="co"># prepare geom_polygon data </span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>hulls <span class="ot">&lt;-</span> <span class="fu">chullBorder</span>(siteCoord, env.comp[[cat]]) </span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span> </span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> hulls, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">fill =</span> cat), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># hull </span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">color =</span> env.comp<span class="sc">$</span>Speed_cat), <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="st">"Fast stream percentage"</span>), <span class="at">fill =</span> <span class="st">"none"</span>) </span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `Speed_cat`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(env.comp<span class="sc">$</span><span class="st">`</span><span class="at">stream slope [cm/30m]</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    0.0    48.0   157.0   209.1   315.0   960.0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>slope_hulls <span class="ot">&lt;-</span> <span class="fu">chullBorder</span>(siteCoord, env.comp<span class="sc">$</span>slope_cat) </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_slope <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span> </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> slope_hulls, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">fill =</span> cat), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># hull </span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">color =</span> env.comp<span class="sc">$</span>slope_cat), <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="st">"Fast stream percentage"</span>), <span class="at">fill =</span> <span class="st">"none"</span>) </span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_slope </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(env.comp<span class="sc">$</span><span class="st">`</span><span class="at">stream slope [cm/30m]</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    0.0    48.0   157.0   209.1   315.0   960.0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>slope_hulls <span class="ot">&lt;-</span> <span class="fu">chullBorder</span>(siteCoord, env.comp<span class="sc">$</span>slope_cat) </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_slope <span class="ot">&lt;-</span> p.NMDS.sp <span class="sc">+</span> </span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> slope_hulls, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">fill =</span> cat), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># hull </span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">color =</span> env.comp<span class="sc">$</span>slope_cat), <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="st">"Fast stream percentage"</span>), <span class="at">fill =</span> <span class="st">"none"</span>) </span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_slope </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="continuous-variable-fitting-surface" class="level4">
+<h4 class="anchored" data-anchor-id="continuous-variable-fitting-surface">Continuous variable: fitting surface</h4>
+<p>To fit a smooth surface on our data, we still use <code>ordisurf</code> from <code>vegan</code> to do the calculation, but we do not let it plot the result directly.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> <span class="fu">ordisurf</span>(tadNMDS <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>alt <span class="ot">&lt;-</span> <span class="fu">ordisurf</span>(tadNMDS <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>slope <span class="ot">&lt;-</span> <span class="fu">ordisurf</span>(tadNMDS <span class="sc">~</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">stream slope [cm/30m]</span><span class="st">`</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As I mentioned before, the environmental variable of the surface is stored in the third axis, if we take look at the ordination object <code>ordisurf</code> produces (try <code>str(depth)</code>, I will not show it here since it is a very huge object), we can find a <code>$grid</code> list containing all the coordinates. We simply need to extract them and plot them on our ggplots.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>extract.xyz <span class="ot">&lt;-</span> <span class="cf">function</span>(obj) { </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  xy <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">x =</span> obj<span class="sc">$</span>grid<span class="sc">$</span>x, <span class="at">y =</span> obj<span class="sc">$</span>grid<span class="sc">$</span>y) </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  xyz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(xy, <span class="fu">c</span>(obj<span class="sc">$</span>grid<span class="sc">$</span>z)) </span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(xyz) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>) </span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(xyz) </span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>contour.depth <span class="ot">&lt;-</span> <span class="fu">extract.xyz</span>(<span class="at">obj =</span> depth) </span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>contour.alt <span class="ot">&lt;-</span> <span class="fu">extract.xyz</span>(<span class="at">obj =</span> alt) </span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>contour.slope <span class="ot">&lt;-</span> <span class="fu">extract.xyz</span>(<span class="at">obj =</span> slope) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>geom_textcontour</code> from package <code>geomtextpath</code> can easily make a nice ggplot-layer of the surface contour. We can then combine all plots together and have our final plot:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geomtextpath) </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.depth <span class="ot">&lt;-</span> p.NMDS.sp.st <span class="sc">+</span> </span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textcontour</span>(<span class="at">data =</span> contour.depth, <span class="fu">aes</span>(x, y, <span class="at">z =</span> z), <span class="at">color =</span> <span class="fu">moma.colors</span>(<span class="st">"OKeeffe"</span>)[<span class="dv">2</span>]) <span class="sc">+</span> </span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.25</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Depth"</span>), <span class="at">size =</span> <span class="dv">7</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(-0.25, 1.75, label = "Depth"), size = 7, fill =
+"black", : Ignoring unknown parameters: `fill`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.alt <span class="ot">&lt;-</span> p.NMDS.sp.st <span class="sc">+</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textcontour</span>(<span class="at">data =</span> contour.alt, <span class="fu">aes</span>(x, y, <span class="at">z =</span> z), <span class="at">color =</span> <span class="fu">moma.colors</span>(<span class="st">"OKeeffe"</span>)[<span class="dv">3</span>]) <span class="sc">+</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.25</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Altitude"</span>), <span class="at">size =</span> <span class="dv">7</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span> </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(-0.25, 1.75, label = "Altitude"), size = 7, fill =
+"black", : Ignoring unknown parameters: `fill`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.slope <span class="ot">&lt;-</span> p.NMDS.sp.st <span class="sc">+</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_textcontour</span>(<span class="at">data =</span> contour.slope, <span class="fu">aes</span>(x, y, <span class="at">z =</span> z), <span class="at">color =</span> <span class="fu">moma.colors</span>(<span class="st">"OKeeffe"</span>)[<span class="dv">5</span>]) <span class="sc">+</span> </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.25</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Stream slope"</span>), <span class="at">size =</span> <span class="dv">7</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(-0.25, 1.75, label = "Stream slope"), size = 7, :
+Ignoring unknown parameters: `fill`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># include speed plot </span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st_Speed <span class="ot">&lt;-</span> p.NMDS.sp.st_Speed <span class="sc">+</span>  </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>, <span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="sc">-</span><span class="fl">0.25</span>, <span class="fl">1.75</span>, <span class="at">label =</span> <span class="st">"Fast stream percentage"</span>), <span class="at">size =</span> <span class="dv">7</span>, <span class="at">fill =</span> <span class="st">"black"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span> </span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(-0.25, 1.75, label = "Fast stream percentage"), :
+Ignoring unknown parameters: `fill`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange </span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr) </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.fit <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>( </span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  p.NMDS.sp.st.depth, p.NMDS.sp.st.alt, p.NMDS.sp.st.slope, p.NMDS.sp.st_Speed,  </span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>, </span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"hv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+(`stat_textcontour()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+(`stat_textcontour()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+(`stat_textcontour()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `Speed_cat`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.fit </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The text offset exceeds the curvature in one or more paths. This will result in
+displaced letters. Consider reducing the vjust or text size, or use the hjust
+parameter to move the string to a different point on the path.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The text offset exceeds the curvature in one or more paths. This will result in
+displaced letters. Consider reducing the vjust or text size, or use the hjust
+parameter to move the string to a different point on the path.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>geom_contour_filled</code> can also filled up the space between surface levels and make fancier plots, but it is more often used in visualizing meteorological data (maybe see <code>metR</code> ?).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.depth <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> spCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2))<span class="sc">+</span> </span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_contour_filled</span>(<span class="at">data =</span> contour.depth, <span class="fu">aes</span>(x, y, <span class="at">z =</span> z), <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span> </span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> spCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2), <span class="at">color =</span> <span class="st">"#222222"</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> siteCoord, <span class="fu">aes</span>(<span class="at">x =</span> NMDS1, <span class="at">y =</span> NMDS2, <span class="at">label =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(siteCoord))), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">1.8</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">check_overlap =</span> T) <span class="sc">+</span> </span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">zhehaoColor</span>(plt, <span class="dv">20</span>)) <span class="sc">+</span> </span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span> </span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_aes</span>() <span class="sc">+</span> <span class="co"># available in source code Rmd </span></span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>, <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">1.6</span>, <span class="dv">2</span>)  </span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_text(aes(-0.35, 1.75, label = "Depth"), size = 8, fill = "black", fontface = "bold") </span></span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.depth </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+(`stat_contour_filled()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-21-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="1_NMDS_and_PERMANOVA_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
+<section id="what-matters" class="level3">
+<h3 class="anchored" data-anchor-id="what-matters">What matters?</h3>
+<p>Now, as we have all these fancy plots, let’s talk about what we can interpret from them.</p>
+<p>First, we noticed that there are two variables showing <strong>planar</strong> surfaces: the altitude and the stream slope. The consistent parallel surface contour shows that these two variables change at a constant rate (consistent gradient) across the NMDS space, also means the relationships between these variables and the NMDS axes are linear.</p>
+<ul>
+<li><em>OK, but what does that even mean?</em></li>
+</ul>
+<p>The interpretation of a planar surface in NMDS can be tricky. The consistent gradient itself indicates a smooth transition of that environmental condition through our studied communities, this is possibly the case for altitude. But do these gradients explain the variation in our community? We have to dive a bit deeper to answer that question. And here comes PERMANOVA to the game.</p>
+</section>
+</section>
+<section id="permanova" class="level2">
+<h2 class="anchored" data-anchor-id="permanova">PERMANOVA</h2>
+<p><strong>PERmutational Multivariate ANalysis of VAriance (PERMANOVA)</strong> is w</p>
+<p><span class="citation" data-cites="bakker2024">Bakker (<a href="#ref-bakker2024" role="doc-biblioref">2024a</a>)</span> explained PERMANOVA test and <span class="citation" data-cites="bakker2024a">Bakker (<a href="#ref-bakker2024a" role="doc-biblioref">2024b</a>)</span> explained PERMDISP</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>alt <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span> </span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>slope <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">stream slope [cm/30m]</span><span class="st">`</span> </span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">Depth (cm)</span><span class="st">`</span> </span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>speed <span class="ot">&lt;-</span> env.comp<span class="sc">$</span>speed_cat </span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a><span class="fu">adonis2</span>(tadpoleSp <span class="sc">~</span> alt<span class="sc">*</span>slope<span class="sc">*</span>dep<span class="sc">*</span>speed)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No residual component
+
+adonis2(formula = tadpoleSp ~ alt * slope * dep * speed)
+         Df SumOfSqs R2 F Pr(&gt;F)
+Model    28   7.5799  1         
+Residual  0   0.0000  0         
+Total    28   7.5799  1         </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># adonis2(tadpoleSp ~ slope*dep*Speed_cat) </span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co"># adonis2(tadpoleSp ~ env.comp$`altitude [m asl]`* env.comp$`stream slope [cm/30m]`* env.comp$`Depth (cm)`* env.comp$Speed_cat) </span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co"># adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`* env.comp$`Depth (cm)`* env.comp$Speed_cat) </span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="co"># adonis2(tadpoleSp ~ env.comp$`Depth (cm)`* env.comp$Speed_cat) </span></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="co"># adonis2(tadpoleSp ~ env.comp$`stream slope [cm/30m]`* env.comp$Speed_cat) </span></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="co"># adonis2(tadpoleSp ~ env.comp$Speed_cat) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(betapart) </span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">&lt;-</span> <span class="fu">beta.pair.abund</span>(tadpoleSp, <span class="at">index.family =</span> <span class="st">"bray"</span>) </span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>perm <span class="ot">&lt;-</span> <span class="fu">betadisper</span>(dist[[<span class="dv">3</span>]], env.comp<span class="sc">$</span>speed_cat) <span class="co"># a multivariate analogue of Levene's test for homogeneity of variances </span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(perm) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Distances
+          Df  Sum Sq  Mean Sq F value  Pr(&gt;F)  
+Groups     4 0.14756 0.036889  2.5265 0.06716 .
+Residuals 24 0.35042 0.014601                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
 </section>
 <section id="acknowledgement" class="level2">
 <h2 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h2>
@@ -638,9 +1026,17 @@ species_richness      -0.83823 -0.54531 0.7466
 <p><strong>Issues? Comments? Improvements?</strong> I’m happy to hear your opinions on this post and my website. Find my source code at <a href="https://github.com/zzzhehao/zzzhehao.github.io/tree/main" target="_blank">github</a> or <a href="mailto:hu_zhehao@hotmail.com" target="_blank">contact me</a>.</p>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bakker2024" class="csl-entry" role="listitem">
+Bakker, Jonathan D. 2024a. <span>“<span>PERMANOVA</span>.”</span> <em>Applied Multivariate Statistics in R</em>, January.
+</div>
+<div id="ref-bakker2024a" class="csl-entry" role="listitem">
+———. 2024b. <span>“<span>PERMDISP</span>.”</span> <em>Applied Multivariate Statistics in R</em>, January.
+</div>
+</div></section></div></main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     .contact-links {
@@ -1294,7 +1690,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
