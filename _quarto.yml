@@ -18,6 +18,7 @@ website:
   site-path: ./
   description: "Zhehao Hu's Personal Website"
   draft-mode: unlinked
+  google-analytics: "G-R0FB3TL998"
   
   navbar: 
     left: 
@@ -25,12 +26,10 @@ website:
         menu: 
           - text: "Albums"
             href: gallery/gallery.qmd
+          - text: "Motion Picture"
+            href: gallery/motion-pictures.qmd
           - text: "Color palette"
             href: photography/color_palette.qmd
-          # - text: "Videos"
-          #   href: gallery/videos.qmd
-          # - text: "As a Photographer"
-          #   href: gallery/asphotographer.qmd
 
       - text: "Research"
         menu:
@@ -54,8 +53,6 @@ website:
     search: true
     background: transparent
 
-  # body-footer: |
-  #   © 2024 Zhehao Hu. Source code available at [github.com](https://github.com/zzzhehao).
 format: 
   html:
     highlight-style: arrow-light
