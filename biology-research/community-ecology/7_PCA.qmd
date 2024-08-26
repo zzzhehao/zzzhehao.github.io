@@ -1,0 +1,18 @@
+---
+title: 7 PCA
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+draft: true
+---
+
+<!-- ```{r setup, echo=F, results=F} -->
+<!-- library(rmarkdown) -->
+<!-- path <- rprojroot::find_rstudio_root_file() -->
+<!-- knitr::opts_knit$set(root.dir=path) # Use proj wd (effects from next) -->
+<!-- knitr::opts_chunk$set(message = F) -->
+<!-- ``` -->
+
+<!-- ```{r, echo=F, results=c(2)} -->
+<!-- source("ProjectAnalysis/Data_Manipulation/tadpole_clean.R") -->
+<!-- paged_table(tadpoleCommunityCleaned) -->
+<!-- ``` -->
+asdf

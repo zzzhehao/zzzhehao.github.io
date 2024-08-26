@@ -1,0 +1,76 @@
+---
+title: "1 Discriminant analysis"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+draft: true
+execute: 
+  eval: false
+---
+
+# What is Linear Discriminant Analysis (LDA)?
+
+A definition from [IBM](https://www.ibm.com/docs/en/spss-statistics/beta?topic=features-discriminant-analysis):
+
+Discriminant analysis builds a predictive model for group membership. The model is composed of a discriminant function (or, for more than two groups, a set of discriminant functions) based on linear combinations of the predictor variables that provide the best discrimination between the groups. The functions are generated from a sample of cases for which group membership is known; the functions can then be applied to new cases that have measurements for the predictor variables but have unknown group membership.
+
+# Script `Script_niche1.R`
+
+```{r setup, include=FALSE}
+# Install packages
+if (!require("pacman")) install.packages("pacman")
+if (!require("MASS")) install.packages("MASS")
+if (!require("tidyverse")) install.packages("tidyverse")
+pacman::p_load(c("MASS", "tidyverse"), character.only = TRUE)
+```
+
+Import Data:
+
+```{r}
+#this is a way to open a datasheet using a txt file (which can be saved from excel)
+lizards<-(read.table("/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology/Practice/transect11_day.txt",header=TRUE))
+#to see the data, click on it at the upper pannel on the right or use the command: 
+# list(lizards) #all the data
+head(lizards) #just the first lines
+```
+
+```{r}
+summary(lizards)
+```
+
+To test if the datas are with equal variances, the test tests of the null that the variances in each of the groups are the same.
+
+```{r}
+bartlett.test(lizards$distance + lizards$height + lizards$time ~ lizards$Species, data=lizards)
+```
+
+P is way bigger than significance, not rejecting null, they have all equal variance.
+
+Now we do the LDA:
+
+```{r}
+fit <- lda(Species ~ distance + height + time, data=lizards, na.action="na.omit", CV=TRUE)
+#na.action specifies what to do with variables with missing values. na.omit excludes samples with missing values and proceeds with the analyses.
+#if such samples exist but na.action is not specified, the analysis won't run (default option)
+# If CV = TRUE the return value is a list with components class, the MAP classification (a factor), and posterior, posterior probabilities for the classes.
+fit # show results 
+```
+
+- Posterior distribution is the mean value of the simulation.
+
+```{r}
+ct <- table(lizards$Species, fit$class)
+diag(prop.table(ct, 1))
+sum(diag(prop.table(ct)))
+```
+
+`sum` will give us the probability of getting a random lizard and assigning it to the correct species only based on its habitat use data #markTodo How?
+In another woord, this shows if the species have difference in using habitat, in our case, not. #markTodo but how is this value calculated
+
+Now we do the LDA again, but with `CV=FALSE`
+
+```{r}
+model <- lda(Species ~ distance + height + time, data=lizards)
+model
+plot(model, dimen = 2)
+```
+
+Use ggplot for visualization.

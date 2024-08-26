@@ -121,4 +121,10 @@ This comment notes some things not widely mentioned on the internet and can be c
 - Following up last point, I ran into an even weirder situation while designing 404 page (type whatever under my site to see it). I wanted to use custom background but the problem is 404 page could be rendered everywhere at any depth as the user ran into invalid address. Which means the image I use is at different relative location to the rendered 404 page.
 - I found [this discussion](https://github.com/quarto-dev/quarto-cli/issues/5284#issuecomment-1533526078) and one of the developer stated that we can use project path (same as the one mentioned in the last point) in yaml header, but it seems not be a simple `/` but rather a `./`, but I am not hundred percent sure. 
 - I also found [this issue](https://github.com/quarto-dev/quarto-cli/issues/3788) and it further confused me plus it's been labeled as a future feature that has been delayed twice, so I gave up with this.
-- Weird thing is, I somehow couldn't use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the `theme/bg-red-plane-2.html` since I don't need it anywhere so I don't want to touch it. If you also have similar problem, maybe check it out.
+- Weird thing is, I somehow couldn't use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the `theme/bg-red-plane-2.html` since I don't need it anywhere else so I don't want to touch it. If you also have similar problem, maybe check it out.
+
+### 2024/08/20 Shiny Dashboard with multiple pages
+
+It's not really from this website construction - but I was lately working with implementing a Quarto dashboard with interactivity by shiny. Positron has currently the problem that when you open other page than the original rendered one in its viewer, also in your browser, it will not automatically load it. You need hit refresh to load that page.
+
+With page here I mean every formatting you achived by putting things under a secon heading 1. 

@@ -4,7 +4,7 @@
 .mini {
     margin: 1em 0;
     // border: 2px solid gray;
-    border-left: 5px solid #{$white}; 
+    border-left: 5px solid #{$ink-on-dark-canvas}; 
     border-radius: 5px;
     padding-top: 5px;
     padding-left: 10px;
@@ -19,7 +19,7 @@
 
 .abstract-callout {
     margin: 1em 0;
-    border: 3px solid #{$white};
+    border: 3px solid #{$ink-on-dark-canvas};
     // border-left: 5px solid #{$white}; 
     border-radius: 5px;
     padding-top: 5px;
@@ -34,4 +34,32 @@
 .abstract-callout-container {
     font-size: 1rem;
     font-weight: 400;
+}
+
+.disclaimer {
+    margin: 1em 0;
+    border: 2.5px solid #{$ink-on-dark-canvas};
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom-right-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.theorem-title {
+    font-family: Times;
+    background-color: rgb(0, 0, 0, 0);
+    border: 2px solid #{$ink-on-dark-canvas};
+    font-weight: revert;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom-right-radius: 4px;
+}
+
+.theorem-container {
+    font-style: italic;
 }

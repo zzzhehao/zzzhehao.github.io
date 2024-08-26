@@ -28,6 +28,10 @@ $paper-grey: #dfdcd8;
 $paper-dark-grey: #575452;
 $ink1: #414645;
 
+h2 {
+    border-bottom: 1px solid $ink1;
+}
+
 /*-- color vars --*/
 $summer-sky1: #94E1F2;
 $summer-sky2: #A7E4F2;

@@ -1,0 +1,39 @@
+---
+title: "*Wolbachia* and the Beetles"
+lightbox: true
+abstract: "*Wolbachia*, the most shinning star of reproductive bacteria, has been showered by researchers' spotlight for decades. What does its magical power have to do with our female-only beetle species? How can the beetle survive this? And how did the hand of evolution shaped all of this?"
+draft: true
+---
+
+:::{.disclaimer}
+
+This is a simplified instroduction of my bachelor thesis, a part of the research project conducted by the research group [*Molecular Evolutionary Biology*](https://www.biologie.uni-hamburg.de/en/forschung/evolutionsbiologie/molevolbio.html) at University of Hamburg, led by **Prof. Dr. Susanne Dobler**. **Dr. Kim Rohlfing** designed the experiment and supervised me while conducting the experiment and analysing the data. 
+
+<!-- 📌  A Chinese version is planned for future. 中文版本将会在未来更新。 -->
+
+:::
+
+<br>
+
+## *Wolbachia*: the females shall rise
+
+Regardless of which sex determination system is present, a balanced ratio of 1:1 is expected from both sexes [@hamilton1967]. However, it is not rare in the nature that this equilibrium is interrupted by various factors, such as reproduction manipulative bacteria *Wolbachia*.
+
+*Wolbachia* belongs to the Rickettsiales (Alphaproteobacteria) [@oneill1992; @boone2001], it was first described by @hertig1924 in common house mosquito *Culex pipiens* as a Rickettsia-like bacteria, and later named after one of the discover Wolbach as *Wolbachia pipientis* [@hertig1936]. The group Alphaproteobacteria has a very close relation to mitochondria, the power factory in our cells, thus the *Wolbachia* is similarily a intracellular bacteria [@zhou1998].
+
+Given its inability to live outside the host cell, the *Wolbachia* is supposed to be transmitted along the maternal line, like the mitochondria, since male hosts are dead end for *Wolbachia*. Also becasue of this, *Wolbachia* are found most prevalent inside the reproduction tissue of their hosts (testes, ovaries). People have observed a rising number of cases, in which *Wolbachia* is associated with female-biased sex ratio of the host species - and it is understandable as it can be considered as the biggest interest of *Wolbachia* [@werren1997]. There are several strategies that *Wolbachia* usually uses to accomplish such purpose (@fig-wol-phenotype): the feminization (FI), the parthenogenesis (PI), the male-killing (MK), and the cytoplasmic incompatibility (CI). CI is the most common type but I won't elaborate too much on it since it alone does not induce a sex-bias towards female [@werren2008]. 
+
+![Common phenotypes of *Wolbachia* [@werren2008]](assets/wol-phenotype.png){#fig-wol-phenotype width="100%"}
+
+These acitve munipulation of the host reproduction has given *Wolbachia* huge advantages. They have to date established a world-wide, possibly the biggest pandemic in the history of life. Arthropods and filarial nematodes are the main groups of their hosts, yet the phenomena caused by *Wolbachia* can be extremely different from host to host. In filarial nematodes, they have become an obligate mutualistic bacteria, but in arthropods, most of them are parasitic. 
+
+## The shinny bittle *Altica lythri*
+
+Like many other arthropod, *Altica lythri* also hosts this bacteria, but it's a bit more complex with *A. lythri* here. First of all, this beetle species is not monophyletic [@jackel2013]. Previous study found an inconsistency between nuclear DNA and mitochondrial DNA, which suggests that this species has experienced hybridization and introgression in its evolution. 
+
+As mentioned before, *Wolbachia* should follow the same inheritance pattern as the mitochondria, a strong correlation between different mitochondrial DNA haplotypes and *Wolbachia* strains was observed: HT1 - *w*LytA1 / HT1* - uninfected / HT2 - *w*LytA2 / HT3 - *w*LytB. Yet during the subsequent studies, some ddRAD-seq reads from pooled HT1* samples were mapped to *Wolbachia* reference genome (Zeng, unpublished). This rose the question: **Are the HT1\* individuals really immune to _Wolbachia_, or are they just low-level infected and were never detected by previous genotyping technique?**
+
+## Updated status of the pandemic
+
+Previously, the infection was confirmed by normal PCR and gel-electrophoresis. Now with a demand on better detectability and additional quantitative information, we designed a new qPCR protocol to test for infection. The result yielded several changes since the last comprehensive survey.
+

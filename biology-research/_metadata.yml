@@ -1,14 +1,14 @@
-bibliography: 
-  - ../../../Obsidian/Cafe AgX HQ 2.0/005 Tools/Academic/Bib/MSc.bib
 author: 
   - name: Zhehao Hu
     email: hu_zhehao@hotmail.com
     url: https://zzzhehao.github.io
     affiliations:
-      - name: Department of Biology, Universität Hamburg
+      - name: Department of Biology, University of Hamburg
         city: Hamburg
         country: Germany
         url: https://www.biologie.uni-hamburg.de/en.html
+date: last-modified
+date-format: long
 lightbox: true
 format:
   html:
@@ -21,3 +21,5 @@ format:
     code-overflow: wrap
     highlight-style: atom-one
     include-after-body: research-footer.html
+filters: 
+  - openlinksinnewpage

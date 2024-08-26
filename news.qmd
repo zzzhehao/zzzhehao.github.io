@@ -4,6 +4,20 @@ affiliation: ""
 author: ""
 ---
 
+::: {.disclaimer}
+:::: {.disclaimer-container}
+*For more detailed update history, see my github repo commit history*.
+::::
+:::
+
+[2024-08-22] New page: [Color palette](/photography/color_palette.qmd)
+
+[2024-08-19] New album: [Life, 2024](/gallery/gallery.qmd)
+
+[2024-08-13] New page: [Motion Pictures](/gallery/motion-pictures.qmd)
+
+[2024-08-12] Update: [CV](/biology-research/CV_Zhehao_Hu.pdf)
+
 [2024-07-30] New page: [About me](/personal/aboutme.qmd)
 
 [2024-07-27] New page: [Me as a biology student](/biology-research/asbiologist.qmd) 
