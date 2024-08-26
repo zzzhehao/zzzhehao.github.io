@@ -28,13 +28,14 @@
 - title: "Elbfähre"
   photos:
   - "elbfaehre.jpg"
+  - "elbfaehre-plot.png"
   caption: "Yashica Mat-124G | Kodak Portra 400"
   colors:
   - "#DCE8F2"
   - "#024873"
   - "#F2BF27"
   - "#F27405"
-  - "#F2B749"
+  # - "#F2B749"
   - "#BF4904"
   - "#011F26"
 
@@ -43,8 +44,7 @@
   - "Porco.jpg"
   - "Porco-1.jpg"
   - "Porco-2.jpg"
-  - "Porco-3.jpg"
-  - "Porco-4.jpg"
+  - "Porco-plot.png"
   caption: "Nikon D850 | Nikkor AF-S 85mm f/1.8"
   colors:
     - "#8191A6"
@@ -72,6 +72,7 @@
 - title: "Copenhagen 1"
   photos: 
     - "copenhagen-1.jpg"
+    - "copenhagen-1-plot.png"
   caption: "Yashica Mat-124G | Kodak Portra 160"
   colors:
     - "#011C26"
