@@ -4,9 +4,6 @@
 // style setting
 /*-- scss:defaults --*/
 
-// font
-$font-size-root: 1rem;
-
 // theme color
 :root{
     --black: #{$black};
@@ -48,6 +45,8 @@ table {
         border-bottom: 1px solid $table-border-color; // Change the border color above the header
         border-right: none; // Remove right border
         border-left: none; // Remove left border
+        font-style: normal;
+        font-weight: 400;
     }
 
     // Style for the body cells

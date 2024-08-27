@@ -4,7 +4,7 @@ format: html
 categories:
     - "Ecology"
     - "Theory"
-forward: "The total of the adaptations of an organismic unit."
+description: "The total of the adaptations of an organismic unit."
 ---
 
 ```{r}
@@ -15,6 +15,8 @@ forwardMsg()
 ```
 
 ![Photo by [McGill Library](https://unsplash.com/@mcgilllibrary?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/two-brown-and-white-birds-perching-on-tree-branch-illustration-osPrIcTwJy4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](assets/ecological-niche-cover.jpg){.preview-image width=75% .no-lightbox}
+
+<br><br>
 
 ## Definition
 
@@ -140,8 +142,8 @@ See @creel2021 for examples.
 
 ## Acknowledgement
 
-I hereby express my thank to materials and examples from [@creel2021](https://www.montana.edu/screel/teaching/bioe-370/documents/Biol%20303%20niches.pdf), which provided comprehensive explanations to many concepts and helped me finish this note.
+I hereby express my thank to materials and examples from @creel2021, which provided comprehensive explanations to many concepts and helped me finish this note.
 
 ## Something else to read
 
-[In Memory of Eric Pianka, "The Lizard Man": He Thought, He Cared, And He Tried](https://ericpianka.com) 
+- [In Memory of Eric Pianka, "The Lizard Man": He Thought, He Cared, And He Tried](https://ericpianka.com) 

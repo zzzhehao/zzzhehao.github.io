@@ -4,9 +4,6 @@
 // style setting
 /*-- scss:defaults --*/
 
-// font
-$font-size-root: 1rem;
-
 // theme color
 :root{
     --black: #{$black-cus};
@@ -24,6 +21,14 @@ body {
     .cell-output {
         background-color: var(--black);
         border-radius: 4px;
+    }
+}
+
+table {
+    // Style for the header row
+    th {
+        font-style: normal;
+        font-weight: 400;
     }
 }
 
