@@ -6,15 +6,17 @@ execute:
   echo: true
 ---
 
-::: {mini}
+::: {.disclaimer}
 This is a note from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). Source code available at [github.com](https://github.com/zzzhehao)
 :::
 
-## Niche Region and Niche Overlap Metrics
+<!-- ## Niche Region and Niche Overlap Metrics -->
 
-A new probabilistic method for quantifing n-dimensional ecological niche and niche overlap [@swanson2015].
+## `nicheROVER::`
 
-We use the script written by Martin Lysy, Heidi Swanson which can be found [here](https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html), which requires the package "nicheROVER".
+The package `nicheROVER` provides a new probabilistic method for quantifing n-dimensional ecological niche and niche overlap [@swanson2015]. The script demonstrated here is written by Martin Lysy, Heidi Swanson (see [here](https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html)). It was also used in the paper [@swanson2015] for the method demonstration.  
+
+`fish` is a **fish stable isotope dataset** integrated in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four arctic fish species (ARCS, BDWF, LKWF, LSCS), more details can befound from the documentation (`?fish`) or in the publication.
 
 ```{r}
 #| label: setup
@@ -31,7 +33,6 @@ library(nicheROVER)
 data(fish)
 ```
 
-"Fish" is a **fish stable isotope dataset** integrated in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four arctic fish species (ARCS, BDWF, LKWF, LSCS). Use `?fish` for more details.
 
 ```{r}
 #| echo: false
