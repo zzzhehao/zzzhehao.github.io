@@ -1,18 +1,29 @@
 ---
 title: "Ecological Niche"
 format: html
+categories:
+    - "Ecology"
+    - "Theory"
+forward: "The total of the adaptations of an organismic unit."
 ---
 
-_"The total of the adaptations of an organismic unit."_
+```{r}
+#| output: asis
+#| echo: false
+source("source/source-all.R")
+forwardMsg()
+```
 
-## 1 Definition
+![Photo by [McGill Library](https://unsplash.com/@mcgilllibrary?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/two-brown-and-white-birds-perching-on-tree-branch-illustration-osPrIcTwJy4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](assets/ecological-niche-cover.jpg){.preview-image width=75% .no-lightbox}
+
+## Definition
 
 Ecological niche is a term for the position of a species within an ecosystem, describing both the range of conditions necessary for persistence of the species, and its ecological role in the ecosystem.
 
 - Subsumes all of the interactions between a species and the biotic and abiotic environment.
 - Effected by food, space, and time.
 
-## 2 Biological Meaning
+## Biological Meaning
 
 Data on niches can be used to:
 
@@ -77,7 +88,7 @@ $$
 - $R$: proportion of item used; $P$: proportion of item available.
 - Modified from forage ratio and Ivlev's index (1961), Fig. 12 in @jacobs1974.
 - Jacob's index is independent of the relative abundance of food types in the environment.
-- Also purposing $log Q$ index, both should be tested when **a relation is studies between food selection and variables such as the relative abundance of food, light conditions, etc**.
+- Also purposing $log Q$ index, both should be tested when **a relation is studied between food selection and variables such as the relative abundance of food, light conditions, etc**.
 - Ranges from -1 to 1, where 0 as separator of positive or negative selection.
 
 #### 2.4.3 @pianka1973 - Pianka's niche overlap index
@@ -127,10 +138,10 @@ See @creel2021 for examples.
 - Ghost of Competition Past
 - Translocation experiments
 
-## 3 Acknowledgement
+## Acknowledgement
 
 I hereby express my thank to materials and examples from [@creel2021](https://www.montana.edu/screel/teaching/bioe-370/documents/Biol%20303%20niches.pdf), which provided comprehensive explanations to many concepts and helped me finish this note.
 
-## 4 Something else to read
+## Something else to read
 
 [In Memory of Eric Pianka, "The Lizard Man": He Thought, He Cared, And He Tried](https://ericpianka.com) 

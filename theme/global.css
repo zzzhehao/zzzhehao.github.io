@@ -1,0 +1,9 @@
+.forward {
+    font-size: 1.6em;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--normal-text-color);
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+}
