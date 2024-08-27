@@ -4,9 +4,6 @@
 // style setting
 /*-- scss:defaults --*/
 
-// font
-$font-size-root: 1rem;
-
 // theme color
 :root{
     --black: #{$black};
@@ -21,10 +18,10 @@ $font-size-root: 1rem;
 }
 
 body {
+    color: var(--ink1);
     .cell-output {
         background-color: #dfdcd8;
         border-radius: 4px;
-        /* color: #625f5c !important; */
       }
 }
 
@@ -36,3 +33,30 @@ $code-block-bg: $paper-grey;
 $code-bg: $paper-grey;
 $code-color: #74431C;
 $kbd-color: $paper-dark-grey;
+
+$table-border-color: $paper-dark-grey;
+
+table {
+    border-collapse: collapse; // Ensures borders are combined
+
+    // Style for the header row
+    th {
+        border-top: 2px solid $table-border-color;
+        border-bottom: 1px solid $table-border-color; // Change the border color above the header
+        border-right: none; // Remove right border
+        border-left: none; // Remove left border
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    // Style for the body cells
+    td {
+        border: none; // Remove all borders
+        border-top: 1px solid $table-border-color; // Add top border for each row
+    }
+
+    // Optional: If you want to add a bottom border for the last row
+    tr:last-child td {
+        border-bottom: 2px solid $table-border-color; // Add bottom border for the last row
+    }
+}

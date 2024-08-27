@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="">
-<meta name="dcterms.date" content="2024-08-19">
+<meta name="dcterms.date" content="2024-08-27">
 
 <title>Posts – Zhehao Hu</title>
 <style>
@@ -82,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -141,6 +141,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../theme/global.css">
 <link rel="stylesheet" href="../theme/text-justify.css">
 <link rel="stylesheet" href="../theme/caption-center.css">
 </head>
@@ -225,9 +226,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="Ecology">Ecology</div><div class="category" data-category="Theory">Theory</div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -244,7 +245,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2024</p>
+      <p class="date">August 27, 2024</p>
     </div>
   </div>
   
@@ -261,28 +262,54 @@ window.Quarto = {
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1723452939977" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2022">
+<div class="quarto-post image-right" data-index="0" data-categories="Ecology,Theory" data-listing-date-sort="1724781046000" data-listing-file-modified-sort="1724781046321" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1238">
 <div class="thumbnail">
-<p><a href="../biology-research/asbiologist.html" class="no-external"></a></p><a href="../biology-research/asbiologist.html" class="no-external">
-<p class="card-img-top"><img src="../assets/images/hu-happy-in-wild.jpg.jpg" alt="Me being happy in the wild"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../biology-research/asbiologist.html" class="no-external"></a></p>
+<p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
+<p class="card-img-top"><img src="community-ecology/assets/ecological-niche-cover.jpg" alt="Photo by McGill Library on Unsplash" style="height: 120px;"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="../biology-research/asbiologist.html" class="no-external">As a Biology Student</a>
+<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">Ecological Niche</a>
 </h3>
 <div class="listing-subtitle">
-<a href="../biology-research/asbiologist.html" class="no-external"></a>
+<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Theory'); return false;">
+Theory
+</div>
 </div>
 <div class="listing-description">
-<a href="../biology-research/asbiologist.html" class="no-external">“I don’t know why I came. I just ended up here. And I am happy with it.”</a>
+<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">The total of the adaptations of an organismic unit.</a>
 </div>
 </div>
 <div class="metadata">
-<a href="../biology-research/asbiologist.html" class="no-external">
+<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <div class="listing-date">
-July 27, 2024
+August 27, 2024
 </div>
 <div class="listing-author">
 Zhehao Hu

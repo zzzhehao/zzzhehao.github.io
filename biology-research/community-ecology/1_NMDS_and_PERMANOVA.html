@@ -139,6 +139,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <meta name="quarto:status" content="draft">
 
 
+<link rel="stylesheet" href="../../theme/global.css">
 <link rel="stylesheet" href="../../theme/text-justify.css">
 <link rel="stylesheet" href="../../theme/caption-center.css">
 </head>
@@ -367,33 +368,37 @@ New names:
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tadNMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(tadpoleSp, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Run 0 stress 0.1735794 
-Run 1 stress 0.17264 
+Run 1 stress 0.189604 
+Run 2 stress 0.1747955 
+Run 3 stress 0.1720071 
 ... New best solution
-... Procrustes: rmse 0.02695798  max resid 0.1240144 
-Run 2 stress 0.1713525 
+... Procrustes: rmse 0.06265586  max resid 0.2652581 
+Run 4 stress 0.1889793 
+Run 5 stress 0.1720071 
 ... New best solution
-... Procrustes: rmse 0.05894403  max resid 0.2680586 
-Run 3 stress 0.1740996 
-Run 4 stress 0.1875591 
-Run 5 stress 0.1726399 
-Run 6 stress 0.1896046 
-Run 7 stress 0.1723656 
-Run 8 stress 0.1720071 
-Run 9 stress 0.1726399 
-Run 10 stress 0.1720071 
-Run 11 stress 0.1720071 
-Run 12 stress 0.1713525 
-... New best solution
-... Procrustes: rmse 3.774636e-05  max resid 0.0001039525 
+... Procrustes: rmse 1.870746e-06  max resid 4.720311e-06 
 ... Similar to previous best
-Run 13 stress 0.1726399 
-Run 14 stress 0.1889796 
-Run 15 stress 0.1735749 
-Run 16 stress 0.1878376 
-Run 17 stress 0.1747957 
+Run 6 stress 0.17264 
+Run 7 stress 0.173575 
+Run 8 stress 0.1735267 
+Run 9 stress 0.1719948 
+... New best solution
+... Procrustes: rmse 0.008603812  max resid 0.03647188 
+Run 10 stress 0.3904355 
+Run 11 stress 0.1749436 
+Run 12 stress 0.1713697 
+... New best solution
+... Procrustes: rmse 0.02079452  max resid 0.08642423 
+Run 13 stress 0.1713698 
+... Procrustes: rmse 0.0002072803  max resid 0.000845837 
+... Similar to previous best
+Run 14 stress 0.1726399 
+Run 15 stress 0.2527509 
+Run 16 stress 0.173575 
+Run 17 stress 0.1749436 
 Run 18 stress 0.1875593 
-Run 19 stress 0.188171 
-Run 20 stress 0.2536357 
+Run 19 stress 0.1735267 
+Run 20 stress 0.1896038 
 *** Best solution repeated 1 times</code></pre>
 </div>
 </div>
@@ -411,7 +416,7 @@ Data:     tadpoleSp
 Distance: bray 
 
 Dimensions: 2 
-Stress:     0.1713525 
+Stress:     0.1713697 
 Stress type 1, weak ties
 Best solution was repeated 1 time in 20 tries
 The best solution was from try 12 (random start)
@@ -484,9 +489,9 @@ Formula:
 y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 
 Estimated degrees of freedom:
-6.64  total = 7.64 
+6.81  total = 7.81 
 
-REML score: 109.5861     </code></pre>
+REML score: 109.037     </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>altitude <span class="ot">&lt;-</span> env.comp<span class="sc">$</span><span class="st">`</span><span class="at">altitude [m asl]</span><span class="st">`</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -515,9 +520,9 @@ Formula:
 y ~ s(x1, x2, k = 10, bs = "tp", fx = FALSE)
 
 Estimated degrees of freedom:
-0.849  total = 1.85 
+0.893  total = 1.89 
 
-REML score: 168.5418     </code></pre>
+REML score: 168.5153     </code></pre>
 </div>
 </div>
 </section>
@@ -598,79 +603,79 @@ REML score: 168.5418     </code></pre>
 ***VECTORS
 
                          NMDS1    NMDS2     r2
-altitude [m asl]      -0.80675  0.59089 0.1046
-stream slope [cm/30m]  0.76354  0.64576 0.5515
-temperature [°C]      -0.25381  0.96725 0.1909
-Width (m)             -0.92952 -0.36876 0.6336
-Depth (cm)            -0.95328 -0.30208 0.7877
-species_richness      -0.83828 -0.54525 0.7465
+altitude [m asl]      -0.78637  0.61775 0.1076
+stream slope [cm/30m]  0.76699  0.64166 0.5461
+temperature [°C]      -0.25364  0.96730 0.1871
+Width (m)             -0.92675 -0.37568 0.6398
+Depth (cm)            -0.95641 -0.29202 0.7817
+species_richness      -0.84249 -0.53872 0.7386
 
 ***FACTORS:
 
 Centroids:
                             NMDS1   NMDS2
-speed_cat[0,75.6]          0.3293  0.2737
-speed_cat(75.6,81.3]       0.4305 -0.2070
-speed_cat(81.3,83.9]      -0.6332 -0.1741
-speed_cat(83.9,89.7]       0.2186 -0.2396
-speed_cat(89.7,97.5]      -0.0688  0.1255
-slope_cat[0,42]           -0.8110 -0.2604
-slope_cat(42,86]           0.0907 -0.4364
-slope_cat(86,250]          0.2253  0.0406
-slope_cat(250,340]         0.4919 -0.0101
-slope_cat(340,960]         0.5518  0.4228
-depth_cat[2.44,6.8]        0.6882  0.2724
-depth_cat(6.8,7.69]        0.3492 -0.1106
-depth_cat(7.69,11]         0.4333 -0.1023
-depth_cat(11,27]          -0.6302 -0.1085
-depth_cat(27,84.3]        -0.9068 -0.2653
-rock_cat[0,5.29]           0.1472 -0.2625
-rock_cat(5.29,7.7]         0.3919  0.0888
-rock_cat(7.7,17.6]        -0.2531  0.0678
+speed_cat[0,75.6]          0.3429  0.3127
+speed_cat(75.6,81.3]       0.4299 -0.2105
+speed_cat(81.3,83.9]      -0.6434 -0.1824
+speed_cat(83.9,89.7]       0.2170 -0.2425
+speed_cat(89.7,97.5]      -0.0681  0.1230
+slope_cat[0,42]           -0.8126 -0.2469
+slope_cat(42,86]           0.0939 -0.4365
+slope_cat(86,250]          0.2243  0.0405
+slope_cat(250,340]         0.4917 -0.0125
+slope_cat(340,960]         0.5537  0.4244
+depth_cat[2.44,6.8]        0.6911  0.2754
+depth_cat(6.8,7.69]        0.3491 -0.1148
+depth_cat(7.69,11]         0.4348 -0.1039
+depth_cat(11,27]          -0.6339 -0.1172
+depth_cat(27,84.3]        -0.9080 -0.2427
+rock_cat[0,5.29]           0.1569 -0.2372
+rock_cat(5.29,7.7]         0.3932  0.0901
+rock_cat(7.7,17.6]        -0.2661  0.0532
 rock_cat(17.6,25.6]        0.3454  0.0861
-rock_cat(25.6,44.8]       -0.6960 -0.2554
-sand_cat[11.6,35.9]       -0.6053  0.1080
-sand_cat(35.9,46.3]       -0.1628 -0.6566
-sand_cat(46.3,50]          0.2953  0.1719
-sand_cat(50,58.8]          0.2545  0.0536
-sand_cat(58.8,83.7]        0.5173 -0.0010
-volume_cat[1.48,4.13]      0.7613  0.4631
-volume_cat(4.13,4.58]      0.4186 -0.1923
-volume_cat(4.58,8.53]      0.4164 -0.2017
-volume_cat(8.53,47.7]     -0.7810  0.1142
-volume_cat(47.7,135]      -0.8881 -0.3155
-overhang_cat[0.456,0.733] -0.8195 -0.0743
-overhang_cat(0.733,0.804]  0.0989 -0.5584
-overhang_cat(0.804,0.9]    0.2467  0.1024
-overhang_cat(0.9,0.979]    0.1033 -0.2028
-overhang_cat(0.979,1]      0.5873  0.1937
-canopy_cat[0.511,0.842]   -0.9356 -0.3258
-canopy_cat(0.842,0.898]    0.3300 -0.4865
-canopy_cat(0.898,0.95]     0.0612  0.2019
-canopy_cat(0.95,1]         0.4669  0.1484
-preycomp_cat[4,50.2]       0.6394 -0.2956
-preycomp_cat(50.2,69.2]    0.0741 -0.1649
-preycomp_cat(69.2,131]     0.1483  0.3536
-preycomp_cat(131,196]     -0.1405  0.3756
-preycomp_cat(196,372]     -0.3106 -0.4188
-pred_cat[8,36]             0.4168 -0.0472
-pred_cat(36,47]            0.4844 -0.0868
-pred_cat(47,69.8]          0.6247  0.4619
-pred_cat(69.8,110]        -1.1925  0.2503
-pred_cat(110,343]         -0.2069 -0.6426
+rock_cat(25.6,44.8]       -0.6984 -0.2593
+sand_cat[11.6,35.9]       -0.6118  0.0981
+sand_cat(35.9,46.3]       -0.1654 -0.6596
+sand_cat(46.3,50]          0.3044  0.2059
+sand_cat(50,58.8]          0.2577  0.0561
+sand_cat(58.8,83.7]        0.5162 -0.0037
+volume_cat[1.48,4.13]      0.7660  0.4677
+volume_cat(4.13,4.58]      0.4187 -0.1963
+volume_cat(4.58,8.53]      0.4150 -0.2058
+volume_cat(8.53,47.7]     -0.7686  0.1532
+volume_cat(47.7,135]      -0.8975 -0.3194
+overhang_cat[0.456,0.733] -0.8281 -0.0848
+overhang_cat(0.733,0.804]  0.1037 -0.5569
+overhang_cat(0.804,0.9]    0.2463  0.1025
+overhang_cat(0.9,0.979]    0.1106 -0.1712
+overhang_cat(0.979,1]      0.5889  0.1931
+canopy_cat[0.511,0.842]   -0.9320 -0.3011
+canopy_cat(0.842,0.898]    0.3297 -0.4886
+canopy_cat(0.898,0.95]     0.0595  0.1978
+canopy_cat(0.95,1]         0.4668  0.1465
+preycomp_cat[4,50.2]       0.6431 -0.2963
+preycomp_cat(50.2,69.2]    0.0809 -0.1419
+preycomp_cat(69.2,131]     0.1488  0.3574
+preycomp_cat(131,196]     -0.1469  0.3718
+preycomp_cat(196,372]     -0.3121 -0.4236
+pred_cat[8,36]             0.4178 -0.0494
+pred_cat(36,47]            0.4878 -0.0876
+pred_cat(47,69.8]          0.6241  0.4634
+pred_cat(69.8,110]        -1.1934  0.2720
+pred_cat(110,343]         -0.2089 -0.6427
 
 Goodness of fit:
                  r2
-speed_cat    0.1914
-slope_cat    0.4129
-depth_cat    0.4903
-rock_cat     0.2072
-sand_cat     0.2701
-volume_cat   0.5832
-overhang_cat 0.3332
-canopy_cat   0.4096
-preycomp_cat 0.2457
-pred_cat     0.5961
+speed_cat    0.1996
+slope_cat    0.4103
+depth_cat    0.4885
+rock_cat     0.2059
+sand_cat     0.2746
+volume_cat   0.5864
+overhang_cat 0.3335
+canopy_cat   0.4018
+preycomp_cat 0.2455
+pred_cat     0.5966
 
 5 observations deleted due to missingness</code></pre>
 </div>
@@ -876,7 +881,7 @@ Ignoring unknown parameters: `fill`</code></pre>
 <span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>, </span>
 <span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"hv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+<pre><code>Warning: Removed 164 rows containing non-finite outside the scale range
 (`stat_textcontour()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -884,7 +889,7 @@ Ignoring unknown parameters: `fill`</code></pre>
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+<pre><code>Warning: Removed 164 rows containing non-finite outside the scale range
 (`stat_textcontour()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -892,7 +897,7 @@ Ignoring unknown parameters: `fill`</code></pre>
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+<pre><code>Warning: Removed 164 rows containing non-finite outside the scale range
 (`stat_textcontour()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -941,7 +946,7 @@ parameter to move the string to a different point on the path.</code></pre>
 <span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>p.NMDS.sp.st.depth </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 160 rows containing non-finite outside the scale range
+<pre><code>Warning: Removed 164 rows containing non-finite outside the scale range
 (`stat_contour_filled()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -1690,7 +1695,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false,"selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

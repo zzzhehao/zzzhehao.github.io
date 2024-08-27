@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Zhehao Hu">
-<meta name="dcterms.date" content="2024-08-22">
+<meta name="dcterms.date" content="2024-08-27">
 
 <title>Community Ecology - Niche Overlap Analysis using stable isotope data and nicheROVER – Zhehao Hu</title>
 <style>
@@ -170,6 +170,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../theme/global.css">
 <link rel="stylesheet" href="../../theme/text-justify.css">
 <link rel="stylesheet" href="../../theme/caption-center.css">
 </head>
@@ -259,7 +260,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#niche-region-and-niche-overlap-metrics" id="toc-niche-region-and-niche-overlap-metrics" class="nav-link active" data-scroll-target="#niche-region-and-niche-overlap-metrics">Niche Region and Niche Overlap Metrics</a></li>
+  <li><a href="#nicherover" id="toc-nicherover" class="nav-link active" data-scroll-target="#nicherover"><code>nicheROVER::</code></a></li>
   <li><a href="#why-using-sia" id="toc-why-using-sia" class="nav-link" data-scroll-target="#why-using-sia">Why using SIA?</a></li>
   <li><a href="#terminologies" id="toc-terminologies" class="nav-link" data-scroll-target="#terminologies">Terminologies</a>
   <ul>
@@ -312,7 +313,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 22, 2024</p>
+      <p class="date">August 27, 2024</p>
     </div>
   </div>
   
@@ -330,18 +331,18 @@ window.Quarto = {
 </header>
 
 
-<div class="{mini}">
+<div class="disclaimer">
 <p>This is a note from the course <em>Community Ecology</em> offered by <a href="https://www.biologie.uni-hamburg.de/en.html" target="_blank">University of Hamburg</a> and led by <a href="https://www.researchgate.net/profile/Paula-Eterovick-2" target="_blank">Dr.&nbsp;Paula Cabral Eterovick</a>. Source code available at <a href="https://github.com/zzzhehao" target="_blank">github.com</a></p>
 </div>
-<section id="niche-region-and-niche-overlap-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="niche-region-and-niche-overlap-metrics">Niche Region and Niche Overlap Metrics</h2>
-<p>A new probabilistic method for quantifing n-dimensional ecological niche and niche overlap <span class="citation" data-cites="swanson2015">(<a href="#ref-swanson2015" role="doc-biblioref">Swanson et al. 2015</a>)</span>.</p>
-<p>We use the script written by Martin Lysy, Heidi Swanson which can be found <a href="https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html" target="_blank">here</a>, which requires the package “nicheROVER”.</p>
+<!-- ## Niche Region and Niche Overlap Metrics -->
+<section id="nicherover" class="level2">
+<h2 class="anchored" data-anchor-id="nicherover"><code>nicheROVER::</code></h2>
+<p>The package <code>nicheROVER</code> provides a new probabilistic method for quantifing n-dimensional ecological niche and niche overlap <span class="citation" data-cites="swanson2015">(<a href="#ref-swanson2015" role="doc-biblioref">Swanson et al. 2015</a>)</span>. The script demonstrated here is written by Martin Lysy, Heidi Swanson (see <a href="https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html" target="_blank">here</a>). It was also used in the paper <span class="citation" data-cites="swanson2015">(<a href="#ref-swanson2015" role="doc-biblioref">Swanson et al. 2015</a>)</span> for the method demonstration.</p>
+<p><code>fish</code> is a <strong>fish stable isotope dataset</strong> integrated in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four arctic fish species (ARCS, BDWF, LKWF, LSCS), more details can befound from the documentation (<code>?fish</code>) or in the publication.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nicheROVER)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(fish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>“Fish” is a <strong>fish stable isotope dataset</strong> integrated in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four arctic fish species (ARCS, BDWF, LKWF, LSCS). Use <code>?fish</code> for more details.</p>
 <div class="cell">
 <div id="tbl-fish" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -510,11 +511,11 @@ P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fish.par[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 2
- $ mu   : num [1:1000, 1:3] 12.6 12.5 12.6 12.5 12.5 ...
+ $ mu   : num [1:1000, 1:3] 12.6 12.5 12.6 12.7 12.7 ...
   ..- attr(*, "dimnames")=List of 2
   .. ..$ : NULL
   .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
- $ Sigma: num [1:3, 1:3, 1:1000] 0.719 0.446 0.149 0.446 1.239 ...
+ $ Sigma: num [1:3, 1:3, 1:1000] 0.583 0.323 0.417 0.323 1.68 ...
   ..- attr(*, "dimnames")=List of 3
   .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
@@ -1261,7 +1262,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
