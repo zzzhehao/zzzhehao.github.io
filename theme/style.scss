@@ -21,10 +21,10 @@ $font-size-root: 1rem;
 }
 
 body {
+    color: var(--ink1);
     .cell-output {
         background-color: #dfdcd8;
         border-radius: 4px;
-        /* color: #625f5c !important; */
       }
 }
 

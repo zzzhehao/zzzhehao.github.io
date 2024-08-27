@@ -57,7 +57,13 @@ format:
   html:
     highlight-style: arrow-light
     theme: 
-      light: [theme/style.scss, theme/custom-nav.scss, theme/callouts.scss]
-      dark: [theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss]
+      light: [theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
+      dark: [theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
+    css:
+      - theme/global.css
 execute: 
   freeze: auto
+
+filters: 
+  - openlinksinnewpage
+  - include-code-files

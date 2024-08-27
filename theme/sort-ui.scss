@@ -1,0 +1,16 @@
+/*-- scss:rules --*/
+@import 'color';
+
+.form-select {
+  border-color: var(--ink1);
+}
+
+.input-group-text {
+  border-color: var(--ink1);
+}
+
+div.listing-category {
+  // Quarto default controlling this might have higher authority so I have to use !important
+  border: 1px solid var(--ink1) !important;
+  color: var(--ink1) !important;
+}
