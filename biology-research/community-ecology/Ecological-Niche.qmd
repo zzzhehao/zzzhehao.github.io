@@ -1,0 +1,136 @@
+---
+title: "Ecological Niche"
+format: html
+---
+
+_"The total of the adaptations of an organismic unit."_
+
+## 1 Definition
+
+Ecological niche is a term for the position of a species within an ecosystem, describing both the range of conditions necessary for persistence of the species, and its ecological role in the ecosystem.
+
+- Subsumes all of the interactions between a species and the biotic and abiotic environment.
+- Effected by food, space, and time.
+
+## 2 Biological Meaning
+
+Data on niches can be used to:
+
+- Make comparisons of the composition and organization of communities.
+- Examine shifts in the behavior or ecology of one species in response to another species. 
+	- Niche shifts are commonly used to study interspecific competition (see Gause's Principle of Competitive Exclusion)
+
+### 2.1 Hutchingson's model of niche as a "_hypervolume_"
+
+Niches can be described or defined by relating **fitness** or **utilization** to environmental variable (abiotic and biotic).
+
+- A range, given the conditions are defined by many axes, which defines the set of conditions under which the animal can survive and reproduce.
+- We can easily illustrate a niche described by up to 3 variables (3-D space), but for fourth axes and onward, the result becomes a hypervolume.
+
+**Be aware**:
+
+- not all niche axes are environmental - some niche axes are behaviroal (e.g. noctural vs. diurnal)
+- not all axes can be ordered linearly (e.g. types of antipredator behavior)
+
+### 2.2 Fundamental niche _vs_ Realized niche
+
+- **Fundamental niche** (FN) is the entire set of conditions under which an animal (a population, a species) can survive and reproduce.
+- **Realized niche** (RN) is the set of condition _actually_ used by given animal (a population, a species) after interactions with other species have been taken into account.
+- FN ≥ RN
+- RN may differ in populations, because of differences in competitors and predators.
+
+### 2.3 Niche breadth
+
+- **Specialists** have narrow niches, **generalists** have broad niches. These are however relative terms. 
+- Describes the endpoints of continuous variation in the degree of specialization in resource use, behavior, and physiology.
+
+#### 2.3.1 @levins1966 - Niche breadth quantification
+ 
+$$B = \frac{1}{\sum{p_i^2}}$$
+
+- $p_i$ = proportion of individuals that use resource $i$
+- Species that use many resources will have large value of $B$, reflecting a generalist pattern of resource use.
+
+#### 2.3.2 Between or within phenotypes
+
+- Given known niche breadth of a population, it is however not necessarily clear how individuals within population use resources. There are possibly two patterns:
+	- All individuals use entire niche of population, within-phenotype component of niche breadth is large
+	- Each individuals uses a narrow part of population's niche, between-phenotype component of niche breadth is large.
+- Individual's niches may change dramatically during lifetime (e.g. metamorphosis, tadpoles are herbivores, frogs are carnivores)
+
+### 2.4 Niche overlap
+
+#### 2.4.1 Types of overlap
+
+- Coextensive, included, reciprocal overlap, asymmetric overlap
+- Non-overlapping: abutting, disjunct
+
+![_[@creel2021]_](assets/type-of-niche-overlap.png){width=75%}
+
+#### 2.4.2 @jacobs1974 - Electivity index
+
+Electivity indices measure the utilization of food types in relation to their abundance or availability in the environment [@lechowicz1982].
+
+$$ D = \frac{r-p}{r+p-2rp}
+$$
+
+- $R$: proportion of item used; $P$: proportion of item available.
+- Modified from forage ratio and Ivlev's index (1961), Fig. 12 in @jacobs1974.
+- Jacob's index is independent of the relative abundance of food types in the environment.
+- Also purposing $log Q$ index, both should be tested when **a relation is studies between food selection and variables such as the relative abundance of food, light conditions, etc**.
+- Ranges from -1 to 1, where 0 as separator of positive or negative selection.
+
+#### 2.4.3 @pianka1973 - Pianka's niche overlap index
+
+Modification of one presented in MacArthur & Levins (1967).
+
+$$ O_{kj} = \frac{\sum p_{ij}p_{ik}}{\sqrt{\sum p^2_{ij}\sum p^2_{ik}}}
+$$
+
+This formula is symmetric, i.e. $O_{jk} = O_{kj}$
+- $P$: proportion of item $i$ used in relation to the total of items used by species $j/k$.
+
+#### 2.4.4 @winemiller1990 - Randomization algorithm
+
+While testing for the statistical significance related to niche overlap, the major challenge is that the null model is unknown, the niche overlaps are dependent on each party of the interactions. Thus as @winemiller1990 explained, the standard statistical tests cannot be applied to comparisons involving three or more species. To bypass this, an idea is to generate the null model from the limited data we can collect:
+
+:::{.mini}
+... generate different replicates of a randomized real system (i.e. pseudo-community, the null model) that can be constructed for comparison with an observed prototype.
+
+If say, 95 or 99 of 100 randomized pseudo-communities have mean niche overlaps greater than the observed, results are significant at the P < .05 or P < .01 level, respectively.
+:::
+
+Such significance indicates that:
+
+- Observed community exhibits a non-random pattern of resource utilization.
+- Species in observed community are utilizing resources in a way that minimized competition.
+- Evidence of niche differentiation or resource partitioning among the species in community.
+- Evidence for competitive interactions shaping community structure or for past evolutionary adaptations.
+
+4 different algorithm:
+
+|                                                                            | **Relaxed niche breadth**<br>(Sum value is redistributed) | **Retained niche breadth**<br>(Values are shuffled, but not redistributed) |
+| -------------------------------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Zeros eliminated**<br>(categories with 0 are also reassigned with value) | RA1                                                       | RA3                                                                        |
+| **Zeros retained**<br>(categories with 0 are reassigned)                   | RA2                                                       | RA4                                                                        |
+
+### 2.5 Use of niches to examine distribution and abundance of species
+
+See @creel2021 for examples.
+
+**List of terms**: 
+
+- Interspecific and intraspecific competition
+- Niche expansion, niche contraction
+- Competitive exclusion
+- Character displacement
+- Ghost of Competition Past
+- Translocation experiments
+
+## 3 Acknowledgement
+
+I hereby express my thank to materials and examples from [@creel2021](https://www.montana.edu/screel/teaching/bioe-370/documents/Biol%20303%20niches.pdf), which provided comprehensive explanations to many concepts and helped me finish this note.
+
+## 4 Something else to read
+
+[In Memory of Eric Pianka, "The Lizard Man": He Thought, He Cared, And He Tried](https://ericpianka.com) 
