@@ -50,7 +50,7 @@ format:
   ">
   
 <!-- Left part -->
-<div style="width: 100%;">
+<div style="width: 40%;">
   <span style="font-size:3rem;line-height:0.7">Zhehao Hu</span>
 
   <span style="font-size:0.9rem">Read. Think. Write.</span>
@@ -67,12 +67,23 @@ format:
 </div>
     
   <!-- Right part  -->
-  <!-- <div style="width: 40%;"> -->
+  <div style="width: 60%;">
   
-<!-- Right part text -->
-<!-- To enable this column set left width to 60% -->
+<br><br><br><br><br><br><br><br>
 
-  <!-- </div> --> 
+### Have been here before? Here's the short cut:
+
+##### Research
+
+  - [*Research Posts*](/biology-research/index.qmd)
+
+##### Photography
+
+  - [*Albums*](/gallery/gallery.qmd)
+  - [*Motion Picture*](/gallery/motion-pictures.qmd)
+  - [*Color Palette*](/photography/color_palette.qmd)
+
+  </div> 
   
 </div>
 </div>
