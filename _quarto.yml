@@ -63,7 +63,3 @@ format:
       - theme/global.css
 execute: 
   freeze: auto
-
-filters: 
-  - openlinksinnewpage
-  - include-code-files

@@ -5,6 +5,8 @@ categories:
     - "Ecology"
     - "Theory"
 description: "The total of the adaptations of an organismic unit."
+filters: 
+  - openlinksinnewpage
 ---
 
 ```{r}
