@@ -250,12 +250,12 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <li><p>Quarto is sensitive to tabs, especially when dealing with html. If seeing html code printed out in the preview, try delete tabs in the line. Sometimes three tabs can already cause difference.</p></li>
 <li><p>Quarto may need some other effort to let JS be called in .qmd using html <code>&lt;script&gt;</code> and operate.</p>
 <ul>
-<li>see <a href="https://github.com/quarto-dev/quarto-cli/discussions/4179" target="_blank">here</a> and maybe also <a href="https://forum.posit.co/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758" target="_blank">here</a>.</li>
+<li>see <a href="https://github.com/quarto-dev/quarto-cli/discussions/4179">here</a> and maybe also <a href="https://forum.posit.co/t/quarto-equivalent-to-exclude-yaml-command-in-distill/148758">here</a>.</li>
 </ul></li>
-<li><p>An example may involving batch construct <a href="https://b.bapt.xyz/posts/gallery/#generating-the-page-with-quarto" target="_blank">here</a></p></li>
-<li><p>A brilliant show case of automatically extracting photo exif and showing them while inspecting photo, can maybe used otherwise, <a href="https://rfsaldanha.github.io/photos/photos.html" target="_blank">example</a> and <a href="https://github.com/rfsaldanha/rfsaldanha.github.io/blob/main/photos/photos.qmd" target="_blank">source code</a></p></li>
-<li><p>Also see <a href="https://github.com/quarto-ext/lightbox?tab=readme-ov-file" target="_blank">lightbox tool</a></p></li>
-<li><p><strong>Design</strong>: <a href="https://github.com/quarto-ext/lightbox?tab=readme-ov-file" target="_blank">hamada hideaki</a></p></li>
+<li><p>An example may involving batch construct <a href="https://b.bapt.xyz/posts/gallery/#generating-the-page-with-quarto">here</a></p></li>
+<li><p>A brilliant show case of automatically extracting photo exif and showing them while inspecting photo, can maybe used otherwise, <a href="https://rfsaldanha.github.io/photos/photos.html">example</a> and <a href="https://github.com/rfsaldanha/rfsaldanha.github.io/blob/main/photos/photos.qmd">source code</a></p></li>
+<li><p>Also see <a href="https://github.com/quarto-ext/lightbox?tab=readme-ov-file">lightbox tool</a></p></li>
+<li><p><strong>Design</strong>: <a href="https://github.com/quarto-ext/lightbox?tab=readme-ov-file">hamada hideaki</a></p></li>
 </ol>
 </section>
 <section id="apply-javascript" class="level3">
@@ -265,13 +265,13 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">include-after-body</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">- </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="ch">|</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;script src="gallery.js"&gt;&lt;/script&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>I asked <a href="https://perplexity.ai" target="_blank">Perplexity</a> a lot while constructing my site, I really have no idea in front end development, but I do recommend Perplexity for coding and information searching – it is really powerful.</p></li>
+<li><p>I asked <a href="https://perplexity.ai">Perplexity</a> a lot while constructing my site, I really have no idea in front end development, but I do recommend Perplexity for coding and information searching – it is really powerful.</p></li>
 </ul>
 </section>
 <section id="important-assets-management" class="level3">
 <h3 class="anchored" data-anchor-id="important-assets-management">2024/07/22 !important: Assets management</h3>
 <ul>
-<li><p>For everyone have assets in their webstie, spend some time reading <a href="https://quarto.org/docs/websites/website-tools.html#site-resources" target="_blank">Quarto documentation</a>.</p></li>
+<li><p>For everyone have assets in their webstie, spend some time reading <a href="https://quarto.org/docs/websites/website-tools.html#site-resources">Quarto documentation</a>.</p></li>
 <li><p>I was confused as hell today as every time I run <code>$ quarto render</code> it just delete every image I stored under <code>_site/</code>, then I realized that the way I managed the assets must not have been legitimate. So even though this took me whole night to figure out but it certainly prevented a huge mess up in the foreseeable future.</p></li>
 <li><p>Briefly, put all assets file outside the output file and manage as you want, but specify them in <code>_quarto.yml</code> using ‘resource’ option, incase you somehow not direclty linked them (e.g.&nbsp;my gallery’s full-screen view calls images via JavaScript). Everything under ‘resource’ option will be forcibly exported by quarto in its output and could be used normally by html files. I think this should be the most reasonable way that won’t mess up in the future.</p></li>
 <li><p>Honestly, I rolled back like 5 times this evening to find this out.</p></li>
@@ -283,9 +283,9 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <li><p>AI can’t 100% take over to build your site for you. I struggled since a few days with the footer, the main problem was:</p>
 <ul>
 <li><p>Quarto has its own footer options in <code>_quarto.yml</code>: <code>page-footer</code>, <code>body-footer</code> or <code>margin-footer</code>, but they are all website-wide, and it can’t be turned off locally (<code>page-footer: false</code> yaml header somehow does not work, I don’t know if it is a bug or intended). As you see, it is not optimal for me since I have several highly customized pages (index, gallery)</p></li>
-<li><p>The alternative is to build the footer directly with html. But if you want to keep the project tidy and clean, the best way is to create the footer separately in one file and assign it via <code>_metadata.yml</code>, otherwise it will be a catastrophe if I want to change the footer across website in a later point. And this, my friend, is a horrible quest for someone who has no idea about html, because you can encounter numerous strange problems like footer completely destroy quarto’s default layout or forcibly expanding page height and show unnessary scroller, etc. But I found <a href="https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide#add-a-footer-below-blog-posts" target="_blank">this</a> and modified upon it. I totally love it. Now I can put anything I want in the footer and even make variations of it.</p></li>
+<li><p>The alternative is to build the footer directly with html. But if you want to keep the project tidy and clean, the best way is to create the footer separately in one file and assign it via <code>_metadata.yml</code>, otherwise it will be a catastrophe if I want to change the footer across website in a later point. And this, my friend, is a horrible quest for someone who has no idea about html, because you can encounter numerous strange problems like footer completely destroy quarto’s default layout or forcibly expanding page height and show unnessary scroller, etc. But I found <a href="https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide#add-a-footer-below-blog-posts">this</a> and modified upon it. I totally love it. Now I can put anything I want in the footer and even make variations of it.</p></li>
 </ul></li>
-<li><p><a href="https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss" target="_blank">SCSS Variable List</a></p></li>
+<li><p><a href="https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss">SCSS Variable List</a></p></li>
 </ul>
 </section>
 <section id="custom-background" class="level3">
@@ -340,8 +340,8 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="page-and-project-path">2024/07/28 404 page and project path</h3>
 <ul>
 <li>Following up last point, I ran into an even weirder situation while designing 404 page (type whatever under my site to see it). I wanted to use custom background but the problem is 404 page could be rendered everywhere at any depth as the user ran into invalid address. Which means the image I use is at different relative location to the rendered 404 page.</li>
-<li>I found <a href="https://github.com/quarto-dev/quarto-cli/issues/5284#issuecomment-1533526078" target="_blank">this discussion</a> and one of the developer stated that we can use project path (same as the one mentioned in the last point) in yaml header, but it seems not be a simple <code>/</code> but rather a <code>./</code>, but I am not hundred percent sure.</li>
-<li>I also found <a href="https://github.com/quarto-dev/quarto-cli/issues/3788" target="_blank">this issue</a> and it further confused me plus it’s been labeled as a future feature that has been delayed twice, so I gave up with this.</li>
+<li>I found <a href="https://github.com/quarto-dev/quarto-cli/issues/5284#issuecomment-1533526078">this discussion</a> and one of the developer stated that we can use project path (same as the one mentioned in the last point) in yaml header, but it seems not be a simple <code>/</code> but rather a <code>./</code>, but I am not hundred percent sure.</li>
+<li>I also found <a href="https://github.com/quarto-dev/quarto-cli/issues/3788">this issue</a> and it further confused me plus it’s been labeled as a future feature that has been delayed twice, so I gave up with this.</li>
 <li>Weird thing is, I somehow couldn’t use project path within the html, so I ended up with a JS script that can generate a relative path. For now I embeded it in the <code>theme/bg-red-plane-2.html</code> since I don’t need it anywhere else so I don’t want to touch it. If you also have similar problem, maybe check it out.</li>
 </ul>
 </section>
