@@ -13,11 +13,12 @@
 }
 
 :root {
-    font-size: 14px;
+    /* font-size: 12px; */
+    font-weight: 300;
 }
 
 body {
-    font-size: 14px;
+    /* font-size: 12px; */
     padding-bottom: 1.1em;
 }
 
