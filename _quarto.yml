@@ -61,5 +61,6 @@ format:
       dark: [theme/global-setting.scss, theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
     css:
       - theme/global.css
+    fontsize: 14px
 execute: 
   freeze: auto

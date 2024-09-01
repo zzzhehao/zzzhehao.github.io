@@ -8,7 +8,7 @@ format:
 
 "I don’t know why I came. I just ended up here. And I am happy with it. "
 
-![Me being happy in the wild](/assets/images/hu-happy-in-wild.jpg.jpg){width="45%"}
+![Me being happy in the wild](/assets/images/hu-in-heath-cropped.jpg){width="45%"}
 
 ## Was it my choice, or my fate?
 
