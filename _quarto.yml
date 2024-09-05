@@ -19,7 +19,7 @@ website:
   description: "Zhehao Hu's Personal Website"
   draft-mode: unlinked
   google-analytics: "G-R0FB3TL998"
-  
+
   navbar: 
     left: 
       - text: "Photography"
@@ -61,6 +61,5 @@ format:
       dark: [theme/global-setting.scss, theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
     css:
       - theme/global.css
-    fontsize: 14px
 execute: 
   freeze: auto

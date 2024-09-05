@@ -6,19 +6,20 @@
     color: var(--normal-text-color);
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+    align-items: center;
 }
 
 .description {
     display: none;
 }
 
-:root {
-    /* font-size: 12px; */
+/* :root {
+    font-size: 12px;
     font-weight: 300;
 }
 
 body {
-    /* font-size: 12px; */
+    font-size: 12px;
     padding-bottom: 1.1em;
 }
 
@@ -43,4 +44,4 @@ h4 {
 div.tippy-box {
     border-color: var(--normal-text-color) !important;
     background-color: var(--background-color);
-}
+} */
