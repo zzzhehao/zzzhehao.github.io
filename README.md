@@ -14,6 +14,7 @@ I use [Quarto](https://quarto.org) to build this website. There are many [beauti
 Extensions used here are listed as below:
 
 - [openlinksinnewpage](https://github.com/davidwilby/openlinksinnewpage) by davidwilby
+- [closeread](https://github.com/qmd-lab/closeread#readme) by qmd-lab
 
 ### Tips and Notes
 

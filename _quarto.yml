@@ -8,6 +8,7 @@ project:
     - "*"
     - "!comments/*"
   execute-dir: project
+  output-dir: _site
 
 bibliography:
   - ../../Obsidian/Cafe AgX HQ 2.0/003 Management/Research & Career/research-writing/bib/biology-research.bib
@@ -62,4 +63,4 @@ format:
     css:
       - theme/global.css
 execute: 
-  freeze: auto
+  freeze: false

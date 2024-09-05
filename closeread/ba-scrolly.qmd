@@ -1,0 +1,35 @@
+---
+title: "All-female beetles and Wolbachia"
+lightbox: false
+format: 
+    closeread-html:
+        remove-header-space: true
+        css: 
+            - /theme/closeread/closeread.css
+---
+
+:::{.epigraph}
+# All-female beetles and Wolbachia
+
+Sometimes, biological research can be difficult to understand, and also difficult to explain, especially for those who don't work in the related fields. Even for people with proficiency under the same roof "Biology", the topics can also be completely poles apart. 
+
+Here, I will try to use easy terms, and method called "scrollytelling", to tell you what I did in my bachelor thesis. 
+:::
+
+:::{.cr-section}
+
+Imaging, in a sunny day at spring, we went for a comfortable hike outside Hamburg ... [@cr-meadow]
+
+:::{#cr-meadow}
+![](https://www.elbetal-mv.de/fileadmin/_processed_/b/8/csm_Brodarer_Brack_Elbe_A_Hollerbach_2a424fdcbc.jpg){width="350px"}
+:::
+
+There was a river flowing through the meadow, the weather has been warmed up for few weeks. We saw a tall bushed by the river [@cr-epilobium], with some beautiful pink flowers blooming on it.
+
+:::{#cr-epilobium}
+![](https://i0.wp.com/jeremybartlett.co.uk/wp-content/uploads/2022/08/aP8010050.jpg?qw=1000&ssl=1){width="350px"}
+:::
+
+And when we look closer ..
+
+:::
