@@ -13,6 +13,7 @@ format:
             height: 100%;
             margin: 0;
             padding: 0;
+            font-size: 1.2rem;
           }
           a {
             color: #F2E6DF;
@@ -51,9 +52,9 @@ format:
   
 <!-- Left part -->
 <div style="width: 100%;">
-  <span style="font-size:3rem;line-height:0.7">Zhehao Hu</span>
+  <span style="font-size:4rem;line-height:0.7">Zhehao Hu</span>
 
-  <span style="font-size:0.9rem">Read. Think. Write.</span>
+  <span style="font-size:1.2rem">Read. Think. Write.</span>
 
   <br><br>
 
