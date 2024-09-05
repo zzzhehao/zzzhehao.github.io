@@ -1,38 +1,60 @@
 ---
-title: "Community Ecology - Niche Overlap Analysis using stable isotope data and nicheROVER"
+title: Niche Overlap Analysis using stable isotope data and nicheROVER
 draft: true
-abstract: "Stable isotope analysis (SIA) provides numerous information while assessing species' ecological niche, the R package *nicheROVER* offers an insightful analysis using stable isotope data."
-execute: 
+abstract: Stable isotope analysis (SIA) provides numerous information while assessing species' ecological niche, the R package *nicheROVER* offers an insightful analysis using stable isotope data.
+categories:
+  - Ecology
+  - Community Ecology
+  - Data Analysis
+  - Multivariate Analysis
+filters:
+  - openlinksinnewpage
+execute:
   echo: true
+number headings: auto, first-level 3, max 4, 2
 ---
 
+<br>
+
 ::: {.disclaimer}
-This is a note from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). Source code available at [github.com](https://github.com/zzzhehao)
+This is a note from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). 
 :::
 
-<!-- ## Niche Region and Niche Overlap Metrics -->
+<br>
 
-## `nicheROVER::`
+## Niche Overlap
 
-The package `nicheROVER` provides a new probabilistic method for quantifing n-dimensional ecological niche and niche overlap [@swanson2015]. The script demonstrated here is written by Martin Lysy, Heidi Swanson (see [here](https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html)). It was also used in the paper [@swanson2015] for the method demonstration.  
+In my previous note, [Ecological Niche](/biology-research/community-ecology/Ecological-Niche.qmd), we talked about the basic ideas about the ecological niche and niche overlap. Understanding the niche overlap pattern, both intraspecific and interspecific, can help us obtain more insight into many topics, such as:
 
-`fish` is a **fish stable isotope dataset** integrated in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four arctic fish species (ARCS, BDWF, LKWF, LSCS), more details can befound from the documentation (`?fish`) or in the publication.
+Evolutionary:
+
+- **Sexual Dimorphism** by study difference in resource utilizing between males and females of the same species.
+- **Speciation Process** by study niche partitioning between sister taxa or subspecies.
+
+Conservation:
+
+- **Impact of the Invasive Species** by looking at the niche overlap between native and invasive species.
+- **Ecological Guild** by understanding niche overlap within a group sharing same or similar functional trait (e.g. pollinator communities).
+
+However, comparing niches among multiple species is challenging, as I mentioned already, since the ecological data are almost always multidimensional.
+
+## `nicheROVER`
+
+The package `nicheROVER` provides a new probabilistic method for quantifying n-dimensional ecological niche and niche overlap [@swanson2015]. The script demonstrated here is written by Martin Lysy, Heidi Swanson (see [here](https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html)), also used in the publication for the method demonstration.  
+
+`fish` is a **fish stable isotope dataset** coming along in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four arctic fish species (ARCS, BDWF, LKWF, LSCS), more details can be found from the documentation (`?fish`) or in the publication.
 
 ```{r}
 #| label: setup
 #| echo: false
 #| output: false
-pacman::p_load(c("rmarkdown", "knitr"), character.only = TRUE)
-path <- "/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology"
-knitr::opts_knit$set(root.dir=path) # Use proj wd (effects from next chunk)
-# knitr::opts_chunk$set(fig.align = 'center')
+pacman::p_load(c("rmarkdown", "knitr", "tidyverse", "nicheROVER", "gtsummary"), character.only = TRUE)
 ```
 
 ```{r}
 library(nicheROVER)
 data(fish)
 ```
-
 
 ```{r}
 #| echo: false
@@ -42,78 +64,89 @@ data(fish)
 paged_table(fish)
 ```
 
-## Why using SIA?
+## What is SIA?
 
 **Stable isotope analysis (SIA)** is a powerful tool in ecological niche analysis. Many physicochemical and biochemical processes are sensitive to differences in the dissociation energies of molecules, which often depend on the mass of the elements from which these molecules are made. Thus, the isotopic composition of many materials (expressed as $\delta$-values), including the tissues of organisms, often contains a label of the process that created it [@newsome2007a]. These "signatures" provides detailed insights into their ecological roles and interactions.
 
-| Gradient           | Isotope system                                     | High $\delta$-values | Low $\delta$-values  |
-|------------------|------------------|------------------|------------------|
-| Trophic level      | $\delta ^{13} C$/$\delta ^{15} N$                  | High levels          | Low levels           |
-| C3-C4 Vegetation   | $\delta ^{13} C$                                   | C<sub>4</sub> plants | C<sub>3</sub> plants |
-| Marine-terrestrial | $\delta ^{15} N$/$\delta ^{13} C$/$\delta ^{34} S$ | High levels          | Low levels           |
+| Gradient                               | Isotope system                                     | High $\delta$-values | Low $\delta$-values  |
+| -------------------------------------- | -------------------------------------------------- | -------------------- | -------------------- |
+| Trophic level                          | $\delta ^{13} C$/$\delta ^{15} N$                  | High levels          | Low levels           |
+| C<sub>3</sub>-C<sub>4</sub> Vegetation | $\delta ^{13} C$                                   | C<sub>4</sub> plants | C<sub>3</sub> plants |
+| Marine-terrestrial                     | $\delta ^{15} N$/$\delta ^{13} C$/$\delta ^{34} S$ | High levels          | Low levels           |
 
-: A few common isotope system and expected patterns in $\delta$-values, subsetted from [@newsome2007a] {#tbl-SIAs}
+: A few common isotope systems and expected patterns in $\delta$-values, subsetted from [@newsome2007a] {#tbl-SIAs}
 
-**Reading list for more details in isotopic and atomic ecology**:
+<br>
 
--   @newsome2007a
--   @michel2021
--   @moyo2021
--   @2024
+::: {.callout-note title="For more information about isotopic and atomic ecology" collapse="true"}
 
-## Terminologies
+- @newsome2007a
+- @michel2021
+- @moyo2021
+- @2024
 
-Before we start analyzing our data, there are some concepts and prior knowledge need to be checked:
+:::
 
-### Covariance, covariance matrix
+## Statistic Priors
 
-**Covariance** is a measure of the joint variability of two variables, the sign of the covariance shows the tendency, i.e. one of the three possible linear relationshipss between two variables, which are:
-
--   negative linear relationship, covariance is \< 0
--   no linear relationship, covariance is around 0
--   positive linear relationship, covariance is \> 0
-
-The variance is a special case of the covariance in which the two variables are identical. The covariance itself is sensitive to the scale of the data, and it does not provide information of in what extent the two variables correlate with each other and how well the linear correlation fits the data. All these characteristics make covariance difficult to interpret, but it has become an important step stone for many interesting subsequent analysis, such as PCA, correlation analysis, etc..
-
-A **covariance matrix** is a square matrix giving the covariance between each pair of elements, which is always symmetric and the diagonal elements present the variance of each variable.
-
-For more information about covariance:
-
--   [StatQuest](https://www.youtube.com/watch?v=qtaqvPAeEJY) on YouTube (simply and clearly explained)
+Before we start analyzing our data, there are some concepts and prior knowledge need to be checked. Since this is the first note associating with statistics in my post, I will elaborate things a bit more detailed.
 
 ### Bayesian statistics
 
-@vandeschoot2021 described the very foundation idea of the bayesian statistics as following:
+@vandeschoot2021 described the very foundation idea of the Bayesian statistics as following:
 
 Bayesian statistics is an approach to data analysis based on Bayes' theorem, where available knowledge about parameters in a statistical model is updated with the information in observed data. The background knowledge is expressed as a **prior** distribution and combined with observational data in the form of a likelihood function to determine the **posterior distribution**.
 
-The bayesian statistics based on the **Bayes' theorem**, which is mathematically stated as following:
+The Bayesian statistics is based on the **Bayes' theorem**, which is mathematically stated as following:
 
 $$
 P(A|B)=\frac{P(B|A)P(A)}{P(B)}
 $$
 
-where $A$ and $B$ are events and $P(B)\neq 0$,
+where,
 
--   $P(A|B)$: the probability of event $A$ occurring given that $B$ is true. It is also called the **posterior probability** (briefly *posterior*) of $A$ given $B$.
--   $P(B|A)$ is also a conditional probability: the probability of event $B$ occurring given that $A$ is true. It can also be interpreted as the likelihood of $A$ given a fixed $B$ because $P(B|A)=L(A|B)$. ($L$: likelihood)
--   $P(A)$ and $P(B)$ are the probabilities of observing $A$ and $B$ respectively without any given conditions; they are known as the **prior probability** and marginal probability.
+- $A$ and $B$ are events and $P(B)\neq 0$,
+- $P(A|B)$: the probability of event $A$ occurring given that $B$ is true. It is also called the **posterior probability** (briefly *posterior*) of $A$ given $B$.
+- $P(B|A)$ is also a conditional probability: the probability of event $B$ occurring given that $A$ is true. It can also be interpreted as the likelihood of $A$ given a fixed $B$ because $P(B|A)=L(A|B)$. ($L$: likelihood)
+- $P(A)$ and $P(B)$ are the probabilities of observing $A$ and $B$ respectively without any given conditions; they are known as the **prior probability** and marginal probability.
 
-### Further useful concepts:
+#### Why Bayesian Statistics?
 
--   Multivariate probability distribution
--   Random vector
+Bayesian statistics is a whole other framework and approach on statistical analysis by putting the Bayes' theorem at the center. Both classical and Bayesian inference, while trying to modelling data, have advantages and disadvantages of each. Bayesian inference is generally employed whenever uncertainty comes to play:
 
-## Simulating random data
+::: {.mini}
 
-First of all, let's take a view of isotope data of each species:
+There is also a practical advantage of the Bayesian approach, which is that all its inferences are probabilistic and thus can be represented by random simulations. For this reason, whenever we want to summarize uncertainty in estimation beyond simple confidence intervals, and whenever we want to use regression models for predictions, we go Bayesian.
 
-```{r}
-aggregate(fish[2:4], fish[1], mean)
-aggregate(fish[2:4], fish[1], sd)
-```
+― @gelman2024, P. 16
 
-The script uses `niw.post()` (random drawing from the posterior distribution with the Normal-Inverse-Wishart prior) to draw simulated data points.
+:::
+
+This is also what Swanson et al. did in [their study](https://wiley.scienceconnect.io/api/oauth/authorize?ui_locales=en&scope=affiliations+alm_identity_ids+login_method+merged_users+openid+settings&response_type=code&redirect_uri=https%3A%2F%2Fesajournals.onlinelibrary.wiley.com%2Faction%2FoidcCallback%3FidpCode%3Dconnect&state=Dps2IO0LOrpSUAYYguc7KjWtugvQmVzeoFmBBK5xyJkimazfO9eomBnInj8FZuI%2F8jXRwy97RozJvLfX0bfaa%2BDV9o8yOFGm%2BJWd4V7EfGEWlrAZpWhHSMRtRE1u3t3vFzi7DuucTU%2F6nmD7Q4gThQ%3D%3D&prompt=none&nonce=gWwRPq7voj4LDNu9cEjyD%2FAEERbNk7ZSuToMur%2FOrmI%3D&client_id=wiley). They adopt the Bayesian framework by assuming a multivariate normal and utilizing Normal-Inverse-Wishart distribution while calculating posterior. To understand this, we still need several concepts checked.
+
+### Random Vector and Multivariate Normal Distribution
+
+Given an individual statistical unit, in our case, the niche described by three isotope ratios, a random vector is a group of variables that describes this mathematical system. Which is again, in our case, those three values of the isotope ratio. The distribution of each component of the random vector together forms a **multivariate distribution**. 
+
+When dealing with univariate analysis, we often assume that the variable is normally distributed (at least in our null hypotheses). We do things likewise even with multivariate analysis. The **multivariate normal distribution** is a generalization of the univariate (one-dimensional) normal distribution into higher dimensions, but it's not as simple as all components of the random vector being normal. It also requires every linear combination of arbitrary two components in the system being normally distributed (bivariate normal distribution), which is not always true even every single variable is normal on their own. And here comes the covariance matrix into play, since a normal distribution is defined by two variables, mean and standard deviation (sd), in which the latter is simply the square root of the variance.
+
+### Covariance and covariance matrix
+
+**Covariance** is a measure of the joint variability of two variables, the sign of the covariance shows the tendency, i.e. one of the three possible linear relationships between two variables, which are:
+
+- negative linear relationship, covariance is \< 0
+- no linear relationship, covariance is around 0
+- positive linear relationship, covariance is \> 0
+
+The variance is a special case of the covariance in which the two variables are identical. The covariance itself is sensitive to the scale of the data, and it does not provide information of in what extent the two variables correlate with each other and how well the linear correlation fits the data. All these characteristics make covariance difficult to interpret, but it has become an important step stone for many interesting subsequent analysis, such as PCA, correlation analysis, etc.
+
+A **covariance matrix** is a square matrix giving the covariance between each pair of elements, which is always symmetric, and the diagonal elements present the variance of each variable.
+
+::: {.callout-note title="For more information about covariance"}
+
+- [StatQuest](https://www.youtube.com/watch?v=qtaqvPAeEJY) on YouTube (simply and clearly explained)
+
+:::
 
 ### Normal-Inverse-Wishart (NIW) distribution
 
@@ -138,6 +171,15 @@ The normal-inverse-Wishart (NIW) distribution is commonly used as a prior distri
 **My explanation of this formula**:
 
 The probability of finding a specie given a **normal distribution** ($N$) of $\mu$ as niche parameter mean and $\Sigma$ as niche parameter covariance.
+
+## Simulating random data
+
+First, let's take a view of isotope data of each species:
+
+```{r}
+aggregate(fish[2:4], fish[1], mean)
+aggregate(fish[2:4], fish[1], sd)
+```
 
 ### Drawing with `niw.post()`
 
@@ -185,6 +227,9 @@ legend("topleft", legend = names(fish.par), fill = clrs)
 ## 2-d projection of a subset of a niche region
 
 ```{r fig.height=9, fig.width=9, fig.align="center"}
+#| label: niche.plot
+#| fig-cap: (I believe the same plot in the publication was inappropriately labelled in a reversed order, where the $\delta ^{34} S$ plots here as well in the vignettes is labelled as $\delta ^{15} N$ in the publication, which does not agree with their discussion either)
+
 nsamples <- 10 
 fish.par <- tapply(1:nrow(fish), fish$species,
                    function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))
@@ -197,8 +242,7 @@ niche.plot(niche.par = fish.par, niche.data = fish.data, pfrac = .05,
            col = clrs, xlab = expression("Isotope Ratio (per mil)"))
 ```
 
+
+
 ## Benthic or pelagic fish???????
 
-According to @newsome2007a in table 1, also (find another source, maybe @duffilltelsnig2019), we can use isotope system $\delta^{13}C$ and $\delta^{34}$S to estimate in which water column the species live. Comparing the estimated niche described by $\delta^{13}$C and $\delta^{34}$S of ARCS and BDWF, we see ARCS has more narrow region with higher $\delta$ values, meanwhile BDWF has a broader range with much part of it having lower $\delta$ values.
-
-By searching for available ecological data of these two species, we knoe ARCS typically inhabits shallow coastal waters, while BDWF is a clear bottom feeder.
