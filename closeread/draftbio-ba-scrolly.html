@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
-<meta name="dcterms.date" content="2024-09-06">
 
-<title>Posts – Zhehao Hu</title>
+<title>All-female beetles and Wolbachia – Zhehao Hu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -32,19 +50,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
+<script src="../site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
+<script src="../site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,35 +89,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-R0FB3TL998"></script>
 
 <script type="text/javascript">
@@ -110,46 +98,19 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
+<meta name="quarto:status" content="draft">
+<meta cr-debug-mode="false">
+<meta cr-remove-header-space="true">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../theme/global.css">
-<link rel="stylesheet" href="../theme/text-justify.css">
-<link rel="stylesheet" href="../theme/caption-center.css">
+<link rel="stylesheet" href="../site_libs/quarto-contrib/quarto-project/qmd-lab/closeread/closeread.css">
+<link rel="stylesheet" href="../theme/closeread/closeread.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -214,40 +175,31 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/zzzhehao" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
     <a href="https://instagram.com/zhehao.hu_" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-instagram"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="Ecology">Ecology</div></div></div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posts</h1>
+<h1 class="title">All-female beetles and Wolbachia</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 6, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -257,156 +209,142 @@ window.Quarto = {
 </header>
 
 
+<section id="all-female-beetles-and-wolbachia" class="level1 epigraph">
+<h1>All-female beetles and Wolbachia</h1>
+<p>Sometimes, biological research can be difficult to understand, and also difficult to explain, especially for those who don’t work in the related fields. Even for people with proficiency under the same roof “Biology”, the topics can also be completely poles apart.</p>
+<p>Here, I will try to use easy terms, and method called “scrollytelling”, to tell you what I did in my bachelor thesis.</p>
+</section>
+<div class="cr-section column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-meadow">
+<div class="narrative">
+<p><br> Imaging, in a sunny day at spring, we went for a comfortable hike outside Hamburg …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-epilobium">
+<div class="narrative">
+<p>There was a river flowing through the meadow, the weather has been warmed up for few weeks. We saw a tall bush by the river, with some beautiful pink flowers blooming on it.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p>And when we look closer …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-altica-wild">
+<div class="narrative">
+<p>We saw some dark, shiny little beetles sitting on the leaves.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-nadein2016">
+<div class="narrative">
+<p>We looked into the literature, it turns out this beetle should be <em>Altica lythri</em>, belongs to a family of beetles who are absolute experts of jumping.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p>We wanted to know more about them, so we took some beetles back to the lab, separated them by their sex - female and male.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-prim-sexdis">
+<div class="narrative">
+<p>A reasonable sex ratio around 1:1, as one will expect.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-dnabarcoding">
+<div class="narrative">
+<p>Then, we tested their genetic identity with DNA-Barcoding. Which means a specific gene section was compared within the group, and with related species.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p>But, it tells us something unexpected …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-mammals">
+<div class="narrative">
+<p>Normally, if we talk about a <strong>monophyletic</strong> group (what a “species” should be),</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-pan-to="-40%, 50%" data-focus-on="cr-mammals" data-scale-by="1.7" data-crop="31%, 0%, 0%, 70%">
+<div class="narrative">
+<p>we will expect their genes to be very similar within the group, coming from the same ancestor …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-pan-to="0%, -40%" data-focus-on="cr-mammals" data-scale-by="1" data-crop="0%, 63%, 0%, 0%">
+<div class="narrative">
+<p>And show a distinct difference towards others.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-jackel2013">
+<div class="narrative">
+<p>In our case, <em>A. lythri</em> (<strong>L</strong>) forms multiple trees with other related species. We call such subgroups of one species <strong>haplotypes</strong>. <span style="color: grey; font-size=10px"><span class="citation" data-cites="jackel2013">Jäckel, Mora, and Dobler (<a href="#ref-jackel2013" role="doc-biblioref">2013</a>)</span></span></p>
+</div>
+</div>
+<div class="trigger new-trigger" data-crop="45%, 26%, 30%, 45%" data-focus-on="cr-jackel2013">
+<div class="narrative">
+<p>Such as the HT1 …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-crop="45%, 0%, 30%, 79%" data-focus-on="cr-jackel2013">
+<div class="narrative">
+<p>A similar, but different haplotype, HT1* …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-crop="0%, 25%, 65%, 23%" data-focus-on="cr-jackel2013">
+<div class="narrative">
+<p>HT2 …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-crop="40%, 73%, 35%, 0%" data-focus-on="cr-jackel2013">
+<div class="narrative">
+<p>and HT3 …</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-jackel2013">
+<div class="narrative">
+<p>Evolutionary speaking, these haplotypes have different histories, we have to treat them as different. So we tested their sex ratios again, but within each haplotype this time.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-meadow" class="sticky">
+<p><img src="https://www.elbetal-mv.de/fileadmin/_processed_/b/8/csm_Brodarer_Brack_Elbe_A_Hollerbach_2a424fdcbc.jpg" class="img-fluid" width="350"></p>
+</div>
+<div id="cr-epilobium" class="sticky">
+<p><img src="https://i0.wp.com/jeremybartlett.co.uk/wp-content/uploads/2022/08/aP8010050.jpg?qw=1000&amp;ssl=1" class="img-fluid" width="350"></p>
+</div>
+<div id="cr-altica-wild" class="sticky">
+<p><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/41099607/original.jpeg" class="img-fluid" width="350"></p>
+</div>
+<div id="cr-nadein2016" class="sticky">
+<p><img src="ba-scrolly-assets/alticini-takingoff-nadein2016.png" class="img-fluid" width="350"></p>
+</div>
+<div id="cr-prim-sexdis" class="sticky">
+<p><img src="ba-scrolly-assets/prim-sexdis.png" class="img-fluid" width="350"></p>
+</div>
+<div id="cr-dnabarcoding" class="sticky">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/DNA_Barcoding.png/800px-DNA_Barcoding.png" class="img-fluid" width="350"></p>
+</div>
+<div id="cr-mammals" class="sticky">
+<p><img src="https://www.researchgate.net/publication/6594089/figure/fig4/AS:341632844091400@1458463025457/ML-Phylogenetic-Tree-of-Mammals-The-topology-and-branch-lengths-shown-here-are-based-on.png" class="img-fluid"></p>
+</div>
+<div id="cr-jackel2013" class="sticky">
+<p><img src="ba-scrolly-assets/jackel2013.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-jackel2013" class="csl-entry" role="listitem">
+Jäckel, Regina, Diana Mora, and Susanne Dobler. 2013. <span>“Evidence for Selective Sweeps by <span><em>Wolbachia</em></span> Infections: Phylogeny of <span><em>Altica</em></span> Leaf Beetles and Their Reproductive Parasites.”</span> <em>Molecular Ecology</em> 22 (16): 4241–55. <a href="https://doi.org/10.1111/mec.12389">https://doi.org/10.1111/mec.12389</a>.
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Ecology" data-listing-date-sort="1725640851000" data-listing-file-modified-sort="1725640851600" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1238">
-<div class="thumbnail">
-<p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
-<p class="card-img-top"><img src="community-ecology/assets/ecological-niche-cover.jpg" alt="Photo by McGill Library on Unsplash" style="height: 120px;"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">Ecological Niche</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
-Ecology
-</div>
-</div>
-<div class="listing-description">
-<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">The total of the adaptations of an organismic unit.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
-<div class="listing-date">
-September 6, 2024
-</div>
-<div class="listing-author">
-Zhehao Hu
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-    .contact-links {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .contact-links a {
-        flex: 1;
-        text-align: left;
-        font-size: 1rem;
-        color: #888;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-    }
-
-    .contact-links a:hover {
-        color: #f2a94f;
-    }
-
-    .contact-links a i {
-        margin-right: 10px;
-    }
-
-    @media (max-width: 720px) {
-        .contact-links {
-            justify-content: space-around;
-        }
-
-        .contact-links a {
-            flex: 0 1 auto;
-            text-align: center;
-        }
-
-        .contact-links a span {
-            display: none;
-        }
-
-        .contact-links a i {
-            margin-right: 0;
-        }
-    }
-</style>
-
-<!-- <div style="color: #333; padding: 20px 0;"> -->
-<div>
-    <hr>
-
-    <div style="
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    ">
-        <!-- Left: Logo -->
-        <div style="
-            flex-shrink: 0;
-            margin-right: 30px; /* Space between logo and content */
-            padding-left: 30px; /* Space between logo and left edge */
-        ">
-            <img src="../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
-        </div>
-
-        <!-- Right: Content -->
-        <div style="
-            flex: 1;
-            min-width: 250px; /* Ensures the content doesn't get too narrow */
-            font-size: 0.8rem;
-        ">
-        
-            <h5>Something you like? Reach out to me!</h5>
-            <div class="contact-links">
-                <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
-                <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
-                <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
-                <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
-            </div>
-            <hr>
-            
-            <p>Issues on the website?  <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
-            <p>© 2024 Zhehao Hu.</p>
-            
-            
-        </div>
-    </div>
-    <hr>
-</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -427,150 +365,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

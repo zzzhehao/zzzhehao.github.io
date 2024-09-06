@@ -1,40 +1,68 @@
 /* Closeread CSS styles */
 
+:root{
+    font-size: 1.2rem;
+    font-family: serif;
+}
+
 .cr-section.sticky-col.sticky-col-stack {
     transition:
     transform 3s ease-in-out !important;
 }
 
+.sidebar-left {
+    grid-template-columns: 1fr 1.3fr;
+}
+
 .cr-section .narrative-col {
-padding-left: 30px;
+    width: 100%;
+    padding-left: 30px;
 }
 
 .cr-section .sticky-col {
-padding-left: 30px;
-padding-right: 30px;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-:root{
-    font-size: 14px;
-    font-family: serif;
+/* Custom Cropping functions */
+.sticky-col .sticky {
+    overflow: hidden;
 }
+
+.cr-section .sticky-col .sticky {
+    transition: transform 3s ease-in-out;
+}
+
+.cr-section .sticky-col .sticky img {
+    transition: clip-path 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom */
+
+/* .cr-section .narrative-col .cus-note .narrative {
+    font-size: 0.5em !important;
+    color: gray;
+} */
+
+/* Quarto */
 
 #quarto-content .cr-section .narrative-col .trigger {
-padding-top: 0;
-padding-bottom: 85svh;
+    padding-top: 0;
+    padding-bottom: 85svh;
 }
 
 /* A small subset of the official Tufte CSS styles */
 
 #quarto-content {
-font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antqua", Georgia, serif;
-background-color: #fffff8;
-color: #111;
-counter-reset: sidenote-counter;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antqua", Georgia, serif;
+    background-color: #fffff8;
+    color: #111;
+    counter-reset: sidenote-counter;
 }
 
 #quarto-content main#quarto-document-content {
-font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 #quarto-content main#quarto-document-content h1 {
@@ -171,3 +199,10 @@ font-size: 1.2rem;
     display: block;
 }
 
+/* Responsive */
+
+@media (max-width: 575.98px) {
+    :root {
+        font-size: 0.9rem;
+    }
+}

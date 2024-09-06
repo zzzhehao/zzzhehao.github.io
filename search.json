@@ -42,20 +42,6 @@
     "text": "Something else to read\n\nIn Memory of Eric Pianka, “The Lizard Man”: He Thought, He Cared, And He Tried"
   },
   {
-    "objectID": "biology-research/index.html",
-    "href": "biology-research/index.html",
-    "title": "Posts",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\n\n\nEcological Niche\n\n\n\n\n\n\nEcology\n\n\n\nThe total of the adaptations of an organismic unit.\n\n\n\n\n\nSeptember 2, 2024\n\n\nZhehao Hu\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "comments/scrollytelling.html",
-    "href": "comments/scrollytelling.html",
-    "title": "Scrollytelling",
-    "section": "",
-    "text": "I began looking into this after being inspired by Andrew Bray and tried out closeread. Its a quite innovative method in story-telling and I think it can be more effectively locking audience’s attention.\nHowever, since closeread is currently (2024/09/05, ver 0.7.0) is still in earch developing, it’s still quite a mess. Several things I encountered on my first day trying this:\n\nYou can’t use image caption, otherwise the image will be rendered as a quarto object, the closeread formatting will no longer apply to them.\nThere’s a very weired compatibility issue with Quarto file structure, I am not 100% sure for the cause, but I noticed if I put a qmd file using closeread custom html as output format under a folder, which was already existing before the extension was installed, it will produce an error while previewing or rendering, saying that the renaming event is failed because the path is not found (the origin or the destination? IDK). If manually, we can try a second attempt without any modification and it will work, but when rendering the whole site, this error kills the process. But all things will work out if you put the file under a new folder, or directly under the root folder.\nI am not reporting this, because I still can’t really reproduce the issue with another minimal Quarto project, which means there might be another issue source in my website that I haven’t identified. 🤷‍♂️"
-  },
-  {
     "objectID": "comments/website-construction.html",
     "href": "comments/website-construction.html",
     "title": "Comment",
@@ -70,11 +56,18 @@
     "text": "This comment points to some useful tips on the internet.\n\nList of tips, may be useful\nLet plot automatically change light/dark background"
   },
   {
-    "objectID": "closeread/ba-scrolly.html",
-    "href": "closeread/ba-scrolly.html",
-    "title": "All-female beetles and Wolbachia",
+    "objectID": "comments/scrollytelling.html",
+    "href": "comments/scrollytelling.html",
+    "title": "Scrollytelling",
     "section": "",
-    "text": "All-female beetles and Wolbachia\nSometimes, biological research can be difficult to understand, and also difficult to explain, especially for those who don’t work in the related fields. Even for people with proficiency under the same roof “Biology”, the topics can also be completely poles apart.\nHere, I will try to use easy terms, and method called “scrollytelling”, to tell you what I did in my bachelor thesis.\n\n\n\n\n\nImaging, in a sunny day at spring, we went for a comfortable hike outside Hamburg …\n\n\n\n\nThere was a river flowing through the meadow, the weather has been warmed up for few weeks. We saw a tall bushed by the riverwith some beautiful pink flowers blooming on it.\n\n\n\n\nAnd when we look closer .."
+    "text": "I began looking into this after being inspired by Andrew Bray and tried out closeread. Its a quite innovative method in story-telling and I think it can be more effectively locking audience’s attention.\nHowever, since closeread is currently (2024/09/05, ver 0.7.0) is still in earch developing, it’s still quite a mess. Several things I encountered on my first day trying this:\n\nYou can’t use image caption, otherwise the image will be rendered as a quarto object, the closeread formatting will no longer apply to them.\nThere’s a very weired compatibility issue with Quarto file structure, I am not 100% sure for the cause, but I noticed if I put a qmd file using closeread custom html as output format under a folder, which was already existing before the extension was installed, it will produce an error while previewing or rendering, saying that the renaming event is failed because the path is not found (the origin or the destination? IDK). If manually, we can try a second attempt without any modification and it will work, but when rendering the whole site, this error kills the process. But all things will work out if you put the file under a new folder, or directly under the root folder.\nI am not reporting this, because I still can’t really reproduce the issue with another minimal Quarto project, which means there might be another issue source in my website that I haven’t identified. 🤷‍♂️"
+  },
+  {
+    "objectID": "biology-research/index.html",
+    "href": "biology-research/index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\n\n\nEcological Niche\n\n\n\n\n\n\nEcology\n\n\n\nThe total of the adaptations of an organismic unit.\n\n\n\n\n\nSeptember 6, 2024\n\n\nZhehao Hu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "gallery/motion-pictures.html#alsterpark-2022",

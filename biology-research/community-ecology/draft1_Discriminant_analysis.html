@@ -8,9 +8,8 @@
 
 <meta name="author" content="Zhehao Hu">
 <meta name="dcterms.date" content="2024-09-06">
-<meta name="description" content="The total of the adaptations of an organismic unit.">
 
-<title>Ecological Niche – Zhehao Hu</title>
+<title>1 Discriminant analysis – Zhehao Hu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,9 +77,6 @@ div.csl-indent {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,36 +113,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
+<meta name="quarto:status" content="draft">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../theme/global.css">
 <link rel="stylesheet" href="../../theme/text-justify.css">
@@ -142,7 +124,7 @@ window.Quarto = {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -224,27 +206,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition">Definition</a></li>
-  <li><a href="#biological-meaning" id="toc-biological-meaning" class="nav-link" data-scroll-target="#biological-meaning">Biological Meaning</a>
-  <ul>
-  <li><a href="#hutchingsons-model-of-niche-as-a-hypervolume" id="toc-hutchingsons-model-of-niche-as-a-hypervolume" class="nav-link" data-scroll-target="#hutchingsons-model-of-niche-as-a-hypervolume">2.1 Hutchingson’s model of niche as a “<em>hypervolume</em>”</a></li>
-  <li><a href="#fundamental-niche-vs-realized-niche" id="toc-fundamental-niche-vs-realized-niche" class="nav-link" data-scroll-target="#fundamental-niche-vs-realized-niche">2.2 Fundamental niche <em>vs</em> Realized niche</a></li>
-  <li><a href="#niche-breadth" id="toc-niche-breadth" class="nav-link" data-scroll-target="#niche-breadth">2.3 Niche breadth</a>
-  <ul class="collapse">
-  <li><a href="#levins1966---niche-breadth-quantification" id="toc-levins1966---niche-breadth-quantification" class="nav-link" data-scroll-target="#levins1966---niche-breadth-quantification">2.3.1 <span class="citation" data-cites="levins1966">LEVINS (1966)</span> - Niche breadth quantification</a></li>
-  <li><a href="#between-or-within-phenotypes" id="toc-between-or-within-phenotypes" class="nav-link" data-scroll-target="#between-or-within-phenotypes">2.3.2 Between or within phenotypes</a></li>
-  </ul></li>
-  <li><a href="#niche-overlap" id="toc-niche-overlap" class="nav-link" data-scroll-target="#niche-overlap">2.4 Niche overlap</a>
-  <ul class="collapse">
-  <li><a href="#types-of-overlap" id="toc-types-of-overlap" class="nav-link" data-scroll-target="#types-of-overlap">2.4.1 Types of overlap</a></li>
-  <li><a href="#jacobs1974---electivity-index" id="toc-jacobs1974---electivity-index" class="nav-link" data-scroll-target="#jacobs1974---electivity-index">2.4.2 <span class="citation" data-cites="jacobs1974">Jacobs (1974)</span> - Electivity index</a></li>
-  <li><a href="#pianka1973---piankas-niche-overlap-index" id="toc-pianka1973---piankas-niche-overlap-index" class="nav-link" data-scroll-target="#pianka1973---piankas-niche-overlap-index">2.4.3 <span class="citation" data-cites="pianka1973">Pianka (1973)</span> - Pianka’s niche overlap index</a></li>
-  <li><a href="#winemiller1990---randomization-algorithm" id="toc-winemiller1990---randomization-algorithm" class="nav-link" data-scroll-target="#winemiller1990---randomization-algorithm">2.4.4 <span class="citation" data-cites="winemiller1990">Winemiller and Pianka (1990)</span> - Randomization algorithm</a></li>
-  </ul></li>
-  <li><a href="#use-of-niches-to-examine-distribution-and-abundance-of-species" id="toc-use-of-niches-to-examine-distribution-and-abundance-of-species" class="nav-link" data-scroll-target="#use-of-niches-to-examine-distribution-and-abundance-of-species">2.5 Use of niches to examine distribution and abundance of species</a></li>
-  </ul></li>
-  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a></li>
-  <li><a href="#something-else-to-read" id="toc-something-else-to-read" class="nav-link" data-scroll-target="#something-else-to-read">Something else to read</a></li>
+  <li><a href="#what-is-linear-discriminant-analysis-lda" id="toc-what-is-linear-discriminant-analysis-lda" class="nav-link active" data-scroll-target="#what-is-linear-discriminant-analysis-lda">What is Linear Discriminant Analysis (LDA)?</a></li>
+  <li><a href="#script-script_niche1.r" id="toc-script-script_niche1.r" class="nav-link" data-scroll-target="#script-script_niche1.r">Script <code>Script_niche1.R</code></a></li>
   </ul>
 </nav>
     </div>
@@ -253,17 +216,9 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ecological Niche</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Ecology</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    The total of the adaptations of an organismic unit.
-  </div>
+<h1 class="title">1 Discriminant analysis</h1>
 </div>
+
 
 <div class="quarto-title-meta-author">
   <div class="quarto-title-meta-heading">Author</div>
@@ -299,210 +254,58 @@ window.Quarto = {
 </header>
 
 
-<figure class="figure">
-<figcaption class="forward">
-The total of the adaptations of an organismic unit.
-</figcaption>
-</figure>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="assets/ecological-niche-cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by McGill Library on Unsplash"><img src="assets/ecological-niche-cover.jpg" class="preview-image no-lightbox img-fluid figure-img" style="width:75.0%" alt="Photo by McGill Library on Unsplash"></a></p>
-<figcaption>Photo by <a href="https://unsplash.com/@mcgilllibrary?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash" target="_blank">McGill Library</a> on <a href="https://unsplash.com/photos/two-brown-and-white-birds-perching-on-tree-branch-illustration-osPrIcTwJy4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash" target="_blank">Unsplash</a></figcaption>
-</figure>
+<section id="what-is-linear-discriminant-analysis-lda" class="level1">
+<h1>What is Linear Discriminant Analysis (LDA)?</h1>
+<p>A definition from <a href="https://www.ibm.com/docs/en/spss-statistics/beta?topic=features-discriminant-analysis" target="_blank">IBM</a>:</p>
+<p>Discriminant analysis builds a predictive model for group membership. The model is composed of a discriminant function (or, for more than two groups, a set of discriminant functions) based on linear combinations of the predictor variables that provide the best discrimination between the groups. The functions are generated from a sample of cases for which group membership is known; the functions can then be applied to new cases that have measurements for the predictor variables but have unknown group membership.</p>
+</section>
+<section id="script-script_niche1.r" class="level1">
+<h1>Script <code>Script_niche1.R</code></h1>
+<p>Import Data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#this is a way to open a datasheet using a txt file (which can be saved from excel)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>lizards<span class="ot">&lt;-</span>(<span class="fu">read.table</span>(<span class="st">"/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology/Practice/transect11_day.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#to see the data, click on it at the upper pannel on the right or use the command: </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list(lizards) #all the data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lizards) <span class="co">#just the first lines</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br><br></p>
-<section id="definition" class="level2">
-<h2 class="anchored" data-anchor-id="definition">Definition</h2>
-<p>Ecological niche is a term for the position of a species within an ecosystem, describing both the range of conditions necessary for persistence of the species, and its ecological role in the ecosystem.</p>
-<ul>
-<li>Subsumes all of the interactions between a species and the biotic and abiotic environment.</li>
-<li>Effected by food, space, and time.</li>
-</ul>
-</section>
-<section id="biological-meaning" class="level2">
-<h2 class="anchored" data-anchor-id="biological-meaning">Biological Meaning</h2>
-<p>Data on niches can be used to:</p>
-<ul>
-<li>Make comparisons of the composition and organization of communities.</li>
-<li>Examine shifts in the behavior or ecology of one species in response to another species.
-<ul>
-<li>Niche shifts are commonly used to study interspecific competition (see Gause’s Principle of Competitive Exclusion)</li>
-</ul></li>
-</ul>
-<section id="hutchingsons-model-of-niche-as-a-hypervolume" class="level3">
-<h3 class="anchored" data-anchor-id="hutchingsons-model-of-niche-as-a-hypervolume">2.1 Hutchingson’s model of niche as a “<em>hypervolume</em>”</h3>
-<p>Niches can be described or defined by relating <strong>fitness</strong> or <strong>utilization</strong> to environmental variable (abiotic and biotic).</p>
-<ul>
-<li>A range, given the conditions are defined by many axes, which defines the set of conditions under which the animal can survive and reproduce.</li>
-<li>We can easily illustrate a niche described by up to 3 variables (3-D space), but for fourth axes and onward, the result becomes a hypervolume.</li>
-</ul>
-<p><strong>Be aware</strong>:</p>
-<ul>
-<li>not all niche axes are environmental - some niche axes are behaviroal (e.g.&nbsp;noctural vs.&nbsp;diurnal)</li>
-<li>not all axes can be ordered linearly (e.g.&nbsp;types of antipredator behavior)</li>
-</ul>
-</section>
-<section id="fundamental-niche-vs-realized-niche" class="level3">
-<h3 class="anchored" data-anchor-id="fundamental-niche-vs-realized-niche">2.2 Fundamental niche <em>vs</em> Realized niche</h3>
-<ul>
-<li><strong>Fundamental niche</strong> (FN) is the entire set of conditions under which an animal (a population, a species) can survive and reproduce.</li>
-<li><strong>Realized niche</strong> (RN) is the set of condition <em>actually</em> used by given animal (a population, a species) after interactions with other species have been taken into account.</li>
-<li>FN ≥ RN</li>
-<li>RN may differ in populations, because of differences in competitors and predators.</li>
-</ul>
-</section>
-<section id="niche-breadth" class="level3">
-<h3 class="anchored" data-anchor-id="niche-breadth">2.3 Niche breadth</h3>
-<ul>
-<li><strong>Specialists</strong> have narrow niches, <strong>generalists</strong> have broad niches. These are however relative terms.</li>
-<li>Describes the endpoints of continuous variation in the degree of specialization in resource use, behavior, and physiology.</li>
-</ul>
-<section id="levins1966---niche-breadth-quantification" class="level4">
-<h4 class="anchored" data-anchor-id="levins1966---niche-breadth-quantification">2.3.1 <span class="citation" data-cites="levins1966">LEVINS (<a href="#ref-levins1966" role="doc-biblioref">1966</a>)</span> - Niche breadth quantification</h4>
-<p><span class="math display">\[B = \frac{1}{\sum{p_i^2}}\]</span></p>
-<ul>
-<li><span class="math inline">\(p_i\)</span> = proportion of individuals that use resource <span class="math inline">\(i\)</span></li>
-<li>Species that use many resources will have large value of <span class="math inline">\(B\)</span>, reflecting a generalist pattern of resource use.</li>
-</ul>
-</section>
-<section id="between-or-within-phenotypes" class="level4">
-<h4 class="anchored" data-anchor-id="between-or-within-phenotypes">2.3.2 Between or within phenotypes</h4>
-<ul>
-<li>Given known niche breadth of a population, it is however not necessarily clear how individuals within population use resources. There are possibly two patterns:
-<ul>
-<li>All individuals use entire niche of population, within-phenotype component of niche breadth is large</li>
-<li>Each individuals uses a narrow part of population’s niche, between-phenotype component of niche breadth is large.</li>
-</ul></li>
-<li>Individual’s niches may change dramatically during lifetime (e.g.&nbsp;metamorphosis, tadpoles are herbivores, frogs are carnivores)</li>
-</ul>
-</section>
-</section>
-<section id="niche-overlap" class="level3">
-<h3 class="anchored" data-anchor-id="niche-overlap">2.4 Niche overlap</h3>
-<section id="types-of-overlap" class="level4">
-<h4 class="anchored" data-anchor-id="types-of-overlap">2.4.1 Types of overlap</h4>
-<ul>
-<li>Coextensive, included, reciprocal overlap, asymmetric overlap</li>
-<li>Non-overlapping: abutting, disjunct</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="assets/type-of-niche-overlap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="[@creel2021]"><img src="assets/type-of-niche-overlap.png" class="img-fluid figure-img" style="width:75.0%" alt="(Creel 2021)"></a></p>
-<figcaption><em><span class="citation" data-cites="creel2021">(<a href="#ref-creel2021" role="doc-biblioref">Creel 2021</a>)</span></em></figcaption>
-</figure>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lizards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="jacobs1974---electivity-index" class="level4">
-<h4 class="anchored" data-anchor-id="jacobs1974---electivity-index">2.4.2 <span class="citation" data-cites="jacobs1974">Jacobs (<a href="#ref-jacobs1974" role="doc-biblioref">1974</a>)</span> - Electivity index</h4>
-<p>Electivity indices measure the utilization of food types in relation to their abundance or availability in the environment <span class="citation" data-cites="lechowicz1982">(<a href="#ref-lechowicz1982" role="doc-biblioref">Lechowicz 1982</a>)</span>.</p>
-<p><span class="math display">\[ D = \frac{r-p}{r+p-2rp}
-\]</span></p>
-<ul>
-<li><span class="math inline">\(R\)</span>: proportion of item used; <span class="math inline">\(P\)</span>: proportion of item available.</li>
-<li>Modified from forage ratio and Ivlev’s index (1961), Fig. 12 in <span class="citation" data-cites="jacobs1974">Jacobs (<a href="#ref-jacobs1974" role="doc-biblioref">1974</a>)</span>.</li>
-<li>Jacob’s index is independent of the relative abundance of food types in the environment.</li>
-<li>Also purposing <span class="math inline">\(log Q\)</span> index, both should be tested when <strong>a relation is studied between food selection and variables such as the relative abundance of food, light conditions, etc</strong>.</li>
-<li>Ranges from -1 to 1, where 0 as separator of positive or negative selection.</li>
-</ul>
-</section>
-<section id="pianka1973---piankas-niche-overlap-index" class="level4">
-<h4 class="anchored" data-anchor-id="pianka1973---piankas-niche-overlap-index">2.4.3 <span class="citation" data-cites="pianka1973">Pianka (<a href="#ref-pianka1973" role="doc-biblioref">1973</a>)</span> - Pianka’s niche overlap index</h4>
-<p>Modification of one presented in MacArthur &amp; Levins (1967).</p>
-<p><span class="math display">\[ O_{kj} = \frac{\sum p_{ij}p_{ik}}{\sqrt{\sum p^2_{ij}\sum p^2_{ik}}}
-\]</span></p>
-<p>This formula is symmetric, i.e.&nbsp;<span class="math inline">\(O_{jk} = O_{kj}\)</span> - <span class="math inline">\(P\)</span>: proportion of item <span class="math inline">\(i\)</span> used in relation to the total of items used by species <span class="math inline">\(j/k\)</span>.</p>
-</section>
-<section id="winemiller1990---randomization-algorithm" class="level4">
-<h4 class="anchored" data-anchor-id="winemiller1990---randomization-algorithm">2.4.4 <span class="citation" data-cites="winemiller1990">Winemiller and Pianka (<a href="#ref-winemiller1990" role="doc-biblioref">1990</a>)</span> - Randomization algorithm</h4>
-<p>While testing for the statistical significance related to niche overlap, the major challenge is that the null model is unknown, the niche overlaps are dependent on each party of the interactions. Thus as <span class="citation" data-cites="winemiller1990">Winemiller and Pianka (<a href="#ref-winemiller1990" role="doc-biblioref">1990</a>)</span> explained, the standard statistical tests cannot be applied to comparisons involving three or more species. To bypass this, an idea is to generate the null model from the limited data we can collect:</p>
-<div class="mini">
-<p>… generate different replicates of a randomized real system (i.e.&nbsp;pseudo-community, the null model) that can be constructed for comparison with an observed prototype.</p>
-<p>If say, 95 or 99 of 100 randomized pseudo-communities have mean niche overlaps greater than the observed, results are significant at the P &lt; .05 or P &lt; .01 level, respectively.</p>
+<p>To test if the datas are with equal variances, the test tests of the null that the variances in each of the groups are the same.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(lizards<span class="sc">$</span>distance <span class="sc">+</span> lizards<span class="sc">$</span>height <span class="sc">+</span> lizards<span class="sc">$</span>time <span class="sc">~</span> lizards<span class="sc">$</span>Species, <span class="at">data=</span>lizards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Such significance indicates that:</p>
+<p>P is way bigger than significance, not rejecting null, they have all equal variance.</p>
+<p>Now we do the LDA:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards, <span class="at">na.action=</span><span class="st">"na.omit"</span>, <span class="at">CV=</span><span class="cn">TRUE</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#na.action specifies what to do with variables with missing values. na.omit excludes samples with missing values and proceeds with the analyses.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if such samples exist but na.action is not specified, the analysis won't run (default option)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If CV = TRUE the return value is a list with components class, the MAP classification (a factor), and posterior, posterior probabilities for the classes.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>fit <span class="co"># show results </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ul>
-<li>Observed community exhibits a non-random pattern of resource utilization.</li>
-<li>Species in observed community are utilizing resources in a way that minimized competition.</li>
-<li>Evidence of niche differentiation or resource partitioning among the species in community.</li>
-<li>Evidence for competitive interactions shaping community structure or for past evolutionary adaptations.</li>
+<li>Posterior distribution is the mean value of the simulation.</li>
 </ul>
-<p>4 different algorithm:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 27%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Relaxed niche breadth</strong><br>(Sum value is redistributed)</th>
-<th><strong>Retained niche breadth</strong><br>(Values are shuffled, but not redistributed)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Zeros eliminated</strong><br>(categories with 0 are also reassigned with value)</td>
-<td>RA1</td>
-<td>RA3</td>
-</tr>
-<tr class="even">
-<td><strong>Zeros retained</strong><br>(categories with 0 are reassigned)</td>
-<td>RA2</td>
-<td>RA4</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="use-of-niches-to-examine-distribution-and-abundance-of-species" class="level3">
-<h3 class="anchored" data-anchor-id="use-of-niches-to-examine-distribution-and-abundance-of-species">2.5 Use of niches to examine distribution and abundance of species</h3>
-<p>See <span class="citation" data-cites="creel2021">Creel (<a href="#ref-creel2021" role="doc-biblioref">2021</a>)</span> for examples.</p>
-<p><strong>List of terms</strong>:</p>
-<ul>
-<li>Interspecific and intraspecific competition</li>
-<li>Niche expansion, niche contraction</li>
-<li>Competitive exclusion</li>
-<li>Character displacement</li>
-<li>Ghost of Competition Past</li>
-<li>Translocation experiments</li>
-</ul>
-</section>
-</section>
-<section id="acknowledgement" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h2>
-<p>I hereby express my thank to materials and examples from <span class="citation" data-cites="creel2021">Creel (<a href="#ref-creel2021" role="doc-biblioref">2021</a>)</span>, which provided comprehensive explanations to many concepts and helped me finish this note.</p>
-</section>
-<section id="something-else-to-read" class="level2">
-<h2 class="anchored" data-anchor-id="something-else-to-read">Something else to read</h2>
-<ul>
-<li><a href="https://ericpianka.com" target="_blank">In Memory of Eric Pianka, “The Lizard Man”: He Thought, He Cared, And He Tried</a></li>
-</ul>
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ct <span class="ot">&lt;-</span> <span class="fu">table</span>(lizards<span class="sc">$</span>Species, fit<span class="sc">$</span>class)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">prop.table</span>(ct, <span class="dv">1</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(<span class="fu">prop.table</span>(ct)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>sum</code> will give us the probability of getting a random lizard and assigning it to the correct species only based on its habitat use data #markTodo How? In another woord, this shows if the species have difference in using habitat, in our case, not. #markTodo but how is this value calculated</p>
+<p>Now we do the LDA again, but with <code>CV=FALSE</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">dimen =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use ggplot for visualization.</p>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-creel2021" class="csl-entry" role="listitem">
-Creel, Scott. 2021. <span>“Ecological <span>Niches</span>.”</span> <a href="https://www.montana.edu/screel/teaching/bioe-370/documents/Biol%20303%20niches.pdf">https://www.montana.edu/screel/teaching/bioe-370/documents/Biol%20303%20niches.pdf</a>.
-</div>
-<div id="ref-jacobs1974" class="csl-entry" role="listitem">
-Jacobs, Jürgen. 1974. <span>“Quantitative Measurement of Food Selection.”</span> <em>Oecologia</em> 14 (4): 413–17. <a href="https://doi.org/10.1007/BF00384581">https://doi.org/10.1007/BF00384581</a>.
-</div>
-<div id="ref-lechowicz1982" class="csl-entry" role="listitem">
-Lechowicz, Martin J. 1982. <span>“The Sampling Characteristics of Electivity Indices.”</span> <em>Oecologia</em> 52 (1): 22–30. <a href="https://doi.org/10.1007/BF00349007">https://doi.org/10.1007/BF00349007</a>.
-</div>
-<div id="ref-levins1966" class="csl-entry" role="listitem">
-LEVINS, RICHARD. 1966. <span>“<span>THE STRATEGY OF MODEL BUILDING IN POPULATION BIOLOGY</span>.”</span> <em>American Scientist</em> 54 (4): 421–31. <a href="http://www.jstor.org/stable/27836590">http://www.jstor.org/stable/27836590</a>.
-</div>
-<div id="ref-pianka1973" class="csl-entry" role="listitem">
-Pianka, Eric R. 1973. <span>“The <span>Structure</span> of <span>Lizard Communities</span>.”</span> <em>Annual Review of Ecology, Evolution, and Systematics</em> 4 (Volume 4, 1973): 53–74. <a href="https://doi.org/10.1146/annurev.es.04.110173.000413">https://doi.org/10.1146/annurev.es.04.110173.000413</a>.
-</div>
-<div id="ref-winemiller1990" class="csl-entry" role="listitem">
-Winemiller, Kirk O., and Eric R. Pianka. 1990. <span>“Organization in <span>Natural Assemblages</span> of <span>Desert Lizards</span> and <span>Tropical Fishes</span>.”</span> <em>Ecological Monographs</em> 60 (1): 27–55. <a href="https://doi.org/10.2307/1943025">https://doi.org/10.2307/1943025</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     .contact-links {
@@ -1156,38 +959,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

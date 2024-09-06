@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -35,13 +55,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
-<script src="../site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
-<script src="../site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,15 +97,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
-<meta cr-debug-mode="false">
-<meta cr-remove-header-space="true">
 
 
-<link rel="stylesheet" href="../site_libs/quarto-contrib/quarto-project/qmd-lab/closeread/closeread.css">
-<link rel="stylesheet" href="../theme/closeread/closeread.css">
+<link rel="stylesheet" href="../theme/global.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -163,12 +179,12 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -177,7 +193,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta">
 
     
   
@@ -194,39 +210,59 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <p>Sometimes, biological research can be difficult to understand, and also difficult to explain, especially for those who don’t work in the related fields. Even for people with proficiency under the same roof “Biology”, the topics can also be completely poles apart.</p>
 <p>Here, I will try to use easy terms, and method called “scrollytelling”, to tell you what I did in my bachelor thesis.</p>
 </section>
-<div class="cr-section column-screen sidebar-left">
-<div class="narrative-col">
-<div class="trigger new-trigger" data-focus-on="cr-meadow">
-<div class="narrative">
-<p>Imaging, in a sunny day at spring, we went for a comfortable hike outside Hamburg …</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-epilobium">
-<div class="narrative">
-<p>There was a river flowing through the meadow, the weather has been warmed up for few weeks. We saw a tall bushed by the riverwith some beautiful pink flowers blooming on it.</p>
-</div>
-</div>
-<div class="trigger">
-<div class="narrative">
-<p>And when we look closer ..</p>
-</div>
-</div>
-</div>
-<div class="sticky-col">
-<div class="sticky-col-stack">
-<div id="cr-meadow" class="sticky">
+<div class="cr-section">
+<p><br> Imaging, in a sunny day at spring, we went for a comfortable hike outside Hamburg … <span class="citation" data-cites="cr-meadow">(<a href="#ref-cr-meadow" role="doc-biblioref"><strong>cr-meadow?</strong></a>)</span></p>
+<div id="cr-meadow">
 <p><img src="https://www.elbetal-mv.de/fileadmin/_processed_/b/8/csm_Brodarer_Brack_Elbe_A_Hollerbach_2a424fdcbc.jpg" class="img-fluid" width="350"></p>
 </div>
-<div id="cr-epilobium" class="sticky">
+<p>There was a river flowing through the meadow, the weather has been warmed up for few weeks. We saw a tall bush by the river, with some beautiful pink flowers blooming on it. <span class="citation" data-cites="cr-epilobium">(<a href="#ref-cr-epilobium" role="doc-biblioref"><strong>cr-epilobium?</strong></a>)</span></p>
+<div id="cr-epilobium">
 <p><img src="https://i0.wp.com/jeremybartlett.co.uk/wp-content/uploads/2022/08/aP8010050.jpg?qw=1000&amp;ssl=1" class="img-fluid" width="350"></p>
 </div>
+<p>And when we look closer …</p>
+<p><span class="citation" data-cites="cr-altica-wild">(<a href="#ref-cr-altica-wild" role="doc-biblioref"><strong>cr-altica-wild?</strong></a>)</span> We saw some dark, shiny little beetles sitting on the leaves.</p>
+<div id="cr-altica-wild">
+<p><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/41099607/original.jpeg" class="img-fluid" width="350"></p>
 </div>
+<p>We looked into the literature, it turns out this beetle should be <em>Altica lythri</em>, belongs to a family of beetles who are absolute experts of jumping. <span class="citation" data-cites="cr-nadein2016">(<a href="#ref-cr-nadein2016" role="doc-biblioref"><strong>cr-nadein2016?</strong></a>)</span></p>
+<div id="cr-nadein2016">
+<p><img src="ba-scrolly-assets/alticini-takingoff-nadein2016.png" class="img-fluid" width="350"></p>
 </div>
+<p>We wanted to know more about them, so we took some beetles back to the lab, separated them by their sex - female and male.</p>
+<p>A reasonable sex ratio around 1:1, as one will expect. <span class="citation" data-cites="cr-prim-sexdis">(<a href="#ref-cr-prim-sexdis" role="doc-biblioref"><strong>cr-prim-sexdis?</strong></a>)</span></p>
+<div id="cr-prim-sexdis">
+<p><img src="ba-scrolly-assets/prim-sexdis.png" class="img-fluid" width="350"></p>
+</div>
+<p>Then, we tested their genetic identity with DNA-Barcoding. Which means a specific gene section was compared within the group, and with related species. <span class="citation" data-cites="cr-dnabarcoding">(<a href="#ref-cr-dnabarcoding" role="doc-biblioref"><strong>cr-dnabarcoding?</strong></a>)</span></p>
+<div id="cr-dnabarcoding">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/DNA_Barcoding.png/800px-DNA_Barcoding.png" class="img-fluid" width="350"></p>
+</div>
+<p>But, it tells us something unexpected …</p>
+<p>Normally, if we talk about a <strong>monophyletic</strong> group (what a “species” should be), <span class="citation" data-cites="cr-mammals">(<a href="#ref-cr-mammals" role="doc-biblioref"><strong>cr-mammals?</strong></a>)</span></p>
+<p>we will expect their genes to be very similar within the group, coming from the same ancestor … <span data-pan-to="-40%, 50%" data-scale-by="1.7" data-crop="31%, 0%, 0%, 70%"><span class="citation" data-cites="cr-mammals">(<a href="#ref-cr-mammals" role="doc-biblioref"><strong>cr-mammals?</strong></a>)</span></span></p>
+<p>And show a distinct difference towards others. <span data-pan-to="0%, -40%" data-scale-by="1" data-crop="0%, 63%, 0%, 0%"><span class="citation" data-cites="cr-mammals">(<a href="#ref-cr-mammals" role="doc-biblioref"><strong>cr-mammals?</strong></a>)</span></span></p>
+<div id="cr-mammals">
+<p><img src="https://www.researchgate.net/publication/6594089/figure/fig4/AS:341632844091400@1458463025457/ML-Phylogenetic-Tree-of-Mammals-The-topology-and-branch-lengths-shown-here-are-based-on.png" class="img-fluid"></p>
+</div>
+<p>In our case, <em>A. lythri</em> (<strong>L</strong>) forms multiple trees with other related species. We call such subgroups of one species <strong>haplotypes</strong>. <span style="color: grey; font-size=10px"><span class="citation" data-cites="jackel2013">Jäckel, Mora, and Dobler (<a href="#ref-jackel2013" role="doc-biblioref">2013</a>)</span></span> <span class="citation" data-cites="cr-jackel2013">(<a href="#ref-cr-jackel2013" role="doc-biblioref"><strong>cr-jackel2013?</strong></a>)</span></p>
+<div id="cr-jackel2013">
+<p><img src="ba-scrolly-assets/jackel2013.png" class="img-fluid"></p>
+</div>
+<p>Such as the HT1 … <span data-crop="45%, 26%, 30%, 45%"><span class="citation" data-cites="cr-jackel2013">(<a href="#ref-cr-jackel2013" role="doc-biblioref"><strong>cr-jackel2013?</strong></a>)</span></span></p>
+<p>A similar, but different haplotype, HT1* … <span data-crop="45%, 0%, 30%, 79%"><span class="citation" data-cites="cr-jackel2013">(<a href="#ref-cr-jackel2013" role="doc-biblioref"><strong>cr-jackel2013?</strong></a>)</span></span></p>
+<p>HT2 … <span data-crop="0%, 25%, 65%, 23%"><span class="citation" data-cites="cr-jackel2013">(<a href="#ref-cr-jackel2013" role="doc-biblioref"><strong>cr-jackel2013?</strong></a>)</span></span></p>
+<p>and HT3 … <span data-crop="40%, 73%, 35%, 0%"><span class="citation" data-cites="cr-jackel2013">(<a href="#ref-cr-jackel2013" role="doc-biblioref"><strong>cr-jackel2013?</strong></a>)</span></span></p>
+<p>Evolutionary speaking, these haplotypes have different histories, we have to treat them as different. So we tested their sex ratios again, but within each haplotype this time. <span class="citation" data-cites="cr-jackel2013">(<a href="#ref-cr-jackel2013" role="doc-biblioref"><strong>cr-jackel2013?</strong></a>)</span></p>
 </div>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-jackel2013" class="csl-entry" role="listitem">
+Jäckel, Regina, Diana Mora, and Susanne Dobler. 2013. <span>“Evidence for Selective Sweeps by <span><em>Wolbachia</em></span> Infections: Phylogeny of <span><em>Altica</em></span> Leaf Beetles and Their Reproductive Parasites.”</span> <em>Molecular Ecology</em> 22 (16): 4241–55. <a href="https://doi.org/10.1111/mec.12389">https://doi.org/10.1111/mec.12389</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -247,6 +283,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
