@@ -5,6 +5,8 @@ affiliation: ""
 listing: 
     contents: 
         - "community-ecology/*.qmd"
+        - "../closeread/bio-*.qmd"
+        - "!draft*.qmd"
     sort:
         - "date desc"
     sort-ui: [title, date]
