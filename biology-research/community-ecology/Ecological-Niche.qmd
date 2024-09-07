@@ -11,7 +11,7 @@ filters:
 ```{r}
 #| output: asis
 #| echo: false
-source("source/source-all.R")
+source("functions/forward-message.R")
 forwardMsg()
 ```
 
