@@ -11,6 +11,7 @@ assets/
 .obsidian/
 .pandoc/
 *assets
+confidential/
 
 # Created by https://www.toptal.com/developers/gitignore/api/r,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,macos
@@ -104,3 +105,4 @@ rsconnect/
 /*_files/
 
 # End of https://www.toptal.com/developers/gitignore/api/r,macos
+/.luarc.json
