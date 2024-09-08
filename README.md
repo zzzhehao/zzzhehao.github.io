@@ -15,6 +15,7 @@ Extensions used here are listed as below:
 
 - [openlinksinnewpage](https://github.com/davidwilby/openlinksinnewpage) by davidwilby
 - [closeread](https://github.com/qmd-lab/closeread#readme) by qmd-lab
+- [quarto-nutshell](https://github.com/schochastics/quarto-nutshell#readme) by schochastics
 
 ### Tips and Notes
 
