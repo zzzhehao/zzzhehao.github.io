@@ -4,9 +4,6 @@
 // style setting
 /*-- scss:defaults --*/
 
-// font
-$font-size-root: 1rem;
-
 // theme color
 :root{
     --black: #{$black-cus};
@@ -17,6 +14,9 @@ $font-size-root: 1rem;
     --second-accent-color: #{$second-accent-color};
     --mute-color-dark: #{$AgainAgain-5-hex};
     --background: #{$red_plane-6-hex};
+
+    --custom-callout-theme-bg: rgba(100, 100, 100, 0.2);
+    --custom-callout-theme-color: #{$ink-on-dark-canvas};
 }
 
 body {
@@ -24,6 +24,14 @@ body {
     .cell-output {
         background-color: var(--black);
         border-radius: 4px;
+    }
+}
+
+table {
+    // Style for the header row
+    th {
+        font-style: normal;
+        font-weight: 400;
     }
 }
 

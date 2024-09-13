@@ -2,5 +2,16 @@
 title: "Posts"
 author: ""
 affiliation: ""
-listing: default
+listing: 
+    contents: 
+        - "community-ecology/*.qmd"
+        - "../closeread/bio-*.qmd"
+        - "!draft*.qmd"
+    sort:
+        - "date desc"
+    sort-ui: [title, date]
+    categories: unnumbered
+    image-height: 120px
+    image-lazy-loading: true
+format: html
 ---

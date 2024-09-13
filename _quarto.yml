@@ -7,7 +7,9 @@ project:
   render: 
     - "*"
     - "!comments/*"
+    - "!draft*.qmd"
   execute-dir: project
+  output-dir: _site
 
 bibliography:
   - ../../Obsidian/Cafe AgX HQ 2.0/003 Management/Research & Career/research-writing/bib/biology-research.bib
@@ -19,7 +21,7 @@ website:
   description: "Zhehao Hu's Personal Website"
   draft-mode: unlinked
   google-analytics: "G-R0FB3TL998"
-  
+
   navbar: 
     left: 
       - text: "Photography"
@@ -57,7 +59,9 @@ format:
   html:
     highlight-style: arrow-light
     theme: 
-      light: [theme/style.scss, theme/custom-nav.scss, theme/callouts.scss]
-      dark: [theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss]
+      light: [theme/global-setting.scss, theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
+      dark: [theme/global-setting.scss, theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
+    css:
+      - theme/global.css
 execute: 
-  freeze: auto
+  freeze: false

@@ -23,3 +23,4 @@ format:
     include-after-body: research-footer.html
 filters: 
   - openlinksinnewpage
+  - nutshell

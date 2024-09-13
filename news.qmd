@@ -10,18 +10,28 @@ author: ""
 ::::
 :::
 
-[2024-08-22] New page: [Color palette](/photography/color_palette.qmd)
+[2024-08-27] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
+New page: [Ecological Niche](/biology-research/community-ecology/Ecological-Niche.qmd)
 
-[2024-08-19] New album: [Life, 2024](/gallery/gallery.qmd)
+[2024-08-22] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
+New page: [Color palette](/photography/color_palette.qmd)
 
-[2024-08-13] New page: [Motion Pictures](/gallery/motion-pictures.qmd)
+[2024-08-19] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
+New album: [Life, 2024](/gallery/gallery.qmd)
 
-[2024-08-12] Update: [CV](/biology-research/CV_Zhehao_Hu.pdf)
+[2024-08-13] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
+New page: [Motion Pictures](/gallery/motion-pictures.qmd)
 
-[2024-07-30] New page: [About me](/personal/aboutme.qmd)
+[2024-08-12] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
+Update: [CV](/biology-research/CV_Zhehao_Hu.pdf)
 
-[2024-07-27] New page: [Me as a biology student](/biology-research/asbiologist.qmd) 
+[2024-07-30] ![Static Badge](https://img.shields.io/badge/Personal-%23F2D1B3?style=flat-square) 
+New page: [About me](/personal/aboutme.qmd)
 
-[2024-07-22] New page: [Gallery](/gallery/gallery.qmd)
+[2024-07-27] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
+New page: [Me as a biology student](/biology-research/asbiologist.qmd) 
+
+[2024-07-22] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
+New page: [Gallery](/gallery/gallery.qmd)
 
 [2024-06-28] Initialize the website.

@@ -13,6 +13,7 @@ format:
             height: 100%;
             margin: 0;
             padding: 0;
+            font-size: 1.2rem;
           }
           a {
             color: #F2E6DF;
@@ -51,15 +52,21 @@ format:
   
 <!-- Left part -->
 <div style="width: 100%;">
-  <span style="font-size:3rem;line-height:0.7">Zhehao Hu</span>
+  <span style="font-size:4rem;line-height:0.7">Zhehao Hu</span>
 
-  <span style="font-size:0.9rem">Read. Think. Write.</span>
+  <span style="font-size:1.2rem">Read. Think. Write.</span>
 
   <br><br>
 
 ### As a [*Photographer.*](gallery/gallery.qmd)
 
+- [*Albums*](/gallery/gallery.qmd)
+- [*Motion Picture*](/gallery/motion-pictures.qmd)
+- [*Color Palette*](/photography/color_palette.qmd)
+
 ### As a [*Biology student.*](biology-research/asbiologist.qmd)
+
+- [*Research Posts*](/biology-research/index.qmd)
 
 ### As a [*Normal Person*.](personal/aboutme.qmd)
 
@@ -67,12 +74,20 @@ format:
 </div>
     
   <!-- Right part  -->
-  <!-- <div style="width: 40%;"> -->
+  <!-- <div style="width: 60%;">
   
-<!-- Right part text -->
-<!-- To enable this column set left width to 60% -->
+<br><br><br><br><br><br><br><br>
 
-  <!-- </div> --> 
+### Have been here before? Here's the short cut:
+
+##### Research
+
+  - [*Research Posts*](/biology-research/index.qmd)
+
+##### Photography
+
+
+  </div>  -->
   
 </div>
 </div>

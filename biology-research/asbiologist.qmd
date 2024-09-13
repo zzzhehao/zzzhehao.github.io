@@ -4,11 +4,18 @@ date: "2024-07-27"
 format:
     html:
         include-in-header: bg-research.html
+description: |
+    "I don’t know why I came. I just ended up here. And I am happy with it."
 ---
 
-"I don’t know why I came. I just ended up here. And I am happy with it. "
+```{r}
+#| output: asis
+#| echo: false
+source("functions/forward-message.R")
+forwardMsg()
+```
 
-![Me being happy in the wild](/assets/images/hu-happy-in-wild.jpg.jpg){width="45%"}
+![Me being happy in the wild](/assets/images/hu-in-heath-cropped.jpg){width="45%"}
 
 ## Was it my choice, or my fate?
 

@@ -37,7 +37,7 @@ Higher number of samples often leads to higher stress value, also a very low str
 
 ## Getting started
 
-```{r}
+```r
 #| label: setup
 #| echo: false
 #| output: false
@@ -56,13 +56,13 @@ getwd()
 
 We will use the `metaNDS()` from package `vegan` to calculate NMDS and visualize the result using `ordiplot()`. As demonstration, we use a tadpole abundance data collected in a Madagascan rain forest:
 
-```{r}
+```r
 getwd()
 source("ProjectAnalysis/Data_Manipulation/tadpole_clean.R")
 tadpoleSp <- tadpoleSp[, -1] # drop first column (transects)
 ```
 
-```{r}
+```r
 dim(tadpoleSp)
 str(tadpoleSp[, c(1:6)]) # only showing the first 6 species
 ```
@@ -71,13 +71,13 @@ str(tadpoleSp[, c(1:6)]) # only showing the first 6 species
 
 The `metaMDS` has an argument `autotransform` defaults to TRUE, which arbitrarily transforms data if they exceeded certain sizes. However, the transformation should better be done independently.
 
-```{r}
+```r
 tadNMDS <- metaMDS(tadpoleSp, k=2, autotransform = FALSE)
 ```
 
 The code above will print out stress values from each iteration. The result with the least stress value can also be called out afterwards:
 
-```{r}
+```r
 tadNMDS
 ```
 
@@ -85,13 +85,13 @@ tadNMDS
 
 `ordiplot` is a function specialized on visualizing ordination result from `vegan`. We can control the representation of sites or species easily using `type` and `display` argument. A simple plot with points will look like this:
 
-```{r}
+```r
 ordiplot(tadNMDS, type = "p")
 ```
 
 or with the site displayed in their numbers:
 
-```{r}
+```r
 ordiplot(tadNMDS, type = "p", display = "species")
 orditorp(tadNMDS, display = "site") # orditorp plots text by default
 ```
@@ -100,13 +100,13 @@ orditorp(tadNMDS, display = "site") # orditorp plots text by default
 
 Available environmental data could be combined with NMDS to identify potential driver in the community composition and help explain their clustering patterns.
 
-```{r}
+```r
 str(env[, c(1:6)]) # only showing the first 6 variables
 ```
 
 The two variable I'm showing here are both continuous, which will automatically result a 3d-representation, those are the two axes from NMDS and the third axis showing the environmental variable. Since we only have two dimensions, the third variable is represented as a projection of the 3d-surface. We use `ordisurf` here to fit a smooth surface to the environmental data, which calls `gam()` (generalized additive model) in the background (I might get back to this with more detailed explanation in the future). 
 
-```{r}
+```r
 depth <- env.comp$`Depth (cm)`
 
 par(mfrow = c(1,2))
@@ -125,13 +125,13 @@ ordisurf(tadNMDS, altitude, main = 'Altitude', col = 'blue', add = TRUE)
 
 If you have ever worked with `ggplot2` and its enormous family, you probably can't go back to basic R plots. Fortunately, there's a way to plot, not only the NMDS, also other ordination analyses from `vegan` using `ggplot2`. This can make our plot more precise and customizable.
 
-```{r}
+```r
 library(ggplot2)
 ```
 
 We continue with the already available NMDS result from earlier, which is stored inside `tadNMDS`. The only thing we need to do, is to extract the coordinates from the points we want to plot, and then apply them in a ggplot-way. 
 
-```{r}
+```r
 theme_aes <- function(base_family = "serif", ...){
   theme_bw(base_family = base_family, ...) +
     theme(
@@ -163,7 +163,7 @@ zhehaoColor <- function(colorcodes, n) {
 }
 ```
 
-```{r}
+```r
 # extract NMDS scores
 siteCoord <- as_tibble(scores(tadNMDS)$sites)
 spCoord <- as_tibble(scores(tadNMDS)$species)
@@ -185,7 +185,7 @@ p.NMDS.sp.st
 
 Fitting environmental data with ggplot could be a bit complex. First we need to manually apply those on our NMDS:
 
-```{r}
+```r
 en <- envfit(tadNMDS, env.comp[, c(3:7, (ncol(env.comp)-10):ncol(env.comp))], permutation = 0, na.rm = T) # only fitting a subset of the data
 en
 ```
@@ -198,7 +198,7 @@ The five vector variables are self-explained, `Speed_cat` represents the proport
 
 The centroids can be used to plot a spider plot:
 
-```{r} 
+```r 
 cat <- "speed_cat"
 cats <- row.names(en$factors$centroids)
 catlvl <- cats[which(str_detect(cats, regex(str_c("^",cat, collapse = ""))))]
@@ -228,7 +228,7 @@ p.NMDS.sp.st_Speed
 
 Sometimes another hull plot will give a better overview: 
 
-```{r} 
+```r 
 chullBorder <- function(site, cat) { # extract outline points 
   site <- cbind(site, cat) %>% group_by(cat) 
 
@@ -251,7 +251,7 @@ p.NMDS.sp.st_Speed <- p.NMDS.sp +
 p.NMDS.sp.st_Speed 
 ``` 
 
-```{r} 
+```r 
 summary(env.comp$`stream slope [cm/30m]`) 
 slope_hulls <- chullBorder(siteCoord, env.comp$slope_cat) 
 
@@ -263,7 +263,7 @@ p.NMDS.sp.st_slope <- p.NMDS.sp +
 p.NMDS.sp.st_slope 
 ``` 
 
-```{r} 
+```r 
 summary(env.comp$`stream slope [cm/30m]`) 
 slope_hulls <- chullBorder(siteCoord, env.comp$slope_cat) 
 
@@ -281,7 +281,7 @@ p.NMDS.sp.st_slope
 
 To fit a smooth surface on our data, we still use `ordisurf` from `vegan` to do the calculation, but we do not let it plot the result directly.  
 
-```{r} 
+```r 
 depth <- ordisurf(tadNMDS ~ env.comp$`Depth (cm)`, plot = FALSE) 
 alt <- ordisurf(tadNMDS ~ env.comp$`altitude [m asl]`, plot = FALSE) 
 slope <- ordisurf(tadNMDS ~ env.comp$`stream slope [cm/30m]`, plot = FALSE) 
@@ -289,7 +289,7 @@ slope <- ordisurf(tadNMDS ~ env.comp$`stream slope [cm/30m]`, plot = FALSE)
 
 As I mentioned before, the environmental variable of the surface is stored in the third axis, if we take look at the ordination object `ordisurf` produces (try `str(depth)`, I will not show it here since it is a very huge object), we can find a `$grid` list containing all the coordinates. We simply need to extract them and plot them on our ggplots. 
 
-```{r} 
+```r 
 extract.xyz <- function(obj) { 
   xy <- expand.grid(x = obj$grid$x, y = obj$grid$y) 
   xyz <- cbind(xy, c(obj$grid$z)) 
@@ -304,7 +304,7 @@ contour.slope <- extract.xyz(obj = slope)
 
 `geom_textcontour` from package `geomtextpath` can easily make a nice ggplot-layer of the surface contour. We can then combine all plots together and have our final plot: 
 
-```{r} 
+```r 
 library(geomtextpath) 
 p.NMDS.sp.st.depth <- p.NMDS.sp.st + 
   geom_textcontour(data = contour.depth, aes(x, y, z = z), color = moma.colors("OKeeffe")[2]) + 
@@ -337,7 +337,7 @@ p.NMDS.sp.st.fit
 
 `geom_contour_filled` can also filled up the space between surface levels and make fancier plots, but it is more often used in visualizing meteorological data (maybe see `metR` ?). 
 
-```{r} 
+```r 
 p.NMDS.sp.st.depth <- ggplot(data = spCoord, aes(x = NMDS1, y = NMDS2))+ 
   geom_contour_filled(data = contour.depth, aes(x, y, z = z), alpha = 0.9) + 
   geom_point(data = spCoord, aes(x = NMDS1, y = NMDS2), size = 2, shape = 3, color = "red", alpha = 1) + 
@@ -369,7 +369,7 @@ The interpretation of a planar surface in NMDS can be tricky. The consistent gra
 
 @bakker2024 explained PERMANOVA test and @bakker2024a explained PERMDISP 
 
-```{r} 
+```r 
 alt <- env.comp$`altitude [m asl]` 
 slope <- env.comp$`stream slope [cm/30m]` 
 dep <- env.comp$`Depth (cm)` 
@@ -385,7 +385,7 @@ adonis2(tadpoleSp ~ alt*slope*dep*speed)
 # adonis2(tadpoleSp ~ env.comp$Speed_cat) 
 ``` 
 
-```{r} 
+```r 
 library(betapart) 
 dist <- beta.pair.abund(tadpoleSp, index.family = "bray") 
 perm <- betadisper(dist[[3]], env.comp$speed_cat) # a multivariate analogue of Levene's test for homogeneity of variances 
