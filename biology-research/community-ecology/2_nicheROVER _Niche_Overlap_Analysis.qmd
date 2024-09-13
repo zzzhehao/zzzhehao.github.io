@@ -9,6 +9,7 @@ categories:
   - Multivariate Analysis
 filters:
   - openlinksinnewpage
+  - nutshell
 execute:
   echo: true
 number headings: auto, first-level 3, max 4, 2
@@ -17,7 +18,9 @@ number headings: auto, first-level 3, max 4, 2
 <br>
 
 ::: {.disclaimer}
+
 This is a note from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). 
+
 :::
 
 <br>
@@ -78,24 +81,28 @@ paged_table(fish)
 
 <br>
 
-::: {.callout-note title="For more information about isotopic and atomic ecology" collapse="true"}
-
-- @newsome2007a
+```{r}
+#| output: asis
+#| echo: false
+source("functions/custom-callout.R")
+content <- "- @newsome2007a
 - @michel2021
 - @moyo2021
-- @2024
+- @2024"
+custom_callout("For more information about isotopic and atomic ecology", content, collapse = TRUE)
+```
 
-:::
-
-## Statistic Priors
+## Bayesian Workflow
 
 Before we start analyzing our data, there are some concepts and prior knowledge need to be checked. Since this is the first note associating with statistics in my post, I will elaborate things a bit more detailed.
 
-### Bayesian statistics
+### Bayesian theorem
 
 @vandeschoot2021 described the very foundation idea of the Bayesian statistics as following:
 
 Bayesian statistics is an approach to data analysis based on Bayes' theorem, where available knowledge about parameters in a statistical model is updated with the information in observed data. The background knowledge is expressed as a **prior** distribution and combined with observational data in the form of a likelihood function to determine the **posterior distribution**.
+
+That means, we make an initial estimation of our parameters (prior distribution), we observe data and update the model (posterior distribution). 
 
 The Bayesian statistics is based on the **Bayes' theorem**, which is mathematically stated as following:
 
@@ -107,10 +114,10 @@ where,
 
 - $A$ and $B$ are events and $P(B)\neq 0$,
 - $P(A|B)$: the probability of event $A$ occurring given that $B$ is true. It is also called the **posterior probability** (briefly *posterior*) of $A$ given $B$.
-- $P(B|A)$ is also a conditional probability: the probability of event $B$ occurring given that $A$ is true. It can also be interpreted as the likelihood of $A$ given a fixed $B$ because $P(B|A)=L(A|B)$. ($L$: likelihood)
+- $P(B|A)$ is also a conditional probability: the probability of event $B$ occurring given that $A$ is true. It can also be interpreted as the likelihood of $A$ given a fixed $B$ because $P(B|A)=L(A|B)$. ($L$: likelihood function)
 - $P(A)$ and $P(B)$ are the probabilities of observing $A$ and $B$ respectively without any given conditions; they are known as the **prior probability** and marginal probability.
 
-#### Why Bayesian Statistics?
+### Why Bayesian Statistics?
 
 Bayesian statistics is a whole other framework and approach on statistical analysis by putting the Bayes' theorem at the center. Both classical and Bayesian inference, while trying to modelling data, have advantages and disadvantages of each. Bayesian inference is generally employed whenever uncertainty comes to play:
 
@@ -122,13 +129,17 @@ There is also a practical advantage of the Bayesian approach, which is that all 
 
 :::
 
-This is also what Swanson et al. did in [their study](https://wiley.scienceconnect.io/api/oauth/authorize?ui_locales=en&scope=affiliations+alm_identity_ids+login_method+merged_users+openid+settings&response_type=code&redirect_uri=https%3A%2F%2Fesajournals.onlinelibrary.wiley.com%2Faction%2FoidcCallback%3FidpCode%3Dconnect&state=Dps2IO0LOrpSUAYYguc7KjWtugvQmVzeoFmBBK5xyJkimazfO9eomBnInj8FZuI%2F8jXRwy97RozJvLfX0bfaa%2BDV9o8yOFGm%2BJWd4V7EfGEWlrAZpWhHSMRtRE1u3t3vFzi7DuucTU%2F6nmD7Q4gThQ%3D%3D&prompt=none&nonce=gWwRPq7voj4LDNu9cEjyD%2FAEERbNk7ZSuToMur%2FOrmI%3D&client_id=wiley). They adopt the Bayesian framework by assuming a multivariate normal and utilizing Normal-Inverse-Wishart distribution while calculating posterior. To understand this, we still need several concepts checked.
+@swanson2015 pointed out a viewpoint from the traditional niche overlap analysis that might introduce problems: geometric approach doesn't account for uncertainty, and also lacks of direction. It is very well illustrated by Fig. 1 in the publication:
+
+![Comparison between geometric and probabilistic isotope overlap metrics. Isotope x is distributed in species A and B (x-axis); dashed lines show means. The 95% niche region (solid lines) of B is completely contained within that of A, such that the geometric overlap of B onto A is 100%. However, the probability that a randomly chosen member from A falls into the isotopic niche of B is only 35%.[@swanson2015] ](https://esajournals.onlinelibrary.wiley.com/cms/asset/d9181a57-fa40-4f4a-9197-460929dad9f8/ecy2015962318-fig-0001-m.jpg)
+
+By inviting the variance of the niche probability distribution, not only the mean, it now also differentiates the overlap in directions, which means the probability of a species A falling into species B is not equal to one of that species B falling into species A. And since this perspective starts to consider the probability in the models, a Bayesian workflow will provide more reliable and robust analysis. 
 
 ### Random Vector and Multivariate Normal Distribution
 
 Given an individual statistical unit, in our case, the niche described by three isotope ratios, a random vector is a group of variables that describes this mathematical system. Which is again, in our case, those three values of the isotope ratio. The distribution of each component of the random vector together forms a **multivariate distribution**. 
 
-When dealing with univariate analysis, we often assume that the variable is normally distributed (at least in our null hypotheses). We do things likewise even with multivariate analysis. The **multivariate normal distribution** is a generalization of the univariate (one-dimensional) normal distribution into higher dimensions, but it's not as simple as all components of the random vector being normal. It also requires every linear combination of arbitrary two components in the system being normally distributed (bivariate normal distribution), which is not always true even every single variable is normal on their own. And here comes the covariance matrix into play, since a normal distribution is defined by two variables, mean and standard deviation (sd), in which the latter is simply the square root of the variance.
+When dealing with univariate (one-dimensional) analysis, we often assume that the variable is normally distributed. We do things likewise even with multivariate analysis. The **multivariate normal distribution** is a generalization of the univariate  normal distribution into higher dimensions, but it's not as simple as all components of the random vector being normal. It also requires every linear combination of arbitrary two components in the system being normally distributed (bivariate normal distribution), which is not always true even every single variable is normal on their own. And here comes the covariance matrix into play. Normal distribution is described by two variables, mean and standard deviation (sd), in which the latter being simply the square root of the variance. 
 
 ### Covariance and covariance matrix
 
@@ -140,76 +151,50 @@ When dealing with univariate analysis, we often assume that the variable is norm
 
 The variance is a special case of the covariance in which the two variables are identical. The covariance itself is sensitive to the scale of the data, and it does not provide information of in what extent the two variables correlate with each other and how well the linear correlation fits the data. All these characteristics make covariance difficult to interpret, but it has become an important step stone for many interesting subsequent analysis, such as PCA, correlation analysis, etc.
 
-A **covariance matrix** is a square matrix giving the covariance between each pair of elements, which is always symmetric, and the diagonal elements present the variance of each variable.
+A **covariance matrix** is a square matrix giving the covariance between each pair of elements, which is always symmetric, and the diagonal elements present the variance of each variable. The covariance matrix describe the joint behavior of every linear combination of two variables, analogue to univariate normal distribution, the covariance and the mean are used to described a multivariate normal distribution.
 
-::: {.callout-note title="For more information about covariance"}
+```{r}
+#| output: asis
+#| echo: false
+content <- "- [StatQuest](https://www.youtube.com/watch?v=qtaqvPAeEJY) on YouTube (simply and clearly explained)"
+custom_callout("For more information about covariance", content, collapse = T)
+```
 
-- [StatQuest](https://www.youtube.com/watch?v=qtaqvPAeEJY) on YouTube (simply and clearly explained)
+### Conjugate Prior
 
-:::
+We mentioned the [:basic framework of Bayesian statistics](#bayesian-theorem) earlier. Now we are adopting them in SIA. @jackson2011 suggested that the normal distribution is generally appropriate when dealing with stable isotope ratio, there's a way to simplify the analysis by taking advantage of the **conjugate prior**. 
 
-### Normal-Inverse-Wishart (NIW) distribution
+A conjungate prior is a certain prior distribution, that when applied on certain likelihood function, the posterior distribution will also be in the same distribution family. Such as in univaraite analysis, a normal prior and a normal likelihood function results a normal posterior. In our case, the conjugate prior for the multivariate normal is the normal-inverse-wishart (NIW) distribution. It can be considered in two parts: the mean is following a normal distribution and the covariance is following an inverse-Wishart distribution. NIW is commonly used as the prior distribution when modeling a multivariate normal, but the mean and the covariances are unknown.
 
 $$
 P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)
 $$
 
-**An explanation from [datamicroscope](https://datamicroscopes.github.io/niw.html#:~:text=Since%20the%20normal%20inverse%2DWishart,when%20we%20define%20our%20model.)**:
+## Analyzing the data
 
-In practice, real valued data is commonly assumed to be distributed normally, or Gaussian. We could assume that conditioned on species, the measurement data followed a multivariate normal (above mentioned).
-
-The normal inverse-Wishart distribution allows us to learn the underlying parameters of each normal distribution, its mean μs and its covariance $\Sigma_s$. Since the normal inverse-Wishart is the conjugate prior of the multivariate normal, the posterior distribution of a multivariate normal with a normal inverse-Wishart prior also follows a normal inverse-Wishart distribution. This allows us to infer the distirbution over values of $\mu_s$ and $\Sigma_s$ when we define our model.
-
-**The explanation from [wikipedia](https://en.wikipedia.org/wiki/Inverse-Wishart_distribution#:~:text=In%20statistics%2C%20the%20inverse%20Wishart,of%20a%20multivariate%20normal%20distribution.)**:
-
-In statistics, the inverse Wishart distribution, also called the inverted Wishart distribution, is a probability distribution defined on real-valued positive-definite matrices. **In Bayesian statistics it is used as the conjugate prior for the covariance matrix of a multivariate normal distribution**.
-
-**Another explanation from [arxiv](https://arxiv.org/html/2405.16088v1#)**:
-
-The normal-inverse-Wishart (NIW) distribution is commonly used as a prior distribution for the mean ($\mu$) and covariance ($\Sigma$) parameters of a multivariate normal distribution.
-
-**My explanation of this formula**:
-
-The probability of finding a specie given a **normal distribution** ($N$) of $\mu$ as niche parameter mean and $\Sigma$ as niche parameter covariance.
-
-## Simulating random data
-
-First, let's take a view of isotope data of each species:
-
-```{r}
-aggregate(fish[2:4], fish[1], mean)
-aggregate(fish[2:4], fish[1], sd)
-```
+All prior knowledge we just went through, from basic Bayesian inference to the NIW distribution, is to understand the very two lines of code that implemented the Bayesian workflow into the analysis.
 
 ### Drawing with `niw.post()`
 
-```{r paged.print=TRUE}
-# generate parameter draws from the "default" posteriors of each species
+```{r}
 nsamples <- 1000
 fish.par <- tapply(1:nrow(fish), fish$species,
             function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))
 ```
 
-This resamples `nsamples`=`r nsamples` times from NIW distribution for each row in `fish` to generate the simulation data. As we categorized the observation by `fish$species`, we obtain a list of 4 with each of them containing a `nsample` long vector of $\mu$ and $\Sigma$ based on NIW distribution given the original data.
+`niw.post()` uses a data matrix (`X`) as observation data, calculate the posterior distribution and then draws a set of means and covariance matrix of a possible multivariate distribution, which includes the prior and our observation data. We use `tapply()` to separately apply `r nsamples` times of `niw.post()` on each fish species.
+
+This results a list of 4 lists (species) of 2 matrix (mu and Sigma), where the mu matrix has a dimension of `r nsamples` (sampling times) x 3 (number of variables), and the Sigma matrix has a dimension of `r nsamples` (sampling times) x 3 x 3 (one slice = one covariance matrix).
 
 ```{r}
-# simulation data of the first specie
-# num [1:3, 1:3, 1:1000] means a 3x3x1000 multi-dimentional array
-str(fish.par[[1]])
+str(fish.par)
 ```
 
-This step and data structure is critical to later apply `niche.par.plot()`. For such reason, this step can be stored as a function for later utilization:
-
-```{r niche.par.function}
-niche.par <- function(data, index, n, pars) {
-  par <- tapply(1:nrow(data), INDEX = index,
-                function(r) niw.post(nsamples = n, X = data[r, pars]))
-}
-```
+This particular data structure is critical for later application of `niche.par.plot()`, where the first argument has to be a list with nspecies = length(niche.par), each element of which is a list with parameters mu and Sigma.
 
 ## Visualizing niche parameters
 
-As mentioned above, the description (`?niche.par.plot()`) states the first argument has to be a *list with nspecies = length(niche.par), each element of which is a list with parameters mu and Sigma*. Use `plot.index`, `plot.mu` or `plot.Sigma` to select which $\mu$ or $\Sigma$ to plot, see details in the document.
+Use `plot.index`, `plot.mu` or `plot.Sigma` to select which $\mu$ or $\Sigma$ to plot, see details in the document.
 
 ```{r fig.height=2, fig.align="left"}
 clrs <- c("black", "red", "blue", "orange") # colors for each species
