@@ -34,7 +34,7 @@
 
 .disclaimer {
     margin: 1em 0;
-    border: 2.5px solid #{$ink1};
+    border: 1px solid #{$ink1};
     border-radius: 4px;
     padding-top: 10px;
     padding-left: 10px;
@@ -58,4 +58,24 @@
 
 .theorem-container {
     font-style: italic;
+}
+
+// Custom inherit callout
+
+// theme independent
+div.callout-caution {
+    --clcolor: var(--custom-callout-theme-color); 
+    --clbg: var(--custom-callout-theme-bg);
+
+    color: var(--clcolor);
+    background-color: var(--clbg);
+}
+
+div.callout-caution.callout-style-minimal .callout-header {
+    color: var(--clcolor) !important;
+    background-color: var(--clbg) !important;
+}
+
+div.callout-caution .callout-title-container {
+    color: #222222 !important;
 }

@@ -15,6 +15,9 @@
     --second-accent-color: #{$second-accent-color};
     --mute-color-dark: #{$AgainAgain-5-hex};
     --background: #{$red_plane-6-hex};
+
+    --custom-callout-theme-bg: rgba(200, 200, 200, 0.3);
+    --custom-callout-theme-color: var(--ink1);
 }
 
 body {
