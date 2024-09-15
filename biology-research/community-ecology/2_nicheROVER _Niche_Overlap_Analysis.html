@@ -557,41 +557,41 @@ P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 4
  $ ARCS:List of 2
-  ..$ mu   : num [1:1000, 1:3] 12.6 12.5 12.7 12.5 12.4 ...
+  ..$ mu   : num [1:1000, 1:3] 12.7 12.5 12.8 12.7 12.6 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.715 0.514 0.341 0.514 1.679 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.812 0.277 0.511 0.277 1.21 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : NULL
  $ BDWF:List of 2
-  ..$ mu   : num [1:1000, 1:3] 9.12 9.18 9.16 9.3 9.27 ...
+  ..$ mu   : num [1:1000, 1:3] 9.22 9.27 9.39 9.42 9.31 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 1.11 -0.633 0.235 -0.633 3.801 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 1.292 -0.316 0.708 -0.316 3.549 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : NULL
  $ LKWF:List of 2
-  ..$ mu   : num [1:1000, 1:3] 10.9 11.1 11.1 11.1 11 ...
+  ..$ mu   : num [1:1000, 1:3] 11 11 11.2 11.2 11.1 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 1.227 0.061 2.037 0.061 2.54 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.757 -0.0788 0.3672 -0.0788 2.0445 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : NULL
  $ LSCS:List of 2
-  ..$ mu   : num [1:1000, 1:3] 11.7 11.7 11.7 11.7 11.7 ...
+  ..$ mu   : num [1:1000, 1:3] 11.7 11.7 11.9 11.8 11.9 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.551 0.111 0.678 0.111 1.06 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.489 0.234 0.28 0.234 1.24 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
@@ -723,19 +723,19 @@ P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)
 
          Species B
 Species A  ARCS  BDWF  LKWF  LSCS
-     ARCS    NA 11.12 65.88 81.99
-     BDWF  0.31    NA 26.31  4.68
-     LKWF  7.21 78.49    NA 52.60
-     LSCS 37.49 51.94 88.18    NA
+     ARCS    NA 10.91 65.84 81.19
+     BDWF  0.30    NA 25.70  4.56
+     LKWF  7.29 78.10    NA 52.47
+     LSCS 37.61 52.06 88.37    NA
 
 , , alpha = 99%
 
          Species B
 Species A  ARCS  BDWF  LKWF  LSCS
-     ARCS    NA 33.27 87.26 92.36
-     BDWF  0.81    NA 41.80  9.28
-     LKWF 11.51 92.41    NA 69.98
-     LSCS 50.09 80.40 96.87    NA</code></pre>
+     ARCS    NA 32.80 87.02 91.82
+     BDWF  0.79    NA 41.04  9.09
+     LKWF 11.57 92.25    NA 69.83
+     LSCS 50.29 80.50 97.00    NA</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -747,57 +747,57 @@ Species A  ARCS  BDWF  LKWF  LSCS
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    NA    0    3   27
+  2.5%    NA    0    3   28
   97.5%   NA    1   12   49
 
 , , Species B = BDWF, alpha = 95%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%     2   NA   60   24
-  97.5%   33   NA   93   82
+  2.5%     1   NA   59   24
+  97.5%   31   NA   94   82
 
 , , Species B = LKWF, alpha = 95%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    41   16   NA   75
-  97.5%   87   39   NA   97
+  2.5%    41   16   NA   76
+  97.5%   88   38   NA   97
 
 , , Species B = LSCS, alpha = 95%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    69    2   38   NA
-  97.5%   93    9   68   NA
+  2.5%    66    2   39   NA
+  97.5%   93    9   67   NA
 
 , , Species B = ARCS, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
   2.5%    NA    0    6   39
-  97.5%   NA    2   19   63
+  97.5%   NA    2   19   62
 
 , , Species B = BDWF, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    10   NA   81   54
-  97.5%   68   NA   99   97
+  2.5%    10   NA   80   55
+  97.5%   66   NA   99   97
 
 , , Species B = LKWF, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    71   28   NA   90
-  97.5%   98   57   NA  100
+  2.5%    71   28   NA   91
+  97.5%   98   56   NA  100
 
 , , Species B = LSCS, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    83    4   55   NA
-  97.5%   98   16   84   NA</code></pre>
+  2.5%    80    4   56   NA
+  97.5%   98   16   83   NA</code></pre>
 </div>
 </div>
 </div>
@@ -1812,7 +1812,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
