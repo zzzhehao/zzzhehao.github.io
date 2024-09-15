@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Zhehao Hu">
-<meta name="dcterms.date" content="2024-09-06">
+<meta name="dcterms.date" content="2024-09-15">
 
 <title>1 Discriminant analysis – Zhehao Hu</title>
 <style>
@@ -77,6 +77,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell.js"></script>
+<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell_options.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -216,7 +218,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">1 Discriminant analysis</h1>
+<div class="quarto-title-block"><div><h1 class="title">1 Discriminant analysis</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 </div>
 
 
@@ -225,7 +227,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:hu_zhehao@hotmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:zheaho.hu@uni-hamburg.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -242,7 +244,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 6, 2024</p>
+      <p class="date">September 15, 2024</p>
     </div>
   </div>
   
@@ -303,21 +305,31 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <p>Use ggplot for visualization.</p>
 
 
+<!-- -->
+
 </section>
 
 </main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
+    body {
+        align-items: center;
+    }
+
+    .footer-container {
+        text-align: center;
+        line-height: 1.6; /* Adjust this value to change line spacing */
+    }
+
     .contact-links {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
+        margin: 10px 0; /* Add space above and below contact links */
     }
 
     .contact-links a {
-        flex: 1;
-        text-align: left;
-        font-size: 1rem;
+        margin: 0 10px; /* Add space between links */
         color: #888;
         text-decoration: none;
         display: flex;
@@ -329,19 +341,21 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     }
 
     .contact-links a i {
-        margin-right: 10px;
+        margin-right: 5px;
+        font-size: 0.8rem;
+    }
+
+    .contact-links a span {
+        font-size: 0.8rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 5px 0; /* Add space above and below text */
     }
 
     @media (max-width: 720px) {
-        .contact-links {
-            justify-content: space-around;
-        }
-
-        .contact-links a {
-            flex: 0 1 auto;
-            text-align: center;
-        }
-
         .contact-links a span {
             display: none;
         }
@@ -352,46 +366,16 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     }
 </style>
 
-<!-- <div style="color: #333; padding: 20px 0;"> -->
-<div>
+<div class="footer-container">
     <hr>
-
-    <div style="
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    ">
-        <!-- Left: Logo -->
-        <div style="
-            flex-shrink: 0;
-            margin-right: 30px; /* Space between logo and content */
-            padding-left: 30px; /* Space between logo and left edge */
-        ">
-            <img src="../../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
-        </div>
-
-        <!-- Right: Content -->
-        <div style="
-            flex: 1;
-            min-width: 250px; /* Ensures the content doesn't get too narrow */
-            font-size: 0.8rem;
-        ">
-        
-            <h5>Something you like? Reach out to me!</h5>
-            <div class="contact-links">
-                <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
-                <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
-                <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
-                <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
-            </div>
-            <hr>
-            
-            <p>Issues on the website?  <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
-            <p>© 2024 Zhehao Hu.</p>
-            
-            
-        </div>
+    <p class="footer-text">Copyright © 2024 Zhehao Hu | <a href="https://github.com/zzzhehao/zzzhehao.github.io/blob/main/LICENSE">MIT license</a></p>
+    <div class="contact-links">
+        <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
+        <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
+        <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
+        <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
     </div>
+    <p class="footer-text">Issues on the website? <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
     <hr>
 </div>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -627,6 +611,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -957,7 +992,85 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "1 Discriminant analysis"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r format(Sys.time(), '%B %d, %Y')`"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: false</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># What is Linear Discriminant Analysis (LDA)?</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>A definition from <span class="co">[</span><span class="ot">IBM</span><span class="co">](https://www.ibm.com/docs/en/spss-statistics/beta?topic=features-discriminant-analysis)</span>:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>Discriminant analysis builds a predictive model for group membership. The model is composed of a discriminant function (or, for more than two groups, a set of discriminant functions) based on linear combinations of the predictor variables that provide the best discrimination between the groups. The functions are generated from a sample of cases for which group membership is known; the functions can then be applied to new cases that have measurements for the predictor variables but have unknown group membership.</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Script `Script_niche1.R`</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="in"># Install packages</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("pacman")) install.packages("pacman")</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("MASS")) install.packages("MASS")</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("tidyverse")) install.packages("tidyverse")</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="in">pacman::p_load(c("MASS", "tidyverse"), character.only = TRUE)</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>Import Data:</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co">#this is a way to open a datasheet using a txt file (which can be saved from excel)</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>lizards<span class="ot">&lt;-</span>(<span class="fu">read.table</span>(<span class="st">"/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology/Practice/transect11_day.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>))</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co">#to see the data, click on it at the upper pannel on the right or use the command: </span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co"># list(lizards) #all the data</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lizards) <span class="co">#just the first lines</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lizards)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>To test if the datas are with equal variances, the test tests of the null that the variances in each of the groups are the same.</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(lizards<span class="sc">$</span>distance <span class="sc">+</span> lizards<span class="sc">$</span>height <span class="sc">+</span> lizards<span class="sc">$</span>time <span class="sc">~</span> lizards<span class="sc">$</span>Species, <span class="at">data=</span>lizards)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>P is way bigger than significance, not rejecting null, they have all equal variance.</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>Now we do the LDA:</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards, <span class="at">na.action=</span><span class="st">"na.omit"</span>, <span class="at">CV=</span><span class="cn">TRUE</span>)</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="co">#na.action specifies what to do with variables with missing values. na.omit excludes samples with missing values and proceeds with the analyses.</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="co">#if such samples exist but na.action is not specified, the analysis won't run (default option)</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="co"># If CV = TRUE the return value is a list with components class, the MAP classification (a factor), and posterior, posterior probabilities for the classes.</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>fit <span class="co"># show results </span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Posterior distribution is the mean value of the simulation.</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>ct <span class="ot">&lt;-</span> <span class="fu">table</span>(lizards<span class="sc">$</span>Species, fit<span class="sc">$</span>class)</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">prop.table</span>(ct, <span class="dv">1</span>))</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(<span class="fu">prop.table</span>(ct)))</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="in">`sum`</span> will give us the probability of getting a random lizard and assigning it to the correct species only based on its habitat use data #markTodo How?</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>In another woord, this shows if the species have difference in using habitat, in our case, not. #markTodo but how is this value calculated</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>Now we do the LDA again, but with <span class="in">`CV=FALSE`</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards)</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>model</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">dimen =</span> <span class="dv">2</span>)</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>Use ggplot for visualization.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

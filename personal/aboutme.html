@@ -77,6 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -126,7 +127,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('../assets/images/red-plane.jpg');
+        background-image: url('../assets/images/schwarzwald-twillight.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -152,17 +153,93 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     }
 
     .sourceCode {
-    background-color: transparent !important;
-    border: none !important;
+        background-color: transparent !important;
+        border: none !important;
     }
 
     .abstract-callout {
         border: 3px solid #e9e5df;
     }
+    .navbar {
+        color: #e9e5df;
+        background-color: transparent;
+    }
+
+    .navbar-container{
+        color: #e9e5df;
+    }
+
+    table {
+        --table-border-color: #e9e5df;
+        border-collapse: collapse; /* Ensures borders are combined */
+    }
+
+    /* Style for the header row */
+    table th {
+        border-top: 1px solid var(--table-border-color);
+        border-bottom: 1px solid var(--table-border-color); /* Change the border color above the header */
+        border-right: none; /* Remove right border */
+        border-left: none; /* Remove left border */
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    /* Style for the body cells */
+    table td {
+        border: none; /* Remove all borders */
+        border-top: 1px solid var(--table-border-color); /* Add top border for each row */
+    }
+
+    /* Optional: If you want to add a bottom border for the last row */
+    table tr:last-child td {
+        border-bottom: 1px solid var(--table-border-color); /* Add bottom border for the last row */
+    }
+    
+    a.navbar-brand, a.nav-link, a.dropdown-toggle {
+        color: #e9e5df;
+    }
+
+    .quarto-navbar-tools i {
+        color: #e9e5df;
+    }
+
+    .aa-DetachedSearchButtonIcon {
+        color: #e9e5df;
+    }
+
 </style>
 
 </head><body class="nav-fixed"><div class="background-container"></div>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../theme/global.css">
 <link rel="stylesheet" href="../theme/text-justify.css">
@@ -298,13 +375,17 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 
 
 <style>
-  .background-container {
-    background-image: url('../assets/images/summer-cloud-3.jpg');
-  }
   .cus-footer {
     color: #e9e5df;
   }
+  :root {
+    --border-color: #e9e5df;
+  }
+  h2 {
+    border-bottom: 1px solid #e9e5df;
+  }
 </style>
+<p><span style="color: #909090;">Open this page in mobile device, you will see something different <iconify-icon role="img" inline="" icon="solar:smartphone-rotate-orientation-line-duotone" aria-label="Icon smartphone-rotate-orientation-line-duotone from solar Iconify.design set." title="Icon smartphone-rotate-orientation-line-duotone from solar Iconify.design set."></iconify-icon></span></p>
 <p><br></p>
 <table class="caption-top table">
 <colgroup>
@@ -313,7 +394,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><img src="../assets/images/hu-profile.jpg" class="img-fluid" style="width:100.0%"></td>
+<td style="text-align: center;"><img src="../assets/images/hu-in-heath-cropped.jpg" class="img-fluid" style="width:100.0%"></td>
 <td style="text-align: left;">👋 Hi, I am Zhehao. <br><br>I’m a M.Sc. Biology student based in Hamburg. I’m passionate about Evolution, Ecology and Bioinformatics. <br><br>I build this website to share my notes, works, thoughts and nonsense. Hope you enjoy my texts and my photos.</td>
 </tr>
 </tbody>
@@ -358,7 +439,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
-<p><em>Read. Think. Write.</em></p>
+<p><br> <span class="math inline">\(\hspace{0.5em}\)</span> <em>Read. Think. Write.</em></p>
 </div>
 </div>
 <p><br></p>
@@ -502,6 +583,7 @@ But I always love cooking with my friends and trying different things, although 
 <li><a href="../gallery/gallery.html">Photo Albums</a></li>
 <li><a href="../biology-research/asbiologist.html">Me as a Biology Student</a></li>
 </ul>
+<p><br><br><br><br><br><br><br><br></p>
 
 
 </section>
@@ -1164,7 +1246,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

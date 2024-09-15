@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -63,6 +97,8 @@ div.csl-indent {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell.js"></script>
+<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell_options.js"></script>
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -206,7 +242,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Wolbachia</em> and the Beetles</h1>
+<div class="quarto-title-block"><div><h1 class="title"><em>Wolbachia</em> and the Beetles</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 </div>
 
 
@@ -215,7 +251,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:hu_zhehao@hotmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:zheaho.hu@uni-hamburg.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -282,6 +318,8 @@ Figure&nbsp;1: Common phenotypes of <em>Wolbachia</em> <span class="citation" da
 <p>Previously, the infection was confirmed by normal PCR and gel-electrophoresis. Now with a demand on better detectability and additional quantitative information, we designed a new qPCR protocol to test for infection. The result yielded several changes since the last comprehensive survey.</p>
 
 
+<!-- -->
+
 
 </section>
 
@@ -316,16 +354,24 @@ Zhou, Weiguo, François Rousset, and Scott O’Neill. 1998. <span>“Phylogeny a
 </div></section></div></main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
+    body {
+        align-items: center;
+    }
+
+    .footer-container {
+        text-align: center;
+        line-height: 1.6; /* Adjust this value to change line spacing */
+    }
+
     .contact-links {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
+        margin: 10px 0; /* Add space above and below contact links */
     }
 
     .contact-links a {
-        flex: 1;
-        text-align: left;
-        font-size: 1rem;
+        margin: 0 10px; /* Add space between links */
         color: #888;
         text-decoration: none;
         display: flex;
@@ -337,19 +383,21 @@ Zhou, Weiguo, François Rousset, and Scott O’Neill. 1998. <span>“Phylogeny a
     }
 
     .contact-links a i {
-        margin-right: 10px;
+        margin-right: 5px;
+        font-size: 0.8rem;
+    }
+
+    .contact-links a span {
+        font-size: 0.8rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 5px 0; /* Add space above and below text */
     }
 
     @media (max-width: 720px) {
-        .contact-links {
-            justify-content: space-around;
-        }
-
-        .contact-links a {
-            flex: 0 1 auto;
-            text-align: center;
-        }
-
         .contact-links a span {
             display: none;
         }
@@ -360,46 +408,16 @@ Zhou, Weiguo, François Rousset, and Scott O’Neill. 1998. <span>“Phylogeny a
     }
 </style>
 
-<!-- <div style="color: #333; padding: 20px 0;"> -->
-<div>
+<div class="footer-container">
     <hr>
-
-    <div style="
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    ">
-        <!-- Left: Logo -->
-        <div style="
-            flex-shrink: 0;
-            margin-right: 30px; /* Space between logo and content */
-            padding-left: 30px; /* Space between logo and left edge */
-        ">
-            <img src="../../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
-        </div>
-
-        <!-- Right: Content -->
-        <div style="
-            flex: 1;
-            min-width: 250px; /* Ensures the content doesn't get too narrow */
-            font-size: 0.8rem;
-        ">
-        
-            <h5>Something you like? Reach out to me!</h5>
-            <div class="contact-links">
-                <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
-                <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
-                <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
-                <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
-            </div>
-            <hr>
-            
-            <p>Issues on the website?  <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
-            <p>© 2024 Zhehao Hu.</p>
-            
-            
-        </div>
+    <p class="footer-text">Copyright © 2024 Zhehao Hu | <a href="https://github.com/zzzhehao/zzzhehao.github.io/blob/main/LICENSE">MIT license</a></p>
+    <div class="contact-links">
+        <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
+        <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
+        <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
+        <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
     </div>
+    <p class="footer-text">Issues on the website? <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
     <hr>
 </div>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -635,6 +653,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -965,9 +1034,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "*Wolbachia* and the Beetles"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> "*Wolbachia*, the most shinning star of reproductive bacteria, has been showered by researchers' spotlight for decades. What does its magical power have to do with our female-only beetle species? How can the beetle survive this? And how did the hand of evolution shaped all of this?"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>:::{.disclaimer}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>This is a simplified instroduction of my bachelor thesis, a part of the research project conducted by the research group <span class="co">[</span><span class="ot">*Molecular Evolutionary Biology*</span><span class="co">](https://www.biologie.uni-hamburg.de/en/forschung/evolutionsbiologie/molevolbio.html)</span> at University of Hamburg, led by **Prof. Dr. Susanne Dobler**. **Dr. Kim Rohlfing** designed the experiment and supervised me while conducting the experiment and analysing the data. </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 📌  A Chinese version is planned for future. 中文版本将会在未来更新。 --&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## *Wolbachia*: the females shall rise</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Regardless of which sex determination system is present, a balanced ratio of 1:1 is expected from both sexes <span class="co">[</span><span class="ot">@hamilton1967</span><span class="co">]</span>. However, it is not rare in the nature that this equilibrium is interrupted by various factors, such as reproduction manipulative bacteria *Wolbachia*.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>*Wolbachia* belongs to the Rickettsiales (Alphaproteobacteria) [@oneill1992; @boone2001], it was first described by @hertig1924 in common house mosquito *Culex pipiens* as a Rickettsia-like bacteria, and later named after one of the discover Wolbach as *Wolbachia pipientis* [@hertig1936]. The group Alphaproteobacteria has a very close relation to mitochondria, the power factory in our cells, thus the *Wolbachia* is similarily a intracellular bacteria <span class="co">[</span><span class="ot">@zhou1998</span><span class="co">]</span>.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Given its inability to live outside the host cell, the *Wolbachia* is supposed to be transmitted along the maternal line, like the mitochondria, since male hosts are dead end for *Wolbachia*. Also becasue of this, *Wolbachia* are found most prevalent inside the reproduction tissue of their hosts (testes, ovaries). People have observed a rising number of cases, in which *Wolbachia* is associated with female-biased sex ratio of the host species - and it is understandable as it can be considered as the biggest interest of *Wolbachia* [@werren1997]. There are several strategies that *Wolbachia* usually uses to accomplish such purpose (@fig-wol-phenotype): the feminization (FI), the parthenogenesis (PI), the male-killing (MK), and the cytoplasmic incompatibility (CI). CI is the most common type but I won't elaborate too much on it since it alone does not induce a sex-bias towards female <span class="co">[</span><span class="ot">@werren2008</span><span class="co">]</span>. </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Common phenotypes of *Wolbachia* [@werren2008]</span><span class="co">](assets/wol-phenotype.png)</span>{#fig-wol-phenotype width="100%"}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>These acitve munipulation of the host reproduction has given *Wolbachia* huge advantages. They have to date established a world-wide, possibly the biggest pandemic in the history of life. Arthropods and filarial nematodes are the main groups of their hosts, yet the phenomena caused by *Wolbachia* can be extremely different from host to host. In filarial nematodes, they have become an obligate mutualistic bacteria, but in arthropods, most of them are parasitic. </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## The shinny bittle *Altica lythri*</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Like many other arthropod, *Altica lythri* also hosts this bacteria, but it's a bit more complex with *A. lythri* here. First of all, this beetle species is not monophyletic <span class="co">[</span><span class="ot">@jackel2013</span><span class="co">]</span>. Previous study found an inconsistency between nuclear DNA and mitochondrial DNA, which suggests that this species has experienced hybridization and introgression in its evolution. </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>As mentioned before, *Wolbachia* should follow the same inheritance pattern as the mitochondria, a strong correlation between different mitochondrial DNA haplotypes and *Wolbachia* strains was observed: HT1 - *w*LytA1 / HT1* - uninfected / HT2 - *w*LytA2 / HT3 - *w*LytB. Yet during the subsequent studies, some ddRAD-seq reads from pooled HT1* samples were mapped to *Wolbachia* reference genome (Zeng, unpublished). This rose the question: **Are the HT1\* individuals really immune to _Wolbachia_, or are they just low-level infected and were never detected by previous genotyping technique?**</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Updated status of the pandemic</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Previously, the infection was confirmed by normal PCR and gel-electrophoresis. Now with a demand on better detectability and additional quantitative information, we designed a new qPCR protocol to test for infection. The result yielded several changes since the last comprehensive survey.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

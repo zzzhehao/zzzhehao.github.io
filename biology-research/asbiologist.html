@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -44,6 +78,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/nutshell-1.0.7/nutshell.js"></script>
+<script src="../site_libs/quarto-contrib/nutshell-1.0.7/nutshell_options.js"></script>
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -241,7 +277,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">As a Biology Student</h1>
+<div class="quarto-title-block"><div><h1 class="title">As a Biology Student</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 </div>
 
 <div>
@@ -255,7 +291,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:hu_zhehao@hotmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:zheaho.hu@uni-hamburg.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -371,21 +407,31 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <p>I will be very happy if you find my story and my future vision align with your interest. If so, please don’t hesitate to reach out! Also please check the posts I wrote, I appreciate any advices and comments!</p>
 
 
+<!-- -->
+
 </section>
 
 </main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
+    body {
+        align-items: center;
+    }
+
+    .footer-container {
+        text-align: center;
+        line-height: 1.6; /* Adjust this value to change line spacing */
+    }
+
     .contact-links {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
+        margin: 10px 0; /* Add space above and below contact links */
     }
 
     .contact-links a {
-        flex: 1;
-        text-align: left;
-        font-size: 1rem;
+        margin: 0 10px; /* Add space between links */
         color: #888;
         text-decoration: none;
         display: flex;
@@ -397,19 +443,21 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     }
 
     .contact-links a i {
-        margin-right: 10px;
+        margin-right: 5px;
+        font-size: 0.8rem;
+    }
+
+    .contact-links a span {
+        font-size: 0.8rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 5px 0; /* Add space above and below text */
     }
 
     @media (max-width: 720px) {
-        .contact-links {
-            justify-content: space-around;
-        }
-
-        .contact-links a {
-            flex: 0 1 auto;
-            text-align: center;
-        }
-
         .contact-links a span {
             display: none;
         }
@@ -420,46 +468,16 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     }
 </style>
 
-<!-- <div style="color: #333; padding: 20px 0;"> -->
-<div>
+<div class="footer-container">
     <hr>
-
-    <div style="
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    ">
-        <!-- Left: Logo -->
-        <div style="
-            flex-shrink: 0;
-            margin-right: 30px; /* Space between logo and content */
-            padding-left: 30px; /* Space between logo and left edge */
-        ">
-            <img src="../assets/images/loading-cat.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
-        </div>
-
-        <!-- Right: Content -->
-        <div style="
-            flex: 1;
-            min-width: 250px; /* Ensures the content doesn't get too narrow */
-            font-size: 0.8rem;
-        ">
-        
-            <h5>Something you like? Reach out to me!</h5>
-            <div class="contact-links">
-                <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
-                <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
-                <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
-                <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
-            </div>
-            <hr>
-            
-            <p>Issues on the website?  <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
-            <p>© 2024 Zhehao Hu.</p>
-            
-            
-        </div>
+    <p class="footer-text">Copyright © 2024 Zhehao Hu | <a href="https://github.com/zzzhehao/zzzhehao.github.io/blob/main/LICENSE">MIT license</a></p>
+    <div class="contact-links">
+        <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
+        <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
+        <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
+        <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
     </div>
+    <p class="footer-text">Issues on the website? <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
     <hr>
 </div>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -695,6 +713,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1025,9 +1094,119 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "As a Biology Student"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2024-07-27"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    html:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">        include-in-header: bg-research.html</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    "I don’t know why I came. I just ended up here. And I am happy with it."</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"functions/forward-message.R"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">forwardMsg</span>()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="al">![Me being happy in the wild](/assets/images/hu-in-heath-cropped.jpg)</span>{width="45%"}</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Was it my choice, or my fate?</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>I grew up in urban cities, but it did not keep me away from nature. Tamagawa (多摩川), a river that flows through Tokyo, shaped my first memories of nature. I have been interested in natural science since then. Yet, my four years in Schwerin had the most impact on my career choice. Schwerin was a small town surrounded by lakes, with nature within walking distance. I spent a lot of time wandering through the nature park and forests with my camera, which gradually drew me into this fantastic field. Birds, with their high mobility and integrated lifestyle with humans, became my favorite. Besides their freedom of flight, which I dreamed of at countless moments, I was also attracted to their elegance and intelligence.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="al">![Seagull breeding its kid](../assets/images/seagull.jpg)</span>{width=60%}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Another passion of mine lies in the ocean. The magical power of the ocean has attracted me in so many ways, too many to sort through. It feels like a born instinct how the sounds of waves, the blue of the depths, and the twinkling of the water trigger my emotions and actions. </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>I love thinking, sometimes even a bit too much. I have lost count of how many times I sat on the rocks, looking at the starlight's reflection in the great lake of Schwerin, thinking about how vastly wide the universe is, and how insanely long time flows. Every time I think about this, I am amazed by the complexity of life, which blooms so brightly and desperately in the eye of Laplace’s demon.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ![Schweriner Schloss under the stars](../assets/images/schwerin-starlight.jpg){width=60%} --&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>All of this, and much more, have ultimately led me on the path of becoming a biologist. </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## University</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>I started my degree program in 2020 at <span class="co">[</span><span class="ot">Universität Hamburg</span><span class="co">](https://www.biologie.uni-hamburg.de/en.html)</span> and received my bachelor's degree at 2024. Currently, I am further pursuing my master degree.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Besides the basic modules obligatory for everyone studying biology, I attended various elective courses during my bachelor and master studies. Many of them have already paid off with knowledge and skills later on, and some have meaningfully shaped my current specialization.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Molecular Biology</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Like many others, I thought about how my studies could support my future. The first time I stood at the crossroads, molecular biology, or specifically, biotechnology, seemed the most promising. But as I delved deeper, I noticed my lack of constant passion for the technology. They mean more as techniques and methods to me, not as research itself. I needed something more "biological" to immerse myself in. For the first time, I felt eager to answer questions at the front line of research. The questions which are confusing researchers, but also reveal the beauty of life. At the meantime, I had some new experience outside the lab, which reminded me on my original passion. This has made me decide that I don’t want to commit myself to a career that is totally inside the lab, but to take advantage of my knowledge and skills gained in this field to support my career that combines molecular biology with something else.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### The first HiWi</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>All I have now, and who I have become, could never have been possible if I hadn't sent that email back in 2022. It was the second time I saw the hiring ad for a student assistant. The professors in our department hire students yearly to assist with bachelor basic courses, particularly *Animal Physiology* in my case. Since these courses are mandatory, the number of attendees is high. In the first normal year after COVID, they faced a shortage of hands. Many others, who might have considered the job, were worried about whether they could be up to it, like I was. But seeing the ad twice?</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>:::{.mini}</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>“Well, maybe my German is not good enough, maybe I didn’t have the best grade in that course, but why not give it a try?” </span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>I took it as a reminder of my fate and the last chance to get on that ride. And this, my friend, changed my life. Or anyway, my life would have to change at some point, but with this decision, I held the opportunity tight in my hand, even if I did not realize it back then.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>It turned out the three-week job went very well. I had a good time and learned a lot, even though I was the one teaching others. This experience helped me overcome my anxiety in front of people, taught me the joy of helping others, and provided me with my first network in my career - with my future thesis supervisor, Dr. Kim Rohlfing.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bachelor thesis</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Kim was a very talkative and passionate person. During the week we led the course together, she told me a lot about the research group she was in, the elective courses they offered, and their research. I must admit, my first choice for the thesis was another group, but eventually, I asked Kim for an opportunity. At that point, I was still planning to build my career path toward molecular technology.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>The research group was called “Molecular Evolutionary Biology” and run by Prof. Dr. Susanne Dobler, who taught the fundamental evolution course. I was assigned a fascinating topic about *Wolbachia*, a stunning bacteria in many insects with impressive witchcraft — manipulating the host’s reproduction behavior, and more. The deeper I dived into it, the more amazed I was. Researchers worldwide have dedicated decades to studying this bacteria, and even more are joining, but still, it is shrouded in mysteries, and this excited me.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ([Learn more about my thesis and Wolbachia.](../research/blogs/bachelor-thesis.qmd)) --&gt;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Eventually, I have come to realize that evolution was exactly what caught me on this path in the first place. I learned about the basic concept of modern evolutionary theory when I was young, and since then, I have always tried to explain things with it. That’s also how I explained the universe to myself and why the universe amazes me every time. And the topic I dived into, not only *Wolbachia* but the research on things we don’t know about countless lives on this planet, i.e. the biodiversity, how it works, how it was shaped, and where it will go, the complexity of life, is exactly the radiant flower that dazzles Laplace’s demon.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>The year in the research group was the most precious year I had during the program. I even had the opportunity to attend an academic conference, the DZG (German Zoological Society) annual meeting in Kassel as an undergraduate student. As I wrote in the acknowledgments of my thesis, I can’t express enough gratitude to Kim, my supervisor, who offered the opportunities in the first place; to Susanne, our group leader, for showing me how an honored researcher should be; to Mario Röpcke, a fellow PhD student in the group, and to Dr. Shabnam Mohammadi, for the various help they offered during the year. I will treasure this memory for the rest of my life.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="al">![Me and my poster](../assets/images/hu-poster.jpg)</span>{width=60%}</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Going Further</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>With my passion for evolution clarified, my goal became clear. Evolution does not stand alone; it is nothing more than ecology and genetics in relation to time. With that in mind, I began my master’s program and attended two courses - *Evolutionary Systematics* and *Community Ecology*. The former strengthened my understanding of evolution. As the course ended, I wrote this text in my notes:</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>::: {.mini}</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>*This course has given me the tools to see the driving forces behind the universe. I've come to understand that evolution is not just about the historical development of species. Rather, it's like an invisible hand from time itself, shaping our world.*</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>The other one, *Community Ecology*, finally knitted a network between evolution and ecology for me by showing me how they interact with each other, and clarified how the conservation strategy works. Upon that, it also ‘officially’ connected data science with my career, by teaching us to deal with complex ecological data.</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Science - The Parallel</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>The importance of data science is nowadays no longer a news. I had a slight interest in it since a few years ago, and actually, my fourth preference when applying the university was data science (you can guess my third, it was not related to biology either). Although I am totally happy that I got accepted by B.Sc. biology program at UHH the day after my application, but the interest has remained. The bachelor biology program was reformed after two years after I started, where four semesters of data science course were brought into program to teach students R and be able to utilize digital methods to conduct basic statistical analysis. My program did not have that, we even brought F-table into exam to do some hand-made ANOVA. </span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>But I got lucky, I chose to start taking elective course earlier than suggested and replaced the basic biostatistics module with *Data Analysis in Ecology (with R)* (what I mean by ‘replace’ was actually skipping the basic module because the attendance was not checked). That was where I learned R and was introduced to the world of reproducible research.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>Even if I hadn't taken course back then, I guess I would have still learned R at some point. As our lecturer suggested, I have used R regularly since then, including in my thesis and the *Community Ecology* course. I love the feeling of searching for new results in the sea of data, it's like a magical power that can find peace in a chaotic world. This evoked more interest inside me, such as building this website. Despite all the convenient features provided by Quarto, it still requires a certain level of project management skill to keep everythings clean, tidy, and understandable.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>Earlier this year, I had some time without university courses, I used it to attend courses on *Coursera*, where many universities offer various courses. I introduced myself to bioinformatics, from simple motif finding to genome assembly, further to sequence comparison and ultimately to big data, in hope that I will use this knowledge in my future career (I’m sure I will).</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Aim</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>After mentioning all the topic I’m up to, I hope you have received a broad overview of what I did and what I am doing. But I must admit, as I am still pursuing my master degree, I’m still not completely sure of the exact specific topic I will push toward, It will more probably be a spontaneous decision based on availability of different opportunities, but I certainly have some personal interest, such as the marine mammals, crustacean, sea birds, reptiles, *Wolbachia* of course (but less in insects themselves tho), some Crsutaceans (e.g. Rhizocephala is a very stunning group in view of evolution, also in physiology, developmental biology, and morphology, they are just too unique). </span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>Beside all I mentioned, I also learn new things from other branches out of general interest, such as other courses I attended: molecular parasitology, molecular immunology, biodiversity of marine deep-sea habitats, biodiversity of fungi, etc. I am encouraged by a concept to do this:</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>:::{.mini}</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>“T-shaped people", those with a depth of knowledge in at least one discipline and a breadth of knowledge about innovation and entrepreneurship that allows them to work effectively with professionals on other disciplines to bring their ideas to life.”</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>― Tina Seelig, *What I Wish I Knew When I Was 20*</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Interdisciplinarity has become an important aspect of research nowadays, especially in such complex subject like biology, I am extremely certain that I will work with people from other disciplines, and my goal is to contribute to research, particularly in species evolution, in view of its interaction with the environment and the humans, especially in terms of conservation, in an interdisciplinary way. </span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## CV</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>I want to thank you all for reading this far. I hope my words give you a better idea of who I am, but there are also some points I did not mention. For more information, you can find my CV <span class="co">[</span><span class="ot">here</span><span class="co">](/biology-research/CV_Zhehao_Hu.pdf)</span>.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>I will be very happy if you find my story and my future vision align with your interest. If so, please don’t hesitate to reach out! Also please check the posts I wrote, I appreciate any advices and comments!</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
