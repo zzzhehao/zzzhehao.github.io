@@ -64,4 +64,4 @@ format:
     css:
       - theme/global.css
 execute: 
-  freeze: false
+  freeze: true
