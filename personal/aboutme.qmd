@@ -7,7 +7,7 @@ format:
     toc: true
     toc-depth: 3
     highlight-style: arrow-dark
-    include-in-header: ../theme/bg-red-plane.html
+    include-in-header: ../theme/bg-schwarz-twillight.html
 execute: 
   eval: false
 lightbox: true
@@ -15,20 +15,25 @@ lightbox: true
 
 ```{=html}
 <style>
-  .background-container {
-    background-image: url('/assets/images/summer-cloud-3.jpg');
-  }
   .cus-footer {
     color: #e9e5df;
   }
+  :root {
+    --border-color: #e9e5df;
+  }
+  h2 {
+    border-bottom: 1px solid #e9e5df;
+  }
 </style>
 ```
+
+[Open this page in mobile device, you will see something different {{< iconify solar:smartphone-rotate-orientation-line-duotone >}} ]{style="color: #909090;"}
 
 <br>
 
 |||
 |:-:|:--|
-|![](/assets/images/hu-profile.jpg){width="100%"}|👋 Hi, I am Zhehao. <br><br>I'm a M.Sc. Biology student based in Hamburg. I'm passionate about Evolution, Ecology and Bioinformatics. <br><br>I build this website to share my notes, works, thoughts and nonsense. Hope you enjoy my texts and my photos. |
+|![](/assets/images/hu-in-heath-cropped.jpg){width="100%"}|👋 Hi, I am Zhehao. <br><br>I'm a M.Sc. Biology student based in Hamburg. I'm passionate about Evolution, Ecology and Bioinformatics. <br><br>I build this website to share my notes, works, thoughts and nonsense. Hope you enjoy my texts and my photos. |
 
 : {tbl-colwidths="[35,65]"}
 
@@ -51,7 +56,8 @@ A short version for people don't want to read all my nonsense
 
 : {tbl-colwidths="[25,75]"}
 
- *Read. Think. Write.*
+<br>
+$\hspace{0.5em}$ *Read. Think. Write.*
 
 ::::
 
@@ -203,3 +209,5 @@ I really appreciate that you read so far, it feels really great when people are 
 
 - [Photo Albums](/gallery/gallery.qmd)
 - [Me as a Biology Student](/biology-research/asbiologist.qmd)
+
+<br><br><br><br><br><br><br><br>
