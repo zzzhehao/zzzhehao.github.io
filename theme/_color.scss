@@ -27,6 +27,9 @@ $paper: #e9e5df;
 $paper-grey: #dfdcd8;
 $paper-dark-grey: #575452;
 $ink1: #414645;
+$border-color: $ink1;
+
+
 
 // from dark theme
 $dark-canvas: #272B34;
@@ -49,4 +52,8 @@ $summer-vintage-sand: #D9965B;
 $summer-vintage-sojamilk: #F2E6DF;
 
 $accent-color: $AgainAgain-3-hex;
-$second-accent-color: $summer-vintage-orange;
+// $second-accent-color: $summer-vintage-orange;
+$second-accent-color: $AgainAgain-3-hex;
+
+// $link-color-hover: $AgainAgain-3-hex;
+$link-color-hover: $red_plane-1-hex;

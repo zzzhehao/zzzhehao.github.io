@@ -1,4 +1,5 @@
 /*-- scss:rules --*/
+@import 'color-dark';
 
 .form-select {
   border-color: #D9CEBE;
@@ -13,3 +14,50 @@ div.listing-category {
   border: 1px solid #D9CEBE !important;
   color: #D9CEBE !important;
 }
+
+// Panel tabset border color
+:root {
+
+}
+
+.panel-tabset [role=tab]:hover:not([aria-selected=true]) {
+    color: $accent-color;
+    // font-weight: 500;
+    border: none;
+}
+
+.panel-tabset [role=tab]:hover([aria-selected=true]) {
+    border: none;
+    color: $accent-color;
+}
+
+.panel-tabset [role=tab] {
+    color: $paper;
+    border: none;
+    // font-weight: 500;
+    color: $grey;
+}
+
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    border-radius: .25rem;
+    border: 1px solid $paper !important;
+    // font-weight: 500;
+    color: $paper;
+  }
+
+// Disable content border
+  div.tab-content {
+    border: none;
+  }
+
+// Disable tab bar border
+  .panel-tabset [role=tablist] {
+    border: none;
+    padding-right: 10%;
+  }
+
+  .nav-tabs {
+    border-bottom: none !important; /* Remove the bottom border */
+  }
+  

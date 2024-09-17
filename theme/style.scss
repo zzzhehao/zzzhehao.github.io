@@ -32,9 +32,10 @@ $body-bg: $paper;
 $body-color: $ink1;
 $link-color: $accent-color;
 
-$code-block-bg: $paper-grey;
-$code-bg: $paper-grey;
-$code-color: #74431C;
+$codeblck-dark-bg: #1f2329;
+$code-block-bg: $codeblck-dark-bg;
+$code-bg: #cac8c6;
+$code-color: #3b2506;
 $kbd-color: $paper-dark-grey;
 
 $table-border-color: $paper-dark-grey;
@@ -60,6 +61,19 @@ table {
 
     // Optional: If you want to add a bottom border for the last row
     tr:last-child td {
-        border-bottom: 2px solid $table-border-color; // Add bottom border for the last row
+        border-bottom: 1px solid $table-border-color; // Add bottom border for the last row
     }
+}
+
+
+.sourceCode {
+    border-radius: 1px;
+}
+
+.sourceCode span:not([class]) {
+    color: #{$paper} !important;
+  }
+  
+.cell .cell-output {
+    border: 1px solid #{$ink1};
 }

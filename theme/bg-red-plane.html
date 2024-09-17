@@ -34,13 +34,48 @@
     }
 
     .sourceCode {
-    background-color: transparent !important;
-    border: none !important;
+        background-color: transparent !important;
+        border: none !important;
     }
 
     .abstract-callout {
         border: 3px solid #e9e5df;
     }
+    .navbar {
+        color: #e9e5df;
+        background-color: transparent;
+    }
+
+    .navbar-container{
+        color: #e9e5df;
+    }
+
+table {
+    --table-border-color: #e9e5df;
+    border-collapse: collapse; /* Ensures borders are combined */
+}
+
+/* Style for the header row */
+table th {
+    border-top: 1px solid var(--table-border-color);
+    border-bottom: 1px solid var(--table-border-color); /* Change the border color above the header */
+    border-right: none; /* Remove right border */
+    border-left: none; /* Remove left border */
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Style for the body cells */
+table td {
+    border: none; /* Remove all borders */
+    border-top: 1px solid var(--table-border-color); /* Add top border for each row */
+}
+
+/* Optional: If you want to add a bottom border for the last row */
+table tr:last-child td {
+    border-bottom: 1px solid var(--table-border-color); /* Add bottom border for the last row */
+}
+
 </style>
 
 <div class="background-container"></div>
