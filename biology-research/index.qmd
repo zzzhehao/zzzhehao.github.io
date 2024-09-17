@@ -1,17 +1,93 @@
 ---
-title: "Posts"
+title: "Research Posts"
 author: ""
 affiliation: ""
-listing: 
-    contents: 
-        - "community-ecology/*.qmd"
-        - "../closeread/bio-*.qmd"
-        - "!draft*.qmd"
-    sort:
-        - "date desc"
+
+listing:
+  - id: ls-all
+    sort: "date desc"
     sort-ui: [title, date]
     categories: unnumbered
     image-height: 120px
     image-lazy-loading: true
-format: html
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents: 
+        - "*.qmd"
+        - "../closeread/bio-*.qmd"
+        - "!draft*.qmd"
+
+  - id: ls-comeco
+    sort: "date desc"
+    sort-ui: [title, date]
+    image-height: 120px
+    image-lazy-loading: true
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents:
+        - "community-ecology/*.qmd"
+        - "!draft*.qmd"
+
+format: 
+    html: 
+        toc: false
 ---
+
+### About this page
+
+Here, I share my notes and thoughs from course, event, workshop, conference, and much more. Currently I am mainly focused on biostatistics and data analysis in the related extent. 
+
+::: {.callout-caution appearance="minimal" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+## [About Me]{style="font-size:1rem;"}
+
+- M.Sc Biology Student {{< iconify mdi:academic-cap >}} [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) 
+- Interest: 
+{{< iconify humbleicons:arrow-main-split-side >}} Evolution
+{{< iconify carbon:earth-filled >}} Ecology
+{{< iconify material-symbols-light:immunology >}} Immunology
+{{< iconify streamline:bacteria-virus-cells-biology >}} Microbiology
+{{< iconify fluent:animal-cat-16-regular >}} Developmental Physiology
+{{< iconify healthicons:nerve-outline >}} Molecular Technology
+{{< iconify simple-icons:posit >}} Bioinformatics
+- Animals I like: 
+{{< iconify mdi:shark >}} Fish
+{{< iconify map:whale-watching >}} Marine Mammals
+{{< iconify game-icons:sea-turtle >}} Sea Turtle
+{{< iconify fluent-emoji-high-contrast:lizard >}} Reptiles
+{{< iconify game-icons:kiwi-bird >}} Birds
+
+
+:::
+
+::: {.callout-caution appearance="minimal" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [Why am I doing this?]{style="font-size:1rem;"}
+
+I had only minimal education on data science -- before our bachelor program was reformed -- so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecturer and tried to understand MCMC before I have even heard of Bayesian statistics. Such gaps are everywhere, especially when I started my master programm, they are like pit holes on the my path dedicated to flip over every attempt of mine trying to moving forward. I want to share my notes and resources so that my fellow student, and everyone who just started to step into data science, can have some infos that go through things in their perspectives and make things easier to understand. Although, as a biology student, I mostly focus on biostatics and related topics.
+
+:::
+
+```{r}
+#| output: asis
+#| echo: false
+source("functions/forward-message.R")
+forwardMsg("Enjoy.")
+```
+
+<br>
+
+::: {.panel-tabset}
+
+## Latest
+
+::: {#ls-all}
+:::
+
+## Community Ecology
+
+::: {#ls-comeco}
+:::
+
+:::

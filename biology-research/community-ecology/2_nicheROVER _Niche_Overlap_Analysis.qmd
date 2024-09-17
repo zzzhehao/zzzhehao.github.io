@@ -1,7 +1,8 @@
 ---
 title: Niche Overlap Analysis using stable isotope data and nicheROVER
-draft: true
+image: https://images.unsplash.com/photo-1588260693028-1308137adf56?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 abstract: Stable isotope analysis (SIA) provides numerous information while assessing species' ecological niche, the R package *nicheROVER* offers an insightful analysis using stable isotope data.
+description: "  "
 categories:
   - Ecology
   - Community Ecology
@@ -15,12 +16,10 @@ execute:
 number headings: auto, first-level 3, max 4, 2
 ---
 
-<br>
-
 ::: {.disclaimer}
+Part of this note is taken from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) for M.Sc. Biology program and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). 
 
-This is a note from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). 
-
+The cover image is credited to [Europeana on Unsplash](https://unsplash.com/photos/silver-and-yellow-fish-on-brown-wooden-table-vlmb9C2Ah_s).
 :::
 
 <br>
@@ -52,9 +51,6 @@ The package `nicheROVER` provides a new probabilistic method for quantifying n-d
 #| echo: false
 #| output: false
 pacman::p_load(c("rmarkdown", "knitr", "tidyverse", "nicheROVER", "gtsummary"), character.only = TRUE)
-```
-
-```{r}
 library(nicheROVER)
 data(fish)
 ```
@@ -89,12 +85,10 @@ content <- "- @newsome2007a
 - @michel2021
 - @moyo2021
 - @2024"
-custom_callout("For more information about isotopic and atomic ecology", content, collapse = TRUE)
+custom_callout("For more information about isotopic and atomic ecology", content, collapse = TRUE, titleStyle = "sub")
 ```
 
 ## Bayesian Workflow
-
-Before we start analyzing our data, there are some concepts and prior knowledge need to be checked. Since this is the first note associating with statistics in my post, I will elaborate things a bit more detailed.
 
 ### Bayesian theorem
 
@@ -131,7 +125,7 @@ There is also a practical advantage of the Bayesian approach, which is that all 
 
 @swanson2015 pointed out a viewpoint from the traditional niche overlap analysis that might introduce problems: geometric approach doesn't account for uncertainty, and also lacks of direction. It is very well illustrated by Fig. 1 in the publication:
 
-![Comparison between geometric and probabilistic isotope overlap metrics. Isotope x is distributed in species A and B (x-axis); dashed lines show means. The 95% niche region (solid lines) of B is completely contained within that of A, such that the geometric overlap of B onto A is 100%. However, the probability that a randomly chosen member from A falls into the isotopic niche of B is only 35%.[@swanson2015] ](https://esajournals.onlinelibrary.wiley.com/cms/asset/d9181a57-fa40-4f4a-9197-460929dad9f8/ecy2015962318-fig-0001-m.jpg)
+![Comparison between geometric and probabilistic isotope overlap metrics. Isotope x is distributed in species A and B (x-axis); dashed lines show means. The 95% niche region (solid lines) of B is completely contained within that of A, such that the geometric overlap of B onto A is 100%. However, the probability that a randomly chosen member from A falls into the isotopic niche of B is only 35%. [@swanson2015]](https://esajournals.onlinelibrary.wiley.com/cms/asset/d9181a57-fa40-4f4a-9197-460929dad9f8/ecy2015962318-fig-0001-m.jpg)
 
 By inviting the variance of the niche probability distribution, not only the mean, it now also differentiates the overlap in directions, which means the probability of a species A falling into species B is not equal to one of that species B falling into species A. And since this perspective starts to consider the probability in the models, a Bayesian workflow will provide more reliable and robust analysis. 
 
@@ -157,24 +151,28 @@ A **covariance matrix** is a square matrix giving the covariance between each pa
 #| output: asis
 #| echo: false
 content <- "- [StatQuest](https://www.youtube.com/watch?v=qtaqvPAeEJY) on YouTube (simply and clearly explained)"
-custom_callout("For more information about covariance", content, collapse = T)
+custom_callout("For more information about covariance", content, collapse = T, titleStyle = "sub")
 ```
 
 ### Conjugate Prior
 
-We mentioned the [:basic framework of Bayesian statistics](#bayesian-theorem) earlier. Now we are adopting them in SIA. @jackson2011 suggested that the normal distribution is generally appropriate when dealing with stable isotope ratio, there's a way to simplify the analysis by taking advantage of the **conjugate prior**. 
+@jackson2011 suggested that the normal distribution is generally appropriate when dealing with stable isotope ratio, and this gives us a way to simplify the analysis by taking advantage of the **conjugate prior**. 
 
 A conjungate prior is a certain prior distribution, that when applied on certain likelihood function, the posterior distribution will also be in the same distribution family. Such as in univaraite analysis, a normal prior and a normal likelihood function results a normal posterior. In our case, the conjugate prior for the multivariate normal is the normal-inverse-wishart (NIW) distribution. It can be considered in two parts: the mean is following a normal distribution and the covariance is following an inverse-Wishart distribution. NIW is commonly used as the prior distribution when modeling a multivariate normal, but the mean and the covariances are unknown.
+
+::: {.column-margin}
+
+The probability of a random observation of a isotope ratio ($x$) belongs to species $s$ is following a normal distribution.
 
 $$
 P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)
 $$
 
-## Analyzing the data
+:::
+
+## Monte Carlo with `niw.post()`
 
 All prior knowledge we just went through, from basic Bayesian inference to the NIW distribution, is to understand the very two lines of code that implemented the Bayesian workflow into the analysis.
-
-### Drawing with `niw.post()`
 
 ```{r}
 nsamples <- 1000
@@ -182,22 +180,30 @@ fish.par <- tapply(1:nrow(fish), fish$species,
             function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))
 ```
 
-`niw.post()` uses a data matrix (`X`) as observation data, calculate the posterior distribution and then draws a set of means and covariance matrix of a possible multivariate distribution, which includes the prior and our observation data. We use `tapply()` to separately apply `r nsamples` times of `niw.post()` on each fish species.
+`niw.post()` uses a data matrix (`X`) as observation data, calculate the posterior distribution and then draws a set of means and covariance matrix of a possible multivariate distribution, which includes the prior and our observation data. The main idea is that because analytically working with posterior multivariate distribution is too impractical, so we employ the [:Monte Carlo approach](https://www.youtube.com/watch?v=7ESK5SaP-bc) to have a view of the posterior. We use `tapply()` to separately apply `r nsamples` times of `niw.post()` on each fish species.
 
 This results a list of 4 lists (species) of 2 matrix (mu and Sigma), where the mu matrix has a dimension of `r nsamples` (sampling times) x 3 (number of variables), and the Sigma matrix has a dimension of `r nsamples` (sampling times) x 3 x 3 (one slice = one covariance matrix).
+
+This particular data structure is critical for later application of `niche.par.plot()`, see `?nichr.par.plot` for more.
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [See the result]{.cl-sub}
 
 ```{r}
 str(fish.par)
 ```
 
-This particular data structure is critical for later application of `niche.par.plot()`, where the first argument has to be a list with nspecies = length(niche.par), each element of which is a list with parameters mu and Sigma.
+:::
 
-## Visualizing niche parameters
+## Niche Parameters
 
-Use `plot.index`, `plot.mu` or `plot.Sigma` to select which $\mu$ or $\Sigma$ to plot, see details in the document.
+`niche.par.plot()` allows us to have a overview on Monte Carlo simulation of the posterior multivariate distribution of our $\mu$ and $\Sigma$. It shows the probability density curve of each variable. Use `plot.index`, `plot.mu` or `plot.Sigma` to select which $\mu$ or $\Sigma$ to plot, or simply use `plot.mu = TRUE, plot.Sigma = TRUE` to display all. See details in the document.
 
-```{r fig.height=2, fig.align="left"}
-clrs <- c("black", "red", "blue", "orange") # colors for each species
+```{r fig.height=2, fig.align="center"}
+#| fig-cap: The distribution of $\mu_1$ ($\delta^{15}N)$ and $\mu_2$ ($\delta^{13}C)$, as well as the $\Sigma_{12}$ is displayed here. 
+
+clrs <- c('#348E8C', '#732C02', '#BF0404', '#F29F05') # colors for each species
 
 # mu1 (del15N), mu2 (del13C), and Sigma12 
 par(mar = c(4, 5, .5, .1)+.1, oma = c(0,0,0,0), pty="s", mfrow = c(1,3))
@@ -207,17 +213,26 @@ niche.par.plot(fish.par, col = clrs, plot.index = 1:2)
 legend("topleft", legend = names(fish.par), fill = clrs)
 ```
 
-### Plot intepretation
+## 2-D Ellipse Projection
 
-## 2-d projection of a subset of a niche region
+To dealing with n-dimensional niche region (N<sub>R</sub>), @swanson2015 reduced them into 2-dimensional space using probabilistic projection, which is to differentiate from geometric projection. A 2-dimensional probabilistic projection of an n-dimensional N<sub>R</sub> is simply the N<sub>R</sub> calculated by the projected 2 axes [@jackson2011; @swanson2015]. Fig. 2 from @swanson2015 clearly demonstrate and explained the different outcome.
+
+![A three-dimensional 95% niche region for normally distributed isotopes. The two ellipses are projections of the niche region (NR) onto isotope axes U and V. The black, hatched ellipse is the geometric projection of NR onto this plane, which is the shadow obtained by shining a light onto the three-dimensional ellipsoid along the W-axis (in blue). This is the largest of the two-dimensional ellipse “slices” taken parallel to the UV-plane. The red ellipse is the 95% niche region constructed directly from isotopes U and V. Thus, the geometric projection of the ellipsoid covers less than 95% of randomly selected individuals in two-dimensional isotope space. [@swanson2015]](https://esajournals.onlinelibrary.wiley.com/cms/asset/91c8eaef-f65e-4f7c-9eb7-b491b568943e/ecy2015962318-fig-0002-m.gif)
+
+For the sake of clearness, we only use 10 simulations here. `niche.plot()` generates three types of plot:
+
+1. Univariate distribution density curves, i.e. smoothed histogram.
+2. Bivariate scatter plots.
+3. 2-D projection of N<sub>R</sub> by using simulation data, displayed in ellipse plots.
+
+From the first two plot types, we could confirmed the assumption that the isotope ratios are generally normal. While the ellipse plots give us a better view of each species' N<sub>R</sub> and the overlap situation.
 
 ```{r fig.height=9, fig.width=9, fig.align="center"}
 #| label: niche.plot
-#| fig-cap: (I believe the same plot in the publication was inappropriately labelled in a reversed order, where the $\delta ^{34} S$ plots here as well in the vignettes is labelled as $\delta ^{15} N$ in the publication, which does not agree with their discussion either)
 
-nsamples <- 10 
+nsamples <- 10
 fish.par <- tapply(1:nrow(fish), fish$species,
-                   function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))
+            function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))
 
 # format data for plotting function
 fish.data <- tapply(1:nrow(fish), fish$species, function(ii) X = fish[ii,2:4])
@@ -227,7 +242,163 @@ niche.plot(niche.par = fish.par, niche.data = fish.data, pfrac = .05,
            col = clrs, xlab = expression("Isotope Ratio (per mil)"))
 ```
 
+It's a bit overwhelming plot. Take time to understand it.
 
+## Estimate Niche Overlap
 
-## Benthic or pelagic fish???????
+With `overlap()` we can have a more accurate and robust inference of overlapping among the species, the accuracy of the estimation can be improved by increasing `nprob`. Generated plot shows pairwise niche overlaps (now we have directions!), which displays the probability distribution of species A (along rows) fallen inside the niche of species B (along columns), with indication of the mean and confidence interval (95% in the show case). 
+
+Be careful not to confuse two 95% here - one means that we use 95% of the niche region to calculate overlap, which is specified in `overlap()` with `alpha = 0.95`; the other is the 95% credible interval of the probability distribution displayed in each plot. There is difference to spot between plots using 95% or 99% of the niche region.
+
+```{r fig.align="center"}
+
+nsamples <- 1000
+fish.par <- tapply(1:nrow(fish), fish$species,
+            function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))
+
+# 95% niche region
+over.stat95 <- overlap(fish.par, nreps = nsamples, nprob = 1000, alpha = 0.95)
+overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%")
+
+# 99% niche region
+over.stat99 <- overlap(fish.par, nreps = nsamples, nprob = 1000, alpha = 0.99)
+overlap.plot(over.stat99, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 99%")
+```
+
+By printing out the returned value from `overlap()`, numeric result can also be showed. 
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [See detailed results]{.cl-sub}
+
+We could calculate the estimation for both alpha = 0.99 and 0.95 at the same time.
+
+```{r}
+over.stat.2lvl <- overlap(fish.par, nreps = nsamples, nprob = 1000, alpha = c(0.95, 0.99))
+over.mean.2lvl <- apply(over.stat.2lvl, c(1:2, 4), mean)*100
+
+# Here are the mean of each overlap probability distribution
+round(over.mean.2lvl, 2)
+```
+
+```{r}
+# Here are the upper and lower bounds of the 95% credible interval
+over.cred <- apply(over.stat.2lvl*100, c(1:2, 4), quantile, prob = c(.025, .975), na.rm = TRUE)
+round(over.cred)
+```
+
+:::
+
+## Penguins
+
+```{r fig.height=10, fig.width=10, fig.align="center"}
+
+library(tidyverse)
+library(nicheROVER)
+
+adeliae <- readRDS("biology-research/community-ecology/assets/data/219.5.rds") %>% mutate(Species = "Pygoscelis adeliae")
+papua <- readRDS("biology-research/community-ecology/assets/data/220.7.rds") %>% mutate(Species = "Pygoscelis papua")
+antarcticus <- readRDS("biology-research/community-ecology/assets/data/221.8.rds") %>% mutate(Species = "Pygoscelis antarcticus")
+
+penguin <- bind_rows(adeliae, papua, antarcticus)
+
+penguin <- penguin %>% select(c(1:9, 14, 17, 10:13, 15:16)) %>% mutate(Flipper.Length = as.numeric(Flipper.Length), Body.Mass = as.numeric(Body.Mass))
+
+comp.penguin <- penguin %>% filter(complete.cases(.))
+
+names(comp.penguin)
+
+nsamples <- 10
+pen.par <- tapply(
+    1:nrow(comp.penguin), 
+    comp.penguin$Species, 
+    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 12:17]))
+    
+# format data for plotting function
+pen.data <- tapply(1:nrow(comp.penguin), comp.penguin$Species, function(ii) X = comp.penguin[ii, 12:17])
+
+clrs <- c('#348E8C', '#732C02', '#F29F05') # colors for each species
+
+par(mfcol = (c(6, 6)))
+niche.plot(niche.par = pen.par, niche.data = pen.data, pfrac = .05,
+           iso.names = c("Culmen Length", "Culmen Depth", "Flipper Length", "Body Mass", expression(delta^{15}*N), expression(delta^{13}*C)),
+           col = clrs, xlab = expression("Isotope Ratio (per mil)"))
+
+```
+
+```{r fig.height=10, fig.width=10, fig.align="center"}
+
+nsamples <- 1000
+pen.par <- tapply(
+    1:nrow(comp.penguin), 
+    comp.penguin$Species, 
+    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 12:17]))
+
+# 95% niche region
+over.stat95 <- overlap(pen.par, nreps = nsamples, nprob = 1000, alpha = 0.95)
+overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%")
+
+# 99% niche region
+over.stat99 <- overlap(pen.par, nreps = nsamples, nprob = 1000, alpha = 0.99)
+overlap.plot(over.stat99, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 99%")
+```
+
+### Sexual Dimorphism
+
+```{r fig.height=10, fig.width=10, fig.align="center"}
+comp.penguin <- penguin %>% 
+    filter(complete.cases(.)) %>% filter(Sex != "" & Sex != ".") %>%
+    mutate(Species = factor(Species), Sex = factor(Sex, levels = c("FEMALE", "MALE"))) %>% 
+    mutate(cat = factor(paste(Species, Sex, sep = "_")))
+
+summary(comp.penguin$cat)
+
+nsamples <- 10
+pen.par <- tapply(
+    1:nrow(comp.penguin), 
+    comp.penguin$cat, 
+    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 12:17]))
+    
+# format data for plotting function
+pen.data <- tapply(1:nrow(comp.penguin), comp.penguin$cat, function(ii) X = comp.penguin[ii, 12:17])
+
+clrs <- zhehaoColors::zhehaoColor("copenhagen1alt", n=6) # colors for each cat
+
+par(mfcol = (c(6, 6)))
+niche.plot(niche.par = pen.par, niche.data = pen.data, pfrac = .05,
+           iso.names = c("Culmen Length", "Culmen Depth", "Flipper Length", "Body Mass", expression(delta^{15}*N), expression(delta^{13}*C)),
+           col = clrs, xlab = expression("Isotope Ratio (per mil)"))
+```
+
+```{r fig.height=12, fig.width=12, fig.align="center"}
+#| code-fold: true
+
+nsamples <- 1000
+pen.par <- tapply(
+    1:nrow(comp.penguin), 
+    comp.penguin$cat, 
+    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 12:17]))
+
+# 95% niche region
+over.stat95 <- overlap(pen.par, nreps = nsamples, nprob = 1000, alpha = 0.95)
+overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%", species.names = c("P. adeliae - F", "P.adeliae - M", "P. antarcticus - F", "P. antarcticus - M", "P. papua - F", "P. papua - M"))
+```
+
+```{r}
+#| code-fold: true
+clutch <- comp.penguin %>% group_by(Species) %>% summarise(complete_clutch = round(sum(Clutch.Completion == "Yes")/sum(!is.na(Clutch.Completion))*100, 2))
+clutch
+```
+
+::: {layout-ncol="3"}
+![*P. adeliae* by Dylan Shaw on [Unsplash](https://unsplash.com/photos/black-and-white-penguins-during-daytime-9k9tNQTwMEA)](https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+![*P. papua* by [Australian Antarctic Program](https://www.antarctica.gov.au/about-antarctica/animals/penguins/gentoo-penguin/)](https://www.antarctica.gov.au/site/assets/files/45561/gentoo-feed-me.1200x0.jpg?nc=7328)
+
+![*P. antarcticus* by Andrew Shiva on [Wikipedia](https://en.wikipedia.org/wiki/Chinstrap_penguin)](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg)
+:::
+
+By the way, if anyone felt familiar with these penguins and these data -- yes, this is the exact same dataset they used to produce the `palmerpenguins` package, except the isotope data were not included. I found this direcly in [EDI Data Portal](https://portal.edirepository.org/nis/advancedSearch.jsp) and didn't notice until I attached the images, because these three guys showing up at the same time is weirdly familiar to me. 
+
+![Surprise!](https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true)
 
