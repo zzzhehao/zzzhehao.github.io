@@ -53,9 +53,9 @@ Here, I share my notes and thoughs from course, event, workshop, conference, and
 {{< iconify healthicons:nerve-outline >}} Molecular Technology
 {{< iconify simple-icons:posit >}} Bioinformatics
 - Animals I like: 
-{{< iconify mdi:shark >}} Fish
+{{< iconify mdi:shark >}} Fishes
 {{< iconify map:whale-watching >}} Marine Mammals
-{{< iconify game-icons:sea-turtle >}} Sea Turtle
+{{< iconify game-icons:sea-turtle >}} Sea Turtles
 {{< iconify fluent-emoji-high-contrast:lizard >}} Reptiles
 {{< iconify game-icons:kiwi-bird >}} Birds
 
