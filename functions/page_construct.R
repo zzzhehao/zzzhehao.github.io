@@ -1,3 +1,64 @@
+#' Print Forward Message.
+#' 
+#' @param msg Message to print. If not proviede, use description in YAML header.
+#' 
+forwardMsg <- function(msg) {
+    if (missing(msg)) {
+        if (!is.null(rmarkdown::metadata$description)) {
+            cat('
+<figure class="figure">
+<figcaption class="forward">',
+            rmarkdown::metadata$description,
+'</figcaption>
+</figure>
+            '    
+            )
+            }
+    } else {
+            cat('
+<figure class="figure">
+<figcaption class="forward">',
+            msg, 
+'</figcaption>
+</figure>
+            '    
+            )
+    }
+}
+
+#' Print out R session info and package citations
+#' 
+#' @param pkgs A vector of package names.
+r_pkg_info <- function(pkgs) {
+    cat('#### R session \n\n')
+
+    si <- sessionInfo()
+    si$loadedOnly <- NULL
+    print(si)
+
+    cat('\n\n#### Packages \n\n')
+
+    for (pkg in pkgs) {
+    cat("\n\n**", pkg, "**\n\n", sep = '')
+
+        # Print version
+    tryCatch({
+        version <- as.character(packageVersion(pkg))
+        cat("\nVersion:", version, "\n\n")
+    }, error = function(e) {
+        cat("\nVersion information not available\n\n")
+    })
+    
+    # Print citation
+    tryCatch({
+        cite <- citation(pkg)
+        print(cite, style = "text")
+    }, error = function(e) {
+        cat("Citation not available\n")
+    })
+    }
+}
+
 # Currently a new custom callout is not supported. This workaround uses the least used callout .callout-caution to mimic a custom callout
 # see: https://stackoverflow.com/questions/74647399/define-a-new-callout-in-quarto
 

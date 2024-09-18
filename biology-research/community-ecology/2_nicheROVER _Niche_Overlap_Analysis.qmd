@@ -1,5 +1,6 @@
 ---
-title: Niche Overlap Analysis using stable isotope data and nicheROVER
+title: Niche Overlap Analysis Using nicheROVER and Stable Isotope Data
+date: 2024-09-18
 image: https://images.unsplash.com/photo-1588260693028-1308137adf56?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 abstract: Stable isotope analysis (SIA) provides numerous information while assessing species' ecological niche, the R package *nicheROVER* offers an insightful analysis using stable isotope data.
 description: "  "
@@ -13,7 +14,9 @@ filters:
   - nutshell
 execute:
   echo: true
-number headings: auto, first-level 3, max 4, 2
+nocite: |
+  @lter2020, @lter2020a, @lter2020b
+citation: true
 ---
 
 ::: {.disclaimer}
@@ -50,7 +53,10 @@ The package `nicheROVER` provides a new probabilistic method for quantifying n-d
 #| label: setup
 #| echo: false
 #| output: false
-pacman::p_load(c("rmarkdown", "knitr", "tidyverse", "nicheROVER", "gtsummary"), character.only = TRUE)
+
+source("functions/page_construct.R")
+pkgs <- c("rmarkdown", "knitr", "tidyverse", "nicheROVER")
+pacman::p_load(pkgs, character.only = TRUE)
 library(nicheROVER)
 data(fish)
 ```
@@ -80,7 +86,6 @@ paged_table(fish)
 ```{r}
 #| output: asis
 #| echo: false
-source("functions/custom-callout.R")
 content <- "- @newsome2007a
 - @michel2021
 - @moyo2021
@@ -390,6 +395,8 @@ clutch <- comp.penguin %>% group_by(Species) %>% summarise(complete_clutch = rou
 clutch
 ```
 
+### And these are our adorable guests:
+
 ::: {layout-ncol="3"}
 ![*P. adeliae* by Dylan Shaw on [Unsplash](https://unsplash.com/photos/black-and-white-penguins-during-daytime-9k9tNQTwMEA)](https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
@@ -398,7 +405,24 @@ clutch
 ![*P. antarcticus* by Andrew Shiva on [Wikipedia](https://en.wikipedia.org/wiki/Chinstrap_penguin)](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg)
 :::
 
-By the way, if anyone felt familiar with these penguins and these data -- yes, this is the exact same dataset they used to produce the `palmerpenguins` package, except the isotope data were not included. I found this direcly in [EDI Data Portal](https://portal.edirepository.org/nis/advancedSearch.jsp) and didn't notice until I attached the images, because these three guys showing up at the same time is weirdly familiar to me. 
+By the way, if anyone felt familiar with these penguins and these data -- yes, this is the exact same dataset they used to produce the `palmerpenguins` package. I found the data at [EDI Data Portal](https://portal.edirepository.org/nis/advancedSearch.jsp) and didn't notice until I attached the images, because these three guys showing up at the same time is weirdly familiar to me. 
 
 ![Surprise!](https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true)
+
+## Reference
+
+::: {#refs}
+:::
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [R session and R packages]{.cl-title}
+
+```{r}
+#| echo: false
+#| output: asis
+
+r_pkg_info(pkgs)
+```
+:::
 
