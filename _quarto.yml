@@ -39,6 +39,8 @@ website:
             href: biology-research/index.qmd
           - text: "As a Biology Student"
             href: biology-research/asbiologist.qmd
+          - text: "CV"
+            href: biology-research/CV_Zhehao_Hu.pdf
       - text: "Personal"
         menu:
           - text: "About Me"

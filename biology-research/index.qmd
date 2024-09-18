@@ -17,6 +17,7 @@ listing:
         - "*.qmd"
         - "../closeread/bio-*.qmd"
         - "!draft*.qmd"
+        - "!CV.qmd"
 
   - id: ls-comeco
     sort: "date desc"
