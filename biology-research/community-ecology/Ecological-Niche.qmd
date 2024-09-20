@@ -1,5 +1,6 @@
 ---
 title: "Ecological Niche"
+date: 2024-08-27
 format: html
 categories:
     - "Ecology"
@@ -11,7 +12,7 @@ filters:
 ```{r}
 #| output: asis
 #| echo: false
-source("functions/forward-message.R")
+source("functions/page_construct.R")
 forwardMsg()
 ```
 

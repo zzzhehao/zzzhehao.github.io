@@ -47,3 +47,21 @@ div.tippy-box {
     border-color: var(--normal-text-color) !important;
     background-color: var(--background-color);
 }
+
+.category.active{
+    color: #f2a94f; 
+}
+
+.cl-title {
+    font-size: 1rem;
+}
+
+.cl-sub {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.quarto-title-meta-author {
+    display: grid !important;
+    grid-template-columns: 35% 65% !important;
+  }

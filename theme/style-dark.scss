@@ -22,8 +22,16 @@
 body {
     color: var(--white);
     .cell-output {
-        background-color: var(--black);
-        border-radius: 4px;
+        background-color: var(--custom-callout-theme-bg);
+        border: 1px solid #{$ink-on-dark-canvas};
+    }
+}
+
+table {
+    // Style for the header row
+    th {
+        font-style: normal;
+        font-weight: 400;
     }
 }
 
@@ -39,7 +47,14 @@ $body-bg: $dark-canvas;
 $body-color: $ink-on-dark-canvas;
 $link-color: $accent-color;
 
-$code-block-bg: $dark-grey;
-$code-bg: $dark-grey;
+$code-block-bg: $codeblck-dark-bg;
+$code-bg: $codeblck-dark-bg;
 $code-color: #EDA135;
 $kbd-color: $dark-grey;
+
+.cell .cell-output {
+    background-color: var(--custom-callout-theme-bg);
+    border: 1px solid #{$ink-on-dark-canvas};
+    margin-bottom: 1.1rem;
+    padding-top: 1.1rem;
+}
