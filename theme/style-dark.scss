@@ -47,4 +47,6 @@ $kbd-color: $dark-grey;
 .cell .cell-output {
     background-color: var(--custom-callout-theme-bg);
     border: 1px solid #{$ink-on-dark-canvas};
+    margin-bottom: 1.1rem;
+    padding-top: 1.1rem;
 }
