@@ -73,7 +73,7 @@ I had only minimal education on data science -- before our bachelor program was 
 ```{r}
 #| output: asis
 #| echo: false
-source("functions/forward-message.R")
+source("functions/page_construct.R")
 forwardMsg("Enjoy.")
 ```
 
