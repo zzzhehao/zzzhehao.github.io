@@ -35,6 +35,14 @@ table {
     }
 }
 
+table {
+    // Style for the header row
+    th {
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+
 $body-bg: $dark-canvas;
 $body-color: $ink-on-dark-canvas;
 $link-color: $accent-color;

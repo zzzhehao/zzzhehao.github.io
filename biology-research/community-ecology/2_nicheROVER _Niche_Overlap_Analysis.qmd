@@ -86,10 +86,12 @@ paged_table(fish)
 ```{r}
 #| output: asis
 #| echo: false
+
 content <- "- @newsome2007a
 - @michel2021
 - @moyo2021
 - @2024"
+
 custom_callout("For more information about isotopic and atomic ecology", content, collapse = TRUE, titleStyle = "sub")
 ```
 
@@ -462,4 +464,3 @@ By the way, if anyone ever wondered -- yes, this is the exact same dataset they 
 r_pkg_info(pkgs)
 ```
 :::
-
