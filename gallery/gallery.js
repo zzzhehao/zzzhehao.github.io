@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'life21': { count: 204, prefix: 'life21'},
       'life22': { count: 132, prefix: 'life22'},
       'life23': { count: 44, prefix: 'life23'},
-      'life24': { count: 100, prefix: 'life24'},
+      'life24': { count: 153, prefix: 'life24'},
       'okinawa23': { count: 31, prefix: 'okinawa23'},
       'taiwan23': { count: 105, prefix: 'taiwan23'},
       'tl': { count: 190, prefix: 'tl'},

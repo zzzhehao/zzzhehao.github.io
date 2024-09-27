@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Zhehao Hu">
-<meta name="dcterms.date" content="2024-09-15">
+<meta name="dcterms.date" content="2024-09-22">
 
 <title>1 Discriminant analysis – Zhehao Hu</title>
 <style>
@@ -79,6 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell.js"></script>
 <script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell_options.js"></script>
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -248,7 +251,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2024</p>
+      <p class="date">September 22, 2024</p>
     </div>
   </div>
   
@@ -274,37 +277,242 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#to see the data, click on it at the upper pannel on the right or use the command: </span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list(lizards) #all the data</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lizards) <span class="co">#just the first lines</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Species Sex distance height     time
+1   Geckolepis  ni      0.5    1.2 11.50000
+2   Geckolepis  ni      0.2    0.0 12.10000
+3   Geckolepis  ni      0.4    1.7 13.33333
+4   Geckolepis  ni      1.9    1.2 14.41667
+5   Geckolepis  ni      1.9    1.4 14.41667
+6 Hemidactylus  ni      0.4    0.3 10.68333</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lizards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lizards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Species              Sex               distance         height      
+ Length:37          Length:37          Min.   :0.200   Min.   :0.0000  
+ Class :character   Class :character   1st Qu.:1.000   1st Qu.:0.0000  
+ Mode  :character   Mode  :character   Median :2.000   Median :0.7000  
+                                       Mean   :2.349   Mean   :0.8892  
+                                       3rd Qu.:3.000   3rd Qu.:1.2000  
+                                       Max.   :6.000   Max.   :5.0000  
+      time      
+ Min.   :10.00  
+ 1st Qu.:11.67  
+ Median :12.78  
+ Mean   :12.73  
+ 3rd Qu.:14.03  
+ Max.   :15.10  </code></pre>
+</div>
 </div>
 <p>To test if the datas are with equal variances, the test tests of the null that the variances in each of the groups are the same.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(lizards<span class="sc">$</span>distance <span class="sc">+</span> lizards<span class="sc">$</span>height <span class="sc">+</span> lizards<span class="sc">$</span>time <span class="sc">~</span> lizards<span class="sc">$</span>Species, <span class="at">data=</span>lizards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(lizards<span class="sc">$</span>distance <span class="sc">+</span> lizards<span class="sc">$</span>height <span class="sc">+</span> lizards<span class="sc">$</span>time <span class="sc">~</span> lizards<span class="sc">$</span>Species, <span class="at">data=</span>lizards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  lizards$distance + lizards$height + lizards$time by lizards$Species
+Bartlett's K-squared = 2.5755, df = 5, p-value = 0.7651</code></pre>
+</div>
 </div>
 <p>P is way bigger than significance, not rejecting null, they have all equal variance.</p>
 <p>Now we do the LDA:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards, <span class="at">na.action=</span><span class="st">"na.omit"</span>, <span class="at">CV=</span><span class="cn">TRUE</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#na.action specifies what to do with variables with missing values. na.omit excludes samples with missing values and proceeds with the analyses.</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if such samples exist but na.action is not specified, the analysis won't run (default option)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If CV = TRUE the return value is a list with components class, the MAP classification (a factor), and posterior, posterior probabilities for the classes.</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>fit <span class="co"># show results </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards, <span class="at">na.action=</span><span class="st">"na.omit"</span>, <span class="at">CV=</span><span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#na.action specifies what to do with variables with missing values. na.omit excludes samples with missing values and proceeds with the analyses.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if such samples exist but na.action is not specified, the analysis won't run (default option)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If CV = TRUE the return value is a list with components class, the MAP classification (a factor), and posterior, posterior probabilities for the classes.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fit <span class="co"># show results </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$class
+ [1] Hemidactylus            Hemidactylus            Geckolepis             
+ [4] Hemidactylus            Hemidactylus            Mabuya_gravenhorsti    
+ [7] Mabuya_gravenhorsti     Geckolepis              Geckolepis             
+[10] Mabuya_gravenhorsti     Mabuya_gravenhorsti     Mabuya_gravenhorsti    
+[13] Mabuya_gravenhorsti     Hemidactylus            Oplurus_cuvieri        
+[16] Hemidactylus            Mabuya_gravenhorsti     Mabuya_gravenhorsti    
+[19] Mabuya_gravenhorsti     Mabuya_gravenhorsti     Mabuya_gravenhorsti    
+[22] Hemidactylus            Mabuya_gravenhorsti     Geckolepis             
+[25] Hemidactylus            Zonosaurus_laticaudatus Oplurus_cuvieri        
+[28] Mabuya_gravenhorsti     Hemidactylus            Mabuya_gravenhorsti    
+[31] Mabuya_gravenhorsti     Mabuya_gravenhorsti     Mabuya_gravenhorsti    
+[34] Mabuya_gravenhorsti     Mabuya_gravenhorsti     Mabuya_gravenhorsti    
+[37] Mabuya_gravenhorsti    
+6 Levels: Geckolepis Hemidactylus Lygodactylus ... Zonosaurus_laticaudatus
+
+$posterior
+    Geckolepis Hemidactylus Lygodactylus Mabuya_gravenhorsti Oplurus_cuvieri
+1  0.197427920   0.28595953 0.2401963771        1.574824e-01     0.019035626
+2  0.165371039   0.26602775 0.1313010272        2.488356e-01     0.003878726
+3  0.315939031   0.28413202 0.2912637883        6.021569e-02     0.009461662
+4  0.167665723   0.34044317 0.1665582327        1.782019e-01     0.022438604
+5  0.176368033   0.34599794 0.1865952805        1.571891e-01     0.026130599
+6  0.211193278   0.12436771 0.1423392697        3.052013e-01     0.010075358
+7  0.050526439   0.12591867 0.0637728061        3.874833e-01     0.129885103
+8  0.336705252   0.23813197 0.2486307130        1.001474e-01     0.010194808
+9  0.409355297   0.16980496 0.3451198027        4.044615e-02     0.010100902
+10 0.095887288   0.22832852 0.0904071582        3.096588e-01     0.064190803
+11 0.070615511   0.15842272 0.0511456165        3.961184e-01     0.028722266
+12 0.129135507   0.22727588 0.1063394291        2.855959e-01     0.047507383
+13 0.054773089   0.12974384 0.0053204474        4.692118e-01     0.017651838
+14 0.244863865   0.26977409 0.0475058914        2.466184e-01     0.003355480
+15 0.021693698   0.01886678 0.0000119837        6.120502e-05     0.959348988
+16 0.310244155   0.34199048 0.0867511265        1.459670e-01     0.006096916
+17 0.043890150   0.12226026 0.0397672869        3.919667e-01     0.034720302
+18 0.005663782   0.04575166 0.0072788845        4.264473e-01     0.101913687
+19 0.014311172   0.08597442 0.0249833293        3.111772e-01     0.309892412
+20 0.048913747   0.16398204 0.0597483178        3.587094e-01     0.120301065
+21 0.032335187   0.12059842 0.0262458615        4.545498e-01     0.030063080
+22 0.193261346   0.26451009 0.1143896614        2.230476e-01     0.007522215
+23 0.109329651   0.22327718 0.0688705955        3.239674e-01     0.012394957
+24 0.363151212   0.31398080 0.2053561602        4.976253e-02     0.003804827
+25 0.204202731   0.33660902 0.1347878277        1.532107e-01     0.015106689
+26 0.002222427   0.05060585 0.0024357578        2.120196e-01     0.156443033
+27 0.001804876   0.02337733 0.0195511277        4.248492e-02     0.897374134
+28 0.029873632   0.13924906 0.0441185133        3.509767e-01     0.220343910
+29 0.123587584   0.28393894 0.1964960849        1.545194e-01     0.153105265
+30 0.026315367   0.11410791 0.0189618565        4.789932e-01     0.002596692
+31 0.021334790   0.09081831 0.0206333531        5.324707e-01     0.046088680
+32 0.145030907   0.24792415 0.1203595185        2.994683e-01     0.027830797
+33 0.190582528   0.26266016 0.1350213713        2.651431e-01     0.013942290
+34 0.166647515   0.24160679 0.0964048233        3.114087e-01     0.007101625
+35 0.001257848   0.02794407 0.0023229485        5.119721e-01     0.349224803
+36 0.022152903   0.11773329 0.0234136633        4.704317e-01     0.085831503
+37 0.125143430   0.28469677 0.0639263582        3.604825e-01     0.008502016
+   Zonosaurus_laticaudatus
+1             0.0998981808
+2             0.1845858409
+3             0.0389878102
+4             0.1246924133
+5             0.1077190732
+6             0.2068231004
+7             0.2424137142
+8             0.0661898336
+9             0.0251728884
+10            0.2115274180
+11            0.2949755192
+12            0.2041458929
+13            0.3232990341
+14            0.1878822338
+15            0.0000173427
+16            0.1089503598
+17            0.3673953369
+18            0.4129446585
+19            0.2536614370
+20            0.2483454352
+21            0.3362076547
+22            0.1972691296
+23            0.2621602161
+24            0.0639444755
+25            0.1560830359
+26            0.5762733047
+27            0.0154076039
+28            0.2154382171
+29            0.0883527446
+30            0.3590249672
+31            0.2886541861
+32            0.1593863656
+33            0.1326505929
+34            0.1768305935
+35            0.1072782097
+36            0.2804369321
+37            0.1572488763
+
+$terms
+Species ~ distance + height + time
+attr(,"variables")
+list(Species, distance, height, time)
+attr(,"factors")
+         distance height time
+Species         0      0    0
+distance        1      0    0
+height          0      1    0
+time            0      0    1
+attr(,"term.labels")
+[1] "distance" "height"   "time"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+&lt;environment: R_GlobalEnv&gt;
+attr(,"predvars")
+list(Species, distance, height, time)
+attr(,"dataClasses")
+    Species    distance      height        time 
+"character"   "numeric"   "numeric"   "numeric" 
+
+$call
+lda(formula = Species ~ distance + height + time, data = lizards, 
+    CV = TRUE, na.action = "na.omit")
+
+$xlevels
+named list()</code></pre>
+</div>
 </div>
 <ul>
 <li>Posterior distribution is the mean value of the simulation.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ct <span class="ot">&lt;-</span> <span class="fu">table</span>(lizards<span class="sc">$</span>Species, fit<span class="sc">$</span>class)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">prop.table</span>(ct, <span class="dv">1</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(<span class="fu">prop.table</span>(ct)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ct <span class="ot">&lt;-</span> <span class="fu">table</span>(lizards<span class="sc">$</span>Species, fit<span class="sc">$</span>class)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">prop.table</span>(ct, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Geckolepis            Hemidactylus            Lygodactylus 
+                   0.20                    0.00                    0.00 
+    Mabuya_gravenhorsti         Oplurus_cuvieri Zonosaurus_laticaudatus 
+                   0.60                    0.25                    0.00 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(<span class="fu">prop.table</span>(ct)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2162162</code></pre>
+</div>
 </div>
 <p><code>sum</code> will give us the probability of getting a random lizard and assigning it to the correct species only based on its habitat use data #markTodo How? In another woord, this shows if the species have difference in using habitat, in our case, not. #markTodo but how is this value calculated</p>
 <p>Now we do the LDA again, but with <code>CV=FALSE</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">dimen =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+lda(Species ~ distance + height + time, data = lizards)
+
+Prior probabilities of groups:
+             Geckolepis            Hemidactylus            Lygodactylus 
+              0.1351351               0.1891892               0.1081081 
+    Mabuya_gravenhorsti         Oplurus_cuvieri Zonosaurus_laticaudatus 
+              0.2702703               0.1081081               0.1891892 
+
+Group means:
+                        distance    height     time
+Geckolepis              0.980000 1.1000000 13.15333
+Hemidactylus            1.900000 1.0428571 13.07619
+Lygodactylus            1.400000 1.4500000 12.97917
+Mabuya_gravenhorsti     2.760000 0.4200000 12.46667
+Oplurus_cuvieri         4.125000 1.9750000 12.35833
+Zonosaurus_laticaudatus 2.714286 0.3142857 12.53571
+
+Coefficients of linear discriminants:
+                LD1         LD2        LD3
+distance  0.6699366  0.15307633  0.1927697
+height   -0.3812761  0.92784838 -0.1043009
+time     -0.2420559 -0.09456431  0.6130432
+
+Proportion of trace:
+   LD1    LD2    LD3 
+0.6404 0.3550 0.0046 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">dimen =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="draft1_Discriminant_analysis_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="draft1_Discriminant_analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Use ggplot for visualization.</p>
 
@@ -997,85 +1205,115 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "1 Discriminant analysis"</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r format(Sys.time(), '%B %d, %Y')`"</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: false</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># What is Linear Discriminant Analysis (LDA)?</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>A definition from <span class="co">[</span><span class="ot">IBM</span><span class="co">](https://www.ibm.com/docs/en/spss-statistics/beta?topic=features-discriminant-analysis)</span>:</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>Discriminant analysis builds a predictive model for group membership. The model is composed of a discriminant function (or, for more than two groups, a set of discriminant functions) based on linear combinations of the predictor variables that provide the best discrimination between the groups. The functions are generated from a sample of cases for which group membership is known; the functions can then be applied to new cases that have measurements for the predictor variables but have unknown group membership.</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Script `Script_niche1.R`</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="in"># Install packages</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("pacman")) install.packages("pacman")</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("MASS")) install.packages("MASS")</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("tidyverse")) install.packages("tidyverse")</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="in">pacman::p_load(c("MASS", "tidyverse"), character.only = TRUE)</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>Import Data:</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co">#this is a way to open a datasheet using a txt file (which can be saved from excel)</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>lizards<span class="ot">&lt;-</span>(<span class="fu">read.table</span>(<span class="st">"/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology/Practice/transect11_day.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>))</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co">#to see the data, click on it at the upper pannel on the right or use the command: </span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co"># list(lizards) #all the data</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lizards) <span class="co">#just the first lines</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lizards)</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>To test if the datas are with equal variances, the test tests of the null that the variances in each of the groups are the same.</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(lizards<span class="sc">$</span>distance <span class="sc">+</span> lizards<span class="sc">$</span>height <span class="sc">+</span> lizards<span class="sc">$</span>time <span class="sc">~</span> lizards<span class="sc">$</span>Species, <span class="at">data=</span>lizards)</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>P is way bigger than significance, not rejecting null, they have all equal variance.</span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>Now we do the LDA:</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards, <span class="at">na.action=</span><span class="st">"na.omit"</span>, <span class="at">CV=</span><span class="cn">TRUE</span>)</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="co">#na.action specifies what to do with variables with missing values. na.omit excludes samples with missing values and proceeds with the analyses.</span></span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="co">#if such samples exist but na.action is not specified, the analysis won't run (default option)</span></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="co"># If CV = TRUE the return value is a list with components class, the MAP classification (a factor), and posterior, posterior probabilities for the classes.</span></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>fit <span class="co"># show results </span></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Posterior distribution is the mean value of the simulation.</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>ct <span class="ot">&lt;-</span> <span class="fu">table</span>(lizards<span class="sc">$</span>Species, fit<span class="sc">$</span>class)</span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">prop.table</span>(ct, <span class="dv">1</span>))</span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(<span class="fu">prop.table</span>(ct)))</span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="in">`sum`</span> will give us the probability of getting a random lizard and assigning it to the correct species only based on its habitat use data #markTodo How?</span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>In another woord, this shows if the species have difference in using habitat, in our case, not. #markTodo but how is this value calculated</span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>Now we do the LDA again, but with <span class="in">`CV=FALSE`</span></span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards)</span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>model</span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">dimen =</span> <span class="dv">2</span>)</span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>Use ggplot for visualization.</span>
+<div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "1 Discriminant analysis"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r format(Sys.time(), '%B %d, %Y')`"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># What is Linear Discriminant Analysis (LDA)?</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>A definition from <span class="co">[</span><span class="ot">IBM</span><span class="co">](https://www.ibm.com/docs/en/spss-statistics/beta?topic=features-discriminant-analysis)</span>:</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>Discriminant analysis builds a predictive model for group membership. The model is composed of a discriminant function (or, for more than two groups, a set of discriminant functions) based on linear combinations of the predictor variables that provide the best discrimination between the groups. The functions are generated from a sample of cases for which group membership is known; the functions can then be applied to new cases that have measurements for the predictor variables but have unknown group membership.</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Script `Script_niche1.R`</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="in"># Install packages</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("pacman")) install.packages("pacman")</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("MASS")) install.packages("MASS")</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="in">if (!require("tidyverse")) install.packages("tidyverse")</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="in">pacman::p_load(c("MASS", "tidyverse"), character.only = TRUE)</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>Import Data:</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co">#this is a way to open a datasheet using a txt file (which can be saved from excel)</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>lizards<span class="ot">&lt;-</span>(<span class="fu">read.table</span>(<span class="st">"/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/Files/Obsidian/Cafe AgX HQ 2.0/004 Notes/M.Sc. Biology/Community Ecology/Practice/transect11_day.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>))</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co">#to see the data, click on it at the upper pannel on the right or use the command: </span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co"># list(lizards) #all the data</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lizards) <span class="co">#just the first lines</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lizards)</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>To test if the datas are with equal variances, the test tests of the null that the variances in each of the groups are the same.</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(lizards<span class="sc">$</span>distance <span class="sc">+</span> lizards<span class="sc">$</span>height <span class="sc">+</span> lizards<span class="sc">$</span>time <span class="sc">~</span> lizards<span class="sc">$</span>Species, <span class="at">data=</span>lizards)</span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>P is way bigger than significance, not rejecting null, they have all equal variance.</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>Now we do the LDA:</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards, <span class="at">na.action=</span><span class="st">"na.omit"</span>, <span class="at">CV=</span><span class="cn">TRUE</span>)</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="co">#na.action specifies what to do with variables with missing values. na.omit excludes samples with missing values and proceeds with the analyses.</span></span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a><span class="co">#if such samples exist but na.action is not specified, the analysis won't run (default option)</span></span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="co"># If CV = TRUE the return value is a list with components class, the MAP classification (a factor), and posterior, posterior probabilities for the classes.</span></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>fit <span class="co"># show results </span></span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Posterior distribution is the mean value of the simulation.</span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>ct <span class="ot">&lt;-</span> <span class="fu">table</span>(lizards<span class="sc">$</span>Species, fit<span class="sc">$</span>class)</span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">prop.table</span>(ct, <span class="dv">1</span>))</span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diag</span>(<span class="fu">prop.table</span>(ct)))</span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a><span class="in">`sum`</span> will give us the probability of getting a random lizard and assigning it to the correct species only based on its habitat use data #markTodo How?</span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>In another woord, this shows if the species have difference in using habitat, in our case, not. #markTodo but how is this value calculated</span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>Now we do the LDA again, but with <span class="in">`CV=FALSE`</span></span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(Species <span class="sc">~</span> distance <span class="sc">+</span> height <span class="sc">+</span> time, <span class="at">data=</span>lizards)</span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>model</span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">dimen =</span> <span class="dv">2</span>)</span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>Use ggplot for visualization.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
