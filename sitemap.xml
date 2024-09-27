@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</loc>
+    <lastmod>2024-09-26T13:23:14.438Z</lastmod>
+  </url>
+  <url>
     <loc>https://zzzhehao.github.io/gallery/gallery.html</loc>
     <lastmod>2024-09-27T13:51:22.015Z</lastmod>
   </url>
@@ -13,8 +17,8 @@
     <lastmod>2024-09-20T20:22:15.485Z</lastmod>
   </url>
   <url>
-    <loc>https://zzzhehao.github.io/personal/blogs.html</loc>
-    <lastmod>2024-07-31T09:12:16.838Z</lastmod>
+    <loc>https://zzzhehao.github.io/biology-research/CV.html</loc>
+    <lastmod>2024-09-20T20:22:15.481Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/comments/scrollytelling.html</loc>
@@ -29,16 +33,8 @@
     <lastmod>2024-07-31T09:12:16.835Z</lastmod>
   </url>
   <url>
-    <loc>https://zzzhehao.github.io/biology-research/community-ecology/Biodiversity.html</loc>
-    <lastmod>2024-09-25T14:36:06.120Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/biology-research/CV.html</loc>
-    <lastmod>2024-09-20T20:22:15.481Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/biology-research/community-ecology/dimension-reduction.html</loc>
-    <lastmod>2024-09-24T08:14:20.399Z</lastmod>
+    <loc>https://zzzhehao.github.io/personal/blogs.html</loc>
+    <lastmod>2024-07-31T09:12:16.838Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/gallery/motion-pictures.html</loc>
@@ -54,7 +50,7 @@
   </url>
   <url>
     <loc>https://zzzhehao.github.io/biology-research/community-ecology/Ecological-Niche.html</loc>
-    <lastmod>2024-09-20T20:22:15.482Z</lastmod>
+    <lastmod>2024-09-27T13:58:49.619Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/personal/aboutme.html</loc>
@@ -67,9 +63,5 @@
   <url>
     <loc>https://zzzhehao.github.io/biology-research/community-ecology/draft-lizards-descriptive.html</loc>
     <lastmod>2024-09-25T20:38:09.713Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</loc>
-    <lastmod>2024-09-26T13:23:14.438Z</lastmod>
   </url>
 </urlset>
