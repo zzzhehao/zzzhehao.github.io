@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'life21': { count: 204, prefix: 'life21'},
       'life22': { count: 132, prefix: 'life22'},
       'life23': { count: 44, prefix: 'life23'},
-      'life24': { count: 100, prefix: 'life24'},
+      'life24': { count: 153, prefix: 'life24'},
       'okinawa23': { count: 31, prefix: 'okinawa23'},
       'taiwan23': { count: 105, prefix: 'taiwan23'},
       'tl': { count: 190, prefix: 'tl'},
@@ -150,3 +150,37 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 });
+
+// Copyright alert
+
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        var modal = document.getElementById('custom-modal');
+        var modalContent = modal.querySelector('.modal-content');
+        
+        // Get the clicked image's position and dimensions
+        var rect = e.target.getBoundingClientRect();
+        
+        // Center the modal on the image
+        modalContent.style.left = rect.left + rect.width / 2 + 'px';
+        modalContent.style.top = rect.top + rect.height / 2 + 'px';
+        
+        // Show the modal with fade effect
+        modal.style.display = 'block';
+        setTimeout(function() {
+            modal.classList.add('show');
+        }, 10);
+    }
+}, false);
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    var modal = document.getElementById('custom-modal');
+    if (event.target == modal) {
+        modal.classList.remove('show');
+        setTimeout(function() {
+            modal.style.display = 'none';
+        }, 300);
+    }
+}

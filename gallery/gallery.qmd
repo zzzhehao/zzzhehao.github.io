@@ -103,3 +103,14 @@ for (album in albums) {
   </div>
 </div>
 ```
+
+<!-- Copyright alert -->
+
+```{=html}
+<div id="custom-modal" class="modal">
+  <div class="modal-content">
+    <p>Please be respectful of copyright.</p>
+    <p>Unauthorized use is prohibited.</p>
+  </div>
+</div>
+```
