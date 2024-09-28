@@ -1,0 +1,46 @@
+---
+categories:
+  - Ecology
+  - Community Ecology
+  - Data Analysis
+  - Multivariate Analysis
+filters:
+  - openlinksinnewpage
+  - nutshell
+execute:
+  echo: true
+citation: true
+draft: true
+---
+
+```{r}
+#| label: setup and import
+# devtools::install("/Users/hu_zhehao/Desktop/zhehaoColors")
+pkgs <- c("pacman", "rmarkdown", "knitr", "tidyverse", "zhehaoColors")
+pacman::p_load(pkgs, character.only = TRUE)
+
+lizards <- readRDS("biology-research/community-ecology/assets/data/jornada.lizard.rds")
+```
+
+## Observation distributions
+
+```{r fig.width=10, fig.height=6, fig.align="center"}
+#| label: observations
+
+lizards %>% 
+    mutate(year = factor(year(date))) %>%
+    group_by(year) %>%
+    ggplot() +
+    geom_bar(aes(x = year, fill = site), position = position_dodge(width = 0.7)) +
+    # scale_fill_manual(values = zhehaoColors::zhehaoColor("copenhagen3", n = 11)) +
+    labs(x = "Year", y = "Observation Counts", fill = "Site", title = "Observation Count Across Years") +
+    scale_y_continuous(breaks = c(1:10*10)) +
+    use_palette_ggplot('copenhagen1', n = 11) +
+    guides(color = guide_legend(nrow = 1))
+```
+
+```{r}
+#| label: spp
+
+summary(lizards$spp)
+```

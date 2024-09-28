@@ -55,7 +55,7 @@ The package `nicheROVER` provides a new probabilistic method for quantifying n-d
 #| output: false
 
 source("functions/page_construct.R")
-pkgs <- c("rmarkdown", "knitr", "tidyverse", "nicheROVER", "palmerpenguins")
+pkgs <- c("pacman", "rmarkdown", "knitr", "tidyverse", "nicheROVER", "palmerpenguins")
 pacman::p_load(pkgs, character.only = TRUE)
 library(nicheROVER)
 data(fish)

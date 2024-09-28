@@ -4,13 +4,20 @@ date: "2024-06-29"
 draft: true
 ---
 
- This post arranges and summarises the practical part "betapart" and "community metrics" from the course _Community Ecology_. 
+```{r}
+#| echo: true
+
+lizards <- readRDS("biology-research/community-ecology/assets/data/jornada.lizard.rds")
+
+```
+
+This post arranges and summarises the practical part "betapart" and "community metrics" from the course _Community Ecology_. 
 
 ## The problem
 
 We have multidimensional data in ecology, almost always, and they are huge. Since an n-dimensional data requires an n-dimensional space to be 1:1 displayed, if we want to have at least an overview, we need to reduce dimensions. 
 
-For example, we have a species abundance data that can be used for describing the difference between communities. What if we have additional habitat data from each community and we want to find out which environmental condition is effecting the community composition? There's a few technics can help us answer these questions, which are called as **MultiDimensional Scaling (MDS)**, the widely used metric MDS is PCoA and its special type PCA when calculating euclidean distance.
+For example, we have a species abundance data that can be used for describing the difference between communities. What if we have additional habitat data from each community and we want to find out which environmental condition is effecting the community composition? There's a few technics can help us answer these questions, which are called as **Multi Dimensional Scaling (MDS)**, the widely used metric MDS is PCoA and its special type PCA when calculating euclidean distance.
 
 ## What is NMDS?
 
