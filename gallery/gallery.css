@@ -117,6 +117,18 @@
   z-index: 1002;
 }
 
+.gallery-title {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 500;
+    font-family: 'Times New Roman', serif;
+    z-index: 1000;
+  }
+
 .gallery-content {
   display: flex;
   justify-content: space-between;

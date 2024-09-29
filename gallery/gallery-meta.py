@@ -16,7 +16,8 @@ def generate_gallery_metadata():
         metadata.append({
             "name": album['name'],
             "prefix": album['name'],
-            "count": image_count
+            "count": image_count,
+            "display_name": album['display_name']
         })
     
     with open('gallery/gallery_metadata.json', 'w') as file:

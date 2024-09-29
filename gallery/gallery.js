@@ -36,19 +36,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   function openGallery(albumName) {
     logStatus(`Opening gallery for album: ${albumName}`);
     currentAlbum = fetchAlbumImages(albumName);
-    console.log("Current album images:", currentAlbum); // Add this line
+    console.log("Current album images:", currentAlbum);
     currentIndex = 0;
-
+  
     if (fullscreenGallery) {
+      // Set the album title
+      const albumTitleElement = document.getElementById('gallery-title');
+      const albumDisplayName = albumConfig[albumName].display_name;
+      albumTitleElement.textContent = albumDisplayName;
+  
       fullscreenGallery.style.display = 'block';
       document.body.classList.add('gallery-open');
-
+  
       // Reset images
       image1.src = '';
       image2.src = '';
       image1.classList.remove('active');
       image2.classList.remove('active');
-
+  
       // Load the first image
       activeImage = image1;
       inactiveImage = image2;
