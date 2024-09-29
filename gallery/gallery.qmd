@@ -144,3 +144,4 @@ album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
     <p class="footer-text">Issues on the website? <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
     <hr>
 </div>
+```
