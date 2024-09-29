@@ -67,14 +67,27 @@
   transition: opacity 0.5s ease;
 }
 
+.album-info {
+    text-align: center;
+  }
+
 .album-title {
   text-align: center;
   padding: 10px;
   font-family: 'Times New Roman', serif;
   font-weight: bold;
   color: #333;
-  font-size: 1rem;
+  font-size: 1.35em;
 }
+
+.album-year {
+    text-align: center;
+    /* padding: 10px; */
+    font-family: 'Times New Roman', serif;
+    font-weight: 300;
+    color: #333;
+    font-size: 0.8em;
+  }
 
 .album-thumbnail:hover .album-overlay {
   opacity: 1;
@@ -189,29 +202,50 @@ body.gallery-open .navbar {
 }
 
 /* Responsive adjustments for grid */
+@media (min-width: 1600px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .album-title {
+      font-size: calc(1.6rem + 0.5vw);
+    }
+  }
+
 @media (max-width: 1600px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .album-title {
+    font-size: calc(1.6rem + 0.5vw);
   }
 }
 
 @media (max-width: 1200px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .album-title {
+    font-size: calc(1.4rem + 0.5vw);
   }
 }
 
 @media (max-width: 900px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  }
+  .album-title {
+    font-size: calc(1.2rem + 0.5vw);
   }
 }
 
 @media (max-width: 600px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
     padding: 15px;
+  }
+  .album-title {
+    font-size: calc(1rem + 0.5vw);
   }
 }
 
@@ -219,30 +253,6 @@ body.gallery-open .navbar {
 @media (min-width: 300px) {
   .album-title {
     font-size: calc(0.8rem + 0.5vw);
-  }
-}
-
-@media (min-width: 600px) {
-  .album-title {
-    font-size: calc(1rem + 0.5vw);
-  }
-}
-
-@media (min-width: 900px) {
-  .album-title {
-    font-size: calc(1.2rem + 0.5vw);
-  }
-}
-
-@media (min-width: 1200px) {
-  .album-title {
-    font-size: calc(1.4rem + 0.5vw);
-  }
-}
-
-@media (min-width: 1600px) {
-  .album-title {
-    font-size: calc(1.6rem + 0.5vw);
   }
 }
 

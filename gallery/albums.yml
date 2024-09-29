@@ -1,76 +1,106 @@
 # OverYear
-# - name: "best-of-film" 
-#   display_name: "Best of Film"
+- name: "bestoffilm" 
+  display_name: "Best of Film"
+  year: 0
 
 # 2024
 - name: "onhike24"
-  display_name: "On the Hike, 2024"
+  display_name: "On the Hike"
+  year: 2024
 - name: "onmyway24"
-  display_name: "On My Daily Way to Work, 2024"
+  display_name: "On My Daily Way to Work"
+  year: 2024
 - name: "alster24"
-  display_name: "Alsterpark, 2024"
+  display_name: "Alsterpark"
+  year: 2024
 - name: "hhproud24"
-  display_name: "Proud City, 2024"
+  display_name: "Proud City"
+  year: 2024
 - name: "hhsp24"
-  display_name: "Hamburg, Spring 2024"
+  display_name: "Hamburg Spring"
+  year: 2024
 - name: "dasyueshan24"
-  display_name: "大雪山 (Dasyueshan), 2024"
+  display_name: "大雪山 (Dasyueshan)"
+  year: 2024
 - name: "hhwi24"
-  display_name: "Hamburg, Winter 2023/24"
+  display_name: "Hamburg Winter"
+  year: 2024
 
 # 2023
 - name: "oki23"
-  display_name: "Okinawa, 2023"
+  display_name: "Okinawa"
+  year: 2023
 - name: "tw23"
-  display_name: "台灣 (Taiwan), 2023"
+  display_name: "台灣 (Taiwan)"
+  year: 2023
 
 # 2022
 - name: "hhwin22"
-  display_name: "Hamburg, Winter 2022/23"
+  display_name: "Hamburg Winter"
+  year: 2022
 - name: "wi22"
-  display_name: "Wien, 2022"
+  display_name: "Wien"
+  year: 2022
 - name: "kater22"
-  display_name: "Katers Köök, 2022"
+  display_name: "Katers Köök"
+  year: 2022
 - name: "alster22"
-  display_name: "Alsterpark, 2022"
+  display_name: "Alsterpark"
+  year: 2022
 - name: "fungi22"
-  display_name: "Fungi, 2022"
+  display_name: "Fungi"
+  year: 2022
 - name: "adria22"
-  display_name: "Adria, 2022"
+  display_name: "Adria"
+  year: 2022
 - name: "life22"
-  display_name: "Life, 2022"
+  display_name: "Life"
+  year: 2022
 - name: "randel22"
-  display_name: "Abandoned Randel, 2022"
+  display_name: "Abandoned Randel"
+  year: 2022
 - name: "schwarzwald22"
-  display_name: "Schwarzwald, 2022"
+  display_name: "Schwarzwald"
+  year: 2022
 
 # 2021
 - name: "cop21"
-  display_name: "København, 2021"
+  display_name: "København"
+  year: 2021
 - name: "kihh21"
-  display_name: "Kiel & Hamburg, 2021"
+  display_name: "Kiel & Hamburg"
+  year: 2021
 - name: "bay21"
-  display_name: "Bayern, 2021"
+  display_name: "Bayern"
+  year: 2021
 - name: "ber21"
-  display_name: "Berlin, 2021"
+  display_name: "Berlin"
+  year: 2021
 - name: "bre21"
-  display_name: "Bremen, 2021"
+  display_name: "Bremen"
+  year: 2021
 - name: "hei21"
-  display_name: "Heidelberg, 2021"
+  display_name: "Heidelberg"
+  year: 2021
 - name: "nrw21"
-  display_name: "Nord-Rhein-Westphalen, 2021"
+  display_name: "Nord-Rhein-Westphalen"
+  year: 2021
 - name: "praha21"
-  display_name: "Praha, 2021"
+  display_name: "Praha"
+  year: 2021
 - name: "ruhr21"
-  display_name: "Ruhr Area, 2021"
+  display_name: "Ruhr Area"
+  year: 2021
 - name: "sa21"
-  display_name: "Sachsen, 2021"
+  display_name: "Sachsen"
+  year: 2021
 
 # 2020
 - name: "bolt20"
-  display_name: "Boltenhagen, 2020"
+  display_name: "Boltenhagen"
+  year: 2020
 
 # 2018
 - name: "tokyo18" 
-  display_name: "Tokyo, Hida & Matsumoto, 2018"
-
+  display_name: "Tokyo, Hida & Matsumoto"
+  year: 2018
