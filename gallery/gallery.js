@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+let albumConfig = {};
+
+document.addEventListener('DOMContentLoaded', async () => {
   const galleryGrid = document.querySelector('.gallery-grid');
   const fullscreenGallery = document.getElementById('fullscreen-gallery');
   const closeButton = document.getElementById('close-gallery');
@@ -6,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextButton = document.getElementById('next-image');
   const image1 = document.getElementById('gallery-image-1');
   const image2 = document.getElementById('gallery-image-2');
+
+  albumConfig = await fetchAlbumConfig();
 
   let currentAlbum = [];
   let currentIndex = 0;
@@ -32,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openGallery(albumName) {
     logStatus(`Opening gallery for album: ${albumName}`);
     currentAlbum = fetchAlbumImages(albumName);
+    console.log("Current album images:", currentAlbum); // Add this line
     currentIndex = 0;
 
     if (fullscreenGallery) {
@@ -117,38 +122,50 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  function fetchAlbumImages(albumName) {
-    const albumConfig = {
-      // Setup albums here
-      // template: '': { count: , prefix: ''},
-      'adria': { count: 69, prefix: 'adria' },
-      'berlin21': { count: 11, prefix: 'berlin21'},
-      'best-of-film': { count: 36, prefix: 'best-of-film'},
-      'boltenhagen': { count: 27, prefix: 'boltenhagen'},
-      'copenhagen': { count: 70, prefix: 'copenhagen' },
-      'dasyueshan24': { count: 55, prefix: 'dasyueshan24'},
-      'kihh21': { count: 66, prefix: 'kihh21'},
-      'life20': { count: 173, prefix: 'life20'},
-      'life21': { count: 204, prefix: 'life21'},
-      'life22': { count: 132, prefix: 'life22'},
-      'life23': { count: 44, prefix: 'life23'},
-      'life24': { count: 153, prefix: 'life24'},
-      'okinawa23': { count: 31, prefix: 'okinawa23'},
-      'taiwan23': { count: 105, prefix: 'taiwan23'},
-      'tl': { count: 190, prefix: 'tl'},
-      'tokyo18': { count: 69, prefix: 'tokyo18'}
-    };
+  async function fetchAlbumConfig() {
+    try {
+      console.log('Attempting to fetch gallery_metadata.json');
+      const response = await fetch('/gallery/gallery_metadata.json');
+      console.log('Fetch response:', response);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("Loaded album config:", data);
+      
+      // Convert the array to an object with album names as keys
+      albumConfig = data.reduce((acc, album) => {
+        acc[album.name] = album;
+        return acc;
+      }, {});
+      
+      console.log("Processed album config:", albumConfig);
+      return albumConfig;
+    } catch (error) {
+      console.error('Failed to fetch album metadata:', error);
+      return {};
+    }
+  }
 
+  function fetchAlbumImages(albumName) {
+    console.log("Fetching images for album:", albumName);
+    console.log("Current albumConfig:", albumConfig);
+    
     const config = albumConfig[albumName];
-    if (!config) return [];
+    if (!config) {
+        console.error(`No config found for album: ${albumName}`);
+        return [];
+    }
 
     const { count, prefix } = config;
     const folderName = prefix.toLowerCase().replace(/\s+/g, '-');
     
-    return Array.from({ length: count }, (_, i) => 
-      `../assets/gallery/album/${folderName}/${prefix.toLowerCase()}-${i + 1}.jpg`
+    const images = Array.from({ length: count }, (_, i) => 
+        `../assets/gallery/album/${folderName}/${prefix.toLowerCase()}-${i + 1}.jpg`
     );
-  }
+    console.log(`Generated image paths for ${albumName}:`, images);
+    return images;
+}
 });
 
 // Copyright alert

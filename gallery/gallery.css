@@ -314,8 +314,8 @@ body.gallery-open .navbar {
     border-radius: 0;
     padding: 20px;
     padding-top: 40px;
-    border: 1px solid #fefefe;
-    width: 300px;
+    border: 1px solid rgba(250,250,250,0.85);
+    width: 50%;
     text-align: center;
     position: absolute;
     top: 50%;
