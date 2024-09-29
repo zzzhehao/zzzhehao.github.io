@@ -2,8 +2,6 @@
 title: "1 Discriminant analysis"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 draft: true
-execute: 
-  eval: false
 ---
 
 # What is Linear Discriminant Analysis (LDA)?

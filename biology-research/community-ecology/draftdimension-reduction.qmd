@@ -1,0 +1,27 @@
+---
+title: Reducing Data Dimensions and Ordination Methods in Ecology
+date: 2024-09-18
+# image: 
+abstract: NMDS, PCoA, PCA, CA, CCA, DCA, LDA ... WHICH ONE SHOULD I USE!?
+description: "  "
+categories:
+  - Ecology
+  - Community Ecology
+  - Data Analysis
+  - Multivariate Analysis
+filters:
+  - openlinksinnewpage
+  - nutshell
+execute:
+  echo: true
+citation: true
+draft: true
+---
+
+::: {.disclaimer}
+Part of this note is taken from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) for M.Sc. Biology program and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). 
+
+The cover image is credited to 
+:::
+
+

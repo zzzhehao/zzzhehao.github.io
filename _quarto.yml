@@ -4,10 +4,13 @@ project:
     - "*.jpg"
     - "*.png"
     - "*.pdf"
+    - "*.json"
   render: 
     - "*"
     - "!comments/*"
     - "!draft*.qmd"
+  # pre-render: 
+  #   - gallery/gallery-meta.py
   execute-dir: project
   output-dir: _site
 
