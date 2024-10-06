@@ -16,6 +16,7 @@ format:
       - ../theme/caption-center.css
     toc: true
     toc-depth: 4
+    toc-expand: 2
     code-copy: true
     code-overflow: wrap
     code-tools: 
