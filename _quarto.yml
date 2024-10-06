@@ -5,6 +5,7 @@ project:
     - "*.png"
     - "*.pdf"
     - "*.json"
+    - "shinylive-sw.js"
   render: 
     - "*"
     - "!comments/*"
@@ -44,10 +45,10 @@ website:
             href: biology-research/asbiologist.qmd
           - text: "CV"
             href: biology-research/CV_Zhehao_Hu.pdf
-      - text: "Personal"
-        menu:
-          - text: "About Me"
-            href: personal/aboutme.qmd
+      # - text: "Personal"
+      #   menu:
+      #     - text: "About Me"
+      #       href: personal/aboutme.qmd
       - text: "What's new"
         href: news.qmd
 
