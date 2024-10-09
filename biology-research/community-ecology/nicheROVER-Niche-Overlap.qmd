@@ -25,6 +25,18 @@ Part of this note is taken from the course *Community Ecology* offered by [Unive
 The cover image is credited to [Museums Victoria on Unsplash](https://unsplash.com/photos/sepia-photography-of-man-feeding-a-penguin-aMqha4ZXExU).
 :::
 
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [R Setup]{.cl-sub}
+
+```r
+# setup
+library(tidyverse)
+library(nicheROVER)
+```
+
+:::
+
 <br>
 
 ## Niche Overlap

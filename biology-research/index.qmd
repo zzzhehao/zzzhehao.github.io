@@ -66,7 +66,7 @@ Here, I share my notes and thoughs from course, event, workshop, conference, and
 
 ## [Why am I doing this?]{style="font-size:1rem;"}
 
-I had only minimal education on data science -- before our bachelor program was reformed -- so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecturer and tried to understand MCMC before I have even heard of Bayesian statistics. Such gaps are everywhere, especially when I started my master programm, they are like pit holes on the my path dedicated to flip over every attempt of mine trying to moving forward. I want to share my notes and resources so that my fellow student, and everyone who just started to step into data science, can have some infos that go through things in their perspectives and make things easier to understand. Although, as a biology student, I mostly focus on biostatics and related topics.
+I had only minimal education on data science -- before our bachelor program was reformed -- so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecture and tried to understand MCMC before I even heard of Bayesian statistics. Such gaps are everywhere, especially when I started my master programm, they are like pit holes on my path dedicated to flip over every attempt of trying to moving forward. I want to share my notes and resources so that my fellow student, and everyone who just started to step into data science, can have some infos that go through things in their perspectives and make things easier to understand. Although, as a biology student, I mostly focus on biostatics and related topics.
 
 :::
 

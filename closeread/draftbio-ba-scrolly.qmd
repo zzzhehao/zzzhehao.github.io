@@ -75,7 +75,8 @@ we will expect their genes to be very similar within the group, coming from the 
 And show a distinct difference towards others. [@cr-mammals]{pan-to="0%, -40%" scale-by="1" data-crop="0%, 63%, 0%, 0%"}
 
 :::{#cr-mammals}
-![](https://www.researchgate.net/publication/6594089/figure/fig4/AS:341632844091400@1458463025457/ML-Phylogenetic-Tree-of-Mammals-The-topology-and-branch-lengths-shown-here-are-based-on.png)
+![](/closeread/ba-scrolly-assets/mammals.png)
+<!-- https://www.researchgate.net/publication/6594089/figure/fig4/AS:341632844091400@1458463025457/ML-Phylogenetic-Tree-of-Mammals-The-topology-and-branch-lengths-shown-here-are-based-on.png -->
 :::
 
 In our case, *A. lythri* (**L**) forms multiple trees with other related species. We call such subgroups of one species **haplotypes**. [@jackel2013]{style="color: grey; font-size=10px"} @cr-jackel2013
@@ -118,7 +119,7 @@ sexdis <- x %>%
     zhehaoplot_transparent() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1),
         aspect.ratio = 1.3) + 
-    zhehaoplot_usePalette("copenhagen1alt")
+    use_palette_ggplot("copenhagen1")
     
 ggsave("closeread/ba-scrolly-assets/sexdis.png", sexdis, width = 8, height = 8, units = "cm")
 ```
@@ -174,7 +175,8 @@ infect <- thesis_data %>%
     zhehaoplot_transparent() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1),
         aspect.ratio = 1.3) + 
-    zhehaoplot_usePalette("aaaaa")
+    use_palette_ggplot("aaaaa") +
+    theme(legend.position = "right", legend.direction = "vertical")
 ggsave("closeread/ba-scrolly-assets/infectTF.png", infect, width = 8, height = 8, units = "cm")
 ```
 
@@ -191,9 +193,9 @@ ggsave("closeread/ba-scrolly-assets/infectTF.png", infect, width = 8, height = 8
 
 Wait, this doesn't explain things very well.
 
-[@cr-poolseq-tf]{data-crop="0%, 10%, 0%, 59%"} HT1 and HT1* are all-female, but they are not all infected. 
+[@cr-poolseq-tf]{data-crop="0%, 10%, 58%, 0%"} HT1 and HT1* are all-female, but they are not all infected. 
 
-[@cr-poolseq-tf]{data-crop="42%, 10%, 0%, 0%"} HT2 and HT3 have normal males, but HT2 are heavily infected.
+[@cr-poolseq-tf]{data-crop="43%, 10%, 0%, 0%"} HT2 and HT3 have normal males, but HT2 are heavily infected.
 
 It turns out *Wolbachia* also has different types. We call them **strains**.
 

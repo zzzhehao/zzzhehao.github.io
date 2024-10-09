@@ -1,3 +1,236 @@
 ---
+title: "Biodiversity: What and How"
+date: 2024-10-15
+image: https://images.unsplash.com/photo-1461018143319-6058c04a8dd9?q=80&w=3658&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+# abstract: 
+# description: 
+categories:
+  - Ecology
+  - Community Ecology
+  - Data Analysis
+  - Multivariate Analysis
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+filters:
+  - openlinksinnewpage
+  - nutshell
+  - shinylive
+execute:
+  echo: true
+citation: true
 draft: true
 --- 
+
+```{r}
+#| label: setup
+#| echo: false
+#| output: false
+
+source("functions/page_construct.R")
+pkgs <- c("pacman", "tidyverse", "zhehaoColors", "vegan")
+pacman::p_load(pkgs, character.only = TRUE)
+
+set.seed(9618)
+```
+
+::: {.disclaimer}
+Part of this note is taken from the course *Community Ecology* offered by [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) for M.Sc. Biology program and led by [Dr. Paula Cabral Eterovick](https://www.researchgate.net/profile/Paula-Eterovick-2). 
+
+The cover image is credited to [Conor Rees on Unsplash](https://images.unsplash.com/photo-1461018143319-6058c04a8dd9?q=80&w=3658&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D).
+
+:::
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [R Setup]{.cl-sub}
+
+```r
+# setup
+library(tidyverse)
+library(vegan)
+```
+
+:::
+
+<br>
+
+## Biodiversity
+
+Proper assessing biodiversity is foundation of many subsequent analyses in ecology. We surely often heard the term "Biodiversity", and we all know what that means. But how do we quantify it in research? How do we compare biodiversity in time-space? The term is divided into three terms in ecology: the **alpha**, **beta** and **gamma** diversity. 
+
+Simply speaking, alpha diversity refers to the diversity within a particular area or ecosystem. Beta diversity measures the difference between these areas. And gamma diversity encloses the diversity of all areas and represents an overall diversity. If we simply use the number of species present (species richness) as the measurement of biodiversity, these three types of diversity can be illustrated as follow:
+
+|                 | Habitat I   | Habitat II   | Habitat III   |
+| :-------------- | :---------- | :----------- | :------------ |
+| Species A       | x           |              |               |
+| Species B       | x           |              |               |
+| Species C       | x           | x            |               |
+| Species D       | x           | x            |               |
+| Species E       |             | x            |               |
+| Species F       |             | x            |               |
+| Species G       |             | x            |               |
+| Species H       |             | x            | x             |
+| Species I       |             |              | x             |
+| Species J       |             |              | x             |
+|                 |             |              |               |
+| **Alpha Diversity** | 4           | 6            | 3             |
+| **Beta Diversity**  | I vs. II: 6 | I vs. III: 7 | II vs. III: 7 |
+| Unique species  | A, B, E, F  | All species  | C, D, E, F, G, I, J |
+| **Gamma Diversity** |             | 10           |               |
+
+: Illustration of different types of diversity calculated by species richness. `x` indicates species' presence. Alpha diversity sums up species present in each habitat, beta diversity counts for unique species in both habitats, gamma diversity represents number of species ever present. {#tbl-diversities}
+
+## Alpha Diversity
+
+### Species Richness
+
+Like we just did in @tbl-diversities, assessing diversity with species richness (SR) data is the most intuitive and straightforward way, but it also has many limitations. First of all, it does not provide abundance data, we could only know how many species are present, but not in what extent. This means that if we encountered a common species and a rare species, they are equally treated in SR. At the same time, it's sensitive to sample size, and this response is not linear. Which means assuming our sampling is completely random (idealy), the probability of encountering a rare species increases as our sampling effort. But the increase of the total number of encountered species will become slower, and the response curve will then reach a plateau. 
+
+```{r fig.align="center"}
+#| warning: false
+#| message: false
+#| code-fold: true
+#| label: fig-species-count
+#| fig-cap: Simulation of random sampling from a species pool. Species occurrance are not equal (i.e. there are common and rare species). Y axis represents accumulated species count. 
+
+gspecies <- round(rgamma(1000, 50), digit = 0)
+
+count_species <- function(n, pool) {
+    sampling <- replicate(n, sample(pool, 1, replace = T))
+    df <- data.frame(effort = 1:n)
+    df$species.count <- map_int(df$effort, \(x) length(unique(sampling[1:x])))
+    df$sample <- map_chr(df$effort, \(x) as.character(sampling[x]))
+    return(df)
+}
+
+df <- count_species(200, gspecies)
+
+max <- max(df$species.count)*1.1
+
+clr <- zhehaoColor("elbfaehre")
+
+ggplot() +
+    use_palette_ggplot("elbfaehre") +
+    geom_step(data = df, aes(x = effort, y = species.count), direction = "hv", color = clr[1]) +
+    annotate("text", x = 200, y = max, label = "n = 200", color = clr[1]) +
+    annotate("text", x = 150, y = 7, label = paste0("Total species in pool: ", length(unique(gspecies)))) +
+    labs(x = "Sampling effort", y = "Encountered Species")
+```
+
+Because of this non-linear course of the SR curve, we cannot compare SR from different site by simply compare the species count devided by sample size. An widely used alternative is rarefaction, but 
+
+```{r fig.align="center"}
+#| warning: false
+#| message: false
+#| code-fold: true
+#| label: fig-rarefaction-curve
+#| layout-ncol: 2
+#| column: page
+#| fig-cap:
+#| - Species accumulation curve. 
+#| - Rarefaction curve. 
+
+clr <- zhehaoColor("copenhagen3", 10)
+
+simulate.field <- function(index, sampling.effort) {
+
+    species.pool <- round(
+        rgamma(
+            n = 1000, # use gamma distribution to generate uneven species abundance
+            shape = runif(1, 5, 200) # randomize gamma distribution for every simulation
+            ), digit = 0)
+    
+    # sampling from species pool
+    sampling <- replicate(sampling.effort, sample(species.pool, 1, replace = T)) 
+
+    # organize data
+    df <- data.frame(effort = 1:sampling.effort)
+    df$species.count <- map_int(df$effort, \(x) length(unique(sampling[1:x])))
+    df$sample <- map_chr(df$effort, \(x) as.character(sampling[x]))
+    df$site <- LETTERS[index]
+
+    sim <- list(df = df, sp.pool = length(unique(species.pool)))
+    return(sim)
+}
+
+n <- 15 # number of simulation
+
+sim.index <- data.frame(index = c(1:n), efforts = c(runif(n, 150, 500))) # random effort for each simulation
+
+sim <- map2(sim.index$index, sim.index$efforts, \(x, y) simulate.field(x, y)) %>% list_transpose()
+sim.sample <- list_rbind(sim$df)
+
+# Plot species count curve
+sim.sample %>% group_by(site) %>% ggplot() +
+    geom_step(aes(x = effort, y = species.count, color = site), direction = "hv") +
+    geom_text(
+        data = sim.sample %>% 
+            group_by(site) %>% 
+            summarise(max_x = max(effort), max_y = max(species.count)),
+        aes(
+            x = max_x + 50, 
+            y = max_y, 
+            label = paste0(site, ": ", max_y, " (", sim$sp.pool, ")"), 
+            color = site), 
+        check_overlap = F) +
+    xlim(c(-5, 600)) +
+    use_palette_ggplot("porco", n) +
+    labs(x = "Sample", y = "Species") +
+    theme(legend.position = "none")
+
+# Summarize abundance matrix 
+community <- map_df(c(1:length(sim$df)), \(x) summary(factor(sim$df[[x]]$sample)))
+community[is.na(community)] <- 0
+community <- as.data.frame(community)
+rownames(community) <- LETTERS[1:n]
+
+# Rarefy
+raremin <- min(rowSums(community, na.rm = T)) # least effort (sample size) of all sites (simulations) 
+rarefied <- tibble(Site = LETTERS[1:n], Rarefied_SR = rarefy(community, raremin)) %>% arrange(desc(Rarefied_SR))
+
+# Prepare for plot
+rarefied.txt <- paste(rarefied$Site, round(rarefied$Rarefied_SR, digit = 3), sep = ": ")
+rarefied.tbl <- paste0("Rarefied SR \n\n", paste(rarefied.txt, collapse = "\n"))
+
+# Rarefaction curve
+tidy.rare <- rarecurve(community, tidy = T) # `tidy = TRUE` will return a matrix for ggplot processing instead of directly drawing a plot
+tidy.rare %>% ggplot() +
+    geom_vline(aes(xintercept = raremin), color = "#BBB8", linetype = "dashed") + # raremin line
+    geom_line(aes(x = Sample, y = Species, color=Site)) +
+    geom_text(
+        data = tidy.rare %>% 
+            group_by(Site) %>% 
+            summarise(max_x = max(Sample), max_y = max(Species)) %>% 
+            mutate(index = match(Site, LETTERS)), 
+        aes(
+            x = max_x + 50, 
+            y = max_y, 
+            label = paste0(Site, ": ", max_y, " (", sim$sp.pool, ")"), 
+            color = Site), 
+        check_overlap = F) +
+    annotate("text", x = 660, y = 30, label = rarefied.tbl) +
+    xlim(c(-5, 700)) +
+    use_palette_ggplot("porco", n) +
+    theme(legend.position = "none")
+
+```
+
+
+## Reference
+
+::: {#refs}
+:::
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [R session and R packages]{.cl-title}
+
+```{r}
+#| echo: false
+#| output: asis
+
+r_pkg_info(pkgs)
+```
+:::
