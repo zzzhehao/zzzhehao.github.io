@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</loc>
-    <lastmod>2024-09-29T18:01:50.474Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/gallery/gallery.html</loc>
-    <lastmod>2024-09-29T18:05:53.045Z</lastmod>
-  </url>
-  <url>
     <loc>https://zzzhehao.github.io/photography/color_palette.html</loc>
     <lastmod>2024-08-26T20:22:35.988Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/biology-research/index.html</loc>
-    <lastmod>2024-09-20T20:22:15.483Z</lastmod>
+    <lastmod>2024-09-30T14:48:18.801Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/index.html</loc>
@@ -46,7 +38,7 @@
   </url>
   <url>
     <loc>https://zzzhehao.github.io/news.html</loc>
-    <lastmod>2024-09-20T20:22:15.486Z</lastmod>
+    <lastmod>2024-10-09T20:30:51.477Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/biology-research/asbiologist.html</loc>
@@ -59,5 +51,13 @@
   <url>
     <loc>https://zzzhehao.github.io/personal/aboutme.html</loc>
     <lastmod>2024-09-20T20:22:15.486Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/gallery/gallery.html</loc>
+    <lastmod>2024-09-29T18:05:53.045Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</loc>
+    <lastmod>2024-10-04T16:50:33.009Z</lastmod>
   </url>
 </urlset>
