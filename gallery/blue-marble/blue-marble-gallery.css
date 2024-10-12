@@ -1,5 +1,22 @@
 body {
-    background-color: #F2F2F2;
+    background-color: #272B34;
+    color: #e9e5df;
+}
+
+/* header .navbar {
+    background-color: #272B34;
+} */
+
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-brand, .nav-link, .quarto-navbar-tools .bi, .quarto-color-scheme-toggle .i {
+    color: #e9e5df;
+}
+
+.aa-SubmitIcon {
+    fill: #e9e5df;
 }
 
 /* Align title with grid */
@@ -21,6 +38,7 @@ body {
   padding-right: 0; */
   max-width: 1200px; /* Set a max-width for the body content */
   margin: 0 auto; /* Center the body content */
+  background-color: #272B34;
 }
 
 /* Ensure full width for title banner */
@@ -63,7 +81,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: #070707cc;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,7 +98,7 @@ body {
   padding: 10px;
   font-family: 'Times New Roman', serif;
   font-weight: bold;
-  color: #333;
+  color: #e9e5df;
   font-size: 1.35em;
 }
 
@@ -89,7 +107,7 @@ body {
     /* padding: 10px; */
     font-family: 'Times New Roman', serif;
     font-weight: 300;
-    color: #333;
+    color: #e9e5df;
     font-size: 0.8em;
   }
 
@@ -104,7 +122,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 1);
+  background: #070707cc;
   z-index: 1000;
 }
 
@@ -115,7 +133,7 @@ body {
   right: 20px;
   background: none;
   border: none;
-  color: black;
+  color: #e9e5df;
   font-size: 40px;
   cursor: pointer;
   z-index: 1002;
@@ -126,7 +144,7 @@ body {
     top: 3%;
     left: 50%;
     transform: translateX(-50%);
-    color: #333;
+    color: #e9e5df;
     font-size: 1.5em;
     font-weight: 500;
     font-family: 'Times New Roman', serif;
@@ -139,12 +157,13 @@ body {
   align-items: center;
   height: 100%;
   padding: 0 50px;
+  background-color: #070707;
 }
 
 .nav-button {
   background: none;
   border: none;
-  color: black;
+  color: #e9e5df;
   font-size: 40px;
   cursor: pointer;
   z-index: 1001;
