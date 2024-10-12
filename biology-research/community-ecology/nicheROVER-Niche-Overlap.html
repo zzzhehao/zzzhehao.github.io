@@ -906,7 +906,7 @@ Table&nbsp;3: <code>penguin</code> dataset
 <span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>over.stat95 <span class="ot">&lt;-</span> <span class="fu">overlap</span>(pen.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fl">0.95</span>)</span>
 <span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="fu">overlap.plot</span>(over.stat95, <span class="at">col =</span> clrs, <span class="at">mean.cred.col =</span> <span class="st">"#024873"</span>, <span class="at">equal.axis =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Overlap Probability (%) -- Niche Region Size: 95%"</span>, <span class="at">species.names =</span> <span class="fu">c</span>(<span class="st">"P. adeliae - F"</span>, <span class="st">"P.adeliae - M"</span>, <span class="st">"P. antarcticus - F"</span>, <span class="st">"P. antarcticus - M"</span>, <span class="st">"P. papua - F"</span>, <span class="st">"P. papua - M"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-iso-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -973,7 +973,7 @@ Figure&nbsp;8: Niche overlap probability distribution among species and sexes, o
 <span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>over.stat95 <span class="ot">&lt;-</span> <span class="fu">overlap</span>(pen.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fl">0.95</span>)</span>
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="fu">overlap.plot</span>(over.stat95, <span class="at">col =</span> clrs, <span class="at">mean.cred.col =</span> <span class="st">"#024873"</span>, <span class="at">equal.axis =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Overlap Probability (%) -- Niche Region Size: 95%"</span>, <span class="at">species.names =</span> <span class="fu">c</span>(<span class="st">"P. adeliae - F"</span>, <span class="st">"P.adeliae - M"</span>, <span class="st">"P. antarcticus - F"</span>, <span class="st">"P. antarcticus - M"</span>, <span class="st">"P. papua - F"</span>, <span class="st">"P. papua - M"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2344,7 +2344,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
