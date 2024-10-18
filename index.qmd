@@ -68,7 +68,7 @@ format:
 
 - [*Research Posts*](/biology-research/index.qmd)
 
-### As a [*Normal Person*.](personal/aboutme.qmd)
+<!-- ### As a [*Normal Person*.](personal/aboutme.qmd) -->
 
   <br><br><br>
 </div>

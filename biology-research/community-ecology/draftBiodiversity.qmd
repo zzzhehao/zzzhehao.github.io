@@ -234,3 +234,4 @@ tidy.rare %>% ggplot() +
 r_pkg_info(pkgs)
 ```
 :::
+

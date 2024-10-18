@@ -10,7 +10,10 @@ author: ""
 ::::
 :::
 
-[2024-08-12] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
+[2024-10-11] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
+New page: [Blue Marble](/gallery/blue-marble/blue-marble.qmd): Northern Lights in Hamburg!! New album page with dark theme. 
+
+[2024-10-09] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
 Update: [CV](/biology-research/CV_Zhehao_Hu.pdf)
 
 [2024-09-30] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 

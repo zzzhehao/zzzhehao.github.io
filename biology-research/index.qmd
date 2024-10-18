@@ -52,7 +52,7 @@ Here, I share my notes and thoughs from course, event, workshop, conference, and
 {{< iconify fluent:animal-cat-16-regular >}} Developmental Physiology
 {{< iconify healthicons:nerve-outline >}} Molecular Technology
 {{< iconify simple-icons:posit >}} Bioinformatics
-- Animals I like: 
+- Animals I love: 
 {{< iconify mdi:shark >}} Fishes
 {{< iconify map:whale-watching >}} Marine Mammals
 {{< iconify game-icons:sea-turtle >}} Sea Turtles
