@@ -32,6 +32,8 @@ website:
         menu: 
           - text: "Albums"
             href: gallery/gallery.qmd
+          - text: "Blue Marbles"
+            href: gallery/blue-marble/blue-marble.qmd
           - text: "Motion Picture"
             href: gallery/motion-pictures.qmd
           - text: "Color palette"

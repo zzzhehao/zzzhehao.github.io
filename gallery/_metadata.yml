@@ -10,3 +10,5 @@ format:
             color: #333
           }
           </style>
+    include-after-body: 
+      - photography-footer.html
