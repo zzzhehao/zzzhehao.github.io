@@ -43,6 +43,8 @@ website:
         menu:
           - text: "Posts"
             href: biology-research/index.qmd
+          - text: "Feed"
+            href: biology-research/feeds/feed.qmd
           - text: "As a Biology Student"
             href: biology-research/asbiologist.qmd
           - text: "CV"
