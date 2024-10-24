@@ -1,0 +1,127 @@
+---
+title: Add test significance and sample size on your `ggplot`
+date: 2024-09-18
+image: https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&w=3279&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+abstract: ""
+description: "  "
+categories:
+  - Non-specialized R 
+filters:
+  - openlinksinnewpage
+execute:
+  echo: true
+  warning: false
+  error: false
+  message: false
+citation: true
+draft: true
+---
+
+::: {.disclaimer}
+This note originated as a message to my fellow students. Here I am sharing it as a published post, and I apreciate everyone who showed interest.
+:::
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [R Setup]{.cl-sub}
+
+```r
+# setup
+library(tidyverse)
+library(palmerpenguins)
+library(readxl)
+library(ggpubr)
+library(ggsignif)
+library(rstatix)
+library(broom)
+```
+
+:::
+
+```{r}
+#| label: setup
+#| echo: false
+#| output: false
+
+source("functions/page_construct.R")
+pkgs <- c("pacman", "rmarkdown", "knitr", "tidyverse", "palmerpenguins", "readxl", "ggpubr", "ggsignif", "rstatix", "broom")
+pacman::p_load(pkgs, character.only = TRUE)
+```
+
+We are gonna working with our penguins again. They showed up already in my previous post - [Niche Overlap Analysis Using nicheROVER and Stable Isotope Data](/biology-research/community-ecology/nicheROVER-Niche-Overlap.qmd), check it out. 
+
+```{r}
+#| output: false
+penguins
+```
+
+```{r}
+#| echo: false
+paged_table(penguins)
+```
+
+Let's have an overview on the dataset first:
+
+```{r}
+str(penguins)
+```
+
+There are three *Pygoscelis* species, recorded from three islands, four structural measurements (bill length and depth, flipper length and body mass) are recorded, as well as individuals sexes.
+
+We want to see if there are any sexual dimorphism in measured variables within each species. For such purpose we first construct a minimal `ggplot` graph. 
+
+```{r fig.align="center", fig.height=12}
+
+theme_USGS_box <- function(base_family = "serif", ...){
+    theme_bw(base_family = base_family, ...) +
+        theme(
+            plot.title = element_text(size = 12),
+            axis.ticks.length = unit(-0.05, "in"),
+            axis.text.y = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm")),
+            axis.text.x = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm")),
+            axis.ticks.x = element_blank(),
+            aspect.ratio = 1,
+            legend.background = element_rect(color = "black", fill = "white"),
+            panel.background = element_rect(fill = "grey96", colour = "grey20")
+        )
+}
+
+penguins %>%
+    select(-c("island", "year")) %>%
+    filter(complete.cases(.)) %>%
+    pivot_longer(cols = c(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g),
+               names_to = "measurement", values_to = "value") %>%
+    ggplot(aes(x = sex, y = value, fill = sex)) +
+    geom_boxplot() +
+    facet_grid(measurement ~ species, scales = "free_y", switch = "y") +
+    scale_fill_manual(values = c("#586B73", "#F2BF91")) +
+    scale_y_continuous( # <5>
+        expand = expansion(mult = c(0.07,0.25))) +
+    theme_USGS_box() +
+    theme(strip.text.y = element_text(angle = 45),
+        strip.placement = "outside",
+        legend.position = "none", 
+        aspect.ratio = 1.5) +
+    labs(x = "Sex", y = NULL)
+```
+
+```{r}
+stat.result <- penguins %>%  
+    select(-c("island", "year")) %>%
+    filter(complete.cases(.)) %>%
+    group_by(species, sex) %>%
+    nest() %>%
+    mutate(shapiro_results = map(data, ~ .x %>%
+                                 select(where(is.numeric)) %>%
+                                 map(~ shapiro.test(.x) %>% tidy()) %>%
+                                 bind_rows(.id = "measurement"))) %>%
+  unnest(shapiro_results) %>%
+  add_significance()
+    # map(data, ~shapiro.test(.x$bill_length_mm))
+    # mutate(Shapiro = map(data, ~shapiro.test(.x$bill_length_mm)))
+    # mutate(Shapiro = Shapiro %>% map(glance)) %>%
+    # unnest(Shapiro)
+print(stat.result, n = 30)
+class(stat.result)
+```
+
