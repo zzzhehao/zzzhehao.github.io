@@ -3,12 +3,5 @@ format:
     page-layout: full
     toc: true
     toc-depth: 4
-    include-in-header: 
-      - text: |
-          <style>
-          body {
-            color: #333
-          }
-          </style>
     include-after-body: 
       - photography-footer.html
