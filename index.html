@@ -77,23 +77,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
-<style>
-  body, html {
-    font-family: 'Times New Roman';
-    color: #F2E6DF;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-size: 1.2rem;
-  }
-  a {
-    color: #F2E6DF;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
 
 
 <link rel="stylesheet" href="theme/global.css">
@@ -111,6 +94,40 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 
 
 
+<style>
+body, html {
+    font-family: 'Times New Roman';
+    color: #F2E6DF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+a {
+    position: relative;
+    display: inline-block;
+    color: #F2E6DF;
+    text-decoration: none;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F2E6DF;
+    transform-origin: bottom left;
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+a:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+</style>
 <div style="
   height: 100vh;
   width: 100%;
@@ -137,36 +154,17 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <div style="width: 100%;">
 <p><span style="font-size:4rem;line-height:0.7">Zhehao Hu</span></p>
 <p><span style="font-size:1.2rem">Read. Think. Write.</span></p>
-<p><br><br></p>
-<section id="as-a-photographer." class="level3">
-<h3 data-anchor-id="as-a-photographer.">As a <a href="./gallery/gallery.html"><em>Photographer.</em></a></h3>
-<ul>
-<li><a href="./gallery/gallery.html"><em>Albums</em></a></li>
-<li><a href="./gallery/motion-pictures.html"><em>Motion Picture</em></a></li>
-<li><a href="./photography/color_palette.html"><em>Color Palette</em></a></li>
-</ul>
-</section>
-<section id="as-a-biology-student." class="level3">
-<h3 data-anchor-id="as-a-biology-student.">As a <a href="./biology-research/asbiologist.html"><em>Biology student.</em></a></h3>
-<ul>
-<li><a href="./biology-research/index.html"><em>Research Posts</em></a></li>
-</ul>
-<!-- ### As a [*Normal Person*.](personal/aboutme.qmd) -->
+<p><br></p>
+<p><a href="./about.html">Abour Me</a></p>
+<p><a href="./news.html">What’s New?</a></p>
+<p><a href="./biology-research/index.html">Research Posts</a></p>
+<p><a href="./gallery/gallery.html">Albums</a></p>
+<p><a href="./gallery/motion-pictures.html">Motion Picture</a></p>
+<p><a href="./photography/color_palette.html">Color Palette</a></p>
+<p><a href="https://zzzhehao.github.com"></a> <!-- Place holder to prevent list expand --></p>
 <p><br><br><br></p>
-</section>
 </div>
 <p><!-- Right part  --> <!-- <div style="width: 60%;">
-  
-<br><br><br><br><br><br><br><br>
-
-### Have been here before? Here's the short cut:
-
-##### Research
-
-  - [*Research Posts*](/biology-research/index.qmd)
-
-##### Photography
-
 
   </div>  --></p>
 </div>

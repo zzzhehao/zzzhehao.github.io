@@ -2,6 +2,18 @@ body {
     background-color: #F2F2F2;
 }
 
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-brand, .nav-link, .quarto-navbar-tools .bi, .quarto-color-scheme-toggle .i, span.navbar-toggler-icon {
+    color: #414645;
+}
+
+.aa-SubmitIcon {
+    fill: #414645;
+}
+
 /* Align title with grid */
 .quarto-title-block {
   max-width: 2560px;

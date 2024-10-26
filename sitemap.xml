@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</loc>
+    <lastmod>2024-10-25T09:39:32.949Z</lastmod>
+  </url>
+  <url>
     <loc>https://zzzhehao.github.io/photography/color_palette.html</loc>
     <lastmod>2024-10-12T15:40:13.216Z</lastmod>
   </url>
@@ -17,12 +21,12 @@
     <lastmod>2024-09-20T20:22:15.481Z</lastmod>
   </url>
   <url>
-    <loc>https://zzzhehao.github.io/news.html</loc>
-    <lastmod>2024-10-12T15:43:51.400Z</lastmod>
+    <loc>https://zzzhehao.github.io/about.html</loc>
+    <lastmod>2024-10-26T22:08:27.840Z</lastmod>
   </url>
   <url>
-    <loc>https://zzzhehao.github.io/gallery/motion-pictures.html</loc>
-    <lastmod>2024-10-12T15:38:56.096Z</lastmod>
+    <loc>https://zzzhehao.github.io/index.html</loc>
+    <lastmod>2024-10-26T22:06:42.748Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/personal/blogs.html</loc>
@@ -45,23 +49,31 @@
     <lastmod>2024-09-20T20:22:15.481Z</lastmod>
   </url>
   <url>
-    <loc>https://zzzhehao.github.io/index.html</loc>
-    <lastmod>2024-10-14T14:53:13.965Z</lastmod>
+    <loc>https://zzzhehao.github.io/biology-research/feeds/feed.html</loc>
+    <lastmod>2024-10-25T09:39:32.950Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/gallery/motion-pictures.html</loc>
+    <lastmod>2024-10-26T22:22:12.632Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/news.html</loc>
+    <lastmod>2024-10-25T09:39:32.959Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/biology-research/index.html</loc>
-    <lastmod>2024-10-09T20:41:42.939Z</lastmod>
+    <lastmod>2024-10-26T21:09:18.917Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/gallery/gallery.html</loc>
-    <lastmod>2024-10-13T14:15:28.022Z</lastmod>
+    <lastmod>2024-10-26T22:23:55.111Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/gallery/blue-marble/blue-marble.html</loc>
-    <lastmod>2024-10-12T15:38:46.378Z</lastmod>
+    <lastmod>2024-10-25T09:39:32.956Z</lastmod>
   </url>
   <url>
-    <loc>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</loc>
-    <lastmod>2024-10-04T16:50:33.009Z</lastmod>
+    <loc>https://zzzhehao.github.io/biology-research/r-tips/draftTetracylcine_alter_log.html</loc>
+    <lastmod>2024-10-25T09:39:32.951Z</lastmod>
   </url>
 </urlset>
