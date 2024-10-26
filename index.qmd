@@ -4,26 +4,42 @@ navbar: false
 format: 
   html:
     page-layout: custom
-    include-in-header: 
-      text: |
-        <style>
-          body, html {
-            font-family: 'Times New Roman';
-            color: #F2E6DF;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-size: 1.2rem;
-          }
-          a {
-            color: #F2E6DF;
-            text-decoration: none;
-          }
-          a:hover {
-            text-decoration: underline;
-          }
-        </style>
 ---
+
+<style>
+body, html {
+    font-family: 'Times New Roman';
+    color: #F2E6DF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+a {
+    position: relative;
+    display: inline-block;
+    color: #F2E6DF;
+    text-decoration: none;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F2E6DF;
+    transform-origin: bottom left;
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+a:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+</style>
 
 <div style="
   height: 100vh;
@@ -56,36 +72,27 @@ format:
 
   <span style="font-size:1.2rem">Read. Think. Write.</span>
 
-  <br><br>
+  <br>
 
-### As a [*Photographer.*](gallery/gallery.qmd)
+[Abour Me](/about.qmd)
 
-- [*Albums*](/gallery/gallery.qmd)
-- [*Motion Picture*](/gallery/motion-pictures.qmd)
-- [*Color Palette*](/photography/color_palette.qmd)
+[What's New?](/news.qmd)
 
-### As a [*Biology student.*](biology-research/asbiologist.qmd)
+[Research Posts](/biology-research/index.qmd)
 
-- [*Research Posts*](/biology-research/index.qmd)
+[Albums](/gallery/gallery.qmd)
 
-<!-- ### As a [*Normal Person*.](personal/aboutme.qmd) -->
+[Motion Picture](/gallery/motion-pictures.qmd)
+
+[Color Palette](/photography/color_palette.qmd)
+
+[](https://zzzhehao.github.com) <!-- Place holder to prevent list expand -->
 
   <br><br><br>
 </div>
     
   <!-- Right part  -->
   <!-- <div style="width: 60%;">
-  
-<br><br><br><br><br><br><br><br>
-
-### Have been here before? Here's the short cut:
-
-##### Research
-
-  - [*Research Posts*](/biology-research/index.qmd)
-
-##### Photography
-
 
   </div>  -->
   
