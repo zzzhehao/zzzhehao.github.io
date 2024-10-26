@@ -18,6 +18,7 @@ listing:
         - "../closeread/bio-*.qmd"
         - "!draft*.qmd"
         - "!CV.qmd"
+        - "!Dilution_calculator.qmd"
 
   - id: ls-comeco
     sort: "date desc"

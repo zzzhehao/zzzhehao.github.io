@@ -12,6 +12,7 @@ assets/
 .pandoc/
 *assets
 confidential/
+*_webr/
 
 # Created by https://www.toptal.com/developers/gitignore/api/r,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,macos
