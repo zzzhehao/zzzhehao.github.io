@@ -1,0 +1,103 @@
+---
+format:
+  html:
+    css: 
+      - theme/text-justify.css
+      - theme/caption-center.css
+    toc: true
+    toc-depth: 2
+    toc-expand: false
+    code-copy: true
+    code-overflow: wrap
+    code-tools: 
+      caption: none
+      source: true
+    highlight-style: atom-one-dark
+    include-after-body: biology-research/research-footer-2.html
+
+filters: 
+  - openlinksinnewpage
+lightbox: true
+
+listing:
+  - id: ls-all
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: false
+    image-lazy-loading: true
+    type: table
+    date-format: iso
+    contents: 
+        - "!*/index.qmd"
+        - "/biology-research/**/*.qmd"
+        - "/closeread/bio-*.qmd"
+        - "!draft*.qmd"
+        - "!CV.qmd"
+        - "!feeds/*.qmd"
+---
+
+```{=html}
+<style>
+    .name-title {
+        font-size: 2.9rem; 
+        font-weight: 400; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h2 {
+        font-size: 2.5rem;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        font-weight: 350;
+    }
+</style>
+```
+
+::: {.name-title}
+Zhehao Hu
+:::
+
+::: {style="font-size: 1.5rem; font-weight: 350; display: flex; justify-content: center; align-items: center;"}
+[{{< iconify mynaui:home >}}](https://zzzhehao.github.io/)
+[{{< iconify mdi:github >}}](https://github.com/zzzhehao)
+[{{< iconify mdi:linkedin >}}](https://linkedin.com/in/huzhehao)
+[{{< iconify mdi:instagram >}}](https://instagram.com/zhehao.hu_)
+[{{< iconify ic:outline-email >}}](mailto:{{< var email.work >}})
+
+:::
+
+[About {{< iconify cib:about-me >}}]{style="font-size: 2.5rem;"}
+
+I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese, Japanese, German and English 😉 feel free to write to me in any of these!
+
+I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more, and I am trying my best to find a balance between both. 
+
+I am interested in eco-evolutionary dynamics of various ecosystems and organisms. I am currently involved in two projects relating to my bachelor thesis about *Wolbachia*-infected, female-biased beetles *Altica lythri*. And my (upcoming) master thesis (still in the exploring stage).
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.5rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [*Wolbachia* - *Altica lythri* related publications]{.cl-sub}
+
+- Jäckel et al. [Evidence for Selective Sweeps by Wolbachia Infections: Phylogeny of Altica Leaf Beetles and Their Reproductive Parasites](https://doi.org/10.1111/mec.12389), 2013.
+- Rohlfing et al. [When Does the Female Bias Arise? Insights from the Sex Determination Cascade of a Flea Beetle with a Strongly Skewed Sex Ratio](https://doi.org/10.1007/s10142-023-01023-1), 2023.
+- Rohlfing et al. [Evidence for Feminized Genetic Males in a Flea Beetle Using Newly Identified X-Linked Markers](https://doi.org/10.1002/ece3.70123), 2024.
+
+:::
+
+<br>
+
+## {{< iconify ph:film-reel >}} Hobby
+
+I take a lot of photos, simply to treasure the moments that I enjoyed and loved. I don't limit myself in certain technics or topics - I shoot both analog and digital, still and motion picture, I once tried cyanotype too, and would love to start again. I shoot wonderful nature, starlight, but also urban landscapes, people, or small things in life. 
+
+[Here](/gallery/gallery.qmd) you can see all my albums and [here](/gallery/motion-pictures.qmd) are some picked motion pictures. Also check [here](/gallery/blue-marble/blue-marble.qmd) for star / astro topics.
+
+<br>
+
+## {{< iconify streamline:hand-held-tablet-writing >}} Posts
+
+I use this website to share my knowledge, most of them are basically refined version of my own notes. I do this because I've been helped by posts on the internet from others multiple times, and I don't want this kindness to stop with me. I also value all kind of suggestions and comments.
+
+::: {#ls-all}
+:::

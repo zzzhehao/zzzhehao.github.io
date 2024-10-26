@@ -1,0 +1,72 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "lightbox: true\n",
+        "format:\n",
+        "  html:\n",
+        "    css: \n",
+        "      - theme/text-justify.css\n",
+        "      - theme/caption-center.css\n",
+        "    toc: true\n",
+        "    toc-depth: 2\n",
+        "    toc-expand: false\n",
+        "    code-copy: true\n",
+        "    code-overflow: wrap\n",
+        "    code-tools: \n",
+        "      caption: none\n",
+        "      source: true\n",
+        "    highlight-style: atom-one-dark\n",
+        "    include-after-body: biology-research/research-footer-2.html\n",
+        "embed-resources: false\n",
+        "---\n",
+        "\n",
+        "```{html}\n",
+        "<style>\n",
+        "    .name-title {\n",
+        "        font-size: 2.7rem; \n",
+        "        font-weight: 400; \n",
+        "        align-items: center;\n",
+        "    }\n",
+        "</style>\n",
+        "```\n",
+        "\n",
+        "\n",
+        "\n",
+        "::: {.name-title}\n",
+        "\n",
+        "Zhehao Hu\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "[About Me]{style=\"font-size: 2.5rem;\"}\n",
+        "\n",
+        "I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese, Japanese, German and English 😉 feel free to write to me in any of these!\n",
+        "\n",
+        "I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more, and I am trying my best to find a balance between both. \n",
+        "\n",
+        "I am interested in eco-evolutionary dynamics of various ecosystem and organims. I am currently involved in two projects relating to my bachelor thesis about *Wolbachia*-infected, female-biased beetles *Altica lythri*. And my (upcoming) master thesis (which is still in the exploring stage).\n",
+        "\n",
+        "\n",
+        "\n",
+        "## Hobby\n",
+        "\n",
+        "I took a lot of photos, simply to treasure the moments that I enjoyed and loved. "
+      ],
+      "id": "0af4b02d"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/hu_zhehao/Library/Python/3.9/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

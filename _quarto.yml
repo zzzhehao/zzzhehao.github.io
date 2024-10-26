@@ -16,7 +16,7 @@ project:
   output-dir: _site
 
 bibliography:
-  - ../../Obsidian/Cafe AgX HQ 2.0/003 Management/Research & Career/research-writing/bib/biology-research.bib
+  - ../../zzzhehao/80-89 Resources/82 References/80.01 BibTex Bibliography/biology-research-master.bib
 
 website:
   title: "Zhehao Hu"
@@ -49,10 +49,9 @@ website:
             href: biology-research/asbiologist.qmd
           - text: "CV"
             href: biology-research/CV_Zhehao_Hu.pdf
-      # - text: "Personal"
-      #   menu:
-      #     - text: "About Me"
-      #       href: personal/aboutme.qmd
+
+      - text: "About me"
+        href: about.qmd
       - text: "What's new"
         href: news.qmd
 
