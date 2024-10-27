@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const nextButton = document.getElementById('next-image');
   const image1 = document.getElementById('gallery-image-1');
   const image2 = document.getElementById('gallery-image-2');
+  const copyUrlButton = document.getElementById('copy-url-button');
+  const copyImageUrlButton = document.getElementById('copy-image-url-button');
+  const copyAttributionButton = document.getElementById('copy-attribution-button');
 
   albumConfig = await fetchAlbumConfig();
 
@@ -33,14 +36,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   prevButton.addEventListener('click', showPreviousImage);
   nextButton.addEventListener('click', showNextImage);
 
-  function openGallery(albumName) {
-    logStatus(`Opening gallery for album: ${albumName}`);
+  window.addEventListener('hashchange', handleHashChange);
+
+  function handleHashChange() {
+    const hash = window.location.hash.slice(1);
+    const [albumName, imageNumber] = hash.split('-');
+    if (albumName) {
+      openGallery(albumName, imageNumber ? parseInt(imageNumber) - 1 : 0);
+    } else {
+      closeGallery();
+    }
+  }
+
+  function openGallery(albumName, startIndex = 0) {
+    logStatus(`Opening gallery for album: ${albumName}, starting at index: ${startIndex}`);
     currentAlbum = fetchAlbumImages(albumName);
     console.log("Current album images:", currentAlbum);
-    currentIndex = 0;
+    currentIndex = startIndex;
   
     if (fullscreenGallery) {
-      // Set the album title
       const albumTitleElement = document.getElementById('gallery-title');
       const albumDisplayName = albumConfig[albumName].display_name;
       albumTitleElement.textContent = albumDisplayName;
@@ -48,19 +62,27 @@ document.addEventListener('DOMContentLoaded', async () => {
       fullscreenGallery.style.display = 'block';
       document.body.classList.add('gallery-open');
   
-      // Reset images
       image1.src = '';
       image2.src = '';
       image1.classList.remove('active');
       image2.classList.remove('active');
   
-      // Load the first image
       activeImage = image1;
       inactiveImage = image2;
       loadImage(currentAlbum[currentIndex], activeImage, () => {
         activeImage.classList.add('active');
-        logStatus('First image loaded and displayed');
+        logStatus(`Image loaded and displayed at index: ${currentIndex}`);
       });
+
+      updateUrlHash(albumName, currentIndex);
+    }
+  }
+
+  function updateUrlHash(albumName, index) {
+    if (index === 0) {
+      history.replaceState(null, '', `#${albumName}`);
+    } else {
+      history.replaceState(null, '', `#${albumName}-${index + 1}`);
     }
   }
 
@@ -70,14 +92,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       fullscreenGallery.style.display = 'none';
       document.body.classList.remove('gallery-open');
   
-      // Clear both images when closing
       image1.src = '';
       image2.src = '';
       image1.classList.remove('active');
       image2.classList.remove('active');
   
-      // Reset the transition flag
       isTransitioning = false;
+
+      history.pushState("", document.title, window.location.pathname + window.location.search);
     }
   }
 
@@ -95,22 +117,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
+  function getCurrentAlbumName() {
+    return window.location.hash.split('-')[0].slice(1);
+  }
+
   function updateGalleryImage() {
     if (currentAlbum.length > 0 && !isTransitioning) {
       isTransitioning = true;
       logStatus(`Updating gallery image to index: ${currentIndex}`);
-
-      loadImage(currentAlbum[currentIndex], inactiveImage, () => {
+  
+      inactiveImage.src = currentAlbum[currentIndex];
+      inactiveImage.onload = () => {
         activeImage.classList.remove('active');
         inactiveImage.classList.add('active');
-
-        [activeImage, inactiveImage] = [inactiveImage, activeImage];
-
+  
         setTimeout(() => {
+          [activeImage, inactiveImage] = [inactiveImage, activeImage];
+          updateUrlHash(getCurrentAlbumName(), currentIndex);
           isTransitioning = false;
           logStatus('Image transition complete');
         }, 700);
-      });
+      };
+  
+      inactiveImage.onerror = () => {
+        console.error(`Failed to load image: ${currentAlbum[currentIndex]}`);
+        isTransitioning = false;
+      };
     }
   }
 
@@ -138,7 +170,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const data = await response.json();
       console.log("Loaded album config:", data);
       
-      // Convert the array to an object with album names as keys
       albumConfig = data.reduce((acc, album) => {
         acc[album.name] = album;
         return acc;
@@ -170,10 +201,52 @@ document.addEventListener('DOMContentLoaded', async () => {
     );
     console.log(`Generated image paths for ${albumName}:`, images);
     return images;
-}
-});
+  }
 
-// Copyright alert
+  handleHashChange();
+
+  copyUrlButton.addEventListener('click', () => {
+    copyToClipboard(window.location.href, copyUrlButton, 'URL Copied!');
+  });
+
+  copyImageUrlButton.addEventListener('click', () => {
+    const imageUrl = getFullImageUrl(activeImage.src);
+    copyToClipboard(imageUrl, copyImageUrlButton, 'Image URL Copied!');
+  });
+
+  copyAttributionButton.addEventListener('click', () => {
+    const attributionText = getAttributionText(activeImage.src);
+    copyToClipboard(attributionText, copyAttributionButton, 'Attribution Copied!');
+  });
+
+  function getFullImageUrl(src) {
+    const path = src.replace(/^https?:\/\/[^\/]+/, '');
+    return `https://zzzhehao.github.io${path}`;
+  }
+
+  function getAttributionText(imageSrc) {
+    const imageName = imageSrc.split('/').pop();
+    const albumName = getCurrentAlbumName();
+    const albumInfo = albumConfig[albumName];
+    const photographerName = albumInfo ? albumInfo.photographer || 'Zhehao Hu' : 'Zhehao Hu';
+    const imageUrl = getFullImageUrl(activeImage.src);
+    return `©️ Copyright ${photographerName} 2024 - CC BY-NC-ND 4.0 - Source: ${imageUrl}`;
+  }
+
+  function copyToClipboard(text, button, successMessage) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = button.textContent;
+      button.textContent = successMessage;
+      button.classList.add('clicked');
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.classList.remove('clicked');
+      }, 3000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+});
 
 document.addEventListener('contextmenu', function(e) {
     if (e.target.tagName === 'IMG') {
@@ -181,14 +254,11 @@ document.addEventListener('contextmenu', function(e) {
         var modal = document.getElementById('custom-modal');
         var modalContent = modal.querySelector('.modal-content');
         
-        // Get the clicked image's position and dimensions
         var rect = e.target.getBoundingClientRect();
         
-        // Center the modal on the image
         modalContent.style.left = rect.left + rect.width / 2 + 'px';
         modalContent.style.top = rect.top + rect.height / 2 + 'px';
         
-        // Show the modal with fade effect
         modal.style.display = 'block';
         setTimeout(function() {
             modal.classList.add('show');
@@ -196,7 +266,6 @@ document.addEventListener('contextmenu', function(e) {
     }
 }, false);
 
-// Close the modal when clicking outside of it
 window.onclick = function(event) {
     var modal = document.getElementById('custom-modal');
     if (event.target == modal) {
