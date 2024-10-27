@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const nextButton = document.getElementById('next-image');
   const image1 = document.getElementById('gallery-image-1');
   const image2 = document.getElementById('gallery-image-2');
+  const copyUrlButton = document.getElementById('copy-url-button');
+  const copyImageUrlButton = document.getElementById('copy-image-url-button');
+  const copyAttributionButton = document.getElementById('copy-attribution-button');
 
   albumConfig = await fetchAlbumConfig();
 
@@ -33,7 +36,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   prevButton.addEventListener('click', showPreviousImage);
   nextButton.addEventListener('click', showNextImage);
 
-  // Handle hash changes
   window.addEventListener('hashchange', handleHashChange);
 
   function handleHashChange() {
@@ -53,7 +55,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     currentIndex = startIndex;
   
     if (fullscreenGallery) {
-      // Set the album title
       const albumTitleElement = document.getElementById('gallery-title');
       const albumDisplayName = albumConfig[albumName].display_name;
       albumTitleElement.textContent = albumDisplayName;
@@ -61,13 +62,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       fullscreenGallery.style.display = 'block';
       document.body.classList.add('gallery-open');
   
-      // Reset images
       image1.src = '';
       image2.src = '';
       image1.classList.remove('active');
       image2.classList.remove('active');
   
-      // Load the image at startIndex
       activeImage = image1;
       inactiveImage = image2;
       loadImage(currentAlbum[currentIndex], activeImage, () => {
@@ -75,7 +74,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         logStatus(`Image loaded and displayed at index: ${currentIndex}`);
       });
 
-      // Update URL hash
       updateUrlHash(albumName, currentIndex);
     }
   }
@@ -94,16 +92,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       fullscreenGallery.style.display = 'none';
       document.body.classList.remove('gallery-open');
   
-      // Clear both images when closing
       image1.src = '';
       image2.src = '';
       image1.classList.remove('active');
       image2.classList.remove('active');
   
-      // Reset the transition flag
       isTransitioning = false;
 
-      // Remove hash from URL
       history.pushState("", document.title, window.location.pathname + window.location.search);
     }
   }
@@ -136,13 +131,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         activeImage.classList.remove('active');
         inactiveImage.classList.add('active');
   
-        // Wait for the transition to complete before swapping images and updating URL
         setTimeout(() => {
           [activeImage, inactiveImage] = [inactiveImage, activeImage];
           updateUrlHash(getCurrentAlbumName(), currentIndex);
           isTransitioning = false;
           logStatus('Image transition complete');
-        }, 700); // This should match your CSS transition duration
+        }, 700);
       };
   
       inactiveImage.onerror = () => {
@@ -176,7 +170,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const data = await response.json();
       console.log("Loaded album config:", data);
       
-      // Convert the array to an object with album names as keys
       albumConfig = data.reduce((acc, album) => {
         acc[album.name] = album;
         return acc;
@@ -210,41 +203,62 @@ document.addEventListener('DOMContentLoaded', async () => {
     return images;
   }
 
-  // Handle initial hash on page load
   handleHashChange();
 
-  const copyUrlButton = document.getElementById('copy-url-button');
-
   copyUrlButton.addEventListener('click', () => {
-    const currentUrl = window.location.href;
-    navigator.clipboard.writeText(currentUrl).then(() => {
-      copyUrlButton.textContent = 'Copied!';
-      copyUrlButton.classList.add('clicked'); // Add the clicked class
+    copyToClipboard(window.location.href, copyUrlButton, 'URL Copied!');
+  });
+
+  copyImageUrlButton.addEventListener('click', () => {
+    const imageUrl = getFullImageUrl(activeImage.src);
+    copyToClipboard(imageUrl, copyImageUrlButton, 'Image URL Copied!');
+  });
+
+  copyAttributionButton.addEventListener('click', () => {
+    const attributionText = getAttributionText(activeImage.src);
+    copyToClipboard(attributionText, copyAttributionButton, 'Attribution Copied!');
+  });
+
+  function getFullImageUrl(src) {
+    const path = src.replace(/^https?:\/\/[^\/]+/, '');
+    return `https://zzzhehao.github.io${path}`;
+  }
+
+  function getAttributionText(imageSrc) {
+    const imageName = imageSrc.split('/').pop();
+    const albumName = getCurrentAlbumName();
+    const albumInfo = albumConfig[albumName];
+    const photographerName = albumInfo ? albumInfo.photographer || 'Zhehao Hu' : 'Zhehao Hu';
+    const imageUrl = getFullImageUrl(activeImage.src);
+    return `©️ Copyright ${photographerName} 2024 - CC BY-NC-ND 4.0 - Source: ${imageUrl}`;
+  }
+
+  function copyToClipboard(text, button, successMessage) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = button.textContent;
+      button.textContent = successMessage;
+      button.classList.add('clicked');
       setTimeout(() => {
-        copyUrlButton.textContent = 'Copy URL';
-        copyUrlButton.classList.remove('clicked'); // Remove the clicked class
+        button.textContent = originalText;
+        button.classList.remove('clicked');
       }, 3000);
     }).catch(err => {
-      console.error('Failed to copy URL: ', err);
+      console.error('Failed to copy: ', err);
     });
-  });
+  }
 });
 
-// Copyright alert
 document.addEventListener('contextmenu', function(e) {
     if (e.target.tagName === 'IMG') {
         e.preventDefault();
         var modal = document.getElementById('custom-modal');
         var modalContent = modal.querySelector('.modal-content');
         
-        // Get the clicked image's position and dimensions
         var rect = e.target.getBoundingClientRect();
         
-        // Center the modal on the image
         modalContent.style.left = rect.left + rect.width / 2 + 'px';
         modalContent.style.top = rect.top + rect.height / 2 + 'px';
         
-        // Show the modal with fade effect
         modal.style.display = 'block';
         setTimeout(function() {
             modal.classList.add('show');
@@ -252,7 +266,6 @@ document.addEventListener('contextmenu', function(e) {
     }
 }, false);
 
-// Close the modal when clicking outside of it
 window.onclick = function(event) {
     var modal = document.getElementById('custom-modal');
     if (event.target == modal) {

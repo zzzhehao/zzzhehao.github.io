@@ -74,7 +74,9 @@ album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
     </div>
     <button id="next-image" class="nav-button next-button"></button>
   </div>
-  <button id="copy-url-button" class="copy-url-button">Copy URL</button>
+  <button id="copy-url-button" class="copy-button">Copy URL</button>
+  <button id="copy-image-url-button" class="copy-button">Copy Image URL</button>
+  <button id="copy-attribution-button" class="copy-button">Copy Attribution</button>
 </div>
 ```
 
@@ -90,3 +92,4 @@ album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
 ```
 
 <!-- Footer -->
+ 

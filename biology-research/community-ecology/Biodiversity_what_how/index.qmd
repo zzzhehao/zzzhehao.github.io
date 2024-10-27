@@ -331,6 +331,8 @@ hist(bray, xlim = range(0.0,1.0))
 hist(gower, xlim = range(0.0,1.0))
 ```
 
+<iframe src="https://zzzhehao.github.io/assets/gallery/album/onmyway24/onmyway24-1.jpg"  frameborder="0" allowfullscreen></iframe>
+
 ## Reference
 
 ::: {#refs}
