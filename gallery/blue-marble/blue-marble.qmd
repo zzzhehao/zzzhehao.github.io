@@ -46,8 +46,9 @@ albums <- yaml.load_file("gallery/blue-marble/blue-marble-albums.yml")
 for (album in albums) {
 if (album$year == 0) {album$year <- ''}
 album$thumbnail <- paste0('/assets/gallery/thumbnails/', album$name, '.jpg')
-  cat(sprintf('
+    cat(sprintf('
 <div class="album-thumbnail" data-album="%s">
+<a href="#%s">
 <img src="%s" alt="%s">
 <div class="album-overlay">
 <div class="album-info">
@@ -55,8 +56,9 @@ album$thumbnail <- paste0('/assets/gallery/thumbnails/', album$name, '.jpg')
 <div class="album-year">%s</div>
 </div>
 </div>
+</a>
 </div>
-', album$name, album$thumbnail, album$display_name, album$display_name, album$year))
+', album$name, album$name, album$thumbnail, album$display_name, album$display_name, album$year))
 }
 ```
 
@@ -74,6 +76,9 @@ album$thumbnail <- paste0('/assets/gallery/thumbnails/', album$name, '.jpg')
     </div>
     <button id="next-image" class="nav-button next-button"></button>
   </div>
+  <button id="copy-url-button" class="copy-button">Copy URL</button>
+  <button id="copy-image-url-button" class="copy-button">Copy Image URL</button>
+  <button id="copy-attribution-button" class="copy-button">Copy Attribution</button>
 </div>
 ```
 
