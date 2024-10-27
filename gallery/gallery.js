@@ -33,11 +33,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   prevButton.addEventListener('click', showPreviousImage);
   nextButton.addEventListener('click', showNextImage);
 
-  function openGallery(albumName) {
-    logStatus(`Opening gallery for album: ${albumName}`);
+  // Handle hash changes
+  window.addEventListener('hashchange', handleHashChange);
+
+  function handleHashChange() {
+    const hash = window.location.hash.slice(1);
+    const [albumName, imageNumber] = hash.split('-');
+    if (albumName) {
+      openGallery(albumName, imageNumber ? parseInt(imageNumber) - 1 : 0);
+    } else {
+      closeGallery();
+    }
+  }
+
+  function openGallery(albumName, startIndex = 0) {
+    logStatus(`Opening gallery for album: ${albumName}, starting at index: ${startIndex}`);
     currentAlbum = fetchAlbumImages(albumName);
     console.log("Current album images:", currentAlbum);
-    currentIndex = 0;
+    currentIndex = startIndex;
   
     if (fullscreenGallery) {
       // Set the album title
@@ -54,13 +67,24 @@ document.addEventListener('DOMContentLoaded', async () => {
       image1.classList.remove('active');
       image2.classList.remove('active');
   
-      // Load the first image
+      // Load the image at startIndex
       activeImage = image1;
       inactiveImage = image2;
       loadImage(currentAlbum[currentIndex], activeImage, () => {
         activeImage.classList.add('active');
-        logStatus('First image loaded and displayed');
+        logStatus(`Image loaded and displayed at index: ${currentIndex}`);
       });
+
+      // Update URL hash
+      updateUrlHash(albumName, currentIndex);
+    }
+  }
+
+  function updateUrlHash(albumName, index) {
+    if (index === 0) {
+      history.replaceState(null, '', `#${albumName}`);
+    } else {
+      history.replaceState(null, '', `#${albumName}-${index + 1}`);
     }
   }
 
@@ -78,6 +102,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       // Reset the transition flag
       isTransitioning = false;
+
+      // Remove hash from URL
+      history.pushState("", document.title, window.location.pathname + window.location.search);
     }
   }
 
@@ -95,22 +122,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
+  function getCurrentAlbumName() {
+    return window.location.hash.split('-')[0].slice(1);
+  }
+
   function updateGalleryImage() {
     if (currentAlbum.length > 0 && !isTransitioning) {
       isTransitioning = true;
       logStatus(`Updating gallery image to index: ${currentIndex}`);
-
-      loadImage(currentAlbum[currentIndex], inactiveImage, () => {
+  
+      inactiveImage.src = currentAlbum[currentIndex];
+      inactiveImage.onload = () => {
         activeImage.classList.remove('active');
         inactiveImage.classList.add('active');
-
-        [activeImage, inactiveImage] = [inactiveImage, activeImage];
-
+  
+        // Wait for the transition to complete before swapping images and updating URL
         setTimeout(() => {
+          [activeImage, inactiveImage] = [inactiveImage, activeImage];
+          updateUrlHash(getCurrentAlbumName(), currentIndex);
           isTransitioning = false;
           logStatus('Image transition complete');
-        }, 700);
-      });
+        }, 700); // This should match your CSS transition duration
+      };
+  
+      inactiveImage.onerror = () => {
+        console.error(`Failed to load image: ${currentAlbum[currentIndex]}`);
+        isTransitioning = false;
+      };
     }
   }
 
@@ -170,11 +208,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     );
     console.log(`Generated image paths for ${albumName}:`, images);
     return images;
-}
+  }
+
+  // Handle initial hash on page load
+  handleHashChange();
+
+  const copyUrlButton = document.getElementById('copy-url-button');
+
+  copyUrlButton.addEventListener('click', () => {
+    const currentUrl = window.location.href;
+    navigator.clipboard.writeText(currentUrl).then(() => {
+      copyUrlButton.textContent = 'Copied!';
+      copyUrlButton.classList.add('clicked'); // Add the clicked class
+      setTimeout(() => {
+        copyUrlButton.textContent = 'Copy URL';
+        copyUrlButton.classList.remove('clicked'); // Remove the clicked class
+      }, 3000);
+    }).catch(err => {
+      console.error('Failed to copy URL: ', err);
+    });
+  });
 });
 
 // Copyright alert
-
 document.addEventListener('contextmenu', function(e) {
     if (e.target.tagName === 'IMG') {
         e.preventDefault();

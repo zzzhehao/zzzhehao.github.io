@@ -4,6 +4,8 @@ format:
   html:
     page-layout: article
     toc: false
+include-after-body: 
+    - photography-footer.html
 ---
 
 ## Hamburg | A Motion Picture

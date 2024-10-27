@@ -15,6 +15,8 @@ include-in-header:
                 color: #333
             }
           </style>
+          <meta name="description" content="Photo albums gallery">
+          <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 include-after-body: 
   - text: |
       <script src="gallery.js"></script>
@@ -42,8 +44,9 @@ albums <- yaml.load_file("gallery/albums.yml")
 for (album in albums) {
 if (album$year == 0) {album$year <- ''}
 album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
-  cat(sprintf('
+    cat(sprintf('
 <div class="album-thumbnail" data-album="%s">
+<a href="#%s">
 <img src="%s" alt="%s">
 <div class="album-overlay">
 <div class="album-info">
@@ -51,8 +54,9 @@ album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
 <div class="album-year">%s</div>
 </div>
 </div>
+</a>
 </div>
-', album$name, album$thumbnail, album$display_name, album$display_name, album$year))
+', album$name, album$name, album$thumbnail, album$display_name, album$display_name, album$year))
 }
 ```
 
@@ -70,6 +74,7 @@ album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
     </div>
     <button id="next-image" class="nav-button next-button"></button>
   </div>
+  <button id="copy-url-button" class="copy-url-button">Copy URL</button>
 </div>
 ```
 
@@ -85,4 +90,3 @@ album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
 ```
 
 <!-- Footer -->
-

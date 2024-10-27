@@ -3,5 +3,3 @@ format:
     page-layout: full
     toc: true
     toc-depth: 4
-    include-after-body: 
-      - photography-footer.html
