@@ -88,13 +88,14 @@ Zhehao Hu
 [{{< iconify mdi:github >}}](https://github.com/zzzhehao)
 [{{< iconify mdi:linkedin >}}](https://linkedin.com/in/huzhehao)
 [{{< iconify mdi:instagram >}}](https://instagram.com/zhehao.hu_)
+[{{< iconify mage:notion >}}](https://www.notion.so/marketplace/creators/zzzhehao?cr=cre%3Aall)
 [{{< iconify ic:outline-email >}}](mailto:{{< var email.work >}})
 
 :::
 
 [About {{< iconify cib:about-me >}}]{style="font-size: 2.5rem;"}
 
-I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese, Japanese, German and English 😉 feel free to write to me in any of these!
+I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these!
 
 I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more, and I am trying my best to find a balance between both. 
 
@@ -116,14 +117,15 @@ I am interested in eco-evolutionary dynamics of various ecosystems and organisms
 
 I take a lot of photos, simply to treasure the moments that I enjoyed and loved. I don't limit myself in certain technics or topics - I shoot both analog and digital, still and motion picture, I once tried cyanotype too, and would love to start again. I shoot wonderful nature, starlight, but also urban landscapes, people, or small things in life. 
 
+I use photography as a way to express myself. People say the world is as one sees it. I haven't experienced excessive grief, but I've certainly seen enough. So when I create something back for the world, I want them to be something less hurting. New media has massively promoted the hatred-misery-pandemic, but I choose to break the cycle. 
+
 [Here](/gallery/gallery.qmd) you can see all my albums and [here](/gallery/motion-pictures.qmd) are some picked motion pictures. Also check [here](/gallery/blue-marble/blue-marble.qmd) for star / astro topics.
 
 <br>
 
 ## {{< iconify streamline:hand-held-tablet-writing >}} Posts
 
-I use this website to share my knowledge, most of them are basically refined version of my own notes. I do this because I've been helped by posts on the internet from others multiple times, and I don't want this kindness to stop with me. I also value all kind of suggestions and comments.
+I also use this website to share my knowledge, many of them are basically refined version of my own notes. I do this because I've been helped by posts on the internet from others multiple times, and I don't want this kindness to stop with me. I also value all kind of suggestions and comments.
 
 ::: {#ls-all}
 :::
-
