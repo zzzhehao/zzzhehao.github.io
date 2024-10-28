@@ -16,7 +16,7 @@ project:
   output-dir: _site
 
 bibliography:
-  - ../../zzzhehao/80-89 Resources/82 References/80.01 BibTex Bibliography/biology-research-master.bib
+  - ../../zzzhehao/80-89 Resources/80 References/80.01 BibTex Bibliography/biology-research.bib
 
 website:
   title: "Zhehao Hu"
@@ -68,8 +68,8 @@ format:
   html:
     highlight-style: arrow-light
     theme: 
-      light: [theme/global-setting.scss, theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
       dark: [theme/global-setting.scss, theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
+      light: [theme/global-setting.scss, theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
     css:
       - theme/global.css
 execute: 
