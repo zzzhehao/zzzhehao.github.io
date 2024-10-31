@@ -95,7 +95,7 @@ Zhehao Hu
 
 [About {{< iconify cib:about-me >}}]{style="font-size: 2.5rem;"}
 
-I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these!
+I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these! It's okay to call me a Chinese or Taiwanese, because I am both. But please don't discuss politics with me, because I still have family living in Mainland China 🫢.
 
 I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more, and I am trying my best to find a balance between both. 
 
@@ -129,3 +129,7 @@ I also use this website to share my knowledge, many of them are basically refine
 
 ::: {#ls-all}
 :::
+
+## {{< iconify material-symbols:fact-check-outline-rounded >}} Fun Facts
+
+I use R for my GIS work (I have trust issue with Q-GIS).
