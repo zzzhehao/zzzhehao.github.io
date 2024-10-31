@@ -58,6 +58,7 @@ listing:
         border-radius: 50%;
         position: relative;
     }
+    
     .circular-image img {
         width: 100%;
         height: 100%;
@@ -68,7 +69,21 @@ listing:
         justify-content: center;    
         align-items: center;        
     }
+    .pick-image {
+        width: 350px; 
+        height: 350px; 
+        overflow: hidden;
+        border-radius: 2%;
+        position: relative;
+    }
 </style>
+```
+
+```{r}
+#| output: false
+#| echo: false
+
+library(tidyverse)
 ```
 
 ::: {.image-container}
@@ -120,6 +135,31 @@ I take a lot of photos, simply to treasure the moments that I enjoyed and loved.
 I use photography as a way to express myself. People say the world is as one sees it. I haven't experienced excessive grief, but I've certainly seen enough. So when I create something back for the world, I want them to be something less hurting. New media has massively promoted the hatred-misery-pandemic, but I choose to break the cycle. 
 
 [Here](/gallery/gallery.qmd) you can see all my albums and [here](/gallery/motion-pictures.qmd) are some picked motion pictures. Also check [here](/gallery/blue-marble/blue-marble.qmd) for star / astro topics.
+
+<br>
+
+```{r}
+#| output: asis
+#| echo: false
+
+files <- list.files(path = 'assets/gallery/album', recursive = T, full.names = T)
+
+set.seed(as.numeric(today()))
+pick <- round(runif(n = 1, max = length(files)), digit = 0)
+file <- files[pick]
+file.name <- basename(file) %>% sub("\\.jpg$", "", .)
+url <- paste0('https://zzzhehao.github.io/', file)
+
+cat(
+    "::: {.name-title style=\"font-size: 1.5rem\"}
+Today's Pick", "\n", ":::", "\n",
+
+    "::: {.image-container}", "\n",
+    "::: {.pick-image}", "\n",
+    "[![](", url, ')](', "https://zzzhehao.github.io/gallery/gallery.html#", file.name, ')', "\n", 
+    ":::", "\n", ":::",
+    sep = "")
+```
 
 <br>
 
