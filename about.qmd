@@ -58,7 +58,6 @@ listing:
         border-radius: 50%;
         position: relative;
     }
-    
     .circular-image img {
         width: 100%;
         height: 100%;
@@ -70,11 +69,23 @@ listing:
         align-items: center;        
     }
     .pick-image {
-        width: 350px; 
-        height: 350px; 
-        overflow: hidden;
-        border-radius: 2%;
+        width: 550px; 
+        display: block; /* or flex, depending on your layout needs */
         position: relative;
+        border-radius: 2%;
+        line-height: 0; /* Removes any extra space below inline images */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    .pick-image p {
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+    }
+    .pick-image img {
+        display: block; /* Removes any extra space below the image */
+        max-width: 100%; /* Ensures the image is not wider than its container */
+        height: auto; /* Maintains the image's aspect ratio */
+        border-radius: 2%;
     }
 </style>
 ```
