@@ -172,9 +172,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../theme/global.css">
-<link rel="stylesheet" href="../../theme/text-justify.css">
-<link rel="stylesheet" href="../../theme/caption-center.css">
 </head>
 
 <body class="nav-fixed">
@@ -585,41 +582,41 @@ P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 4
  $ ARCS:List of 2
-  ..$ mu   : num [1:1000, 1:3] 12.6 12.6 12.6 12.6 12.7 ...
+  ..$ mu   : num [1:1000, 1:3] 12.6 12.6 12.7 12.7 12.6 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.677 0.209 0.321 0.209 1.028 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.525 0.211 0.248 0.211 1.018 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : NULL
  $ BDWF:List of 2
-  ..$ mu   : num [1:1000, 1:3] 9.37 9.11 9.43 9.52 9.08 ...
+  ..$ mu   : num [1:1000, 1:3] 9.16 9.17 9.25 9.29 9.31 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 1.387 -0.312 0.411 -0.312 4.312 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 1.142 -0.012 1.18 -0.012 4.15 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : NULL
  $ LKWF:List of 2
-  ..$ mu   : num [1:1000, 1:3] 11.1 11 11 11.1 11.1 ...
+  ..$ mu   : num [1:1000, 1:3] 10.9 11 11 11.1 10.8 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.6982 -0.0175 0.5177 -0.0175 2.5974 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.6359 -0.123 -0.0786 -0.123 2.378 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : NULL
  $ LSCS:List of 2
-  ..$ mu   : num [1:1000, 1:3] 11.6 11.5 11.6 11.7 11.6 ...
+  ..$ mu   : num [1:1000, 1:3] 11.8 11.7 11.7 11.8 11.8 ...
   .. ..- attr(*, "dimnames")=List of 2
   .. .. ..$ : NULL
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
-  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.5623 0.0427 0.3999 0.0427 1.4957 ...
+  ..$ Sigma: num [1:3, 1:3, 1:1000] 0.49 0.071 0.322 0.071 1.593 ...
   .. ..- attr(*, "dimnames")=List of 3
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
   .. .. ..$ : chr [1:3] "D15N" "D13C" "D34S"
@@ -772,19 +769,19 @@ Figure&nbsp;6: Niche overlap using 99% of the niche region.
 
          Species B
 Species A  ARCS  BDWF  LKWF  LSCS
-     ARCS    NA 11.06 66.24 81.44
-     BDWF  0.30    NA 26.50  4.65
-     LKWF  7.34 78.24    NA 52.85
-     LSCS 36.98 52.06 88.67    NA
+     ARCS    NA 11.04 66.67 81.50
+     BDWF  0.30    NA 26.27  4.54
+     LKWF  7.50 78.32    NA 52.66
+     LSCS 37.96 52.03 88.67    NA
 
 , , alpha = 99%
 
          Species B
 Species A  ARCS  BDWF  LKWF  LSCS
-     ARCS    NA 33.28 87.22 92.07
-     BDWF  0.78    NA 42.09  9.23
-     LKWF 11.64 92.13    NA 70.25
-     LSCS 49.52 80.21 97.05    NA</code></pre>
+     ARCS    NA 33.13 87.51 92.04
+     BDWF  0.78    NA 41.80  9.01
+     LKWF 11.87 92.24    NA 69.95
+     LSCS 50.66 80.51 97.10    NA</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -796,57 +793,57 @@ Species A  ARCS  BDWF  LKWF  LSCS
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    NA    0    3   27
+  2.5%    NA    0    4   28
   97.5%   NA    1   13   49
 
 , , Species B = BDWF, alpha = 95%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%     2   NA   59   24
+  2.5%     2   NA   61   24
   97.5%   29   NA   93   81
 
 , , Species B = LKWF, alpha = 95%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    41   16   NA   76
-  97.5%   90   39   NA   97
+  2.5%    42   16   NA   76
+  97.5%   89   39   NA   97
 
 , , Species B = LSCS, alpha = 95%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    67    2   39   NA
-  97.5%   92    9   69   NA
+  2.5%    69    2   38   NA
+  97.5%   93    9   67   NA
 
 , , Species B = ARCS, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    NA    0    6   38
+  2.5%    NA    0    6   39
   97.5%   NA    2   19   63
 
 , , Species B = BDWF, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%     9   NA   80   54
-  97.5%   66   NA   99   97
+  2.5%    10   NA   80   55
+  97.5%   64   NA   99   97
 
 , , Species B = LKWF, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    70   28   NA   91
+  2.5%    71   28   NA   91
   97.5%   98   57   NA  100
 
 , , Species B = LSCS, alpha = 99%
 
        Species A
         ARCS BDWF LKWF LSCS
-  2.5%    82    4   56   NA
-  97.5%   98   16   84   NA</code></pre>
+  2.5%    83    4   55   NA
+  97.5%   98   16   83   NA</code></pre>
 </div>
 </div>
 </div>
@@ -903,12 +900,6 @@ Table&nbsp;3: <code>penguin</code> dataset
 </div>
 </div>
 <p>As mentioned in <a href="#tbl-SIAs" class="quarto-xref">Table&nbsp;2</a>, <span class="math inline">\(\delta ^{13} C\)</span> and <span class="math inline">\(\delta ^{15} N\)</span> can be used to assess the trophic level of the species. We first analyze the niche using only these two values:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/culmen.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Elephant</figcaption>
-</figure>
-</div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the analysis only with isotope data</span></span>
@@ -938,13 +929,13 @@ Table&nbsp;3: <code>penguin</code> dataset
 <span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>over.stat95 <span class="ot">&lt;-</span> <span class="fu">overlap</span>(pen.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fl">0.95</span>)</span>
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="fu">overlap.plot</span>(over.stat95, <span class="at">col =</span> clrs, <span class="at">mean.cred.col =</span> <span class="st">"#024873"</span>, <span class="at">equal.axis =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Overlap Probability (%) -- Niche Region Size: 95%"</span>, <span class="at">species.names =</span> <span class="fu">c</span>(<span class="st">"P. adeliae - F"</span>, <span class="st">"P.adeliae - M"</span>, <span class="st">"P. antarcticus - F"</span>, <span class="st">"P. antarcticus - M"</span>, <span class="st">"P. papua - F"</span>, <span class="st">"P. papua - M"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-iso-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pen-iso-niche-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;7: No sexual difference in \delta ^{13} C and \delta ^{15} N signature is shown. P. adeliae has the biggest niche region."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
+<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;7: No sexual difference in \delta ^{13} C and \delta ^{15} N signature is shown. P. adeliae has the biggest niche region."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pen-iso-niche-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7: No sexual difference in <span class="math inline">\(\delta ^{13} C\)</span> and <span class="math inline">\(\delta ^{15} N\)</span> signature is shown. <em>P. adeliae</em> has the biggest niche region.
@@ -956,7 +947,7 @@ Figure&nbsp;7: No sexual difference in <span class="math inline">\(\delta ^{13} 
 <div id="fig-pen-iso-niche-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pen-iso-niche-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;8: Niche overlap probability distribution among species and sexes, only isotope data used."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
+<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;8: Niche overlap probability distribution among species and sexes, only isotope data used."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-iso-niche-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pen-iso-niche-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8: Niche overlap probability distribution among species and sexes, only isotope data used.
@@ -971,7 +962,7 @@ Figure&nbsp;8: Niche overlap probability distribution among species and sexes, o
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../biology-research/community-ecology/assets/culmen.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Penguin’s culmen by Allison Horst"><img src="../../biology-research/community-ecology/assets/culmen.jpeg" class="img-fluid figure-img" style="width:90.0%" alt="Penguin’s culmen by Allison Horst"></a></p>
+<p><a href="../../biology-research/community-ecology/assets/culmen.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Penguin’s culmen by Allison Horst"><img src="../../biology-research/community-ecology/assets/culmen.jpeg" class="img-fluid figure-img" style="width:90.0%" alt="Penguin’s culmen by Allison Horst"></a></p>
 <figcaption>Penguin’s culmen by <a href="https://x.com/allison_horst/status/1270046411002753025" target="_blank">Allison Horst</a></figcaption>
 </figure>
 </div>
@@ -1005,13 +996,13 @@ Figure&nbsp;8: Niche overlap probability distribution among species and sexes, o
 <span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>over.stat95 <span class="ot">&lt;-</span> <span class="fu">overlap</span>(pen.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fl">0.95</span>)</span>
 <span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="fu">overlap.plot</span>(over.stat95, <span class="at">col =</span> clrs, <span class="at">mean.cred.col =</span> <span class="st">"#024873"</span>, <span class="at">equal.axis =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Overlap Probability (%) -- Niche Region Size: 95%"</span>, <span class="at">species.names =</span> <span class="fu">c</span>(<span class="st">"P. adeliae - F"</span>, <span class="st">"P.adeliae - M"</span>, <span class="st">"P. antarcticus - F"</span>, <span class="st">"P. antarcticus - M"</span>, <span class="st">"P. papua - F"</span>, <span class="st">"P. papua - M"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pen-niche-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;9: Niche plot using culmen size and isotope data."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
+<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;9: Niche plot using culmen size and isotope data."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pen-niche-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9: Niche plot using culmen size and isotope data.
@@ -1023,7 +1014,7 @@ Figure&nbsp;9: Niche plot using culmen size and isotope data.
 <div id="fig-pen-niche-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pen-niche-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;10: Niche overlap probability using culmen size data and isotope data."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
+<a href="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;10: Niche overlap probability using culmen size data and isotope data."><img src="nicheROVER-Niche-Overlap_files/figure-html/fig-pen-niche-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pen-niche-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10: Niche overlap probability using culmen size data and isotope data.
@@ -1064,7 +1055,7 @@ Table&nbsp;4: Percentage of breed pair which completed the whole clutch (i.e.&nb
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&amp;w=3087&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="P. adeliae by Dylan Shaw on Unsplash"><img src="https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&amp;w=3087&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid figure-img" alt="P. adeliae by Dylan Shaw on Unsplash"></a></p>
+<p><a href="https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&amp;w=3087&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="P. adeliae by Dylan Shaw on Unsplash"><img src="https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&amp;w=3087&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid figure-img" alt="P. adeliae by Dylan Shaw on Unsplash"></a></p>
 <figcaption><em>P. adeliae</em> by Dylan Shaw on <a href="https://unsplash.com/photos/black-and-white-penguins-during-daytime-9k9tNQTwMEA" target="_blank">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -1072,7 +1063,7 @@ Table&nbsp;4: Percentage of breed pair which completed the whole clutch (i.e.&nb
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://www.antarctica.gov.au/site/assets/files/45561/gentoo-feed-me.1200x0.jpg?nc=7328" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="P. papua by Australian Antarctic Program"><img src="https://www.antarctica.gov.au/site/assets/files/45561/gentoo-feed-me.1200x0.jpg?nc=7328" class="img-fluid figure-img" alt="P. papua by Australian Antarctic Program"></a></p>
+<p><a href="https://www.antarctica.gov.au/site/assets/files/45561/gentoo-feed-me.1200x0.jpg?nc=7328" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="P. papua by Australian Antarctic Program"><img src="https://www.antarctica.gov.au/site/assets/files/45561/gentoo-feed-me.1200x0.jpg?nc=7328" class="img-fluid figure-img" alt="P. papua by Australian Antarctic Program"></a></p>
 <figcaption><em>P. papua</em> by <a href="https://www.antarctica.gov.au/about-antarctica/animals/penguins/gentoo-penguin/" target="_blank">Australian Antarctic Program</a></figcaption>
 </figure>
 </div>
@@ -1080,7 +1071,7 @@ Table&nbsp;4: Percentage of breed pair which completed the whole clutch (i.e.&nb
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="P. antarcticus by Andrew Shiva on Wikipedia"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg" class="img-fluid figure-img" alt="P. antarcticus by Andrew Shiva on Wikipedia"></a></p>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="P. antarcticus by Andrew Shiva on Wikipedia"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg" class="img-fluid figure-img" alt="P. antarcticus by Andrew Shiva on Wikipedia"></a></p>
 <figcaption><em>P. antarcticus</em> by Andrew Shiva on <a href="https://en.wikipedia.org/wiki/Chinstrap_penguin" target="_blank">Wikipedia</a></figcaption>
 </figure>
 </div>
@@ -1090,7 +1081,7 @@ Table&nbsp;4: Percentage of breed pair which completed the whole clutch (i.e.&nb
 <p>By the way, if anyone ever wondered – yes, this is the exact same dataset they used to produce the <code>palmerpenguins</code> package. I found the data at <a href="https://portal.edirepository.org/nis/advancedSearch.jsp" target="_blank">EDI Data Portal</a> and didn’t notice until I attached the images, because these three guys showing up at the same time is weirdly familiar to me. The dataset is therefore available by simply attaching the package. If you are interested in what more detailed results people have found with these data, you should check the paper from <span class="citation" data-cites="gorman2014">Gorman, Williams, and Fraser (<a href="#ref-gorman2014" role="doc-biblioref">2014</a>)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Surprise!"><img src="https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true" class="img-fluid figure-img" alt="Surprise!"></a></p>
+<p><a href="https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Surprise!"><img src="https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true" class="img-fluid figure-img" alt="Surprise!"></a></p>
 <figcaption>Surprise!</figcaption>
 </figure>
 </div>
@@ -2377,7 +2368,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
