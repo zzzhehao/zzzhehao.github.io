@@ -9,10 +9,6 @@ categories:
   - Community Ecology
   - Data Analysis
   - Multivariate Analysis
-format:
-  html:
-    resources: 
-      - shinylive-sw.js
 filters:
   - openlinksinnewpage
   - nutshell
@@ -83,9 +79,7 @@ Simply speaking, alpha diversity refers to the diversity within a particular are
 
 : Illustration of different types of diversity calculated by species richness. `x` indicates species' presence. Alpha diversity sums up species present in each habitat, beta diversity counts for unique species in both habitats, gamma diversity represents number of species ever present. {#tbl-diversities}
 
-## Alpha Diversity
-
-### Species Richness
+## Species Richness and Rarefaction
 
 Like we just did in @tbl-diversities, assessing diversity with species richness (SR) data is the most intuitive and straightforward way, but it also has many limitations. First, it does not provide abundance data, we could only know how many species are present, but not in what extent. This means that if we encountered a common species and a rare species, they are equally treated in SR. At the same time, it's sensitive to sample size, and this response is not linear. Which means assuming our sampling is completely random (idealy), the probability of encountering a rare species increases as our sampling effort. But the increase of the total number of encountered species will become slower, and the response curve will then reach a plateau. 
 
@@ -259,6 +253,12 @@ $$
 - Ranges from $\frac{1}{S}$ to 1.
 - *Detour*: the same formula was rediscovered by _Orris C. Herfindahl_ in 1950, thus the same things is usually referred to as Herfindahl index or Herfindahl-Hirschman index (HHI) in economics.
 
+### Inverse Simpson index ($\frac{1}{\lambda} = \, ^2D$)
+
+Another transformation of the original Simpson index.
+
+- AKA **Simpson's Dominance index**, ranges from 1 to $S$.
+
 ### Gini-Simpson index ($1-\lambda$) {#sec-gini-simpson-index}
 
 The **Gini-Simpson index** (aka Gini impurity, Gini's diversity index) is a transformation of the original Simpson index. Usually referred to as _Simpson index_ in ecology (again, very ambiguous and very confusing!)
@@ -267,13 +267,7 @@ The **Gini-Simpson index** (aka Gini impurity, Gini's diversity index) is a tran
 - More intuitive in term of diversity.
 - AKA the **Probability of interspecific encounter (_PIE_)** in ecology; Gibbs-Martin index in sociology and psychology; expected heterozygosity in population genetics.
 
-#### 1.2.2 Inverse Simpson index ($\frac{1}{\lambda} = \, ^2D$)
-
-Another transformation of the original Simpson index.
-
-- AKA **Simpson's Dominance index**, ranges from 1 to $S$.
-
-### 1.3 Evenness index
+### Evenness index
 
 Represents how close in numbers each species are in a community. 
 
@@ -284,22 +278,7 @@ $J$ ranges from 0 to 1, where 1 indicates the absolute evenness.
 
 - Used as measurement of **species dominance**.
 
-
-### Shannon Index (H)
-
-$$
-H = - \sum^{s}_{i=1}p_i \ln p_i
-$$
-
-The **Shannon index** is an information statistic index, which means it assumes all species are represented in a sample and that they are randomly sampled, where $p$ is the proportion ($\frac{n}{N}$) of individuals of one particular species found ($n$) divided by the total number of individuals found ($N$), and $s$ is the number of species.
-
-### Simpson index (D)
-
-$$
-D = \frac{1}{ \sum\limits^{s}_{i=1} p_i^2}
-$$
-The **Simpson index** is a dominance index, meaning it gives more weight to common or dominant species. 
-
+## R
 
 `vegan::diversity()` calculates the ecological diversity indices, with Shannon index being default, Simpson or Invisimpson index can also be choosed.
 
@@ -330,8 +309,6 @@ gower = vegdist(community[,3:11], "gower") #Gower includes joint absences
 hist(bray, xlim = range(0.0,1.0))
 hist(gower, xlim = range(0.0,1.0))
 ```
-
-<iframe src="https://zzzhehao.github.io/assets/gallery/album/onmyway24/onmyway24-1.jpg"  frameborder="0" allowfullscreen></iframe>
 
 ## Reference
 
