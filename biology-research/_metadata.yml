@@ -11,9 +11,6 @@ date-format: long
 lightbox: true
 format:
   html:
-    css: 
-      - ../theme/text-justify.css
-      - ../theme/caption-center.css
     toc: true
     toc-depth: 4
     toc-expand: 2
