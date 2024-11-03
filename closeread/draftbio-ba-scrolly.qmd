@@ -5,14 +5,20 @@ draft: true
 format: 
     closeread-html:
         remove-header-space: true
-        css: 
-            - /theme/closeread/closeread.css
 execute: 
   echo: false
   warning: false
   message: false
   output: false
 ---
+
+<!-- New version of closeread somehow does not accept css in yaml header anymore. Just walking around it. -->
+
+```{=html}
+<head>
+<link rel="stylesheet" href="/theme/closeread/closeread.css">
+</head>
+```
 
 ```{r}
 #| label: setup
