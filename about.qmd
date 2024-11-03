@@ -114,8 +114,15 @@ listing:
         .then(data => {
             const photos = data.photos;
             const today = new Date();
-            const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-            const randomIndex = Math.floor((seed % photos.length + photos.length) % photos.length);
+            const seed = today.getFullYear() * 1000 + (today.getMonth()) * 100 + today.getDate();
+            
+            // Simple pseudo-random number generator
+            function seededRandom(seed) {
+                let x = Math.sin(seed) * 10000;
+                return x - Math.floor(x);
+            }
+
+            const randomIndex = Math.floor(seededRandom(seed) * photos.length);
             const photo = photos[randomIndex];
             
             const photoElement = document.getElementById('daily-photo');
@@ -207,6 +214,18 @@ I also use this website to share my knowledge, many of them are basically refine
 ::: {#ls-all}
 :::
 
-## {{< iconify material-symbols:fact-check-outline-rounded >}} Fun Facts
+## {{< iconify pajamas:lock-open >}} Open Science
 
-I use R for my GIS work (I have trust issue with Q-GIS).
+Science should be open to everyone, regardless of whatever people use to categorize others. I recently shared my notes on *Evolutionary Systematics* and would appreciate any contribution from fellow open-minded scientists. The goal is to compile introductions to various related topics in one place and serve as a signpost for those who wants to start in the field.
+
+Note repo for open science and for everyone: [zzzhehao/EvoSys](https://github.com/zzzhehao/EvoSys).
+
+## {{< iconify material-symbols:fact-check-outline-rounded >}} Random Facts
+
+- Avocado in sushi is to me what pineapple on pizza is to Italians. 
+- I am hopelessly spontaneous. I once planned to go to the library but then ended up doing some gardening with professors and fellows the whole afternoon and got nothing done for my plan. (Gardening is important!)
+
+![Someone's enjoying](/assets/images/gardening.png){width="50%"}
+
+- I am also hopelessly nosy, literally an intel black hole.
+- I dive. 
