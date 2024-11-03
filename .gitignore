@@ -1,18 +1,22 @@
-/.quarto/
-/_site/
-.DS_Store
-.Rhistory
-.Rproj.user/
-*.Rproj
-.RData
-assets/
+# Quarto
 /_freeze/
 /_extensions/
+/.quarto/
+/_site/
+
+# Obsidian
 .obsidian/
 .pandoc/
+
+# Custom file tructure
+confidential/
+assets/
+assets/
 *assets
+resource/
 confidential/
 *_webr/
+.Rproj
 
 # Created by https://www.toptal.com/developers/gitignore/api/r,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,macos
