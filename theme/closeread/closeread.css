@@ -1,8 +1,9 @@
-/* Closeread CSS styles */
-
 :root{
     font-size: 1.2rem;
     font-family: serif;
+    --cr-narrative-font-family: serif;
+    --cr-narrative-background-color-overlay: rgba(229, 233, 238, 0.88);
+    --cr-section-background-color: rgb(255, 255, 255);
 }
 
 .cr-section.sticky-col.sticky-col-stack {

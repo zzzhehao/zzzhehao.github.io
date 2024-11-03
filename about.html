@@ -231,7 +231,7 @@ window.Quarto = {
  <span class="dropdown-text">Posts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./biology-research/feeds/feed.html">
+    <a class="dropdown-item" href="./biology-research/feeds/feed.qmd">
  <span class="dropdown-text">Feed</span></a>
   </li>  
         <li>
@@ -269,7 +269,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#hobby" id="toc-hobby" class="nav-link active" data-scroll-target="#hobby"><iconify-icon role="img" inline="" icon="ph:film-reel" aria-label="Icon film-reel from ph Iconify.design set." title="Icon film-reel from ph Iconify.design set."></iconify-icon> Hobby</a></li>
   <li><a href="#posts" id="toc-posts" class="nav-link" data-scroll-target="#posts"><iconify-icon role="img" inline="" icon="streamline:hand-held-tablet-writing" aria-label="Icon hand-held-tablet-writing from streamline Iconify.design set." title="Icon hand-held-tablet-writing from streamline Iconify.design set."></iconify-icon> Posts</a></li>
-  <li><a href="#fun-facts" id="toc-fun-facts" class="nav-link" data-scroll-target="#fun-facts"><iconify-icon role="img" inline="" icon="material-symbols:fact-check-outline-rounded" aria-label="Icon fact-check-outline-rounded from material-symbols Iconify.design set." title="Icon fact-check-outline-rounded from material-symbols Iconify.design set."></iconify-icon> Fun Facts</a></li>
+  <li><a href="#open-science" id="toc-open-science" class="nav-link" data-scroll-target="#open-science"><iconify-icon role="img" inline="" icon="pajamas:lock-open" aria-label="Icon lock-open from pajamas Iconify.design set." title="Icon lock-open from pajamas Iconify.design set."></iconify-icon> Open Science</a></li>
+  <li><a href="#random-facts" id="toc-random-facts" class="nav-link" data-scroll-target="#random-facts"><iconify-icon role="img" inline="" icon="material-symbols:fact-check-outline-rounded" aria-label="Icon fact-check-outline-rounded from material-symbols Iconify.design set." title="Icon fact-check-outline-rounded from material-symbols Iconify.design set."></iconify-icon> Random Facts</a></li>
   </ul>
 </nav>
     </div>
@@ -351,8 +352,15 @@ window.Quarto = {
         .then(data => {
             const photos = data.photos;
             const today = new Date();
-            const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-            const randomIndex = Math.floor((seed % photos.length + photos.length) % photos.length);
+            const seed = today.getFullYear() * 1000 + (today.getMonth()) * 100 + today.getDate();
+            
+            // Simple pseudo-random number generator
+            function seededRandom(seed) {
+                let x = Math.sin(seed) * 10000;
+                return x - Math.floor(x);
+            }
+
+            const randomIndex = Math.floor(seededRandom(seed) * photos.length);
             const photo = photos[randomIndex];
             
             const photoElement = document.getElementById('daily-photo');
@@ -479,9 +487,27 @@ No matching items
 </div>
 </div>
 </section>
-<section id="fun-facts" class="level2">
-<h2 class="anchored" data-anchor-id="fun-facts"><iconify-icon role="img" inline="" icon="material-symbols:fact-check-outline-rounded" aria-label="Icon fact-check-outline-rounded from material-symbols Iconify.design set." title="Icon fact-check-outline-rounded from material-symbols Iconify.design set."></iconify-icon> Fun Facts</h2>
-<p>I use R for my GIS work (I have trust issue with Q-GIS).</p>
+<section id="open-science" class="level2">
+<h2 class="anchored" data-anchor-id="open-science"><iconify-icon role="img" inline="" icon="pajamas:lock-open" aria-label="Icon lock-open from pajamas Iconify.design set." title="Icon lock-open from pajamas Iconify.design set."></iconify-icon> Open Science</h2>
+<p>Science should be open to everyone, regardless of whatever people use to categorize others. I recently shared my notes on <em>Evolutionary Systematics</em> and would appreciate any contribution from fellow open-minded scientists. The goal is to compile introductions to various related topics in one place and serve as a signpost for those who wants to start in the field.</p>
+<p>Note repo for open science and for everyone: <a href="https://github.com/zzzhehao/EvoSys" target="_blank">zzzhehao/EvoSys</a>.</p>
+</section>
+<section id="random-facts" class="level2">
+<h2 class="anchored" data-anchor-id="random-facts"><iconify-icon role="img" inline="" icon="material-symbols:fact-check-outline-rounded" aria-label="Icon fact-check-outline-rounded from material-symbols Iconify.design set." title="Icon fact-check-outline-rounded from material-symbols Iconify.design set."></iconify-icon> Random Facts</h2>
+<ul>
+<li>Avocado in sushi is to me what pineapple on pizza is to Italians.</li>
+<li>I am hopelessly spontaneous. I once planned to go to the library but then ended up doing some gardening with professors and fellows the whole afternoon and got nothing done for my plan. (Gardening is important!)</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/images/gardening.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Someone’s enjoying"><img src="./assets/images/gardening.png" class="img-fluid figure-img" style="width:50.0%" alt="Someone’s enjoying"></a></p>
+<figcaption>Someone’s enjoying</figcaption>
+</figure>
+</div>
+<ul>
+<li>I am also hopelessly nosy, literally an intel black hole.</li>
+<li>I dive.</li>
+</ul>
 
 
 
@@ -1291,106 +1317,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in">        .then(data =&gt; {</span></span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">            const photos = data.photos;</span></span>
 <span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">            const today = new Date();</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">            const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();</span></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">            const randomIndex = Math.floor((seed % photos.length + photos.length) % photos.length);</span></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">            const photo = photos[randomIndex];</span></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">            const photoElement = document.getElementById('daily-photo');</span></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">            photoElement.innerHTML = `</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="name-title" style="font-size: 2rem"&gt;Today's Pick&lt;/div&gt;</span></span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;br&gt;</span></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="image-container"&gt;</span></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;div class="pick-image"&gt;</span></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;a href="https://zzzhehao.github.io/gallery/gallery.html#${photo.name}"&gt;</span></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="in">                    &lt;img src="${photo.url}" alt="${photo.name}"&gt;</span></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/a&gt;</span></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/div&gt;</span></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;/div&gt;</span></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">            `;</span></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">        });</span></span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">    document.addEventListener('DOMContentLoaded', initializeDailyPhoto);</span></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>::: {.image-container}</span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>::: {.circular-image}</span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="al">![](/assets/images/hu-in-heath-cropped.jpg)</span></span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>::: {.name-title}</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>Zhehao Hu</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">            const seed = today.getFullYear() * 1000 + (today.getMonth()) * 100 + today.getDate();</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">            // Simple pseudo-random number generator</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">            function seededRandom(seed) {</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">                let x = Math.sin(seed) * 10000;</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">                return x - Math.floor(x);</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="in">            }</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">            const randomIndex = Math.floor(seededRandom(seed) * photos.length);</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">            const photo = photos[randomIndex];</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="in">            const photoElement = document.getElementById('daily-photo');</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">            photoElement.innerHTML = `</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="name-title" style="font-size: 2rem"&gt;Today's Pick&lt;/div&gt;</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;br&gt;</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="image-container"&gt;</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;div class="pick-image"&gt;</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;a href="https://zzzhehao.github.io/gallery/gallery.html#${photo.name}"&gt;</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">                    &lt;img src="${photo.url}" alt="${photo.name}"&gt;</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/a&gt;</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/div&gt;</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;/div&gt;</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">            `;</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">        });</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in">    document.addEventListener('DOMContentLoaded', initializeDailyPhoto);</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>::: {.image-container}</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>::: {.circular-image}</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="al">![](/assets/images/hu-in-heath-cropped.jpg)</span></span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>::: {style="font-size: 1.5rem; font-weight: 350; display: flex; justify-content: center; align-items: center;"}</span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mynaui:home &gt;}}</span><span class="co">](https://zzzhehao.github.io/)</span></span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mdi:github &gt;}}</span><span class="co">](https://github.com/zzzhehao)</span></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mdi:linkedin &gt;}}</span><span class="co">](https://linkedin.com/in/huzhehao)</span></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mdi:instagram &gt;}}</span><span class="co">](https://instagram.com/zhehao.hu_)</span></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mage:notion &gt;}}</span><span class="co">](https://www.notion.so/marketplace/creators/zzzhehao?cr=cre%3Aall)</span></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify ic:outline-email &gt;}}</span><span class="co">](mailto:{{&lt; var email.work &gt;}})</span></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">About {{&lt; iconify cib:about-me &gt;}}</span><span class="co">]</span>{style="font-size: 2.5rem;"}</span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these! </span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more, and I am trying my best to find a balance between both. </span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>I am interested in eco-evolutionary dynamics of various ecosystems and organisms. I am currently involved in two projects relating to my bachelor thesis about *Wolbachia*-infected, female-biased beetles *Altica lythri*. And my (upcoming) master thesis (still in the exploring stage).</span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.5rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## [*Wolbachia* - *Altica lythri* related publications]{.cl-sub}</span></span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Jäckel et al. <span class="co">[</span><span class="ot">Evidence for Selective Sweeps by Wolbachia Infections: Phylogeny of Altica Leaf Beetles and Their Reproductive Parasites</span><span class="co">](https://doi.org/10.1111/mec.12389)</span>, 2013.</span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rohlfing et al. <span class="co">[</span><span class="ot">When Does the Female Bias Arise? Insights from the Sex Determination Cascade of a Flea Beetle with a Strongly Skewed Sex Ratio</span><span class="co">](https://doi.org/10.1007/s10142-023-01023-1)</span>, 2023.</span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rohlfing et al. <span class="co">[</span><span class="ot">Evidence for Feminized Genetic Males in a Flea Beetle Using Newly Identified X-Linked Markers</span><span class="co">](https://doi.org/10.1002/ece3.70123)</span>, 2024.</span>
-<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify ph:film-reel &gt;}} Hobby</span></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>I take a lot of photos, simply to treasure the moments that I enjoyed and loved. I don't limit myself in certain technics or topics - I shoot both analog and digital, still and motion picture, I once tried cyanotype too, and would love to start again. I shoot wonderful nature, starlight, but also urban landscapes, people, or small things in life. </span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>I use photography as a way to express myself. People say the world is as one sees it. I haven't experienced excessive grief, but I've certainly seen enough. So when I create something back for the world, I want them to be something less hurting. New media has massively promoted the hatred-misery-pandemic, but I choose to break the cycle. </span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Here</span><span class="co">](/gallery/gallery.qmd)</span> you can see all my albums and <span class="co">[</span><span class="ot">here</span><span class="co">](/gallery/motion-pictures.qmd)</span> are some picked motion pictures. Also check <span class="co">[</span><span class="ot">here</span><span class="co">](/gallery/blue-marble/blue-marble.qmd)</span> for star / astro topics.</span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>&lt;div id="daily-photo"&gt;&lt;/div&gt;</span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify streamline:hand-held-tablet-writing &gt;}} Posts</span></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>I also use this website to share my knowledge, many of them are basically refined version of my own notes. I do this because I've been helped by posts on the internet from others multiple times, and I don't want this kindness to stop with me. I also value all kind of suggestions and comments.</span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>::: {#ls-all}</span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>::: {.name-title}</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>Zhehao Hu</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>::: {style="font-size: 1.5rem; font-weight: 350; display: flex; justify-content: center; align-items: center;"}</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mynaui:home &gt;}}</span><span class="co">](https://zzzhehao.github.io/)</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mdi:github &gt;}}</span><span class="co">](https://github.com/zzzhehao)</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mdi:linkedin &gt;}}</span><span class="co">](https://linkedin.com/in/huzhehao)</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mdi:instagram &gt;}}</span><span class="co">](https://instagram.com/zhehao.hu_)</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mage:notion &gt;}}</span><span class="co">](https://www.notion.so/marketplace/creators/zzzhehao?cr=cre%3Aall)</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify ic:outline-email &gt;}}</span><span class="co">](mailto:{{&lt; var email.work &gt;}})</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">About {{&lt; iconify cib:about-me &gt;}}</span><span class="co">]</span>{style="font-size: 2.5rem;"}</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these! </span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more, and I am trying my best to find a balance between both. </span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>I am interested in eco-evolutionary dynamics of various ecosystems and organisms. I am currently involved in two projects relating to my bachelor thesis about *Wolbachia*-infected, female-biased beetles *Altica lythri*. And my (upcoming) master thesis (still in the exploring stage).</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.5rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## [*Wolbachia* - *Altica lythri* related publications]{.cl-sub}</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Jäckel et al. <span class="co">[</span><span class="ot">Evidence for Selective Sweeps by Wolbachia Infections: Phylogeny of Altica Leaf Beetles and Their Reproductive Parasites</span><span class="co">](https://doi.org/10.1111/mec.12389)</span>, 2013.</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rohlfing et al. <span class="co">[</span><span class="ot">When Does the Female Bias Arise? Insights from the Sex Determination Cascade of a Flea Beetle with a Strongly Skewed Sex Ratio</span><span class="co">](https://doi.org/10.1007/s10142-023-01023-1)</span>, 2023.</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rohlfing et al. <span class="co">[</span><span class="ot">Evidence for Feminized Genetic Males in a Flea Beetle Using Newly Identified X-Linked Markers</span><span class="co">](https://doi.org/10.1002/ece3.70123)</span>, 2024.</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify ph:film-reel &gt;}} Hobby</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>I take a lot of photos, simply to treasure the moments that I enjoyed and loved. I don't limit myself in certain technics or topics - I shoot both analog and digital, still and motion picture, I once tried cyanotype too, and would love to start again. I shoot wonderful nature, starlight, but also urban landscapes, people, or small things in life. </span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>I use photography as a way to express myself. People say the world is as one sees it. I haven't experienced excessive grief, but I've certainly seen enough. So when I create something back for the world, I want them to be something less hurting. New media has massively promoted the hatred-misery-pandemic, but I choose to break the cycle. </span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Here</span><span class="co">](/gallery/gallery.qmd)</span> you can see all my albums and <span class="co">[</span><span class="ot">here</span><span class="co">](/gallery/motion-pictures.qmd)</span> are some picked motion pictures. Also check <span class="co">[</span><span class="ot">here</span><span class="co">](/gallery/blue-marble/blue-marble.qmd)</span> for star / astro topics.</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>&lt;div id="daily-photo"&gt;&lt;/div&gt;</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
 <span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify material-symbols:fact-check-outline-rounded &gt;}} Fun Facts</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify streamline:hand-held-tablet-writing &gt;}} Posts</span></span>
 <span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>I use R for my GIS work (I have trust issue with Q-GIS).</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>I also use this website to share my knowledge, many of them are basically refined version of my own notes. I do this because I've been helped by posts on the internet from others multiple times, and I don't want this kindness to stop with me. I also value all kind of suggestions and comments.</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>::: {#ls-all}</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify pajamas:lock-open &gt;}} Open Science</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>Science should be open to everyone, regardless of whatever people use to categorize others. I recently shared my notes on *Evolutionary Systematics* and would appreciate any contribution from fellow open-minded scientists. The goal is to compile introductions to various related topics in one place and serve as a signpost for those who wants to start in the field.</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>Note repo for open science and for everyone: <span class="co">[</span><span class="ot">zzzhehao/EvoSys</span><span class="co">](https://github.com/zzzhehao/EvoSys)</span>.</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify material-symbols:fact-check-outline-rounded &gt;}} Random Facts</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avocado in sushi is to me what pineapple on pizza is to Italians. </span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>I am hopelessly spontaneous. I once planned to go to the library but then ended up doing some gardening with professors and fellows the whole afternoon and got nothing done for my plan. (Gardening is important!)</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="al">![Someone's enjoying](/assets/images/gardening.png)</span>{width="50%"}</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>I am also hopelessly nosy, literally an intel black hole.</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>I dive. </span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
