@@ -7,11 +7,11 @@ project:
     - "*.json"
     - "shinylive-sw.js"
   render: 
-    - "*"
-    - "!comments/*"
-    - "!draft*.qmd"
-  # pre-render: 
-  #   - gallery/gallery-meta.py
+    - "*.qmd"
+    - "!comments/"
+    - "!resource/"
+    # - "!draft**.qmd"
+
   execute-dir: project
   output-dir: _site
 
@@ -45,8 +45,6 @@ website:
             href: biology-research/index.qmd
           - text: "Feed"
             href: biology-research/feeds/feed.qmd
-          # - text: "As a Biology Student"
-          #   href: biology-research/asbiologist.qmd
           - text: "CV"
             href: biology-research/CV_Zhehao_Hu.pdf
 
@@ -66,11 +64,9 @@ website:
 
 format: 
   html:
-    highlight-style: arrow-light
+    highlight-style: atom-one-dark
     theme: 
       dark: [theme/global-setting.scss, theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
       light: [theme/global-setting.scss, theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
-    css:
-      - theme/global.css
 execute: 
   freeze: true
