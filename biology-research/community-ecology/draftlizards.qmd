@@ -1,0 +1,8 @@
+---
+title: Lizards from Jornada LTER
+---
+
+# Lizard assemblage from which vegetation zone has received the biggest long-term impact (potentially climate change)?
+
+First use NMDS to visualize species composition pattern:
+

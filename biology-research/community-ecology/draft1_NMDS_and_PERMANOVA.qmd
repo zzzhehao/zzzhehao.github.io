@@ -44,7 +44,7 @@ Higher number of samples often leads to higher stress value, also a very low str
 
 ## Getting started
 
-```r
+```{r}
 #| label: setup
 #| echo: false
 #| output: false
