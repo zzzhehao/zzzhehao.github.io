@@ -17,6 +17,17 @@ execute:
 nocite: |
   @lter2020, @lter2020a, @lter2020b
 citation: true
+format:
+  html:
+    comments:
+      giscus: 
+        repo: zzzhehao/giscus
+        category: Announcements
+        mapping: url
+        reactions-enabled: true
+        theme: 
+          light: light_tritanopia
+          dark: dark_dimmed
 ---
 
 ::: {.disclaimer}

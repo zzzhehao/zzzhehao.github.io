@@ -31,10 +31,9 @@ listing:
     contents:
         - "community-ecology/*.qmd"
         - "!draft*.qmd"
-
-format: 
-    html: 
-        toc: false
+format:
+  html:
+    toc: false
 ---
 
 ### About this page

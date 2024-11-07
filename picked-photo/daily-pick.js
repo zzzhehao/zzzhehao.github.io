@@ -4,8 +4,15 @@ function initializeDailyPhoto() {
     .then(data => {
         const photos = data.photos;
         const today = new Date();
-        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-        const randomIndex = Math.floor((seed % photos.length + photos.length) % photos.length);
+        const seed = today.getFullYear() * 1000 + (today.getMonth()) * 100 + today.getDate();
+        
+        // Simple pseudo-random number generator
+        function seededRandom(seed) {
+            let x = Math.sin(seed) * 10000;
+            return x - Math.floor(x);
+        }
+
+        const randomIndex = Math.floor(seededRandom(seed) * photos.length);
         const photo = photos[randomIndex];
         
         const photoElement = document.getElementById('daily-photo');

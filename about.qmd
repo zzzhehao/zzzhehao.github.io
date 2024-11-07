@@ -223,6 +223,7 @@ Note repo for open science and for everyone: [zzzhehao/EvoSys](https://github.co
 ## {{< iconify material-symbols:fact-check-outline-rounded >}} Random Facts
 
 - Avocado in sushi is to me what pineapple on pizza is to Italians. 
+- If I have to choose between avocado sushi and working with Q-GIS, I'm gonnna choose avocado sushi ultra max. 
 - I am hopelessly spontaneous. I once planned to go to the library but then ended up doing some gardening with professors and fellows the whole afternoon and got nothing done for my plan. (Gardening is important!)
 
 ![Someone's enjoying](/assets/images/gardening.png){width="50%"}
