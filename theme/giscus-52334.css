@@ -1,0 +1,296 @@
+@font-face {
+    font-family: "Roboto Mono";
+    src: url("https://sarahmakmq.com/fonts/RobotoMono-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* NOTE: I added more font-faces here */
+
+html {
+    font-family: "Avenir Arabic",
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: "Roboto Mono", Monaco, Consolas, Liberation Mono, Courier New, monospace;
+}
+
+main {
+    --brand-color: #F2BA52; 
+    --white: #fff;
+    --gray: #767676;
+    --dark: #181818;
+
+    --gray-96: #f3f3f6;
+    --gray-92: #e8e8ed;
+    --gray-88: #dcdce5;
+
+    --brand-color-52: #f2a94f;  
+    --brand-color-64: var(--brand-color);
+  
+    --syntax-highlighting-background: var(--gray-96);
+
+    --border-color: var(--gray-88);
+
+    --color-btn-text: var(--dark);
+    --color-btn-bg: #e8e9ec;
+    --color-btn-border: #1f232826;
+    --color-btn-shadow: 0 1px 0 #1f23280a;
+    --color-btn-inset-shadow: inset 0 1px 0 #ffffff40;
+    --color-btn-hover-bg: #f3f4f6;
+    --color-btn-hover-border: #1f232826;
+    --color-btn-active-bg: #ebecf0;
+    --color-btn-active-border: #1f232826;
+    --color-btn-selected-bg: #eeeff2;
+    --color-btn-primary-text: var(--white);
+    --color-btn-primary-bg: var(--brand-color);
+    --color-btn-primary-border: #1f232826;
+    --color-btn-primary-shadow: 0 1px 0 #1f23281a;
+    --color-btn-primary-inset-shadow: inset 0 1px 0 #ffffff08;
+    --color-btn-primary-hover-bg: #f2a94f;  
+    --color-btn-primary-hover-border: #1f232826;
+    --color-btn-primary-selected-bg: #f2a94f;  
+    --color-btn-primary-selected-shadow: inset 0 1px 0 #00052d33;
+    --color-btn-primary-disabled-text: #fffc;
+    --color-btn-primary-disabled-bg: #ffa7aa;
+    --color-btn-primary-disabled-border: #1f232826;
+    --color-action-list-item-default-hover-bg: #d0d7de52;
+    --color-segmented-control-bg: #dedede;
+    --color-segmented-control-button-bg: var(--white);
+    --color-segmented-control-button-selected-border: #8c959f;
+    --color-fg-default: var(--dark);
+    --color-fg-muted: #656d76;
+    --color-fg-subtle: #6e7781;
+    --color-canvas-default: var(--white);
+    --color-canvas-overlay: var(--white);
+    --color-canvas-inset: var(--syntax-highlighting-background);
+    --color-canvas-subtle: var(--syntax-highlighting-background);
+    --color-border-default: #d6d6d6;
+    --color-border-muted: #d6d6d6;
+    --color-neutral-muted: #b4b7b933;
+    --color-accent-fg: var(--brand-color);
+    --color-accent-emphasis: var(--brand-color);
+    --color-accent-muted: #a7a7a799;
+    --color-accent-subtle: #fff3f3b5;
+    --color-success-fg: #1a7f37;
+    --color-attention-fg: #9a6700;
+    --color-attention-muted: #d4a72c66;
+    --color-attention-subtle: #fff8c5;
+    --color-danger-fg: #d1242f;
+    --color-danger-muted: #ff818266;
+    --color-danger-subtle: #ffebe9;
+    --color-primer-shadow-inset: inset 0 1px 0 #d0d7de33;
+
+    --color-scale-gray-1: #e9e7e7;
+    --color-scale-blue-1: #b6e3ff;
+
+    /*! Extensions from @primer/css/alerts/flash.scss */
+    --color-social-reaction-bg-hover: #e9e7e7;
+    /* --color-social-reaction-bg-reacted-hover: #fff5f5; */
+    --color-social-reaction-bg-reacted-hover: var(--color-danger-subtle);
+
+    --shadow-color: 0deg 0% 78%;
+    --shadow-elevation-low:
+    0px 1px 1.1px hsl(var(--shadow-color) / 0.26),
+    0px 1.6px 1.8px -1.2px hsl(var(--shadow-color) / 0.26),
+    0px 3.5px 3.9px -2.5px hsl(var(--shadow-color) / 0.26);
+}
+
+*::selection {
+    color: var(--dark);
+    background-color: var(--brand-color);
+}
+
+body * {
+    transition: all 0.1s;
+}
+
+main .pagination-loader-container {
+    background-image: url(https://github.com/images/modules/pulls/progressive-disclosure-line.svg)
+}
+
+main .gsc-loading-image {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="%23656d76" d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"><animateTransform attributeName="transform" dur="0.6s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Border of top right "Oldest/Newest" button */
+.BtnGroup-item.BtnGroup-item--selected {
+    border-color: var(--color-border-default);
+}
+
+/* Input background colour */
+.input-contrast {
+    background-color: var(--white);
+}
+
+/* Make 'Sign out' SVG and text vertically centred no matter the font */
+.link-secondary.text-sm {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Button hover animation transition */
+.gsc-social-reaction-summary-item.has-reacted,
+.gsc-direct-reaction-button {
+    transition: all 0.1s;
+}
+
+/* Shadows */
+
+/* Smiley face button for adding new type of reaction */
+.gsc-reactions-button.gsc-social-reaction-summary-item, 
+/* Button for thumbs up and other reaction buttons after one reaction */ 
+/* .gsc-social-reaction-summary-item.gsc-direct-reaction-button,  */
+/* Select reaction popup (the rectangle with the arrow) */
+/* .gsc-reactions-popover, */
+/* Whole comment box */
+div.color-bg-primary.w-full.min-w-0.rounded-md.border.color-border-primary,
+/* Sort by date */
+.gsc-right-header.BtnGroup,
+/* New comment box (though we can't really see the shadow) */
+form.gsc-comment-box {
+    box-shadow: var(--shadow-elevation-low);
+}
+
+/* Remove hover underlines for authors, dates, and links */
+.link-secondary:hover, .link-primary:hover, .gsc-comment-author-avatar:hover, a.flex.min-w-0.items-center {
+    text-decoration: none;
+}
+
+/* Link hover animation */
+p a:hover {
+    color: var(--brand-color-52);
+    text-decoration: none;
+}
+
+/* Prettylights syntax highlighting */
+/* Currently based on Catppuccin Latte (https://github.com/catppuccin/chroma/blob/main/dist/latte-chroma-style.css) */
+.pl-c /* comment */ {
+    color: #acb0be;
+  }
+  
+.pl-c1 /* constant */, 
+.pl-s .pl-v /* string variable */ {
+color: #fe640b;
+}
+
+.pl-e /* entity */,
+.pl-en /* entity.name */ {
+color: #1e66f5;
+}
+
+.pl-smi /* variable.parameter.function */, 
+.pl-s .pl-s1 /* string source */ {
+color: #4c4f69;
+}
+
+.pl-ent /* entity.name.tag */ {
+color: #8839ef;
+}
+
+.pl-k /* keyword */ {
+color: #8839ef;
+}
+
+.pl-s /* string */,
+.pl-pds /* punctuation.definition.string */,
+.pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
+.pl-sr /* string.regexp */,
+.pl-sr .pl-cce /* string.regexp constant.character.escape */,
+.pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
+.pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */ {
+color: #40a02b;
+}
+
+.pl-v /* variable */,
+.pl-smw /* sublimelinter.mark.warning */ {
+color: #8839ef;
+}
+
+.pl-bu /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error */ {
+color: #d20f39;
+}
+
+.pl-ii /* invalid.illegal */ {
+color: #eff1f5;
+background-color: #d20f39;
+}
+
+.pl-c2 /* carriage-return */ {
+color: #eff1f5;
+background-color: #d20f39;
+}
+
+.pl-sr .pl-cce /* string.regexp constant.character.escape */ {
+font-weight: bold;
+color: #40a02b;
+}
+
+.pl-ml /* markup.list */ {
+color: #df8e1d;
+}
+
+.pl-mh /* markup.heading */,
+.pl-mh .pl-en /* markup.heading entity.name */,
+.pl-ms /* meta.separator */ {
+font-weight: bold;
+color: #1e66f5;
+}
+
+.pl-mi /* markup.italic */ {
+font-style: italic;
+color: #4c4f69;
+}
+
+.pl-mb /* markup.bold */ {
+font-weight: bold;
+color: #4c4f69;
+}
+
+.pl-md /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
+color: #d20f39;
+background-color: rgba(210,15,57,.15);
+}
+
+.pl-mi1 /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
+color: #40a02b;
+background-color: rgba(64,160,43,.15);
+}
+
+.pl-mc /* markup.changed, punctuation.definition.changed */ {
+color: #df8e1d;
+background-color: #ffebda;
+}
+
+.pl-mi2 /* markup.ignored, markup.untracked */ {
+color: #eff1f5;
+background-color: #1e66f5;
+}
+
+.pl-mdr /* meta.diff.range */ {
+font-weight: bold;
+color: #8839ef;
+}
+
+.pl-ba /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
+color: #5c5f77;
+}
+
+.pl-sg /* sublimelinter.gutter-mark */ {
+color: #6c6f85;
+}
+
+.pl-corl /* constant.other.reference.link, string.other.link */ {
+text-decoration: underline;
+color: #209fb5;
+}
