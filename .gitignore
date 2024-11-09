@@ -3,6 +3,7 @@
 /_extensions/
 /.quarto/
 /_site/
+**draft**.qmd
 
 # Obsidian
 .obsidian/
