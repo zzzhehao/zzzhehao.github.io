@@ -31,6 +31,16 @@ listing:
     contents:
         - "community-ecology/*.qmd"
         - "!draft*.qmd"
+  - id: ls-dzmb
+    sort-ui: [title, date]
+    image-height: 120px
+    image-lazy-loading: true
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents:
+        - "dzmb/*.qmd"
+
 format:
   html:
     toc: false
@@ -98,6 +108,13 @@ forwardMsg("Enjoy.")
 ## Community Ecology
 
 ::: {#ls-comeco}
+:::
+
+## DZMB
+
+`DZMB` - Senckenberg am Meer, German Centre for Marine Biodiversity Research
+
+::: {#ls-dzmb}
 :::
 
 :::
