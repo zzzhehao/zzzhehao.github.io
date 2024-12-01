@@ -17,7 +17,7 @@ format:
 include-in-header: <script src="/picked-photo/daily-pick.js"></script>
   
 include-after-body: 
-    - biology-research/research-footer-2.html
+    - biology-research/research-footer.html
    
 
 filters: 
@@ -177,9 +177,13 @@ Zhehao Hu
 
 I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these! 
 
-I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more, and I am trying my best to find a balance between both. 
+I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in some biology happening out there in the wild. I am trying my best to find a balance between these. 
 
-I am interested in eco-evolutionary dynamics of various ecosystems and organisms. I am currently involved in two projects relating to my bachelor thesis about *Wolbachia*-infected, female-biased beetles *Altica lythri*. And my (upcoming) master thesis (still in the exploring stage).
+I am interested in eco-evolutionary dynamics of various ecosystems and organisms in terms of adaptation and biogeography. I am currently involved in three projects:
+
+- About *Wolbachia*-infected, female-biased beetles *Altica lythri* relating to my bachelor thesis (see my poster for DZG 2023 [here](biology-research/assets/Poster DZG ZH 2024.png))
+- An internship around the genus *Acanthocope*, a deep-sea Munnopsidae (Isopoda);
+- And my (upcoming) master thesis (still in the exploring stage).
 
 ::: {.callout-caution appearance="minimal" style="font-sze:0.5rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
 
@@ -188,6 +192,14 @@ I am interested in eco-evolutionary dynamics of various ecosystems and organisms
 - Jäckel et al. [Evidence for Selective Sweeps by Wolbachia Infections: Phylogeny of Altica Leaf Beetles and Their Reproductive Parasites](https://doi.org/10.1111/mec.12389), 2013.
 - Rohlfing et al. [When Does the Female Bias Arise? Insights from the Sex Determination Cascade of a Flea Beetle with a Strongly Skewed Sex Ratio](https://doi.org/10.1007/s10142-023-01023-1), 2023.
 - Rohlfing et al. [Evidence for Feminized Genetic Males in a Flea Beetle Using Newly Identified X-Linked Markers](https://doi.org/10.1002/ece3.70123), 2024.
+
+:::
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.5rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## A CLSM scanning 
+
+<!-- ![*Acanthocope sp.* by Kelly Merrin - [WoRMS](https://www.marinespecies.org/photogallery.php?album=720&pic=103014)](https://images.marinespecies.org/thumbs/103014_acanthocope-sp.jpg?w=700) -->
 
 :::
 
@@ -218,7 +230,7 @@ I also use this website to share my knowledge, many of them are basically refine
 
 Science should be open to everyone, regardless of whatever people use to categorize others. I recently shared my notes on *Evolutionary Systematics* and would appreciate any contribution from fellow open-minded scientists. The goal is to compile introductions to various related topics in one place and serve as a signpost for those who wants to start in the field.
 
-Note repo for open science and for everyone: [zzzhehao/EvoSys](https://github.com/zzzhehao/EvoSys).
+Evolutionary Systematics: A note repo for open science and for everyone: [zzzhehao/EvoSys](https://github.com/zzzhehao/EvoSys).
 
 ## {{< iconify material-symbols:fact-check-outline-rounded >}} Random Facts
 
@@ -230,3 +242,4 @@ Note repo for open science and for everyone: [zzzhehao/EvoSys](https://github.co
 
 - I am also hopelessly nosy, literally an intel black hole.
 - I dive. 
+- When I'm upset I listen to my [childhood bgm](https://youtu.be/F8LNaPz6iIM?si=31EmGv8OagFh9m5g&t=2723).

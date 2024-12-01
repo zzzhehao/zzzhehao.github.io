@@ -46,12 +46,12 @@ website:
           - text: "Feed"
             href: biology-research/feeds/feed.qmd
           - text: "CV"
-            href: biology-research/CV_Zhehao_Hu.pdf
+            href: biology-research/assets/CV_Zhehao_Hu.pdf
 
       - text: "About me"
         href: about.qmd
-      - text: "What's new"
-        href: news.qmd
+      # - text: "What's new"
+      #   href: news.qmd
 
     tools: 
       - icon: github
