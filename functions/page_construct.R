@@ -82,6 +82,14 @@ r_pkg_info <- function(pkgs) {
 #' @param collapse Default to TRUE.
 #' @param colorstyle API to override font/border and background color, input should be string, which will pass to Quarto fence container. Use `var(--clcolor)` for font/border color and `var(--clgb)` for background color.
 #' @param style Additional css styling, will be pass to `style=""`.
+#' @example 
+# ```{r}
+# #| output: asis
+# #| echo: false
+# source("functions/custom-callout.R")
+# content <- ""
+# custom_callout("New Disclaimer", content, collapse = FALSE)
+# ```
 
 custom_callout <- function(title, content, iconify, collapse = TRUE, colorstyle = NULL, style = NULL, titleStyle) {
   if (missing(titleStyle)) {
@@ -127,10 +135,52 @@ custom_callout <- function(title, content, iconify, collapse = TRUE, colorstyle 
   )
 }
 
-# ```{r}
-# #| output: asis
-# #| echo: false
-# source("functions/custom-callout.R")
-# content <- ""
-# custom_callout("New Disclaimer", content, collapse = FALSE)
-# ```
+#' If header image is enable, the style has to be fixed.
+#' 
+#' @description
+#' Use `header_image_yaml()` to get the component for yaml header.
+#' 
+
+header_image <- function(height, y_transform){
+    if (missing(height)) {height <- 400}
+    if (missing(y_transform)) {y_transform <- 0}
+    cat('
+```{=html}
+<style>
+    #header-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: ', height, 'px;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    #header-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(', y_transform, '%);
+    }
+
+    #quarto-content {
+        margin-top: ', height, 'px; 
+    }
+</style>
+```    
+', sep = '')
+}
+    
+header_image_yaml <- function(){
+    cat('format:
+  html:
+    include-before-body: 
+        - text: |
+            <div id="header-image">
+                <img src="PATH_TO_YOUR_IMAGE" alt="Header Image">
+            </div>')
+}
