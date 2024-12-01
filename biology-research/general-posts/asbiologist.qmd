@@ -3,7 +3,7 @@ title: "As a Biology Student"
 date: "2024-07-27"
 format:
     html:
-        include-in-header: bg-research.html
+        include-in-header: ../assets/bg-research.html
 description: |
     "I don’t know why I came. I just ended up here. And I am happy with it."
 ---

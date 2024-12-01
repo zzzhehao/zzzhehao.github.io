@@ -3,3 +3,93 @@
 /*-- scss:defaults --*/
 
 $font-size-root: 100%;
+
+.figure {
+    padding-top: 1.6em;
+    padding-bottom: 1.5em;
+    margin: auto;
+    text-align: center;
+}
+
+.figcaption {
+    margin-top: 2em;
+}
+
+.forward {
+    font-size: 1.8em;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--normal-text-color);
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    align-items: center;
+}
+
+.description {
+    display: none;
+}
+
+#quarto-margin-sidebar .nav-link {
+    font-weight: 300;
+}
+
+
+body {
+    padding-bottom: 1.1em;
+    font-weight: 320;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding-top: 1.5em;
+    margin-bottom: 1.4em;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-top: 1.4em;
+    margin-bottom: 1.3em;
+}
+
+h4 {
+    font-size: 1.1rem;
+    margin-top: 1.3em;
+    margin-bottom: 1.2em;
+}
+
+div.tippy-box {
+    border-color: var(--normal-text-color) !important;
+    background-color: var(--background-color);
+}
+
+.category.active{
+    color: #f2a94f; 
+}
+
+.cl-title {
+    font-size: 1rem;
+}
+
+.cl-sub {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.quarto-title-meta-author {
+    display: grid !important;
+    grid-template-columns: 35% 65% !important;
+}
+
+p {
+    text-align: justify;
+    margin-top: 1em;
+    // margin-bottom: 1.7em;
+    line-height: 1.6;
+    font-size: 1.05em;
+    font-weight: 320;
+}
+
+// img {
+//     margin-top: 1.5em;
+// }

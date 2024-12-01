@@ -1,0 +1,26 @@
+---
+title: Feed
+abstract: "Random thoughts {{< iconify noto:thought-balloon >}} about biology"
+date: last-modified
+---
+
+```{=html}
+<style>
+    .feed {
+        border: 2px solid #0000;
+    }
+</style>
+```
+::: {.feed}
+
+## 2024-10-23
+
+Doing a practical course these days. We had a paper club about some recent immunological researches and I started to notice a pattern - at least among the papers we discussed - that type of the research related to clinical / lab trial tends to use advanced experimental design, such as developing certain KO mouse line, using certain inhibitor to study a particular factor. I perceive this as a method of reducing factors in experiments - people control all other factors as constant and compare those of interest to come to a conclusion. Therefore the statistical analysis of most studies are simple and straightforward, because the experiment has been designed to deliver a clean data that does not require much manipulaiton. 
+
+On the other hand, conventional ecological observation studies couldn't really do that. It certainly also depends a lot on the subject of study, but the cost of applying an highly designed expetiment on a fully functional ecosystem would be predictably much higher. This is also applicable for the case which utilizes still expensive omics-methods. People then tend to use statstical appraoch to avoid high cost and try to unravel as much useful information as possible from a relatively poor-quality "data clump". 
+
+But both approaches share the same goal, which is to reduce the multidimensional reality into lower dimensions to produce a clear and convincible scientific evidence. 
+
+Broadly speaking. Just a bus-waiting thought. 
+
+:::

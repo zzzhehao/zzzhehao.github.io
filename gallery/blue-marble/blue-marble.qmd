@@ -1,25 +1,32 @@
 ---
-title: "Albums"
+title: "Blue Marble"
 format: 
   html:
-    css: gallery.css
+    css: blue-marble-gallery.css
     toc: false
 website:
   navbar:
     background: transparent
 # Gallery config
-include-in-header:
-    - text: |
-          <style>
-            body {
-                color: #333
-            }
-          </style>
-          <meta name="description" content="Photo albums gallery">
-          <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 include-after-body: 
   - text: |
-      <script src="gallery.js"></script>
+      <script src="blue-marble-gallery.js"></script>
+      <style>
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/assets/images/aurora-alster.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+      </style>
+      <div class="background-container"></div>
 ---
 
 <!-- Album configuration in yaml header
@@ -27,23 +34,18 @@ include-after-body:
 `prefix` and `cout` as well. -->
 
 ```{=html}
-<style>
-  body {
-    color: #333
-  }
-</style>
 <div class="gallery-grid">
 ```
 
 ```{r, echo=FALSE, results='asis'}
 library(yaml)
 # Access the album configurations from the YAML front matter
-albums <- yaml.load_file("gallery/albums.yml")
+albums <- yaml.load_file("gallery/blue-marble/blue-marble-albums.yml")
 
 # Generate the HTML for each album
 for (album in albums) {
 if (album$year == 0) {album$year <- ''}
-album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
+album$thumbnail <- paste0('/assets/gallery/thumbnails/', album$name, '.jpg')
     cat(sprintf('
 <div class="album-thumbnail" data-album="%s">
 <a href="#%s">
@@ -91,5 +93,8 @@ album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
 </div>
 ```
 
-<!-- Footer -->
- 
+```{=html}
+<div class="iframe-container">
+  <iframe width="300" height="300" src="https://www.youtube.com/embed/SCf4xpP5ad4?si=UimbqDkE27E38mT0&amp;start=757&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+```

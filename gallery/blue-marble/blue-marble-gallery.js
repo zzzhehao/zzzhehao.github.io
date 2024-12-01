@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function fetchAlbumConfig() {
     try {
       console.log('Attempting to fetch gallery_metadata.json');
-      const response = await fetch('/gallery/gallery_metadata.json');
+      const response = await fetch('/gallery/blue-marble/blue-marble-gallery_metadata.json');
       console.log('Fetch response:', response);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const folderName = prefix.toLowerCase().replace(/\s+/g, '-');
     
     const images = Array.from({ length: count }, (_, i) => 
-        `../assets/gallery/album/${folderName}/${prefix.toLowerCase()}-${i + 1}.jpg`
+        `/assets/gallery/album/blue-marble/${folderName}/${prefix.toLowerCase()}-${i + 1}.jpg`
     );
     console.log(`Generated image paths for ${albumName}:`, images);
     return images;

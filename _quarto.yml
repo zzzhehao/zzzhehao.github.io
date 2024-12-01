@@ -5,17 +5,18 @@ project:
     - "*.png"
     - "*.pdf"
     - "*.json"
+    - "shinylive-sw.js"
   render: 
-    - "*"
-    - "!comments/*"
-    - "!draft*.qmd"
-  # pre-render: 
-  #   - gallery/gallery-meta.py
+    - "*.qmd"
+    - "!comments/"
+    - "!resource/"
+    # - "!draft**.qmd"
+
   execute-dir: project
   output-dir: _site
 
 bibliography:
-  - ../../Obsidian/Cafe AgX HQ 2.0/003 Management/Research & Career/research-writing/bib/biology-research.bib
+  - ../../zzzhehao/80-89 Resources/80 References/80.01 BibTex Bibliography/biology-research.bib
 
 website:
   title: "Zhehao Hu"
@@ -31,6 +32,8 @@ website:
         menu: 
           - text: "Albums"
             href: gallery/gallery.qmd
+          - text: "Blue Marbles"
+            href: gallery/blue-marble/blue-marble.qmd
           - text: "Motion Picture"
             href: gallery/motion-pictures.qmd
           - text: "Color palette"
@@ -40,16 +43,15 @@ website:
         menu:
           - text: "Posts"
             href: biology-research/index.qmd
-          - text: "As a Biology Student"
-            href: biology-research/asbiologist.qmd
+          - text: "Feed"
+            href: biology-research/feeds/feed.qmd
           - text: "CV"
-            href: biology-research/CV_Zhehao_Hu.pdf
-      - text: "Personal"
-        menu:
-          - text: "About Me"
-            href: personal/aboutme.qmd
-      - text: "What's new"
-        href: news.qmd
+            href: biology-research/assets/CV_Zhehao_Hu.pdf
+
+      - text: "About me"
+        href: about.qmd
+      # - text: "What's new"
+      #   href: news.qmd
 
     tools: 
       - icon: github
@@ -60,18 +62,11 @@ website:
     search: true
     background: transparent
 
-<<<<<<< HEAD
-=======
-  # body-footer: |
-  #   © 2024 Zhehao Hu. Source code available at [github.com](https://github.com/zzzhehao).
->>>>>>> 91ce066 (add footer)
 format: 
   html:
-    highlight-style: arrow-light
+    highlight-style: atom-one-dark
     theme: 
-      light: [theme/global-setting.scss, theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
       dark: [theme/global-setting.scss, theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
-    css:
-      - theme/global.css
+      light: [theme/global-setting.scss, theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
 execute: 
   freeze: true

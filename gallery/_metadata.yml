@@ -3,11 +3,3 @@ format:
     page-layout: full
     toc: true
     toc-depth: 4
-    include-in-header: 
-      - text: |
-          <style>
-          body {
-            background-color: #F2F2F2;
-            color: #333
-          }
-          </style>

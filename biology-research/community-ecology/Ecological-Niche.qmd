@@ -1,12 +1,22 @@
 ---
 title: "Ecological Niche"
 date: 2024-08-27
-format: html
 categories:
     - "Ecology"
 description: "The total of the adaptations of an organismic unit."
 filters: 
   - openlinksinnewpage
+format:
+  html:
+    comments:
+      giscus: 
+        repo: zzzhehao/giscus
+        category: Announcements
+        mapping: url
+        reactions-enabled: true
+        theme: 
+          light: light_tritanopia
+          dark: dark_dimmed
 ---
 
 ```{r}
@@ -35,7 +45,7 @@ Data on niches can be used to:
 - Examine shifts in the behavior or ecology of one species in response to another species. 
 	- Niche shifts are commonly used to study interspecific competition (see Gause's Principle of Competitive Exclusion)
 
-### 2.1 Hutchingson's model of niche as a "_hypervolume_"
+### Hutchingson's model of niche as a "_hypervolume_"
 
 Niches can be described or defined by relating **fitness** or **utilization** to environmental variable (abiotic and biotic).
 
@@ -47,42 +57,42 @@ Niches can be described or defined by relating **fitness** or **utilization** to
 - not all niche axes are environmental - some niche axes are behaviroal (e.g. noctural vs. diurnal)
 - not all axes can be ordered linearly (e.g. types of antipredator behavior)
 
-### 2.2 Fundamental niche _vs_ Realized niche
+### Fundamental niche _vs_ Realized niche
 
 - **Fundamental niche** (FN) is the entire set of conditions under which an animal (a population, a species) can survive and reproduce.
 - **Realized niche** (RN) is the set of condition _actually_ used by given animal (a population, a species) after interactions with other species have been taken into account.
 - FN ≥ RN
 - RN may differ in populations, because of differences in competitors and predators.
 
-### 2.3 Niche breadth
+### Niche breadth
 
 - **Specialists** have narrow niches, **generalists** have broad niches. These are however relative terms. 
 - Describes the endpoints of continuous variation in the degree of specialization in resource use, behavior, and physiology.
 
-#### 2.3.1 @levins1966 - Niche breadth quantification
+#### @levins1966 - Niche breadth quantification
  
 $$B = \frac{1}{\sum{p_i^2}}$$
 
 - $p_i$ = proportion of individuals that use resource $i$
 - Species that use many resources will have large value of $B$, reflecting a generalist pattern of resource use.
 
-#### 2.3.2 Between or within phenotypes
+#### Between or within phenotypes
 
 - Given known niche breadth of a population, it is however not necessarily clear how individuals within population use resources. There are possibly two patterns:
 	- All individuals use entire niche of population, within-phenotype component of niche breadth is large
 	- Each individuals uses a narrow part of population's niche, between-phenotype component of niche breadth is large.
 - Individual's niches may change dramatically during lifetime (e.g. metamorphosis, tadpoles are herbivores, frogs are carnivores)
 
-### 2.4 Niche overlap
+### Niche overlap
 
-#### 2.4.1 Types of overlap
+#### Types of overlap
 
 - Coextensive, included, reciprocal overlap, asymmetric overlap
 - Non-overlapping: abutting, disjunct
 
 ![_[@creel2021]_](assets/type-of-niche-overlap.png){width=75%}
 
-#### 2.4.2 @jacobs1974 - Electivity index
+#### @jacobs1974 - Electivity index
 
 Electivity indices measure the utilization of food types in relation to their abundance or availability in the environment [@lechowicz1982].
 
@@ -95,7 +105,7 @@ $$
 - Also purposing $log Q$ index, both should be tested when **a relation is studied between food selection and variables such as the relative abundance of food, light conditions, etc**.
 - Ranges from -1 to 1, where 0 as separator of positive or negative selection.
 
-#### 2.4.3 @pianka1973 - Pianka's niche overlap index
+#### @pianka1973 - Pianka's niche overlap index
 
 Modification of one presented in MacArthur & Levins (1967).
 
@@ -105,7 +115,7 @@ $$
 This formula is symmetric, i.e. $O_{jk} = O_{kj}$
 - $P$: proportion of item $i$ used in relation to the total of items used by species $j/k$.
 
-#### 2.4.4 @winemiller1990 - Randomization algorithm
+#### @winemiller1990 - Randomization algorithm
 
 While testing for the statistical significance related to niche overlap, the major challenge is that the null model is unknown, the niche overlaps are dependent on each party of the interactions. Thus as @winemiller1990 explained, the standard statistical tests cannot be applied to comparisons involving three or more species. To bypass this, an idea is to generate the null model from the limited data we can collect:
 
@@ -129,7 +139,7 @@ Such significance indicates that:
 | **Zeros eliminated**<br>(categories with 0 are also reassigned with value) | RA1                                                       | RA3                                                                        |
 | **Zeros retained**<br>(categories with 0 are reassigned)                   | RA2                                                       | RA4                                                                        |
 
-### 2.5 Use of niches to examine distribution and abundance of species
+### Use of niches to examine distribution and abundance of species
 
 See @creel2021 for examples.
 

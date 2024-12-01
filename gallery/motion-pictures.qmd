@@ -3,10 +3,9 @@ title: "Motion Picture"
 format: 
   html:
     page-layout: article
-    theme: ../theme/style.scss
     toc: false
-    include-after-body: 
-      - photography-footer.html
+include-after-body: 
+    - photography-footer.html
 ---
 
 ## Hamburg | A Motion Picture

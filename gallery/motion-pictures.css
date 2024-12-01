@@ -22,7 +22,7 @@ body {
 }
 
 .quarto-title {
-  margin-left: 10;
+  margin-left: 0;
   margin-right: 0;
 }
 
@@ -369,119 +369,4 @@ body.gallery-open .navbar {
   
   .modal.show .modal-content {
     opacity: 1;
-  }
-
-  /* .copy-url-button {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 16px;
-    border: 1px solid currentColor;
-    border-radius: 5px;
-    background: transparent;
-    color: inherit;
-    font-weight: bold;
-    font-size: 1rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .copy-url-button {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 16px;
-    border: 1px solid currentColor;
-    border-radius: 5px;
-    background: transparent;
-    color: inherit;
-    font-weight: 450;
-    font-size: 0.8rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .copy-url-button::after {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 1px;
-    bottom: 5px;
-    left: 10%;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-  }
-  
-  .copy-url-button:hover::after {
-    transform: scaleX(1);
-  }
-  
-  /* New class for clicked state
-  .copy-url-button.clicked {
-    color: #f2a94f;
-  } */
-
-  .copy-button {
-    position: fixed;
-    bottom: 20px;
-    padding: 8px 16px;
-    border: 1px solid currentColor;
-    border-radius: 5px;
-    background: transparent;
-    color: inherit;
-    font-weight: 450;
-    font-size: 0.8rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-decoration: none;
-  }
-  
-  #copy-url-button {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  #copy-image-url-button {
-    left: calc(50% - 120px);
-    transform: translateX(-100%);
-  }
-  
-  #copy-attribution-button {
-    left: calc(50% + 120px);
-    transform: translateX(0%);
-  }
-  
-  .copy-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .copy-button.clicked {
-    color: #f2a94f;
-  }
-  
-  .copy-button::after {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 1px;
-    bottom: 5px;
-    left: 10%;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-  }
-  
-  .copy-button:hover::after {
-    transform: scaleX(1);
   }

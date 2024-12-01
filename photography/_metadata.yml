@@ -10,4 +10,4 @@ format:
     toc-depth: 4
     code-copy: true
     code-overflow: wrap
-    include-after-body: ../personal/personal-footer.html
+    include-after-body: ../gallery/photography-footer.html
