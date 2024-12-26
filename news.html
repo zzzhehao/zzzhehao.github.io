@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.52">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,12 +36,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-71c72119841fc9494d43a90b1f568a38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b9cc3ec05216833dd56de8d5f2418553.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -132,11 +132,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
  <span class="dropdown-text">Posts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./biology-research/feeds/feed.qmd">
- <span class="dropdown-text">Feed</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./biology-research/CV_Zhehao_Hu.pdf">
+    <a class="dropdown-item" href="./biology-research/assets/CV_Zhehao_Hu.pdf">
  <span class="dropdown-text">CV</span></a>
   </li>  
     </ul>
@@ -196,7 +192,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <p>[2024-08-19] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New album: <a href="./gallery/gallery.html">Life, 2024</a></p>
 <p>[2024-08-13] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./gallery/motion-pictures.html">Motion Pictures</a></p>
 <p>[2024-08-12] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> Update: <a href="./biology-research/CV_Zhehao_Hu.pdf">CV</a></p>
-<p>[2024-07-27] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./biology-research/asbiologist.html">Me as a biology student</a></p>
+<p>[2024-07-27] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./biology-research/asbiologist.qmd">Me as a biology student</a></p>
 <p>[2024-07-22] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./gallery/gallery.html">Gallery</a></p>
 <p>[2024-06-28] Initialize the website.</p>
 
@@ -429,8 +425,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -541,7 +535,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
