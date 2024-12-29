@@ -95,8 +95,8 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6e390b3f173940ca63c45323a83315c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7548971fb6baef4a1c1c9e61d5392460.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bfd576ed9ac370a74ad15ea0153b8338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-0a508a8a1c81a26abfe851fc5a6fbc11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell.js"></script>
 <script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell_options.js"></script>
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
@@ -232,6 +232,13 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About me</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../biology-research/index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -1906,466 +1913,469 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="co">        theme: </span></span>
 <span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co">          light: light_tritanopia</span></span>
 <span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="co">          dark: dark_dimmed</span></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>::: {.disclaimer}</span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>Part of this note is taken from the course *Community Ecology* offered by <span class="co">[</span><span class="ot">University of Hamburg</span><span class="co">](https://www.biologie.uni-hamburg.de/en.html)</span> for M.Sc. Biology program and led by <span class="co">[</span><span class="ot">Dr. Paula Cabral Eterovick</span><span class="co">](https://www.researchgate.net/profile/Paula-Eterovick-2)</span>. </span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="an">feed:</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="co">  categories:</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="co">    - Ecology-case</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>The cover image is credited to <span class="co">[</span><span class="ot">Museums Victoria on Unsplash</span><span class="co">](https://unsplash.com/photos/sepia-photography-of-man-feeding-a-penguin-aMqha4ZXExU)</span>.</span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>::: {.disclaimer}</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>Part of this note is taken from the course *Community Ecology* offered by <span class="co">[</span><span class="ot">University of Hamburg</span><span class="co">](https://www.biologie.uni-hamburg.de/en.html)</span> for M.Sc. Biology program and led by <span class="co">[</span><span class="ot">Dr. Paula Cabral Eterovick</span><span class="co">](https://www.researchgate.net/profile/Paula-Eterovick-2)</span>. </span>
 <span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## [R Setup]{.cl-sub}</span></span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="co"># setup</span></span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nicheROVER)</span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Niche Overlap</span></span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>In <span class="co">[</span><span class="ot">Ecological Niche</span><span class="co">](/biology-research/community-ecology/Ecological-Niche.qmd)</span>, we talked about the basic ideas of ecological niches and niche overlap. Understanding the niche overlap patterns, both intraspecific and interspecific, can help us better understand many topics, such as:</span>
-<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a>Evolutionary:</span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Sexual Dimorphism** by studying differences in resource utilization between males and females of the same species.</span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speciation Process** by studying niche partitioning between sister taxa or subspecies.</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>The cover image is credited to <span class="co">[</span><span class="ot">Museums Victoria on Unsplash</span><span class="co">](https://unsplash.com/photos/sepia-photography-of-man-feeding-a-penguin-aMqha4ZXExU)</span>.</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## [R Setup]{.cl-sub}</span></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="co"># setup</span></span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nicheROVER)</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Niche Overlap</span></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a>In <span class="co">[</span><span class="ot">Ecological Niche</span><span class="co">](/biology-research/community-ecology/Ecological-Niche.qmd)</span>, we talked about the basic ideas of ecological niches and niche overlap. Understanding the niche overlap patterns, both intraspecific and interspecific, can help us better understand many topics, such as:</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a>Evolutionary:</span>
 <span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>Conservation:</span>
-<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Impact of Invasive Species** by examining niche overlap between native and invasive species.</span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ecological Guild** by understanding niche overlap within a group sharing the same or similar functional traits (e.g. pollinator communities).</span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Sexual Dimorphism** by studying differences in resource utilization between males and females of the same species.</span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speciation Process** by studying niche partitioning between sister taxa or subspecies.</span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>Conservation:</span>
 <span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a>However, comparing niches among multiple species is challenging, as I mentioned earlier, since ecological data are almost always multidimensional.</span>
-<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## `nicheROVER`</span></span>
-<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>The package <span class="in">`nicheROVER`</span> provides a new probabilistic method for quantifying n-dimensional ecological niche and niche overlap <span class="co">[</span><span class="ot">@swanson2015</span><span class="co">]</span>. The script demonstrated here is written by Martin Lysy, Heidi Swanson (see <span class="co">[</span><span class="ot">here</span><span class="co">](https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html)</span>), and is also used in their publication.  </span>
-<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="in">`fish`</span> is a **fish stable isotope dataset** included in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four Arctic fish species (ARCS, BDWF, LKWF, LSCS). More details can be found from the documentation (<span class="in">`?fish`</span>) or in the publication.</span>
-<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
-<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"functions/page_construct.R"</span>)</span>
-<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pacman"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"knitr"</span>, <span class="st">"tidyverse"</span>, <span class="st">"nicheROVER"</span>, <span class="st">"palmerpenguins"</span>)</span>
-<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(pkgs, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nicheROVER)</span>
-<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(fish)</span>
-<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-fish</span></span>
-<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: \`fish\` dataset</span></span>
-<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(fish)</span>
-<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Impact of Invasive Species** by examining niche overlap between native and invasive species.</span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ecological Guild** by understanding niche overlap within a group sharing the same or similar functional traits (e.g. pollinator communities).</span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>However, comparing niches among multiple species is challenging, as I mentioned earlier, since ecological data are almost always multidimensional.</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## `nicheROVER`</span></span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a>The package <span class="in">`nicheROVER`</span> provides a new probabilistic method for quantifying n-dimensional ecological niche and niche overlap <span class="co">[</span><span class="ot">@swanson2015</span><span class="co">]</span>. The script demonstrated here is written by Martin Lysy, Heidi Swanson (see <span class="co">[</span><span class="ot">here</span><span class="co">](https://cran.r-project.org/web/packages/nicheROVER/vignettes/ecol-vignette.html)</span>), and is also used in their publication.  </span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a><span class="in">`fish`</span> is a **fish stable isotope dataset** included in the package, containing values for three stable isotopes (N-15, C-13, S-34) measured in the muscle tissue of four Arctic fish species (ARCS, BDWF, LKWF, LSCS). More details can be found from the documentation (<span class="in">`?fish`</span>) or in the publication.</span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"functions/page_construct.R"</span>)</span>
+<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pacman"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"knitr"</span>, <span class="st">"tidyverse"</span>, <span class="st">"nicheROVER"</span>, <span class="st">"palmerpenguins"</span>)</span>
+<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(pkgs, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nicheROVER)</span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(fish)</span>
+<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-fish</span></span>
+<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: \`fish\` dataset</span></span>
 <span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is SIA?</span></span>
-<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a>**Stable isotope analysis (SIA)** is a powerful tool in ecological niche analysis. Many physicochemical and biochemical processes are sensitive to differences in the dissociation energies of molecules, which often depend on the mass of the elements from which these molecules are made. Thus, the isotopic composition of many materials (expressed as $\delta$-values, indicating the amount ratio of certain isotope to a standard value), including the tissues of organisms, often contains a label of the process that created it <span class="co">[</span><span class="ot">@newsome2007</span><span class="co">]</span>. These "signatures" could provide information about their ecological roles and interactions.</span>
-<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a>| Gradient                               | Isotope system                                     | High $\delta$-values | Low $\delta$-values  |</span>
-<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a>| -------------------------------------- | -------------------------------------------------- | -------------------- | -------------------- |</span>
-<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a>| Trophic level                          | $\delta ^{13} C$/$\delta ^{15} N$                  | High levels          | Low levels           |</span>
-<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a>| C&lt;sub&gt;3&lt;/sub&gt;-C&lt;sub&gt;4&lt;/sub&gt; Vegetation | $\delta ^{13} C$                                   | C&lt;sub&gt;4&lt;/sub&gt; plants | C&lt;sub&gt;3&lt;/sub&gt; plants |</span>
-<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a>| Marine-terrestrial                     | $\delta ^{15} N$/$\delta ^{13} C$/$\delta ^{34} S$ | High levels          | Low levels           |</span>
-<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a>: Common isotope systems and expected patterns in $\delta$-values, subsetted from <span class="co">[</span><span class="ot">@newsome2007</span><span class="co">]</span> {#tbl-SIAs}</span>
-<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a>content <span class="ot">&lt;-</span> <span class="st">"- @newsome2007</span></span>
-<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a><span class="st">- @michel2021</span></span>
-<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a><span class="st">- @moyo2021</span></span>
-<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="fu">custom_callout</span>(<span class="st">"For more information about isotopic and atomic ecology"</span>, content, <span class="at">collapse =</span> <span class="cn">TRUE</span>, <span class="at">titleStyle =</span> <span class="st">"sub"</span>)</span>
-<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(fish)</span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is SIA?</span></span>
+<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a>**Stable isotope analysis (SIA)** is a powerful tool in ecological niche analysis. Many physicochemical and biochemical processes are sensitive to differences in the dissociation energies of molecules, which often depend on the mass of the elements from which these molecules are made. Thus, the isotopic composition of many materials (expressed as $\delta$-values, indicating the amount ratio of certain isotope to a standard value), including the tissues of organisms, often contains a label of the process that created it <span class="co">[</span><span class="ot">@newsome2007</span><span class="co">]</span>. These "signatures" could provide information about their ecological roles and interactions.</span>
+<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a>| Gradient                               | Isotope system                                     | High $\delta$-values | Low $\delta$-values  |</span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a>| -------------------------------------- | -------------------------------------------------- | -------------------- | -------------------- |</span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a>| Trophic level                          | $\delta ^{13} C$/$\delta ^{15} N$                  | High levels          | Low levels           |</span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a>| C&lt;sub&gt;3&lt;/sub&gt;-C&lt;sub&gt;4&lt;/sub&gt; Vegetation | $\delta ^{13} C$                                   | C&lt;sub&gt;4&lt;/sub&gt; plants | C&lt;sub&gt;3&lt;/sub&gt; plants |</span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a>| Marine-terrestrial                     | $\delta ^{15} N$/$\delta ^{13} C$/$\delta ^{34} S$ | High levels          | Low levels           |</span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a>: Common isotope systems and expected patterns in $\delta$-values, subsetted from <span class="co">[</span><span class="ot">@newsome2007</span><span class="co">]</span> {#tbl-SIAs}</span>
+<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a>content <span class="ot">&lt;-</span> <span class="st">"- @newsome2007</span></span>
+<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a><span class="st">- @michel2021</span></span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="st">- @moyo2021</span></span>
+<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
 <span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayesian Workflow</span></span>
-<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bayesian theorem</span></span>
-<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a>@vandeschoot2021 described the foundational idea of the Bayesian statistics as follows:</span>
-<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a>Bayesian statistics is an approach to data analysis based on Bayes' theorem, where available knowledge about parameters in a statistical model is updated with the information in observed data. The background knowledge is expressed as a **prior** distribution and combined with observational data in the form of a likelihood function to determine the **posterior distribution**.</span>
-<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a>This means we make an initial estimation of our parameters (prior distribution), then observe data and update the model (posterior distribution). **Bayes' theorem**, which this approach is based on, is mathematically stated as following:</span>
-<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a>P(A|B)=\frac{P(B|A)P(A)}{P(B)}</span>
-<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a>where,</span>
-<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$A$ and $B$ are events and $P(B)\neq 0$,</span>
-<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P(A|B)$: the probability of event $A$ occurring given that $B$ is true. It is also called the **posterior probability** (briefly *posterior*) of $A$ given $B$.</span>
-<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P(B|A)$ is also a conditional probability: the probability of event&nbsp;$B$ occurring given that&nbsp;$A$ is true. It can also be interpreted as the likelihood of $A$ given a fixed $B$ because $P(B|A)=L(A|B)$. ($L$: likelihood function)</span>
-<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P(A)$ and $P(B)$ are the probabilities of observing $A$ and $B$ respectively without any given conditions; they are known as the **prior probability** and marginal probability.</span>
-<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why Bayesian Statistics?</span></span>
-<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a>Bayesian statistics is a different framework and approach on statistical analysis. Both classical and Bayesian inference, while trying to model data, have own advantages and disadvantages. Bayesian inference is generally employed whenever uncertainty comes into play:</span>
-<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a>::: {.mini}</span>
-<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a>There is also a practical advantage of the Bayesian approach, which is that all its inferences are probabilistic and thus can be represented by random simulations. For this reason, whenever we want to summarize uncertainty in estimation beyond simple confidence intervals, and whenever we want to use regression models for predictions, we go Bayesian.</span>
-<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a>― @gelman2024, P. 16</span>
-<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a>@swanson2015 pointed out a viewpoint from the traditional niche overlap analysis that might introduce problems: the geometric approach doesn't account for uncertainty and also lacks direction. This is well illustrated by Fig. 1 in the publication:</span>
-<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Comparison between geometric and probabilistic isotope overlap metrics. Isotope x is distributed in species A and B (x-axis); dashed lines show means. The 95% niche region (solid lines) of B is completely contained within that of A, such that the geometric overlap of B onto A is 100%. However, the probability that a randomly chosen member from A falls into the isotopic niche of B is only 35%. [@swanson2015]</span><span class="co">](https://esajournals.onlinelibrary.wiley.com/cms/asset/d9181a57-fa40-4f4a-9197-460929dad9f8/ecy2015962318-fig-0001-m.jpg)</span>{#fig-nicheoverlap-comparison}</span>
-<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a>By inviting the variance of the niche probability distribution, it now also differentiates the overlap in directions, which means the probability of a species A falling into species B's niche is not equal to that of species B falling into species A's niche. Since this perspective starts to consider probability in the models, a Bayesian workflow will provide more reliable and robust analysis. </span>
-<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Vector and Multivariate Normal Distribution</span></span>
-<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a>Given an individual statistical unit, in our case, the niche described by three isotope ratios, a random vector is a group of variables that describes this mathematical system. Which is again, in our case, the three values of the isotope ratio. The distribution of each component of the random vector together forms a **multivariate distribution**. </span>
-<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a>When dealing with univariate (one-dimensional) analysis, we often assume that the variable is normally distributed. We do likewise even with multivariate analysis. The **multivariate normal distribution** is a generalization of the univariate normal distribution into higher dimensions, but it's not as simple as all components of the random vector being normal. It also requires every linear combination of arbitrary two components in the system to be normally distributed (bivariate normal distribution), which is not always true even if every single variable is normal on its own. This is where the covariance matrix comes into play. Normal distribution is described by two variables: mean and standard deviation (sd), with the latter being simply the square root of the variance.</span>
-<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Covariance and covariance matrix</span></span>
-<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a>**Covariance** is a measure of the joint variability of two variables. The sign of the covariance shows the tendency, i.e. one of the three possible linear relationships between two variables, which are:</span>
-<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>negative linear relationship, covariance is <span class="sc">\&lt;</span> 0</span>
-<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>no linear relationship, covariance is around 0</span>
-<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>positive linear relationship, covariance is <span class="sc">\&gt;</span> 0</span>
-<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a>The variance is a special case of covariance in which the two variables are identical. Covariance itself is sensitive to the scale of the data, and it does not provide information of on the extent to which the two variables correlate with each other and how well the linear correlation fits the data. All these characteristics make covariance difficult to interpret, but it has become an important stepping stone for many subsequent analysis, such as PCA, correlation analysis, etc.</span>
-<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a>A **covariance matrix** is a square matrix giving the covariance between each pair of elements, which is always symmetric, and the diagonal elements represent the variance of each variable. The covariance matrix describes the joint behavior of every linear combination of two variables, analogue to univariate normal distribution, a covariance matrix ($\Sigma$) and a mean ($\mu$) are used to described a multivariate normal distribution.</span>
-<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a>content <span class="ot">&lt;-</span> <span class="st">"- [StatQuest](https://www.youtube.com/watch?v=qtaqvPAeEJY) on YouTube (simply and clearly explained)"</span></span>
-<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a><span class="fu">custom_callout</span>(<span class="st">"For more information about covariance"</span>, content, <span class="at">collapse =</span> T, <span class="at">titleStyle =</span> <span class="st">"sub"</span>)</span>
-<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conjugate Prior</span></span>
-<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a>@jackson2011 suggested that the normal distribution is generally appropriate when dealing with stable isotope ratios, and this gives us a way to simplify the analysis by taking advantage of the **conjugate prior**. </span>
-<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a>A conjungate prior is a certain prior distribution that, when applied to a certain likelihood function, results in a posterior distribution from the same distribution family. For example, in univaraite analysis, a normal prior and a normal likelihood function results a normal posterior. In our case, the conjugate prior for the multivariate normal is the normal-inverse-wishart (NIW) distribution. It can be considered in two parts: the mean follows a normal distribution and the covariance follows an inverse-Wishart distribution. NIW is commonly used as the prior distribution when modeling a multivariate normal distribution where the means and the covariances are unknown.</span>
-<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
-<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a>The probability of a random observation of a isotope ratio ($x$) belongs to species $s$ is following a normal distribution.</span>
-<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a>P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)</span>
-<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a><span class="fu">## Monte Carlo with `niw.post()`</span></span>
-<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a>All the prior knowledge we just went through, from basic Bayesian inference to the NIW distribution, is to understand the very two lines of code that implemented the Bayesian workflow into the analysis.</span>
-<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a>nsamples <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a>fish.par <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(fish), fish<span class="sc">$</span>species,</span>
-<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a>            <span class="cf">function</span>(ii) <span class="fu">niw.post</span>(<span class="at">nsamples =</span> nsamples, <span class="at">X =</span> fish[ii,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]))</span>
-<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a><span class="in">`niw.post()`</span> uses a data matrix (<span class="in">`X`</span>) as observation data, calculate the posterior distribution, and then draws a set of means and covariance matrices of a possible multivariate distribution, which includes the prior and our observation data. The main idea is that because analytically working with posterior multivariate distribution is too impractical, so we employ the <span class="co">[</span><span class="ot">:Monte Carlo approach</span><span class="co">](https://www.youtube.com/watch?v=7ESK5SaP-bc)</span> to have a view of the posterior. We use <span class="in">`tapply()`</span> to separately apply <span class="in">`r nsamples`</span> times of <span class="in">`niw.post()`</span> on each fish species.</span>
-<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a>This results in a list of 4 lists (species) of 2 matrices (mu and Sigma), where the mu matrix has a dimension of <span class="in">`r nsamples`</span> (sampling times) x 3 (number of variables), and the Sigma matrix has a dimension of <span class="in">`r nsamples`</span> (sampling times) x 3 x 3 (one slice = one covariance matrix).</span>
-<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a>This particular data structure is critical for later application of <span class="in">`niche.par.plot()`</span>, see <span class="in">`?nichr.par.plot`</span> for more.</span>
-<span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
-<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See the result]{.cl-sub}</span></span>
-<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fish.par)</span>
-<span id="cb20-236"><a href="#cb20-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Niche Parameters</span></span>
-<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a><span class="in">`niche.par.plot()`</span> allows us to have a overview on Monte Carlo simulation of the posterior multivariate distribution of our $\mu$ and $\Sigma$. It shows the probability density curve of each variable. Use <span class="in">`plot.index`</span>, <span class="in">`plot.mu`</span> or <span class="in">`plot.Sigma`</span> to select which $\mu$ or $\Sigma$ to plot, or simply use <span class="in">`plot.mu = TRUE, plot.Sigma = TRUE`</span> to display all. See details in the document.</span>
-<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=2, fig.align="center"}</span></span>
-<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-nichepar-demo</span></span>
-<span id="cb20-246"><a href="#cb20-246" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: The distribution of $\mu_1$ ($\delta^{15}N)$ and $\mu_2$ ($\delta^{13}C)$, as well as the $\Sigma_{12}$ is displayed here. </span></span>
-<span id="cb20-247"><a href="#cb20-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a><span class="in">clrs &lt;- c('#348E8C', '#732C02', '#BF0404', '#F29F05') # colors for each species</span></span>
-<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a><span class="in"># mu1 (del15N), mu2 (del13C), and Sigma12 </span></span>
-<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a><span class="in">par(mar = c(4, 5, .5, .1)+.1, oma = c(0,0,0,0), pty="s", mfrow = c(1,3))</span></span>
-<span id="cb20-252"><a href="#cb20-252" aria-hidden="true" tabindex="-1"></a><span class="in">niche.par.plot(fish.par, col = clrs, plot.index = 1)</span></span>
-<span id="cb20-253"><a href="#cb20-253" aria-hidden="true" tabindex="-1"></a><span class="in">niche.par.plot(fish.par, col = clrs, plot.index = 2)</span></span>
-<span id="cb20-254"><a href="#cb20-254" aria-hidden="true" tabindex="-1"></a><span class="in">niche.par.plot(fish.par, col = clrs, plot.index = 1:2)</span></span>
-<span id="cb20-255"><a href="#cb20-255" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topleft", legend = names(fish.par), fill = clrs)</span></span>
-<span id="cb20-256"><a href="#cb20-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-257"><a href="#cb20-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-258"><a href="#cb20-258" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2-D Ellipse Projection</span></span>
-<span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a>To deal with n-dimensional niche regions (N&lt;sub&gt;R&lt;/sub&gt;), @swanson2015 reduced them into 2-dimensional space using probabilistic projection, which is to differentiate from geometric projection. A 2-dimensional probabilistic projection of an n-dimensional N&lt;sub&gt;R&lt;/sub&gt; is simply the N&lt;sub&gt;R&lt;/sub&gt; calculated by the projected 2 axes <span class="co">[</span><span class="ot">@jackson2011; @swanson2015</span><span class="co">]</span>. Fig. 2 from @swanson2015 clearly demonstrates and explains the different outcomes.</span>
-<span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">A three-dimensional 95% niche region for normally distributed isotopes. The two ellipses are projections of the niche region (NR) onto isotope axes U and V. The black, hatched ellipse is the geometric projection of NR onto this plane, which is the shadow obtained by shining a light onto the three-dimensional ellipsoid along the W-axis (in blue). This is the largest of the two-dimensional ellipse “slices” taken parallel to the UV-plane. The red ellipse is the 95% niche region constructed directly from isotopes U and V. Thus, the geometric projection of the ellipsoid covers less than 95% of randomly selected individuals in two-dimensional isotope space. [@swanson2015]</span><span class="co">](https://esajournals.onlinelibrary.wiley.com/cms/asset/91c8eaef-f65e-4f7c-9eb7-b491b568943e/ecy2015962318-fig-0002-m.gif)</span>{#fig-ellipse-projection}</span>
-<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a>For the sake of clarity, we only use 10 simulations here. <span class="in">`niche.plot()`</span> generates three types of plot:</span>
-<span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Univariate distribution density curves, i.e. smoothed histogram.</span>
-<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Bivariate scatter plots.</span>
-<span id="cb20-268"><a href="#cb20-268" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>2-D projection of N&lt;sub&gt;R&lt;/sub&gt; using simulation data, displayed in ellipse plots.</span>
-<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a>From the first two plot types, we could confirm the assumption that the isotope ratios are generally normal. The ellipse plots give us a better view of each species' N&lt;sub&gt;R&lt;/sub&gt; and the overlap situation.</span>
-<span id="cb20-271"><a href="#cb20-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-272"><a href="#cb20-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=9, fig.width=9, fig.align="center"}</span></span>
-<span id="cb20-273"><a href="#cb20-273" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-nicheplot-demo</span></span>
-<span id="cb20-274"><a href="#cb20-274" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: Niche plots.</span></span>
-<span id="cb20-275"><a href="#cb20-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-276"><a href="#cb20-276" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 10</span></span>
-<span id="cb20-277"><a href="#cb20-277" aria-hidden="true" tabindex="-1"></a><span class="in">fish.par &lt;- tapply(1:nrow(fish), fish$species,</span></span>
-<span id="cb20-278"><a href="#cb20-278" aria-hidden="true" tabindex="-1"></a><span class="in">            function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))</span></span>
-<span id="cb20-279"><a href="#cb20-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a><span class="in"># format data for plotting function</span></span>
-<span id="cb20-281"><a href="#cb20-281" aria-hidden="true" tabindex="-1"></a><span class="in">fish.data &lt;- tapply(1:nrow(fish), fish$species, function(ii) X = fish[ii,2:4])</span></span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a><span class="fu">custom_callout</span>(<span class="st">"For more information about isotopic and atomic ecology"</span>, content, <span class="at">collapse =</span> <span class="cn">TRUE</span>, <span class="at">titleStyle =</span> <span class="st">"sub"</span>)</span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayesian Workflow</span></span>
+<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bayesian theorem</span></span>
+<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a>@vandeschoot2021 described the foundational idea of the Bayesian statistics as follows:</span>
+<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a>Bayesian statistics is an approach to data analysis based on Bayes' theorem, where available knowledge about parameters in a statistical model is updated with the information in observed data. The background knowledge is expressed as a **prior** distribution and combined with observational data in the form of a likelihood function to determine the **posterior distribution**.</span>
+<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a>This means we make an initial estimation of our parameters (prior distribution), then observe data and update the model (posterior distribution). **Bayes' theorem**, which this approach is based on, is mathematically stated as following:</span>
+<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a>P(A|B)=\frac{P(B|A)P(A)}{P(B)}</span>
+<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a>where,</span>
+<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$A$ and $B$ are events and $P(B)\neq 0$,</span>
+<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P(A|B)$: the probability of event $A$ occurring given that $B$ is true. It is also called the **posterior probability** (briefly *posterior*) of $A$ given $B$.</span>
+<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P(B|A)$ is also a conditional probability: the probability of event&nbsp;$B$ occurring given that&nbsp;$A$ is true. It can also be interpreted as the likelihood of $A$ given a fixed $B$ because $P(B|A)=L(A|B)$. ($L$: likelihood function)</span>
+<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P(A)$ and $P(B)$ are the probabilities of observing $A$ and $B$ respectively without any given conditions; they are known as the **prior probability** and marginal probability.</span>
+<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why Bayesian Statistics?</span></span>
+<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a>Bayesian statistics is a different framework and approach on statistical analysis. Both classical and Bayesian inference, while trying to model data, have own advantages and disadvantages. Bayesian inference is generally employed whenever uncertainty comes into play:</span>
+<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a>::: {.mini}</span>
+<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a>There is also a practical advantage of the Bayesian approach, which is that all its inferences are probabilistic and thus can be represented by random simulations. For this reason, whenever we want to summarize uncertainty in estimation beyond simple confidence intervals, and whenever we want to use regression models for predictions, we go Bayesian.</span>
+<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a>― @gelman2024, P. 16</span>
+<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a>@swanson2015 pointed out a viewpoint from the traditional niche overlap analysis that might introduce problems: the geometric approach doesn't account for uncertainty and also lacks direction. This is well illustrated by Fig. 1 in the publication:</span>
+<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Comparison between geometric and probabilistic isotope overlap metrics. Isotope x is distributed in species A and B (x-axis); dashed lines show means. The 95% niche region (solid lines) of B is completely contained within that of A, such that the geometric overlap of B onto A is 100%. However, the probability that a randomly chosen member from A falls into the isotopic niche of B is only 35%. [@swanson2015]</span><span class="co">](https://esajournals.onlinelibrary.wiley.com/cms/asset/d9181a57-fa40-4f4a-9197-460929dad9f8/ecy2015962318-fig-0001-m.jpg)</span>{#fig-nicheoverlap-comparison}</span>
+<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a>By inviting the variance of the niche probability distribution, it now also differentiates the overlap in directions, which means the probability of a species A falling into species B's niche is not equal to that of species B falling into species A's niche. Since this perspective starts to consider probability in the models, a Bayesian workflow will provide more reliable and robust analysis. </span>
+<span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Vector and Multivariate Normal Distribution</span></span>
+<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a>Given an individual statistical unit, in our case, the niche described by three isotope ratios, a random vector is a group of variables that describes this mathematical system. Which is again, in our case, the three values of the isotope ratio. The distribution of each component of the random vector together forms a **multivariate distribution**. </span>
+<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a>When dealing with univariate (one-dimensional) analysis, we often assume that the variable is normally distributed. We do likewise even with multivariate analysis. The **multivariate normal distribution** is a generalization of the univariate normal distribution into higher dimensions, but it's not as simple as all components of the random vector being normal. It also requires every linear combination of arbitrary two components in the system to be normally distributed (bivariate normal distribution), which is not always true even if every single variable is normal on its own. This is where the covariance matrix comes into play. Normal distribution is described by two variables: mean and standard deviation (sd), with the latter being simply the square root of the variance.</span>
+<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Covariance and covariance matrix</span></span>
+<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a>**Covariance** is a measure of the joint variability of two variables. The sign of the covariance shows the tendency, i.e. one of the three possible linear relationships between two variables, which are:</span>
+<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>negative linear relationship, covariance is <span class="sc">\&lt;</span> 0</span>
+<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>no linear relationship, covariance is around 0</span>
+<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>positive linear relationship, covariance is <span class="sc">\&gt;</span> 0</span>
+<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a>The variance is a special case of covariance in which the two variables are identical. Covariance itself is sensitive to the scale of the data, and it does not provide information of on the extent to which the two variables correlate with each other and how well the linear correlation fits the data. All these characteristics make covariance difficult to interpret, but it has become an important stepping stone for many subsequent analysis, such as PCA, correlation analysis, etc.</span>
+<span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a>A **covariance matrix** is a square matrix giving the covariance between each pair of elements, which is always symmetric, and the diagonal elements represent the variance of each variable. The covariance matrix describes the joint behavior of every linear combination of two variables, analogue to univariate normal distribution, a covariance matrix ($\Sigma$) and a mean ($\mu$) are used to described a multivariate normal distribution.</span>
+<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
+<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a>content <span class="ot">&lt;-</span> <span class="st">"- [StatQuest](https://www.youtube.com/watch?v=qtaqvPAeEJY) on YouTube (simply and clearly explained)"</span></span>
+<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a><span class="fu">custom_callout</span>(<span class="st">"For more information about covariance"</span>, content, <span class="at">collapse =</span> T, <span class="at">titleStyle =</span> <span class="st">"sub"</span>)</span>
+<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conjugate Prior</span></span>
+<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a>@jackson2011 suggested that the normal distribution is generally appropriate when dealing with stable isotope ratios, and this gives us a way to simplify the analysis by taking advantage of the **conjugate prior**. </span>
+<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a>A conjungate prior is a certain prior distribution that, when applied to a certain likelihood function, results in a posterior distribution from the same distribution family. For example, in univaraite analysis, a normal prior and a normal likelihood function results a normal posterior. In our case, the conjugate prior for the multivariate normal is the normal-inverse-wishart (NIW) distribution. It can be considered in two parts: the mean follows a normal distribution and the covariance follows an inverse-Wishart distribution. NIW is commonly used as the prior distribution when modeling a multivariate normal distribution where the means and the covariances are unknown.</span>
+<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a>The probability of a random observation of a isotope ratio ($x$) belongs to species $s$ is following a normal distribution.</span>
+<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a>P(x |\text{species}=s) \backsim N(\mu_s \, , \Sigma_s)</span>
+<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a><span class="fu">## Monte Carlo with `niw.post()`</span></span>
+<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a>All the prior knowledge we just went through, from basic Bayesian inference to the NIW distribution, is to understand the very two lines of code that implemented the Bayesian workflow into the analysis.</span>
+<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a>nsamples <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a>fish.par <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(fish), fish<span class="sc">$</span>species,</span>
+<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a>            <span class="cf">function</span>(ii) <span class="fu">niw.post</span>(<span class="at">nsamples =</span> nsamples, <span class="at">X =</span> fish[ii,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]))</span>
+<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a><span class="in">`niw.post()`</span> uses a data matrix (<span class="in">`X`</span>) as observation data, calculate the posterior distribution, and then draws a set of means and covariance matrices of a possible multivariate distribution, which includes the prior and our observation data. The main idea is that because analytically working with posterior multivariate distribution is too impractical, so we employ the <span class="co">[</span><span class="ot">:Monte Carlo approach</span><span class="co">](https://www.youtube.com/watch?v=7ESK5SaP-bc)</span> to have a view of the posterior. We use <span class="in">`tapply()`</span> to separately apply <span class="in">`r nsamples`</span> times of <span class="in">`niw.post()`</span> on each fish species.</span>
+<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a>This results in a list of 4 lists (species) of 2 matrices (mu and Sigma), where the mu matrix has a dimension of <span class="in">`r nsamples`</span> (sampling times) x 3 (number of variables), and the Sigma matrix has a dimension of <span class="in">`r nsamples`</span> (sampling times) x 3 x 3 (one slice = one covariance matrix).</span>
+<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a>This particular data structure is critical for later application of <span class="in">`niche.par.plot()`</span>, see <span class="in">`?nichr.par.plot`</span> for more.</span>
+<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
+<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See the result]{.cl-sub}</span></span>
+<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fish.par)</span>
+<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## Niche Parameters</span></span>
+<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a><span class="in">`niche.par.plot()`</span> allows us to have a overview on Monte Carlo simulation of the posterior multivariate distribution of our $\mu$ and $\Sigma$. It shows the probability density curve of each variable. Use <span class="in">`plot.index`</span>, <span class="in">`plot.mu`</span> or <span class="in">`plot.Sigma`</span> to select which $\mu$ or $\Sigma$ to plot, or simply use <span class="in">`plot.mu = TRUE, plot.Sigma = TRUE`</span> to display all. See details in the document.</span>
+<span id="cb20-246"><a href="#cb20-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-247"><a href="#cb20-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=2, fig.align="center"}</span></span>
+<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-nichepar-demo</span></span>
+<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: The distribution of $\mu_1$ ($\delta^{15}N)$ and $\mu_2$ ($\delta^{13}C)$, as well as the $\Sigma_{12}$ is displayed here. </span></span>
+<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a><span class="in">clrs &lt;- c('#348E8C', '#732C02', '#BF0404', '#F29F05') # colors for each species</span></span>
+<span id="cb20-252"><a href="#cb20-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-253"><a href="#cb20-253" aria-hidden="true" tabindex="-1"></a><span class="in"># mu1 (del15N), mu2 (del13C), and Sigma12 </span></span>
+<span id="cb20-254"><a href="#cb20-254" aria-hidden="true" tabindex="-1"></a><span class="in">par(mar = c(4, 5, .5, .1)+.1, oma = c(0,0,0,0), pty="s", mfrow = c(1,3))</span></span>
+<span id="cb20-255"><a href="#cb20-255" aria-hidden="true" tabindex="-1"></a><span class="in">niche.par.plot(fish.par, col = clrs, plot.index = 1)</span></span>
+<span id="cb20-256"><a href="#cb20-256" aria-hidden="true" tabindex="-1"></a><span class="in">niche.par.plot(fish.par, col = clrs, plot.index = 2)</span></span>
+<span id="cb20-257"><a href="#cb20-257" aria-hidden="true" tabindex="-1"></a><span class="in">niche.par.plot(fish.par, col = clrs, plot.index = 1:2)</span></span>
+<span id="cb20-258"><a href="#cb20-258" aria-hidden="true" tabindex="-1"></a><span class="in">legend("topleft", legend = names(fish.par), fill = clrs)</span></span>
+<span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2-D Ellipse Projection</span></span>
+<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a>To deal with n-dimensional niche regions (N&lt;sub&gt;R&lt;/sub&gt;), @swanson2015 reduced them into 2-dimensional space using probabilistic projection, which is to differentiate from geometric projection. A 2-dimensional probabilistic projection of an n-dimensional N&lt;sub&gt;R&lt;/sub&gt; is simply the N&lt;sub&gt;R&lt;/sub&gt; calculated by the projected 2 axes <span class="co">[</span><span class="ot">@jackson2011; @swanson2015</span><span class="co">]</span>. Fig. 2 from @swanson2015 clearly demonstrates and explains the different outcomes.</span>
+<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">A three-dimensional 95% niche region for normally distributed isotopes. The two ellipses are projections of the niche region (NR) onto isotope axes U and V. The black, hatched ellipse is the geometric projection of NR onto this plane, which is the shadow obtained by shining a light onto the three-dimensional ellipsoid along the W-axis (in blue). This is the largest of the two-dimensional ellipse “slices” taken parallel to the UV-plane. The red ellipse is the 95% niche region constructed directly from isotopes U and V. Thus, the geometric projection of the ellipsoid covers less than 95% of randomly selected individuals in two-dimensional isotope space. [@swanson2015]</span><span class="co">](https://esajournals.onlinelibrary.wiley.com/cms/asset/91c8eaef-f65e-4f7c-9eb7-b491b568943e/ecy2015962318-fig-0002-m.gif)</span>{#fig-ellipse-projection}</span>
+<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a>For the sake of clarity, we only use 10 simulations here. <span class="in">`niche.plot()`</span> generates three types of plot:</span>
+<span id="cb20-268"><a href="#cb20-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Univariate distribution density curves, i.e. smoothed histogram.</span>
+<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Bivariate scatter plots.</span>
+<span id="cb20-271"><a href="#cb20-271" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>2-D projection of N&lt;sub&gt;R&lt;/sub&gt; using simulation data, displayed in ellipse plots.</span>
+<span id="cb20-272"><a href="#cb20-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-273"><a href="#cb20-273" aria-hidden="true" tabindex="-1"></a>From the first two plot types, we could confirm the assumption that the isotope ratios are generally normal. The ellipse plots give us a better view of each species' N&lt;sub&gt;R&lt;/sub&gt; and the overlap situation.</span>
+<span id="cb20-274"><a href="#cb20-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-275"><a href="#cb20-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=9, fig.width=9, fig.align="center"}</span></span>
+<span id="cb20-276"><a href="#cb20-276" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-nicheplot-demo</span></span>
+<span id="cb20-277"><a href="#cb20-277" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: Niche plots.</span></span>
+<span id="cb20-278"><a href="#cb20-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-279"><a href="#cb20-279" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 10</span></span>
+<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a><span class="in">fish.par &lt;- tapply(1:nrow(fish), fish$species,</span></span>
+<span id="cb20-281"><a href="#cb20-281" aria-hidden="true" tabindex="-1"></a><span class="in">            function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))</span></span>
 <span id="cb20-282"><a href="#cb20-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-283"><a href="#cb20-283" aria-hidden="true" tabindex="-1"></a><span class="in">niche.plot(niche.par = fish.par, niche.data = fish.data, pfrac = .05,</span></span>
-<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a><span class="in">           iso.names = expression(delta^{15}*N, delta^{13}*C, delta^{34}*S),</span></span>
-<span id="cb20-285"><a href="#cb20-285" aria-hidden="true" tabindex="-1"></a><span class="in">           col = clrs, xlab = expression("Isotope Ratio (per mil)"))</span></span>
-<span id="cb20-286"><a href="#cb20-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-287"><a href="#cb20-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-288"><a href="#cb20-288" aria-hidden="true" tabindex="-1"></a>It's a bit overwhelming plot. Take time to understand it.</span>
-<span id="cb20-289"><a href="#cb20-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-290"><a href="#cb20-290" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estimate Niche Overlap</span></span>
-<span id="cb20-291"><a href="#cb20-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-292"><a href="#cb20-292" aria-hidden="true" tabindex="-1"></a>With <span class="in">`overlap()`</span> we can have a more accurate and robust inference of overlapping among the species. The accuracy of the estimation can be improved by increasing <span class="in">`nprob`</span>. The generated plot shows pairwise niche overlaps (now we have directions!), which displays the probability distribution of species A (along rows) fallen inside the niche of species B (along columns), with indication of the mean and 95% credible interval.</span>
-<span id="cb20-293"><a href="#cb20-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-294"><a href="#cb20-294" aria-hidden="true" tabindex="-1"></a>Be careful not to confuse two "95%" here - one means that we use 95% of the niche region to calculate overlap, which is specified in <span class="in">`overlap()`</span> with <span class="in">`alpha = 0.95`</span>; the other is the 95% credible interval of the probability distribution displayed in each plot. There is a difference to spot between plots using 95% or 99% of the niche region.</span>
-<span id="cb20-295"><a href="#cb20-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-296"><a href="#cb20-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb20-297"><a href="#cb20-297" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-overlap-demo-95</span></span>
-<span id="cb20-298"><a href="#cb20-298" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: Niche overlap using 95% of the niche region.</span></span>
-<span id="cb20-299"><a href="#cb20-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-300"><a href="#cb20-300" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 1000</span></span>
-<span id="cb20-301"><a href="#cb20-301" aria-hidden="true" tabindex="-1"></a><span class="in">fish.par &lt;- tapply(1:nrow(fish), fish$species,</span></span>
-<span id="cb20-302"><a href="#cb20-302" aria-hidden="true" tabindex="-1"></a><span class="in">            function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))</span></span>
-<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a><span class="in"># 95% niche region</span></span>
-<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat95 &lt;- overlap(fish.par, nreps = nsamples, nprob = 1000, alpha = 0.95)</span></span>
-<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%")</span></span>
-<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-overlap-demo-99</span></span>
-<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: Niche overlap using 99% of the niche region.</span></span>
-<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a><span class="in"># 99% niche region</span></span>
-<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat99 &lt;- overlap(fish.par, nreps = nsamples, nprob = 1000, alpha = 0.99)</span></span>
-<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat99, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 99%")</span></span>
-<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a>By printing out the returned value from <span class="in">`overlap()`</span>, numeric results can also be shown. </span>
-<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
-<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See detailed results]{.cl-sub}</span></span>
-<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a>We could calculate the estimation for both alpha = 0.99 and 0.95 at the same time.</span>
-<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a>over.stat<span class="fl">.2</span>lvl <span class="ot">&lt;-</span> <span class="fu">overlap</span>(fish.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fu">c</span>(<span class="fl">0.95</span>, <span class="fl">0.99</span>))</span>
-<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a>over.mean<span class="fl">.2</span>lvl <span class="ot">&lt;-</span> <span class="fu">apply</span>(over.stat<span class="fl">.2</span>lvl, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span>), mean)<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a><span class="co"># Here are the mean of each overlap probability distribution</span></span>
-<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(over.mean<span class="fl">.2</span>lvl, <span class="dv">2</span>)</span>
-<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a><span class="co"># Here are the upper and lower bounds of the 95% credible interval</span></span>
-<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a>over.cred <span class="ot">&lt;-</span> <span class="fu">apply</span>(over.stat<span class="fl">.2</span>lvl<span class="sc">*</span><span class="dv">100</span>, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span>), quantile, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(over.cred)</span>
-<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a><span class="fu">## Penguins {{&lt; iconify game-icons:penguin &gt;}}</span></span>
-<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a>Let's run the niche overlap analysis on another dataset. There's a datasets of 3 *Pygoscelis* species nesting along the Palmer Archipelago near Palmer Station, containing structural measurements, two isotope ratios, and basic metadata. Isotope data was collected from blood samples, and additional records of whether the sampled individuals have completed their clutch were documented.</span>
-<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-penguin</span></span>
-<span id="cb20-354"><a href="#cb20-354" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: \`penguin\` dataset</span></span>
-<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a>adeliae <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"biology-research/community-ecology/assets/data/219.5.rds"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="st">"P. adeliae"</span>)</span>
-<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a>papua <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"biology-research/community-ecology/assets/data/220.7.rds"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="st">"P. papua"</span>)</span>
-<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a>antarcticus <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"biology-research/community-ecology/assets/data/221.8.rds"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="st">"P. antarcticus"</span>)</span>
-<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a>penguin <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(adeliae, papua, antarcticus)</span>
-<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a>comp.penguin <span class="ot">&lt;-</span> penguin <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">13</span><span class="sc">:</span><span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">15</span><span class="sc">:</span><span class="dv">16</span>)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">complete.cases</span>(.))</span>
-<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(comp.penguin)</span>
-<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-283"><a href="#cb20-283" aria-hidden="true" tabindex="-1"></a><span class="in"># format data for plotting function</span></span>
+<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a><span class="in">fish.data &lt;- tapply(1:nrow(fish), fish$species, function(ii) X = fish[ii,2:4])</span></span>
+<span id="cb20-285"><a href="#cb20-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-286"><a href="#cb20-286" aria-hidden="true" tabindex="-1"></a><span class="in">niche.plot(niche.par = fish.par, niche.data = fish.data, pfrac = .05,</span></span>
+<span id="cb20-287"><a href="#cb20-287" aria-hidden="true" tabindex="-1"></a><span class="in">           iso.names = expression(delta^{15}*N, delta^{13}*C, delta^{34}*S),</span></span>
+<span id="cb20-288"><a href="#cb20-288" aria-hidden="true" tabindex="-1"></a><span class="in">           col = clrs, xlab = expression("Isotope Ratio (per mil)"))</span></span>
+<span id="cb20-289"><a href="#cb20-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-290"><a href="#cb20-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-291"><a href="#cb20-291" aria-hidden="true" tabindex="-1"></a>It's a bit overwhelming plot. Take time to understand it.</span>
+<span id="cb20-292"><a href="#cb20-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-293"><a href="#cb20-293" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estimate Niche Overlap</span></span>
+<span id="cb20-294"><a href="#cb20-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-295"><a href="#cb20-295" aria-hidden="true" tabindex="-1"></a>With <span class="in">`overlap()`</span> we can have a more accurate and robust inference of overlapping among the species. The accuracy of the estimation can be improved by increasing <span class="in">`nprob`</span>. The generated plot shows pairwise niche overlaps (now we have directions!), which displays the probability distribution of species A (along rows) fallen inside the niche of species B (along columns), with indication of the mean and 95% credible interval.</span>
+<span id="cb20-296"><a href="#cb20-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-297"><a href="#cb20-297" aria-hidden="true" tabindex="-1"></a>Be careful not to confuse two "95%" here - one means that we use 95% of the niche region to calculate overlap, which is specified in <span class="in">`overlap()`</span> with <span class="in">`alpha = 0.95`</span>; the other is the 95% credible interval of the probability distribution displayed in each plot. There is a difference to spot between plots using 95% or 99% of the niche region.</span>
+<span id="cb20-298"><a href="#cb20-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-299"><a href="#cb20-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb20-300"><a href="#cb20-300" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-overlap-demo-95</span></span>
+<span id="cb20-301"><a href="#cb20-301" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: Niche overlap using 95% of the niche region.</span></span>
+<span id="cb20-302"><a href="#cb20-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 1000</span></span>
+<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a><span class="in">fish.par &lt;- tapply(1:nrow(fish), fish$species,</span></span>
+<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a><span class="in">            function(ii) niw.post(nsamples = nsamples, X = fish[ii,2:4]))</span></span>
+<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a><span class="in"># 95% niche region</span></span>
+<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat95 &lt;- overlap(fish.par, nreps = nsamples, nprob = 1000, alpha = 0.95)</span></span>
+<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%")</span></span>
+<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-overlap-demo-99</span></span>
+<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: Niche overlap using 99% of the niche region.</span></span>
+<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a><span class="in"># 99% niche region</span></span>
+<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat99 &lt;- overlap(fish.par, nreps = nsamples, nprob = 1000, alpha = 0.99)</span></span>
+<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat99, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 99%")</span></span>
+<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a>By printing out the returned value from <span class="in">`overlap()`</span>, numeric results can also be shown. </span>
+<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
+<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See detailed results]{.cl-sub}</span></span>
+<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a>We could calculate the estimation for both alpha = 0.99 and 0.95 at the same time.</span>
+<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a>over.stat<span class="fl">.2</span>lvl <span class="ot">&lt;-</span> <span class="fu">overlap</span>(fish.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fu">c</span>(<span class="fl">0.95</span>, <span class="fl">0.99</span>))</span>
+<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a>over.mean<span class="fl">.2</span>lvl <span class="ot">&lt;-</span> <span class="fu">apply</span>(over.stat<span class="fl">.2</span>lvl, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span>), mean)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a><span class="co"># Here are the mean of each overlap probability distribution</span></span>
+<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(over.mean<span class="fl">.2</span>lvl, <span class="dv">2</span>)</span>
+<span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a><span class="co"># Here are the upper and lower bounds of the 95% credible interval</span></span>
+<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a>over.cred <span class="ot">&lt;-</span> <span class="fu">apply</span>(over.stat<span class="fl">.2</span>lvl<span class="sc">*</span><span class="dv">100</span>, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span>), quantile, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(over.cred)</span>
+<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a><span class="fu">## Penguins {{&lt; iconify game-icons:penguin &gt;}}</span></span>
+<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a>Let's run the niche overlap analysis on another dataset. There's a datasets of 3 *Pygoscelis* species nesting along the Palmer Archipelago near Palmer Station, containing structural measurements, two isotope ratios, and basic metadata. Isotope data was collected from blood samples, and additional records of whether the sampled individuals have completed their clutch were documented.</span>
+<span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-penguin</span></span>
+<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: \`penguin\` dataset</span></span>
+<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a>adeliae <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"biology-research/community-ecology/assets/data/219.5.rds"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="st">"P. adeliae"</span>)</span>
+<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a>papua <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"biology-research/community-ecology/assets/data/220.7.rds"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="st">"P. papua"</span>)</span>
+<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a>antarcticus <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"biology-research/community-ecology/assets/data/221.8.rds"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="st">"P. antarcticus"</span>)</span>
+<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a>penguin <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(adeliae, papua, antarcticus)</span>
+<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a>comp.penguin <span class="ot">&lt;-</span> penguin <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">13</span><span class="sc">:</span><span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">15</span><span class="sc">:</span><span class="dv">16</span>)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">complete.cases</span>(.))</span>
 <span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a>To consider potential sexual dimorphisms within species, we will also differentiate the observations by sex.</span>
-<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-372"><a href="#cb20-372" aria-hidden="true" tabindex="-1"></a>comp.penguin <span class="ot">&lt;-</span> comp.penguin <span class="sc">%&gt;%</span> </span>
-<span id="cb20-373"><a href="#cb20-373" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Sex <span class="sc">!=</span> <span class="st">""</span> <span class="sc">&amp;</span> Sex <span class="sc">!=</span> <span class="st">"."</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">factor</span>(Species), <span class="at">Sex =</span> <span class="fu">factor</span>(<span class="fu">case_when</span>(</span>
-<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a>        Sex <span class="sc">==</span> <span class="st">"FEMALE"</span> <span class="sc">~</span> <span class="st">"F"</span>,</span>
-<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a>        Sex <span class="sc">==</span> <span class="st">"MALE"</span> <span class="sc">~</span> <span class="st">"M"</span></span>
-<span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a>    ))) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">cat =</span> <span class="fu">factor</span>(<span class="fu">paste</span>(Species, Sex, <span class="at">sep =</span> <span class="st">" - "</span>)))</span>
-<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a look at the n in each group</span></span>
-<span id="cb20-381"><a href="#cb20-381" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(comp.penguin<span class="sc">$</span>cat)</span>
-<span id="cb20-382"><a href="#cb20-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a>As mentioned in @tbl-SIAs, $\delta ^{13} C$ and $\delta ^{15} N$ can be used to assess the trophic level of the species. We first analyze the niche using only these two values:</span>
-<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=10, fig.width=10, fig.align="center"}</span></span>
-<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
-<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a><span class="in">#| column: page</span></span>
-<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-pen-iso-niche</span></span>
-<span id="cb20-390"><a href="#cb20-390" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout-ncol: 2</span></span>
-<span id="cb20-391"><a href="#cb20-391" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: </span></span>
-<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - No sexual difference in $\delta ^{13} C$ and $\delta ^{15} N$ signature is shown. *P. adeliae* has the biggest niche region.</span></span>
-<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - Niche overlap probability distribution among species and sexes, only isotope data used. </span></span>
-<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a><span class="in"># Run the analysis only with isotope data</span></span>
-<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 10</span></span>
-<span id="cb20-397"><a href="#cb20-397" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
-<span id="cb20-398"><a href="#cb20-398" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
-<span id="cb20-399"><a href="#cb20-399" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
-<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 16:17]))</span></span>
-<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a><span class="in"># format data for plotting function</span></span>
-<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a><span class="in">pen.data &lt;- tapply(1:nrow(comp.penguin), comp.penguin$cat, function(ii) X = comp.penguin[ii, 16:17])</span></span>
-<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a><span class="in">clrs &lt;- c("#023059", "#0477BF", "#8C3E7F", "#8872A6", "#F24130", "#F2A71B")</span></span>
-<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a><span class="in">par(mfcol = (c(6, 6)))</span></span>
-<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a><span class="in">niche.plot(niche.par = pen.par, niche.data = pen.data, pfrac = .05,</span></span>
-<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a><span class="in">           iso.names = c(expression(delta^{15}*N), expression(delta^{13}*C)),</span></span>
-<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a><span class="in">           col = clrs, xlab = expression("Isotope Ratio (per mil)"))</span></span>
-<span id="cb20-411"><a href="#cb20-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-412"><a href="#cb20-412" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 1000</span></span>
-<span id="cb20-413"><a href="#cb20-413" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
-<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
-<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
-<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 16:17]))</span></span>
-<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a><span class="in"># 95% niche region</span></span>
-<span id="cb20-419"><a href="#cb20-419" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat95 &lt;- overlap(pen.par, nreps = nsamples, nprob = 1000, alpha = 0.95)</span></span>
-<span id="cb20-420"><a href="#cb20-420" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%", species.names = c("P. adeliae - F", "P.adeliae - M", "P. antarcticus - F", "P. antarcticus - M", "P. papua - F", "P. papua - M"))</span></span>
-<span id="cb20-421"><a href="#cb20-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-422"><a href="#cb20-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-423"><a href="#cb20-423" aria-hidden="true" tabindex="-1"></a>In @fig-pen-iso-niche-1 we saw no remarkable differences between sexes within each species. We also noticed that *P. adeliae* has the largest niche region and it overlaps with both the others. This is also shown in @fig-pen-iso-niche-2. </span>
-<span id="cb20-424"><a href="#cb20-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-425"><a href="#cb20-425" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
-<span id="cb20-426"><a href="#cb20-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-427"><a href="#cb20-427" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Penguin's culmen by [Allison Horst](https://allisonhorst.github.io/palmerpenguins/)</span><span class="co">](https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png)</span>{width="90%"}</span>
-<span id="cb20-428"><a href="#cb20-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-429"><a href="#cb20-429" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-430"><a href="#cb20-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-431"><a href="#cb20-431" aria-hidden="true" tabindex="-1"></a>Then, we combine isotope data with two structural measurements, culmen length and culmen depth, whose functionality should be strongly associated with their diet, to run the analysis again.</span>
-<span id="cb20-432"><a href="#cb20-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-433"><a href="#cb20-433" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=10, fig.width=10, fig.align="center"}</span></span>
-<span id="cb20-434"><a href="#cb20-434" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
-<span id="cb20-435"><a href="#cb20-435" aria-hidden="true" tabindex="-1"></a><span class="in">#| column: page</span></span>
-<span id="cb20-436"><a href="#cb20-436" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-pen-niche</span></span>
-<span id="cb20-437"><a href="#cb20-437" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout-ncol: 2</span></span>
-<span id="cb20-438"><a href="#cb20-438" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: </span></span>
-<span id="cb20-439"><a href="#cb20-439" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - Niche plot using culmen size and isotope data.</span></span>
-<span id="cb20-440"><a href="#cb20-440" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - Niche overlap probability using culmen size data and isotope data.</span></span>
-<span id="cb20-441"><a href="#cb20-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-442"><a href="#cb20-442" aria-hidden="true" tabindex="-1"></a><span class="in"># Run the analysis with culmen size data and isotope data</span></span>
-<span id="cb20-443"><a href="#cb20-443" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 10</span></span>
-<span id="cb20-444"><a href="#cb20-444" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
-<span id="cb20-445"><a href="#cb20-445" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
-<span id="cb20-446"><a href="#cb20-446" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
-<span id="cb20-447"><a href="#cb20-447" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, c(13:14, 16:17)]))</span></span>
-<span id="cb20-448"><a href="#cb20-448" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb20-449"><a href="#cb20-449" aria-hidden="true" tabindex="-1"></a><span class="in"># format data for plotting function</span></span>
-<span id="cb20-450"><a href="#cb20-450" aria-hidden="true" tabindex="-1"></a><span class="in">pen.data &lt;- tapply(1:nrow(comp.penguin), comp.penguin$cat, function(ii) X = comp.penguin[ii, c(13:14, 16:17)])</span></span>
-<span id="cb20-451"><a href="#cb20-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-452"><a href="#cb20-452" aria-hidden="true" tabindex="-1"></a><span class="in">clrs &lt;- c("#023059", "#0477BF", "#8C3E7F", "#8872A6", "#F24130", "#F2A71B")</span></span>
-<span id="cb20-453"><a href="#cb20-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-454"><a href="#cb20-454" aria-hidden="true" tabindex="-1"></a><span class="in">par(mfcol = (c(6, 6)))</span></span>
-<span id="cb20-455"><a href="#cb20-455" aria-hidden="true" tabindex="-1"></a><span class="in">niche.plot(niche.par = pen.par, niche.data = pen.data, pfrac = .05,</span></span>
-<span id="cb20-456"><a href="#cb20-456" aria-hidden="true" tabindex="-1"></a><span class="in">           iso.names = c("Culmen length", "Culmen depth", expression(delta^{15}*N), expression(delta^{13}*C)),</span></span>
-<span id="cb20-457"><a href="#cb20-457" aria-hidden="true" tabindex="-1"></a><span class="in">           col = clrs, xlab = expression("Isotope Ratio (per mil)"))</span></span>
-<span id="cb20-458"><a href="#cb20-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-459"><a href="#cb20-459" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 1000</span></span>
-<span id="cb20-460"><a href="#cb20-460" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
-<span id="cb20-461"><a href="#cb20-461" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
-<span id="cb20-462"><a href="#cb20-462" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
-<span id="cb20-463"><a href="#cb20-463" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, c(13:14, 16:17)]))</span></span>
-<span id="cb20-464"><a href="#cb20-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-465"><a href="#cb20-465" aria-hidden="true" tabindex="-1"></a><span class="in"># 95% niche region</span></span>
-<span id="cb20-466"><a href="#cb20-466" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat95 &lt;- overlap(pen.par, nreps = nsamples, nprob = 1000, alpha = 0.95)</span></span>
-<span id="cb20-467"><a href="#cb20-467" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%", species.names = c("P. adeliae - F", "P.adeliae - M", "P. antarcticus - F", "P. antarcticus - M", "P. papua - F", "P. papua - M"))</span></span>
-<span id="cb20-468"><a href="#cb20-468" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-469"><a href="#cb20-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-470"><a href="#cb20-470" aria-hidden="true" tabindex="-1"></a>In @fig-pen-niche-1 we notice that both in culmen length and depth, a notable sexual dimorphism is present, and this has formed different niche regions among the groups. The overlap in niche region defined by this data subset (@fig-pen-niche-2) shows, however, different results than those which only utilized isotope signatures (@fig-pen-iso-niche-2). The overlap in all groups and directions between *P. papua* and *P. adeliae* is gone, suggesting that their diets have similar $\delta ^{13} C$ and $\delta ^{15} N$ signatures, but the prey is probably not the same, since they evolved different functional traits in bill structure. This is more obvious in @fig-pen-niche-1, there is no overlap in niche region described by culmen depth and length between the two species. </span>
-<span id="cb20-471"><a href="#cb20-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-472"><a href="#cb20-472" aria-hidden="true" tabindex="-1"></a>On the other hand, female individuals of *P. antarcticus* remain the only group which has a notable overlap with other groups, namely both sexes of *P. adeliae*. @gorman2014, who conducted the study utilizing this data, suggested, regarding their $\delta ^{15} N$ signature, that the female *P. antarcticus* might rely more on a certain type of prey, which might then overlap with *P. adeliea*'s menu. This might also be a reason for the decreased breeding success. </span>
-<span id="cb20-473"><a href="#cb20-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-476"><a href="#cb20-476" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-477"><a href="#cb20-477" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-clutch-complete</span></span>
-<span id="cb20-478"><a href="#cb20-478" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Percentage of breed pair which completed the whole clutch (i.e. 2 eggs for *Pygoscelis* species)</span></span>
-<span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a>clutch <span class="ot">&lt;-</span> comp.penguin <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">complete_clutch =</span> <span class="fu">round</span>(<span class="fu">sum</span>(Clutch.Completion <span class="sc">==</span> <span class="st">"Yes"</span>)<span class="sc">/</span><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(Clutch.Completion))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">2</span>))</span>
-<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a>clutch</span>
-<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a><span class="fu">### And at last, these are our adorable guests:</span></span>
-<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">*P. adeliae* by Dylan Shaw on [Unsplash](https://unsplash.com/photos/black-and-white-penguins-during-daytime-9k9tNQTwMEA)</span><span class="co">](https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&amp;w=3087&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)</span></span>
+<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(comp.penguin)</span>
+<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-369"><a href="#cb20-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a>To consider potential sexual dimorphisms within species, we will also differentiate the observations by sex.</span>
+<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a>comp.penguin <span class="ot">&lt;-</span> comp.penguin <span class="sc">%&gt;%</span> </span>
+<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Sex <span class="sc">!=</span> <span class="st">""</span> <span class="sc">&amp;</span> Sex <span class="sc">!=</span> <span class="st">"."</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">factor</span>(Species), <span class="at">Sex =</span> <span class="fu">factor</span>(<span class="fu">case_when</span>(</span>
+<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a>        Sex <span class="sc">==</span> <span class="st">"FEMALE"</span> <span class="sc">~</span> <span class="st">"F"</span>,</span>
+<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a>        Sex <span class="sc">==</span> <span class="st">"MALE"</span> <span class="sc">~</span> <span class="st">"M"</span></span>
+<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a>    ))) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-381"><a href="#cb20-381" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">cat =</span> <span class="fu">factor</span>(<span class="fu">paste</span>(Species, Sex, <span class="at">sep =</span> <span class="st">" - "</span>)))</span>
+<span id="cb20-382"><a href="#cb20-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a look at the n in each group</span></span>
+<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(comp.penguin<span class="sc">$</span>cat)</span>
+<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a>As mentioned in @tbl-SIAs, $\delta ^{13} C$ and $\delta ^{15} N$ can be used to assess the trophic level of the species. We first analyze the niche using only these two values:</span>
+<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=10, fig.width=10, fig.align="center"}</span></span>
+<span id="cb20-390"><a href="#cb20-390" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb20-391"><a href="#cb20-391" aria-hidden="true" tabindex="-1"></a><span class="in">#| column: page</span></span>
+<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-pen-iso-niche</span></span>
+<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout-ncol: 2</span></span>
+<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: </span></span>
+<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - No sexual difference in $\delta ^{13} C$ and $\delta ^{15} N$ signature is shown. *P. adeliae* has the biggest niche region.</span></span>
+<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - Niche overlap probability distribution among species and sexes, only isotope data used. </span></span>
+<span id="cb20-397"><a href="#cb20-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-398"><a href="#cb20-398" aria-hidden="true" tabindex="-1"></a><span class="in"># Run the analysis only with isotope data</span></span>
+<span id="cb20-399"><a href="#cb20-399" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 10</span></span>
+<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
+<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
+<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
+<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 16:17]))</span></span>
+<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a><span class="in"># format data for plotting function</span></span>
+<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a><span class="in">pen.data &lt;- tapply(1:nrow(comp.penguin), comp.penguin$cat, function(ii) X = comp.penguin[ii, 16:17])</span></span>
+<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a><span class="in">clrs &lt;- c("#023059", "#0477BF", "#8C3E7F", "#8872A6", "#F24130", "#F2A71B")</span></span>
+<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a><span class="in">par(mfcol = (c(6, 6)))</span></span>
+<span id="cb20-411"><a href="#cb20-411" aria-hidden="true" tabindex="-1"></a><span class="in">niche.plot(niche.par = pen.par, niche.data = pen.data, pfrac = .05,</span></span>
+<span id="cb20-412"><a href="#cb20-412" aria-hidden="true" tabindex="-1"></a><span class="in">           iso.names = c(expression(delta^{15}*N), expression(delta^{13}*C)),</span></span>
+<span id="cb20-413"><a href="#cb20-413" aria-hidden="true" tabindex="-1"></a><span class="in">           col = clrs, xlab = expression("Isotope Ratio (per mil)"))</span></span>
+<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 1000</span></span>
+<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
+<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
+<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
+<span id="cb20-419"><a href="#cb20-419" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, 16:17]))</span></span>
+<span id="cb20-420"><a href="#cb20-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-421"><a href="#cb20-421" aria-hidden="true" tabindex="-1"></a><span class="in"># 95% niche region</span></span>
+<span id="cb20-422"><a href="#cb20-422" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat95 &lt;- overlap(pen.par, nreps = nsamples, nprob = 1000, alpha = 0.95)</span></span>
+<span id="cb20-423"><a href="#cb20-423" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%", species.names = c("P. adeliae - F", "P.adeliae - M", "P. antarcticus - F", "P. antarcticus - M", "P. papua - F", "P. papua - M"))</span></span>
+<span id="cb20-424"><a href="#cb20-424" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-425"><a href="#cb20-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-426"><a href="#cb20-426" aria-hidden="true" tabindex="-1"></a>In @fig-pen-iso-niche-1 we saw no remarkable differences between sexes within each species. We also noticed that *P. adeliae* has the largest niche region and it overlaps with both the others. This is also shown in @fig-pen-iso-niche-2. </span>
+<span id="cb20-427"><a href="#cb20-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-428"><a href="#cb20-428" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb20-429"><a href="#cb20-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-430"><a href="#cb20-430" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Penguin's culmen by [Allison Horst](https://allisonhorst.github.io/palmerpenguins/)</span><span class="co">](https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png)</span>{width="90%"}</span>
+<span id="cb20-431"><a href="#cb20-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-432"><a href="#cb20-432" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-433"><a href="#cb20-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-434"><a href="#cb20-434" aria-hidden="true" tabindex="-1"></a>Then, we combine isotope data with two structural measurements, culmen length and culmen depth, whose functionality should be strongly associated with their diet, to run the analysis again.</span>
+<span id="cb20-435"><a href="#cb20-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-436"><a href="#cb20-436" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=10, fig.width=10, fig.align="center"}</span></span>
+<span id="cb20-437"><a href="#cb20-437" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb20-438"><a href="#cb20-438" aria-hidden="true" tabindex="-1"></a><span class="in">#| column: page</span></span>
+<span id="cb20-439"><a href="#cb20-439" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-pen-niche</span></span>
+<span id="cb20-440"><a href="#cb20-440" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout-ncol: 2</span></span>
+<span id="cb20-441"><a href="#cb20-441" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: </span></span>
+<span id="cb20-442"><a href="#cb20-442" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - Niche plot using culmen size and isotope data.</span></span>
+<span id="cb20-443"><a href="#cb20-443" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - Niche overlap probability using culmen size data and isotope data.</span></span>
+<span id="cb20-444"><a href="#cb20-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-445"><a href="#cb20-445" aria-hidden="true" tabindex="-1"></a><span class="in"># Run the analysis with culmen size data and isotope data</span></span>
+<span id="cb20-446"><a href="#cb20-446" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 10</span></span>
+<span id="cb20-447"><a href="#cb20-447" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
+<span id="cb20-448"><a href="#cb20-448" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
+<span id="cb20-449"><a href="#cb20-449" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
+<span id="cb20-450"><a href="#cb20-450" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, c(13:14, 16:17)]))</span></span>
+<span id="cb20-451"><a href="#cb20-451" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb20-452"><a href="#cb20-452" aria-hidden="true" tabindex="-1"></a><span class="in"># format data for plotting function</span></span>
+<span id="cb20-453"><a href="#cb20-453" aria-hidden="true" tabindex="-1"></a><span class="in">pen.data &lt;- tapply(1:nrow(comp.penguin), comp.penguin$cat, function(ii) X = comp.penguin[ii, c(13:14, 16:17)])</span></span>
+<span id="cb20-454"><a href="#cb20-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-455"><a href="#cb20-455" aria-hidden="true" tabindex="-1"></a><span class="in">clrs &lt;- c("#023059", "#0477BF", "#8C3E7F", "#8872A6", "#F24130", "#F2A71B")</span></span>
+<span id="cb20-456"><a href="#cb20-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-457"><a href="#cb20-457" aria-hidden="true" tabindex="-1"></a><span class="in">par(mfcol = (c(6, 6)))</span></span>
+<span id="cb20-458"><a href="#cb20-458" aria-hidden="true" tabindex="-1"></a><span class="in">niche.plot(niche.par = pen.par, niche.data = pen.data, pfrac = .05,</span></span>
+<span id="cb20-459"><a href="#cb20-459" aria-hidden="true" tabindex="-1"></a><span class="in">           iso.names = c("Culmen length", "Culmen depth", expression(delta^{15}*N), expression(delta^{13}*C)),</span></span>
+<span id="cb20-460"><a href="#cb20-460" aria-hidden="true" tabindex="-1"></a><span class="in">           col = clrs, xlab = expression("Isotope Ratio (per mil)"))</span></span>
+<span id="cb20-461"><a href="#cb20-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-462"><a href="#cb20-462" aria-hidden="true" tabindex="-1"></a><span class="in">nsamples &lt;- 1000</span></span>
+<span id="cb20-463"><a href="#cb20-463" aria-hidden="true" tabindex="-1"></a><span class="in">pen.par &lt;- tapply(</span></span>
+<span id="cb20-464"><a href="#cb20-464" aria-hidden="true" tabindex="-1"></a><span class="in">    1:nrow(comp.penguin), </span></span>
+<span id="cb20-465"><a href="#cb20-465" aria-hidden="true" tabindex="-1"></a><span class="in">    comp.penguin$cat, </span></span>
+<span id="cb20-466"><a href="#cb20-466" aria-hidden="true" tabindex="-1"></a><span class="in">    function(ii) niw.post(nsamples = nsamples, X = comp.penguin[ii, c(13:14, 16:17)]))</span></span>
+<span id="cb20-467"><a href="#cb20-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-468"><a href="#cb20-468" aria-hidden="true" tabindex="-1"></a><span class="in"># 95% niche region</span></span>
+<span id="cb20-469"><a href="#cb20-469" aria-hidden="true" tabindex="-1"></a><span class="in">over.stat95 &lt;- overlap(pen.par, nreps = nsamples, nprob = 1000, alpha = 0.95)</span></span>
+<span id="cb20-470"><a href="#cb20-470" aria-hidden="true" tabindex="-1"></a><span class="in">overlap.plot(over.stat95, col = clrs, mean.cred.col = "#024873", equal.axis = TRUE, xlab = "Overlap Probability (%) -- Niche Region Size: 95%", species.names = c("P. adeliae - F", "P.adeliae - M", "P. antarcticus - F", "P. antarcticus - M", "P. papua - F", "P. papua - M"))</span></span>
+<span id="cb20-471"><a href="#cb20-471" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-472"><a href="#cb20-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-473"><a href="#cb20-473" aria-hidden="true" tabindex="-1"></a>In @fig-pen-niche-1 we notice that both in culmen length and depth, a notable sexual dimorphism is present, and this has formed different niche regions among the groups. The overlap in niche region defined by this data subset (@fig-pen-niche-2) shows, however, different results than those which only utilized isotope signatures (@fig-pen-iso-niche-2). The overlap in all groups and directions between *P. papua* and *P. adeliae* is gone, suggesting that their diets have similar $\delta ^{13} C$ and $\delta ^{15} N$ signatures, but the prey is probably not the same, since they evolved different functional traits in bill structure. This is more obvious in @fig-pen-niche-1, there is no overlap in niche region described by culmen depth and length between the two species. </span>
+<span id="cb20-474"><a href="#cb20-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-475"><a href="#cb20-475" aria-hidden="true" tabindex="-1"></a>On the other hand, female individuals of *P. antarcticus* remain the only group which has a notable overlap with other groups, namely both sexes of *P. adeliae*. @gorman2014, who conducted the study utilizing this data, suggested, regarding their $\delta ^{15} N$ signature, that the female *P. antarcticus* might rely more on a certain type of prey, which might then overlap with *P. adeliea*'s menu. This might also be a reason for the decreased breeding success. </span>
+<span id="cb20-476"><a href="#cb20-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-clutch-complete</span></span>
+<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Percentage of breed pair which completed the whole clutch (i.e. 2 eggs for *Pygoscelis* species)</span></span>
+<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a>clutch <span class="ot">&lt;-</span> comp.penguin <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">complete_clutch =</span> <span class="fu">round</span>(<span class="fu">sum</span>(Clutch.Completion <span class="sc">==</span> <span class="st">"Yes"</span>)<span class="sc">/</span><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(Clutch.Completion))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">2</span>))</span>
+<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a>clutch</span>
+<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a><span class="fu">### And at last, these are our adorable guests:</span></span>
 <span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">*P. papua* by [Australian Antarctic Program](https://www.antarctica.gov.au/about-antarctica/animals/penguins/gentoo-penguin/)</span><span class="co">](https://www.antarctica.gov.au/site/assets/files/45561/gentoo-feed-me.1200x0.jpg?nc=7328)</span></span>
-<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">*P. antarcticus* by Andrew Shiva on [Wikipedia](https://en.wikipedia.org/wiki/Chinstrap_penguin)</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg)</span></span>
-<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
+<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">*P. adeliae* by Dylan Shaw on [Unsplash](https://unsplash.com/photos/black-and-white-penguins-during-daytime-9k9tNQTwMEA)</span><span class="co">](https://images.unsplash.com/photo-1611920855276-06e04c91213a?q=80&amp;w=3087&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)</span></span>
+<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">*P. papua* by [Australian Antarctic Program](https://www.antarctica.gov.au/about-antarctica/animals/penguins/gentoo-penguin/)</span><span class="co">](https://www.antarctica.gov.au/site/assets/files/45561/gentoo-feed-me.1200x0.jpg?nc=7328)</span></span>
 <span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a>By the way, if anyone ever wondered -- yes, this is the exact same dataset they used to produce the <span class="in">`palmerpenguins`</span> package. I found the data at <span class="co">[</span><span class="ot">EDI Data Portal</span><span class="co">](https://portal.edirepository.org/nis/advancedSearch.jsp)</span> and didn't notice until I attached the images, because these three guys showing up at the same time is weirdly familiar to me. The dataset is therefore available by simply attaching the package. If you are interested in what more detailed results people have found with these data, you should check the paper from @gorman2014.</span>
-<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a><span class="al">![Surprise!](https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true)</span></span>
-<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reference</span></span>
-<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">*P. antarcticus* by Andrew Shiva on [Wikipedia](https://en.wikipedia.org/wiki/Chinstrap_penguin)</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/1280px-South_Shetland-2016-Deception_Island–Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg)</span></span>
+<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a>By the way, if anyone ever wondered -- yes, this is the exact same dataset they used to produce the <span class="in">`palmerpenguins`</span> package. I found the data at <span class="co">[</span><span class="ot">EDI Data Portal</span><span class="co">](https://portal.edirepository.org/nis/advancedSearch.jsp)</span> and didn't notice until I attached the images, because these three guys showing up at the same time is weirdly familiar to me. The dataset is therefore available by simply attaching the package. If you are interested in what more detailed results people have found with these data, you should check the paper from @gorman2014.</span>
+<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a><span class="al">![Surprise!](https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true)</span></span>
+<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reference</span></span>
 <span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
-<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a><span class="fu">## [R session and R packages]{.cl-title}</span></span>
-<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-509"><a href="#cb20-509" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-510"><a href="#cb20-510" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a><span class="fu">r_pkg_info</span>(pkgs)</span>
-<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-514"><a href="#cb20-514" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
+<span id="cb20-506"><a href="#cb20-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-507"><a href="#cb20-507" aria-hidden="true" tabindex="-1"></a><span class="fu">## [R session and R packages]{.cl-title}</span></span>
+<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
+<span id="cb20-514"><a href="#cb20-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-515"><a href="#cb20-515" aria-hidden="true" tabindex="-1"></a><span class="fu">r_pkg_info</span>(pkgs)</span>
+<span id="cb20-516"><a href="#cb20-516" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-517"><a href="#cb20-517" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

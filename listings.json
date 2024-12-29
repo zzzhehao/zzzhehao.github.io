@@ -14,5 +14,21 @@
       "/biology-research/community-ecology/Ecological-Niche.html",
       "/biology-research/journal/asbiologist.html"
     ]
+  },
+  {
+    "listing": "/news.html",
+    "items": [
+      "/404.html",
+      "/about.html",
+      "/biology-research/index.html",
+      "/gallery/blue-marble/blue-marble.html",
+      "/gallery/gallery.html",
+      "/gallery/motion-pictures.html",
+      "/index.html",
+      "/photography/color_palette.html",
+      "/biology-research/community-ecology/nicheROVER-Niche-Overlap.html",
+      "/biology-research/community-ecology/Ecological-Niche.html",
+      "/biology-research/journal/asbiologist.html"
+    ]
   }
 ]

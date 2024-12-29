@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,8 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-71c72119841fc9494d43a90b1f568a38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b9cc3ec05216833dd56de8d5f2418553.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70bf04432f48cf1c53d4eb7a3bd80c17.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d68d704062e552e35570234a037d3cdc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-R0FB3TL998"></script>
 
 <script type="text/javascript">
@@ -79,10 +110,39 @@ gtag('js', new Date());
 gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-</head>
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
-<body class="nav-fixed fullcontent">
+<link rel="alternate" type="application/rss+xml" title="Zhehao Hu" href="news.xml" data-external="1"></head>
+
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -142,6 +202,13 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <span class="menu-text">About me</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./biology-research/index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <a href="https://github.com/zzzhehao" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -155,7 +222,9 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(11)</span></div><div class="category" data-category="Q29tbXVuaXR5JTIwRWNvbG9neQ==">Community Ecology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMEFuYWx5c2lz">Data Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWNvbG9neQ==">Ecology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=">Multivariate Analysis <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -178,27 +247,311 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </header>
 
 
-<div class="disclaimer">
-<div class="disclaimer-container">
-<p><em>For more detailed update history, see my github repo commit history</em>.</p>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1734816900439" data-listing-reading-time-sort="2" data-listing-word-count-sort="288">
+<div class="thumbnail">
+<p><a href="./404.html" class="no-external"></a></p><a href="./404.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./404.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./404.html" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./404.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./404.html" class="no-external"></a>
 </div>
 </div>
-<p>[2024-10-11] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./gallery/blue-marble/blue-marble.html">Blue Marble</a>: Northern Lights in Hamburg!! New album page with dark theme.</p>
-<p>[2024-10-09] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> Update: <a href="./biology-research/CV_Zhehao_Hu.pdf">CV</a></p>
-<p>[2024-09-30] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> Update: <a href="./gallery/gallery.html">Gallery</a>: Rearranged in more light-sized albums. New photos published!</p>
-<p>[2024-09-18] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html">Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</a></p>
-<p>[2024-08-27] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./biology-research/community-ecology/Ecological-Niche.html">Ecological Niche</a></p>
-<p>[2024-08-22] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./photography/color_palette.html">Color palette</a></p>
-<p>[2024-08-19] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New album: <a href="./gallery/gallery.html">Life, 2024</a></p>
-<p>[2024-08-13] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./gallery/motion-pictures.html">Motion Pictures</a></p>
-<p>[2024-08-12] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> Update: <a href="./biology-research/CV_Zhehao_Hu.pdf">CV</a></p>
-<p>[2024-07-27] <img src="https://img.shields.io/badge/Research-%23466C8C?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./biology-research/asbiologist.qmd">Me as a biology student</a></p>
-<p>[2024-07-22] <img src="https://img.shields.io/badge/Photography-%23F27405?style=flat-square.png" class="img-fluid" alt="Static Badge"> New page: <a href="./gallery/gallery.html">Gallery</a></p>
-<p>[2024-06-28] Initialize the website.</p>
+<div class="metadata">
+<p><a href="./404.html" class="no-external"></a></p><a href="./404.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1735486277595" data-listing-reading-time-sort="11" data-listing-word-count-sort="2099">
+<div class="thumbnail">
+<p><a href="./about.html" class="no-external"></a></p><a href="./about.html" class="no-external">
+<p class="card-img-top"><img src="assets/images/hu-in-heath-cropped.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./about.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./about.html" class="no-external"><span class="cl-title">Feminized beetles <em>Altica lythri</em> with reproductive master manipulator <em>Wolbachia</em></span></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./about.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./about.html" class="no-external"><br></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./about.html" class="no-external"></a></p><a href="./about.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1735226217269" data-listing-reading-time-sort="2" data-listing-word-count-sort="305">
+<div class="thumbnail">
+<p><a href="./biology-research/index.html" class="no-external"></a></p><a href="./biology-research/index.html" class="no-external">
+<p class="card-img-top"><img src="assets/images/hu-in-heath-cropped.jpg" alt="Me being happy in the wild"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./biology-research/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./biology-research/index.html" class="no-external">Research Posts</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./biology-research/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./biology-research/index.html" class="no-external">I share here my notes and thoughts from course, event, workshop, conference related to my research.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./biology-research/index.html" class="no-external"></a></p><a href="./biology-research/index.html" class="no-external">
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1734816900452" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
+<div class="thumbnail">
+<p><a href="./gallery/blue-marble/blue-marble.html" class="no-external"></a></p><a href="./gallery/blue-marble/blue-marble.html" class="no-external">
+<p class="card-img-top"><img src="assets/gallery/thumbnails/aurorahh24.jpg" alt="Northern Lights over Hamburg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./gallery/blue-marble/blue-marble.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./gallery/blue-marble/blue-marble.html" class="no-external">Blue Marble</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./gallery/blue-marble/blue-marble.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./gallery/blue-marble/blue-marble.html" class="no-external">This content is under protection of CC BY-NC-ND 4.0 license.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./gallery/blue-marble/blue-marble.html" class="no-external"></a></p><a href="./gallery/blue-marble/blue-marble.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1735172898118" data-listing-reading-time-sort="1" data-listing-word-count-sort="193">
+<div class="thumbnail">
+<p><a href="./gallery/gallery.html" class="no-external"></a></p><a href="./gallery/gallery.html" class="no-external">
+<p class="card-img-top"><img src="assets/gallery/thumbnails/bestoffilm.jpg" alt="Best of Film"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./gallery/gallery.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./gallery/gallery.html" class="no-external">Albums</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./gallery/gallery.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./gallery/gallery.html" class="no-external">This content is under protection of CC BY-NC-ND 4.0 license.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./gallery/gallery.html" class="no-external"></a></p><a href="./gallery/gallery.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1734816900454" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
+<div class="thumbnail">
+<p><a href="./gallery/motion-pictures.html" class="no-external"></a></p><a href="./gallery/motion-pictures.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./gallery/motion-pictures.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./gallery/motion-pictures.html" class="no-external">Motion Picture</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./gallery/motion-pictures.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./gallery/motion-pictures.html" class="no-external">
 
-
-
-</main> <!-- /main -->
+<div style="padding:75% 0 0 0;position:relative;">
+<iframe src="https://player.vimeo.com/video/1002318715?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Hamburg - A Motion Picture">
+</iframe>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./gallery/motion-pictures.html" class="no-external"></a></p><a href="./gallery/motion-pictures.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1735226392727" data-listing-reading-time-sort="2" data-listing-word-count-sort="312">
+<div class="thumbnail">
+<p><a href="./index.html" class="no-external"></a></p><a href="./index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./index.html" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./index.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./index.html" class="no-external"></a></p><a href="./index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1734816900000" data-listing-file-modified-sort="1734816900456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="381">
+<div class="thumbnail">
+<p><a href="./photography/color_palette.html" class="no-external"></a></p><a href="./photography/color_palette.html" class="no-external">
+<p class="card-img-top"><img src="assets/palettes/hamburg-sunshine.jpg" alt="Hamburg Sunshine"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./photography/color_palette.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./photography/color_palette.html" class="no-external">Color palette</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./photography/color_palette.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./photography/color_palette.html" class="no-external">
+Yashica Mat-124G | Kodak Portra 160
+</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./photography/color_palette.html" class="no-external">
+<div class="listing-date">
+Dec 21, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791">
+<div class="thumbnail">
+<p><a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
+<p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image"></p>
+</a><p><a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbG9neQ=='); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Q29tbXVuaXR5JTIwRWNvbG9neQ=='); return false;">
+Community Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEFuYWx5c2lz'); return false;">
+Data Analysis
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM='); return false;">
+Multivariate Analysis
+</div>
+</div>
+<div class="listing-description">
+<a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"> </a>
+</div>
+</div>
+<div class="metadata">
+<a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
+<div class="listing-date">
+Sep 18, 2024
+</div>
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
+<div class="thumbnail">
+<p><a href="./biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="./biology-research/community-ecology/Ecological-Niche.html" class="no-external">
+<p class="card-img-top"><img src="https://images.unsplash.com/photo-1579273166152-d725a4e2b755?q=80&w=2801&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo by McGill Library on Unsplash"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./biology-research/community-ecology/Ecological-Niche.html" class="no-external">Ecological Niche</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbG9neQ=='); return false;">
+Ecology
+</div>
+</div>
+<div class="listing-description">
+<a href="./biology-research/community-ecology/Ecological-Niche.html" class="no-external">The total of the adaptations of an organismic unit.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./biology-research/community-ecology/Ecological-Niche.html" class="no-external">
+<div class="listing-date">
+Aug 27, 2024
+</div>
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971">
+<div class="thumbnail">
+<p><a href="./biology-research/journal/asbiologist.html" class="no-external"></a></p><a href="./biology-research/journal/asbiologist.html" class="no-external">
+<p class="card-img-top"><img src="assets/images/hu-in-heath-cropped.jpg" alt="Me being happy in the wild"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./biology-research/journal/asbiologist.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./biology-research/journal/asbiologist.html" class="no-external">As a Biology Student</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./biology-research/journal/asbiologist.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./biology-research/journal/asbiologist.html" class="no-external">“I don’t know why I came. I just ended up here. And I am happy with it.” </a>
+</div>
+</div>
+<div class="metadata">
+<a href="./biology-research/journal/asbiologist.html" class="no-external">
+<div class="listing-date">
+Jul 27, 2024
+</div>
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
