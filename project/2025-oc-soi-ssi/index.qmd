@@ -1,0 +1,35 @@
+---
+title: "Ocean Census South Sandwich Islands Expedition"
+date: 2025-01-30
+image: https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg
+format:
+  html:
+    include-before-body: 
+      - text: |
+          <div id="header-image">
+            <img src="https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg" alt="Header Image" width="100%">
+          </div>
+---
+
+```{r}
+#| output: asis
+#| echo: false
+source("functions/page_construct.R")
+forwardMsg("The beauty of life lies in its unpredictability.")
+header_image(y_transform = 5)
+```
+
+## The Mission
+
+We are going to South Sandwich Islands near Antarctica. The expedition is organized by Ocean Census and Schmidt Ocean Institute, sailing with SOI's R/V Falkor (Too). 
+
+## Public Engagement
+
+- SOI will stream the live video transmitted from ROV on [YouTube](https://www.youtube.com/@SchmidtOcean). Replay from other expeditions are also available. 
+- Ocean Census, SOI, GoSouth will conduct a joint campaign on the social media. Follow them there!
+  - Ocean Census: [{{< iconify mdi:instagram >}}](https://www.instagram.com/oceancensus/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/oceancensus)  
+  - Schmidt Ocean Institute [{{< iconify mdi:instagram >}}](https://www.instagram.com/schmidtocean/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/schmidt-ocean-institute/posts/?feedView=all)  
+
+## I also want to be involved!
+
+- If your expertise also aligns with Ocean Census's mission, become part of us by joining the Ocean Census Science Network! You will receive more information from future initiatives.

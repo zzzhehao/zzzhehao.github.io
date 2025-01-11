@@ -6,6 +6,9 @@ format:
         include-in-header: ../assets/bg-research.html
 description: |
     "I don’t know why I came. I just ended up here. And I am happy with it."
+feed:
+  categories:
+    - Journal
 ---
 
 ```{r}
@@ -21,7 +24,7 @@ forwardMsg()
 
 I grew up in urban cities, but it did not keep me away from nature. Tamagawa (多摩川), a river that flows through Tokyo, shaped my first memories of nature. I have been interested in natural science since then. Yet, my four years in Schwerin had the most impact on my career choice. Schwerin was a small town surrounded by lakes, with nature within walking distance. I spent a lot of time wandering through the nature park and forests with my camera, which gradually drew me into this fantastic field. Birds, with their high mobility and integrated lifestyle with humans, became my favorite. Besides their freedom of flight, which I dreamed of at countless moments, I was also attracted to their elegance and intelligence.
 
-![Seagull breeding its kid](../assets/images/seagull.jpg){width=60%}
+![Seagull breeding its kid](/assets/images/seagull.jpg){width=60%}
 
 Another passion of mine lies in the ocean. The magical power of the ocean has attracted me in so many ways, too many to sort through. It feels like a born instinct how the sounds of waves, the blue of the depths, and the twinkling of the water trigger my emotions and actions. 
 
@@ -64,7 +67,7 @@ Eventually, I have come to realize that evolution was exactly what caught me on 
 
 The year in the research group was the most precious year I had during the program. I even had the opportunity to attend an academic conference, the DZG (German Zoological Society) annual meeting in Kassel as an undergraduate student. As I wrote in the acknowledgments of my thesis, I can’t express enough gratitude to Kim, my supervisor, who offered the opportunities in the first place; to Susanne, our group leader, for showing me how an honored researcher should be; to Mario Röpcke, a fellow PhD student in the group, and to Dr. Shabnam Mohammadi, for the various help they offered during the year. I will treasure this memory for the rest of my life.
 
-![Me and my poster](../assets/images/hu-poster.jpg){width=60%}
+![Me and my poster](/assets/images/hu-poster.jpg){width=60%}
 
 ### Going Further
 
@@ -104,5 +107,3 @@ Interdisciplinarity has become an important aspect of research nowadays, especia
 ## CV
 
 I want to thank you all for reading this far. I hope my words give you a better idea of who I am, but there are also some points I did not mention. For more information, you can find my CV [here](/biology-research/CV_Zhehao_Hu.pdf).
-
-I will be very happy if you find my story and my future vision align with your interest. If so, please don’t hesitate to reach out! Also please check the posts I wrote, I appreciate any advices and comments!

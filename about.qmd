@@ -13,8 +13,6 @@ format:
       caption: none
       source: true
     highlight-style: atom-one-dark
-
-include-in-header: <script src="/picked-photo/daily-pick.js"></script>
   
 include-after-body: 
     - biology-research/research-footer.html
@@ -29,7 +27,6 @@ listing:
     sort: "date desc"
     sort-ui: false
     filter-ui: false
-    image-lazy-loading: true
     type: table
     date-format: iso
     contents: 
@@ -38,7 +35,6 @@ listing:
         - "/closeread/bio-*.qmd"
         - "!draft*.qmd"
         - "!CV.qmd"
-        - "!feeds/*.qmd"
 ---
 
 ```{=html}
@@ -177,17 +173,19 @@ Zhehao Hu
 
 I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these! 
 
-I am a M.Sc. Biology Student at University of Hamburg. I specialized in molecular lab technics and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in some biology happening out there in the wild. I am trying my best to find a balance between these. 
+I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on Molecular Ecology and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.
 
-I am interested in eco-evolutionary dynamics of various ecosystems and organisms in terms of adaptation and biogeography. I am currently involved in three projects:
+In particular I am interested in eco-evolutionary dynamics of various ecosystems and organisms in terms of adaptation and biogeography. I am currently involved in three projects:
 
-- About *Wolbachia*-infected, female-biased beetles *Altica lythri* relating to my bachelor thesis (see my poster for DZG 2023 [here](biology-research/assets/Poster DZG ZH 2024.png))
-- An internship around the genus *Acanthocope*, a deep-sea Munnopsidae (Isopoda);
-- And my (upcoming) master thesis (still in the exploring stage).
+::: {.callout-caution appearance="minimal" style="padding-bottom: 1em; padding-top: 0.6em; margin-bottom: 0.5em; margin-top: 0.5rm; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
 
-::: {.callout-caution appearance="minimal" style="font-sze:0.5rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+## [Feminized beetles *Altica lythri* with reproductive master manipulator *Wolbachia*]{.cl-title}
 
-## [*Wolbachia* - *Altica lythri* related publications]{.cl-sub}
+All have started with a wild sex ratio distortion only associated with certain mitochondrial haplotypes of a polyphyletic flea beetle species *Altica lythri* with introgression history. Previous work has observed strong correlation between presence of sex ratio distortion, certain mitochondrial haplotypes, and single *Wolbahcia* strains. We could then confirm an active feminization during the reproduction, now there's the question - is this another master piece of the evolutionary most stunning bacteria *Wolbachia*? We have observed a shift in *Wolbachia* community composition among the haplotypes and the mystery still awaits to be unraveled. 
+
+This was part of my bachelor thesis and we are now expanding the scale of dataset aiming for publication.
+
+Related publications:
 
 - Jäckel et al. [Evidence for Selective Sweeps by Wolbachia Infections: Phylogeny of Altica Leaf Beetles and Their Reproductive Parasites](https://doi.org/10.1111/mec.12389), 2013.
 - Rohlfing et al. [When Does the Female Bias Arise? Insights from the Sex Determination Cascade of a Flea Beetle with a Strongly Skewed Sex Ratio](https://doi.org/10.1007/s10142-023-01023-1), 2023.
@@ -195,21 +193,41 @@ I am interested in eco-evolutionary dynamics of various ecosystems and organisms
 
 :::
 
-::: {.callout-caution appearance="minimal" style="font-sze:0.5rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+::: {.callout-caution appearance="minimal" style="padding-bottom: 1em; padding-top: 0.6em; margin-bottom: 0.5em; margin-top: 0.5rm; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
 
-## A CLSM scanning 
+## [Integrative Taxonomy of *Acanthocope* Beddard, 1885 (Isopoda: Munnopsidae)]{.cl-title}
 
-<!-- ![*Acanthocope sp.* by Kelly Merrin - [WoRMS](https://www.marinespecies.org/photogallery.php?album=720&pic=103014)](https://images.marinespecies.org/thumbs/103014_acanthocope-sp.jpg?w=700) -->
+Deep-sea Munnopsidae Isopod with fantastic swimming ability can be used as a powerful research object to assess benthic species community and connectivity of deep-sea ecosystems. *Acanthocope spp*, ***is additionally a beautiful genus consisting many recently new discovered species***. With interdisciplinary work being promoted more and more in last years, there's still huge amount of work to do - the genetic data is vastly missing in context of the deep-sea, also for *Acanthocope*. I've started revise some described species with different approach - conventional morphological species description, proteomics fingerprinting analysis, biogeographic analysis cooperating with DNA barcoding techniques. I ask particularly: "**How exactly are the species different from each other? Can we pass our knowledge to non-expert to efficiently and accurately identify known species of this genus?**"
+
+![**Color coded projection of a Confocal Laser Scanning Microscopy of _Acanthocope unicornis_ MENZIES 1962**. Collected during the IceDivA expedition (2021) using an epibenthic sled (EBS) in the Northern Atlantic at 4,155 m depth. © Zhehao Hu. Senckenberg am Meer, German Centre for Marine Biodiversity Research (DZMB)](/assets/images/Auni_Habitus_Zcolor_Fire_comp.png)
 
 :::
 
-<br>
+::: {.callout-caution appearance="minimal" style="padding-bottom: 1em; padding-top: 0.6em; margin-bottom: 0.5em; margin-top: 0.5rm; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [Ocean Census South Sandwich Islands Expedition 2025]{.cl-title}
+
+Ocean Census are going to Southern Ocean near Antarctica next February, onboard of Schmidt Ocean Institute's R/V Falkor (Too). We will be using ROV SuBastian to collect deep-sea samples around South Sandwich Islands and South Sandwich Trench. The major mission of the biologist onboard is discover unknown species in the deep. 
+
+The ROV is also equipped with live cameras and the real-time footage will be streamed by SOI on [YouTube](https://www.youtube.com/@SchmidtOcean). 
+
+![R/V Falkor (Too) © Schmidt Ocean Institute](https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg)
+
+:::
+
+## {{< iconify streamline:hand-held-tablet-writing >}} Posts
+
+I also use this website to share my knowledge, many of them are basically refined version of my own notes. I do this because I've been helped by posts on the internet from others multiple times, and I don't want this kindness to stop with me. I also value all kind of suggestions and comments.
+
+::: {#ls-all}
+:::
 
 ## {{< iconify ph:film-reel >}} Hobby
 
 I take a lot of photos, simply to treasure the moments that I enjoyed and loved. I don't limit myself in certain technics or topics - I shoot both analog and digital, still and motion picture, I once tried cyanotype too, and would love to start again. I shoot wonderful nature, starlight, but also urban landscapes, people, or small things in life. 
 
-I use photography as a way to express myself. People say the world is as one sees it. I haven't experienced excessive grief, but I've certainly seen enough. So when I create something back for the world, I want them to be something less hurting. New media has massively promoted the hatred-misery-pandemic, but I choose to break the cycle. 
+I use photography as a way to express myself. People say the world is as one sees it. I haven't experienced excessive grief, but I've certainly seen enough. So when I create something back for the world, I want them to be something less hurting. 
+<!-- New media has massively promoted the hatred-misery-pandemic, but I choose to break the cycle.  -->
 
 [Here](/gallery/gallery.qmd) you can see all my albums and [here](/gallery/motion-pictures.qmd) are some picked motion pictures. Also check [here](/gallery/blue-marble/blue-marble.qmd) for star / astro topics.
 
@@ -219,27 +237,23 @@ I use photography as a way to express myself. People say the world is as one see
 
 <br>
 
-## {{< iconify streamline:hand-held-tablet-writing >}} Posts
+That being said, if human had the ability to explore the deep space physically, I will definitely go off-world.
 
-I also use this website to share my knowledge, many of them are basically refined version of my own notes. I do this because I've been helped by posts on the internet from others multiple times, and I don't want this kindness to stop with me. I also value all kind of suggestions and comments.
+![**M42, AKA Orion Nebula**. Stacked from 2000 frames per 0.5 s exposure. This is probably the best I can get with normal photographic lens and without equatorial mount before blowing up my storage.](/assets/images/M42_20241224_Sequartor_processed.png){width="65%"}
 
-::: {#ls-all}
-:::
-
-## {{< iconify pajamas:lock-open >}} Open Science
+<!-- ## {{< iconify pajamas:lock-open >}} Open Science
 
 Science should be open to everyone, regardless of whatever people use to categorize others. I recently shared my notes on *Evolutionary Systematics* and would appreciate any contribution from fellow open-minded scientists. The goal is to compile introductions to various related topics in one place and serve as a signpost for those who wants to start in the field.
 
-Evolutionary Systematics: A note repo for open science and for everyone: [zzzhehao/EvoSys](https://github.com/zzzhehao/EvoSys).
+Evolutionary Systematics: A note repo for open science and for everyone: [zzzhehao/EvoSys](https://github.com/zzzhehao/EvoSys). -->
 
 ## {{< iconify material-symbols:fact-check-outline-rounded >}} Random Facts
 
 - Avocado in sushi is to me what pineapple on pizza is to Italians. 
-- If I have to choose between avocado sushi and working with Q-GIS, I'm gonnna choose avocado sushi ultra max. 
-- I am hopelessly spontaneous. I once planned to go to the library but then ended up doing some gardening with professors and fellows the whole afternoon and got nothing done for my plan. (Gardening is important!)
-
-![Someone's enjoying](/assets/images/gardening.png){width="50%"}
-
-- I am also hopelessly nosy, literally an intel black hole.
+- If I have to choose between avocado sushi and working with Q-GIS, I'm going for avocado sushi ultra max. 
+- I am hopelessly spontaneous.
 - I dive. 
-- When I'm upset I listen to my [childhood bgm](https://youtu.be/F8LNaPz6iIM?si=31EmGv8OagFh9m5g&t=2723).
+<!-- - When I'm upset I listen to my [childhood bgm](https://youtu.be/F8LNaPz6iIM?si=31EmGv8OagFh9m5g&t=2723). -->
+- I don't care what the others say, Classical and Jazz sound way much better on vinyl.
+
+![Someone's enjoying gardening work](/assets/images/gardening.png){width="50%"}

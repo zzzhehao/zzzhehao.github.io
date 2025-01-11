@@ -2,7 +2,7 @@
 
 /*-- scss:defaults --*/
 
-$font-size-root: 100%;
+$font-size-root: 95%;
 
 .figure {
     padding-top: 1.6em;
@@ -11,8 +11,8 @@ $font-size-root: 100%;
     text-align: center;
 }
 
-.figcaption {
-    margin-top: 2em;
+figure figcaption {
+    margin-top: 1em;
 }
 
 .forward {
@@ -37,7 +37,7 @@ $font-size-root: 100%;
 
 body {
     padding-bottom: 1.1em;
-    font-weight: 320;
+    font-weight: 280;
 }
 
 h2 {
@@ -63,17 +63,23 @@ div.tippy-box {
     background-color: var(--background-color);
 }
 
-.category.active{
-    color: #f2a94f; 
+.category.active {
+    color: #f2a94f;
 }
 
 .cl-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 380;
 }
 
 .cl-sub {
     font-size: 1rem;
     font-weight: 400;
+}
+
+.callout-body {
+    margin-top: 1em;
+    // padding-top: 1em;
 }
 
 .quarto-title-meta-author {
@@ -90,14 +96,18 @@ p {
     font-weight: 320;
 }
 
+strong {
+    font-weight: 700 !important;
+}
+
 // img {
 //     margin-top: 1.5em;
 // }
 
-.img-fluid {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 1.6em;
-    padding-bottom: 1.5em;
-}
+// .img-fluid {
+//     display: block;
+//     margin-left: auto;
+//     margin-right: auto;
+//     padding-top: 1.6em;
+//     padding-bottom: 1.5em;
+// }

@@ -5,12 +5,12 @@ project:
     - "*.png"
     - "*.pdf"
     - "*.json"
-    - "shinylive-sw.js"
   render: 
     - "*.qmd"
     - "!comments/"
     - "!resource/"
-    # - "!draft**.qmd"
+    - "!closeread/"
+    - "!draft**.qmd"
 
   execute-dir: project
   output-dir: _site
@@ -23,7 +23,7 @@ website:
   site-url: https://zzzhehao.github.io/
   site-path: ./
   description: "Zhehao Hu's Personal Website"
-  draft-mode: unlinked
+  draft-mode: gone
   google-analytics: "G-R0FB3TL998"
 
   navbar: 
@@ -43,15 +43,14 @@ website:
         menu:
           - text: "Posts"
             href: biology-research/index.qmd
-          - text: "Feed"
-            href: biology-research/feeds/feed.qmd
           - text: "CV"
             href: biology-research/assets/CV_Zhehao_Hu.pdf
 
       - text: "About me"
         href: about.qmd
-      # - text: "What's new"
-      #   href: news.qmd
+    right:
+      - icon: rss
+        href: /biology-research/index.xml
 
     tools: 
       - icon: github

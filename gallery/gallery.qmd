@@ -42,9 +42,11 @@ albums <- yaml.load_file("gallery/albums.yml")
 
 # Generate the HTML for each album
 for (album in albums) {
-if (album$year == 0) {album$year <- ''}
-album$thumbnail <- paste0('../assets/gallery/thumbnails/', album$name, '.jpg')
-    cat(sprintf('
+  if (album$year == 0) {
+    album$year <- ""
+  }
+  album$thumbnail <- paste0("../assets/gallery/thumbnails/", album$name, ".jpg")
+  cat(sprintf('
 <div class="album-thumbnail" data-album="%s">
 <a href="#%s">
 <img src="%s" alt="%s">

@@ -26,7 +26,7 @@ source("functions/page_construct.R")
 forwardMsg()
 ```
 
-![Photo by [McGill Library](https://unsplash.com/@mcgilllibrary?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/two-brown-and-white-birds-perching-on-tree-branch-illustration-osPrIcTwJy4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](assets/ecological-niche-cover.jpg){.preview-image width=75% .no-lightbox}
+![Photo by [McGill Library](https://unsplash.com/@mcgilllibrary?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/two-brown-and-white-birds-perching-on-tree-branch-illustration-osPrIcTwJy4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](https://images.unsplash.com/photo-1579273166152-d725a4e2b755?q=80&w=2801&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D){.preview-image width=75% .no-lightbox}
 
 <br><br>
 

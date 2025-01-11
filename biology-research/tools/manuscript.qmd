@@ -1,0 +1,121 @@
+---
+title: Password protected Quarto Manuscript for Collaborative Sharing
+date: 2025-01-20
+---
+
+Basic idea is to write on Quarto with ability to share with others.
+
+Quarto offers a manuscript project type, which is a special version of website. So sharing the manuscript is simply done by publishing the manuscript to GitHub page (See how to setup and deploy Github pages with Quarto [here](https://quarto.org/docs/websites/) and what is a manuscript project [here](https://quarto.org/docs/manuscripts/)). Concerning sensitive information, manuscript should remain password protected before publishing and the remote repo remains private. So that everything goes online restricts to rendered pages in `gh-pages` branch. Control what to be rendered in `_quarto.yml`.
+
+I have a parent folder for my entire project, with all my docs, data, scripts, analysis, results inside, the publication using Quarto project is a git submodule nested in the parent folder. Quarto project is also built up for each publication individually in an unnested way so they don't interfere. Consider although to put globally applicable resources like themes, CSS, and variables at higher level for easy reference.
+
+Manuscript project also offers a nice way to organize course materials, notes, and writing final reports.
+
+## Setup
+
+### Git Submodule
+
+Where `_quarto.yml` lies is recognized as root dir of the manuscript project. In such case considering initialize the manuscript as a git submodule for better version control.
+
+```bash
+$ cd <manuscript-dir>
+$ git init
+$ git remote add origin <manuscript-repo-url>
+$ cd <parent-dir>
+$ git submodule add <manuscript-repo-url>
+```
+
+After successfully structured as submodule, `.gitmodule` will show up at root dir of the parent dir.
+
+#### `.gitignore`
+
+Setup version control.
+
+```txt
+/site_libs/
+
+# Quarto
+/_freeze/
+/.quarto/
+/_site/
+*_files/
+```
+
+### Quarto Setup
+
+#### `_quarto.yml`
+
+Minimal Quarto setup, including a bash script for file encryption with `post-render` pointing to the file from Quarto project root directory (i.e. where `_quarto.yml` is).
+
+```yaml
+project:
+	execute-dir: project
+	type: manuscript
+	post-render:
+		- ./encrypt.sh
+
+manuscript:
+	notebooks:
+		- notebook: introduction.qmd
+		  title: Introduction
+```
+
+### Encryption
+
+Use [Greenheart/pagecrypt](https://github.com/Greenheart/pagecrypt) to encrypt files with password, which can be decrypted at reader side on a static webpage.
+
+#### Install Pagecrypt
+
+```bash
+$ npm installl pagecrypt
+```
+
+This will create `package-lock.json`, `package.json` and `node_modules/`. Configure `package.json` as following:
+
+```json
+{
+	"devDependencies": {
+		"pagecrypt": "^6.1.1"
+	},
+	"scripts": {
+		"publish": "quarto publish gh-pages",
+		"render": "quarto render"
+	}
+}
+```
+
+The script "build" will execute `quarto publish gh-pages` in terminal when we run `npm run build`.
+
+#### Encryption Script
+
+Create `encrypt.sh` with following lines:
+
+```bash
+$ if [ -z "${QUARTO_PROJECT_RENDER_ALL}" ]; then
+$ echo "QUARTO_PROJECT_RENDER_ALL is not set. Exiting."
+$ exit 0
+$ fi
+
+$ PASSWORD="PASSWORD"
+
+# Encrypt all HTML files in the _site directory
+$ for file in _manuscript/*.html; do
+$ pagecrypt "$file" "${file}.tmp" "$PASSWORD"
+$ mv "${file}.tmp" "$file"
+$ done
+```
+
+- Replace `"PASSWORD"` with own password.
+
+## Workflow
+
+1. Write manuscript as intended in `index.qmd` as core article, and in notebooks specified in `_quarto.yml`
+2. Use `quarto preview` command to preview html page in IDE (tested on Positron)
+3. Use `npm run render` to render all .qmd files, as well as specified format locally.
+4. Use `npm run publish` to publish whole manuscript website to github page.
+5. Access the page with normal link `<user_name>.github.io/<repo>` and provide password via secured channel, or share the page with a magic link: `<user_name>.github.io/<repo>#<password>`. Details see [Greenheart/pagecrypt](https://github.com/Greenheart/pagecrypt).
+
+## Explanation
+
+- Direct execution of `quarto render` or `quarto publish` could not successfully execute pagecrypt. Error message saying "Pagecrypt command not found" will occure. Potentially because Quarto is creating a unique environment which does not include npm module while rendering. So I wrap the task using npm script instead.
+- `QUARTO_PROJECT_RENDER_ALL` variable indicates if the rendering command is trying to render the whole project (case of our `npm run render/publish`), or not (only the current page in case of `quarto preview`). The encryption will only be triggered when the whole project is being rendered. This prevents encrypting file while previewing in IDE.
