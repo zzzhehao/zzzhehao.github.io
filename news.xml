@@ -10,7 +10,509 @@
 <atom:link href="https://zzzhehao.github.io/news.xml" rel="self" type="application/rss+xml"/>
 <description>Zhehao Hu&#39;s Personal Website</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Sat, 21 Dec 2024 21:35:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 29 Jan 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Ocean Census South Sandwich Islands Expedition</title>
+  <dc:creator>Zhehao Hu</dc:creator>
+  <link>https://zzzhehao.github.io/project/2025-oc-soi-ssi/</link>
+  <description><![CDATA[ 
+<div id="header-image">
+  <img src="https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg" alt="Header Image" width="100%">
+</div>
+
+
+
+
+<figure class="figure">
+<figcaption class="forward">
+The beauty of life lies in its unpredictability.
+</figcaption>
+</figure>
+<style>
+    #header-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    #header-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(5%);
+    }
+
+    #quarto-content {
+        margin-top: 400px;
+    }
+</style>
+<section id="the-mission" class="level2">
+<h2 class="anchored" data-anchor-id="the-mission">The Mission</h2>
+<p>We are going to South Sandwich Islands near Antarctica. The expedition is organized by Ocean Census and Schmidt Ocean Institute, sailing with SOI’s R/V Falkor (Too).</p>
+</section>
+<section id="public-engagement" class="level2">
+<h2 class="anchored" data-anchor-id="public-engagement">Public Engagement</h2>
+<ul>
+<li>SOI will stream the live video transmitted from ROV on <a href="https://www.youtube.com/@SchmidtOcean" target="_blank">YouTube</a>. Replay from other expeditions are also available.</li>
+<li>Ocean Census, SOI, GoSouth will conduct a joint campaign on the social media. Follow them there!
+<ul>
+<li>Ocean Census: <a href="https://www.instagram.com/oceancensus/" target="_blank"><iconify-icon inline="" icon="mdi:instagram" aria-label="Icon instagram from mdi Iconify.design set." title="Icon instagram from mdi Iconify.design set."></iconify-icon></a> <a href="https://www.linkedin.com/company/oceancensus" target="_blank"><iconify-icon inline="" icon="mdi:linkedin" aria-label="Icon linkedin from mdi Iconify.design set." title="Icon linkedin from mdi Iconify.design set."></iconify-icon></a><br>
+</li>
+<li>Schmidt Ocean Institute <a href="https://www.instagram.com/schmidtocean/" target="_blank"><iconify-icon inline="" icon="mdi:instagram" aria-label="Icon instagram from mdi Iconify.design set." title="Icon instagram from mdi Iconify.design set."></iconify-icon></a> <a href="https://www.linkedin.com/company/schmidt-ocean-institute/posts/?feedView=all" target="_blank"><iconify-icon inline="" icon="mdi:linkedin" aria-label="Icon linkedin from mdi Iconify.design set." title="Icon linkedin from mdi Iconify.design set."></iconify-icon></a></li>
+</ul></li>
+</ul>
+</section>
+<section id="i-also-want-to-be-involved" class="level2">
+<h2 class="anchored" data-anchor-id="i-also-want-to-be-involved">I also want to be involved!</h2>
+<ul>
+<li>If your expertise also aligns with Ocean Census’s mission, become part of us by joining the Ocean Census Science Network! You will receive more information from future initiatives.</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <guid>https://zzzhehao.github.io/project/2025-oc-soi-ssi/</guid>
+  <pubDate>Wed, 29 Jan 2025 23:00:00 GMT</pubDate>
+  <media:content url="https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Password protected Quarto Manuscript for Collaborative Sharing</title>
+  <dc:creator>Zhehao Hu</dc:creator>
+  <link>https://zzzhehao.github.io/biology-research/tools/manuscript.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Basic idea is to write on Quarto with ability to share with others.</p>
+<p>Quarto offers a manuscript project type, which is a special version of website. So sharing the manuscript is simply done by publishing the manuscript to GitHub page (See how to setup and deploy Github pages with Quarto <a href="https://quarto.org/docs/websites/" target="_blank">here</a> and what is a manuscript project <a href="https://quarto.org/docs/manuscripts/" target="_blank">here</a>). Concerning sensitive information, manuscript should remain password protected before publishing and the remote repo remains private. So that everything goes online restricts to rendered pages in <code>gh-pages</code> branch. Control what to be rendered in <code>_quarto.yml</code>.</p>
+<p>I have a parent folder for my entire project, with all my docs, data, scripts, analysis, results inside, the publication using Quarto project is a git submodule nested in the parent folder. Quarto project is also built up for each publication individually in an unnested way so they don’t interfere. Consider although to put globally applicable resources like themes, CSS, and variables at higher level for easy reference.</p>
+<p>Manuscript project also offers a nice way to organize course materials, notes, and writing final reports.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="git-submodule" class="level3">
+<h3 class="anchored" data-anchor-id="git-submodule">Git Submodule</h3>
+<p>Where <code>_quarto.yml</code> lies is recognized as root dir of the manuscript project. In such case considering initialize the manuscript as a git submodule for better version control.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> cd <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>manuscript-dir<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span>
+<span id="cb1-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> git init</span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> git remote add origin <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>manuscript-repo-url<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span>
+<span id="cb1-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> cd <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>parent-dir<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span>
+<span id="cb1-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> git submodule add <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>manuscript-repo-url<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span></code></pre></div>
+<p>After successfully structured as submodule, <code>.gitmodule</code> will show up at root dir of the parent dir.</p>
+<section id="gitignore" class="level4">
+<h4 class="anchored" data-anchor-id="gitignore"><code>.gitignore</code></h4>
+<p>Setup version control.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1">/site_libs/</span>
+<span id="cb2-2"></span>
+<span id="cb2-3"># Quarto</span>
+<span id="cb2-4">/_freeze/</span>
+<span id="cb2-5">/.quarto/</span>
+<span id="cb2-6">/_site/</span>
+<span id="cb2-7">*_files/</span></code></pre></div>
+</section>
+</section>
+<section id="quarto-setup" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-setup">Quarto Setup</h3>
+<section id="quarto.yml" class="level4">
+<h4 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h4>
+<p>Minimal Quarto setup, including a bash script for file encryption with <code>post-render</code> pointing to the file from Quarto project root directory (i.e.&nbsp;where <code>_quarto.yml</code> is).</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">project</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb3-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">execute-dir</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> project</span></span>
+<span id="cb3-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">type</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> manuscript</span></span>
+<span id="cb3-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">post-render</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb3-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ./encrypt.sh</span></span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">manuscript</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb3-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">notebooks</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb3-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">notebook</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> introduction.qmd</span></span>
+<span id="cb3-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Introduction</span></span></code></pre></div>
+</section>
+</section>
+<section id="encryption" class="level3">
+<h3 class="anchored" data-anchor-id="encryption">Encryption</h3>
+<p>Use <a href="https://github.com/Greenheart/pagecrypt" target="_blank">Greenheart/pagecrypt</a> to encrypt files with password, which can be decrypted at reader side on a static webpage.</p>
+<section id="install-pagecrypt" class="level4">
+<h4 class="anchored" data-anchor-id="install-pagecrypt">Install Pagecrypt</h4>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> npm installl pagecrypt</span></code></pre></div>
+<p>This will create <code>package-lock.json</code>, <code>package.json</code> and <code>node_modules/</code>. Configure <code>package.json</code> as following:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb5-2">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"devDependencies"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb5-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"pagecrypt"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"^6.1.1"</span></span>
+<span id="cb5-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">},</span></span>
+<span id="cb5-5">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"scripts"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb5-6">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"publish"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"quarto publish gh-pages"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-7">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"render"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"quarto render"</span></span>
+<span id="cb5-8">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb5-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p>The script “build” will execute <code>quarto publish gh-pages</code> in terminal when we run <code>npm run build</code>.</p>
+</section>
+<section id="encryption-script" class="level4">
+<h4 class="anchored" data-anchor-id="encryption-script">Encryption Script</h4>
+<p>Create <code>encrypt.sh</code> with following lines:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> if [ <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${QUARTO_PROJECT_RENDER_ALL}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> ]<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb6-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> echo <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"QUARTO_PROJECT_RENDER_ALL is not set. Exiting."</span></span>
+<span id="cb6-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> exit 0</span>
+<span id="cb6-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> fi</span>
+<span id="cb6-5"></span>
+<span id="cb6-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> PASSWORD=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PASSWORD"</span></span>
+<span id="cb6-7"></span>
+<span id="cb6-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Encrypt all HTML files in the _site directory</span></span>
+<span id="cb6-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> for file in _manuscript/<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span>.html<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">do</span></span>
+<span id="cb6-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> pagecrypt <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$file</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${file}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.tmp"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$PASSWORD</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb6-11"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> mv <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${file}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.tmp"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$file</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb6-12"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> done</span></code></pre></div>
+<ul>
+<li>Replace <code>"PASSWORD"</code> with own password.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<ol type="1">
+<li>Write manuscript as intended in <code>index.qmd</code> as core article, and in notebooks specified in <code>_quarto.yml</code></li>
+<li>Use <code>quarto preview</code> command to preview html page in IDE (tested on Positron)</li>
+<li>Use <code>npm run render</code> to render all .qmd files, as well as specified format locally.</li>
+<li>Use <code>npm run publish</code> to publish whole manuscript website to github page.</li>
+<li>Access the page with normal link <code>&lt;user_name&gt;.github.io/&lt;repo&gt;</code> and provide password via secured channel, or share the page with a magic link: <code>&lt;user_name&gt;.github.io/&lt;repo&gt;#&lt;password&gt;</code>. Details see <a href="https://github.com/Greenheart/pagecrypt" target="_blank">Greenheart/pagecrypt</a>.</li>
+</ol>
+</section>
+<section id="explanation" class="level2">
+<h2 class="anchored" data-anchor-id="explanation">Explanation</h2>
+<ul>
+<li>Direct execution of <code>quarto render</code> or <code>quarto publish</code> could not successfully execute pagecrypt. Error message saying “Pagecrypt command not found” will occure. Potentially because Quarto is creating a unique environment which does not include npm module while rendering. So I wrap the task using npm script instead.</li>
+<li><code>QUARTO_PROJECT_RENDER_ALL</code> variable indicates if the rendering command is trying to render the whole project (case of our <code>npm run render/publish</code>), or not (only the current page in case of <code>quarto preview</code>). The encryption will only be triggered when the whole project is being rendered. This prevents encrypting file while previewing in IDE.</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <guid>https://zzzhehao.github.io/biology-research/tools/manuscript.html</guid>
+  <pubDate>Sun, 19 Jan 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Acanthocope</title>
+  <dc:creator>Zhehao Hu</dc:creator>
+  <link>https://zzzhehao.github.io/biology-research/journal/Acanthocope.html</link>
+  <description><![CDATA[ 
+<div id="header-image">
+  <img src="https://zzzhehao.github.io/assets/images/Aunicornis_habitus_CyanHot_AVG_241124.jpeg" alt="Header Image">
+</div>
+
+
+
+
+<figure class="figure">
+<figcaption class="forward">
+The beauty of life lies in its unpredictability.
+</figcaption>
+</figure>
+<style>
+    #header-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    #header-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(10%);
+    }
+
+    #quarto-content {
+        margin-top: 400px; 
+    }
+</style>
+<p>I have been interested in Ocean since a while even before my university life, but if you ask me a year ago whether I can imagine myself involved in deep-sea research, and even got a chance to travel to Antarctica, I would give you a doubtful look and say “No.”</p>
+<p>All of this have to trace back to about a year ago, when I started my master program.</p>
+<section id="rejection-rejection-rejection-rejection-and-rejection" class="level2">
+<h2 class="anchored" data-anchor-id="rejection-rejection-rejection-rejection-and-rejection">Rejection, rejection, rejection, rejection and rejection</h2>
+<p>If you have read <a href="../general-posts/asbiologist.qmd" target="_blank">my previous journal</a>, you would know that I was planning to embrace the industry of the 21st century - pharmacy, molecular and clinical technology and research. This idea and goal basically drove my decision for my entire bachelor program. I applied for neurophysiology class twice during bachelor, got rejected both time because I wasn’t lucky enough to get a spot (or am I lucky?). I tried applying for another three courses in master too (basically all neuroscience course we can apply for). I even put them at my first three priorities, got rejected from all of them again, because of lack of spot. Instead, I got my 5th course <em>Evolutionary Systematics</em>, and my last (9th I think) wish, which is <em>Marine Benthic Habitat and Biodiversity</em>.</p>
+<p>You might found this a bit inconsistent with my previous journal, but that one was written after all this incidents, so the story here actually predates writing that post.</p>
+<p>Interesting thing, there was an opening week for new students when the first master’s semester began, where all the working groups from the university make a short presentation about their research and course they provide. I was back at Hamburg from Taiwan a week earlier and received a warm (40ºC) welcome by the influenza and couldn’t even think rationally. But it turned out I missed nothing because the working group who offer the Marine course was forgotten by our administrative office (I will elaborate on that in bit more detail later). I discovered the course on our program manual and simply applied to fill out my priority list. Ironically, I started working in the working group who offer the Neurophysiology course since this summer. It’s a student job to assist genotyping mice which they use for animal experiments, and the staffs were so nice and offered me an internal referral to get into the course they provide. But I was already fully scheduled so I didn’t take that offer.</p>
+<figure class="figure">
+<img src="https://preview.redd.it/hq2ronx4juvz.jpg?auto=webp&amp;s=dea66001de19b6191aeba4f8cc536fa63d4c510f" class="figure-img">
+</figure>
+<p>And what I was busy taking care of, was ironically again, derived from the 9th course.</p>
+</section>
+<section id="the-course" class="level2">
+<h2 class="anchored" data-anchor-id="the-course">The course</h2>
+<p>The course was cold “Marine Deep-Sea Benthic Habitats and Diversity”, led by Prof.&nbsp;Dr.&nbsp;Saskia Brix and Dr.&nbsp;Anne-Nina Lörz. To be honest, I had a bit</p>
+</section>
+<section id="internship" class="level2">
+<h2 class="anchored" data-anchor-id="internship">Internship</h2>
+</section>
+<section id="at-wilhelmshaven" class="level2">
+<h2 class="anchored" data-anchor-id="at-wilhelmshaven">At Wilhelmshaven</h2>
+</section>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next Step</h2>
+<p>I was lucky enough - on the day I received a rejection for an expedition in next January, my supervisor passed me another berth offer came from Ocean Census.</p>
+<p>Yes, I will be sailing with them along with Schmidt Ocean Institute’s research vessel R/V Falkor (too) towards South Sandwich Island.</p>
+<p>That’s why I changed my github profile image to:</p>
+<p><a href="assets/Pingu.JPG" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://zzzhehao.github.io/biology-research/journal/assets/Pingu.JPG" class="img-fluid" style="width:30.0%"></a></p>
+<p>Basically, randomness and unpredictability is what drives our path. The only certainty in life is the uncertainty.</p>
+
+
+<!-- -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{hu2024,
+  author = {Hu, Zhehao},
+  title = {*Acanthocope*},
+  date = {2024-12-24},
+  url = {https://zzzhehao.github.io/biology-research/journal/Acanthocope.html},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hu2024" class="csl-entry quarto-appendix-citeas">
+Hu, Zhehao. 2024. <span>“*Acanthocope*.”</span> December 24, 2024. <a href="https://zzzhehao.github.io/biology-research/journal/Acanthocope.html">https://zzzhehao.github.io/biology-research/journal/Acanthocope.html</a>.
+</div></div></section></div> ]]></description>
+  <category>Ecology</category>
+  <category>Deep sea</category>
+  <category>Research journal</category>
+  <guid>https://zzzhehao.github.io/biology-research/journal/Acanthocope.html</guid>
+  <pubDate>Mon, 23 Dec 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://zzzhehao.github.io/assets/images/Aunicornis_habitus_CyanHot_AVG_241124.jpeg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Color palette</title>
   <link>https://zzzhehao.github.io/photography/color_palette.html</link>
@@ -3019,7 +3521,29 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
+<tr data-index="0" data-listing-date-sort="1737327600000" data-listing-file-modified-sort="1736810733901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="556" data-listing-title-sort="Password protected Quarto Manuscript for Collaborative Sharing" data-listing-filename-sort="manuscript.qmd">
+<td>
+<span class="listing-date">2025-01-20</span>
+</td>
+<td>
+<a href="./biology-research/tools/manuscript.html" class="title listing-title">Password protected Quarto Manuscript for Collaborative Sharing</a>
+</td>
+<td>
+<span class="listing-author">Zhehao Hu</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="RWNvbG9neSUyQ0RlZXAlMjBzZWElMkNSZXNlYXJjaCUyMGpvdXJuYWw=" data-listing-date-sort="1734994800000" data-listing-file-modified-sort="1735596684556" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="528" data-listing-title-sort="*Acanthocope*" data-listing-filename-sort="Acanthocope.qmd">
+<td>
+<span class="listing-date">2024-12-24</span>
+</td>
+<td>
+<a href="./biology-research/journal/Acanthocope.html" class="title listing-title"><em>Acanthocope</em></a>
+</td>
+<td>
+<span class="listing-author">Zhehao Hu</span>
+</td>
+</tr>
+<tr data-index="2" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
 <td>
 <span class="listing-date">2024-09-18</span>
 </td>
@@ -3030,7 +3554,7 @@ Author
 <span class="listing-author">Zhehao Hu</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Ecological Niche" data-listing-filename-sort="Ecological-Niche.qmd">
+<tr data-index="3" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Ecological Niche" data-listing-filename-sort="Ecological-Niche.qmd">
 <td>
 <span class="listing-date">2024-08-27</span>
 </td>
@@ -3041,7 +3565,7 @@ Author
 <span class="listing-author">Zhehao Hu</span>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971" data-listing-title-sort="As a Biology Student" data-listing-filename-sort="asbiologist.qmd">
+<tr data-index="4" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971" data-listing-title-sort="As a Biology Student" data-listing-filename-sort="asbiologist.qmd">
 <td>
 <span class="listing-date">2024-07-27</span>
 </td>
@@ -3106,7 +3630,7 @@ Evolutionary Systematics: A note repo for open science and for everyone: [zzzheh
 
  ]]></description>
   <guid>https://zzzhehao.github.io/about.html</guid>
-  <pubDate>Sun, 29 Dec 2024 15:31:43 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:24:44 GMT</pubDate>
 </item>
 <item>
   <title>Research Posts</title>
@@ -3191,7 +3715,74 @@ Enjoy.
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1737327600000" data-listing-file-modified-sort="1736810733901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="556">
+<div class="thumbnail">
+<p><a href="../biology-research/tools/manuscript.html" class="no-external"></a></p><a href="../biology-research/tools/manuscript.html" class="no-external">
+<!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-all:biology-research/tools/manuscript.html -->
+</a><p><a href="../biology-research/tools/manuscript.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../biology-research/tools/manuscript.html" class="no-external">Password protected Quarto Manuscript for Collaborative Sharing</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../biology-research/tools/manuscript.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../biology-research/tools/manuscript.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:biology-research/tools/manuscript.html --></a>
+</div>
+</div>
+<div class="metadata">
+<a href="../biology-research/tools/manuscript.html" class="no-external">
+<div class="listing-date">
+2025-01-20
+</div>
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neSUyQ0RlZXAlMjBzZWElMkNSZXNlYXJjaCUyMGpvdXJuYWw=" data-listing-date-sort="1734994800000" data-listing-file-modified-sort="1735596684556" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="528">
+<div class="thumbnail">
+<p><a href="../biology-research/journal/Acanthocope.html" class="no-external"></a></p><a href="../biology-research/journal/Acanthocope.html" class="no-external">
+<p><img loading="lazy" src="https://zzzhehao.github.io/assets/images/Aunicornis_habitus_CyanHot_AVG_241124.jpeg" class="thumbnail-image" style="height: 120px;"></p>
+</a><p><a href="../biology-research/journal/Acanthocope.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../biology-research/journal/Acanthocope.html" class="no-external"><em>Acanthocope</em></a>
+</h3>
+<div class="listing-subtitle">
+<a href="../biology-research/journal/Acanthocope.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbG9neQ=='); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('RGVlcCUyMHNlYQ=='); return false;">
+Deep sea
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBqb3VybmFs'); return false;">
+Research journal
+</div>
+</div>
+<div class="listing-description">
+<a href="../biology-research/journal/Acanthocope.html" class="no-external">An internship at SaM / DZMB - Snorkeling into deep-sea research, and how life has brought me here</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../biology-research/journal/Acanthocope.html" class="no-external">
+<div class="listing-date">
+2024-12-24
+</div>
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -3233,7 +3824,7 @@ Zhehao Hu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
+<div class="quarto-post image-right" data-index="3" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-all:biology-research/community-ecology/Ecological-Niche.html -->
@@ -3266,7 +3857,7 @@ Zhehao Hu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971">
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971">
 <div class="thumbnail">
 <p><a href="../biology-research/journal/asbiologist.html" class="no-external"></a></p><a href="../biology-research/journal/asbiologist.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-all:biology-research/journal/asbiologist.html -->
@@ -3437,7 +4028,7 @@ Upcoming …
 
  ]]></description>
   <guid>https://zzzhehao.github.io/biology-research/</guid>
-  <pubDate>Sun, 29 Dec 2024 15:31:43 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:24:44 GMT</pubDate>
 </item>
 <item>
   <title>Blue Marble</title>
@@ -3497,7 +4088,7 @@ Northern Lights over Hamburg
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/blue-marble/blue-marble.html</guid>
-  <pubDate>Sun, 29 Dec 2024 15:31:43 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:24:44 GMT</pubDate>
 </item>
 <item>
   <title>Albums</title>
@@ -3629,11 +4220,11 @@ Hamburg Winter
 <p></p>
 </div>
 <div class="album-thumbnail" data-album="oki23">
- <img src="https://zzzhehao.github.io/assets/gallery/thumbnails/oki23.jpg" alt="Okinawa">
+ <img src="https://zzzhehao.github.io/assets/gallery/thumbnails/oki23.jpg" alt="沖縄 (Okinawa)">
 <div class="album-overlay">
 <div class="album-info">
 <div class="album-title">
-Okinawa
+沖縄 (Okinawa)
 </div>
 <div class="album-year">
 2023
@@ -3980,7 +4571,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/gallery.html</guid>
-  <pubDate>Sun, 29 Dec 2024 15:31:43 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:24:44 GMT</pubDate>
 </item>
 <item>
   <title>Motion Picture</title>
@@ -4011,7 +4602,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/motion-pictures.html</guid>
-  <pubDate>Sun, 29 Dec 2024 15:31:43 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:24:44 GMT</pubDate>
 </item>
 </channel>
 </rss>

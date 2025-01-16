@@ -1,0 +1,15 @@
+{
+  "hash": "7def40010abf9641a733b0dbc732d0a2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Demonstrating Network Analysis with Mediterranean Microbiome Data\ndate: 2025-01-16\nauthor: \n  - name: Zhehao Hu\n    email: \"{{< var email.work >}}\"\n    url: https://zzzhehao.github.io\n    affiliations:\n      - name: Department of Biology, University of Hamburg\n        city: Hamburg\n        country: Germany\n        url: https://www.biologie.uni-hamburg.de/en.html\n  - name: Jan Moritz Fehr\n    affiliations:\n      - name: Department of Biology, University of Hamburg\n        city: Hamburg\n        country: Germany\n        url: https://www.biologie.uni-hamburg.de/en.html\n# image: \n# abstract: \ndescription: \"  \"\ncategories:\n  - Ecology\n  - Community Ecology\n  - Data Analysis\n  - Multivariate Analysis\nfilters:\n  - openlinksinnewpage\n  - nutshell\nexecute:\n  echo: true\n# nocite: |\n#   @lter2020, @lter2020a, @lter2020b\ncitation: true\nformat:\n  html:\n    comments:\n      giscus: \n        repo: zzzhehao/giscus\n        category: Announcements\n        mapping: url\n        reactions-enabled: true\n        theme: \n          light: light_tritanopia\n          dark: dark_dimmed\n---\n\n\n\n::: {.disclaimer}\nThis is a demonstration of network analysis in M.Sc. Biology module *Network Analysis in Ecology and Beyong* offered by by [Prof. Dr. Jochen Fründ](https://jochenfruend.wordpress.com) at [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) \n\n:::\n\n::: {.callout-caution appearance=\"minimal\" style=\"font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);\" collapse=\"true\"}\n\n## [R Setup]{.cl-sub}\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# setup\nlibrary(tidyverse)\nlibrary(bipartite)\nlibrary(igraph)\n```\n:::\n\n\n\n:::\n\n<br>\n\n## Niche Overlap",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

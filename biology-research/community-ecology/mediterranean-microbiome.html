@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Zhehao Hu">
+<meta name="author" content="Jan Moritz Fehr">
+<meta name="dcterms.date" content="2025-01-16">
 
-<title>Albums – Zhehao Hu</title>
+<title>Demonstrating Network Analysis with Mediterranean Microbiome Data – Zhehao Hu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +23,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-70bf04432f48cf1c53d4eb7a3bd80c17.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d68d704062e552e35570234a037d3cdc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bfd576ed9ac370a74ad15ea0153b8338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-0a508a8a1c81a26abfe851fc5a6fbc11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell.js"></script>
+<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell_options.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,16 +116,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
-<style>
-  body {
-      color: #333
-  }
-</style>
-<meta name="description" content="Photo albums gallery">
-<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
 
-<link rel="stylesheet" href="gallery.css">
 </head>
 
 <body class="nav-fixed">
@@ -96,7 +127,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zhehao Hu</span>
     </a>
   </div>
@@ -112,19 +143,19 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
         <li>
-    <a class="dropdown-item" href="../gallery/gallery.html">
+    <a class="dropdown-item" href="../../gallery/gallery.html">
  <span class="dropdown-text">Albums</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../gallery/blue-marble/blue-marble.html">
+    <a class="dropdown-item" href="../../gallery/blue-marble/blue-marble.html">
  <span class="dropdown-text">Blue Marbles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../gallery/motion-pictures.html">
+    <a class="dropdown-item" href="../../gallery/motion-pictures.html">
  <span class="dropdown-text">Motion Picture</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../photography/color_palette.html">
+    <a class="dropdown-item" href="../../photography/color_palette.html">
  <span class="dropdown-text">Color palette</span></a>
   </li>  
     </ul>
@@ -135,23 +166,23 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../biology-research/index.html">
+    <a class="dropdown-item" href="../../biology-research/index.html">
  <span class="dropdown-text">Posts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../biology-research/assets/CV_Zhehao_Hu.pdf">
+    <a class="dropdown-item" href="../../biology-research/assets/CV_Zhehao_Hu.pdf">
  <span class="dropdown-text">CV</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About me</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../biology-research/index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../biology-research/index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -166,23 +197,68 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#niche-overlap" id="toc-niche-overlap" class="nav-link active" data-scroll-target="#niche-overlap">Niche Overlap</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Albums</h1>
-</div>
+<div class="quarto-title-block"><div><h1 class="title">Demonstrating Network Analysis with Mediterranean Microbiome Data</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Ecology</div>
+    <div class="quarto-category">Community Ecology</div>
+    <div class="quarto-category">Data Analysis</div>
+    <div class="quarto-category">Multivariate Analysis</div>
+  </div>
+  </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:zhehao.hu@uni-hamburg.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.biologie.uni-hamburg.de/en.html">
+            Department of Biology, University of Hamburg
+            </a>
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Moritz Fehr </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.biologie.uni-hamburg.de/en.html">
+            Department of Biology, University of Hamburg
+            </a>
+          </p>
+      </div>
+  </div>
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
-    
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 16, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -192,478 +268,122 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </header>
 
 
-<!-- Album configuration in yaml header
-`name` should be identical to the key as in albumConfig in JS.
-`prefix` and `cout` as well. -->
+<div class="disclaimer">
+<p>This is a demonstration of network analysis in M.Sc. Biology module <em>Network Analysis in Ecology and Beyong</em> offered by by <a href="https://jochenfruend.wordpress.com" target="_blank">Prof.&nbsp;Dr.&nbsp;Jochen Fründ</a> at <a href="https://www.biologie.uni-hamburg.de/en.html" target="_blank">University of Hamburg</a></p>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="cl-sub">R Setup</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setup</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bipartite)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<section id="niche-overlap" class="level2">
+<h2 class="anchored" data-anchor-id="niche-overlap">Niche Overlap</h2>
+
+
+<!-- -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{hu2025,
+  author = {Hu, Zhehao and Moritz Fehr, Jan},
+  title = {Demonstrating {Network} {Analysis} with {Mediterranean}
+    {Microbiome} {Data}},
+  date = {2025-01-16},
+  url = {https://zzzhehao.github.io/biology-research/community-ecology/mediterranean-microbiome.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hu2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Hu, Zhehao, and Jan Moritz Fehr. 2025. <span>“Demonstrating Network
+Analysis with Mediterranean Microbiome Data.”</span> January 16, 2025.
+<a href="https://zzzhehao.github.io/biology-research/community-ecology/mediterranean-microbiome.html">https://zzzhehao.github.io/biology-research/community-ecology/mediterranean-microbiome.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-  body {
-    color: #333
-  }
+    body {
+        align-items: center;
+    }
+
+    .footer-container {
+        text-align: center;
+        line-height: 1.6; /* Adjust this value to change line spacing */
+    }
+
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 10px 0; /* Add space above and below contact links */
+    }
+
+    .contact-links a {
+        margin: 0 10px; /* Add space between links */
+        color: #888;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-links a:hover {
+        color: #f2a94f;
+    }
+
+    .contact-links a i {
+        margin-right: 5px;
+        font-size: 0.8rem;
+    }
+
+    .contact-links a span {
+        font-size: 0.8rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 5px 0; /* Add space above and below text */
+    }
+
+    @media (max-width: 720px) {
+        .contact-links a span {
+            display: none;
+        }
+
+        .contact-links a i {
+            margin-right: 0;
+        }
+    }
 </style>
-<div class="gallery-grid">
-<div class="album-thumbnail" data-album="bestoffilm">
-<a href="#bestoffilm"> <img src="../assets/gallery/thumbnails/bestoffilm.jpg" alt="Best of Film">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Best of Film
-</div>
-<div class="album-year">
 
-</div>
-</div>
-</div>
-</a><p><a href="#bestoffilm"></a></p>
-</div>
-<div class="album-thumbnail" data-album="onhike24">
-<a href="#onhike24"> <img src="../assets/gallery/thumbnails/onhike24.jpg" alt="On the Hike">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-On the Hike
-</div>
-<div class="album-year">
-2024
-</div>
-</div>
-</div>
-</a><p><a href="#onhike24"></a></p>
-</div>
-<div class="album-thumbnail" data-album="onmyway24">
-<a href="#onmyway24"> <img src="../assets/gallery/thumbnails/onmyway24.jpg" alt="On My Daily Way to Work">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-On My Daily Way to Work
-</div>
-<div class="album-year">
-2024
-</div>
-</div>
-</div>
-</a><p><a href="#onmyway24"></a></p>
-</div>
-<div class="album-thumbnail" data-album="alster24">
-<a href="#alster24"> <img src="../assets/gallery/thumbnails/alster24.jpg" alt="Alsterpark">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Alsterpark
-</div>
-<div class="album-year">
-2024
-</div>
-</div>
-</div>
-</a><p><a href="#alster24"></a></p>
-</div>
-<div class="album-thumbnail" data-album="hhproud24">
-<a href="#hhproud24"> <img src="../assets/gallery/thumbnails/hhproud24.jpg" alt="Proud City">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Proud City
-</div>
-<div class="album-year">
-2024
-</div>
-</div>
-</div>
-</a><p><a href="#hhproud24"></a></p>
-</div>
-<div class="album-thumbnail" data-album="hhsp24">
-<a href="#hhsp24"> <img src="../assets/gallery/thumbnails/hhsp24.jpg" alt="Hamburg Spring">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Hamburg Spring
-</div>
-<div class="album-year">
-2024
-</div>
-</div>
-</div>
-</a><p><a href="#hhsp24"></a></p>
-</div>
-<div class="album-thumbnail" data-album="dasyueshan24">
-<a href="#dasyueshan24"> <img src="../assets/gallery/thumbnails/dasyueshan24.jpg" alt="大雪山 (Dasyueshan)">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-大雪山 (Dasyueshan)
-</div>
-<div class="album-year">
-2024
-</div>
-</div>
-</div>
-</a><p><a href="#dasyueshan24"></a></p>
-</div>
-<div class="album-thumbnail" data-album="hhwi24">
-<a href="#hhwi24"> <img src="../assets/gallery/thumbnails/hhwi24.jpg" alt="Hamburg Winter">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Hamburg Winter
-</div>
-<div class="album-year">
-2024
-</div>
-</div>
-</div>
-</a><p><a href="#hhwi24"></a></p>
-</div>
-<div class="album-thumbnail" data-album="oki23">
-<a href="#oki23"> <img src="../assets/gallery/thumbnails/oki23.jpg" alt="沖縄 (Okinawa)">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-沖縄 (Okinawa)
-</div>
-<div class="album-year">
-2023
-</div>
-</div>
-</div>
-</a><p><a href="#oki23"></a></p>
-</div>
-<div class="album-thumbnail" data-album="tw23">
-<a href="#tw23"> <img src="../assets/gallery/thumbnails/tw23.jpg" alt="台灣 (Taiwan)">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-台灣 (Taiwan)
-</div>
-<div class="album-year">
-2023
-</div>
-</div>
-</div>
-</a><p><a href="#tw23"></a></p>
-</div>
-<div class="album-thumbnail" data-album="hhwin22">
-<a href="#hhwin22"> <img src="../assets/gallery/thumbnails/hhwin22.jpg" alt="Hamburg Winter">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Hamburg Winter
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#hhwin22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="wi22">
-<a href="#wi22"> <img src="../assets/gallery/thumbnails/wi22.jpg" alt="Wien">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Wien
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#wi22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="kater22">
-<a href="#kater22"> <img src="../assets/gallery/thumbnails/kater22.jpg" alt="Katers Köök">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Katers Köök
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#kater22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="alster22">
-<a href="#alster22"> <img src="../assets/gallery/thumbnails/alster22.jpg" alt="Alsterpark">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Alsterpark
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#alster22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="fungi22">
-<a href="#fungi22"> <img src="../assets/gallery/thumbnails/fungi22.jpg" alt="Fungi">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Fungi
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#fungi22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="adria22">
-<a href="#adria22"> <img src="../assets/gallery/thumbnails/adria22.jpg" alt="Adria">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Adria
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#adria22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="life22">
-<a href="#life22"> <img src="../assets/gallery/thumbnails/life22.jpg" alt="Life">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Life
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#life22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="randel22">
-<a href="#randel22"> <img src="../assets/gallery/thumbnails/randel22.jpg" alt="Abandoned Randel">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Abandoned Randel
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#randel22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="schwarzwald22">
-<a href="#schwarzwald22"> <img src="../assets/gallery/thumbnails/schwarzwald22.jpg" alt="Schwarzwald">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Schwarzwald
-</div>
-<div class="album-year">
-2022
-</div>
-</div>
-</div>
-</a><p><a href="#schwarzwald22"></a></p>
-</div>
-<div class="album-thumbnail" data-album="cop21">
-<a href="#cop21"> <img src="../assets/gallery/thumbnails/cop21.jpg" alt="København">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-København
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#cop21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="kihh21">
-<a href="#kihh21"> <img src="../assets/gallery/thumbnails/kihh21.jpg" alt="Kiel &amp; Hamburg">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Kiel &amp; Hamburg
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#kihh21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="bay21">
-<a href="#bay21"> <img src="../assets/gallery/thumbnails/bay21.jpg" alt="Bayern">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Bayern
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#bay21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="ber21">
-<a href="#ber21"> <img src="../assets/gallery/thumbnails/ber21.jpg" alt="Berlin">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Berlin
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#ber21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="bre21">
-<a href="#bre21"> <img src="../assets/gallery/thumbnails/bre21.jpg" alt="Bremen">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Bremen
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#bre21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="hei21">
-<a href="#hei21"> <img src="../assets/gallery/thumbnails/hei21.jpg" alt="Heidelberg">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Heidelberg
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#hei21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="nrw21">
-<a href="#nrw21"> <img src="../assets/gallery/thumbnails/nrw21.jpg" alt="Nord-Rhein-Westfalen">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Nord-Rhein-Westfalen
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#nrw21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="praha21">
-<a href="#praha21"> <img src="../assets/gallery/thumbnails/praha21.jpg" alt="Praha">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Praha
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#praha21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="ruhr21">
-<a href="#ruhr21"> <img src="../assets/gallery/thumbnails/ruhr21.jpg" alt="Ruhr Area">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Ruhr Area
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#ruhr21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="sa21">
-<a href="#sa21"> <img src="../assets/gallery/thumbnails/sa21.jpg" alt="Sachsen">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Sachsen
-</div>
-<div class="album-year">
-2021
-</div>
-</div>
-</div>
-</a><p><a href="#sa21"></a></p>
-</div>
-<div class="album-thumbnail" data-album="bolt20">
-<a href="#bolt20"> <img src="../assets/gallery/thumbnails/bolt20.jpg" alt="Boltenhagen">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Boltenhagen
-</div>
-<div class="album-year">
-2020
-</div>
-</div>
-</div>
-</a><p><a href="#bolt20"></a></p>
-</div>
-<div class="album-thumbnail" data-album="tokyo18">
-<a href="#tokyo18"> <img src="../assets/gallery/thumbnails/tokyo18.jpg" alt="Tokyo, Hida &amp; Matsumoto">
-<div class="album-overlay">
-<div class="album-info">
-<div class="album-title">
-Tokyo, Hida &amp; Matsumoto
-</div>
-<div class="album-year">
-2018
-</div>
-</div>
-</div>
-</a><p><a href="#tokyo18"></a></p>
-</div>
-</div>
-
-<div id="fullscreen-gallery" class="fullscreen-gallery">
-  <button id="close-gallery" class="close-button">×</button>
-  <div id="gallery-title" class="gallery-title"></div>
-  <div class="gallery-content">
-    <button id="prev-image" class="nav-button prev-button"></button>
-    <div class="image-container">
-    <img id="gallery-image-1" class="gallery-image" src="" alt="Gallery Image 1">
-    <img id="gallery-image-2" class="gallery-image" src="" alt="Gallery Image 2">
+<div class="footer-container">
+    <hr>
+    <a href="https://buymeacoffee.com/huzhehaos" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;"></a>
+    <p class="footer-text">Copyright © 2024 Zhehao Hu</p>
+    <!-- | <a href="https://github.com/zzzhehao/zzzhehao.github.io/blob/main/LICENSE">MIT license</a> -->
+    <div class="contact-links">
+        <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
+        <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
+        <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
+        <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
     </div>
-    <button id="next-image" class="nav-button next-button"></button>
-  </div>
-  <button id="copy-url-button" class="copy-button">Copy URL</button>
-  <button id="copy-image-url-button" class="copy-button">Copy Image URL</button>
-  <button id="copy-attribution-button" class="copy-button">Copy Attribution</button>
+    <p class="footer-text">Issues on the website? <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
+    <hr>
 </div>
-<!-- Copyright alert -->
-<div id="custom-modal" class="modal">
-  <div class="modal-content">
-    <p>This content is under protection of <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 license</a>.</p>
-    <p>Please always provide appropriate credit.</p>
-  </div>
-</div>
-<!-- Footer -->
-
-
-
-</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -895,6 +615,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1225,8 +996,83 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="zzzhehao/giscus" data-repo-id="R_kgDONMA75w" data-category="Announcements" data-category-id="DIC_kwDONMA7584CkEnp" data-mapping="url" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark_dimmed" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="dark_dimmed">
+<input type="hidden" id="giscus-alt-theme" value="light_tritanopia"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Demonstrating Network Analysis with Mediterranean Microbiome Data</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2025-01-16</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Zhehao Hu</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    email: "{{&lt; var email.work &gt;}}"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    url: https://zzzhehao.github.io</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: Department of Biology, University of Hamburg</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">        city: Hamburg</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">        country: Germany</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">        url: https://www.biologie.uni-hamburg.de/en.html</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Jan Moritz Fehr</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: Department of Biology, University of Hamburg</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">        city: Hamburg</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">        country: Germany</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">        url: https://www.biologie.uni-hamburg.de/en.html</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># image: </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># abstract: </span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "  "</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">  - Ecology</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">  - Community Ecology</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">  - Data Analysis</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">  - Multivariate Analysis</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">  - openlinksinnewpage</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">  - nutshell</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># nocite: |</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#   @lter2020, @lter2020a, @lter2020b</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="an">citation:</span><span class="co"> true</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">    comments:</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">      giscus: </span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">        repo: zzzhehao/giscus</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">        category: Announcements</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">        mapping: url</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">        reactions-enabled: true</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">        theme: </span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">          light: light_tritanopia</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">          dark: dark_dimmed</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>::: {.disclaimer}</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>This is a demonstration of network analysis in M.Sc. Biology module *Network Analysis in Ecology and Beyong* offered by by <span class="co">[</span><span class="ot">Prof. Dr. Jochen Fründ</span><span class="co">](https://jochenfruend.wordpress.com)</span> at <span class="co">[</span><span class="ot">University of Hamburg</span><span class="co">](https://www.biologie.uni-hamburg.de/en.html)</span> </span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## [R Setup]{.cl-sub}</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co"># setup</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bipartite)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Niche Overlap</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script src="gallery.js"></script>
 
 
 

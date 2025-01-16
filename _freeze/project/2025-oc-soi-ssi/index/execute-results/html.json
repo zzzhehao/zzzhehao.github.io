@@ -1,0 +1,15 @@
+{
+  "hash": "dee93643b9f94e177ac392711e81c491",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Ocean Census South Sandwich Islands Expedition\"\ndate: 2025-01-30\nimage: https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg\nformat:\n  html:\n    include-before-body: \n      - text: |\n          <div id=\"header-image\">\n            <img src=\"https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg\" alt=\"Header Image\" width=\"100%\">\n          </div>\n---\n\n\n<figure class=\"figure\">\n<figcaption class=\"forward\"  > The beauty of life lies in its unpredictability. </figcaption>\n</figure>\n            \n```{=html}\n<style>\n    #header-image {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 400px;\n        overflow: hidden;\n        z-index: 1;\n    }\n\n    #header-image img {\n        width: 100%;\n        height: 100%;\n        object-fit: cover;\n        position: absolute;\n        top: 0;\n        left: 0;\n        transform: translateY(5%);\n    }\n\n    #quarto-content {\n        margin-top: 400px;\n    }\n</style>\n```\n\n\n\n## The Mission\n\nWe are going to South Sandwich Islands near Antarctica. The expedition is organized by Ocean Census and Schmidt Ocean Institute, sailing with SOI's R/V Falkor (Too). \n\n## Public Engagement\n\n- SOI will stream the live video transmitted from ROV on [YouTube](https://www.youtube.com/@SchmidtOcean). Replay from other expeditions are also available. \n- Ocean Census, SOI, GoSouth will conduct a joint campaign on the social media. Follow them there!\n  - Ocean Census: [{{< iconify mdi:instagram >}}](https://www.instagram.com/oceancensus/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/oceancensus)  \n  - Schmidt Ocean Institute [{{< iconify mdi:instagram >}}](https://www.instagram.com/schmidtocean/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/schmidt-ocean-institute/posts/?feedView=all)  \n\n## I also want to be involved!\n\n- If your expertise also aligns with Ocean Census's mission, become part of us by joining the Ocean Census Science Network! You will receive more information from future initiatives.",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "hash": "bfd906e3ec9a904c4cca464b7daca2b6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Demonstrating Network Analysis with Mediterranean Microbiome Data\ndate: 2025-01-16\nauthor: \n  - name: Zhehao Hu\n    email: \"{{< var email.work >}}\"\n    url: https://zzzhehao.github.io\n    affiliations:\n      - name: Department of Biology, University of Hamburg\n        city: Hamburg\n        country: Germany\n        url: https://www.biologie.uni-hamburg.de/en.html\n  - name: Jan Moritz Fehr\n    affiliations:\n      - name: Department of Biology, University of Hamburg\n        city: Hamburg\n        country: Germany\n        url: https://www.biologie.uni-hamburg.de/en.html\n# image: \n# abstract: \ndescription: \"  \"\ncategories:\n  - Ecology\n  - Community Ecology\n  - Data Analysis\n  - Multivariate Analysis\nfilters:\n  - openlinksinnewpage\n  - nutshell\nexecute:\n  echo: true\n# nocite: |\n#   @lter2020, @lter2020a, @lter2020b\ncitation: true\nformat:\n  html:\n    comments:\n      giscus: \n        repo: zzzhehao/giscus\n        category: Announcements\n        mapping: url\n        reactions-enabled: true\n        theme: \n          light: light_tritanopia\n          dark: dark_dimmed\n\n# draft: true\n---\n\n\n\n::: {.disclaimer}\nThis is a demonstration of network analysis in M.Sc. Biology module *Network Analysis in Ecology and Beyong* offered by [Prof. Dr. Jochen Fründ](https://jochenfruend.wordpress.com) at [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html). A digital version of the poster for final presentation is available [here]().\n\n:::\n\n::: {.callout-caution appearance=\"minimal\" style=\"font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);\" collapse=\"true\"}\n\n## [R Setup]{.cl-sub}\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(bipartite)\nlibrary(igraph)\n```\n:::\n\n\n\n:::\n\n<br>\n\n## Mediterranean Microbiome\n\n## Miscellaneous\n\nI worked with *Wolbachia* in my bachelor thesis - everyone who knows them should be aware of their incredible evolution. I searched for *Wolbachia* out of curious in the dataset, and found an entry in [`Prok_taxadata.txt`](https://github.com/InaMariaDeutschmann/GlobalNetworkMalaspinaHotmix/blob/main/00_Tables/Prok_taxdata.txt).\n\nNo comments on this since there's no entry in quality-controlled ASV dataset. But after I read the paper [@parvathi2020] that found *Wolbachia sp* being most abundant in deep-sea sediment microbial community, I would literally not be surprised anymore if people found *Wolbachia* being most dominant in the aerosol as next. They are so ABUNDANT and they are EVERYWHERE.\n\nBy the way, our *Wolbachia* - *Altica lythri* project is aiming for another publication in the proximate future. Stay tuned. See @rohlfing2024 for the latest publication.\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
