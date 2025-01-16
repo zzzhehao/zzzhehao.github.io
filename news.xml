@@ -86,100 +86,6 @@ The beauty of life lies in its unpredictability.
   <media:content url="https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Acanthocope</title>
-  <dc:creator>Zhehao Hu</dc:creator>
-  <link>https://zzzhehao.github.io/biology-research/journal/Acanthocope.html</link>
-  <description><![CDATA[ 
-<div id="header-image">
-  <img src="https://zzzhehao.github.io/assets/images/Aunicornis_habitus_CyanHot_AVG_241124.jpeg" alt="Header Image">
-</div>
-
-
-
-
-<figure class="figure">
-<figcaption class="forward">
-The beauty of life lies in its unpredictability.
-</figcaption>
-</figure>
-<style>
-    #header-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 400px;
-        overflow: hidden;
-        z-index: 1;
-    }
-
-    #header-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(10%);
-    }
-
-    #quarto-content {
-        margin-top: 400px; 
-    }
-</style>
-<p>I have been interested in Ocean since a while even before my university life, but if you ask me a year ago whether I can imagine myself involved in deep-sea research, and even got a chance to travel to Antarctica, I would give you a doubtful look and say “No.”</p>
-<p>All of this have to trace back to about a year ago, when I started my master program.</p>
-<section id="rejection-rejection-rejection-rejection-and-rejection" class="level2">
-<h2 class="anchored" data-anchor-id="rejection-rejection-rejection-rejection-and-rejection">Rejection, rejection, rejection, rejection and rejection</h2>
-<p>If you have read <a href="../general-posts/asbiologist.qmd" target="_blank">my previous journal</a>, you would know that I was planning to embrace the industry of the 21st century - pharmacy, molecular and clinical technology and research. This idea and goal basically drove my decision for my entire bachelor program. I applied for neurophysiology class twice during bachelor, got rejected both time because I wasn’t lucky enough to get a spot (or am I lucky?). I tried applying for another three courses in master too (basically all neuroscience course we can apply for). I even put them at my first three priorities, got rejected from all of them again, because of lack of spot. Instead, I got my 5th course <em>Evolutionary Systematics</em>, and my last (9th I think) wish, which is <em>Marine Benthic Habitat and Biodiversity</em>.</p>
-<p>You might found this a bit inconsistent with my previous journal, but that one was written after all this incidents, so the story here actually predates writing that post.</p>
-<p>Interesting thing, there was an opening week for new students when the first master’s semester began, where all the working groups from the university make a short presentation about their research and course they provide. I was back at Hamburg from Taiwan a week earlier and received a warm (40ºC) welcome by the influenza and couldn’t even think rationally. But it turned out I missed nothing because the working group who offer the Marine course was forgotten by our administrative office (I will elaborate on that in bit more detail later). I discovered the course on our program manual and simply applied to fill out my priority list. Ironically, I started working in the working group who offer the Neurophysiology course since this summer. It’s a student job to assist genotyping mice which they use for animal experiments, and the staffs were so nice and offered me an internal referral to get into the course they provide. But I was already fully scheduled so I didn’t take that offer.</p>
-<figure class="figure">
-<img src="https://preview.redd.it/hq2ronx4juvz.jpg?auto=webp&amp;s=dea66001de19b6191aeba4f8cc536fa63d4c510f" class="figure-img">
-</figure>
-<p>And what I was busy taking care of, was ironically again, derived from the 9th course.</p>
-</section>
-<section id="the-course" class="level2">
-<h2 class="anchored" data-anchor-id="the-course">The course</h2>
-<p>The course was cold “Marine Deep-Sea Benthic Habitats and Diversity”, led by Prof.&nbsp;Dr.&nbsp;Saskia Brix and Dr.&nbsp;Anne-Nina Lörz. To be honest, I had a bit</p>
-</section>
-<section id="internship" class="level2">
-<h2 class="anchored" data-anchor-id="internship">Internship</h2>
-</section>
-<section id="at-wilhelmshaven" class="level2">
-<h2 class="anchored" data-anchor-id="at-wilhelmshaven">At Wilhelmshaven</h2>
-</section>
-<section id="next-step" class="level2">
-<h2 class="anchored" data-anchor-id="next-step">Next Step</h2>
-<p>I was lucky enough - on the day I received a rejection for an expedition in next January, my supervisor passed me another berth offer came from Ocean Census.</p>
-<p>Yes, I will be sailing with them along with Schmidt Ocean Institute’s research vessel R/V Falkor (too) towards South Sandwich Island.</p>
-<p>That’s why I changed my github profile image to:</p>
-<p><a href="assets/Pingu.JPG" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://zzzhehao.github.io/biology-research/journal/assets/Pingu.JPG" class="img-fluid" style="width:30.0%"></a></p>
-<p>Basically, randomness and unpredictability is what drives our path. The only certainty in life is the uncertainty.</p>
-
-
-<!-- -->
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{hu2024,
-  author = {Hu, Zhehao},
-  title = {*Acanthocope*},
-  date = {2024-12-24},
-  url = {https://zzzhehao.github.io/biology-research/journal/Acanthocope.html},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hu2024" class="csl-entry quarto-appendix-citeas">
-Hu, Zhehao. 2024. <span>“*Acanthocope*.”</span> December 24, 2024. <a href="https://zzzhehao.github.io/biology-research/journal/Acanthocope.html">https://zzzhehao.github.io/biology-research/journal/Acanthocope.html</a>.
-</div></div></section></div> ]]></description>
-  <category>Ecology</category>
-  <category>Deep sea</category>
-  <category>Research journal</category>
-  <guid>https://zzzhehao.github.io/biology-research/journal/Acanthocope.html</guid>
-  <pubDate>Mon, 23 Dec 2024 23:00:00 GMT</pubDate>
-  <media:content url="https://zzzhehao.github.io/assets/images/Aunicornis_habitus_CyanHot_AVG_241124.jpeg" medium="image" type="image/jpeg"/>
-</item>
-<item>
   <title>Color palette</title>
   <link>https://zzzhehao.github.io/photography/color_palette.html</link>
   <description><![CDATA[ 
@@ -3187,18 +3093,7 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="RWNvbG9neSUyQ0RlZXAlMjBzZWElMkNSZXNlYXJjaCUyMGpvdXJuYWw=" data-listing-date-sort="1734994800000" data-listing-file-modified-sort="1735596684556" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="528" data-listing-title-sort="*Acanthocope*" data-listing-filename-sort="Acanthocope.qmd">
-<td>
-<span class="listing-date">2024-12-24</span>
-</td>
-<td>
-<a href="./biology-research/journal/Acanthocope.html" class="title listing-title"><em>Acanthocope</em></a>
-</td>
-<td>
-<span class="listing-author">Zhehao Hu</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
+<tr data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
 <td>
 <span class="listing-date">2024-09-18</span>
 </td>
@@ -3209,7 +3104,7 @@ Author
 <span class="listing-author">Zhehao Hu</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Ecological Niche" data-listing-filename-sort="Ecological-Niche.qmd">
+<tr data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Ecological Niche" data-listing-filename-sort="Ecological-Niche.qmd">
 <td>
 <span class="listing-date">2024-08-27</span>
 </td>
@@ -3220,7 +3115,7 @@ Author
 <span class="listing-author">Zhehao Hu</span>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971" data-listing-title-sort="As a Biology Student" data-listing-filename-sort="asbiologist.qmd">
+<tr data-index="2" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971" data-listing-title-sort="As a Biology Student" data-listing-filename-sort="asbiologist.qmd">
 <td>
 <span class="listing-date">2024-07-27</span>
 </td>
@@ -3285,7 +3180,7 @@ Evolutionary Systematics: A note repo for open science and for everyone: [zzzheh
 
  ]]></description>
   <guid>https://zzzhehao.github.io/about.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:26:56 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
 </item>
 <item>
   <title>Research Posts</title>
@@ -3370,46 +3265,7 @@ Enjoy.
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0RlZXAlMjBzZWElMkNSZXNlYXJjaCUyMGpvdXJuYWw=" data-listing-date-sort="1734994800000" data-listing-file-modified-sort="1735596684556" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="528">
-<div class="thumbnail">
-<p><a href="../biology-research/journal/Acanthocope.html" class="no-external"></a></p><a href="../biology-research/journal/Acanthocope.html" class="no-external">
-<p><img loading="lazy" src="https://zzzhehao.github.io/assets/images/Aunicornis_habitus_CyanHot_AVG_241124.jpeg" class="thumbnail-image" style="height: 120px;"></p>
-</a><p><a href="../biology-research/journal/Acanthocope.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../biology-research/journal/Acanthocope.html" class="no-external"><em>Acanthocope</em></a>
-</h3>
-<div class="listing-subtitle">
-<a href="../biology-research/journal/Acanthocope.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('RWNvbG9neQ=='); return false;">
-Ecology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGVlcCUyMHNlYQ=='); return false;">
-Deep sea
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBqb3VybmFs'); return false;">
-Research journal
-</div>
-</div>
-<div class="listing-description">
-<a href="../biology-research/journal/Acanthocope.html" class="no-external">An internship at SaM / DZMB - Snorkeling into deep-sea research, and how life has brought me here</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../biology-research/journal/Acanthocope.html" class="no-external">
-<div class="listing-date">
-2024-12-24
-</div>
-<div class="listing-author">
-Zhehao Hu
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791">
+<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -3451,7 +3307,7 @@ Zhehao Hu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
+<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-all:biology-research/community-ecology/Ecological-Niche.html -->
@@ -3484,7 +3340,7 @@ Zhehao Hu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971">
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971">
 <div class="thumbnail">
 <p><a href="../biology-research/journal/asbiologist.html" class="no-external"></a></p><a href="../biology-research/journal/asbiologist.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-all:biology-research/journal/asbiologist.html -->
@@ -3655,7 +3511,7 @@ Upcoming …
 
  ]]></description>
   <guid>https://zzzhehao.github.io/biology-research/</guid>
-  <pubDate>Thu, 16 Jan 2025 01:26:56 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
 </item>
 <item>
   <title>Blue Marble</title>
@@ -3715,7 +3571,7 @@ Northern Lights over Hamburg
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/blue-marble/blue-marble.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:26:56 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
 </item>
 <item>
   <title>Albums</title>
@@ -4198,7 +4054,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/gallery.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:26:56 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
 </item>
 <item>
   <title>Motion Picture</title>
@@ -4229,7 +4085,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/motion-pictures.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:26:56 GMT</pubDate>
+  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
 </item>
 </channel>
 </rss>

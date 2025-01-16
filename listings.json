@@ -10,17 +10,7 @@
       "/gallery/motion-pictures.html",
       "/index.html",
       "/project/2025-oc-soi-ssi/index.html",
-      "/biology-research/journal/Acanthocope.html",
       "/photography/color_palette.html",
-      "/biology-research/community-ecology/nicheROVER-Niche-Overlap.html",
-      "/biology-research/community-ecology/Ecological-Niche.html",
-      "/biology-research/journal/asbiologist.html"
-    ]
-  },
-  {
-    "listing": "/about.html",
-    "items": [
-      "/biology-research/journal/Acanthocope.html",
       "/biology-research/community-ecology/nicheROVER-Niche-Overlap.html",
       "/biology-research/community-ecology/Ecological-Niche.html",
       "/biology-research/journal/asbiologist.html"
@@ -29,7 +19,14 @@
   {
     "listing": "/biology-research/index.html",
     "items": [
-      "/biology-research/journal/Acanthocope.html",
+      "/biology-research/community-ecology/nicheROVER-Niche-Overlap.html",
+      "/biology-research/community-ecology/Ecological-Niche.html",
+      "/biology-research/journal/asbiologist.html"
+    ]
+  },
+  {
+    "listing": "/about.html",
+    "items": [
       "/biology-research/community-ecology/nicheROVER-Niche-Overlap.html",
       "/biology-research/community-ecology/Ecological-Niche.html",
       "/biology-research/journal/asbiologist.html"
