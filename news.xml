@@ -672,16 +672,179 @@ Copy as R Vector
 </div>
 </div>
 </div>
+<div class="palette-container">
+<h2 class="anchored">
+Adria
+</h2>
+<p class="palette-caption">
+Yashica Mat-124G | Kodak Portra 160
+</p>
+<div class="palette-flex-container">
+<div class="color-bar-container">
+<div class="color-bar-wrapper">
+<div class="color-bar">
+<div class="color-row">
+<div class="color-section" style="background-color: #6A95A6;">
+<p><span class="color-code" data-color="#6A95A6">#6A95A6</span></p>
+</div>
+<div class="color-section" style="background-color: #ADCCD9;">
+<p><span class="color-code" data-color="#ADCCD9">#ADCCD9</span></p>
+</div>
+<div class="color-section" style="background-color: #DCEEF2;">
+<p><span class="color-code" data-color="#DCEEF2">#DCEEF2</span></p>
+</div>
+<div class="color-section" style="background-color: #0A0D0C;">
+<p><span class="color-code" data-color="#0A0D0C">#0A0D0C</span></p>
+</div>
+</div>
+<div class="color-row">
+<div class="color-section" style="background-color: #1E2625;">
+<p><span class="color-code" data-color="#1E2625">#1E2625</span></p>
+</div>
+<div class="color-section" style="background-color: #49593E;">
+<p><span class="color-code" data-color="#49593E">#49593E</span></p>
+</div>
+<div class="color-section" style="background-color: #D9B07E;">
+<p><span class="color-code" data-color="#D9B07E">#D9B07E</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="button-container">
+<button class="copy-palette-button" data-palette="/* Color Theme Adria */
+.adria-hex-1: { color: #6A95A6; }
+.adria-hex-2: { color: #ADCCD9; }
+.adria-hex-3: { color: #DCEEF2; }
+.adria-hex-4: { color: #0A0D0C; }
+.adria-hex-5: { color: #1E2625; }
+.adria-hex-6: { color: #49593E; }
+.adria-hex-7: { color: #D9B07E; }
+">
+Copy as CSS
+</button>
+<button class="copy-r-vector-button" data-vector="c('#6A95A6', '#ADCCD9', '#DCEEF2', '#0A0D0C', '#1E2625', '#49593E', '#D9B07E')">
+Copy as R Vector
+</button>
+</div>
+</div>
+<div class="image-gallery-container">
+<div class="image-gallery">
+<p><img src="https://zzzhehao.github.io/assets/palettes/adria.jpg" alt="Adria" class="gallery-image"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="palette-container">
+<h2 class="anchored">
+Deep Sea
+</h2>
+<p class="palette-caption">
+</p>
+<div class="palette-flex-container">
+<div class="color-bar-container">
+<div class="color-bar-wrapper">
+<div class="color-bar">
+<div class="color-row">
+<div class="color-section" style="background-color: #001C25;">
+<p><span class="color-code" data-color="#001C25">#001C25</span></p>
+</div>
+<div class="color-section" style="background-color: #003344;">
+<p><span class="color-code" data-color="#003344">#003344</span></p>
+</div>
+<div class="color-section" style="background-color: #006780;">
+<p><span class="color-code" data-color="#006780">#006780</span></p>
+</div>
+<div class="color-section" style="background-color: #01AEBF;">
+<p><span class="color-code" data-color="#01AEBF">#01AEBF</span></p>
+</div>
+<div class="color-section" style="background-color: #6CCCD6;">
+<p><span class="color-code" data-color="#6CCCD6">#6CCCD6</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="button-container">
+<button class="copy-palette-button" data-palette="/* Color Theme Deep Sea */
+.deep-sea-hex-1: { color: #001C25; }
+.deep-sea-hex-2: { color: #003344; }
+.deep-sea-hex-3: { color: #006780; }
+.deep-sea-hex-4: { color: #01AEBF; }
+.deep-sea-hex-5: { color: #6CCCD6; }
+">
+Copy as CSS
+</button>
+<button class="copy-r-vector-button" data-vector="c('#001C25', '#003344', '#006780', '#01AEBF', '#6CCCD6')">
+Copy as R Vector
+</button>
+</div>
+</div>
+<div class="image-gallery-container">
+<div class="image-gallery">
+<p><img src="https://zzzhehao.github.io/assets/palettes/deep-sea1.jpg" alt="Deep Sea" class="gallery-image"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="palette-container">
+<h2 class="anchored">
+Twilight
+</h2>
+<p class="palette-caption">
+</p>
+<div class="palette-flex-container">
+<div class="color-bar-container">
+<div class="color-bar-wrapper">
+<div class="color-bar">
+<div class="color-row">
+<div class="color-section" style="background-color: #14295E;">
+<p><span class="color-code" data-color="#14295E">#14295E</span></p>
+</div>
+<div class="color-section" style="background-color: #2E3A76;">
+<p><span class="color-code" data-color="#2E3A76">#2E3A76</span></p>
+</div>
+<div class="color-section" style="background-color: #615E95;">
+<p><span class="color-code" data-color="#615E95">#615E95</span></p>
+</div>
+<div class="color-section" style="background-color: #B695B4;">
+<p><span class="color-code" data-color="#B695B4">#B695B4</span></p>
+</div>
+<div class="color-section" style="background-color: #CEA2B9;">
+<p><span class="color-code" data-color="#CEA2B9">#CEA2B9</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="button-container">
+<button class="copy-palette-button" data-palette="/* Color Theme Twilight */
+.twilight-hex-1: { color: #14295E; }
+.twilight-hex-2: { color: #2E3A76; }
+.twilight-hex-3: { color: #615E95; }
+.twilight-hex-4: { color: #B695B4; }
+.twilight-hex-5: { color: #CEA2B9; }
+">
+Copy as CSS
+</button>
+<button class="copy-r-vector-button" data-vector="c('#14295E', '#2E3A76', '#615E95', '#B695B4', '#CEA2B9')">
+Copy as R Vector
+</button>
+</div>
+</div>
+<div class="image-gallery-container">
+<div class="image-gallery">
+<p><img src="https://zzzhehao.github.io/assets/palettes/twilight.jpg" alt="Twilight" class="gallery-image"></p>
+</div>
+</div>
+</div>
+</div>
 
 
 
  ]]></description>
   <guid>https://zzzhehao.github.io/photography/color_palette.html</guid>
-  <pubDate>Sat, 21 Dec 2024 21:35:00 GMT</pubDate>
+  <pubDate>Sat, 18 Jan 2025 15:55:01 GMT</pubDate>
 </item>
 <item>
   <title>Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</title>
-  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</link>
   <description><![CDATA[ 
 
@@ -2041,7 +2204,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-iso-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2337,7 +2500,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2584,7 +2747,6 @@ Stable Isotope Data.”</span> September 18, 2024. <a href="https://zzzhehao.git
 </item>
 <item>
   <title>Ecological Niche</title>
-  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/community-ecology/Ecological-Niche.html</link>
   <description><![CDATA[ 
 
@@ -2781,7 +2943,6 @@ The total of the adaptations of an organismic unit.
 </item>
 <item>
   <title>As a Biology Student</title>
-  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/journal/asbiologist.html</link>
   <description><![CDATA[ 
 
@@ -3004,7 +3165,7 @@ The total of the adaptations of an organismic unit.
 </div>
 <p><span style="font-size: 2.5rem;">About <iconify-icon inline="" icon="cib:about-me" aria-label="Icon about-me from cib Iconify.design set." title="Icon about-me from cib Iconify.design set."></iconify-icon></span></p>
 <p>I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these!</p>
-<p>I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on Molecular Ecology and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.</p>
+<p>I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on molecular ecology and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.</p>
 <p>In particular I am interested in eco-evolutionary dynamics of various ecosystems and organisms in terms of adaptation and biogeography. I am currently involved in three projects:</p>
 <div class="callout callout-style-simple callout-caution no-icon callout-titled" style="padding-bottom: 1em; padding-top: 0.6em; margin-bottom: 0.5em; margin-top: 0.5rm; border-left: none; border: 1px solid var(--clcolor);">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -3042,6 +3203,8 @@ The total of the adaptations of an organismic unit.
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Deep-sea Munnopsidae Isopod with fantastic swimming ability can be used as a powerful research object to assess benthic species community and connectivity of deep-sea ecosystems. <em>Acanthocope spp</em>, <strong><em>is additionally a beautiful genus consisting many recently new discovered species</em></strong>. With interdisciplinary work being promoted more and more in last years, there’s still huge amount of work to do - the genetic data is vastly missing in context of the deep-sea, also for <em>Acanthocope</em>. I’ve started revise some described species with different approach - conventional morphological species description, proteomics fingerprinting analysis, biogeographic analysis cooperating with DNA barcoding techniques. I ask particularly: “<strong>How exactly are the species different from each other? Can we pass our knowledge to non-expert to efficiently and accurately identify known species of this genus?</strong>”</p>
+<p><em>Acanthocope</em> Beddard 1885 is a deep-sea isopod genus, with characteristic spiky body. Despite the gifted swimming ability as a munnopsid isopod, <em>Acanthocope</em> has shown so far quite high rate of endemism in their distribution, this is of course to be attributed to under-researched situation of the deep-sea. However, in one and the only cosmopolitan species <em>Acanthocope galatheae</em> Wolff 1962, active gene flow across the Mid-Atlantic Ridge was confirmed. I am reporting additional observation, genetic and proteomics data from multiple species in Northern Atlantic, to examine the current morphology-based taxonomy of this genus.</p>
+<p>I have adopted this project as a project-based internship and am now striving to publish the result.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./assets/images/Auni_Habitus_Zcolor_Fire_comp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Color coded projection of a Confocal Laser Scanning Microscopy of Acanthocope unicornis MENZIES 1962. Collected during the IceDivA expedition (2021) using an epibenthic sled (EBS) in the Northern Atlantic at 4,155 m depth. © Zhehao Hu. Senckenberg am Meer, German Centre for Marine Biodiversity Research (DZMB)"><img src="https://zzzhehao.github.io/assets/images/Auni_Habitus_Zcolor_Fire_comp.png" class="img-fluid figure-img" alt="Color coded projection of a Confocal Laser Scanning Microscopy of Acanthocope unicornis MENZIES 1962. Collected during the IceDivA expedition (2021) using an epibenthic sled (EBS) in the Northern Atlantic at 4,155 m depth. © Zhehao Hu. Senckenberg am Meer, German Centre for Marine Biodiversity Research (DZMB)"></a></p>
@@ -3057,14 +3220,14 @@ The total of the adaptations of an organismic unit.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="cl-title">Ocean Census South Sandwich Islands Expedition 2025</span>
+<span class="cl-title">Ocean Census GoSouth: Searching for New Species in the South Sandwich Islands</span>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Ocean Census are going to Southern Ocean near Antarctica next February, onboard of Schmidt Ocean Institute’s R/V Falkor (Too). We will be using ROV SuBastian to collect deep-sea samples around South Sandwich Islands and South Sandwich Trench. The major mission of the biologist onboard is discover unknown species in the deep.</p>
-<p>The ROV is also equipped with live cameras and the real-time footage will be streamed by SOI on <a href="https://www.youtube.com/@SchmidtOcean" target="_blank">YouTube</a>.</p>
+<p>I will be going to one of the most remote island on the Earth - South Sandwich Islands with Ocean Census and Schmidt Ocean Institute on board the R/V Falkor (too).</p>
+<p>More details will follow …</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="R/V Falkor (Too) © Schmidt Ocean Institute"><img src="https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg" class="img-fluid figure-img" alt="R/V Falkor (Too) © Schmidt Ocean Institute"></a></p>
@@ -3093,7 +3256,7 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
+<tr data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1737229675329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3773" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
 <td>
 <span class="listing-date">2024-09-18</span>
 </td>
@@ -3101,10 +3264,10 @@ Author
 <a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="title listing-title">Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</a>
 </td>
 <td>
-<span class="listing-author">Zhehao Hu</span>
+<span class="listing-author">&nbsp;</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Ecological Niche" data-listing-filename-sort="Ecological-Niche.qmd">
+<tr data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Ecological Niche" data-listing-filename-sort="Ecological-Niche.qmd">
 <td>
 <span class="listing-date">2024-08-27</span>
 </td>
@@ -3112,7 +3275,7 @@ Author
 <a href="./biology-research/community-ecology/Ecological-Niche.html" class="title listing-title">Ecological Niche</a>
 </td>
 <td>
-<span class="listing-author">Zhehao Hu</span>
+<span class="listing-author">&nbsp;</span>
 </td>
 </tr>
 <tr data-index="2" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971" data-listing-title-sort="As a Biology Student" data-listing-filename-sort="asbiologist.qmd">
@@ -3123,7 +3286,7 @@ Author
 <a href="./biology-research/journal/asbiologist.html" class="title listing-title">As a Biology Student</a>
 </td>
 <td>
-<span class="listing-author">Zhehao Hu</span>
+<span class="listing-author">&nbsp;</span>
 </td>
 </tr>
 </tbody>
@@ -3180,11 +3343,10 @@ Evolutionary Systematics: A note repo for open science and for everyone: [zzzheh
 
  ]]></description>
   <guid>https://zzzhehao.github.io/about.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
+  <pubDate>Sat, 25 Jan 2025 13:23:34 GMT</pubDate>
 </item>
 <item>
   <title>Research Posts</title>
-  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/</link>
   <description><![CDATA[ 
 
@@ -3265,7 +3427,7 @@ Enjoy.
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791">
+<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1737229675329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3773">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -3301,13 +3463,10 @@ Multivariate Analysis
 <div class="listing-date">
 2024-09-18
 </div>
-<div class="listing-author">
-Zhehao Hu
-</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
+<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-all:biology-research/community-ecology/Ecological-Niche.html -->
@@ -3334,9 +3493,6 @@ Ecology
 <div class="listing-date">
 2024-08-27
 </div>
-<div class="listing-author">
-Zhehao Hu
-</div>
 </a>
 </div>
 </div>
@@ -3361,9 +3517,6 @@ Zhehao Hu
 <a href="../biology-research/journal/asbiologist.html" class="no-external">
 <div class="listing-date">
 2024-07-27
-</div>
-<div class="listing-author">
-Zhehao Hu
 </div>
 </a>
 </div>
@@ -3399,7 +3552,7 @@ No matching items
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1735225670075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3791">
+<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1737229675329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3773">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -3435,13 +3588,10 @@ Multivariate Analysis
 <div class="listing-date">
 2024-09-18
 </div>
-<div class="listing-author">
-Zhehao Hu
-</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1734972769400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
+<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-comeco:biology-research/community-ecology/Ecological-Niche.html -->
@@ -3467,9 +3617,6 @@ Ecology
 <a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <div class="listing-date">
 2024-08-27
-</div>
-<div class="listing-author">
-Zhehao Hu
 </div>
 </a>
 </div>
@@ -3511,7 +3658,7 @@ Upcoming …
 
  ]]></description>
   <guid>https://zzzhehao.github.io/biology-research/</guid>
-  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
+  <pubDate>Sat, 25 Jan 2025 13:23:34 GMT</pubDate>
 </item>
 <item>
   <title>Blue Marble</title>
@@ -3571,7 +3718,7 @@ Northern Lights over Hamburg
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/blue-marble/blue-marble.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
+  <pubDate>Sat, 25 Jan 2025 13:23:34 GMT</pubDate>
 </item>
 <item>
   <title>Albums</title>
@@ -4054,7 +4201,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/gallery.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
+  <pubDate>Sat, 25 Jan 2025 13:23:34 GMT</pubDate>
 </item>
 <item>
   <title>Motion Picture</title>
@@ -4085,7 +4232,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/motion-pictures.html</guid>
-  <pubDate>Thu, 16 Jan 2025 01:34:30 GMT</pubDate>
+  <pubDate>Sat, 25 Jan 2025 13:23:34 GMT</pubDate>
 </item>
 </channel>
 </rss>

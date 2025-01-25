@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Zhehao Hu">
 <meta name="dcterms.date" content="2024-09-18">
 
 <title>Niche Overlap Analysis Using nicheROVER and Stable Isotope Data – Zhehao Hu</title>
@@ -302,7 +301,7 @@ window.Quarto = {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:zhehao.hu@uni-hamburg.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+    <p class="author"><a href="https://zzzhehao.github.io">Zhehao Hu</a> <a href="mailto:hu_zhehao@hotmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -927,7 +926,7 @@ Table&nbsp;3: <code>penguin</code> dataset
 <span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>over.stat95 <span class="ot">&lt;-</span> <span class="fu">overlap</span>(pen.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fl">0.95</span>)</span>
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="fu">overlap.plot</span>(over.stat95, <span class="at">col =</span> clrs, <span class="at">mean.cred.col =</span> <span class="st">"#024873"</span>, <span class="at">equal.axis =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Overlap Probability (%) -- Niche Region Size: 95%"</span>, <span class="at">species.names =</span> <span class="fu">c</span>(<span class="st">"P. adeliae - F"</span>, <span class="st">"P.adeliae - M"</span>, <span class="st">"P. antarcticus - F"</span>, <span class="st">"P. antarcticus - M"</span>, <span class="st">"P. papua - F"</span>, <span class="st">"P. papua - M"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-iso-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -994,7 +993,7 @@ Figure&nbsp;8: Niche overlap probability distribution among species and sexes, o
 <span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>over.stat95 <span class="ot">&lt;-</span> <span class="fu">overlap</span>(pen.par, <span class="at">nreps =</span> nsamples, <span class="at">nprob =</span> <span class="dv">1000</span>, <span class="at">alpha =</span> <span class="fl">0.95</span>)</span>
 <span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="fu">overlap.plot</span>(over.stat95, <span class="at">col =</span> clrs, <span class="at">mean.cred.col =</span> <span class="st">"#024873"</span>, <span class="at">equal.axis =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Overlap Probability (%) -- Niche Region Size: 95%"</span>, <span class="at">species.names =</span> <span class="fu">c</span>(<span class="st">"P. adeliae - F"</span>, <span class="st">"P.adeliae - M"</span>, <span class="st">"P. antarcticus - F"</span>, <span class="st">"P. antarcticus - M"</span>, <span class="st">"P. papua - F"</span>, <span class="st">"P. papua - M"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2360,22 +2359,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a><span class="al">![Surprise!](https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true)</span></span>
 <span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reference</span></span>
-<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}</span>
-<span id="cb20-506"><a href="#cb20-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-507"><a href="#cb20-507" aria-hidden="true" tabindex="-1"></a><span class="fu">## [R session and R packages]{.cl-title}</span></span>
-<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb20-514"><a href="#cb20-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-515"><a href="#cb20-515" aria-hidden="true" tabindex="-1"></a><span class="fu">r_pkg_info</span>(pkgs)</span>
-<span id="cb20-516"><a href="#cb20-516" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-517"><a href="#cb20-517" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a>{{&lt; include /partial/_Ref.qmd &gt;}}</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

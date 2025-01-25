@@ -13,7 +13,6 @@
 <lastBuildDate>Tue, 17 Sep 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</title>
-  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</link>
   <description><![CDATA[ 
 
@@ -1373,7 +1372,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-iso-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -1669,7 +1668,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -1916,7 +1915,6 @@ Stable Isotope Data.”</span> September 18, 2024. <a href="https://zzzhehao.git
 </item>
 <item>
   <title>Ecological Niche</title>
-  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/community-ecology/Ecological-Niche.html</link>
   <description><![CDATA[ 
 
@@ -2113,7 +2111,6 @@ The total of the adaptations of an organismic unit.
 </item>
 <item>
   <title>As a Biology Student</title>
-  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/journal/asbiologist.html</link>
   <description><![CDATA[ 
 
