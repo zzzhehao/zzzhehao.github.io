@@ -164,34 +164,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       window['quarto-listing-loaded']();
     }
   })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-ls-deepsea .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-ls-deepsea'] = new List('listing-ls-deepsea', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-R0FB3TL998"></script>
 
@@ -233,7 +205,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="alternate" type="application/rss+xml" title="Zhehao Hu" href="index.xml" data-external="1"></head>
+</head>
 
 <body class="nav-fixed">
 
@@ -290,16 +262,20 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project/fkt250220/index.html">
+ <span class="dropdown-text">Expedition Fkt250220</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About me</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../biology-research/index.xml"> <i class="bi bi-rss" role="img">
-</i> 
-<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -372,7 +348,7 @@ window.Quarto = {
 <li>Interest: <iconify-icon role="img" inline="" icon="humbleicons:arrow-main-split-side" aria-label="Icon arrow-main-split-side from humbleicons Iconify.design set." title="Icon arrow-main-split-side from humbleicons Iconify.design set."></iconify-icon> Evolution <iconify-icon role="img" inline="" icon="carbon:earth-filled" aria-label="Icon earth-filled from carbon Iconify.design set." title="Icon earth-filled from carbon Iconify.design set."></iconify-icon> Ecology <iconify-icon role="img" inline="" icon="streamline:bacteria-virus-cells-biology" aria-label="Icon bacteria-virus-cells-biology from streamline Iconify.design set." title="Icon bacteria-virus-cells-biology from streamline Iconify.design set."></iconify-icon> Microbiology <iconify-icon role="img" inline="" icon="mdi:earth" aria-label="Icon earth from mdi Iconify.design set." title="Icon earth from mdi Iconify.design set."></iconify-icon> Conservation</li>
 <li>Skills: <iconify-icon role="img" inline="" icon="tabler:microscope" aria-label="Icon microscope from tabler Iconify.design set." title="Icon microscope from tabler Iconify.design set."></iconify-icon> Molecular Technology <iconify-icon role="img" inline="" icon="file-icons:dna" aria-label="Icon dna from file-icons Iconify.design set." title="Icon dna from file-icons Iconify.design set."></iconify-icon> Data Analysis</li>
 <li>Animals I love: <iconify-icon role="img" inline="" icon="mdi:shark" aria-label="Icon shark from mdi Iconify.design set." title="Icon shark from mdi Iconify.design set."></iconify-icon> Fishes <iconify-icon role="img" inline="" icon="map:whale-watching" aria-label="Icon whale-watching from map Iconify.design set." title="Icon whale-watching from map Iconify.design set."></iconify-icon> Marine Mammals <iconify-icon role="img" inline="" icon="game-icons:sea-turtle" aria-label="Icon sea-turtle from game-icons Iconify.design set." title="Icon sea-turtle from game-icons Iconify.design set."></iconify-icon> Sea Turtles <iconify-icon role="img" inline="" icon="fluent-emoji-high-contrast:lizard" aria-label="Icon lizard from fluent-emoji-high-contrast Iconify.design set." title="Icon lizard from fluent-emoji-high-contrast Iconify.design set."></iconify-icon> Reptiles <iconify-icon role="img" inline="" icon="game-icons:kiwi-bird" aria-label="Icon kiwi-bird from game-icons Iconify.design set." title="Icon kiwi-bird from game-icons Iconify.design set."></iconify-icon> Birds</li>
-<li>Places dreaming to visit: <a href="https://en.wikipedia.org/wiki/Alaska" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/1600px-Flag_of_Alaska.svg.png?20221128104957" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/New_Zealand" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/1600px-Flag_of_New_Zealand.svg.png?20220924013214" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Patagonia" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2880px-Flag_of_Argentina.svg.png" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Galápagos_Islands" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/2560px-Flag_of_Ecuador.svg.png" class="img-fluid" width="20"></a> <a href="https://de.wikipedia.org/wiki/Costa_Rica" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/2880px-Flag_of_Costa_Rica.svg.png" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Amazon_rainforest" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/2560px-Flag_of_Brazil.svg.png" class="img-fluid" width="20"></a> <!-- [![](){width="20px"}]() --></li>
+<li>Places dreaming to visit: <a href="https://en.wikipedia.org/wiki/Alaska" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/1600px-Flag_of_Alaska.svg.png?20221128104957" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/New_Zealand" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/1600px-Flag_of_New_Zealand.svg.png?20220924013214" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Patagonia" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2880px-Flag_of_Argentina.svg.png" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Galápagos_Islands" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/2560px-Flag_of_Ecuador.svg.png" class="img-fluid" width="20"></a> <a href="https://de.wikipedia.org/wiki/Costa_Rica" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/2880px-Flag_of_Costa_Rica.svg.png" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Amazon_rainforest" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/2560px-Flag_of_Brazil.svg.png" class="img-fluid" width="20"></a></li>
 </ul>
 </div>
 </div>
@@ -401,7 +377,7 @@ Enjoy.
 </figure>
 <p><br></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Latest</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Community Ecology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Deep Sea</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Latest</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Community Ecology</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="listing-ls-all" class="quarto-listing quarto-listing-container-default">
@@ -428,7 +404,32 @@ Enjoy.
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1737229675329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3773">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740454040398" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
+<div class="thumbnail">
+<p><a href="../project/fkt250220/index.html" class="no-external"></a></p><a href="../project/fkt250220/index.html" class="no-external">
+<p><img loading="lazy" src="../assets/images/Fkt_1.jpg" class="thumbnail-image" style="height: 120px;"></p>
+</a><p><a href="../project/fkt250220/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../project/fkt250220/index.html" class="no-external">Ocean Census GoSouth: Searching for New Species in the South Sandwich Islands</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../project/fkt250220/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../project/fkt250220/index.html" class="no-external">On board the research vessel R/V <em>Falkor (too)</em> from Schmidt Ocean Institute, I am sailing as part of the Ocean Census taxonomist team. Our destination is the South Sandwich…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../project/fkt250220/index.html" class="no-external"></a></p><a href="../project/fkt250220/index.html" class="no-external">
+<div class="listing-author">
+Zhehao Hu
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726628400000" data-listing-file-modified-sort="1737229675329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3773">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -467,7 +468,7 @@ Multivariate Analysis
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
+<div class="quarto-post image-right" data-index="2" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724727600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <p class="card-img-top"><img src="https://images.unsplash.com/photo-1579273166152-d725a4e2b755?q=80&w=2801&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo by McGill Library on Unsplash" style="height: 120px;"  class="thumbnail-image card-img"/></p>
@@ -497,7 +498,7 @@ Ecology
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1722031200000" data-listing-file-modified-sort="1735225740341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971">
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1722049200000" data-listing-file-modified-sort="1740066829017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971">
 <div class="thumbnail">
 <p><a href="../biology-research/journal/asbiologist.html" class="no-external"></a></p><a href="../biology-research/journal/asbiologist.html" class="no-external">
 <p class="card-img-top"><img src="../assets/images/hu-in-heath-cropped.jpg" alt="Me being happy in the wild" style="height: 120px;"  class="thumbnail-image card-img"/></p>
@@ -553,7 +554,7 @@ No matching items
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1737229675329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3773">
+<div class="quarto-post image-right" data-index="0" data-categories="RWNvbG9neSUyQ0NvbW11bml0eSUyMEVjb2xvZ3klMkNEYXRhJTIwQW5hbHlzaXMlMkNNdWx0aXZhcmlhdGUlMjBBbmFseXNpcw==" data-listing-date-sort="1726628400000" data-listing-file-modified-sort="1737229675329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3773">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -592,7 +593,7 @@ Multivariate Analysis
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724709600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
+<div class="quarto-post image-right" data-index="1" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724727600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227">
 <div class="thumbnail">
 <p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external"></a></p><a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <p class="card-img-top"><img src="https://images.unsplash.com/photo-1579273166152-d725a4e2b755?q=80&w=2801&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo by McGill Library on Unsplash" style="height: 120px;"  class="thumbnail-image card-img"/></p>
@@ -627,27 +628,25 @@ Ecology
 No matching items
 </div>
 </div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div id="listing-ls-deepsea" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
+<!-- ## Deep Sea
 
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+::: {#ls-deepsea}
+:::
+
+
+
+
+
+
 <figure class="figure">
-<figcaption class="forward">
-Upcoming …
-</figcaption>
+<figcaption class="forward"  > Upcoming ... </figcaption>
 </figure>
+            
+
+
+
+
+ -->
 </div>
 </div>
 </div>
@@ -1357,22 +1356,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: iso</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: </span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">        - "*.qmd"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">        - "../project/*.qmd"</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">        - "!draft*.qmd"</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">        - "!CV.qmd"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">    feed: true</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: ls-comeco</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">    sort: "date desc"</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">    sort-ui: [title, date]</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">    image-height: 120px</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">    image-lazy-loading: true</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">    filter-ui: true</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">    type: default</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: iso</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">    contents:</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">        - "community-ecology/*.qmd"</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">        - "!draft*.qmd"</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: ls-deepsea</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">        - "!draft*.qmd"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">        - "!CV.qmd"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">        - "../project/fkt250220/index.qmd"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: ls-comeco</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">    sort: "date desc"</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">    sort-ui: [title, date]</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">    image-height: 120px</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">    image-lazy-loading: true</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">    filter-ui: true</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">    type: default</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: iso</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">    contents:</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">        - "community-ecology/*.qmd"</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">        - "!draft*.qmd"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: ls-comeco</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">    sort: "date desc"</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">    sort-ui: [title, date]</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">    image-height: 120px</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">    image-lazy-loading: true</span></span>
@@ -1380,7 +1379,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co">    type: default</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: iso</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">    contents:</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">        - "deep-sea/*.qmd"</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">        - "community-ecology/*.qmd"</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">        - "!draft*.qmd"</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
@@ -1450,18 +1449,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>::: {#ls-comeco}</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Deep Sea</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ## Deep Sea</span></span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>::: {#ls-deepsea}</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#ls-deepsea}</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
 <span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="fu">forwardMsg</span>(<span class="st">"Upcoming ..."</span>)</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="co">forwardMsg("Upcoming ...")</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="co"> --&gt;</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
