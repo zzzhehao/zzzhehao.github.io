@@ -2281,7 +2281,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-iso-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2577,7 +2577,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -3335,7 +3335,7 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740454334236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862" data-listing-title-sort="旅をする心 (Traveling Heart)" data-listing-filename-sort="01_Punta_Arenas.qmd">
+<tr data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740491158339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862" data-listing-title-sort="旅をする心 (Traveling Heart)" data-listing-filename-sort="01_Punta_Arenas.qmd">
 <td>
 <span class="listing-date">2025-02-24</span>
 </td>
@@ -3433,7 +3433,7 @@ Evolutionary Systematics: A note repo for open science and for everyone: [zzzheh
 
  ]]></description>
   <guid>https://zzzhehao.github.io/about.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 13:49:58 GMT</pubDate>
 </item>
 <item>
   <title>Research Posts</title>
@@ -3518,7 +3518,7 @@ Enjoy.
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740454449064" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740491165375" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
 <div class="thumbnail">
 <p><a href="../project/fkt250220/index.html" class="no-external"></a></p><a href="../project/fkt250220/index.html" class="no-external">
 <p><img loading="lazy" src="https://zzzhehao.github.io/assets/images/Fkt_1.jpg" class="thumbnail-image" style="height: 120px;"></p>
@@ -3787,7 +3787,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/biology-research/</guid>
-  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 13:49:58 GMT</pubDate>
 </item>
 <item>
   <title>Blue Marble</title>
@@ -3847,7 +3847,7 @@ Northern Lights over Hamburg
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/blue-marble/blue-marble.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 13:49:58 GMT</pubDate>
 </item>
 <item>
   <title>Albums</title>
@@ -4344,7 +4344,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/gallery.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 13:49:58 GMT</pubDate>
 </item>
 <item>
   <title>Motion Picture</title>
@@ -4375,7 +4375,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/motion-pictures.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 13:49:58 GMT</pubDate>
 </item>
 <item>
   <title>Ocean Census GoSouth: Searching for New Species in the South Sandwich Islands</title>
@@ -4445,7 +4445,7 @@ Tokyo, Hida &amp; Matsumoto
 <h2 class="anchored" data-anchor-id="journals">Journals</h2>
 <div id="listing-ls-all" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740454334236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862">
+<div class="quarto-post image-right" data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740491158339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862">
 <div class="thumbnail">
 <p><a href="../../project/fkt250220/journals/01_Punta_Arenas.html" class="no-external"></a></p><a href="../../project/fkt250220/journals/01_Punta_Arenas.html" class="no-external">
 <p><img loading="lazy" src="https://zzzhehao.github.io/assets/images/punta_arenas-ship_in_horizon.jpg" class="thumbnail-image" style="height: 120px;"></p>
@@ -4487,7 +4487,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/project/fkt250220/</guid>
-  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 13:49:58 GMT</pubDate>
   <media:content url="https://zzzhehao.github.io/assets/images/Fkt_1.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
