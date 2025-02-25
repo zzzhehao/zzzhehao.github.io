@@ -921,6 +921,7 @@ Copy as R Vector
 </item>
 <item>
   <title>Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</title>
+  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/community-ecology/nicheROVER-Niche-Overlap.html</link>
   <description><![CDATA[ 
 
@@ -2823,6 +2824,7 @@ Stable Isotope Data.”</span> September 18, 2024. <a href="https://zzzhehao.git
 </item>
 <item>
   <title>Ecological Niche</title>
+  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/community-ecology/Ecological-Niche.html</link>
   <description><![CDATA[ 
 
@@ -3019,6 +3021,7 @@ The total of the adaptations of an organismic unit.
 </item>
 <item>
   <title>As a Biology Student</title>
+  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/journal/asbiologist.html</link>
   <description><![CDATA[ 
 
@@ -3332,7 +3335,7 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740452933797" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862" data-listing-title-sort="旅をする心 (Traveling Heart)" data-listing-filename-sort="01_Punta_Arenas.qmd">
+<tr data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740454334236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862" data-listing-title-sort="旅をする心 (Traveling Heart)" data-listing-filename-sort="01_Punta_Arenas.qmd">
 <td>
 <span class="listing-date">2025-02-24</span>
 </td>
@@ -3351,7 +3354,7 @@ Author
 <a href="./biology-research/community-ecology/nicheROVER-Niche-Overlap.html" class="title listing-title">Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</a>
 </td>
 <td>
-<span class="listing-author">&nbsp;</span>
+<span class="listing-author">Zhehao Hu</span>
 </td>
 </tr>
 <tr data-index="2" data-categories="RWNvbG9neQ==" data-listing-date-sort="1724727600000" data-listing-file-modified-sort="1737158366018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Ecological Niche" data-listing-filename-sort="Ecological-Niche.qmd">
@@ -3362,7 +3365,7 @@ Author
 <a href="./biology-research/community-ecology/Ecological-Niche.html" class="title listing-title">Ecological Niche</a>
 </td>
 <td>
-<span class="listing-author">&nbsp;</span>
+<span class="listing-author">Zhehao Hu</span>
 </td>
 </tr>
 <tr data-index="3" data-listing-date-sort="1722049200000" data-listing-file-modified-sort="1740066829017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1971" data-listing-title-sort="As a Biology Student" data-listing-filename-sort="asbiologist.qmd">
@@ -3373,7 +3376,7 @@ Author
 <a href="./biology-research/journal/asbiologist.html" class="title listing-title">As a Biology Student</a>
 </td>
 <td>
-<span class="listing-author">&nbsp;</span>
+<span class="listing-author">Zhehao Hu</span>
 </td>
 </tr>
 </tbody>
@@ -3430,10 +3433,11 @@ Evolutionary Systematics: A note repo for open science and for everyone: [zzzheh
 
  ]]></description>
   <guid>https://zzzhehao.github.io/about.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:28:06 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
 </item>
 <item>
   <title>Research Posts</title>
+  <dc:creator>Zhehao Hu</dc:creator>
   <link>https://zzzhehao.github.io/biology-research/</link>
   <description><![CDATA[ 
 
@@ -3514,7 +3518,7 @@ Enjoy.
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740454040398" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740454449064" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
 <div class="thumbnail">
 <p><a href="../project/fkt250220/index.html" class="no-external"></a></p><a href="../project/fkt250220/index.html" class="no-external">
 <p><img loading="lazy" src="https://zzzhehao.github.io/assets/images/Fkt_1.jpg" class="thumbnail-image" style="height: 120px;"></p>
@@ -3575,6 +3579,9 @@ Multivariate Analysis
 <div class="listing-date">
 2024-09-18
 </div>
+<div class="listing-author">
+Zhehao Hu
+</div>
 </a>
 </div>
 </div>
@@ -3605,6 +3612,9 @@ Ecology
 <div class="listing-date">
 2024-08-27
 </div>
+<div class="listing-author">
+Zhehao Hu
+</div>
 </a>
 </div>
 </div>
@@ -3629,6 +3639,9 @@ Ecology
 <a href="../biology-research/journal/asbiologist.html" class="no-external">
 <div class="listing-date">
 2024-07-27
+</div>
+<div class="listing-author">
+Zhehao Hu
 </div>
 </a>
 </div>
@@ -3700,6 +3713,9 @@ Multivariate Analysis
 <div class="listing-date">
 2024-09-18
 </div>
+<div class="listing-author">
+Zhehao Hu
+</div>
 </a>
 </div>
 </div>
@@ -3729,6 +3745,9 @@ Ecology
 <a href="../biology-research/community-ecology/Ecological-Niche.html" class="no-external">
 <div class="listing-date">
 2024-08-27
+</div>
+<div class="listing-author">
+Zhehao Hu
 </div>
 </a>
 </div>
@@ -3768,7 +3787,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/biology-research/</guid>
-  <pubDate>Tue, 25 Feb 2025 03:28:06 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
 </item>
 <item>
   <title>Blue Marble</title>
@@ -3828,7 +3847,7 @@ Northern Lights over Hamburg
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/blue-marble/blue-marble.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:28:06 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
 </item>
 <item>
   <title>Albums</title>
@@ -4325,7 +4344,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/gallery.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:28:06 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
 </item>
 <item>
   <title>Motion Picture</title>
@@ -4356,7 +4375,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/motion-pictures.html</guid>
-  <pubDate>Tue, 25 Feb 2025 03:28:06 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
 </item>
 <item>
   <title>Ocean Census GoSouth: Searching for New Species in the South Sandwich Islands</title>
@@ -4426,7 +4445,7 @@ Tokyo, Hida &amp; Matsumoto
 <h2 class="anchored" data-anchor-id="journals">Journals</h2>
 <div id="listing-ls-all" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740452933797" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862">
+<div class="quarto-post image-right" data-index="0" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740366000000" data-listing-file-modified-sort="1740454334236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862">
 <div class="thumbnail">
 <p><a href="../../project/fkt250220/journals/01_Punta_Arenas.html" class="no-external"></a></p><a href="../../project/fkt250220/journals/01_Punta_Arenas.html" class="no-external">
 <p><img loading="lazy" src="https://zzzhehao.github.io/assets/images/punta_arenas-ship_in_horizon.jpg" class="thumbnail-image" style="height: 120px;"></p>
@@ -4468,7 +4487,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/project/fkt250220/</guid>
-  <pubDate>Tue, 25 Feb 2025 03:28:06 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2025 03:35:59 GMT</pubDate>
   <media:content url="https://zzzhehao.github.io/assets/images/Fkt_1.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
