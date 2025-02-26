@@ -1,0 +1,79 @@
+## Albatrosses 
+
+ ![Black-browed Albatross, *Thalassarche melanophrisge* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-24.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-24.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophrisge* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-25.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-25.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophrisge* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-26.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-26.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophrisge* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-27.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-27.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophrisge* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-28.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-28.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophrisge* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-29.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-29.jpg')`"}
+
+![Southern Royal Albatross, *Dimedea epomophora* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-6.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-6.jpg')`"}
+
+## Cormorant 
+
+ ![Imperial Cormorant, *Leucocarbo atriceps* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-2.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-2.jpg')`"}
+
+## Petrels 
+
+ ![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-10.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-10.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-11.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-11.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-12.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-12.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-13.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-13.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-14.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-14.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-15.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-15.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-16.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-16.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-17.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-17.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-18.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-18.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-19.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-19.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-20.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-20.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-23.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-23.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-3.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-3.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. and adult © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-34.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-34.jpg')`"}
+
+![Narrow-billed Prion or Antarctic Prion, *Pachyptila sp.* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-35.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-35.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-4.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-4.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-5.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-5.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-7.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-7.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-8.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-8.jpg')`"}
+
+![Southern Giant-petrel, *Macronectes giganteus*, juv. © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-9.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-9.jpg')`"}
+
+## Whales 
+
+ ![Minke Whale, *Balaenoptera sp.* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-1.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-1.jpg')`"}
+
+## NA 
+
+ ![Black-browed Albatross, *Thalassarche melanophris* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-21.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-21.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophris* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-22.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-22.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophris* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-30.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-30.jpg')`"}
+
+![Black-browed Albatross shaking off water, *Thalassarche melanophris* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-31.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-31.jpg')`"}
+
+![Black-browed Albatross shaking off water, *Thalassarche melanophris* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-32.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-32.jpg')`"}
+
+![Black-browed Albatross, *Thalassarche melanophris* © Zhehao Hu](/project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-33.jpg){description="`r descrip_exif('project/fkt250220/species_catalog/Animal-Surface/Animal-Surface-33.jpg')`"}

@@ -1,0 +1,14 @@
+- category: "Albatrosses"
+  scientific_name:
+    - "Dimedea epomophora"
+    - "Thalassarche melanophrisge"
+- category: "Petrels"
+  scientific_name:
+    - "Macronectes giganteus"
+    - "Pachyptila sp."
+- category: "Cormorant"
+  scientific_name:
+    - "Leucocarbo atriceps"
+- category: "Whales"
+  scientific_name:
+    - "Balaenoptera sp."

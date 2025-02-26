@@ -5,13 +5,15 @@ project:
     - "*.png"
     - "*.pdf"
     - "*.json"
+    - "*.html"
   render: 
     - "*.qmd"
     - "!comments/"
     - "!resource/"
     - "!closeread/"
     - "!draft**.qmd"
-
+  pre-render: 
+    - "project/fkt250220/species_catalog/image_prep.R"
   execute-dir: project
   output-dir: _site
 
@@ -46,11 +48,13 @@ website:
           - text: "CV"
             href: biology-research/assets/CV_Zhehao_Hu.pdf
 
+      - text: "Project"
+        menu: 
+          - text: "Expedition Fkt250220"
+            href: project/fkt250220/index.qmd
+
       - text: "About me"
         href: about.qmd
-    right:
-      - icon: rss
-        href: /biology-research/index.xml
 
     tools: 
       - icon: github

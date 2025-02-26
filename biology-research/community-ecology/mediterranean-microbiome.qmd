@@ -1,0 +1,1010 @@
+---
+title: "Big Stew: Demonstrating Network Analysis with Mediterranean Microbial Data"
+date: 2025-01-30
+authors:
+  - name: 
+      given: Zhehao
+      family: Hu
+    email: hu_zhehao@hotmail.com
+    url: https://zzzhehao.github.io
+    affiliations:
+      - name: Department of Biology, University of Hamburg
+        city: Hamburg
+        country: Germany
+        url: https://www.biologie.uni-hamburg.de/en.html
+    corresponding: true
+#   - name: 
+#       given: "Jan Moritz"
+#       family: "Fehr"
+#     affiliations:
+#       - name: Department of Biology, University of Hamburg
+#         city: Hamburg
+#         country: Germany
+#         url: https://www.biologie.uni-hamburg.de/en.html
+citation: true
+draft: true
+---
+
+::: {.disclaimer}
+
+- This is a meta-analysis for demonstration in M. Sc. Biology module *Network Analysis in Ecology and Beyond* offered by [Prof. Dr. Jochen Fründ](https://jochenfruend.wordpress.com) at [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html). 
+- The data used is credited to @deutschmann2024 and available in the [original repo](https://github.com/InaMariaDeutschmann/GlobalNetworkMalaspinaHotmix), as well as in [our repo](https://github.com/zzzhehao/MediterraneanMicrobiome).
+- Analysis shown was done by Jan Moritz Fehr (Data wrangling, Modularity analysis, NMDS, Bipartite network) and Zhehao Hu (Indices calculation, Null model testing, NMDS). Source code available at [github.com](https://github.com/zzzhehao/MediterraneanMicrobiome).
+- Many results in this article are stored in RDS files, as they take huge amount of time to compute. These RDS files are available in the [website branch](https://github.com/zzzhehao/MediterraneanMicrobiome/tree/website-quartoMute). See invisible codes in page's source file to see where the checkpoints are.
+
+:::
+
+::: {.callout-warning}
+
+## Big Stew
+
+This analysis has gone a bit too far than we originally thought.
+
+:::
+
+## Ocean Microbiome
+
+We adopted the ocean microbial data processed and published by @deutschmann2024, and focused on the Mediterranean subset. Thank to the comprehensive record of ecological parameters of the samples, we were able to divide microbial network into subnetworks according to their depth. The data was originally categorized in 5 layers: 
+
+- Surface (**SRF**): 0 - 3 m
+- Epipelagic (**EPI**): 12 - 50 m
+- Deep-Chlorophyll Maximum (**DCM**): 40 - 130 m
+- Mesopelagic (**MES**): 200 - 1000 m
+- Bathypelagic (**BAT**): 1100 - 3300 m
+
+We have combined EPI and DCM for the sake of simplicity and also because DCM is recognized as part of EPI. EPI is also called as sunlit zone, where solar resource could still be utilized by photosynthesis. As the red light being absorbed faster than the blue light, in MES, also known as twilight zone, there's only dim blue light present, which can not be used for photosynthesis. Which will eventually as well disappear in BAT, at which depth the most area of Mediterranean Sea hits the sea floor.
+
+In each layer, the species composition besides microorganism is different: in SRF and EPI, phytoplanktons are able to import solar energy into the ecosystem and this  attracts small zooplanktons to feed at this depth. As photosynthesis becomes no longer possible in MES, it is home to many nektons: fishes, squids, larger crustaceans, etc. In BAT, as we approach the sea floor, benthic fauna becomes an important part. Such differences in interaction partners will also affect microorganism communities. But in what extent? Or how are the communities different? Such question can be answered by analyzing the co-occurrence / association network. 
+
+@deutschmann2024 has published an Amplicon Sequences Variants (ASV) abundance data, which comprises an abundance matrix in the form that each row represents a sample site and each column represents an OTU (Operational Taxonomic Unit, commonly used in microbiology as proxies for species concept). This matrix directly represents an adjacency matrix for a species-location bipartite network.
+
+For more information about ocean layers, kindly see [Know Your Ocean](https://www.whoi.edu/know-your-ocean/ocean-topics/how-the-ocean-works/ocean-zones/) from WHOI.
+
+{{< include /partial/_Rset.qmd >}}
+
+```r
+library(bipartite)
+library(tidyverse)
+library(vegan)
+library(geomtextpath)
+library(ggpubr)
+library(furrr)
+
+path <- "MediterraneanMicrobiome/"
+```
+
+:::
+
+```{r}
+#| output: false
+#| echo: false
+
+source("functions/page_construct.R")
+pkgs <- c("pacman", "rmarkdown", "knitr", "tidyverse", "bipartite", "vegan", "ggpubr", "geomtextpath", "furrr")
+pacman::p_load(pkgs, character.only = TRUE)
+set.seed(1)
+
+path <- "biology-research/community-ecology/MediterraneanMicrobiome/"
+```
+
+Lets get the data imported and start with some basic data wrangling:
+
+```{r}
+ASV <- read.delim(paste0(path, "data/ASV.txt"), sep = "\t", header = TRUE)
+# ASV = abundance data of OTUs at sampling locations (OTU x location)
+ENV <- read.delim(paste0(path, "data/ENV.txt"), sep = "\t", header = TRUE)
+# ENV = environmental data of sampling locatoins
+LOC <- read.delim(paste0(path, "data/Sample_Classification.tsv"), sep ="\t", header = T)
+# LOC = Location data for sampling locations eg. depth / ocean layer
+```
+
+{{< include /partial/_cusCall.qmd >}}
+
+## [Data wrangling]{.cl-sub}
+
+```{r}
+#| eval: false
+
+dfASV <- as.data.frame(t(ASV))
+tENV <- as.data.frame(t(ENV))
+colnames(dfASV) <- ASV$ID 
+dfASV <- dfASV[-1, ]
+
+dfASV <- dfASV %>% 
+  mutate_at(1:5457, as.numeric) %>% # turning abundance data into numeric
+  mutate(Sample=row.names(dfASV))  # adding column with sampling location names 
+  # rename(dfASV$name, Sample = name) # naming this column "Sample"
+
+colnames(tENV) <- ENV$ID # renaming the columns after the ID column in the ENV dataset. 
+tENV <- tENV[-1, ] # deleting the ID row in the tENV dataframe
+tENV <- tENV %>%
+  mutate(Sample=row.names(tENV)) # adding column with sampling location names
+  # rename(tENV$name, Sample = name) # naming this column "Sample"
+
+new <- left_join(dfASV, LOC, by = NULL) # joining ASV and LOC dataframes
+new <- left_join(new, tENV, by = NULL) 
+```
+
+Subsetting for mediterranean sample locations:
+
+```{r}
+#| eval: false
+
+new.MS <- new[new[, "OceanRegion"] == "MS", ] # subsetting for samples from Mediterranean sea (MS)
+sp.MS <- new.MS[, 1:5457] # subsetting only the species abundance part of the MS dataframe
+sp.MS <- sp.MS %>% 
+  mutate_at(1:5457, as.numeric) # tuning df into numeric data.
+sp.MS <- sp.MS[, colSums(sp.MS) > 0] # only keeping columns where the sum is > 0. therefore getting rid off all OTUs not found in mediterranean sea
+
+sp.MS <- sp.MS %>%
+  mutate(Sample=new.MS$Sample) 
+  # rename(sp.MS$name, Sample = name)
+
+ENV.MS <- new.MS[, 5458:5473] # subsetting only location and environmental data of sampling locations in the MS
+
+MS <- left_join( # rejoining species abundance and location / environmental data of MS
+  sp.MS, 
+  ENV.MS, 
+  by = NULL
+)
+
+ab.mtx.ncol <- 3208
+```
+
+```{r}
+#| label: checkpoint-MS
+#| echo: false
+#| eval: false
+
+saveRDS(MS, paste0(path, "data/MS.rds"))
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+MS <-  readRDS(paste0(path, "data/MS.rds"))
+ab.mtx.ncol <- 3208
+```
+
+::: 
+
+`MS` is now a dataframe comprising `n = `r nrow(MS)`` rows as sample sites and `p = `r ab.mtx.ncol`` columns of OTU, which stores the abundance data in the form of an adjacency matrix. There are additional `r ncol(MS) - ab.mtx.ncol` columns at the end for ecological data.
+
+## Non-metric Multi-Dimensional Scaling (NMDS)
+
+The most intuitive way to have an overview on the community is to plot them out, NMDS is the most common way to do this.
+
+```{r}
+library(tidyverse)
+library(vegan)
+
+set.seed(1)
+
+ab.mtx <- as.matrix(MS[, 1:ab.mtx.ncol]) # extract abundance matrix
+```
+
+### Data Preparation
+
+Taking a brief look at the data, it's very clear that out microbial data is actually largely skewed. There are a few species with extremely high reads, and a vast majority being very low frequent, and almost 85% of the cells in our matrix are zero. 
+
+```{r fig.align="center"}
+ab.mtx[ab.mtx == 0] %>% length() / ab.mtx %>% length()
+max(ab.mtx)
+hist(ab.mtx)
+```
+
+It's worth noting that `vegan::metaMDS()`, the function that does the calculation for NMDS, will try to autotransform the data if not specified `autotransform = False`. In our case, considering the extreme skewness of the data and clear pattern, which transforming method to use did not really make big differences. But this is not always true. One should select these methods cautiously. *Hellinger* transformation is one way to reduce the weight of extremely high value. 
+
+```{r}
+ab.mtx.tf <- decostand(ab.mtx, "hellinger")
+max(ab.mtx.tf)
+```
+
+### Perform NMDS
+
+Every community ecologist should be familiar with the basic idea of NMDS, which is dimension reduction. It converts our *n* x *p* matrix into an *n* x *n* dissimilarity matrix. This steps allows flexible decision on how the distances should be calculated. A common choice while dealing with species composition is the Bray-Curtis dissimilarity, as its semi-metric approach takes both presence/absence and abundance information into account. It is also default to `metaMDS()`.
+
+NMDS differs a bit from other ordination methods, like PCA, in handling the distances and calculating axes and coordinates. Its non-metric nature decided that the distance on the final plot does not represents the distances between dataset, but the ranking order. It also therefore, does not try to maximize the variability in axes, which means the axes are completely arbitrary and this technique is mainly used for visualization only [@bakker2024].
+
+Before starting NMDS, we have to specify ***k***, which gives the number of axes we want to have. NMDS will then take iterative process to adjust the scaling. After each iteration, it calculates a ***stress*** values showing how nice the ordination represents real data. The value ranges from 0 to 1, where 0 means a perfect fit. It however indicates danger for interpreting the ordination already from 0.2. Generally a stress value under 0.1 is considered a good result [@clarke1993; @bakker2024]. 
+
+```{r}
+#| eval: false
+NMDS <- metaMDS(ab.mtx.tf, k=2, autotransform = F, trymax = 50)
+```
+
+{{< include /partial/_cusCall.qmd >}}
+
+## [See the processing result]{.cl-sub}
+
+```{r}
+#| echo: false
+NMDS <- metaMDS(ab.mtx.tf, k=2, autotransform = F, trymax = 50)
+```
+
+```{r}
+NMDS
+```
+
+:::
+
+### NMDS Plot using `{ggplot2}`
+
+There are several plotting functions from `{vegan}`, but since we were trying to make a fancy poster, I brought out my old script to make fully controlled plot with `{ggplot2}`.
+
+```{r}
+# Extract coordinates
+siteCoord <- as_tibble(scores(NMDS)$sites)
+spCoord <- as_tibble(scores(NMDS)$species)
+
+# Import aesthetics setting
+source(paste0(path, "analysis/AES.R"))
+
+# Plot the species
+p.NMDS.sp <- ggplot() +
+    geom_point(data = spCoord, aes(x = NMDS1, y = NMDS2), size = 2, shape = 3, color = "grey", alpha = 0.25) +
+    aes_ACTCP_ggplot() +
+    theme(aspect.ratio = 1) +
+    coord_equal()
+
+p.NMDS.sp
+```
+
+As simple as that, we have our species plotted. But we are not really interested in individual species, instead, the community at different sites. For that purpose, we have to first pass the environmental data of each site into `siteCooord`.
+
+```{r}
+# Extract environmental data, combine DCM with EPI
+env <- MS[, (ab.mtx.ncol+1):ncol(MS)] %>% 
+    mutate(layer = case_when(layer == "DCM" ~ "EPI", .default = layer))
+siteCoord_env <- cbind(siteCoord, env)
+
+# Order the layer 
+siteCoord_env_ordered <- siteCoord_env %>% mutate(layer = factor(layer, levels = c("SRF", "EPI", "MES", "BAT")))
+```
+
+Then we can plot them as usual:
+
+```{r}
+# Define colors for the layers
+depth.colors <- c(
+    "SRF" = "#6CCCD6",
+    "EPI" = "#007896", 
+    "MES" = "#004359",
+    "BAT" = "#001C25"
+)
+
+depth.shapes <- c(
+    "SRF" = 15,
+    "EPI" = 16, 
+    "MES" = 17,
+    "BAT" = 18
+)
+
+p.NMDS.st <- ggplot() +
+    geom_point(data = siteCoord_env_ordered, aes(x = NMDS1, y = NMDS2, color = layer, shape = layer), size = 3.5, alpha = 0.8) +
+    aes_ACTCP_ggplot() +
+    theme(aspect.ratio = 1) +
+    scale_color_manual(values = depth.colors) +
+    scale_shape_manual(values = depth.shapes) +
+    guides(color = guide_legend("Layer"), fill = "none", shape = guide_legend("Layer"))
+
+p.NMDS.st
+```
+
+Now, this is telling us more information, we can see that sample sites from the same layer tend to cluster together. A common way to show such categorical data in NMDS is to draw a convex hull on those clusters. 
+
+### NMDS Hullplot using `{ggplot2}` 
+
+The basic idea is simply use `chull()` to identify the points from the same cluster that are on the border of the hull and draw a polygon using those points. But the problem is that we have some outliers here, especially from MES (those two neighboring BAT and SRF). Those points would surely become the one defining the convex hull, and makes the hull covering much more area than the cluster really does. 
+
+To address this, I additionally calculate the euclidean centroids of each cluster and filter out outliers by comparing their distances to the centroids with the median distances to the centroids from all points within the same cluster. Those points that has a distance larger than a threshold calculated from median distance with defined multiplier will not be included.
+
+{{< include /partial/_cusCall.qmd >}}
+
+## [See the result if we do not exclude those points]{.cl-sub}
+
+```{r}
+#| echo: false
+outliner <- function(coord, threshold_factor = 2, group_var, threshold_func = median) {
+    centroid <- colMeans(coord[, c(1, 2)])
+    outline_indices <- chull(coord[, c(1, 2)])
+
+    return(list(
+        borders = coord[outline_indices, ], 
+        centroid = c(centroid, group = group_var[[1]])
+    ))
+}
+
+layer.siteCoord <- siteCoord_env %>% 
+    group_by(layer) %>%
+    group_map(~ outliner(.x, 2, .$layer), .keep = T) %>% 
+    `names<-`(group_keys(siteCoord_env %>% group_by(layer))[[1]]) %>%
+    do.call(what = rbind, args = .) %>%
+    as.data.frame()
+
+borders.pCoord <- layer.siteCoord[["borders"]] %>% bind_rows()
+centroids.pCoord <- layer.siteCoord[["centroid"]] %>% bind_rows() %>% mutate(NMDS1 = as.numeric(NMDS1), NMDS2 = as.numeric(NMDS2))
+
+p.NMDS.st.hull <- p.NMDS.st +
+    geom_polygon(data = borders.pCoord, aes(x = NMDS1, y = NMDS2, fill = layer), alpha = 0.5) + # hull
+    geom_text(data = centroids.pCoord, aes(x = NMDS1, y = NMDS2, label = group)) +
+    scale_fill_manual(values = depth.colors) 
+
+p.NMDS.st.hull
+```
+
+:::
+
+```{r}
+# Calculate the coordinates of the hull border
+outliner <- function(coord, group_var,  threshold_factor = 2, threshold_func = median) {
+    centroid <- colMeans(coord[, c(1, 2)])
+    centroids <- matrix(c(rep(centroid[1], nrow(coord)), rep(centroid[2], nrow(coord))), ncol = 2)
+    
+    # Euclidean distances
+    coord$distances <- sqrt(rowSums((coord[, c(1, 2)] - centroids)^2))
+
+    # Set threshold
+    threshold <- threshold_factor * threshold_func(coord$distances)
+
+    # filter out points with distance larger than threshold
+    coord_in <- coord[coord$distances <= threshold, ]
+
+    outline_indices <- chull(coord_in[, c(1, 2)])
+
+    return(list(
+        borders = coord_in[outline_indices, ], 
+        centroid = c(centroid, group = group_var[[1]])
+    ))
+}
+```
+
+`threshold_factor` controls how conservative or inclusive the convex hull should be drawn. Then we apply this process to each category and extract the hull border coordinatees for ggplot.
+
+```{r}
+# Using ordered factor from `siteCoord_env_ordered` can't successfully pass the layer name through the pipeline
+layer.siteCoord <- siteCoord_env %>% 
+    group_by(layer) %>%
+    group_map(~ outliner(.x, .$layer), .keep = T) %>% 
+    `names<-`(group_keys(siteCoord_env %>% group_by(layer))[[1]]) %>%
+    do.call(what = rbind, args = .) %>%
+    as.data.frame()
+
+# Extract border and centroid coordinates
+borders.pCoord <- layer.siteCoord[["borders"]] %>% bind_rows()
+centroids.pCoord <- layer.siteCoord[["centroid"]] %>% bind_rows() %>% mutate(NMDS1 = as.numeric(NMDS1), NMDS2 = as.numeric(NMDS2))
+
+p.NMDS.st.hull <- p.NMDS.st +
+    geom_polygon(data = borders.pCoord, aes(x = NMDS1, y = NMDS2, fill = layer), alpha = 0.5) + # hull
+    geom_text(data = centroids.pCoord, aes(x = NMDS1, y = NMDS2, label = group)) +
+    scale_fill_manual(values = depth.colors) 
+
+p.NMDS.st.hull
+```
+
+This is one of the clearest NMDS I've ever plotted. Each layer forms a cluster that does not have much overlap with others, except EPI and SRF, which also make sense, because even microorganism in SRF might have different interacting partners than the rest of EPI, the environmental condition and the general species compositions, in particular functionally, should be very similar. This is also reflected by SRF on the right side of EPI with larger distance to MES or BAT. 
+
+The space between MES and EPI is not encapsulated by any of both, it reflects the "bridge" section, probably at which depth that both layers meet each other. There's a numerical depth data in `env`, which is principally continuous data complementing our layer categories. While we use hull plot to visualize categeories in NMDS, we can use contour line to visualize continuous variables. 
+
+### Fitting smooth surface
+
+If we imagine the variables we want to display as the third dimension of our points on NMDS, visualize the variables becomes generally visualize a 3-dimensional structure on our 2-D plot, one of whose answer is to fit the surface on our plot using `vegan::ordisurf()`.
+
+The way to extract contour line from `vegan::ordisurf()` and the function `extract.xyz()` are credited to [Christopher Chizinski's post](https://chrischizinski.github.io/rstats/ordisurf/).
+
+```{r}
+#| warning: false
+#| message: false
+
+library(geomtextpath)
+extract.xyz <- function(obj) {
+    print(obj)
+  xy <- expand.grid(x = obj$grid$x, y = obj$grid$y)
+  xyz <- cbind(xy, c(obj$grid$z))
+  names(xyz) <- c("x", "y", "z")
+  return(xyz)
+}
+
+depth.surf <- ordisurf(NMDS, env$depth, permutation = 999, na.rm = T, plot = F)
+depth.contour <- extract.xyz(obj = depth.surf)
+
+p.NMDS.st.hull.cont <- p.NMDS.st.hull +
+    geom_textcontour(data = depth.contour, aes(x, y, z = z), color = "#c4438c") 
+
+p.NMDS.st.hull.cont
+```
+
+The depth just explained the cluster really well, and we see those points between MES and EPI are exactly around the transition depth.
+
+But, what we did so far was basic descriptive work in community ecology. We still want to take a look into the community structure. 
+
+## Network Indices
+
+Since our ASV abundance data is representing a co-occurrence relationships between species at different site, the species~site matrix is technically an adjacency matrix of a species~site bipartite network. Once we consider them as a network, we could subset them according to the water layer, and calculare indices respectively for comparison. To clarify, we are taking slices while subsetting the network, it actually results in several individual subnetworks, instead of multiplex or multilayer networks. 
+
+### Extract Subnetworks
+
+```{r}
+library(tidyverse)
+
+web.list <- list()
+ex.LUT <- list(
+    "SRF" = c("SRF"),
+    "EPI" = c("DCM", "EPI"),
+    "MES" = c("MES"),
+    "BAT" = c("BAT"))
+
+for (i in 1:length(ex.LUT)) {
+    web.list[[names(ex.LUT[i])]] <- MS %>% 
+        filter(layer %in% ex.LUT[[i]]) %>% 
+        dplyr::select(all_of(1:ab.mtx.ncol)) %>% 
+        as.matrix()
+} # I couldn't figure out how to do this job with {purrr} while also assigning names to the matrices. Please contact me if you know how.
+
+web.parent <- MS %>% 
+    dplyr::select(all_of(1:ab.mtx.ncol)) %>% 
+    as.matrix()
+```
+
+`web.list` is now a list of 5 matrices and each of them represents a network. Take a look at the reads in each network:
+
+```{r}
+map_df(web.list, ~ data.frame(reads = sum(.x), ratio = round(sum(.x)/sum(web.parent), 2)), .id = "web")
+```
+
+{{< include /partial/_cusCall.qmd >}}
+
+## [See structure of `web.list`]{.cl-sub}
+
+```{r}
+str(web.list)
+```
+
+:::
+
+### Calculate Indices
+
+`{bipartite}` provides calculation for various indices at different level. See [Vignette, section 5](https://cran.r-project.org/web/packages/bipartite/vignettes/Intro2bipartite.pdf) for details. We have chosen some indices that we are interested in:
+
+- Connectance: 
+- Linkage density: 
+- Shannon diversity: 
+- Interaction evenness: 
+- Togetherness: 
+- Network wide specialization index $H^{'}_2$:
+- Specialization asymmetry:
+
+I wrote a wrapper function that can apply the indices calculation to all matrices in a list and then summarize them in a data.frame. I also encapsulated them in parallel process (`{furrr}` package) to accelerate computation. Nonetheless, computing SA still consumed a large amount of time (1.5 hours on my machine), I have therefore dropped it from further analysis. 
+
+```r
+library(bipartite)
+library(tidyverse)
+library(furrr)
+library(ggpubr)
+
+network.indices <- c("connectance", "linkage density", "Shannon diversity", "interaction evenness", "togetherness", "H2", "SA", "NODF")
+
+plan(multisession, workers = 4)
+
+#' Calculate multiple network-level index simultaneously on multiple networks.
+#' 
+#' @param web.mtx.list List of matrices in which each matrix construct a network
+#' @param index.vec Character vector of indices which bipartite::networklevel() accepts in its `index` argument
+#' @returns A 
+index.networklvl <- function(web.mtx.list, index.vec) {
+    network.res <- future_map(web.mtx.list, \(x) networklevel(x, index = index.vec, intereven = "sum"), .options = furrr_options(seed = TRUE)) %>% 
+        bind_rows %>% 
+        as.data.frame() %>% 
+        `rownames<-`(names(web.mtx.list))
+    return(network.res)
+}
+
+system.time({
+    index.network.res <- index.networklvl(web.list, network.indices) %>% mutate(layer = rownames(.))
+})
+```
+
+```{r}
+#| include: false
+#| eval: false
+#| echo: false
+#| label: checkpoint-index.network.res
+
+network.indices <- c("connectance", "linkage density", "Shannon diversity", "interaction evenness", "togetherness", "H2", "SA", "NODF")
+
+plan(multisession, workers = 4)
+
+index.networklvl <- function(web.mtx.list, index.vec) {
+    network.res <- future_map(web.mtx.list, \(x) networklevel(x, index = index.vec, intereven = "sum"), .options = furrr_options(seed = TRUE)) %>% 
+        bind_rows %>% 
+        as.data.frame() %>% 
+        `rownames<-`(names(web.mtx.list))
+    return(network.res)
+}
+
+system.time({
+    index.network.res <- index.networklvl(web.list, network.indices) %>% mutate(layer = rownames(.)) %>% select(layer, all_of(everything()))
+})
+
+saveRDS(index.network.res, paste0(path, "index.network.res.RDS"))
+```
+
+```{r}
+#| echo: false
+
+index.network.res <- readRDS(paste0(path, "index.network.res.RDS"))
+paged_table(index.network.res)
+```
+
+Now, we can of course go through all the indices one-by-one in details (we actually should), but if consider to put these result on a poster, we have to think of a better visualization than bunch of complex numbers. One way to do this is creating a spider chard as a profile for each layer. Although the implementation of a spider chart in R is challenging, since no CRAN package really provides such function. 
+
+### Null Model and Permutational Test
+
+Another thing we can do with the network indices is to test if there's a pattern observable comparing to a null model. Different from comparing indices between layers, testing null models can tell us that for certain layer and certain index, if the value we got was something to be expected from a normal condition, i.e. null model. But this task is tricky - we have no idea how the null model looks like, we don't know what to expect if there's no pattern. How are we supposed to test our network against a standard that we don't know?
+
+Permutation method is used for such purpose, we basically guess the null model with our data. Permuatation is similar to bootstrapping, but much stricter. They both resample data from the observation we have, but permutation method resamples without replacement while bootstrapping does otherwise, thus creating brand new datasets. Permutation, in other hand, only "rearranges" the datasets to erase potential patterns so that if our observation has any, we can detect the difference. Permutation process is done by randomly resampling the data and therefore usually done with many iterations to ensure higher confidence. 
+
+Now, the problem is to what extent the permuation should be done. If we randomize too hard, we might not only wash out the pattern we want to test, but also other patterns that are generally present but not in our interest. If this happens, then no matter if the pattern we want to test is present or not, comparing against null model will always yield significance. But if we randomize too conservatively, then we might not able to remove the pattern we want to test, and thus fail in detecting too. 
+
+In terms of randomly resampling a matrix, there are few ways to differentiate permuation methods, which has different assumptions and represents different biological question being asked, some also depends on the data type being resampled. 
+
+### Zero handling
+
+In most cases, we will have a lot of zeros in our dataset, but they don't always mean the same. Using occurrence data for example, sometimes the zero is there because the species does not distribute in the studied area at all, but sometimes it's because we had a small sample size and we were just not lucky enough to record the occurrence. How we deal our zero depends on how we think our zeros mean. In general, zero information has importance if it represents limitation in distribution of certain specialized species.
+
+#### 1. **Retaining zeros in original positions** 
+
+In this case, we are treating our zero as a confirmed absence, which could be concluded when we are certain that some highly specialized species with known restrictions are not occurring in habitat they don't prefer. This method is rather less common used since it assumes that all zero represents a meaningful ecological state, and they do not originate from insufficient sampling.
+
+For example, given this is our original data, we have a total number of observation (Nobs) of 48:
+
+![Original matrix](assets/original.png){width=40%}
+
+A new simulation with fixed zeros might look like this, note that the zeros are at their original position but all other numbers have changed while retaining the total Nobs of 48:
+
+![Retaining zeros as original](assets/zero-as-original.png){width=40%}
+
+#### 2. **Retaining number of zeros and relocate them**
+
+A relaxed version of the previous is that we retain the number of zeros, but relocate them. This way respects the overall rarity of the species, but we do not fix them as we observed, which will maitain an overall community structure while allowing spatial variation. This is particularly useful when dealing with local extinctions and colonizations (see @hanski1998 for the idea of metapopulation dynamics)
+
+![Retaining the number of zeros but relocating](assets/zero-number-retained.png){width=40%}
+
+#### 3. **Not retaining any information of zero**
+
+This method does not fix any zero information and therefore the zero can relocate, the number of zeros can increase or decrease, which means the presence/absence patterns are flexible and represents 
+
+#### Reshuffling or relocation?
+
+**a. It shuffles the numbers but does not change their values**
+**b. It adds up the sum and redistribute them**
+
+#### Marginal total retention
+
+
+
+
+
+```{r}
+
+#### Simulate Null models: swap web ####
+
+# swap.bootstrap <- 300
+
+# plan(multisession, workers = 4)
+# 
+# time.test <- system.time({
+#     null.models <- future_map(web.list[1:length(web.list)-1], \(x) nullmodel(x, N = 1, method = "swap.web"), .options = furrr_options(seed = TRUE))
+# })
+# 
+# time.estimate <- swap.bootstrap * time.test[3]
+# time.estimate <- paste0(floor(time.estimate / 3600), ' hour ', floor(time.estimate / 60 - 60 * floor(time.estimate / 3600)), ' min ', floor(time.estimate %% 60), ' s')
+
+# print(paste0("[Info] One simulation took ", time.test[3], " s, ", swap.bootstrap, " bootstrap replicates are estimated for ", time.estimate))
+
+# print(paste0("[Info] Start simulating null models: ", Sys.time()))
+
+# null.models <- future_map(web.list[1:length(web.list)-1], \(x) nullmodel(x, N = swap.bootstrap, method = "swap.web"), .options = furrr_options(seed = TRUE))
+# saveRDS(null.models, "data/NullModels_list.rds")
+# null.models <- readRDS("data/NullModels_list.rds")
+
+# print(paste0("[Info] End simualting null models: ", Sys.time()))
+# print(paste0("[Info] Calculating indices for null models: ", Sys.time()))
+# 
+# null.model.indices <- map(null.models, \(x) {
+#     index.networklvl(x, network.indices)
+# })
+# 
+# print(paste0("[Info] End of calculating indices for null models: ", Sys.time()))
+
+#### Simulate Null models: r2d ####
+
+# r2d.bootstrap <- 300
+
+# plan(multisession, workers = 4)
+# 
+# time.test <- system.time({
+#     null.models <- future_map(web.list[1:length(web.list)-1], \(x) nullmodel(x, N = 1), .options = furrr_options(seed = TRUE))
+# })
+# 
+# time.estimate <- r2d.bootstrap * time.test[3]
+# time.estimate <- paste0(floor(time.estimate / 3600), ' hour ', floor(time.estimate / 60 - 60 * floor(time.estimate / 3600)), ' min ', floor(time.estimate %% 60), ' s')
+
+# print(paste0("[Info] One simulation took ", round(time.test[3], digit = 2), " s, ", r2d.bootstrap, " bootstrap replicates are estimated for ", time.estimate))
+# 
+# print(paste0("[Info] Start simulating null models: ", Sys.time()))
+
+# null.models.r2d <- future_map(web.list[1:length(web.list)-1], \(x) nullmodel(x, N = r2d.bootstrap), .options = furrr_options(seed = TRUE))
+# saveRDS(null.models.r2d, "data/NullModels_list_r2d.rds")
+# null.models.r2d <- readRDS("data/NullModels_list_r2d.rds")
+
+# print(paste0("[Info] End simualting null models: ", Sys.time()))
+# print(paste0("[Info] Calculating indices for null models: ", Sys.time()))
+# 
+# null.model.indices.r2d <- map(null.models.r2d, \(x) {
+#     index.networklvl(x, network.indices)
+# })
+# 
+# print(paste0("[Info] End of calculating indices for null models: ", Sys.time()))
+
+### calculate p-value ####
+
+# null.model.indices.long <- map(c(1:length(null.model.indices.r2d)), \(x) {
+#     null.model.indices[[x]] %>%
+#         mutate(layer = names(null.model.indices)[x])
+# }) %>% bind_rows()
+
+# index <- "togetherness.HL"
+# null.model.indices.long %>% filter(layer == "MES") %>% dplyr::select(all_of(index)) %>% .[[1]] %>% hist()
+# abline(v=index.network.res[index][[2]][1], col="red", lwd=2)
+```
+
+Plot the indices:
+
+```{r}
+
+plot.df.index <- index.network.res %>%
+    mutate(
+        "Linkage density" = `linkage density`/max(`linkage density`),
+        "Shannon diversity" = `Shannon diversity`/max(`Shannon diversity`),
+        "Interaction evenness" = `interaction evenness`,
+        # "Interaction strength asymmetry" = `interaction strength asymmetry`,
+        "Species togetherness" = togetherness.HL,
+        "Specialisation asymmetry" = `specialisation asymmetry` + 1,
+        "NODF" = NODF/max(NODF),
+        "layer" = layer,
+        .keep = "unused") %>%
+    dplyr::select(-c("togetherness.LL")) %>%
+    pivot_longer(., cols = -c("layer"))
+
+label <- c(
+    "BAT" = "Bathypelagic",
+    "MES" = "Mesopelagic",
+    "EPI" = "Epipelagic",
+    "SRF" = "Surface",
+    "Whole" = "Whole"
+)
+
+palette <- c("#2B502D", "#FFC21F", "#E00302", "#D261D5")
+index.network.clrs <- grDevices::colorRampPalette(palette)(n = length(unique(plot.df.index$name)))
+names(index.network.clrs) <- unique(plot.df.index$name)
+
+plot.list <- map(unique(plot.df.index$layer), \(x) {
+    plot <- plot.df.index %>% 
+        filter(layer == x) %>%
+        ggplot() +
+        geom_segment(aes(x = name, xend = name, y = 1, yend = 0), color = "#CCC", linewidth = 8, alpha = 0.3, lineend = "round") +
+        geom_point(aes(x = name, y = value, color = name), size = 8) +
+        aes_ACTCP_ggplot(use = "theme_tp_b") +
+        theme(
+            aspect.ratio = 1,
+            # axis.text.x = element_text(color = "black", angle = 90, hjust = 1, vjust = 0.5),
+            axis.text.x = element_blank(),
+            axis.text.y = element_blank(),
+            panel.background = element_blank(),
+            legend.position = "none",
+            axis.title.y = element_text(color = "black", size = 18),
+        ) +
+        labs(x = '', y = '') +
+        scale_color_manual(values = index.network.clrs)
+    ggsave(filename = paste0(path, "plots/index_", label[x], ".svg"), plot = plot, units = "cm", height = 8, width = 8)
+    return(plot)
+})
+```
+
+```{r}
+plot.index.legend <-
+    plot.df.index %>%
+    filter(layer == "BAT") %>%
+    ggplot() +
+    geom_point(aes(x = name, y = 0, color = name), size = 5) +
+    scale_x_discrete(position = "top") +
+    coord_flip() +
+    aes_ACTCP_ggplot() +
+    scale_color_manual(values = index.network.clrs) +
+    theme(
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(angle = 0, hjust = 0, vjust = 0.5, color = "black", size = 16),
+        panel.background = element_blank(),
+        aspect.ratio = 7,
+        legend.position = 'none'
+    ) +
+    labs(x = '', y = '') +
+    ylim(c(-0.1,0.1))
+```
+
+```{r}
+#| output: asis
+#| echo: false
+
+label <- c(
+    "BAT" = "Bathypelagic",
+    "MES" = "Mesopelagic",
+    "EPI" = "Epipelagic",
+    "SRF" = "Surface",
+    "Whole" = "Whole"
+)
+
+figs <- map(1:(length(label)-1), \(x) {
+        paste0('![', label[x], '](/', path, 'plots/index_', label[x], '.svg) \n\n')
+    }) %>% unlist() %>% paste0(collapse = '')
+
+cat(paste0('::: {#fig-indices layout="[[1,1,1],[1,2]]"} \n\n', figs, '![Index Legends](/biology-research/community-ecology/MediterraneanMicrobiome/plots/index_legend.svg) \n\n', ':::', collapse = ''))
+```
+
+```{r}
+plot.index.legend <-
+    plot.df.index %>%
+    filter(layer == "BAT") %>%
+    ggplot() +
+    geom_point(aes(x = name, y = 0, color = name), size = 5) +
+    scale_x_discrete(position = "top") +
+    coord_flip() +
+    aes_ACTCP_ggplot() +
+    scale_color_manual(values = index.network.clrs) +
+    theme(
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(angle = 0, hjust = 0, vjust = 0.5, color = "black", size = 16),
+        panel.background = element_blank(),
+        aspect.ratio = 7,
+        legend.position = 'none'
+    ) +
+    labs(x = '', y = '') +
+    ylim(c(-0.1,0.1))
+```
+
+```{r}
+#| echo: false
+ggsave(filename = paste0(path, "plots/index_legend.svg"), plot = plot.index.legend, units = "cm", height = 10, width = 15)
+```
+
+
+<!-- ## Bipartite (species ~ layer) network
+
+This part constructs the bipartite network showing microorganism in orders on the left side, and the layers in which they occure.
+
+```{r}
+#| eval: false
+MS$layer <- str_replace_all(MS$layer, "DCM", "EPI") 
+
+BAT <- MS[MS[, "layer"] == "BAT", ]
+MES <- MS[MS[, "layer"] == "MES", ]
+EPI <- MS[MS[, "layer"] == "EPI", ]
+SRF <- MS[MS[, "layer"] == "SRF", ]
+```
+
+OTUxtaxdata:
+
+```{r}
+#| eval: false
+# Step 1: Pivot the species columns to longer format
+long_df <- MS %>%
+  pivot_longer(
+    cols = 1:3208, # Adjust to match your species column names
+    names_to = "OTU",
+    values_to = "Observations"
+  )
+
+# Step 2: Filter rows where Observations > 0 (species were observed)
+long_df <- long_df %>%
+  filter(Observations > 0) %>%
+  select(OTU, layer, OceanRegion, Observations) # Keep only OTU and Layer columns
+
+# Step 3: Remove duplicates to ensure unique OTU-Layer combinations
+distinct_df <- long_df %>%
+  distinct()
+
+taxa_LUT <- data.frame(OTU = names(MS[1:ab.mtx.ncol]))
+
+prok_taxa <- read.csv("data/Prok_taxdata.txt", sep = "\t", header = TRUE)
+
+prok_taxa <- prok_taxa %>% 
+    mutate(OTU = gsub(pattern = "_ASV_", replacement = "_", x = .$ID)) %>%
+    mutate(Genus = Genus_SILVA, Family = Family_SILVA, Order = Order_SILVA, Class = Class_SILVA, Phylum = Phylum_SILVA, Kingdom = Kingdom_SILVA)
+
+euk_taxa <- read.csv("data/Euk_taxdata.txt", sep = "\t", header = TRUE)
+euk_taxa <- euk_taxa %>% 
+    mutate(OTU = gsub(pattern = "_ASV_", replacement = "_", x = .$ID)) %>%
+    mutate(Genus = Genus_pr2, Family = Family_pr2, Order = Order_pr2, Class = Class_pr2, Division = Division_pr2, Supergroup = Supergroup_pr2, Kingdom = Kingdom_pr2)
+
+all_taxa <- bind_rows(euk_taxa, prok_taxa)
+
+taxa_LUT <- left_join(taxa_LUT, all_taxa)
+taxa_LUT <- select(taxa_LUT, OTU, Genus, Family, Order, Class, Division, Supergroup, Kingdom, Phylum)
+
+OTUxtax <- left_join(distinct_df, taxa_LUT)
+
+OTUxlayer <- frame2webs(OTUxtax, varnames = c("layer", "Order", "OceanRegion", "Observations"))
+
+n_OTU <- ncol(OTUxlayer[[1]])
+OTU.abundance <- colSums(OTUxlayer[[1]])
+names(OTU.abundance) <- colnames(OTUxlayer[[1]])
+
+layer.colors <- c(
+  #"DCM" = "forestgreen",
+  "BAT" = "#253494", 
+  "MES" = "#2C7FB8",
+  "EPI" = "#41B6C4", 
+  "SRF" = "#7FCDBB"
+)
+
+higher_color <- as.data.frame(taxa_LUT$Order)
+higher_color <- higher_color %>%
+  mutate(Kingdom = taxa_LUT$Kingdom)
+higher_color <- unique(higher_color)
+higher_color <- na.omit(higher_color)
+
+OTU_colors <- c(
+  "Eukaryota" = "brown",
+  "Archaea" = "khaki",
+  "Bacteria" = "orange"
+)
+
+higher_color$color <- OTU_colors[higher_color$Kingdom] # Adding a color column to the dataframe MS
+
+dfOTUxlayer <- as.data.frame(OTUxlayer[[1]])
+dfOTUxlayer <- as.data.frame(t(dfOTUxlayer))
+dfOTUxlayer <- dfOTUxlayer %>%
+  mutate('taxa_LUT$Order' = rownames(dfOTUxlayer))
+
+str(dfOTUxlayer)
+str(higher_color)
+
+higher_color <- left_join(x=dfOTUxlayer, y=higher_color)
+sorted_higher_color <- higher_color[order(higher_color$color), ]
+sort <- sorted_higher_color$'taxa_LUT$Order'
+h.col <- sorted_higher_color$color
+
+
+layer_abundances <- c(rep(1000, times=5))
+names(layer_abundances) <- rownames(OTUxlayer[[1]])
+
+OTUxlayer[[1]] <- OTUxlayer[[1]][c("BAT", "MES", "EPI", "SRF"),]
+OTUxlayer[[1]] <- OTUxlayer[[1]][, c(sort)]
+
+plotweb_v2(OTUxlayer[[1]], text_size = 0.1, spacing = "auto", horizontal = TRUE, box_size = 0.075, sorting = "cca", curved_links = TRUE, link_alpha = 0.5, higher_abundances = OTU.abundance, lower_color = layer.colors,  link_color = "lower",
+           higher_color = h.col, scaling = "absolute")
+```
+
+## Module analysis
+
+Here we creat modules for the entire mediterranean sea or the depth layers. We extract only the abundance data from `MS`.
+
+```{r}
+#| eval: false
+MS.web <- as.matrix(MS[,1:3208]) 
+```
+
+Following line will computing modules for entire mediterranean sea, although it would take considerable amount of time, so we have included the compute result from our analysis.
+
+```{r}
+#| eval: false
+
+moduleweb <- computeModules(MS.web)
+saveRDS("data/MSmoduleweb.rds")
+```
+
+```{r}
+#| eval: false
+moduleweb <- readRDS("data/MSmoduleweb.rds")
+```
+
+We could use heat map to see the association of the network module and depth layer, which agree with each other in general.
+
+```{r}
+#| eval: false
+loc.modules <- moduleweb@modules[-1, -c(1,2) ]
+loc.modules <- loc.modules[, 1:145]
+colnames(loc.modules) <- MS$Sample
+rownames(loc.modules) <- c("Module 1", "Modlue 2", "Module3")
+loc.modules[loc.modules > 0] <- 1
+loc.modules <- as.data.frame(t(loc.modules))
+loc.modules <- loc.modules %>%
+  mutate(Depth = MS$layer)
+sum.modules <- summarise(loc.modules, .by="Depth", across(1:3, sum))
+rownames(sum.modules) <- sum.modules$Depth
+sum.modules <- sum.modules[ , 2:4]
+sum.modules <- as.matrix(sum.modules)
+
+heatmap(sum.modules, Rowv = NA, Colv = NA)
+```
+
+## NMDS
+
+```{r}
+#| eval: false
+NMDS1 <- metaMDS(MS[,1:3208], k=2)
+
+# plot(NMDS1)
+treat=c(MS$layer)
+# ordispider(NMDS1,groups=treat)
+
+#plotting with ggvegan
+library(ggvegan)
+# library(ggplot2)
+# autoplot(NMDS1)
+
+#full control with fortified ordination output
+fort<-fortify(NMDS1)
+hab <- as.data.frame(as.factor(MS$layer))
+names(hab) <- c("depth")
+#transform habitat into factors:
+
+adonis2(sp.MS[1:3208]~depth,data=hab)
+#output similar to anova, gives an output of group means for species abundances within each of the classes
+#habitat R2 level is what was explained with adonis, Residual R2 is what was not explained with this adonis. 
+depth.colors <- c(
+  #"DCM" = "forestgreen",
+  "BAT" = "#7FC97F",
+  "MES" = "#BEAED4",
+  "EPI" = "#FDC086",
+  "SRF" = "#FFFF99"
+)
+p3<-ggplot() +
+  geom_point(data = subset(fort, score == 'sites'),
+             mapping = aes(x = NMDS1, y = NMDS2, colour=hab$depth),
+             alpha=0.8)+
+  geom_segment(data = subset(fort,score == 'species'),
+               mapping = aes(x = 0, y = 0, xend = NMDS1, yend = NMDS2),
+               arrow = arrow(length = unit(0.015, "npc"),
+                             type="closed"),
+               colour="darkgray",
+               size =0, #changing this to 0 keeps the scaling but doesnt show lines/data
+               alpha = 0)+
+  geom_abline(intercept = 0, slope = 0, linetype="dashed", linewidth=0.8,colour="gray")+
+  geom_vline(aes(xintercept=0), linetype="dashed", linewidth=0.8,colour="gray")+
+  theme(
+                panel.background = element_rect(color = "white", fill = "transparent"),
+                axis.text = element_text(color = "white"),
+                legend.text = element_text(color = "white"),
+                legend.title = element_text(color = "white"),
+                axis.title = element_text(color = "white"),
+                            plot.title = element_text(color = "white", size = 12, face = "bold", family = "Times New Roman", hjust = 0.5),
+            axis.ticks.length = unit(-0.05, "in"),
+            axis.text.y = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm")),
+            axis.text.x = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm")),
+            axis.ticks.x = element_blank(),
+            # aspect.ratio = 1,
+            plot.background = element_blank(),
+            panel.grid = element_blank(),
+            panel.border = element_blank(),
+            legend.background = element_blank(),
+        legend.position = ("right"))+
+  scale_color_manual(name = "depth", values = depth.colors)
+
+p3
+```
+
+-->
+
+
+## Side notes
+
+I worked with *Wolbachia* in my bachelor thesis - everyone who knows them should be aware of their incredible evolution. I looked for them out of curious in the dataset, and found an entry in [`Prok_taxadata.txt`](https://github.com/InaMariaDeutschmann/GlobalNetworkMalaspinaHotmix/blob/main/00_Tables/Prok_taxdata.txt). In terms of network analysis, it will be extremely interesting to do a meta analysis on interaction between *Wolbachia* and their hosts, as well as those among their hosts and among themselves, considering the frequently occurring horizontal transfer (host switch) and gene recombination. Although this will probably be insanely complex since they are capable of so many things.
+
+No comments on this one here since they are not included in quality-controlled ASV dataset, so it probably came from by-catch of their hosts (I wonder which) or contamination. But after I read the paper [@parvathi2020] which found *Wolbachia sp.* being most abundant in deep-sea sediment microbial community, I would literally not be surprised anymore if people found *Wolbachia* being most dominant in the aerosol of high-sky for next. They are EVERYWHERE.
+
+By the way, our *Wolbachia* - *Altica lythri* project is aiming for another publication in the near future. Stay tuned. See @rohlfing2024 for the latest publication.
+
+{{< include /partial/_Ref.qmd >}}

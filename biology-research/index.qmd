@@ -15,10 +15,9 @@ listing:
     date-format: iso
     contents: 
         - "*.qmd"
-        - "../project/*.qmd"
         - "!draft*.qmd"
         - "!CV.qmd"
-    feed: true
+        - "../project/fkt250220/index.qmd"
   - id: ls-comeco
     sort: "date desc"
     sort-ui: [title, date]
@@ -30,7 +29,8 @@ listing:
     contents:
         - "community-ecology/*.qmd"
         - "!draft*.qmd"
-  - id: ls-deepsea
+  - id: ls-comeco
+    sort: "date desc"
     sort-ui: [title, date]
     image-height: 120px
     image-lazy-loading: true
@@ -38,7 +38,7 @@ listing:
     type: default
     date-format: iso
     contents:
-        - "deep-sea/*.qmd"
+        - "community-ecology/*.qmd"
         - "!draft*.qmd"
     
 
@@ -108,7 +108,7 @@ forwardMsg("Enjoy.")
 ::: {#ls-comeco}
 :::
 
-## Deep Sea
+<!-- ## Deep Sea
 
 ::: {#ls-deepsea}
 :::
@@ -118,5 +118,7 @@ forwardMsg("Enjoy.")
 #| echo: false
 forwardMsg("Upcoming ...")
 ```
+ -->
+
 
 :::

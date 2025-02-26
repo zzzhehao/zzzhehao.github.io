@@ -1,0 +1,13 @@
+```{r}
+#| output: false
+#| echo: false
+library(tidyverse)
+source("functions/page_construct.R")
+```
+
+```{r}
+#| output: asis
+#| echo: false
+
+forwardMsg()
+```

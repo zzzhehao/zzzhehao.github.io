@@ -74,9 +74,9 @@ a:hover::after {
 
   <br>
 
-[Abour Me](/about.qmd)
+[**Ocean Census South Sandwich Islands Expedition**](/project/fkt250220/index.qmd)
 
-[What's New?](/news.qmd)
+[Abour Me](/about.qmd)
 
 [Research Posts](/biology-research/index.qmd)
 

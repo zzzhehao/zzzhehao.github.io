@@ -475,19 +475,4 @@ By the way, if anyone ever wondered -- yes, this is the exact same dataset they 
 
 ![Surprise!](https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true)
 
-## Reference
-
-::: {#refs}
-:::
-
-::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
-
-## [R session and R packages]{.cl-title}
-
-```{r}
-#| echo: false
-#| output: asis
-
-r_pkg_info(pkgs)
-```
-:::
+{{< include /partial/_Ref.qmd >}}

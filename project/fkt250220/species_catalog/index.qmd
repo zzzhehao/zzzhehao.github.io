@@ -1,0 +1,30 @@
+---
+title: "Species Records"
+author: 
+  - name: Zhehao Hu
+    affiliations:
+      - name: Ocean Census
+        url: https://oceancensus.org
+abstract: Species recorded during the South Sandwich Islands Expedition
+---
+
+{{< include "/partial/_init.qmd" >}}
+
+```{r}
+#| output: false
+#| echo: false
+descrip_exif <- function(x){
+    exif <- exifr::read_exif(
+      path = x, 
+      tags = c("Model", "FocalLength", "FNumber", "ExposureTime", 
+               "ISO", "LensModel", 
+               "BatteryLevel", "SelfTimer", "DateTimeOriginal", "OffsetTime")
+    )
+    
+    glue::glue("{exif$Model} / {exif$LensModel} <br>
+               {exif$FocalLength}mm f/{exif$FNumber} 1/{round(1/exif$ExposureTime)} ISO {exif$ISO} <br>
+               {lubridate::as_datetime(glue::glue('{exif$DateTimeOriginal} {exif$OffsetTime}'))} UTC")
+}
+```
+
+{{< include "/project/fkt250220/species_catalog/species-catalog.qmd" >}}

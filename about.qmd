@@ -35,6 +35,7 @@ listing:
         - "/closeread/bio-*.qmd"
         - "!draft*.qmd"
         - "!CV.qmd"
+        - "/project/**/*.qmd"
 ---
 
 ```{=html}
@@ -173,7 +174,7 @@ Zhehao Hu
 
 I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write to me in any of these! 
 
-I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on Molecular Ecology and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.
+I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on molecular ecology and am now pivoting into interdisciplinary evolution and ecology research. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.
 
 In particular I am interested in eco-evolutionary dynamics of various ecosystems and organisms in terms of adaptation and biogeography. I am currently involved in three projects:
 
@@ -197,7 +198,9 @@ Related publications:
 
 ## [Integrative Taxonomy of *Acanthocope* Beddard, 1885 (Isopoda: Munnopsidae)]{.cl-title}
 
-Deep-sea Munnopsidae Isopod with fantastic swimming ability can be used as a powerful research object to assess benthic species community and connectivity of deep-sea ecosystems. *Acanthocope spp*, ***is additionally a beautiful genus consisting many recently new discovered species***. With interdisciplinary work being promoted more and more in last years, there's still huge amount of work to do - the genetic data is vastly missing in context of the deep-sea, also for *Acanthocope*. I've started revise some described species with different approach - conventional morphological species description, proteomics fingerprinting analysis, biogeographic analysis cooperating with DNA barcoding techniques. I ask particularly: "**How exactly are the species different from each other? Can we pass our knowledge to non-expert to efficiently and accurately identify known species of this genus?**"
+*Acanthocope* Beddard 1885 is a deep-sea isopod genus, with characteristic spiky body. Despite the gifted swimming ability as a munnopsid isopod, *Acanthocope* has shown so far quite high rate of endemism in their distribution, this is of course to be attributed to under-researched situation of the deep-sea. Recently, in one and the only cosmopolitan species *Acanthocope galatheae* Wolff 1962, active gene flow across the Mid-Atlantic Ridge was confirmed. I am reporting additional observation, genetic and proteomics data from multiple species in Northern Atlantic, to examine the current morphology-based taxonomy of this genus. 
+
+I have adopted this project as a project-based internship and am now striving to publish the result. 
 
 ![**Color coded projection of a Confocal Laser Scanning Microscopy of _Acanthocope unicornis_ MENZIES 1962**. Collected during the IceDivA expedition (2021) using an epibenthic sled (EBS) in the Northern Atlantic at 4,155 m depth. © Zhehao Hu. Senckenberg am Meer, German Centre for Marine Biodiversity Research (DZMB)](/assets/images/Auni_Habitus_Zcolor_Fire_comp.png)
 
@@ -205,13 +208,15 @@ Deep-sea Munnopsidae Isopod with fantastic swimming ability can be used as a pow
 
 ::: {.callout-caution appearance="minimal" style="padding-bottom: 1em; padding-top: 0.6em; margin-bottom: 0.5em; margin-top: 0.5rm; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
 
-## [Ocean Census South Sandwich Islands Expedition 2025]{.cl-title}
+## [Ocean Census GoSouth: Searching for New Species in the South Sandwich Islands]{.cl-title}
 
-Ocean Census are going to Southern Ocean near Antarctica next February, onboard of Schmidt Ocean Institute's R/V Falkor (Too). We will be using ROV SuBastian to collect deep-sea samples around South Sandwich Islands and South Sandwich Trench. The major mission of the biologist onboard is discover unknown species in the deep. 
+It is an honor, and also a privilege to sail with Schmidt Ocean Institute's state-of-the-art research Vessel R/V *Falkor (too)*, as an Ocean Census taxonomist, towards one of the world's most remote place - South Sandwich Island. 
 
-The ROV is also equipped with live cameras and the real-time footage will be streamed by SOI on [YouTube](https://www.youtube.com/@SchmidtOcean). 
+Focusing on using ROV *SuBastian*, we seek to search for new species that the mankind has never seen before, and contribute to the overall knowledge of our mysterious Ocean.
 
-![R/V Falkor (Too) © Schmidt Ocean Institute](https://schmidtocean.org/wp-content/uploads/FalkorToo-Depart-111222-Ingle.jpg)
+You can find more details on the [expedition website](https://schmidtocean.org/cruise/searching-for-new-species-in-the-south-sandwich-islands-2/), and also my stories in [my blog](/project/fkt250220/index.qmd).
+
+![R/V *Falkor (too)*](/assets/images/Fkt_1.jpg)
 
 :::
 

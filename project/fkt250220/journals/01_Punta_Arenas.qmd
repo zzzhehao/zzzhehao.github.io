@@ -1,0 +1,129 @@
+---
+title: 旅をする心 (Traveling Heart)
+author: 
+  - name: Zhehao Hu
+    email: "{{< var email.work >}}"
+    url: https://zzzhehao.github.io
+date: 2025-02-24
+image: /assets/images/punta_arenas-ship_in_horizon.jpg
+description: "I feel the time through my heart beats."
+categories:
+  - Journal
+execute:
+  echo: false
+format:
+  html:
+    include-before-body: 
+      - text: |
+          <div id="header-image">
+            <img src="/assets/images/punta_arenas-ship_in_horizon.jpg" alt="Header Image" width="100%">
+          </div>
+---
+
+{{< include /partial/_init.qmd >}}
+
+```{r}
+#| output: asis
+#| echo: false
+header_image() # fixing header image
+```
+
+The first thing that deeply touched me in Punta Areas was actually the sky after walking out of the airport. It was a beautiful afternoon, the sun shining from a low angle, making the light orange and warm, long shadows follow us. Lifting my head up, there's nothing but sky. 
+
+It sounds very normal, but it's actually a precious moment for a human living in a city, where there's always a building in your field of vision.
+
+It felt like the sky was like a cozy, warm tower, covering my eyes. 
+
+And I think the wild nature just gave me a gentle hug.
+
+![Border collie sleeping on the street](/assets/images/punta_arenas-bordercollie.jpg)
+
+## Heart That Travels
+
+```{r}
+#| output: asis
+
+forwardMsg("私たちはここまで速く歩き過ぎてしまい、心を置き去りにしてきてしまった。心がこの場所に追いつくまで、私たちはしばらくここで待っているのです。")
+```
+
+（星野道夫, 旅をする木, p. 41-42）
+
+<br>
+
+I still can't quite believe that it's happening. The weekend also feels like it has gone by so quickly, that literally the night before I left, I was still at the institute late at night, busy describing species. The next day I was already packed and on the plane, to the far south of this planet, a place I dreamed to visit. The whole thing has happened so quickly that it feels unreal. I'd be lying if I said Antarctica wasn't not on my list, but it's more on the "fantasy" list than the "okay-this-is-our-next-stop" list. The sense of unreality, the disconnect between where I really am and what I really feel, is crazy. 
+
+The total travel time was 20 hours flight plus 10 hours groud time. I took some Japanese books with me, partly because these Japanaese books are small and compact and are always my go-to book for traveling, but also because I haven't read them for a while, and I missed a bit the world in those words.「旅をする木」by Michio Hoshino, is one of my favourite book. I read it for the first time five years ago, and it really became the book that has affected me all my mentality since. I didn't remember too much about the content, but I do remember the shocking feeling he gave me with his stories in Alaska, and the spruce tree seed he planted in my mind. 
+
+Since it has now grown into a big tree.
+
+The interesting thing is that the following story was also written by him when he was visiting South America. Although he was vising the Galapagos Islands as part of a photography project and invited by the Ecuadorian government. The story goes that a group of palaeontologist went into the Andes, after days of rushing, the local guides suddenly went on strike and refused to move. The expedition leader tried to increase their pay, but the guides wouldn't budge. 
+
+It wasn't about the money at all, it was that they were going too fast, so fast that their heart ("心") couldn't keep up. They're waiting for their heart to catch up, and until they find their heart again, they won't move.
+
+I feel something similar here, apparently the means of transport does make a difference, I guess I would have much more emotion and feeling if I started sailing from Hamburg all the way down to the Southern Ocean, but it's not really about that, but it's more about how the mentality is set in me. Either it doesn't mean to literally take the "heart" with us on our travels, but the truth is that the heart comes with us on its own when we start to connect with our destination, whether it's the people, the culture, the landscape, or the history. When we start to live in the moment, when we start to connect with what is there at the local, then we have really been there for the first time. 
+
+Making a real connection is not just as easy as a matter of knowledge, but rather a matter of understanding. Understanding the lives of the people in that place, understanding their culture and their history, what was the past and what will be the future, how they have made decisions, and how they are building their time ahead. 
+
+And I think that is exactly what I am missing now. What makes me feel overwhelmed, excited, but at the same time like I am floating in the air, looking for a place to settle down on the land in thick fog.
+
+![Southern Lapwing walking along the coast](/assets/images/punta_areans-birds_walking.jpg)
+
+## Encounters
+
+```{r}
+#| output: asis
+
+forwardMsg("Things that become unforgettable, are always something that you never see coming.")
+```
+
+Breakfast was served until 1030, so I could have actually slept longer. But I didn't close the curtains and the early morning light woke me up before my alarm. The cold yesterday evening brought back the feeling of being back in Hamburg, I almost forgot it was summer in Punta Arenas.
+
+Headed downstairs, had a wonderful breakfast with lovely conversation about ...
+
+- being submerged or lost in the space, which one would we choose to end our lives;
+- kidnapping penguins;
+- hot chocolate is good for the soul;
+
+... kind of stuff.
+
+After getting some done in my room, I went for a walk but met with one of our team and an Japanese man at the lobby. The old man is a retired marine biologist who now lives in Tokyo. He was happened to be in the town today with another cruise ship, where he had been invited by the cruise company to give a presentation to the public about the deep sea biology going on beneath their ship. We sat in the lobby for a while and we started talking in Japanese, it took me a while to reboot all my Japanese program, but it was an unusual feeling to speak Japanese in such a southern land. 
+
+We went for lunch to a place called Lumitos, suggested by one of our members who has been here many times, and it seems that avocado is the speciality of the place. I don't have much of an opinion on avocado in general, but I do don't like people in a place where almost no avocado is produced, but still try to put avocado in almost everything ( I don't know pineapple on pizza, but avocado in sushi is an absolute sin). Palta (Chilean way to call avocado) seems to be a speciality here in Chile, I also tried the similar dish at Santiago airport - Italian style burger with avocado. I used to have a lot of stereotypes about airport restaurants, as I always thought they were expensive and bad at making food. But apparently that was not true of the dish in Santiago, and Lumitos is just a different kind of amazing. 
+
+The professor told me that he might be involved as an advisor while R/V Sonne is going to have few expeditions around Japan next year, which reminded me that the Sonne is indeed on the western side of the Pacific right now and I do know that there will be a transit cruise from Yokohama to Hawaii next summer. 
+
+We walked him to the center of the town, where he would meet the rest of the tourists and be picked up by the shuttle bus. The ship docked just behind the Falkor (too), and it just made the Falkor (too) look so tiny.
+
+![Local doggo led us to the port, stared afar](/assets/images/punta_arenas-doggo-looking-out.jpg)
+
+## History, Nature, and their Trails
+
+I took a walk along the coast where I noticed that there are a lot of broken structures on the coast, mostly wooden or simple steel structures. Such as a wooden quay which fully brocken off from the coast and has now turned into a place for cormorants to gather. I didn't think too much about it at first and just assumed that they were build for tourism, which doesn't make any sense if they are broken and abandoned. Later I googled Punta Arenas again and found the sentence I was missing, which could explain this just perfectly: 
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);"}
+
+The Punta Arenas harbour, although exposed to storms, was considered one of the most important in Chile before the construction of the Panama Canal. It was used as a coaling station by the steamships transiting between the Atlantic and Pacific oceans. Today it is mostly used by tourism cruises and scientific expeditions.
+
+(Wikipedia)
+
+:::
+
+And if we look at the time when the Panama Canal was completed (1910s), the style of these abandoned quays matches with the explanation.
+
+The constellation on the flag of Magallanes, the Chilean province of this area, was very clear to me that these five stars meant the Southern Crux - but then I suddenly realized that I had seen them in so many other places - on the flags of New Zealand and Australia, and apparently also on the the flag of Brazil. I have known those flags for so long and never bothered to look up what those stars mean. 
+
+When I was walking in the city during the day, I saw a structure on top of a house but could not guess what that it was used for. It looks like a ventilation pipe but has a hammer shark like shape. My first thought was some sort of antenna or lightning conductor, but the width of the pipe doesn't make sense at all. Later the day, I saw the same structure on another house and realized that it was indeed a ventilation pipe coming out of the house, which makes it then a chimney in Magallanic style, and I actually guess that the hammer shark like shape is to prevent the snow from falling into the pipe, which is also why the two short pipes over the branch don't have a bottom. 
+
+![Abandoned quays](/assets/images/punta_arenas-abandoned_quays.jpg)
+
+## Speed of the Time
+
+How people perceive time is quite an interesting thing, what feels like a fraction of a second can be an eternity to other people. What's even more interesting is how people, despite the fact that the physical time doesn't care about human's will at all, still constantly wishing the time fly faster or flow slowly. In essence, "time" is mostly just a convenient term that human made up. 
+
+Even funnier, is how people associate value with time. Sometimes less time is better, sometimes more time is better. Time matters for everything but is however the very last thing that really determines the value. 
+
+Growing up in a place where people are proud of thousands of years "uninterrupted" history, it's not hard to hear some people theorize that the length of such "continuous" history defines the superiority of a civilization. Who could ever possibly be in a position to draw such a conclusion without admitting that it is just a pure cultural bullying? 
+
+And I realized that such thoughts are not at all rare - people invented time and then made up a theory that uses time to dominate each others. In different ways, repeating over and over, which is what humans are really good at. Hundreds of years, thousands of years, while human are still endlessly squabbling about these things, the heart of the scorpion has been beating for millions of years, and Mount Augustus has been standing for hundreds of millions of years. They don't care about what I think or what you do. 
+
+![What does time ever mean to plants?](/assets/images/punta_arenas-flower.jpg)

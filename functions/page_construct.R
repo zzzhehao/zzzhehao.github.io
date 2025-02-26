@@ -38,16 +38,16 @@ forwardMsg <- function(msg, style) {
 #'
 #' @param pkgs A vector of package names.
 r_pkg_info <- function(pkgs) {
-  cat("#### R session \n\n")
+  cat("\n", "### R session \n<hr>\n", sep = "")
 
   si <- sessionInfo()
   si$loadedOnly <- NULL
   print(si)
 
-  cat("\n\n#### Packages \n\n")
+  cat("\n\n### Packages \n<hr>\n")
 
   for (pkg in pkgs) {
-    cat("\n\n**", pkg, "**\n\n", sep = "")
+    cat("\n\n#### ", pkg, "\n\n", sep = "")
 
     # Print version
     tryCatch(
@@ -140,7 +140,6 @@ custom_callout <- function(title, content, iconify, collapse = TRUE, colorstyle 
 #' @description
 #' Use `header_image_yaml()` to get the component for yaml header.
 #'
-
 header_image <- function(height, y_transform) {
   if (missing(height)) {
     height <- 400

@@ -1,0 +1,16 @@
+## Reference
+
+::: {#refs}
+:::
+
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [R session and R packages]{.cl-title}
+
+```{r}
+#| echo: false
+#| output: asis
+
+pkgs <- sort(pkgs)
+r_pkg_info(pkgs)
+```

@@ -1,12 +1,3 @@
-author: 
-  - name: Zhehao Hu
-    email: "{{< var email.work >}}"
-    url: https://zzzhehao.github.io
-    affiliations:
-      - name: Department of Biology, University of Hamburg
-        city: Hamburg
-        country: Germany
-        url: https://www.biologie.uni-hamburg.de/en.html
 date-format: long
 lightbox: true
 format:
@@ -20,7 +11,7 @@ format:
       caption: none
       source: true
     highlight-style: atom-one-dark
-    include-after-body: /biology-research/research-footer.html
+    include-after-body: ../../biology-research/research-footer.html
     comments:
       giscus: 
         repo: zzzhehao/giscus

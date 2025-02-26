@@ -3,6 +3,11 @@
   display_name: "Best of Film"
   year: 0
 
+# 2025
+- name: "Fkt250220_Punta_Arenas"
+  display_name: "Punta Arenas"
+  year: 2025
+
 # 2024
 - name: "onhike24"
   display_name: "On the Hike"

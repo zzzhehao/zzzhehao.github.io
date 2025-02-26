@@ -1,6 +1,8 @@
 author: 
-  - name: Zhehao Hu
-    email: "{{< var email.work >}}"
+  - name: 
+      given: Zhehao
+      family: Hu
+    email: hu_zhehao@hotmail.com
     url: https://zzzhehao.github.io
     affiliations:
       - name: Department of Biology, University of Hamburg
@@ -12,7 +14,7 @@ lightbox: true
 format:
   html:
     toc: true
-    toc-depth: 4
+    toc-depth: 3
     toc-expand: 2
     code-copy: true
     code-overflow: wrap
