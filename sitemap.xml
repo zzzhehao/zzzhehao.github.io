@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zzzhehao.github.io/project/fkt250220/species_catalog/species-catalog.html</loc>
+    <lastmod>2025-02-26T02:59:38.460Z</lastmod>
+  </url>
+  <url>
     <loc>https://zzzhehao.github.io/project/fkt250220/journals/01_Punta_Arenas.html</loc>
     <lastmod>2025-02-25T13:45:58.339Z</lastmod>
   </url>
@@ -50,6 +54,10 @@
   </url>
   <url>
     <loc>https://zzzhehao.github.io/project/fkt250220/index.html</loc>
-    <lastmod>2025-02-25T14:41:01.158Z</lastmod>
+    <lastmod>2025-02-26T01:38:12.660Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zzzhehao.github.io/project/fkt250220/species_catalog/index.html</loc>
+    <lastmod>2025-02-26T02:59:02.427Z</lastmod>
   </url>
 </urlset>

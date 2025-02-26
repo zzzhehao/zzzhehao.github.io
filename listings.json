@@ -2,6 +2,7 @@
   {
     "listing": "/about.html",
     "items": [
+      "/project/fkt250220/species_catalog/species-catalog.html",
       "/project/fkt250220/journals/01_Punta_Arenas.html",
       "/biology-research/community-ecology/nicheROVER-Niche-Overlap.html",
       "/biology-research/community-ecology/Ecological-Niche.html",
@@ -28,6 +29,8 @@
       "/gallery/motion-pictures.html",
       "/index.html",
       "/project/fkt250220/index.html",
+      "/project/fkt250220/species_catalog/index.html",
+      "/project/fkt250220/species_catalog/species-catalog.html",
       "/project/fkt250220/journals/01_Punta_Arenas.html",
       "/photography/color_palette.html",
       "/biology-research/community-ecology/nicheROVER-Niche-Overlap.html",
@@ -38,6 +41,7 @@
   {
     "listing": "/project/fkt250220/index.html",
     "items": [
+      "/project/fkt250220/species_catalog/index.html",
       "/project/fkt250220/journals/01_Punta_Arenas.html"
     ]
   }
