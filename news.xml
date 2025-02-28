@@ -2281,7 +2281,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-iso-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2577,7 +2577,7 @@ font-style: inherit;">"P. papua - F"</span>, <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"P. papua - M"</span>))</span></code></pre></div>
 </details>
-<div class="cell column-page quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-pen-niche-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -3335,7 +3335,7 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1740721777205" data-listing-reading-time-sort="2" data-listing-word-count-sort="294" data-listing-title-sort="Albatrosses" data-listing-filename-sort="species-catalog.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1740736676859" data-listing-reading-time-sort="2" data-listing-word-count-sort="294" data-listing-title-sort="Albatrosses" data-listing-filename-sort="species-catalog.qmd">
 <td>
 <span class="listing-date">&nbsp;</span>
 </td>
@@ -3444,7 +3444,7 @@ Evolutionary Systematics: A note repo for open science and for everyone: [zzzheh
 
  ]]></description>
   <guid>https://zzzhehao.github.io/about.html</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
 </item>
 <item>
   <title>Research Posts</title>
@@ -3798,7 +3798,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/biology-research/</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
 </item>
 <item>
   <title>Blue Marble</title>
@@ -3858,7 +3858,7 @@ Northern Lights over Hamburg
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/blue-marble/blue-marble.html</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
 </item>
 <item>
   <title>Albums</title>
@@ -3891,8 +3891,8 @@ Best of Film
 </div>
 <p></p>
 </div>
-<div class="album-thumbnail" data-album="Fkt250220_Icebergs">
- <img src="https://zzzhehao.github.io/assets/gallery/thumbnails/Fkt250220_Icebergs.jpg" alt="Icebergs">
+<div class="album-thumbnail" data-album="Fkt250220-Icebergs">
+ <img src="https://zzzhehao.github.io/assets/gallery/thumbnails/Fkt250220-Icebergs.jpg" alt="Icebergs">
 <div class="album-overlay">
 <div class="album-info">
 <div class="album-title">
@@ -4369,7 +4369,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/gallery.html</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
 </item>
 <item>
   <title>Motion Picture</title>
@@ -4400,7 +4400,7 @@ Tokyo, Hida &amp; Matsumoto
 
  ]]></description>
   <guid>https://zzzhehao.github.io/gallery/motion-pictures.html</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
 </item>
 <item>
   <title>Ocean Census GoSouth: Searching for New Species in the South Sandwich Islands</title>
@@ -4471,7 +4471,7 @@ Tokyo, Hida &amp; Matsumoto
 <h2 class="anchored" data-anchor-id="journals">Journals</h2>
 <div id="listing-ls-all" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740721706717" data-listing-reading-time-sort="1" data-listing-word-count-sort="127">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740726796261" data-listing-reading-time-sort="1" data-listing-word-count-sort="127">
 <div class="thumbnail">
 <p><a href="../../project/fkt250220/species_catalog/index.html" class="no-external"></a></p><a href="../../project/fkt250220/species_catalog/index.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=120px]:ls-all:project/fkt250220/species_catalog/index.html -->
@@ -4538,7 +4538,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/project/fkt250220/</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
   <media:content url="https://zzzhehao.github.io/assets/images/Fkt_1.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4792,7 +4792,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/project/fkt250220/species_catalog/</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
 </item>
 <item>
   <title></title>
@@ -5044,7 +5044,7 @@ No matching items
 
  ]]></description>
   <guid>https://zzzhehao.github.io/project/fkt250220/species_catalog/species-catalog.html</guid>
-  <pubDate>Fri, 28 Feb 2025 05:49:55 GMT</pubDate>
+  <pubDate>Fri, 28 Feb 2025 09:58:14 GMT</pubDate>
 </item>
 </channel>
 </rss>
