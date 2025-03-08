@@ -30,12 +30,13 @@ listing:
     type: table
     date-format: iso
     contents: 
-        - "!*/index.qmd"
+        - "!/index.qmd"
+        - "!/biology-research/index.qmd"
         - "/biology-research/**/*.qmd"
-        - "/closeread/bio-*.qmd"
         - "!draft*.qmd"
         - "!CV.qmd"
-        - "/project/**/*.qmd"
+        - "/project/**/journals/*.qmd"
+        - "/project/**/species-catalog/index.qmd"
 ---
 
 ```{=html}

@@ -13,7 +13,7 @@ project:
     - "!closeread/"
     - "!draft**.qmd"
   pre-render: 
-    - "project/fkt250220/species_catalog/image_prep.R"
+    - "project/fkt250220/species-catalog/image_prep.R"
   execute-dir: project
   output-dir: _site
 

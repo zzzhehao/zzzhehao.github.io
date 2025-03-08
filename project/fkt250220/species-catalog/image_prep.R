@@ -15,7 +15,7 @@ descrip_exif <- function(x){
                {lubridate::as_datetime(glue::glue('{exif$DateTimeOriginal} {exif$OffsetTime}'))} UTC")
 }
 
-images <- list.files("project/fkt250220/species_catalog/Animal-Surface", ".jpg", full.names = T)
+images <- list.files("project/fkt250220/species-catalog/Animal-Surface", ".jpg", full.names = T)
 
 file_exif <- read_exif(images)
 
@@ -39,7 +39,7 @@ lut_args <- lut %>%
     dplyr::select(c("SourceFile", "common_name", "scientific_name", "stage", "copyright"))
 
 cat_list <- 
-    yaml::read_yaml("project/fkt250220/species_catalog/species-category.yaml") %>% bind_rows()
+    yaml::read_yaml("project/fkt250220/species-catalog/species-category.yaml") %>% bind_rows()
 
 markdown <- lut_args %>% 
     mutate(stage = ifelse(is.na(stage), '', paste0(', ', stage))) %>%
@@ -75,6 +75,6 @@ cats <- markdown %>%
 
 body <- paste("##", cats, '\n\n', markdown_l, sep = ' ') %>% paste(collapse = '\n\n')
 
-write(body, file = "project/fkt250220/species_catalog/species-catalog.qmd")
+write(body, file = "project/fkt250220/species-catalog/species-catalog.qmd")
 
 # print(unique(lut_args$scientific_name))

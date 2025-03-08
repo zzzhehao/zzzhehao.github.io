@@ -26,7 +26,7 @@ listing:
     date-format: iso
     contents: 
         - "journals/*.qmd"
-        - "species_catalog/index.qmd"
+        - "species-catalog/index.qmd"
 ---
 
 {{< include /partial/_init.qmd >}}

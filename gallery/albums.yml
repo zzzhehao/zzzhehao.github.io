@@ -1,12 +1,22 @@
+# 2025
+- name: "fkt25"
+  display_name: "Falkor (Too)"
+  year: 2025
+- name: "montagu25"
+  display_name: "Montagu Island"
+  year: 2025
+- name: "icebergs25"
+  display_name: "Icebergs"
+  year: 2025
+- name: "puntaarenas25"
+  display_name: "Punta Arenas"
+  year: 2025
+
 # OverYear
 - name: "bestoffilm" 
   display_name: "Best of Film"
   year: 0
 
-# 2025
-- name: "Fkt250220_Punta_Arenas"
-  display_name: "Punta Arenas"
-  year: 2025
 
 # 2024
 - name: "onhike24"

@@ -6,6 +6,7 @@ author:
       - name: Ocean Census
         url: https://oceancensus.org
 abstract: Species recorded during the South Sandwich Islands Expedition
+date: last-modified
 ---
 
 {{< include "/partial/_init.qmd" >}}
@@ -27,4 +28,4 @@ descrip_exif <- function(x){
 }
 ```
 
-{{< include "/project/fkt250220/species_catalog/species-catalog.qmd" >}}
+{{< include "/project/fkt250220/species-catalog/species-catalog.qmd" >}}
