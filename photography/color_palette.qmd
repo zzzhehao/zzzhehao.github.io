@@ -103,7 +103,7 @@ generate_palette_html <- function(palette) {
   </div>
   ')
 
-  return(html) # Return the HTML instead of using cat()
+  return(html)
 }
 
 # Generate HTML for all palettes

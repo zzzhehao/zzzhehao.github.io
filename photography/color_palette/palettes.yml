@@ -126,7 +126,7 @@
   - "#262F40"
 
 - title: "Adria"
-  photo: 
+  photos: 
   - "adria.jpg"
   caption: "Yashica Mat-124G | Kodak Portra 160"
   colors:
@@ -137,3 +137,25 @@
   - "#1E2625"
   - "#49593E"
   - "#D9B07E"
+
+- title: "Deep Sea"
+  photos:
+  - "deep-sea1.jpg"
+  caption: ""
+  colors:
+  - "#001C25"
+  - "#003344" 
+  - "#006780"
+  - "#01AEBF"
+  - "#6CCCD6"
+
+- title: "Twilight"
+  photos:
+  - "twilight.jpg"
+  caption: ""
+  colors:
+  - "#14295E"
+  - "#2E3A76"
+  - "#615E95"
+  - "#B695B4"
+  - "#CEA2B9"

@@ -15,11 +15,9 @@ listing:
     date-format: iso
     contents: 
         - "*.qmd"
-        - "../closeread/bio-*.qmd"
         - "!draft*.qmd"
         - "!CV.qmd"
-        - "!Dilution_calculator.qmd"
-
+        - "../project/fkt250220/index.qmd"
   - id: ls-comeco
     sort: "date desc"
     sort-ui: [title, date]
@@ -31,14 +29,25 @@ listing:
     contents:
         - "community-ecology/*.qmd"
         - "!draft*.qmd"
+  - id: ls-comeco
+    sort: "date desc"
+    sort-ui: [title, date]
+    image-height: 120px
+    image-lazy-loading: true
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents:
+        - "community-ecology/*.qmd"
+        - "!draft*.qmd"
+    
+
 format:
   html:
     toc: false
 ---
 
-### About this page
-
-I share here my notes and thoughs from course, event, workshop, conference, and much more. Currently I mainly focus on biostatistics and data analysis in the community ecology (I am trying to reorganize my notes from a course and dig a bit deeper).
+I share here my notes and thoughts from course, event, workshop, conference related to my research.
 
 ::: {.callout-caution appearance="minimal" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
 ## [About Me]{style="font-size:1rem;"}
@@ -65,7 +74,6 @@ I share here my notes and thoughs from course, event, workshop, conference, and 
 [![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/2560px-Flag_of_Ecuador.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Galápagos_Islands)
 [![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/2880px-Flag_of_Costa_Rica.svg.png){width="20px"}](https://de.wikipedia.org/wiki/Costa_Rica)
 [![](https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/2560px-Flag_of_Brazil.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Amazon_rainforest)
-<!-- [![](){width="20px"}]() -->
 
 :::
 
@@ -73,9 +81,9 @@ I share here my notes and thoughs from course, event, workshop, conference, and 
 
 ## [Why am I doing this?]{style="font-size:1rem;"}
 
-[As I wrote](/about.qmd#iconify-streamlinehand-held-tablet-writing--posts), I want to share my knowledge to others and promote open science. I had only minimal education on data science -- before our bachelor program was reformed -- so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecture and tried to understand MCMC before I even heard of Bayesian statistics. Such gaps are everywhere, especially when I started my master programm, they are like potholes on my path dedicated to flip over every attempt of moving forward. 
+I want to share my knowledge and experience to others and promote open science. I had only minimal education on data science -- before our bachelor program was reformed -- so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecture and tried to understand MCMCMC before I even heard of Bayesian statistics. Such gaps are everywhere, especially after I started my master program.
 
-I want to share my notes and resources so that my fellow student, and everyone who just started to step into data science, evolution, and more, can have some infos that go through things in their perspectives and make start-up easier.
+Research is more like a process of self-teaching. More and more online resources are available as complement of conventional literature, but I found some of them lack clear introduction, or even proper documentation (R packages without vignette and only have few sentences in description are really bad). Trying to understand and utilize these information is frustrating, so I aim to put my posts in a way that audience from different disciplines and background could all get along by picking up at a point that is comfortable to them.
 
 :::
 
@@ -99,5 +107,18 @@ forwardMsg("Enjoy.")
 
 ::: {#ls-comeco}
 :::
+
+<!-- ## Deep Sea
+
+::: {#ls-deepsea}
+:::
+
+```{r}
+#| output: asis
+#| echo: false
+forwardMsg("Upcoming ...")
+```
+ -->
+
 
 :::

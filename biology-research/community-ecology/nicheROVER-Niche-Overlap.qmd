@@ -28,6 +28,9 @@ format:
         theme: 
           light: light_tritanopia
           dark: dark_dimmed
+feed:
+  categories:
+    - Ecology-case
 ---
 
 ::: {.disclaimer}
@@ -52,7 +55,7 @@ library(nicheROVER)
 
 ## Niche Overlap
 
-In my previous note, [Ecological Niche](/biology-research/community-ecology/Ecological-Niche.qmd), we talked about the basic ideas of ecological niches and niche overlap. Understanding the niche overlap patterns, both intraspecific and interspecific, can help us better understand many topics, such as:
+In [Ecological Niche](/biology-research/community-ecology/Ecological-Niche.qmd), we talked about the basic ideas of ecological niches and niche overlap. Understanding the niche overlap patterns, both intraspecific and interspecific, can help us better understand many topics, such as:
 
 Evolutionary:
 
@@ -82,6 +85,7 @@ pkgs <- c("pacman", "rmarkdown", "knitr", "tidyverse", "nicheROVER", "palmerpeng
 pacman::p_load(pkgs, character.only = TRUE)
 library(nicheROVER)
 data(fish)
+set.seed(1)
 ```
 
 ```{r}
@@ -94,7 +98,7 @@ paged_table(fish)
 
 ## What is SIA?
 
-**Stable isotope analysis (SIA)** is a powerful tool in ecological niche analysis. Many physicochemical and biochemical processes are sensitive to differences in the dissociation energies of molecules, which often depend on the mass of the elements from which these molecules are made. Thus, the isotopic composition of many materials (expressed as $\delta$-values, indicating the amount ratio of certain isotope to a standard value), including the tissues of organisms, often contains a label of the process that created it [@newsome2007a]. These "signatures" could provide information about their ecological roles and interactions.
+**Stable isotope analysis (SIA)** is a powerful tool in ecological niche analysis. Many physicochemical and biochemical processes are sensitive to differences in the dissociation energies of molecules, which often depend on the mass of the elements from which these molecules are made. Thus, the isotopic composition of many materials (expressed as $\delta$-values, indicating the amount ratio of certain isotope to a standard value), including the tissues of organisms, often contains a label of the process that created it [@newsome2007]. These "signatures" could provide information about their ecological roles and interactions.
 
 | Gradient                               | Isotope system                                     | High $\delta$-values | Low $\delta$-values  |
 | -------------------------------------- | -------------------------------------------------- | -------------------- | -------------------- |
@@ -102,7 +106,7 @@ paged_table(fish)
 | C<sub>3</sub>-C<sub>4</sub> Vegetation | $\delta ^{13} C$                                   | C<sub>4</sub> plants | C<sub>3</sub> plants |
 | Marine-terrestrial                     | $\delta ^{15} N$/$\delta ^{13} C$/$\delta ^{34} S$ | High levels          | Low levels           |
 
-: Common isotope systems and expected patterns in $\delta$-values, subsetted from [@newsome2007a] {#tbl-SIAs}
+: Common isotope systems and expected patterns in $\delta$-values, subsetted from [@newsome2007] {#tbl-SIAs}
 
 <br>
 
@@ -110,10 +114,10 @@ paged_table(fish)
 #| output: asis
 #| echo: false
 
-content <- "- @newsome2007a
+content <- "- @newsome2007
 - @michel2021
 - @moyo2021
-- @2024"
+"
 
 custom_callout("For more information about isotopic and atomic ecology", content, collapse = TRUE, titleStyle = "sub")
 ```
@@ -403,7 +407,7 @@ In @fig-pen-iso-niche-1 we saw no remarkable differences between sexes within ea
 
 ::: {.column-margin}
 
-![Penguin's culmen by [Allison Horst](https://x.com/allison_horst/status/1270046411002753025)](/biology-research/community-ecology/assets/culmen.jpeg){width="90%"}
+![Penguin's culmen by [Allison Horst](https://allisonhorst.github.io/palmerpenguins/)](https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png){width="90%"}
 
 :::
 
@@ -471,19 +475,4 @@ By the way, if anyone ever wondered -- yes, this is the exact same dataset they 
 
 ![Surprise!](https://github.com/allisonhorst/palmerpenguins/blob/main/man/figures/logo.png?raw=true)
 
-## Reference
-
-::: {#refs}
-:::
-
-::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
-
-## [R session and R packages]{.cl-title}
-
-```{r}
-#| echo: false
-#| output: asis
-
-r_pkg_info(pkgs)
-```
-:::
+{{< include /partial/_Ref.qmd >}}

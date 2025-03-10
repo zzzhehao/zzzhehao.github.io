@@ -1,0 +1,26 @@
+- category: "Penguins"
+  scientific_name:
+    - "Pygoscelis antarcticus"
+
+- category: "Albatrosses"
+  scientific_name:
+    - "Dimedea epomophora"
+    - "Thalassarche melanophris"
+    - "Phoebetria palpebrata"
+
+- category: "Petrels"
+  scientific_name:
+    - "Macronectes giganteus"
+    - "Pachyptila sp."
+    - "Pachyptila desolata"
+    - "Daption capense"
+    - "Fulmarus glacialoides"
+
+- category: "Cormorant"
+  scientific_name:
+    - "Leucocarbo atriceps"
+
+- category: "Whales"
+  scientific_name:
+    - "Balaenoptera sp."
+    - "Megaptera novaeangliae"

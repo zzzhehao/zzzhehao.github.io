@@ -1,0 +1,65 @@
+---
+title: "Ocean Census GoSouth: Searching for New Species in the South Sandwich Islands"
+image: "/assets/images/Fkt_1.jpg"
+author: 
+  - name: Zhehao Hu
+    affiliations:
+      - name: Ocean Census
+        url: https://oceancensus.org
+description: ""
+format:
+  html:
+    include-before-body: 
+      - text: |
+          <div id="header-image">
+            <img src="/assets/images/Fkt_1.jpg" alt="Header Image" width="100%">
+          </div>
+
+listing:
+  - id: ls-all
+    sort: "date desc"
+    image-height: 120px
+    image-lazy-loading: true
+    sort-ui: false
+    filter-ui: false
+    type: default
+    date-format: iso
+    contents: 
+        - "journals/*.qmd"
+        - "species-catalog/index.qmd"
+---
+
+{{< include /partial/_init.qmd >}}
+
+```{r}
+#| output: asis
+#| echo: false
+header_image(y_transform = 0) # fixing header image
+```
+
+## The Expedition
+
+On board the research vessel R/V *Falkor (too)* from [Schmidt Ocean Institute](https://schmidtocean.org), I am sailing as part of the [Ocean Census](https://oceancensus.org) taxonomist team. Our destination is the South Sandwich Islands, one of the most remote island chain in the world, where tectonic activity is high, which causes merge of warm and cold water, and also shaped a 8000 metre deep cold trench - home to lots of deep-sea species that human knows little about. 
+
+We want to contribute to the general intelligence of the deep-sea environment, to know our ocean and our planet a bit better. Focused on using the state-of-the-art ROV *SuBastian*, we will stream the deep-sea footage captured by our ROV live online, where we will be sitting in our mission control and watching the video with you and getting excited together. 
+
+A formal and detailed information can be found on [Expedition website](https://schmidtocean.org/cruise/searching-for-new-species-in-the-south-sandwich-islands-2/). 
+
+The first test dive of the ROV is now planned to be around 28th of February.
+
+## Follow Us
+
+- There will be a lot of Social Media posts coming out, follow them there!
+  - Schmidt Ocean Institute [{{< iconify mdi:instagram >}}](https://www.instagram.com/schmidtocean/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/schmidt-ocean-institute/posts/?feedView=all)  
+  - Ocean Census [{{< iconify mdi:instagram >}}](https://www.instagram.com/oceancensus/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/oceancensus)  
+  - Alex Ingle (Multimedia Correspondence) [{{< iconify mdi:instagram >}}](https://www.instagram.com/alexinglephoto/)
+  - Jialing Cai (Ocean Photographer) [{{< iconify mdi:instagram >}}](https://www.instagram.com/homoplankton/) [{{< iconify mynaui:home >}}](https://www.homoplankton.com)
+  - My unpasteurized stories: [{{< iconify mdi:instagram >}}](https://www.instagram.com/zhehao.hu_/)
+
+- SOI will stream the live video transmitted from ROV on [YouTube](https://www.youtube.com/@SchmidtOcean)
+- You can also have a peek on where we currently are at [SOI Vessel Tracker](https://soi-vessel-tracker.web.app)
+
+## Journals
+
+::: {#ls-all}
+:::

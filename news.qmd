@@ -2,45 +2,17 @@
 title: "Latest Updates"
 affiliation: ""
 author: ""
+listing:
+#   contents: 
+#     - "/biology-research/*.qmd"
+#     - "!draft*.qmd"
+#     - "!/biology-research/index.qmd"
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  feed: 
+    categories: [Journal]
+# title-block-banner: true
 ---
-
-::: {.disclaimer}
-:::: {.disclaimer-container}
-*For more detailed update history, see my github repo commit history*.
-::::
-:::
-
-[2024-10-11] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
-New page: [Blue Marble](/gallery/blue-marble/blue-marble.qmd): Northern Lights in Hamburg!! New album page with dark theme. 
-
-[2024-10-09] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
-Update: [CV](/biology-research/CV_Zhehao_Hu.pdf)
-
-[2024-09-30] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
-Update: [Gallery](/gallery/gallery.qmd): Rearranged in more light-sized albums. New photos published!
-
-[2024-09-18] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
-New page: [Niche Overlap Analysis Using nicheROVER and Stable Isotope Data](/biology-research/community-ecology/nicheROVER-Niche-Overlap.qmd)
-
-[2024-08-27] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
-New page: [Ecological Niche](/biology-research/community-ecology/Ecological-Niche.qmd)
-
-[2024-08-22] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
-New page: [Color palette](/photography/color_palette.qmd)
-
-[2024-08-19] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
-New album: [Life, 2024](/gallery/gallery.qmd)
-
-[2024-08-13] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
-New page: [Motion Pictures](/gallery/motion-pictures.qmd)
-
-[2024-08-12] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
-Update: [CV](/biology-research/CV_Zhehao_Hu.pdf)
-
-[2024-07-27] ![Static Badge](https://img.shields.io/badge/Research-%23466C8C?style=flat-square) 
-New page: [Me as a biology student](/biology-research/asbiologist.qmd) 
-
-[2024-07-22] ![Static Badge](https://img.shields.io/badge/Photography-%23F27405?style=flat-square) 
-New page: [Gallery](/gallery/gallery.qmd)
-
-[2024-06-28] Initialize the website.

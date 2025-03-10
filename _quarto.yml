@@ -5,13 +5,15 @@ project:
     - "*.png"
     - "*.pdf"
     - "*.json"
-    - "shinylive-sw.js"
+    - "*.html"
   render: 
     - "*.qmd"
     - "!comments/"
     - "!resource/"
-    # - "!draft**.qmd"
-
+    - "!closeread/"
+    - "!draft**.qmd"
+  pre-render: 
+    - "project/fkt250220/species-catalog/image_prep.R"
   execute-dir: project
   output-dir: _site
 
@@ -23,7 +25,7 @@ website:
   site-url: https://zzzhehao.github.io/
   site-path: ./
   description: "Zhehao Hu's Personal Website"
-  draft-mode: unlinked
+  draft-mode: gone
   google-analytics: "G-R0FB3TL998"
 
   navbar: 
@@ -43,15 +45,16 @@ website:
         menu:
           - text: "Posts"
             href: biology-research/index.qmd
-          - text: "Feed"
-            href: biology-research/feeds/feed.qmd
           - text: "CV"
             href: biology-research/assets/CV_Zhehao_Hu.pdf
 
+      - text: "Project"
+        menu: 
+          - text: "Expedition Fkt250220"
+            href: project/fkt250220/index.qmd
+
       - text: "About me"
         href: about.qmd
-      # - text: "What's new"
-      #   href: news.qmd
 
     tools: 
       - icon: github

@@ -1,0 +1,11 @@
+format:
+  html:
+    comments:
+      giscus: 
+        repo: zzzhehao/giscus
+        category: Announcements
+        mapping: url
+        reactions-enabled: true
+        theme: 
+          light: light_tritanopia
+          dark: dark_dimmed
