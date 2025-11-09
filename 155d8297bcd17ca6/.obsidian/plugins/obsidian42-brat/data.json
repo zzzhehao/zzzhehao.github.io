@@ -1,0 +1,26 @@
+{
+  "pluginList": [
+    "tobias0409/obsidian_printer",
+    "unxok/obsidian-better-properties",
+    "anareaty/pretty-properties",
+    "mnaoumov/obsidian-advanced-exclude"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "mnaoumov/obsidian-advanced-exclude",
+      "version": ""
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": true,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": false,
+  "notificationsEnabled": true,
+  "personalAccessToken": "",
+  "selectLatestPluginVersionByDefault": false,
+  "allowIncompatiblePlugins": false
+}

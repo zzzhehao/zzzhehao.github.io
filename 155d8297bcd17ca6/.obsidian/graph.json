@@ -1,0 +1,58 @@
+{
+  "collapse-filter": false,
+  "search": "path:\"75-79 General Note Vault/71 Reading Note/Journals\" OR tag: #crm OR path: \"30 On-Going Project Management/36.2025 HPLNC\"  ",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"30 On-Going Project Management/32.2024 Acanthocope Project\"",
+      "color": {
+        "a": 1,
+        "rgb": 5413856
+      }
+    },
+    {
+      "query": "path:\"75-79 General Note Vault/71 Reading Note/Journals\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 16723722
+      }
+    },
+    {
+      "query": "tag:#crm  ",
+      "color": {
+        "a": 1,
+        "rgb": 13282198
+      }
+    },
+    {
+      "query": "path: \"30 On-Going Project Management/36.2025 MA - Atlantic Connectivity\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 9534207
+      }
+    },
+    {
+      "query": "path: \"30 On-Going Project Management/36.2025 HPLNC\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 15233553
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": -0.7,
+  "nodeSizeMultiplier": 1.79075520833333,
+  "lineSizeMultiplier": 1.95325113932292,
+  "collapse-forces": false,
+  "centerStrength": 0.457438151041667,
+  "repelStrength": 12.29248046875,
+  "linkStrength": 1,
+  "linkDistance": 98,
+  "scale": 0.4905511964023548,
+  "close": true
+}

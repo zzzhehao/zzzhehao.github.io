@@ -1,0 +1,47 @@
+{
+  "soundscape": "CUSTOM_a9da443f-f836-4719-8824-30c68fd5a2cc",
+  "volume": 32,
+  "autoplay": false,
+  "scrollSongTitle": true,
+  "customSoundscapes": [
+    {
+      "id": "a9da443f-f836-4719-8824-30c68fd5a2cc",
+      "name": "Work Jazz",
+      "tracks": [
+        {
+          "name": "No excuses, just progress",
+          "id": "MDR5GmurmVA"
+        },
+        {
+          "name": "A smile can change your whole day",
+          "id": "db6SsFOA7hA"
+        },
+        {
+          "name": "Let’s work slow and easy",
+          "id": "_Q8Ih2SW-TE"
+        },
+        {
+          "name": " You’re killing it today, don’t forget to smile",
+          "id": "iiJHSKz8FA4"
+        },
+        {
+          "name": "Do something today that your future self will thank you for",
+          "id": "yPp2ZkAWnjc"
+        },
+        {
+          "name": "Breathe and keep moving",
+          "id": "BTxjYL4ioPI"
+        },
+        {
+          "name": "Limits exist only to be broken",
+          "id": "kL-ByJDh5qQ"
+        }
+      ]
+    }
+  ],
+  "myMusicIndex": [],
+  "myMusicFolderPath": "",
+  "reindexFrequency": "5",
+  "myMusicShuffle": false,
+  "currentTrackIndex": 6
+}

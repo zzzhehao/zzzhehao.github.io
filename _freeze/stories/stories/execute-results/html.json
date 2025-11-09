@@ -1,0 +1,15 @@
+{
+  "hash": "f10b5b04cc8ae3ba96d57b2d3ea73132",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"\"\nformat: \n  html:\n    css: ../gallery/gallery.css\n    toc: false\n    page-layout: custom\nwebsite:\n  navbar:\n    background: transparent\n# Gallery config\ninclude-in-header:\n    - text: |\n          <meta name=\"description\" content=\"Photo albums gallery\">\n          <script src=\"https://code.iconify.design/2/2.0.3/iconify.min.js\"></script>\n---\n\n```{=html}\n<style>\n  body {\n    color: #222;\n    margin: 0 auto;\n    padding: 0 40px;\n    max-width: 1200px;\n  }\n\n  h3 {\n    padding-top: 0em;\n    margin-top: -0.3em;\n    margin-bottom: 3.5rem;\n  }\n\n  .h3-number {\n    font-family: serif;\n    font-size: 3.5rem;\n    margin-right: 1rem;\n    padding: 0 0.5rem;\n    border-bottom: solid 1px #111;\n  }\n\n  .h3-title {\n    font-family: serif;\n    font-size: 3rem;\n    margin-right: 1rem;\n  }\n\n  .abstract-text {\n    font-size: 1.5rem;\n  }\n\n  .story-container {\n    display: flex;\n    width: 100%;\n  }\n\n  .story-number-container {\n    width: 10%;\n  }\n\n  .story-abstract-container {\n    width: 35%;\n  }\n\n  .story-thumbnail-container {\n    width: 50%;\n    justify-content: right;\n    align-items: right;\n  }\n\n  .story-thumbnail {\n    height: 60%;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    overflow: hidden;\n  }\n\n  .story-thumbnail img {\n    max-width: 100%;\n    max-height: 100%;\n    width: auto;\n    height: auto;\n    object-fit: contain;\n  }\n\n</style>\n```\n\n\n\n<h1 style=\"font-size:5rem; font-family:serif\">Stories</h1>\n\n<br><br>\n\n<div class=\"story-container\">\n<div class=\"story-number-container\">\n\n### [01]{.h3-number}\n\n</div>\n\n<div class=\"story-abstract-container\">\n\n### [No Body Cares]{.h3-title}\n\n\n::: {.abstract-text}\n\nNever. \n\nSay to a Researcher. \n\nWho Cares.\n\n:::\n\n</div>\n<div class=\"story-thumbnail-container\">\n\n<div class=\"story-thumbnail\">\n<a href=\"https://zzzhehao.github.io/\"><img src=\"/assets/images/Aunicornis_habitus_CyanHot_AVG_241124.jpeg\"></a>\n</div>\n\n</div>\n</div>\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

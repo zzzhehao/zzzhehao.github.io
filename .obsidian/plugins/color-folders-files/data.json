@@ -1,0 +1,31 @@
+{
+  "styles": {
+    "30-39 On-Going Project Management/36.2025 MA - Atlantic Connectivity": {
+      "backgroundColor": "#62429e",
+      "textColor": "#ffffff",
+      "isBold": true,
+      "applyToFiles": true,
+      "applyToSubfolders": true
+    },
+    "30-39 On-Going Project Management/32.2024 Acanthocope Project/01 docs/01.31 publication/2025 Hu etal": {
+      "backgroundColor": "#ff8838",
+      "isBold": true,
+      "applyToFiles": true,
+      "applyToSubfolders": true
+    },
+    "30-39 On-Going Project Management/32.2024 Acanthocope Project/01 docs/01.31 publication/ACTCP Manuscript": {
+      "textColor": "#ffffff",
+      "backgroundColor": "#653610",
+      "isBold": true,
+      "isItalic": true,
+      "applyToSubfolders": true,
+      "applyToFiles": true,
+      "opacity": 1
+    },
+    "pdfannots2json": {
+      "textColor": "#ababab"
+    }
+  },
+  "presets": {},
+  "presetOrder": []
+}

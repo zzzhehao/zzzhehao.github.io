@@ -1,0 +1,21 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "",
+  "pdfExportImageDPI": 200,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [],
+  "exportFormats": [
+    {
+      "name": "Zotero Journal Note",
+      "outputPathTemplate": "75-79 General Note Vault/71 Reading Note/Journals/{{citekey}}.md",
+      "imageOutputPathTemplate": "75-79 General Note Vault/71 Reading Note/Journals/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "00-09 Vault Administration/02 Vault Tools/02.01 Templates/OB_ZI_Template.md",
+      "cslStyle": "apa"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": false,
+  "whichNotesToOpenAfterImport": "first-imported-note"
+}

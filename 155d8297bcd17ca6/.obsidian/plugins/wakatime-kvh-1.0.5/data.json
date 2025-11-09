@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "apiKey": "cf4ad18e-c97f-42e9-b686-ba2870e7fa21",
+  "apiUrl": "https://wakapi.dev",
+  "defaultProject": "Research",
+  "ignoreList": [],
+  "projectAssociations": [
+    "10-19 Life Administration@Personal",
+    "60-64 Psychology, Self-Improvement@Psychology",
+    "65-69 Financing, Economy@Personal",
+    "70-74 Photography@Personal",
+    "",
+    ""
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "wrapperTags": [
+    {
+      "id": "w1744881997402",
+      "name": "Quarto short code",
+      "startTag": "{{< var sp.A",
+      "endTag": ".s >}}"
+    },
+    {
+      "id": "w1737978770728",
+      "name": "Tag ACTCP morpho",
+      "startTag": "#proj/actcp/morpho/",
+      "endTag": ""
+    },
+    {
+      "id": "w1737978709458",
+      "name": "Tag ACTCP specimen",
+      "startTag": "#proj/actcp/specimen/",
+      "endTag": ""
+    }
+  ]
+}

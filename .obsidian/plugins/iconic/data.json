@@ -1,0 +1,314 @@
+{
+  "biggerIcons": "mobile",
+  "clickableIcons": "desktop",
+  "showAllFileIcons": true,
+  "showAllFolderIcons": true,
+  "minimalFolderIcons": true,
+  "showMarkdownTabIcons": true,
+  "showMenuActions": true,
+  "showQuickSwitcherIcons": true,
+  "showItemName": "desktop",
+  "biggerSearchResults": "mobile",
+  "maxSearchResults": 60,
+  "colorPicker1": "list",
+  "colorPicker2": "rgb",
+  "uncolorHover": true,
+  "uncolorDrag": false,
+  "uncolorSelect": false,
+  "uncolorQuick": false,
+  "rememberDeletedItems": true,
+  "dialogState": {
+    "iconMode": true,
+    "emojiMode": true,
+    "rulePage": "folder"
+  },
+  "appIcons": {},
+  "tabIcons": {},
+  "fileIcons": {
+    "00-09 Vault Administration/01 Vault Structure": {
+      "icon": "lucide-building-2",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "00-09 Vault Administration/02 Vault Tools": {
+      "icon": "lucide-settings",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "00-09 Vault Administration/03 SOP": {
+      "icon": "lucide-notepad-text",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "00-09 Vault Administration/04 MOC": {
+      "icon": "lucide-signpost",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "00-09 Vault Administration/05 Base": {
+      "icon": "lucide-table-properties",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "00-09 Vault Administration/05 Base/Bibliography.base": {
+      "icon": "lucide-book-copy",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ],
+      "color": "green"
+    },
+    "00-09 Vault Administration/05 Base/CRM.base": {
+      "icon": "lucide-book-user",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ],
+      "color": "blue"
+    },
+    "00-09 Vault Administration/05 Base/Vault Management.base": {
+      "icon": "lucide-book-open-text",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ],
+      "color": "gray"
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/HPLNC Project.md": {
+      "icon": "homepage",
+      "color": "blue"
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/admin": {
+      "icon": "lucide-settings",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/form_template": {
+      "icon": "lucide-layout-template",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/logs": {
+      "icon": "lucide-clipboard-signature",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/notes": {
+      "icon": "lucide-notebook-pen",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/proposals": {
+      "icon": "lucide-lightbulb",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/protocols": {
+      "icon": "lucide-clipboard-pen",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/taxonomy": {
+      "icon": "lucide-trending-up-down",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/taxonomy/Haploniscus sp. A.md": {
+      "icon": "lucide-notebook-pen"
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/taxonomy/Haploniscus unicornis complex.md": {
+      "icon": "lucide-notebook-pen"
+    },
+    "30 On-Going Project Management/36.2025 HPLNC/docs/taxonomy/List of Haploniscidae spp in N Atl.md": {
+      "icon": "lucide-notebook-pen"
+    },
+    "40-59 Biology/41 Evolution/Evolutionary Systematics/Theory": {
+      "icon": "lucide-brain",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    },
+    "60-64 Psychology, Self-Improvement/60 Psychology/Mind Note": {
+      "icon": "BratIcon",
+      "unsynced": [
+        "30110be5e47e6e0c"
+      ]
+    }
+  },
+  "bookmarkIcons": {},
+  "tagIcons": {},
+  "propertyIcons": {
+    "event-start": {
+      "color": "orange"
+    }
+  },
+  "ribbonIcons": {},
+  "fileRules": [
+    {
+      "id": "RJ69q",
+      "name": "XLSX",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "extension",
+          "operator": "contains",
+          "value": "xlsx"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-sheet"
+    },
+    {
+      "id": "kgi3U",
+      "name": "issue",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "name",
+          "operator": "contains",
+          "value": "issue"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-pc-case"
+    },
+    {
+      "id": "I1hCL",
+      "name": "pdf",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "extension",
+          "operator": "contains",
+          "value": "pdf"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-file-lock-2",
+      "color": "yellow"
+    },
+    {
+      "id": "0i5YM",
+      "name": "Gaming life",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "path",
+          "operator": "contains",
+          "value": "14 Gaming Life"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-gamepad",
+      "color": "green"
+    },
+    {
+      "id": "JGHTC",
+      "name": "reference",
+      "match": "any",
+      "conditions": [
+        {
+          "source": "name",
+          "operator": "contains",
+          "value": "reference"
+        },
+        {
+          "source": "name",
+          "operator": "contains",
+          "value": "references"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-file-search",
+      "color": "green"
+    },
+    {
+      "id": "e4hQZ",
+      "name": "index",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "tags",
+          "operator": "includes",
+          "value": "file/index"
+        }
+      ],
+      "enabled": true,
+      "icon": "homepage",
+      "color": "purple"
+    },
+    {
+      "id": "B5SLr",
+      "name": "base",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "extension",
+          "operator": "contains",
+          "value": "base"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-table-properties"
+    }
+  ],
+  "folderRules": [
+    {
+      "id": "XyWm5",
+      "name": "asset",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "name",
+          "operator": "contains",
+          "value": "asset"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-archive",
+      "color": "pink"
+    },
+    {
+      "id": "5JjNV",
+      "name": "manual",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "name",
+          "operator": "contains",
+          "value": "manual"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-book-open-text",
+      "color": "pink"
+    },
+    {
+      "id": "La2au",
+      "name": "base",
+      "match": "all",
+      "conditions": [
+        {
+          "source": "name",
+          "operator": "startsWith",
+          "value": "base_"
+        }
+      ],
+      "enabled": true,
+      "icon": "lucide-database"
+    }
+  ],
+  "showTitleIcons": true,
+  "showTagPillIcons": true,
+  "showSuggestionIcons": true,
+  "showMoveFileIcons": true
+}
