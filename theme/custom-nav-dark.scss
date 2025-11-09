@@ -1,0 +1,59 @@
+@import 'color-dark';
+/*-- scss:rules --*/
+
+// Change dropdown menu background color and make it flexible
+.dropdown-menu {
+  background-color: #{$black-abs}; // Replace with your preferred color
+  width: auto; // Allow the width to be flexible
+  max-width: max-content;
+  // min-width: max-content; // Ensure the width is at least as wide as the longest item
+  white-space: nowrap; // Prevent text wrapping
+}
+
+.navbar {
+  font-weight: 500;
+  font-size: 115%;
+  background-color: #{$dark-canvas};
+  color: #{$accent-color};
+}
+
+// Remove blue outline on active dropdown
+.navbar .dropdown-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  font-weight: 500;
+}
+
+// Ensure dropdown items don't wrap
+.dropdown-item {
+  white-space: nowrap;
+  // width: fit-content;
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  font-size: 115%;
+
+  // Style for hover state
+  &:hover {
+    background-color: #{$accent-color}; // Replace with your desired hover background color
+    color: #{$white}; // Replace with your desired hover text color
+  }
+
+  // Style for active state (when clicking)
+  &:active {
+    background-color: #{$accent-color}; // Replace with your desired hover background color
+    color: #{$white}; // Replace with your desired hover text color
+  }
+
+  // Style for focus state
+  &:focus {
+    background-color: #{$accent-color}; // Replace with your desired hover background color
+    color: #{$white}; // Replace with your desired hover text color
+  }
+}
+
+// Optional: Add max-width to prevent extremely wide dropdowns on large screens
+@media (min-width: 768px) {
+  .dropdown-menu {
+    max-width: 300px; // Adjust this value as needed
+  }
+}

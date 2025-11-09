@@ -1,0 +1,82 @@
+/*-- scss:rules --*/
+@import 'color';
+
+.mini {
+    margin: 1em 0;
+    // border: 2px solid gray;
+    border-left: 5px solid #{$ink1}; 
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    // color: black;
+    // background-color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.abstract-callout {
+    margin: 1em 0;
+    border: 3px solid #{$ink1};
+    // border-left: 5px solid #{$white}; 
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    // color: black;
+    // background-color: rgba($color: #{$paper}, $alpha: 1.0);
+    border-bottom-right-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.abstract-callout-container {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.disclaimer {
+    margin: 1em 0;
+    border: 1px solid #{$ink1};
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom-right-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.theorem-title {
+    font-family: Times;
+    background-color: rgb(0, 0, 0, 0);
+    border: 2px solid #{$ink1};
+    font-weight: revert;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom-right-radius: 4px;
+}
+
+.theorem-container {
+    font-style: italic;
+}
+
+// Custom inherit callout
+
+// theme independent
+div.callout-caution {
+    --clcolor: var(--custom-callout-theme-color); 
+    --clbg: var(--custom-callout-theme-bg);
+
+    color: var(--clcolor);
+    background-color: var(--clbg);
+}
+
+div.callout-caution.callout-style-minimal .callout-header {
+    color: var(--clcolor) !important;
+    background-color: var(--clbg) !important;
+}
+
+div.callout-caution .callout-title-container {
+    color: #222222 !important;
+}

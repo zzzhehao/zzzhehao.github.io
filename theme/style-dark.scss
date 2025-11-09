@@ -1,0 +1,60 @@
+// color code
+@import 'color-dark';
+
+// style setting
+/*-- scss:defaults --*/
+
+// theme color
+:root{
+    --black: #{$black-cus};
+    --white: #{$white};
+    --dark-grey: #{$dark-grey};
+    --canvas: #{$summer-vintage-sojamilk};
+    --accent-color: #{$accent-color};
+    --second-accent-color: #{$second-accent-color};
+    --mute-color-dark: #{$AgainAgain-5-hex};
+    --background: #{$red_plane-6-hex};
+
+    --custom-callout-theme-bg: rgba(100, 100, 100, 0.2);
+    --custom-callout-theme-color: #{$ink-on-dark-canvas};
+}
+
+body {
+    color: var(--white);
+    .cell-output {
+        background-color: var(--custom-callout-theme-bg);
+        border: 1px solid #{$ink-on-dark-canvas};
+    }
+}
+
+table {
+    // Style for the header row
+    th {
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+
+table {
+    // Style for the header row
+    th {
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+
+$body-bg: $dark-canvas;
+$body-color: $ink-on-dark-canvas;
+$link-color: $accent-color;
+
+$code-block-bg: $codeblck-dark-bg;
+$code-bg: $codeblck-dark-bg;
+$code-color: #dd860d;
+$kbd-color: $dark-grey;
+
+.cell .cell-output {
+    background-color: var(--custom-callout-theme-bg);
+    border: 1px solid #{$ink-on-dark-canvas};
+    margin-bottom: 1.1rem;
+    padding-top: 1.1rem;
+}

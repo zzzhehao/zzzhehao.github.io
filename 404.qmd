@@ -1,0 +1,98 @@
+---
+navbar: false
+format: 
+  html:
+    page-layout: custom
+    include-in-header: ./theme/bg-red-plane-2.html
+    code-block-background: false
+    highlight-style: arrow-light
+execute: 
+  eval: false
+---
+```{=html}
+<style>
+    .sourceCode {
+    background-color: transparent !important;
+    border: none !important;
+    }
+</style>
+
+<div style="
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+">
+<!-- <div> -->
+  <div style="
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  ">
+  
+  <div style="
+  width: 65%; 
+  display: flex;
+  justify-content: space-between;
+  ">
+  
+<!-- Left part -->
+<div style="width: 100%;">
+  <span style="font-size:4rem; ">Ooops...</span><br>
+  <span style="font-size:2rem">we seem to have run into a dead end...</span>
+
+  <br>
+```
+
+```{r}
+> open.page <- function (destination) {
++   if (find(destination)) {
++       page <- load(where(destination))
++       ruturn(page)
++   } else {
++       stop("404 Not Found")
++   }
++ }
+> open.page("Why_should_we_put_comment_line_in_the_middle_of_a_csv_file.html")
+```
+
+```{md}
+Error: 
+! 404 Not Found
+```
+
+<br>
+
+  <p>Please check if you typed the address correctly.</p>
+ <p style="font-size: 1rem"><a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report a brocken link</a> (I'm appreciated!) or <a href="https://zzzhehao.github.io/index.html">return to homepage</a></p>
+
+</div>
+    
+  <!-- Right part  -->
+  <!-- <div style="width: 40%;"> -->
+  
+<!-- Right part text -->
+<!-- To enable this column set left width to 60% -->
+
+  <!-- </div> --> 
+  
+</div>
+</div>
+  
+  <!-- footer -->
+  <!-- <footer style="
+    padding: 10px 20px 10px 0;
+    text-align: right;
+    font-family: 'Arial';
+    color: #F2E6DF;
+    width: 100%;
+    font-size: 0.7rem;
+  ">
+    <p style="margin: 0;">© 2024 Zhehao Hu. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io"><span style="text-decoration: underline;">github.com</span></a>.</p>
+  </footer> -->
+</div>

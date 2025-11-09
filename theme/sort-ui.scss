@@ -1,0 +1,60 @@
+/*-- scss:rules --*/
+@import 'color';
+
+.form-select {
+  border-color: var(--ink1);
+}
+
+.input-group-text {
+  border-color: var(--ink1);
+}
+
+div.listing-category {
+  // Quarto default controlling this might have higher authority so I have to use !important
+  border: 1px solid var(--ink1) !important;
+  color: var(--ink1) !important;
+}
+
+// Panel tabset border color
+
+.panel-tabset [role=tab]:hover:not([aria-selected=true]) {
+    color: $accent-color;
+    // font-weight: 500;
+    border: none;
+}
+
+.panel-tabset [role=tab]:hover([aria-selected=true]) {
+    border: none;
+    color: $accent-color;
+}
+
+.panel-tabset [role=tab] {
+    color: $ink1;
+    border: none;
+    // font-weight: 500;
+    color: $dark-grey;
+}
+
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    border-radius: .25rem;
+    border: 1px solid $ink1 !important;
+    // font-weight: 500;
+    color: $ink1;
+  }
+
+// Disable content border
+  div.tab-content {
+    border: none;
+  }
+
+// Disable tab bar border
+  .panel-tabset [role=tablist] {
+    border: none;
+    padding-right: 10%;
+  }
+
+  .nav-tabs {
+    border-bottom: none !important; /* Remove the bottom border */
+  }
+  
