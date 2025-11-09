@@ -1,0 +1,98 @@
+---
+pagetitle: "Gallery"
+format: 
+  html:
+    css: gallery.css
+    toc: false
+website:
+  navbar:
+    background: transparent
+# Gallery config
+include-in-header:
+    - text: |
+          <style>
+            body {
+                color: #333
+            }
+          </style>
+          <meta name="description" content="Photo gallery">
+          <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+include-after-body: 
+  - text: |
+      <script src="gallery.js"></script>
+---
+
+<!-- Album configuration in yaml header
+`name` should be identical to the key as in albumConfig in JS.
+`prefix` and `cout` as well. -->
+
+```{=html}
+<style>
+  body {
+    color: #333
+  }
+</style>
+<div class="gallery-grid">
+```
+
+```{r, echo=FALSE, results='asis'}
+library(yaml)
+# Access the album configurations from the YAML front matter
+albums <- yaml.load_file("photography/gallery/albums.yml")
+
+# Generate the HTML for each album
+for (album in albums) {
+  if (album$year == 0) {
+    album$year <- ""
+  }
+#   album$thumbnail <- paste0("../assets/gallery/thumbnails/", album$name, ".jpg") # for photo at local 
+    album$thumbnail <- paste0("https://ik.imagekit.io/zzzhehao/gallery/thumbnails/", album$name, ".jpg") # for photo on imagekit
+  cat(sprintf('
+<div class="album-thumbnail" data-album="%s">
+<a href="#%s">
+<img src="%s" alt="%s">
+<div class="album-overlay">
+<div class="album-info">
+<div class="album-title">%s</div>
+<div class="album-year">%s</div>
+</div>
+</div>
+</a>
+</div>
+', album$name, album$name, album$thumbnail, album$display_name, album$display_name, album$year))
+}
+```
+
+```{=html}
+</div>
+
+<div id="fullscreen-gallery" class="fullscreen-gallery">
+  <button id="close-gallery" class="close-button">&times;</button>
+  <div id="gallery-title" class="gallery-title"></div>
+  <div class="gallery-content">
+    <button id="prev-image" class="nav-button prev-button"></button>
+    <div class="image-container">
+    <img id="gallery-image-1" class="gallery-image" src="" alt="Gallery Image 1">
+    <img id="gallery-image-2" class="gallery-image" src="" alt="Gallery Image 2">
+    </div>
+    <button id="next-image" class="nav-button next-button"></button>
+  </div>
+  <button id="copy-url-button" class="copy-button">Copy URL</button>
+  <button id="copy-image-url-button" class="copy-button">Copy Image URL</button>
+  <button id="copy-attribution-button" class="copy-button">Copy Attribution</button>
+</div>
+```
+
+<!-- Copyright alert -->
+
+```{=html}
+<div id="custom-modal" class="modal">
+  <div class="modal-content">
+    <p>This content is under protection of <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 license</a>.</p>
+    <p>Please always provide appropriate credit.</p>
+  </div>
+</div>
+```
+
+<!-- Footer -->
+ 
