@@ -1,0 +1,122 @@
+project:
+  type: website
+  resources: 
+    - "*.jpg"
+    - "*.png"
+    - "*.pdf"
+    - "*.json"
+    - "*.html"
+    - "!assets/gallery"
+    - "!.obsidian"
+  render: 
+    - "*.qmd"
+    - "!comments/"
+    - "!resource/"
+    - "!closeread/"
+    - "!draft**.qmd"
+    - "!.obsidian"
+  # pre-render: 
+    # - "project/fkt250220/species-catalog/image_prep.R"
+  execute-dir: project
+  output-dir: _site
+
+bibliography:
+  - ../../zzzhehao/90-99 Resources/90 References/BibTex Bibliography/biology-research.bib
+
+website:
+  title: "Zhehao Hu"
+  favicon: "./assets/website/gingko_leaf.png"
+  site-url: https://zzzhehao.github.io/
+  site-path: ./
+  description: "Zhehao Hu's Personal Website"
+  draft-mode: unlinked
+  google-analytics: "G-R0FB3TL998"
+
+  navbar: 
+    left: 
+      - text: "Post"
+        menu: 
+          - text: "Research"
+            href: post/research/index.qmd
+          - text: "Journal"
+            href: post/journal/index.qmd
+
+      - text: "Photography"
+        menu: 
+          - text: "Gallery"
+            href: photography/gallery/gallery.qmd
+          - text: "Portfolio"
+            href: photography/portfolio.qmd
+          # - text: "Blue Marbles"
+          #   href: photography/gallery/blue-marble/blue-marble.qmd
+          - text: "Motion Picture"
+            href: photography/gallery/motion-pictures.qmd
+          - text: "Color palette"
+            href: photography/color_palette.qmd
+
+      - text: "Project"
+        menu: 
+          - text: "Expedition FKt250220"
+            href: project/fkt250220/index.qmd
+
+      - text: "About me"
+        href: about.qmd
+
+      - text: "CV"
+        href: post/research/assets/CV_Zhehao_Hu.pdf
+
+    tools: 
+      - icon: github
+        href: https://github.com/zzzhehao
+        text: "GitHub"
+      - icon: instagram
+        href: https://instagram.com/zhehao.hu_
+    search: true
+    background: transparent
+
+format: 
+  html:
+    highlight-style: atom-one-dark
+    theme: 
+      dark: [theme/global-setting.scss, theme/style-dark.scss, theme/custom-nav-dark.scss, theme/callouts-dark.scss, theme/sort-ui-dark.scss]
+      light: [theme/global-setting.scss, theme/style.scss, theme/custom-nav.scss, theme/callouts.scss, theme/sort-ui.scss]
+execute: 
+  freeze: true
+
+
+affiliation:
+  - id: IZS
+    name: University of Hamburg, Institute of Animal Cell and Systems Biology (IZS)
+    department: Department of Biology, Institute of Animal Cell and Systems Biology (IZS)
+    address: Martin-Luther-King Platz 3
+    city: Hamburg
+    region: Hamburg
+    country: Germany
+    postal-code: D-20146
+    url: https://www.biologie.uni-hamburg.de/einrichtungen/izs.html
+  - id: IMF
+    name: University of Hamburg, Institute of Marine Ecosystem and Fishery Science (IMF)
+    department: Department of Biology, Institute of Marine Ecosystem and Fishery Science (IMF), Benthic Biogeography
+    address: Große Elbstraße 133
+    city: Hamburg
+    region: Hamburg
+    country: Germany
+    postal-code: D-22767
+    url: https://www.biologie.uni-hamburg.de/en/einrichtungen/imf.html
+  - id: DZMB
+    name: German Centre for Marine Biodiversity Research (DZMB), Senckenberg am Meer
+    address: c/o University of Hamburg, Biozentrum Grindel, Martin-Luther-King Platz 3
+    city: Hamburg
+    region: Hamburg
+    country: Germany
+    postal-code: D-20146
+    url: https://www.senckenberg.de/en/institutes/senckenberg-am-meer/german-centre-for-marine-biodiversity-research-dzmb/
+  # - id: 
+  #   name:
+  #   department:
+  #   address:
+  #   city:
+  #   region:
+  #   country:
+  #   postal-code:
+  #   url:
