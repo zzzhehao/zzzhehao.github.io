@@ -1,0 +1,75 @@
+---
+title: "Searching for New Species in the South Sandwich Islands"
+subtitle: "An Ocean Census and GoSouth Expedition"
+image: "/assets/images/Fkt_1.jpg"
+author: 
+  - name: Zhehao Hu
+    affiliations: null
+    #   - name: Ocean Census
+    #     url: https://oceancensus.org
+# description: ""
+format:
+  html:
+    include-before-body: 
+      - text: |
+          <div id="header-image">
+            <img src="/assets/images/Fkt_1.jpg" alt="Header Image" width="100%">
+          </div>
+
+# listing:
+#   - id: ls-all
+#     sort: "date desc"
+#     image-height: 120px
+#     image-lazy-loading: true
+#     sort-ui: false
+#     filter-ui: false
+#     type: default
+#     date-format: iso
+#     contents: 
+#         - "journals/*.qmd"
+#         - "species-catalog/index.qmd"
+---
+
+{{< include /partial/_init.qmd >}}
+
+```{r}
+#| output: asis
+#| echo: false
+header_image(y_transform = 0) # fixing header image
+```
+
+## The Expedition
+
+After 8 days of sailing on R/V *Falkor (too)* from Punta Arenas, an Antarctic gateway city, we arrived one of the most remote places on this planet - the South Sandwich Islands. The South American plate meets South Sandwich plate where the former subducts beneath the latter, which creates large mosaic of tectonic movements and provides various habitat for benthic animals. 
+
+This 37-days expedition was produced by [Ocean Census](https://oceancensus.org) and GoSouth in collaboration with [Schmidt Ocean Institute](https://schmidtocean.org). Ocean Census is the largest global mission ever launched to accelerate marine life discovery and represents the major goal of this cruise - to find undescribed species new to science in this remote area. GoSouth is a collaboration from University of Plymouth, GEOMAR, and the British Antarctic Survey, who focuses on the geological hazard at the area. We cooperated with Schmidt Ocean Institute to perform visual and multibeam echosounding survey onboard *Falkor (too)* and sending ROV *SuBastian* down to 3823 m deep, which also collected biological and geological samples for subsequent studies.
+
+A formal and detailed information can be found on [SOI's website](https://schmidtocean.org/cruise/searching-for-new-species-in-the-south-sandwich-islands-2/). 
+
+![A summary map of the expedition track (dashed black line, entered SSI area in South and left in North) and ROV dive site (black triangle)](/project/fkt250220/assets/SSIExp_SummaryMap.png)
+
+## Resources
+
+### Links
+
+- [Presentations](https://zzzhehao.github.io/FKt250220-Pre/#/)
+- [Data tools](https://github.com/zzzhehao/FKt250220)
+
+
+### Social Media
+
+- Schmidt Ocean Institute [{{< iconify mdi:instagram >}}](https://www.instagram.com/schmidtocean/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/schmidt-ocean-institute/posts/?feedView=all)  
+- Ocean Census [{{< iconify mdi:instagram >}}](https://www.instagram.com/oceancensus/)  [{{< iconify mdi:linkedin >}}](https://www.linkedin.com/company/oceancensus)  
+
+## Press Release
+
+[First Confirmed Footage of a Colossal Squid—and it’s a Baby!](https://schmidtocean.org/first-colossal-squid-footage/) April 15, 2025 | Schmidt Ocean Institute
+
+[First Footage of Live Juvenile Colossal Squid – filmed on the Ocean Census expedition to the South Sandwich Islands](https://oceancensus.org/publications/first-footage-of-live-juvenile-colossal-squid-filmed-on-the-ocean-census-expedition-to-the-south-sandwich-islands/) April 15, 2025 | Ocean Census
+
+[Fire and Ice: Why Explore the Antarctic Waters Around the South Sandwich Islands?](https://oceancensus.org/publications/fire-and-ice-why-explore-the-antarctic-waters-around-the-south-sandwich-islands/) February 25, 2025 | Ocean Census
+
+<!-- ## Journals
+
+::: {#ls-all}
+::: -->
