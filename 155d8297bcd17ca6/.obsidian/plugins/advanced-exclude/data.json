@@ -1,6 +1,0 @@
-{
-  "excludeMode": "Full",
-  "obsidianIgnoreContent": "**/_manuscript\n**/_freeze\n**/**_files\n**/node_modules\n**/_extensions\n*.lif\n*.pptx\n_**/\n_**\n*.json\n*.spl\n*.bst\n**/renv",
-  "shouldIgnoreExcludedFiles": false,
-  "shouldIncludeGitIgnorePatterns": false
-}
