@@ -355,7 +355,7 @@ window.Quarto = {
 </style>
 <script>
     function initializeDailyPhoto() {
-        fetch('/picked-photo/photos.json')
+        fetch('/photography/picked-photo/photos.json')
         .then(response => response.json())
         .then(data => {
             const photos = data.photos;
@@ -377,7 +377,7 @@ window.Quarto = {
             <br>
             <div class="image-container">
                 <div class="pick-image">
-                <a href="https://zzzhehao.github.io/gallery/gallery.html#${photo.name}">
+                <a href="https://zzzhehao.github.io/photography/gallery/gallery.html#${photo.name}">
                     <img src="${photo.url}" alt="${photo.name}">
                 </a>
                 </div>
@@ -401,7 +401,7 @@ window.Quarto = {
 <p><a href="https://zzzhehao.github.io/" target="_blank"><iconify-icon role="img" inline="" icon="mynaui:home" aria-label="Icon home from mynaui Iconify.design set." title="Icon home from mynaui Iconify.design set."></iconify-icon></a> <a href="https://github.com/zzzhehao" target="_blank"><iconify-icon role="img" inline="" icon="mdi:github" aria-label="Icon github from mdi Iconify.design set." title="Icon github from mdi Iconify.design set."></iconify-icon></a> <a href="https://linkedin.com/in/huzhehao" target="_blank"><iconify-icon role="img" inline="" icon="mdi:linkedin" aria-label="Icon linkedin from mdi Iconify.design set." title="Icon linkedin from mdi Iconify.design set."></iconify-icon></a> <a href="https://instagram.com/zhehao.hu_" target="_blank"><iconify-icon role="img" inline="" icon="mdi:instagram" aria-label="Icon instagram from mdi Iconify.design set." title="Icon instagram from mdi Iconify.design set."></iconify-icon></a> <a href="https://www.notion.so/marketplace/creators/zzzhehao?cr=cre%3Aall" target="_blank"><iconify-icon role="img" inline="" icon="mage:notion" aria-label="Icon notion from mage Iconify.design set." title="Icon notion from mage Iconify.design set."></iconify-icon></a> <a href="mailto:zhehao.hu@uni-hamburg.de" target="_blank"><iconify-icon role="img" inline="" icon="ic:outline-email" aria-label="Icon outline-email from ic Iconify.design set." title="Icon outline-email from ic Iconify.design set."></iconify-icon></a></p>
 </div>
 <p><span style="font-size: 2.5rem;">About <iconify-icon role="img" inline="" icon="cib:about-me" aria-label="Icon about-me from cib Iconify.design set." title="Icon about-me from cib Iconify.design set."></iconify-icon></span></p>
-<p>Hi! 👋 I am Zhehao. I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write me in any of these!</p>
+<p>Hi! 👋 I am Zhehao. I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak 中文, 日本語, Deutsch, English, y un poquito Español 😉 feel free to write me in any of these!</p>
 <p>I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on molecular ecology and am now entering deep sea research with special focus on isopods. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.</p>
 <p>My strengths are molecular barcoding, evolutionary, community ecology, and biogeography analysis. I started developing my taxonomic expertise around asellote isopods and the swimming Munnopsids are my favourite, despite their taxonomy and biogeography being quite difficult to decipher.</p>
 <p>Beside these, I’m also a heavy R coder! I write a lot of codes to automate my daily works to prevent data lost and avoidable mistakes (typos are horrible when happening to identifiers! And yes it happens a LOT). And I love making pretty plots, maps, and analysis that makes boring data understandable and communicable.</p>
@@ -1243,7 +1243,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">    function initializeDailyPhoto() {</span></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in">        fetch('/picked-photo/photos.json')</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in">        fetch('/photography/picked-photo/photos.json')</span></span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">        .then(response =&gt; response.json())</span></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">        .then(data =&gt; {</span></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">            const photos = data.photos;</span></span>
@@ -1265,7 +1265,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;br&gt;</span></span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="image-container"&gt;</span></span>
 <span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;div class="pick-image"&gt;</span></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;a href="https://zzzhehao.github.io/gallery/gallery.html#${photo.name}"&gt;</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;a href="https://zzzhehao.github.io/photography/gallery/gallery.html#${photo.name}"&gt;</span></span>
 <span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">                    &lt;img src="${photo.url}" alt="${photo.name}"&gt;</span></span>
 <span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/a&gt;</span></span>
 <span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/div&gt;</span></span>
@@ -1309,7 +1309,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">About {{&lt; iconify cib:about-me &gt;}}</span><span class="co">]</span>{style="font-size: 2.5rem;"}</span>
 <span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>Hi! 👋 I am Zhehao. I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak Chinese (Mandarin), Japanese, German and English 😉 feel free to write me in any of these! </span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>Hi! 👋 I am Zhehao. I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak 中文, 日本語, Deutsch, English, y un poquito Español 😉 feel free to write me in any of these! </span>
 <span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on molecular ecology and am now entering deep sea research with special focus on isopods. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.</span>
 <span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
