@@ -1,8 +1,8 @@
 {
-  "hash": "6a0c62971739b5c3670b771df854efc1",
+  "hash": "7e6cfb573e0cdd9a2149117c21fd9efc",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Journals\"\nauthor: \"\"\naffiliation: \"\"\n\nlisting:\n  - id: ls-all\n    sort: \"date desc\"\n    sort-ui: [title, date]\n    categories: unnumbered\n    image-height: 120px\n    image-lazy-loading: true\n    filter-ui: true\n    type: default\n    date-format: iso\n    contents: \n        - \"*.qmd\"\n        - \"!draft*.qmd\"\n        - \"!CV.qmd\"\nformat:\n  html:\n    toc: false\n---\n\n\n```\nℹ Loading zWeb\n```\n\n\n<figure class=\"figure\">\n<figcaption class=\"forward\"  > Some of my words along my journey of understanding this world. </figcaption>\n</figure>\n            \n",
+    "markdown": "---\ntitle: \"Journals\"\nauthor: \"\"\naffiliation: \"\"\n\nint-tags: \n  - no_listing\n\nlisting:\n  - id: ls-all\n    sort: \"date desc\"\n    sort-ui: [title, date]\n    categories: unnumbered\n    image-height: 120px\n    image-lazy-loading: true\n    filter-ui: true\n    type: default\n    date-format: iso\n    contents: \n        - \"*.qmd\"\n        - \"!draft*.qmd\"\n        - \"!CV.qmd\"\nformat:\n  html:\n    toc: false\n---\n\n\n<figure class=\"figure\">\n<figcaption class=\"forward\"  > Some of my words along my journey to understand this world. </figcaption>\n</figure>\n            \n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

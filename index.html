@@ -40,8 +40,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-57a92833092fd6dc0d7710b6bdfff9c5.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1a192a19a7ee12ea564c0ddf1e928eca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0ffa7b2fe5c922846fa61c740bbd7420.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-7a4a0d5e8f423a9a8148e6eee290dd63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c0ed25a073c492b8940e643f1d838cef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -96,21 +96,22 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 
 <style>
 body, html {
-    font-family: 'Times New Roman';
+    font-family: 'Lora';
     color: #F2E6DF;
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 1.2rem;
+    /* font-size: 1.6rem; */
 }
-a {
+.index-nav p a {
     position: relative;
     display: inline-block;
     color: #F2E6DF;
     text-decoration: none;
+    font-size: 1.2rem;
 }
 
-a::after {
+.index-nav p a::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -123,67 +124,118 @@ a::after {
     transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-a:hover::after {
+.index-nav p a:hover::after {
     transform-origin: bottom left;
     transform: scaleX(1);
 }
 </style>
-<div style="
+
+<div id="bg-container" style="
   height: 100vh;
   width: 100%;
-  background-image: url('./assets/images/red-plane.jpg');
+  position: relative; /* Needed so the footer knows where 'bottom' is */
+  
+  /* Background basics */
+  background-color: #333; 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  transition: background-image 0.5s ease-in-out;
 ">
-<div style="
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  ">
-<div style="
-  width: 65%; 
-  display: flex;
-  justify-content: space-between;
-  ">
-<!-- Left part -->
-<div style="width: 100%;">
-<p><span style="font-size:4rem;line-height:0.7">Zhehao Hu</span></p>
-<p><span style="font-size:1.2rem">Read. Think. Write.</span></p>
-<p><br></p>
-<p><a href="./about.html">About Me</a></p>
-<p><a href="./post/research/index.html">Research Posts</a></p>
-<p><a href="./post/research/assets/CV_Zhehao_Hu.pdf">Full CV</a></p>
-<p><a href="./photography/gallery/gallery.html">Albums</a></p>
-<!-- [Portfolio](/photography/portfolio.qmd) -->
-<p><a href="./photography/gallery/motion-pictures.html">Motion Picture</a></p>
-<!-- [Color Palette](/photography/color_palette.qmd) -->
-<p><a href="https://zzzhehao.github.com"></a> <!-- Place holder to prevent list expand --></p>
-<p><br><br><br></p>
-</div>
-<p><!-- Right part  --> <!-- <div style="width: 60%;">
 
-  </div>  --></p>
-</div>
-</div>
-<!-- footer -->
-<footer style="
-    padding: 10px 20px 10px 0;
-    text-align: right;
-    font-family: 'Arial';
-    color: #F2E6DF;
-    width: 100%;
-    font-size: 0.7rem;
+  <div style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;        
+    min-width: 300px;    
+    
+    /* The Grey Translucent Look */
+    background-color: rgba(74, 74, 74, 0.4); 
+    backdrop-filter: blur(1px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+
+    padding: 3rem;
+    box-sizing: border-box; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers everything vertically in the sidebar */
   ">
-<p style="margin: 0;">
-© 2025 Zhehao Hu. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io"><span style="text-decoration: underline;">github.com</span></a>.
-</p>
-</footer>
+    
+      <div style="margin-bottom: 3rem;">
+        <span style="
+          font-size: 3rem;
+          line-height: 0.9; 
+          display: block; 
+          font-weight: 500; 
+          letter-spacing: -1px;
+        ">
+          Zhehao Hu
+        </span>
+        
+        <span style="
+          font-size: 1.2rem;    /* Change this number to resize Subtitle */
+          display: block; 
+          margin-top: 10px; 
+          opacity: 0.9; 
+          font-weight: 400; 
+          font-style: italic;   /* Optional: adds elegance to Times New Roman */
+        ">
+          Read. Think. Write. 
+        </span>
+      </div>
+
+      <div class="index-nav" style="
+        font-size: 1.5rem;      /* Change this to resize Links */
+        font-weight: 400;       /* Standard weight */
+        line-height: 1.6;       /* Adds breathing room between links */
+      "> 
+        <p><a href="./about.html">About Me</a></p>
+        <p><a href="./post/research/index.html">Research</a></p>
+        <!-- <p><a href="/post/journal/index.qmd">Journal</a></p> -->
+        <p><a href="./post/research/assets/CV_updated.pdf">CV</a></p>
+        <p><a href="./photography/gallery/gallery.html">Albums</a></p>
+        <p><a href="./photography/gallery/motion-pictures.html">Motion Picture</a></p>
+        <a href="https://zzzhehao.github.com" style="display:none"></a> 
+      </div>
+
+  </div> 
+
+  <footer style="
+    position: absolute;   /* Takes it out of the flow */
+    bottom: 2rem;         /* Distance from bottom */
+    right: 2rem;          /* Distance from right */
+    
+    font-family: 'Arial', sans-serif; /* Keep Arial for legibility */
+    color: #e4dddaff;
+    font-weight: 200;
+    opacity: 0.8;         /* Slightly brighter */
+    text-align: right;    /* Aligns text to the right */
+  ">
+    <p style="margin: 0; font-size: 0.7rem;">
+      © 2025 Zhehao Hu. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io" style="color: inherit; text-decoration: underline;">github.com</a>.
+    </p>
+  </footer>
+
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch('./assets/backgrounds.json')
+      .then(response => response.json())
+      .then(images => {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const selectedImage = images[randomIndex];
+        const container = document.getElementById('bg-container');
+        if (container) {
+          container.style.backgroundImage = `url('${selectedImage}')`;
+        }
+      })
+      .catch(error => console.error('Error loading background images:', error));
+  });
+</script>
 
 
 

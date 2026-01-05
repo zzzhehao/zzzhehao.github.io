@@ -1,17 +1,14 @@
 [
   {
     "listing": "/post/journal/index.html",
-    "items": [
-      "/post/journal/asbiologist.html"
-    ]
+    "items": []
   },
   {
     "listing": "/about.html",
     "items": [
       "/post/research/community-ecology/MediMicro-NMDS.html",
       "/project/fkt250220/journals/01_Punta_Arenas.html",
-      "/post/research/community-ecology/nicheROVER-Niche-Overlap.html",
-      "/post/journal/asbiologist.html"
+      "/post/research/community-ecology/nicheROVER-Niche-Overlap.html"
     ]
   },
   {
