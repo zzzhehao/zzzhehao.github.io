@@ -1,7 +1,10 @@
 [
   {
-    "listing": "/post/journal/index.html",
-    "items": []
+    "listing": "/post/research/index.html",
+    "items": [
+      "/post/research/community-ecology/MediMicro-NMDS.html",
+      "/post/research/community-ecology/nicheROVER-Niche-Overlap.html"
+    ]
   },
   {
     "listing": "/about.html",
@@ -12,10 +15,7 @@
     ]
   },
   {
-    "listing": "/post/research/index.html",
-    "items": [
-      "/post/research/community-ecology/MediMicro-NMDS.html",
-      "/post/research/community-ecology/nicheROVER-Niche-Overlap.html"
-    ]
+    "listing": "/post/journal/index.html",
+    "items": []
   }
 ]
