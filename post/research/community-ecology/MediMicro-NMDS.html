@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Zhehao Hu">
-<meta name="dcterms.date" content="2025-11-23">
+<meta name="dcterms.date" content="2026-05-21">
 
 <title>Descriptive Community Ecology using NMDS – Zhehao Hu</title>
 <style>
@@ -266,7 +266,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 23, 2025</p>
+      <p class="date">May 21, 2026</p>
     </div>
   </div>
   
@@ -923,18 +923,18 @@ Deutschmann, Ina M., Erwan Delage, Caterina R. Giner, Marta Sebastián, Julie Po
 </div>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{hu2025,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{hu2026,
   author = {Hu, Zhehao},
   title = {Descriptive {Community} {Ecology} Using {NMDS}},
-  date = {2025-11-23},
+  date = {2026-05-21},
   url = {https://zzzhehao.github.io/post/research/community-ecology/MediMicro-NMDS.html},
   langid = {en},
   abstract = {This is the first post of the Mediterranean Microbial
     Network series.}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hu2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Hu, Zhehao. 2025. <span>“Descriptive Community Ecology Using
-NMDS.”</span> November 23, 2025. <a href="https://zzzhehao.github.io/post/research/community-ecology/MediMicro-NMDS.html">https://zzzhehao.github.io/post/research/community-ecology/MediMicro-NMDS.html</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hu2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Hu, Zhehao. 2026. <span>“Descriptive Community Ecology Using
+NMDS.”</span> May 21, 2026. <a href="https://zzzhehao.github.io/post/research/community-ecology/MediMicro-NMDS.html">https://zzzhehao.github.io/post/research/community-ecology/MediMicro-NMDS.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
@@ -1696,419 +1696,496 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
 <span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(devtools<span class="sc">::</span><span class="fu">load_all</span>())</span>
-<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pacman"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"knitr"</span>, <span class="st">"tidyverse"</span>, <span class="st">"bipartite"</span>, <span class="st">"vegan"</span>, <span class="st">"geomtextpath"</span>, <span class="st">"dbscan"</span>)</span>
-<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(pkgs, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"post/post/research/community-ecology/MediterraneanMicrobiome/"</span></span>
-<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>Lets get the data imported and start with some basic data wrangling:</span>
-<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a>ASV <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="fu">paste0</span>(path, <span class="st">"data/ASV.txt"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a><span class="co"># ASV = abundance data of OTUs at sampling locations (OTU x location)</span></span>
-<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a>ENV <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="fu">paste0</span>(path, <span class="st">"data/ENV.txt"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a><span class="co"># ENV = environmental data of sampling locatoins</span></span>
-<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a>LOC <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="fu">paste0</span>(path, <span class="st">"data/Sample_Classification.tsv"</span>), <span class="at">sep =</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> T)</span>
-<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a><span class="co"># LOC = Location data for sampling locations eg. depth / ocean layer</span></span>
-<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a>{{&lt; include /partial/_cusCall.qmd &gt;}}</span>
-<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Data wrangling]{.cl-sub}</span></span>
-<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a>dfASV <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">t</span>(ASV))</span>
-<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a>tENV <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">t</span>(ENV))</span>
-<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dfASV) <span class="ot">&lt;-</span> ASV<span class="sc">$</span>ID </span>
-<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a>dfASV <span class="ot">&lt;-</span> dfASV[<span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(devtools<span class="sc">::</span><span class="fu">load_all</span>())</span>
+<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pacman"</span>,</span>
+<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">"rmarkdown"</span>,</span>
+<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a>    <span class="st">"knitr"</span>,</span>
+<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tidyverse"</span>,</span>
+<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bipartite"</span>,</span>
+<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a>    <span class="st">"vegan"</span>,</span>
+<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a>    <span class="st">"geomtextpath"</span>,</span>
+<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dbscan"</span></span>
+<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(pkgs, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"post/post/research/community-ecology/MediterraneanMicrobiome/"</span></span>
+<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a>Lets get the data imported and start with some basic data wrangling:</span>
+<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a>ASV <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="fu">paste0</span>(path, <span class="st">"data/ASV.txt"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a><span class="co"># ASV = abundance data of OTUs at sampling locations (OTU x location)</span></span>
+<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a>ENV <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="fu">paste0</span>(path, <span class="st">"data/ENV.txt"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a><span class="co"># ENV = environmental data of sampling locatoins</span></span>
+<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a>LOC <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(</span>
+<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(path, <span class="st">"data/Sample_Classification.tsv"</span>),</span>
+<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
+<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> T</span>
+<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="co"># LOC = Location data for sampling locations eg. depth / ocean layer</span></span>
+<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a>{{&lt; include /partial/_cusCall.qmd &gt;}}</span>
 <span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a>dfASV <span class="ot">&lt;-</span> dfASV <span class="sc">%&gt;%</span> </span>
-<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5457</span>, as.numeric) <span class="sc">%&gt;%</span> <span class="co"># turning abundance data into numeric</span></span>
-<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sample=</span><span class="fu">row.names</span>(dfASV))  <span class="co"># adding column with sampling location names </span></span>
-<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename(dfASV$name, Sample = name) # naming this column "Sample"</span></span>
-<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tENV) <span class="ot">&lt;-</span> ENV<span class="sc">$</span>ID <span class="co"># renaming the columns after the ID column in the ENV dataset. </span></span>
-<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a>tENV <span class="ot">&lt;-</span> tENV[<span class="sc">-</span><span class="dv">1</span>, ] <span class="co"># deleting the ID row in the tENV dataframe</span></span>
-<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a>tENV <span class="ot">&lt;-</span> tENV <span class="sc">%&gt;%</span></span>
-<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sample=</span><span class="fu">row.names</span>(tENV)) <span class="co"># adding column with sampling location names</span></span>
-<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename(tENV$name, Sample = name) # naming this column "Sample"</span></span>
+<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Data wrangling]{.cl-sub}</span></span>
+<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a>dfASV <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">t</span>(ASV))</span>
+<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a>tENV <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">t</span>(ENV))</span>
+<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dfASV) <span class="ot">&lt;-</span> ASV<span class="sc">$</span>ID</span>
+<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a>dfASV <span class="ot">&lt;-</span> dfASV[<span class="sc">-</span><span class="dv">1</span>, ]</span>
 <span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">left_join</span>(dfASV, LOC, <span class="at">by =</span> <span class="cn">NULL</span>) <span class="co"># joining ASV and LOC dataframes</span></span>
-<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">left_join</span>(new, tENV, <span class="at">by =</span> <span class="cn">NULL</span>) </span>
-<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a>Subsetting for mediterranean sample locations:</span>
-<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a>dfASV <span class="ot">&lt;-</span> dfASV <span class="sc">%&gt;%</span></span>
+<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate_at</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5457</span>, as.numeric) <span class="sc">%&gt;%</span> <span class="co"># turning abundance data into numeric</span></span>
+<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Sample =</span> <span class="fu">row.names</span>(dfASV)) <span class="co"># adding column with sampling location names</span></span>
+<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a><span class="co"># rename(dfASV$name, Sample = name) # naming this column "Sample"</span></span>
+<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tENV) <span class="ot">&lt;-</span> ENV<span class="sc">$</span>ID <span class="co"># renaming the columns after the ID column in the ENV dataset.</span></span>
+<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a>tENV <span class="ot">&lt;-</span> tENV[<span class="sc">-</span><span class="dv">1</span>, ] <span class="co"># deleting the ID row in the tENV dataframe</span></span>
+<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a>tENV <span class="ot">&lt;-</span> tENV <span class="sc">%&gt;%</span></span>
+<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Sample =</span> <span class="fu">row.names</span>(tENV)) <span class="co"># adding column with sampling location names</span></span>
+<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a><span class="co"># rename(tENV$name, Sample = name) # naming this column "Sample"</span></span>
 <span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a>new.MS <span class="ot">&lt;-</span> new[new[, <span class="st">"OceanRegion"</span>] <span class="sc">==</span> <span class="st">"MS"</span>, ] <span class="co"># subsetting for samples from Mediterranean sea (MS)</span></span>
-<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> new.MS[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5457</span>] <span class="co"># subsetting only the species abundance part of the MS dataframe</span></span>
-<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> sp.MS <span class="sc">%&gt;%</span> </span>
-<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5457</span>, as.numeric) <span class="co"># tuning df into numeric data.</span></span>
-<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> sp.MS[, <span class="fu">colSums</span>(sp.MS) <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="co"># only keeping columns where the sum is &gt; 0. therefore getting rid off all OTUs not found in mediterranean sea</span></span>
+<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">left_join</span>(dfASV, LOC, <span class="at">by =</span> <span class="cn">NULL</span>) <span class="co"># joining ASV and LOC dataframes</span></span>
+<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">left_join</span>(new, tENV, <span class="at">by =</span> <span class="cn">NULL</span>)</span>
+<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a>Subsetting for mediterranean sample locations:</span>
 <span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> sp.MS <span class="sc">%&gt;%</span></span>
-<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sample=</span>new.MS<span class="sc">$</span>Sample) </span>
-<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename(sp.MS$name, Sample = name)</span></span>
-<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a>ENV.MS <span class="ot">&lt;-</span> new.MS[, <span class="dv">5458</span><span class="sc">:</span><span class="dv">5473</span>] <span class="co"># subsetting only location and environmental data of sampling locations in the MS</span></span>
-<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a>MS <span class="ot">&lt;-</span> <span class="fu">left_join</span>( <span class="co"># rejoining species abundance and location / environmental data of MS</span></span>
-<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a>  sp.MS, </span>
-<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a>  ENV.MS, </span>
-<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="cn">NULL</span></span>
-<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a>ab.mtx.ncol <span class="ot">&lt;-</span> <span class="dv">3208</span></span>
-<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: checkpoint-MS</span></span>
-<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(MS, <span class="fu">paste0</span>(path, <span class="st">"data/MS.rds"</span>))</span>
-<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a>MS <span class="ot">&lt;-</span>  <span class="fu">readRDS</span>(<span class="fu">paste0</span>(path, <span class="st">"data/MS.rds"</span>))</span>
-<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a>ab.mtx.ncol <span class="ot">&lt;-</span> <span class="dv">3208</span></span>
+<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a>new.MS <span class="ot">&lt;-</span> new[new[, <span class="st">"OceanRegion"</span>] <span class="sc">==</span> <span class="st">"MS"</span>, ] <span class="co"># subsetting for samples from Mediterranean sea (MS)</span></span>
+<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> new.MS[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5457</span>] <span class="co"># subsetting only the species abundance part of the MS dataframe</span></span>
+<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> sp.MS <span class="sc">%&gt;%</span></span>
+<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate_at</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5457</span>, as.numeric) <span class="co"># tuning df into numeric data.</span></span>
+<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> sp.MS[, <span class="fu">colSums</span>(sp.MS) <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="co"># only keeping columns where the sum is &gt; 0. therefore getting rid off all OTUs not found in mediterranean sea</span></span>
+<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a>sp.MS <span class="ot">&lt;-</span> sp.MS <span class="sc">%&gt;%</span></span>
+<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Sample =</span> new.MS<span class="sc">$</span>Sample)</span>
+<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a><span class="co"># rename(sp.MS$name, Sample = name)</span></span>
+<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a>ENV.MS <span class="ot">&lt;-</span> new.MS[, <span class="dv">5458</span><span class="sc">:</span><span class="dv">5473</span>] <span class="co"># subsetting only location and environmental data of sampling locations in the MS</span></span>
+<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a>MS <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
+<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rejoining species abundance and location / environmental data of MS</span></span>
+<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a>    sp.MS,</span>
+<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a>    ENV.MS,</span>
+<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="cn">NULL</span></span>
+<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a>ab.mtx.ncol <span class="ot">&lt;-</span> <span class="dv">3208</span></span>
+<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: checkpoint-MS</span></span>
+<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(MS, <span class="fu">paste0</span>(path, <span class="st">"data/MS.rds"</span>))</span>
 <span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a><span class="in">`MS`</span> is now a dataframe comprising <span class="in">`n = `</span>r nrow(MS)`<span class="in">` rows as sample sites and `</span>p = `r ab.mtx.ncol`<span class="in">` columns of OTU, which stores the abundance data in the form of an adjacency matrix. There are additional `</span>r ncol(MS) - ab.mtx.ncol` columns at the end for ecological data.</span>
-<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## Non-metric Multi-Dimensional Scaling (NMDS)</span></span>
-<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a>The most intuitive way to have an overview on the community is to plot them out, NMDS is the most common way to do this.</span>
-<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a>ab.mtx <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(MS[, <span class="dv">1</span><span class="sc">:</span>ab.mtx.ncol]) <span class="co"># extract abundance matrix</span></span>
-<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Preparation</span></span>
-<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a>Taking a brief look at the data, it's very clear that out microbial data is actually largely skewed. There are a few species with extremely high reads, and a vast majority being very low frequent, and almost 85% of the cells in our matrix are zero. </span>
+<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>MS <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(path, <span class="st">"data/MS.rds"</span>))</span>
+<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a>ab.mtx.ncol <span class="ot">&lt;-</span> <span class="dv">3208</span></span>
+<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a><span class="in">`MS`</span> is now a dataframe comprising <span class="in">`n = `</span>r nrow(MS)`<span class="in">` rows as sample sites and `</span>p = `r ab.mtx.ncol`<span class="in">` columns of OTU, which stores the abundance data in the form of an adjacency matrix. There are additional `</span>r ncol(MS) - ab.mtx.ncol` columns at the end for ecological data.</span>
+<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Non-metric Multi-Dimensional Scaling (NMDS)</span></span>
+<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a>The most intuitive way to have an overview on the community is to plot them out, NMDS is the most common way to do this.</span>
+<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
 <span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a><span class="in">ab.mtx[ab.mtx == 0] %&gt;% length() / ab.mtx %&gt;% length()</span></span>
-<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a><span class="in">max(ab.mtx)</span></span>
-<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a><span class="in">hist(ab.mtx)</span></span>
-<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a>It's worth noting that <span class="in">`vegan::metaMDS()`</span>, the function that does the calculation for NMDS, will try to autotransform the data if not specified <span class="in">`autotransform = False`</span>. In our case, considering the extreme skewness of the data and clear pattern, which transforming method to use did not really make big differences. But this is not always true. One should select these methods cautiously. *Hellinger* transformation is one way to reduce the weight of extremely high value. </span>
-<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a><span class="in">ab.mtx.tf &lt;- decostand(ab.mtx, "hellinger")</span></span>
-<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a><span class="in">hist(ab.mtx.tf)</span></span>
-<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a><span class="fu">### Perform NMDS</span></span>
+<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a>ab.mtx <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(MS[, <span class="dv">1</span><span class="sc">:</span>ab.mtx.ncol]) <span class="co"># extract abundance matrix</span></span>
+<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Preparation</span></span>
+<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a>Taking a brief look at the data, it's very clear that out microbial data is actually largely skewed. There are a few species with extremely high reads, and a vast majority being very low frequent, and almost 85% of the cells in our matrix are zero. </span>
+<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a><span class="in">ab.mtx[ab.mtx == 0] %&gt;% length() / ab.mtx %&gt;% length()</span></span>
+<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a><span class="in">max(ab.mtx)</span></span>
+<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a><span class="in">hist(ab.mtx)</span></span>
+<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a>Every community ecologist should be familiar with the basic idea of NMDS, which is dimension reduction. It converts our *n* x *p* matrix into an *n* x *n* dissimilarity matrix. This steps allows flexible decision on how the distances should be calculated. A common choice while dealing with species composition is the Bray-Curtis dissimilarity, as its semi-metric approach takes both presence/absence and abundance information into account. It is also default to <span class="in">`metaMDS()`</span>.</span>
+<span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a>It's worth noting that <span class="in">`vegan::metaMDS()`</span>, the function that does the calculation for NMDS, will try to autotransform the data if not specified <span class="in">`autotransform = False`</span>. In our case, considering the extreme skewness of the data and clear pattern, which transforming method to use did not really make big differences. But this is not always true. One should select these methods cautiously. *Hellinger* transformation is one way to reduce the weight of extremely high value. </span>
 <span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a>NMDS differs a bit from other ordination methods, like PCA, in handling the distances and calculating axes and coordinates. Its non-metric nature decided that the distance on the final plot does not represents the distances between dataset, but the ranking order. It also therefore, does not try to maximize the variability in axes, which means the axes are completely arbitrary and this technique is mainly used for visualization only <span class="co">[</span><span class="ot">@bakker2024</span><span class="co">]</span>.</span>
-<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a>Before starting NMDS, we have to specify ***k***, which gives the number of axes we want to have. NMDS will then take iterative process to adjust the scaling. After each iteration, it calculates a ***stress*** values showing how nice the ordination represents real data. The value ranges from 0 to 1, where 0 means a perfect fit. It however indicates danger for interpreting the ordination already from 0.2. Generally a stress value under 0.1 is considered a good result <span class="co">[</span><span class="ot">@clarke1993; @bakker2024</span><span class="co">]</span>. </span>
-<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a>NMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(ab.mtx.tf, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> F, <span class="at">trymax =</span> <span class="dv">50</span>)</span>
-<span id="cb30-225"><a href="#cb30-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a><span class="in">ab.mtx.tf &lt;- decostand(ab.mtx, "hellinger")</span></span>
+<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a><span class="in">hist(ab.mtx.tf)</span></span>
+<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-220"><a href="#cb30-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-221"><a href="#cb30-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### Perform NMDS</span></span>
+<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a>Every community ecologist should be familiar with the basic idea of NMDS, which is dimension reduction. It converts our *n* x *p* matrix into an *n* x *n* dissimilarity matrix. This steps allows flexible decision on how the distances should be calculated. A common choice while dealing with species composition is the Bray-Curtis dissimilarity, as its semi-metric approach takes both presence/absence and abundance information into account. It is also default to <span class="in">`metaMDS()`</span>.</span>
+<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-225"><a href="#cb30-225" aria-hidden="true" tabindex="-1"></a>NMDS differs a bit from other ordination methods, like PCA, in handling the distances and calculating axes and coordinates. Its non-metric nature decided that the distance on the final plot does not represents the distances between dataset, but the ranking order. It also therefore, does not try to maximize the variability in axes, which means the axes are completely arbitrary and this technique is mainly used for visualization only <span class="co">[</span><span class="ot">@bakker2023</span><span class="co">]</span>.</span>
 <span id="cb30-226"><a href="#cb30-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a>{{&lt; include /partial/_cusCall.qmd &gt;}}</span>
+<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a>Before starting NMDS, we have to specify ***k***, which gives the number of axes we want to have. NMDS will then take iterative process to adjust the scaling. After each iteration, it calculates a ***stress*** values showing how nice the ordination represents real data. The value ranges from 0 to 1, where 0 means a perfect fit. It however indicates danger for interpreting the ordination already from 0.2. Generally a stress value under 0.1 is considered a good result <span class="co">[</span><span class="ot">@clarke1993; @bakker2023</span><span class="co">]</span>. </span>
 <span id="cb30-228"><a href="#cb30-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-229"><a href="#cb30-229" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See the processing result]{.cl-sub}</span></span>
-<span id="cb30-230"><a href="#cb30-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a>NMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(ab.mtx.tf, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform =</span> F, <span class="at">trymax =</span> <span class="dv">50</span>)</span>
-<span id="cb30-236"><a href="#cb30-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-231"><a href="#cb30-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-232"><a href="#cb30-232" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a>NMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(ab.mtx.tf, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">autotransform =</span> F, <span class="at">trymax =</span> <span class="dv">50</span>)</span>
+<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-236"><a href="#cb30-236" aria-hidden="true" tabindex="-1"></a>{{&lt; include /partial/_cusCall.qmd &gt;}}</span>
 <span id="cb30-237"><a href="#cb30-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-240"><a href="#cb30-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-241"><a href="#cb30-241" aria-hidden="true" tabindex="-1"></a>NMDS</span>
-<span id="cb30-242"><a href="#cb30-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-246"><a href="#cb30-246" aria-hidden="true" tabindex="-1"></a><span class="fu">### NMDS Plot using `{ggplot2}`</span></span>
-<span id="cb30-247"><a href="#cb30-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-248"><a href="#cb30-248" aria-hidden="true" tabindex="-1"></a>There are several plotting functions from <span class="in">`{vegan}`</span>, but since we were trying to make a fancy poster, I brought out my old script to make fully controlled plot with <span class="in">`{ggplot2}`</span>.</span>
-<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a><span class="in"># Extract coordinates</span></span>
-<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord &lt;- as_tibble(scores(NMDS)$sites)</span></span>
-<span id="cb30-253"><a href="#cb30-253" aria-hidden="true" tabindex="-1"></a><span class="in">spCoord &lt;- as_tibble(scores(NMDS)$species)</span></span>
+<span id="cb30-238"><a href="#cb30-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See the processing result]{.cl-sub}</span></span>
+<span id="cb30-239"><a href="#cb30-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-242"><a href="#cb30-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a>NMDS <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(ab.mtx.tf, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">autotransform =</span> F, <span class="at">trymax =</span> <span class="dv">50</span>)</span>
+<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-246"><a href="#cb30-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a>NMDS</span>
+<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-253"><a href="#cb30-253" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb30-254"><a href="#cb30-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-255"><a href="#cb30-255" aria-hidden="true" tabindex="-1"></a><span class="in"># Import aesthetics setting</span></span>
-<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a><span class="in">aes_setting &lt;- function() {</span></span>
-<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a><span class="in">    list(</span></span>
-<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a><span class="in">        theme_minimal() +</span></span>
-<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a><span class="in">        theme(</span></span>
-<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a><span class="in">            aspect.ratio = 1,</span></span>
-<span id="cb30-261"><a href="#cb30-261" aria-hidden="true" tabindex="-1"></a><span class="in">            plot.title = element_text(size = 12, face = "bold", family = "Times New Roman", hjust = 0.5),</span></span>
-<span id="cb30-262"><a href="#cb30-262" aria-hidden="true" tabindex="-1"></a><span class="in">            axis.ticks.length = unit(-0.05, "in"),</span></span>
-<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a><span class="in">            axis.text.y = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm")),</span></span>
-<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a><span class="in">            axis.text.x = element_text(margin=unit(c(0.3,0.3,0.3,0.3), "cm")),</span></span>
-<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a><span class="in">            axis.ticks.x = element_blank(),</span></span>
-<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a><span class="in">            plot.background = element_blank(),</span></span>
-<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a><span class="in">            legend.background = element_blank(),</span></span>
-<span id="cb30-268"><a href="#cb30-268" aria-hidden="true" tabindex="-1"></a><span class="in">            panel.background = element_rect(color = NULL, fill = "white"),</span></span>
-<span id="cb30-269"><a href="#cb30-269" aria-hidden="true" tabindex="-1"></a><span class="in">            panel.border = element_rect(color = "black", fill = "transparent"),</span></span>
-<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a><span class="in">            panel.grid = element_line(linewidth = 0.3)</span></span>
-<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
-<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a><span class="in"># Plot the species</span></span>
-<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.sp &lt;- ggplot() +</span></span>
-<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_point(data = spCoord, aes(x = NMDS1, y = NMDS2), size = 2, shape = 3, color = "grey", alpha = 0.25) +</span></span>
-<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a><span class="in">    aes_setting() +</span></span>
-<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a><span class="in">    theme(aspect.ratio = 1) +</span></span>
-<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a><span class="in">    coord_equal()</span></span>
-<span id="cb30-281"><a href="#cb30-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-282"><a href="#cb30-282" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.sp</span></span>
-<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a>As simple as that, we have our species plotted. But we are not really interested in individual species, instead, the community at different sites. For that purpose, we have to first pass the environmental data of each site into <span class="in">`siteCooord`</span>.</span>
-<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract environmental data, combine DCM with EPI</span></span>
-<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> MS[, (ab.mtx.ncol<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span><span class="fu">ncol</span>(MS)] <span class="sc">%&gt;%</span> </span>
-<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">layer =</span> <span class="fu">case_when</span>(layer <span class="sc">==</span> <span class="st">"DCM"</span> <span class="sc">~</span> <span class="st">"EPI"</span>, <span class="at">.default =</span> layer))</span>
-<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a>siteCoord_env <span class="ot">&lt;-</span> <span class="fu">cbind</span>(siteCoord, env)</span>
-<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a><span class="co"># Order the layer </span></span>
-<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a>siteCoord_env_ordered <span class="ot">&lt;-</span> siteCoord_env <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">layer =</span> <span class="fu">factor</span>(layer, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"SRF"</span>, <span class="st">"EPI"</span>, <span class="st">"MES"</span>, <span class="st">"BAT"</span>)))</span>
-<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a>Then we can plot them as usual:</span>
-<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a><span class="in"># Define colors for the layers</span></span>
-<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a><span class="in">depth.colors &lt;- c(</span></span>
-<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a><span class="in">    "SRF" = "#6CCCD6",</span></span>
-<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a><span class="in">    "EPI" = "#007896", </span></span>
-<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a><span class="in">    "MES" = "#004359",</span></span>
-<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a><span class="in">    "BAT" = "#001C25"</span></span>
-<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb30-255"><a href="#cb30-255" aria-hidden="true" tabindex="-1"></a><span class="fu">### NMDS Plot using `{ggplot2}`</span></span>
+<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a>There are several plotting functions from <span class="in">`{vegan}`</span>, but since we were trying to make a fancy poster, I brought out my old script to make fully controlled plot with <span class="in">`{ggplot2}`</span>.</span>
+<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a><span class="in"># Extract coordinates</span></span>
+<span id="cb30-261"><a href="#cb30-261" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord &lt;- as_tibble(scores(NMDS)$sites)</span></span>
+<span id="cb30-262"><a href="#cb30-262" aria-hidden="true" tabindex="-1"></a><span class="in">spCoord &lt;- as_tibble(scores(NMDS)$species)</span></span>
+<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a><span class="in"># Import aesthetics setting</span></span>
+<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a><span class="in">aes_setting &lt;- function() {</span></span>
+<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a><span class="in">    list(</span></span>
+<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a><span class="in">        theme_minimal() +</span></span>
+<span id="cb30-268"><a href="#cb30-268" aria-hidden="true" tabindex="-1"></a><span class="in">            theme(</span></span>
+<span id="cb30-269"><a href="#cb30-269" aria-hidden="true" tabindex="-1"></a><span class="in">                aspect.ratio = 1,</span></span>
+<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a><span class="in">                plot.title = element_text(</span></span>
+<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a><span class="in">                    size = 12,</span></span>
+<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a><span class="in">                    face = "bold",</span></span>
+<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a><span class="in">                    family = "Times New Roman",</span></span>
+<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a><span class="in">                    hjust = 0.5</span></span>
+<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a><span class="in">                ),</span></span>
+<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a><span class="in">                axis.ticks.length = unit(-0.05, "in"),</span></span>
+<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a><span class="in">                axis.text.y = element_text(</span></span>
+<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a><span class="in">                    margin = unit(c(0.3, 0.3, 0.3, 0.3), "cm")</span></span>
+<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a><span class="in">                ),</span></span>
+<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a><span class="in">                axis.text.x = element_text(</span></span>
+<span id="cb30-281"><a href="#cb30-281" aria-hidden="true" tabindex="-1"></a><span class="in">                    margin = unit(c(0.3, 0.3, 0.3, 0.3), "cm")</span></span>
+<span id="cb30-282"><a href="#cb30-282" aria-hidden="true" tabindex="-1"></a><span class="in">                ),</span></span>
+<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a><span class="in">                axis.ticks.x = element_blank(),</span></span>
+<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a><span class="in">                plot.background = element_blank(),</span></span>
+<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a><span class="in">                legend.background = element_blank(),</span></span>
+<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a><span class="in">                panel.background = element_rect(color = NULL, fill = "white"),</span></span>
+<span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a><span class="in">                panel.border = element_rect(</span></span>
+<span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a><span class="in">                    color = "black",</span></span>
+<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a><span class="in">                    fill = "transparent"</span></span>
+<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a><span class="in">                ),</span></span>
+<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a><span class="in">                panel.grid = element_line(linewidth = 0.3)</span></span>
+<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a><span class="in">            )</span></span>
+<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a><span class="in"># Plot the species</span></span>
+<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.sp &lt;- ggplot() +</span></span>
+<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_point(</span></span>
+<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a><span class="in">        data = spCoord,</span></span>
+<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a><span class="in">        aes(x = NMDS1, y = NMDS2),</span></span>
+<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a><span class="in">        size = 2,</span></span>
+<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a><span class="in">        shape = 3,</span></span>
+<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a><span class="in">        color = "grey",</span></span>
+<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a><span class="in">        alpha = 0.25</span></span>
+<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a><span class="in">    ) +</span></span>
+<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a><span class="in">    aes_setting() +</span></span>
+<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a><span class="in">    theme(aspect.ratio = 1) +</span></span>
+<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a><span class="in">    coord_equal()</span></span>
 <span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a><span class="in">depth.shapes &lt;- c(</span></span>
-<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a><span class="in">    "SRF" = 15,</span></span>
-<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a><span class="in">    "EPI" = 16, </span></span>
-<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a><span class="in">    "MES" = 17,</span></span>
-<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a><span class="in">    "BAT" = 18</span></span>
-<span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st &lt;- ggplot() +</span></span>
-<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_point(data = siteCoord_env_ordered, aes(x = NMDS1, y = NMDS2, color = layer, shape = layer), size = 3.5, alpha = 0.8) +</span></span>
-<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a><span class="in">    aes_setting() +</span></span>
-<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a><span class="in">    theme(aspect.ratio = 1) +</span></span>
-<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_color_manual(values = depth.colors) +</span></span>
-<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_shape_manual(values = depth.shapes) +</span></span>
-<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a><span class="in">    guides(color = guide_legend("Layer"), fill = "none", shape = guide_legend("Layer"))</span></span>
-<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st</span></span>
+<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.sp</span></span>
+<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a>As simple as that, we have our species plotted. But we are not really interested in individual species, instead, the community at different sites. For that purpose, we have to first pass the environmental data of each site into <span class="in">`siteCooord`</span>.</span>
+<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract environmental data, combine DCM with EPI</span></span>
+<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> MS[, (ab.mtx.ncol <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">ncol</span>(MS)] <span class="sc">%&gt;%</span></span>
+<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">layer =</span> <span class="fu">case_when</span>(layer <span class="sc">==</span> <span class="st">"DCM"</span> <span class="sc">~</span> <span class="st">"EPI"</span>, <span class="at">.default =</span> layer))</span>
+<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a>siteCoord_env <span class="ot">&lt;-</span> <span class="fu">cbind</span>(siteCoord, env)</span>
+<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a><span class="co"># Order the layer</span></span>
+<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a>siteCoord_env_ordered <span class="ot">&lt;-</span> siteCoord_env <span class="sc">%&gt;%</span></span>
+<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">layer =</span> <span class="fu">factor</span>(layer, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"SRF"</span>, <span class="st">"EPI"</span>, <span class="st">"MES"</span>, <span class="st">"BAT"</span>)))</span>
 <span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-327"><a href="#cb30-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a>Now, this is telling us more information, we can see that sample sites from the same layer tend to cluster together, where MES and BAT form a big group distinct from EPI and SRF. A common way to show such categorical data in NMDS is to draw a convex hull on those clusters. </span>
+<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a>Then we can plot them as usual:</span>
 <span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a><span class="fu">### NMDS Hullplot using `{ggplot2}` </span></span>
-<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a>The basic idea is simply use <span class="in">`chull()`</span> to identify the points from the same cluster that are on the border of the hull and draw a polygon using those points. But the problem is that we have some outliers here, especially from MES (those which neighboring BAT and SRF). These points will surely become the one defining the convex hull, and make the hull covering much more area than the cluster really does. </span>
-<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a>To address this, I additionally calculate the euclidean centroids of each cluster and filter out outliers by comparing their distances to the centroids with the median distances to the centroids from all points within the same cluster. Those points that has a distance larger than a threshold calculated from median distance with defined multiplier will not be included.</span>
-<span id="cb30-335"><a href="#cb30-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a>{{&lt; include /partial/_cusCall.qmd &gt;}}</span>
-<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See the result if we do not exclude those points]{.cl-sub}</span></span>
-<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a><span class="in">outliner &lt;- function(coord, threshold_factor = 2, group_var, threshold_func = median) {</span></span>
-<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a><span class="in">    centroid &lt;- colMeans(coord[, c(1, 2)])</span></span>
-<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a><span class="in">    outline_indices &lt;- chull(coord[, c(1, 2)])</span></span>
+<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a><span class="in"># Define colors for the layers</span></span>
+<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a><span class="in">depth.colors &lt;- c(</span></span>
+<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a><span class="in">    "SRF" = "#6CCCD6",</span></span>
+<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a><span class="in">    "EPI" = "#007896",</span></span>
+<span id="cb30-335"><a href="#cb30-335" aria-hidden="true" tabindex="-1"></a><span class="in">    "MES" = "#004359",</span></span>
+<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a><span class="in">    "BAT" = "#001C25"</span></span>
+<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a><span class="in">depth.shapes &lt;- c(</span></span>
+<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a><span class="in">    "SRF" = 15,</span></span>
+<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a><span class="in">    "EPI" = 16,</span></span>
+<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a><span class="in">    "MES" = 17,</span></span>
+<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a><span class="in">    "BAT" = 18</span></span>
+<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
 <span id="cb30-345"><a href="#cb30-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a><span class="in">    return(list(</span></span>
-<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a><span class="in">        borders = coord[outline_indices, ], </span></span>
-<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a><span class="in">        centroid = c(centroid, group = group_var[[1]])</span></span>
-<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a><span class="in">    ))</span></span>
-<span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a><span class="in">layer.siteCoord &lt;- siteCoord_env %&gt;% </span></span>
-<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a><span class="in">    group_by(layer) %&gt;%</span></span>
-<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a><span class="in">    group_map(~ outliner(.x, 2, .$layer), .keep = T) %&gt;% </span></span>
-<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a><span class="in">    `names&lt;-`(group_keys(siteCoord_env %&gt;% group_by(layer))[[1]]) %&gt;%</span></span>
-<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a><span class="in">    do.call(what = rbind, args = .) %&gt;%</span></span>
-<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a><span class="in">    as.data.frame()</span></span>
-<span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a><span class="in">borders.pCoord &lt;- layer.siteCoord[["borders"]] %&gt;% bind_rows()</span></span>
-<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a><span class="in">centroids.pCoord &lt;- layer.siteCoord[["centroid"]] %&gt;% bind_rows() %&gt;% mutate(NMDS1 = as.numeric(NMDS1), NMDS2 = as.numeric(NMDS2))</span></span>
-<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull &lt;- p.NMDS.st +</span></span>
-<span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_polygon(data = borders.pCoord, aes(x = NMDS1, y = NMDS2, fill = layer), alpha = 0.5) + # hull</span></span>
-<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_text(data = centroids.pCoord, aes(x = NMDS1, y = NMDS2, label = group)) +</span></span>
-<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_fill_manual(values = depth.colors) </span></span>
-<span id="cb30-366"><a href="#cb30-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-367"><a href="#cb30-367" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull</span></span>
-<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st &lt;- ggplot() +</span></span>
+<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_point(</span></span>
+<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a><span class="in">        data = siteCoord_env_ordered,</span></span>
+<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a><span class="in">        aes(x = NMDS1, y = NMDS2, color = layer, shape = layer),</span></span>
+<span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a><span class="in">        size = 3.5,</span></span>
+<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a><span class="in">        alpha = 0.8</span></span>
+<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a><span class="in">    ) +</span></span>
+<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a><span class="in">    aes_setting() +</span></span>
+<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a><span class="in">    theme(aspect.ratio = 1) +</span></span>
+<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_color_manual(values = depth.colors) +</span></span>
+<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_shape_manual(values = depth.shapes) +</span></span>
+<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a><span class="in">    guides(</span></span>
+<span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a><span class="in">        color = guide_legend("Layer"),</span></span>
+<span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a><span class="in">        fill = "none",</span></span>
+<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a><span class="in">        shape = guide_legend("Layer")</span></span>
+<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st</span></span>
+<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-366"><a href="#cb30-366" aria-hidden="true" tabindex="-1"></a>Now, this is telling us more information, we can see that sample sites from the same layer tend to cluster together, where MES and BAT form a big group distinct from EPI and SRF. A common way to show such categorical data in NMDS is to draw a convex hull on those clusters. </span>
+<span id="cb30-367"><a href="#cb30-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a><span class="fu">### NMDS Hullplot using `{ggplot2}` </span></span>
 <span id="cb30-369"><a href="#cb30-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a>The basic idea is simply use <span class="in">`chull()`</span> to identify the points from the same cluster that are on the border of the hull and draw a polygon using those points. But the problem is that we have some outliers here, especially from MES (those which neighboring BAT and SRF). These points will surely become the one defining the convex hull, and make the hull covering much more area than the cluster really does. </span>
 <span id="cb30-371"><a href="#cb30-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a><span class="in"># Calculate the coordinates of the hull border</span></span>
-<span id="cb30-374"><a href="#cb30-374" aria-hidden="true" tabindex="-1"></a><span class="in">outliner &lt;- function(coord, group_var,  threshold_factor = 2, threshold_func = median) {</span></span>
-<span id="cb30-375"><a href="#cb30-375" aria-hidden="true" tabindex="-1"></a><span class="in">    centroid &lt;- colMeans(coord[, c(1, 2)])</span></span>
-<span id="cb30-376"><a href="#cb30-376" aria-hidden="true" tabindex="-1"></a><span class="in">    centroids &lt;- matrix(c(rep(centroid[1], nrow(coord)), rep(centroid[2], nrow(coord))), ncol = 2)</span></span>
-<span id="cb30-377"><a href="#cb30-377" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb30-378"><a href="#cb30-378" aria-hidden="true" tabindex="-1"></a><span class="in">    # Euclidean distances</span></span>
-<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a><span class="in">    coord$distances &lt;- sqrt(rowSums((coord[, c(1, 2)] - centroids)^2))</span></span>
-<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a><span class="in">    # Set threshold</span></span>
-<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a><span class="in">    threshold &lt;- threshold_factor * threshold_func(coord$distances)</span></span>
-<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a><span class="in">    # filter out points with distance larger than threshold</span></span>
-<span id="cb30-385"><a href="#cb30-385" aria-hidden="true" tabindex="-1"></a><span class="in">    coord_in &lt;- coord[coord$distances &lt;= threshold, ]</span></span>
-<span id="cb30-386"><a href="#cb30-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-387"><a href="#cb30-387" aria-hidden="true" tabindex="-1"></a><span class="in">    outline_indices &lt;- chull(coord_in[, c(1, 2)])</span></span>
+<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a>To address this, I additionally calculate the euclidean centroids of each cluster and filter out outliers by comparing their distances to the centroids with the median distances to the centroids from all points within the same cluster. Those points that has a distance larger than a threshold calculated from median distance with defined multiplier will not be included.</span>
+<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-374"><a href="#cb30-374" aria-hidden="true" tabindex="-1"></a>{{&lt; include /partial/_cusCall.qmd &gt;}}</span>
+<span id="cb30-375"><a href="#cb30-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-376"><a href="#cb30-376" aria-hidden="true" tabindex="-1"></a><span class="fu">## [See the result if we do not exclude those points]{.cl-sub}</span></span>
+<span id="cb30-377"><a href="#cb30-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-378"><a href="#cb30-378" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a><span class="in">outliner &lt;- function(</span></span>
+<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a><span class="in">    coord,</span></span>
+<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a><span class="in">    threshold_factor = 2,</span></span>
+<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a><span class="in">    group_var,</span></span>
+<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a><span class="in">    threshold_func = median</span></span>
+<span id="cb30-385"><a href="#cb30-385" aria-hidden="true" tabindex="-1"></a><span class="in">) {</span></span>
+<span id="cb30-386"><a href="#cb30-386" aria-hidden="true" tabindex="-1"></a><span class="in">    centroid &lt;- colMeans(coord[, c(1, 2)])</span></span>
+<span id="cb30-387"><a href="#cb30-387" aria-hidden="true" tabindex="-1"></a><span class="in">    outline_indices &lt;- chull(coord[, c(1, 2)])</span></span>
 <span id="cb30-388"><a href="#cb30-388" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-389"><a href="#cb30-389" aria-hidden="true" tabindex="-1"></a><span class="in">    return(list(</span></span>
-<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a><span class="in">        borders = coord_in[outline_indices, ], </span></span>
+<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a><span class="in">        borders = coord[outline_indices, ],</span></span>
 <span id="cb30-391"><a href="#cb30-391" aria-hidden="true" tabindex="-1"></a><span class="in">        centroid = c(centroid, group = group_var[[1]])</span></span>
 <span id="cb30-392"><a href="#cb30-392" aria-hidden="true" tabindex="-1"></a><span class="in">    ))</span></span>
 <span id="cb30-393"><a href="#cb30-393" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a><span class="in">`threshold_factor`</span> controls how conservative or inclusive the convex hull should be drawn. Then we apply this process to each category and extract the hull border coordinatees for ggplot. <span class="in">`threshold_func`</span> defines which function to use for choosing baseline of the threshold. Default is set to <span class="in">`median()`</span> here since <span class="in">`mean()`</span> can skew the baseline if any extreme outlier exists. </span>
-<span id="cb30-397"><a href="#cb30-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-398"><a href="#cb30-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a><span class="in"># Using ordered factor from `siteCoord_env_ordered` can't successfully pass the layer name through the pipeline</span></span>
-<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a><span class="in">layer.siteCoord &lt;- siteCoord_env %&gt;% </span></span>
-<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a><span class="in">    group_by(layer) %&gt;%</span></span>
-<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a><span class="in">    group_map(~ outliner(.x, .$layer), .keep = T) %&gt;% </span></span>
-<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a><span class="in">    `names&lt;-`(group_keys(siteCoord_env %&gt;% group_by(layer))[[1]]) %&gt;%</span></span>
-<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a><span class="in">    do.call(what = rbind, args = .) %&gt;%</span></span>
-<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a><span class="in">    as.data.frame()</span></span>
+<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a><span class="in">layer.siteCoord &lt;- siteCoord_env %&gt;%</span></span>
+<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a><span class="in">    group_by(layer) %&gt;%</span></span>
+<span id="cb30-397"><a href="#cb30-397" aria-hidden="true" tabindex="-1"></a><span class="in">    group_map(~ outliner(.x, 2, .$layer), .keep = T) %&gt;%</span></span>
+<span id="cb30-398"><a href="#cb30-398" aria-hidden="true" tabindex="-1"></a><span class="in">    `names&lt;-`(group_keys(siteCoord_env %&gt;% group_by(layer))[[1]]) %&gt;%</span></span>
+<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a><span class="in">    do.call(what = rbind, args = .) %&gt;%</span></span>
+<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a><span class="in">    as.data.frame()</span></span>
+<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a><span class="in">borders.pCoord &lt;- layer.siteCoord[["borders"]] %&gt;% bind_rows()</span></span>
+<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a><span class="in">centroids.pCoord &lt;- layer.siteCoord[["centroid"]] %&gt;%</span></span>
+<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a><span class="in">    bind_rows() %&gt;%</span></span>
+<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a><span class="in">    mutate(NMDS1 = as.numeric(NMDS1), NMDS2 = as.numeric(NMDS2))</span></span>
 <span id="cb30-406"><a href="#cb30-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a><span class="in"># Extract border and centroid coordinates</span></span>
-<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a><span class="in">borders.pCoord &lt;- layer.siteCoord[["borders"]] %&gt;% bind_rows()</span></span>
-<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a><span class="in">centroids.pCoord &lt;- layer.siteCoord[["centroid"]] %&gt;% bind_rows() %&gt;% mutate(NMDS1 = as.numeric(NMDS1), NMDS2 = as.numeric(NMDS2))</span></span>
-<span id="cb30-410"><a href="#cb30-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-411"><a href="#cb30-411" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull &lt;- p.NMDS.st +</span></span>
-<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_polygon(data = borders.pCoord, aes(x = NMDS1, y = NMDS2, fill = layer), alpha = 0.5) + # hull</span></span>
-<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_text(data = centroids.pCoord, aes(x = NMDS1, y = NMDS2, label = group)) +</span></span>
-<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_fill_manual(values = depth.colors) </span></span>
-<span id="cb30-415"><a href="#cb30-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-416"><a href="#cb30-416" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull</span></span>
-<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull &lt;- p.NMDS.st +</span></span>
+<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_polygon(</span></span>
+<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a><span class="in">        data = borders.pCoord,</span></span>
+<span id="cb30-410"><a href="#cb30-410" aria-hidden="true" tabindex="-1"></a><span class="in">        aes(x = NMDS1, y = NMDS2, fill = layer),</span></span>
+<span id="cb30-411"><a href="#cb30-411" aria-hidden="true" tabindex="-1"></a><span class="in">        alpha = 0.5</span></span>
+<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="in">    ) + # hull</span></span>
+<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_text(</span></span>
+<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a><span class="in">        data = centroids.pCoord,</span></span>
+<span id="cb30-415"><a href="#cb30-415" aria-hidden="true" tabindex="-1"></a><span class="in">        aes(x = NMDS1, y = NMDS2, label = group)</span></span>
+<span id="cb30-416"><a href="#cb30-416" aria-hidden="true" tabindex="-1"></a><span class="in">    ) +</span></span>
+<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_fill_manual(values = depth.colors)</span></span>
 <span id="cb30-418"><a href="#cb30-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-419"><a href="#cb30-419" aria-hidden="true" tabindex="-1"></a>Now, each layer forms a cluster that does not have much overlap with others, except EPI and SRF, which also make sense, because even microorganism in SRF might have different interacting partners than the rest of EPI, the environmental condition and the general species compositions, in particular functionally, should be similar. This is also reflected by SRF on the right side of EPI with larger distance to MES or BAT. </span>
-<span id="cb30-420"><a href="#cb30-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a>The space between MES and EPI is not encapsulated by any of both, it reflects the "bridge" section, probably at which depth that both layers meet each other. There's a numerical depth data in <span class="in">`env`</span>, which is principally continuous data complementing our layer categories. While we use hull plot to visualize categeories in NMDS, we can use contour line to visualize continuous variables. </span>
-<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fitting smooth surface</span></span>
-<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a>If we imagine the variables we want to display as the third dimension of our points on NMDS, visualizing the variables becomes simply visualizing a 3-D structure on our 2-D plot. One of the solution is to fit the surface on our plot using <span class="in">`vegan::ordisurf()`</span>.</span>
-<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a>The way to extract contour line from <span class="in">`vegan::ordisurf()`</span> and the function <span class="in">`extract.xyz()`</span> are credited to <span class="co">[</span><span class="ot">Christopher Chizinski's post</span><span class="co">](https://chrischizinski.github.io/rstats/ordisurf/)</span>.</span>
-<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
-<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
-<span id="cb30-432"><a href="#cb30-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a><span class="in">library(geomtextpath)</span></span>
-<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a><span class="in">extract.xyz &lt;- function(obj) {</span></span>
-<span id="cb30-435"><a href="#cb30-435" aria-hidden="true" tabindex="-1"></a><span class="in">    print(obj)</span></span>
-<span id="cb30-436"><a href="#cb30-436" aria-hidden="true" tabindex="-1"></a><span class="in">  xy &lt;- expand.grid(x = obj$grid$x, y = obj$grid$y)</span></span>
-<span id="cb30-437"><a href="#cb30-437" aria-hidden="true" tabindex="-1"></a><span class="in">  xyz &lt;- cbind(xy, c(obj$grid$z))</span></span>
-<span id="cb30-438"><a href="#cb30-438" aria-hidden="true" tabindex="-1"></a><span class="in">  names(xyz) &lt;- c("x", "y", "z")</span></span>
-<span id="cb30-439"><a href="#cb30-439" aria-hidden="true" tabindex="-1"></a><span class="in">  return(xyz)</span></span>
-<span id="cb30-440"><a href="#cb30-440" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb30-441"><a href="#cb30-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-442"><a href="#cb30-442" aria-hidden="true" tabindex="-1"></a><span class="in">depth.surf &lt;- ordisurf(NMDS, env$depth, permutation = 999, na.rm = T, plot = F)</span></span>
-<span id="cb30-443"><a href="#cb30-443" aria-hidden="true" tabindex="-1"></a><span class="in">depth.contour &lt;- extract.xyz(obj = depth.surf)</span></span>
-<span id="cb30-444"><a href="#cb30-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-445"><a href="#cb30-445" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull.cont &lt;- p.NMDS.st.hull +</span></span>
-<span id="cb30-446"><a href="#cb30-446" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_textcontour(data = depth.contour, aes(x, y, z = z), color = "#c4438c") </span></span>
-<span id="cb30-447"><a href="#cb30-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-448"><a href="#cb30-448" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull.cont</span></span>
-<span id="cb30-449"><a href="#cb30-449" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-450"><a href="#cb30-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-451"><a href="#cb30-451" aria-hidden="true" tabindex="-1"></a>We see those points on the MES/EPI border could be perfectly explained by the depth.</span>
-<span id="cb30-452"><a href="#cb30-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-453"><a href="#cb30-453" aria-hidden="true" tabindex="-1"></a><span class="fu">### Detecting Density-based Cluster with `{dbscan}`</span></span>
-<span id="cb30-454"><a href="#cb30-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-455"><a href="#cb30-455" aria-hidden="true" tabindex="-1"></a>Another interesting way to analyse the community structure more objectively is to cluster the points purely based on their location on NMDS, without taking the environmental parameters into account. Now speaking of cluster, you might be thinking about drawing another convex shape, probably an oval or a circle around the data points. This is however not applicable in our case, and usually in many real-life cases: out data points in the NMDS space clearly from clusters whose shapes are irregular. To address this issue, we use a density-based clustering algorithm called DBSCAN. The main idea of a density-based cluster is that the shape of the cluster is arbitrary, and it is defined by a continuous space with high density of data points, which suggests they are similar to each other, and clusters are separated by low-density region in between. This method can effectively filter out the outliners and noises, in a more robust way than just setting threshold on the distance to the centroid. And also, while the clusters are now in arbitrary shapes, the centroids become meaningless too.</span>
-<span id="cb30-456"><a href="#cb30-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-457"><a href="#cb30-457" aria-hidden="true" tabindex="-1"></a>The main idea of detecting high density area is to categorize data points by the distance to their neighbors into core points and border points. Contiguous connection (neighboring) of core points represents the contiguous dense area, where border points identify the periphere. All interconnected core points and border points are the same cluster, points that are not connected to any core point are noises. You can find more details about the algorithm and the package in their <span class="co">[</span><span class="ot">vignettes</span><span class="co">](https://cran.r-project.org/web/packages/dbscan/vignettes/dbscan.pdf)</span> and a nice <span class="co">[</span><span class="ot">graphic introduction</span><span class="co">](https://www.youtube.com/watch?v=RDZUdRSDOok)</span> by StatQuest.</span>
-<span id="cb30-458"><a href="#cb30-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-459"><a href="#cb30-459" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb30-460"><a href="#cb30-460" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span>
-<span id="cb30-461"><a href="#cb30-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-462"><a href="#cb30-462" aria-hidden="true" tabindex="-1"></a>?<span class="fu">dbscan</span>()</span>
-<span id="cb30-463"><a href="#cb30-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-464"><a href="#cb30-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-465"><a href="#cb30-465" aria-hidden="true" tabindex="-1"></a>We need to specify two parameters for DBSCAN, which affect how we identify the core points: the minimum points (including the point itself) required in a point's epsilon neighborhood for becoming a core point (<span class="in">`minPts`</span>) and the size of the epsilon neighborhood (<span class="in">`eps`</span>). Bigger the <span class="in">`minPts`</span> the more difficult for a point to become a core point, a rule of thumb is to choose the number of axis we have + 1, which will be 3 in our case. Choice of <span class="in">`eps`</span> value, however, depends on how scattered the points are. The bigger the <span class="in">`eps`</span>, the easier for a point to reach the requirement we set with <span class="in">`minPts`</span> to become a core point, and vice versa. To find an <span class="in">`eps`</span> value that is not too high or too low, we can have a peak into how the distances between points look like:</span>
+<span id="cb30-419"><a href="#cb30-419" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull</span></span>
+<span id="cb30-420"><a href="#cb30-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a><span class="in"># Calculate the coordinates of the hull border</span></span>
+<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a><span class="in">outliner &lt;- function(</span></span>
+<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a><span class="in">    coord,</span></span>
+<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a><span class="in">    group_var,</span></span>
+<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a><span class="in">    threshold_factor = 2,</span></span>
+<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a><span class="in">    threshold_func = median</span></span>
+<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a><span class="in">) {</span></span>
+<span id="cb30-432"><a href="#cb30-432" aria-hidden="true" tabindex="-1"></a><span class="in">    centroid &lt;- colMeans(coord[, c(1, 2)])</span></span>
+<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a><span class="in">    centroids &lt;- matrix(</span></span>
+<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a><span class="in">        c(rep(centroid[1], nrow(coord)), rep(centroid[2], nrow(coord))),</span></span>
+<span id="cb30-435"><a href="#cb30-435" aria-hidden="true" tabindex="-1"></a><span class="in">        ncol = 2</span></span>
+<span id="cb30-436"><a href="#cb30-436" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb30-437"><a href="#cb30-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-438"><a href="#cb30-438" aria-hidden="true" tabindex="-1"></a><span class="in">    # Euclidean distances</span></span>
+<span id="cb30-439"><a href="#cb30-439" aria-hidden="true" tabindex="-1"></a><span class="in">    coord$distances &lt;- sqrt(rowSums((coord[, c(1, 2)] - centroids)^2))</span></span>
+<span id="cb30-440"><a href="#cb30-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-441"><a href="#cb30-441" aria-hidden="true" tabindex="-1"></a><span class="in">    # Set threshold</span></span>
+<span id="cb30-442"><a href="#cb30-442" aria-hidden="true" tabindex="-1"></a><span class="in">    threshold &lt;- threshold_factor * threshold_func(coord$distances)</span></span>
+<span id="cb30-443"><a href="#cb30-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-444"><a href="#cb30-444" aria-hidden="true" tabindex="-1"></a><span class="in">    # filter out points with distance larger than threshold</span></span>
+<span id="cb30-445"><a href="#cb30-445" aria-hidden="true" tabindex="-1"></a><span class="in">    coord_in &lt;- coord[coord$distances &lt;= threshold, ]</span></span>
+<span id="cb30-446"><a href="#cb30-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-447"><a href="#cb30-447" aria-hidden="true" tabindex="-1"></a><span class="in">    outline_indices &lt;- chull(coord_in[, c(1, 2)])</span></span>
+<span id="cb30-448"><a href="#cb30-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-449"><a href="#cb30-449" aria-hidden="true" tabindex="-1"></a><span class="in">    return(list(</span></span>
+<span id="cb30-450"><a href="#cb30-450" aria-hidden="true" tabindex="-1"></a><span class="in">        borders = coord_in[outline_indices, ],</span></span>
+<span id="cb30-451"><a href="#cb30-451" aria-hidden="true" tabindex="-1"></a><span class="in">        centroid = c(centroid, group = group_var[[1]])</span></span>
+<span id="cb30-452"><a href="#cb30-452" aria-hidden="true" tabindex="-1"></a><span class="in">    ))</span></span>
+<span id="cb30-453"><a href="#cb30-453" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb30-454"><a href="#cb30-454" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-455"><a href="#cb30-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-456"><a href="#cb30-456" aria-hidden="true" tabindex="-1"></a><span class="in">`threshold_factor`</span> controls how conservative or inclusive the convex hull should be drawn. Then we apply this process to each category and extract the hull border coordinatees for ggplot. <span class="in">`threshold_func`</span> defines which function to use for choosing baseline of the threshold. Default is set to <span class="in">`median()`</span> here since <span class="in">`mean()`</span> can skew the baseline if any extreme outlier exists. </span>
+<span id="cb30-457"><a href="#cb30-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-458"><a href="#cb30-458" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-459"><a href="#cb30-459" aria-hidden="true" tabindex="-1"></a><span class="in"># Using ordered factor from `siteCoord_env_ordered` can't successfully pass the layer name through the pipeline</span></span>
+<span id="cb30-460"><a href="#cb30-460" aria-hidden="true" tabindex="-1"></a><span class="in">layer.siteCoord &lt;- siteCoord_env %&gt;%</span></span>
+<span id="cb30-461"><a href="#cb30-461" aria-hidden="true" tabindex="-1"></a><span class="in">    group_by(layer) %&gt;%</span></span>
+<span id="cb30-462"><a href="#cb30-462" aria-hidden="true" tabindex="-1"></a><span class="in">    group_map(~ outliner(.x, .$layer), .keep = T) %&gt;%</span></span>
+<span id="cb30-463"><a href="#cb30-463" aria-hidden="true" tabindex="-1"></a><span class="in">    `names&lt;-`(group_keys(siteCoord_env %&gt;% group_by(layer))[[1]]) %&gt;%</span></span>
+<span id="cb30-464"><a href="#cb30-464" aria-hidden="true" tabindex="-1"></a><span class="in">    do.call(what = rbind, args = .) %&gt;%</span></span>
+<span id="cb30-465"><a href="#cb30-465" aria-hidden="true" tabindex="-1"></a><span class="in">    as.data.frame()</span></span>
 <span id="cb30-466"><a href="#cb30-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-467"><a href="#cb30-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-468"><a href="#cb30-468" aria-hidden="true" tabindex="-1"></a><span class="in">kNNdistplot(siteCoord_env_ordered[,1:2], k = 2)</span></span>
-<span id="cb30-469"><a href="#cb30-469" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-470"><a href="#cb30-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-471"><a href="#cb30-471" aria-hidden="true" tabindex="-1"></a>The plot shows every point's distance to their k-th nearest neighbor (kNN), ordered ascending. The reason we are looking at the distances to their kNNs (2nd in our case) is because our <span class="in">`minPts`</span> will be <span class="in">`k + 1`</span>, so the distances shown are the maximum distances the points' epsilon neighborhoods need to cover for becoming core points. What we want to identify is the knee of the curve, which is around <span class="in">`y = 0.2`</span>, and it will be our <span class="in">`eps`</span> value. Set the <span class="in">`eps`</span> lower, we will lose a lot potential core points and prevent the nearby high dense areas connect with each other to form bigger cluster, this can be useful when we want to distinguish clusters stricter; if we set the <span class="in">`eps`</span> at higher value, we will identify too much core points that eventually connect all clusters together as one. </span>
+<span id="cb30-467"><a href="#cb30-467" aria-hidden="true" tabindex="-1"></a><span class="in"># Extract border and centroid coordinates</span></span>
+<span id="cb30-468"><a href="#cb30-468" aria-hidden="true" tabindex="-1"></a><span class="in">borders.pCoord &lt;- layer.siteCoord[["borders"]] %&gt;% bind_rows()</span></span>
+<span id="cb30-469"><a href="#cb30-469" aria-hidden="true" tabindex="-1"></a><span class="in">centroids.pCoord &lt;- layer.siteCoord[["centroid"]] %&gt;%</span></span>
+<span id="cb30-470"><a href="#cb30-470" aria-hidden="true" tabindex="-1"></a><span class="in">    bind_rows() %&gt;%</span></span>
+<span id="cb30-471"><a href="#cb30-471" aria-hidden="true" tabindex="-1"></a><span class="in">    mutate(NMDS1 = as.numeric(NMDS1), NMDS2 = as.numeric(NMDS2))</span></span>
 <span id="cb30-472"><a href="#cb30-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-473"><a href="#cb30-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-474"><a href="#cb30-474" aria-hidden="true" tabindex="-1"></a><span class="in">kNNdistplot(siteCoord_env_ordered[,1:2], k = 2)</span></span>
-<span id="cb30-475"><a href="#cb30-475" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 0.2, col = "red")</span></span>
-<span id="cb30-476"><a href="#cb30-476" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-477"><a href="#cb30-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-478"><a href="#cb30-478" aria-hidden="true" tabindex="-1"></a>With parameters set, we then will just run the scan:</span>
-<span id="cb30-479"><a href="#cb30-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-480"><a href="#cb30-480" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-481"><a href="#cb30-481" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord_scan &lt;- dbscan(siteCoord_env_ordered[,1:2], eps = 0.2, minPts = 3)</span></span>
-<span id="cb30-482"><a href="#cb30-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-483"><a href="#cb30-483" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord_scan</span></span>
-<span id="cb30-484"><a href="#cb30-484" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-485"><a href="#cb30-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-486"><a href="#cb30-486" aria-hidden="true" tabindex="-1"></a>The algorithm has found 3 clustered, with additional 18 points as noise (0), as reported. Now we can do our little plotting magic and have a look at them on NMDS plot. </span>
+<span id="cb30-473"><a href="#cb30-473" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull &lt;- p.NMDS.st +</span></span>
+<span id="cb30-474"><a href="#cb30-474" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_polygon(</span></span>
+<span id="cb30-475"><a href="#cb30-475" aria-hidden="true" tabindex="-1"></a><span class="in">        data = borders.pCoord,</span></span>
+<span id="cb30-476"><a href="#cb30-476" aria-hidden="true" tabindex="-1"></a><span class="in">        aes(x = NMDS1, y = NMDS2, fill = layer),</span></span>
+<span id="cb30-477"><a href="#cb30-477" aria-hidden="true" tabindex="-1"></a><span class="in">        alpha = 0.5</span></span>
+<span id="cb30-478"><a href="#cb30-478" aria-hidden="true" tabindex="-1"></a><span class="in">    ) + # hull</span></span>
+<span id="cb30-479"><a href="#cb30-479" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_text(</span></span>
+<span id="cb30-480"><a href="#cb30-480" aria-hidden="true" tabindex="-1"></a><span class="in">        data = centroids.pCoord,</span></span>
+<span id="cb30-481"><a href="#cb30-481" aria-hidden="true" tabindex="-1"></a><span class="in">        aes(x = NMDS1, y = NMDS2, label = group)</span></span>
+<span id="cb30-482"><a href="#cb30-482" aria-hidden="true" tabindex="-1"></a><span class="in">    ) +</span></span>
+<span id="cb30-483"><a href="#cb30-483" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_fill_manual(values = depth.colors)</span></span>
+<span id="cb30-484"><a href="#cb30-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-485"><a href="#cb30-485" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull</span></span>
+<span id="cb30-486"><a href="#cb30-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-487"><a href="#cb30-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-488"><a href="#cb30-488" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
-<span id="cb30-489"><a href="#cb30-489" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord_env_scan &lt;- siteCoord_env %&gt;% mutate(dbcluster = factor(siteCoord_scan$cluster))</span></span>
-<span id="cb30-490"><a href="#cb30-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-491"><a href="#cb30-491" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot() +</span></span>
-<span id="cb30-492"><a href="#cb30-492" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_point(data = siteCoord_env_scan, aes(x = NMDS1, y = NMDS2, color = dbcluster, shape = layer), size = 3.5, alpha = 0.8) +</span></span>
-<span id="cb30-493"><a href="#cb30-493" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_color_manual(values = c("#CCC", paletteer::paletteer_d("ltc::trio1")) %&gt;% `names&lt;-`(c(0:3))) +</span></span>
-<span id="cb30-494"><a href="#cb30-494" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_shape_manual(values = depth.shapes) +</span></span>
-<span id="cb30-495"><a href="#cb30-495" aria-hidden="true" tabindex="-1"></a><span class="in">    aes_setting() +</span></span>
-<span id="cb30-496"><a href="#cb30-496" aria-hidden="true" tabindex="-1"></a><span class="in">    labs(shape = "Layer") +</span></span>
-<span id="cb30-497"><a href="#cb30-497" aria-hidden="true" tabindex="-1"></a><span class="in">    guides(color = "none") +</span></span>
-<span id="cb30-498"><a href="#cb30-498" aria-hidden="true" tabindex="-1"></a><span class="in">    theme(</span></span>
-<span id="cb30-499"><a href="#cb30-499" aria-hidden="true" tabindex="-1"></a><span class="in">        axis.text.x = element_blank(),</span></span>
-<span id="cb30-500"><a href="#cb30-500" aria-hidden="true" tabindex="-1"></a><span class="in">        axis.text.y = element_blank(),</span></span>
-<span id="cb30-501"><a href="#cb30-501" aria-hidden="true" tabindex="-1"></a><span class="in">        legend.position = "bottom",</span></span>
-<span id="cb30-502"><a href="#cb30-502" aria-hidden="true" tabindex="-1"></a><span class="in">        legend.direction = "horizontal",</span></span>
-<span id="cb30-503"><a href="#cb30-503" aria-hidden="true" tabindex="-1"></a><span class="in">        legend.box = "vertical"</span></span>
-<span id="cb30-504"><a href="#cb30-504" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb30-505"><a href="#cb30-505" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-506"><a href="#cb30-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-507"><a href="#cb30-507" aria-hidden="true" tabindex="-1"></a>But, what we did so far was basic descriptive work in community ecology. We still want to take a look into each community structure using network analysis. I will cover this in the next upcoming post. To be continued. </span>
-<span id="cb30-508"><a href="#cb30-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-509"><a href="#cb30-509" aria-hidden="true" tabindex="-1"></a>{{&lt; include "/partial/_Ref.qmd" &gt;}}</span>
+<span id="cb30-488"><a href="#cb30-488" aria-hidden="true" tabindex="-1"></a>Now, each layer forms a cluster that does not have much overlap with others, except EPI and SRF, which also make sense, because even microorganism in SRF might have different interacting partners than the rest of EPI, the environmental condition and the general species compositions, in particular functionally, should be similar. This is also reflected by SRF on the right side of EPI with larger distance to MES or BAT. </span>
+<span id="cb30-489"><a href="#cb30-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-490"><a href="#cb30-490" aria-hidden="true" tabindex="-1"></a>The space between MES and EPI is not encapsulated by any of both, it reflects the "bridge" section, probably at which depth that both layers meet each other. There's a numerical depth data in <span class="in">`env`</span>, which is principally continuous data complementing our layer categories. While we use hull plot to visualize categeories in NMDS, we can use contour line to visualize continuous variables. </span>
+<span id="cb30-491"><a href="#cb30-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-492"><a href="#cb30-492" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fitting smooth surface</span></span>
+<span id="cb30-493"><a href="#cb30-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-494"><a href="#cb30-494" aria-hidden="true" tabindex="-1"></a>If we imagine the variables we want to display as the third dimension of our points on NMDS, visualizing the variables becomes simply visualizing a 3-D structure on our 2-D plot. One of the solution is to fit the surface on our plot using <span class="in">`vegan::ordisurf()`</span>.</span>
+<span id="cb30-495"><a href="#cb30-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-496"><a href="#cb30-496" aria-hidden="true" tabindex="-1"></a>The way to extract contour line from <span class="in">`vegan::ordisurf()`</span> and the function <span class="in">`extract.xyz()`</span> are credited to <span class="co">[</span><span class="ot">Christopher Chizinski's post</span><span class="co">](https://chrischizinski.github.io/rstats/ordisurf/)</span>.</span>
+<span id="cb30-497"><a href="#cb30-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-498"><a href="#cb30-498" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-499"><a href="#cb30-499" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb30-500"><a href="#cb30-500" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb30-501"><a href="#cb30-501" aria-hidden="true" tabindex="-1"></a><span class="in">library(geomtextpath)</span></span>
+<span id="cb30-502"><a href="#cb30-502" aria-hidden="true" tabindex="-1"></a><span class="in">extract.xyz &lt;- function(obj) {</span></span>
+<span id="cb30-503"><a href="#cb30-503" aria-hidden="true" tabindex="-1"></a><span class="in">    print(obj)</span></span>
+<span id="cb30-504"><a href="#cb30-504" aria-hidden="true" tabindex="-1"></a><span class="in">    xy &lt;- expand.grid(x = obj$grid$x, y = obj$grid$y)</span></span>
+<span id="cb30-505"><a href="#cb30-505" aria-hidden="true" tabindex="-1"></a><span class="in">    xyz &lt;- cbind(xy, c(obj$grid$z))</span></span>
+<span id="cb30-506"><a href="#cb30-506" aria-hidden="true" tabindex="-1"></a><span class="in">    names(xyz) &lt;- c("x", "y", "z")</span></span>
+<span id="cb30-507"><a href="#cb30-507" aria-hidden="true" tabindex="-1"></a><span class="in">    return(xyz)</span></span>
+<span id="cb30-508"><a href="#cb30-508" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb30-509"><a href="#cb30-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-510"><a href="#cb30-510" aria-hidden="true" tabindex="-1"></a><span class="in">depth.surf &lt;- ordisurf(NMDS, env$depth, permutation = 999, na.rm = T, plot = F)</span></span>
+<span id="cb30-511"><a href="#cb30-511" aria-hidden="true" tabindex="-1"></a><span class="in">depth.contour &lt;- extract.xyz(obj = depth.surf)</span></span>
+<span id="cb30-512"><a href="#cb30-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-513"><a href="#cb30-513" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull.cont &lt;- p.NMDS.st.hull +</span></span>
+<span id="cb30-514"><a href="#cb30-514" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_textcontour(data = depth.contour, aes(x, y, z = z), color = "#c4438c")</span></span>
+<span id="cb30-515"><a href="#cb30-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-516"><a href="#cb30-516" aria-hidden="true" tabindex="-1"></a><span class="in">p.NMDS.st.hull.cont</span></span>
+<span id="cb30-517"><a href="#cb30-517" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-518"><a href="#cb30-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-519"><a href="#cb30-519" aria-hidden="true" tabindex="-1"></a>We see those points on the MES/EPI border could be perfectly explained by the depth.</span>
+<span id="cb30-520"><a href="#cb30-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-521"><a href="#cb30-521" aria-hidden="true" tabindex="-1"></a><span class="fu">### Detecting Density-based Cluster with `{dbscan}`</span></span>
+<span id="cb30-522"><a href="#cb30-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-523"><a href="#cb30-523" aria-hidden="true" tabindex="-1"></a>Another interesting way to analyse the community structure more objectively is to cluster the points purely based on their location on NMDS, without taking the environmental parameters into account. Now speaking of cluster, you might be thinking about drawing another convex shape, probably an oval or a circle around the data points. This is however not applicable in our case, and usually in many real-life cases: out data points in the NMDS space clearly from clusters whose shapes are irregular. To address this issue, we use a density-based clustering algorithm called DBSCAN. The main idea of a density-based cluster is that the shape of the cluster is arbitrary, and it is defined by a continuous space with high density of data points, which suggests they are similar to each other, and clusters are separated by low-density region in between. This method can effectively filter out the outliners and noises, in a more robust way than just setting threshold on the distance to the centroid. And also, while the clusters are now in arbitrary shapes, the centroids become meaningless too.</span>
+<span id="cb30-524"><a href="#cb30-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-525"><a href="#cb30-525" aria-hidden="true" tabindex="-1"></a>The main idea of detecting high density area is to categorize data points by the distance to their neighbors into core points and border points. Contiguous connection (neighboring) of core points represents the contiguous dense area, where border points identify the periphere. All interconnected core points and border points are the same cluster, points that are not connected to any core point are noises. You can find more details about the algorithm and the package in their <span class="co">[</span><span class="ot">vignettes</span><span class="co">](https://cran.r-project.org/web/packages/dbscan/vignettes/dbscan.pdf)</span> and a nice <span class="co">[</span><span class="ot">graphic introduction</span><span class="co">](https://www.youtube.com/watch?v=RDZUdRSDOok)</span> by StatQuest.</span>
+<span id="cb30-526"><a href="#cb30-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-527"><a href="#cb30-527" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb30-528"><a href="#cb30-528" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span>
+<span id="cb30-529"><a href="#cb30-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-530"><a href="#cb30-530" aria-hidden="true" tabindex="-1"></a>?<span class="fu">dbscan</span>()</span>
+<span id="cb30-531"><a href="#cb30-531" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-532"><a href="#cb30-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-533"><a href="#cb30-533" aria-hidden="true" tabindex="-1"></a>We need to specify two parameters for DBSCAN, which affect how we identify the core points: the minimum points (including the point itself) required in a point's epsilon neighborhood for becoming a core point (<span class="in">`minPts`</span>) and the size of the epsilon neighborhood (<span class="in">`eps`</span>). Bigger the <span class="in">`minPts`</span> the more difficult for a point to become a core point, a rule of thumb is to choose the number of axis we have + 1, which will be 3 in our case. Choice of <span class="in">`eps`</span> value, however, depends on how scattered the points are. The bigger the <span class="in">`eps`</span>, the easier for a point to reach the requirement we set with <span class="in">`minPts`</span> to become a core point, and vice versa. To find an <span class="in">`eps`</span> value that is not too high or too low, we can have a peak into how the distances between points look like:</span>
+<span id="cb30-534"><a href="#cb30-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-535"><a href="#cb30-535" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-536"><a href="#cb30-536" aria-hidden="true" tabindex="-1"></a><span class="in">kNNdistplot(siteCoord_env_ordered[, 1:2], k = 2)</span></span>
+<span id="cb30-537"><a href="#cb30-537" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-538"><a href="#cb30-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-539"><a href="#cb30-539" aria-hidden="true" tabindex="-1"></a>The plot shows every point's distance to their k-th nearest neighbor (kNN), ordered ascending. The reason we are looking at the distances to their kNNs (2nd in our case) is because our <span class="in">`minPts`</span> will be <span class="in">`k + 1`</span>, so the distances shown are the maximum distances the points' epsilon neighborhoods need to cover for becoming core points. What we want to identify is the knee of the curve, which is around <span class="in">`y = 0.2`</span>, and it will be our <span class="in">`eps`</span> value. Set the <span class="in">`eps`</span> lower, we will lose a lot potential core points and prevent the nearby high dense areas connect with each other to form bigger cluster, this can be useful when we want to distinguish clusters stricter; if we set the <span class="in">`eps`</span> at higher value, we will identify too much core points that eventually connect all clusters together as one. </span>
+<span id="cb30-540"><a href="#cb30-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-541"><a href="#cb30-541" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-542"><a href="#cb30-542" aria-hidden="true" tabindex="-1"></a><span class="in">kNNdistplot(siteCoord_env_ordered[, 1:2], k = 2)</span></span>
+<span id="cb30-543"><a href="#cb30-543" aria-hidden="true" tabindex="-1"></a><span class="in">abline(h = 0.2, col = "red")</span></span>
+<span id="cb30-544"><a href="#cb30-544" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-545"><a href="#cb30-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-546"><a href="#cb30-546" aria-hidden="true" tabindex="-1"></a>With parameters set, we then will just run the scan:</span>
+<span id="cb30-547"><a href="#cb30-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-548"><a href="#cb30-548" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-549"><a href="#cb30-549" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord_scan &lt;- dbscan(siteCoord_env_ordered[, 1:2], eps = 0.2, minPts = 3)</span></span>
+<span id="cb30-550"><a href="#cb30-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-551"><a href="#cb30-551" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord_scan</span></span>
+<span id="cb30-552"><a href="#cb30-552" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-553"><a href="#cb30-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-554"><a href="#cb30-554" aria-hidden="true" tabindex="-1"></a>The algorithm has found 3 clustered, with additional 18 points as noise (0), as reported. Now we can do our little plotting magic and have a look at them on NMDS plot. </span>
+<span id="cb30-555"><a href="#cb30-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-556"><a href="#cb30-556" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align="center"}</span></span>
+<span id="cb30-557"><a href="#cb30-557" aria-hidden="true" tabindex="-1"></a><span class="in">siteCoord_env_scan &lt;- siteCoord_env %&gt;%</span></span>
+<span id="cb30-558"><a href="#cb30-558" aria-hidden="true" tabindex="-1"></a><span class="in">    mutate(dbcluster = factor(siteCoord_scan$cluster))</span></span>
+<span id="cb30-559"><a href="#cb30-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-560"><a href="#cb30-560" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot() +</span></span>
+<span id="cb30-561"><a href="#cb30-561" aria-hidden="true" tabindex="-1"></a><span class="in">    geom_point(</span></span>
+<span id="cb30-562"><a href="#cb30-562" aria-hidden="true" tabindex="-1"></a><span class="in">        data = siteCoord_env_scan,</span></span>
+<span id="cb30-563"><a href="#cb30-563" aria-hidden="true" tabindex="-1"></a><span class="in">        aes(x = NMDS1, y = NMDS2, color = dbcluster, shape = layer),</span></span>
+<span id="cb30-564"><a href="#cb30-564" aria-hidden="true" tabindex="-1"></a><span class="in">        size = 3.5,</span></span>
+<span id="cb30-565"><a href="#cb30-565" aria-hidden="true" tabindex="-1"></a><span class="in">        alpha = 0.8</span></span>
+<span id="cb30-566"><a href="#cb30-566" aria-hidden="true" tabindex="-1"></a><span class="in">    ) +</span></span>
+<span id="cb30-567"><a href="#cb30-567" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_color_manual(</span></span>
+<span id="cb30-568"><a href="#cb30-568" aria-hidden="true" tabindex="-1"></a><span class="in">        values = c("#CCC", paletteer::paletteer_d("ltc::trio1")) %&gt;%</span></span>
+<span id="cb30-569"><a href="#cb30-569" aria-hidden="true" tabindex="-1"></a><span class="in">            `names&lt;-`(c(0:3))</span></span>
+<span id="cb30-570"><a href="#cb30-570" aria-hidden="true" tabindex="-1"></a><span class="in">    ) +</span></span>
+<span id="cb30-571"><a href="#cb30-571" aria-hidden="true" tabindex="-1"></a><span class="in">    scale_shape_manual(values = depth.shapes) +</span></span>
+<span id="cb30-572"><a href="#cb30-572" aria-hidden="true" tabindex="-1"></a><span class="in">    aes_setting() +</span></span>
+<span id="cb30-573"><a href="#cb30-573" aria-hidden="true" tabindex="-1"></a><span class="in">    labs(shape = "Layer") +</span></span>
+<span id="cb30-574"><a href="#cb30-574" aria-hidden="true" tabindex="-1"></a><span class="in">    guides(color = "none") +</span></span>
+<span id="cb30-575"><a href="#cb30-575" aria-hidden="true" tabindex="-1"></a><span class="in">    theme(</span></span>
+<span id="cb30-576"><a href="#cb30-576" aria-hidden="true" tabindex="-1"></a><span class="in">        axis.text.x = element_blank(),</span></span>
+<span id="cb30-577"><a href="#cb30-577" aria-hidden="true" tabindex="-1"></a><span class="in">        axis.text.y = element_blank(),</span></span>
+<span id="cb30-578"><a href="#cb30-578" aria-hidden="true" tabindex="-1"></a><span class="in">        legend.position = "bottom",</span></span>
+<span id="cb30-579"><a href="#cb30-579" aria-hidden="true" tabindex="-1"></a><span class="in">        legend.direction = "horizontal",</span></span>
+<span id="cb30-580"><a href="#cb30-580" aria-hidden="true" tabindex="-1"></a><span class="in">        legend.box = "vertical"</span></span>
+<span id="cb30-581"><a href="#cb30-581" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb30-582"><a href="#cb30-582" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-583"><a href="#cb30-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-584"><a href="#cb30-584" aria-hidden="true" tabindex="-1"></a>But, what we did so far was basic descriptive work in community ecology. We still want to take a look into each community structure using network analysis. I will cover this in the next upcoming post. To be continued. </span>
+<span id="cb30-585"><a href="#cb30-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-586"><a href="#cb30-586" aria-hidden="true" tabindex="-1"></a>{{&lt; include "/partial/_Ref.qmd" &gt;}}</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
