@@ -1,0 +1,56 @@
+/*-- scss:defaults --*/
+@import "vars";
+
+// 1. BOOTSTRAP CONFIGURATION
+$body-bg:       $dark-canvas;
+$body-color:    $dark-ink;
+$link-color:    $link-color-default;
+$primary:       $again-3;
+$code-color:    $dark-code-text;
+$code-bg:       $dark-code-bg;
+
+/*-- scss:rules --*/
+
+:root {
+  // Base
+  --bg-body:       #{$dark-canvas};
+  --bg-secondary:  #{$black-abs};
+  --bg-dropdown:   #{$black-off}; 
+  
+  // Text & Borders
+  --text-main:     #{$dark-ink};
+  --text-muted:    #{$again-4}; 
+  --border-color:  #{$dark-ink};
+  --hr-color:      #{$dark-ink};
+  
+  --accent-main:   #{$again-3};
+  --accent-hover:  #{$white-abs}; 
+  
+  // CODE MAPPING (Unified Dark Look)
+  --code-block-bg:     #{$dark-code-bg};
+  --code-block-text:   #{$dark-code-cell-text};
+  --inline-code-bg:    #{$dark-code-bg};
+  --inline-code-color: #{$dark-code-text};
+  --cell-bg:           #{$dark-cell-bg};
+  
+  // Roulette
+  --roulette-bg:   #{$r-bg-dark};
+  --roulette-text: #{$r-text-dark};
+  --r-thumb-height: #{$r-thumb-height};
+  --r-fade-speed: #{$r-fade-speed};
+  --r-thumb-peek: #{$r-thumb-peek};
+  --r-transition-speed: #{$r-transition-speed};
+
+  // Typography
+  --font-main:     #{$font-main};
+  --font-serif:    #{$font-serif};
+  --fs-body:       #{$type-body-size};
+  --fs-nav:        #{$type-nav-size};
+  --fw-thin:       #{$fw-thin};
+  --fw-light:      #{$fw-light};
+  --fw-body:       #{$fw-body};
+  --fw-medium:     #{$fw-medium};
+  --fw-bold:       #{$fw-bold};
+}
+
+@import "rules";

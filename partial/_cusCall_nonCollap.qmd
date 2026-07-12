@@ -1,0 +1,10 @@
+::: {.callout-caution appearance="minimal" style="font-sze:0.9rem; border-left:none; border:1px solid var(--clcolor); padding-top:0.5rem;"}
+
+```{=html}
+<style>
+    .callout-body {
+        padding-top: 0rem;
+        margin-top: 0.5rem;
+    }
+</style>
+```

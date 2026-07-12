@@ -1,0 +1,34 @@
+---
+title: "Journals"
+author: ""
+affiliation: ""
+
+int-tags: 
+  - no_listing
+
+listing:
+  - id: ls-all
+    sort: "date desc"
+    sort-ui: [title, date]
+    categories: unnumbered
+    image-height: 120px
+    image-lazy-loading: true
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents: 
+        - "*.qmd"
+        - "!draft*.qmd"
+        - "!CV.qmd"
+format:
+  html:
+    toc: false
+draft: true
+---
+
+```{r}
+#| output: asis
+#| echo: false
+suppressMessages(devtools::load_all())
+forwardMsg("Some words along my journey of learning this world.")
+```

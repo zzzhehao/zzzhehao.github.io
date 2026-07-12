@@ -1,0 +1,153 @@
+---
+navbar: false
+format: 
+  html:
+    page-layout: custom
+int-tags: 
+  - no_listing
+---
+
+```{=html}
+<style>
+body, html {
+    font-family: 'Lora';
+    color: #F2E6DF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* font-size: 1.6rem; */
+}
+.index-nav p a {
+    position: relative;
+    display: inline-block;
+    color: #F2E6DF;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.index-nav p a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F2E6DF;
+    transform-origin: bottom left;
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.index-nav p a:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+</style>
+
+<div id="bg-container" style="
+  height: 100vh;
+  width: 100%;
+  position: relative; /* Needed so the footer knows where 'bottom' is */
+  
+  /* Background basics */
+  background-color: #333; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease-in-out;
+">
+
+  <div style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;        
+    min-width: 300px;    
+    
+    /* The Grey Translucent Look */
+    background-color: rgba(74, 74, 74, 0.4); 
+    backdrop-filter: blur(1px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+
+    padding: 3rem;
+    box-sizing: border-box; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers everything vertically in the sidebar */
+  ">
+    
+      <div style="margin-bottom: 3rem;">
+        <span style="
+          font-size: 3rem;
+          line-height: 0.9; 
+          display: block; 
+          font-weight: 500; 
+          letter-spacing: -1px;
+        ">
+          Zhehao Hu
+        </span>
+        
+        <span style="
+          font-size: 1.2rem;    /* Change this number to resize Subtitle */
+          display: block; 
+          margin-top: 10px; 
+          opacity: 0.9; 
+          font-weight: 400; 
+          font-style: italic;   /* Optional: adds elegance to Times New Roman */
+        ">
+          <!-- Read. Think. Write.  -->
+        </span>
+      </div>
+
+      <div class="index-nav" style="
+        font-size: 1.5rem;      /* Change this to resize Links */
+        font-weight: 400;       /* Standard weight */
+        line-height: 1.6;       /* Adds breathing room between links */
+      "> 
+        <p><a href="/about.qmd">About Me</a></p>
+        <p><a href="/post/research/index.qmd">Research</a></p>
+        <!-- <p><a href="/post/journal/index.qmd">Journal</a></p> -->
+        <p><a href="/post/research/assets/CV-ZH.pdf">CV</a></p>
+        <p><a href="/photography/gallery/gallery.qmd">Albums</a></p>
+        <p><a href="/photography/gallery/motion-pictures.qmd">Motion Picture</a></p>
+        <a href="https://zzzhehao.github.com" style="display:none"></a> 
+      </div>
+
+  </div> 
+
+  <footer style="
+    position: absolute;   /* Takes it out of the flow */
+    bottom: 2rem;         /* Distance from bottom */
+    right: 2rem;          /* Distance from right */
+    
+    font-family: 'Arial', sans-serif; /* Keep Arial for legibility */
+    color: #e4dddaff;
+    font-weight: 200;
+    opacity: 0.8;         /* Slightly brighter */
+    text-align: right;    /* Aligns text to the right */
+  ">
+    <p style="margin: 0; font-size: 0.7rem;">
+      © 2025 Zhehao Hu. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io" style="color: inherit; text-decoration: underline;">github.com</a>.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch('./assets/backgrounds.json')
+      .then(response => response.json())
+      .then(images => {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const selectedImage = images[randomIndex];
+        const container = document.getElementById('bg-container');
+        if (container) {
+          container.style.backgroundImage = `url('${selectedImage}')`;
+        }
+      })
+      .catch(error => console.error('Error loading background images:', error));
+  });
+</script>
+```

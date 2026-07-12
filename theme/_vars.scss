@@ -1,0 +1,88 @@
+/*-- scss:defaults --*/
+
+// ==================================================
+// 1. COLOR PALETTE
+// ==================================================
+$white-abs:      #ffffff;
+$black-abs:      #000000;
+$black-off:      #282828; 
+
+$grey-light:     #e5e5e5;
+$grey-med:       #888;
+$grey-dark:      #333;
+$grey-code-text: #3b2506;
+
+$again-1:        #F2BA52;
+$again-2:        #F2CD88;
+$again-3:        #f2a94f; 
+$again-3-dark:   #c97207;
+$again-4:        #BFBFBF;
+$again-5:        #404040;
+
+$redplane-1:     #593140; 
+$redplane-6:     #a66822;
+
+// --- Light Mode Colors ---
+$paper-bg:       #e9e5df;
+$paper-ink:      #414645; 
+$paper-border:   #dfdcd8;
+
+// CODE: Light Theme (Mixed Look)
+// 1. Blocks (Dark background)
+$light-block-bg:    #1f2329; 
+$light-block-text:  #e9e5df;
+// 2. Inline (Grey background, Brown text)
+$light-inline-bg:   #cac8c6;
+$light-inline-text: #3b2506;
+// 3. Output Cells
+$light-cell-bg:     #dfdcd8; 
+
+// --- Dark Mode Colors ---
+$dark-canvas:    #272B34;
+$dark-ink:       #D9CEBE; 
+$dark-muted:     #595859;
+
+// CODE: Dark Theme
+// 1. Blocks & Inline (Dark background, Orange text)
+$dark-code-bg:      #161a1f;
+$dark-code-text:    #dd860d;
+$dark-code-cell-text: #D9CEBE; 
+$dark-cell-bg:      rgba(100, 100, 100, 0.2); 
+
+// --- Roulette ---
+$r-bg-light:     #f0f0f0;
+$r-bg-dark:      #1e1e1e;
+$r-text-light:   #333;
+$r-text-dark:    #e0e0e0;
+
+$link-color-default: $again-3;
+
+// ==================================================
+// 2. TYPOGRAPHY CONFIGURATION
+// ==================================================
+$font-main:       system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-serif:      'Times New Roman', Times, serif; 
+
+$type-root-size:  95%;   
+$type-body-size:  1.05rem; 
+$type-nav-size:   115%;
+
+$fw-thin:         320; 
+$fw-light:        350; 
+$fw-body:         380; 
+$fw-regular:      400;
+$fw-medium:       500; 
+$fw-bold:         700;
+
+$font-family-base: $font-main;
+$font-size-root:   $type-root-size;
+$font-weight-base: $fw-body;
+
+// ==================================================
+// 3. Roulette Configuration
+// ==================================================
+
+$r-thumb-height: 120px;
+$r-fade-speed: 0.8s;
+$r-thumb-peek: 5px;
+$r-transition-speed: 0.6s;

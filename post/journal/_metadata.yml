@@ -1,0 +1,36 @@
+author: 
+  - name: 
+      given: Zhehao
+      family: Hu
+    email: hu_zhehao@hotmail.com
+    affiliations: false
+format:
+  html:
+    css: journal.css
+    comments:
+      giscus: 
+        repo: zzzhehao/giscus
+        category: Announcements
+        mapping: url
+        reactions-enabled: true
+        theme: 
+          light: light_tritanopia
+          dark: dark_dimmed
+    toc: true
+    toc-depth: 3
+    toc-expand: 2
+    code-copy: true
+    code-overflow: wrap
+    code-tools: 
+      caption: none
+      source: false
+    highlight-style: atom-one-dark
+    include-after-body: journal-footer.html
+date-format: long
+lightbox: true
+filters: 
+  - openlinksinnewpage
+  - nutshell
+execute: 
+  freeze: true
+article-type: "Journal"

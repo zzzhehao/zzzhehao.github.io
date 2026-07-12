@@ -1,0 +1,131 @@
+---
+title: "Research Posts"
+author: ""
+affiliation: ""
+
+int-tags: 
+  - no_listing
+
+listing:
+  - id: ls-all
+    sort: "date desc"
+    sort-ui: [title, date]
+    categories: unnumbered
+    image-height: 120px
+    image-lazy-loading: true
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents: 
+        - "*.qmd"
+        - "!draft*.qmd"
+        - "!CV.qmd"
+  - id: ls-comeco
+    sort: "date desc"
+    sort-ui: [title, date]
+    image-height: 120px
+    image-lazy-loading: true
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents:
+        - "community-ecology/*.qmd"
+        - "!draft*.qmd"
+  - id: ls-comeco
+    sort: "date desc"
+    sort-ui: [title, date]
+    image-height: 120px
+    image-lazy-loading: true
+    filter-ui: true
+    type: default
+    date-format: iso
+    contents:
+        - "community-ecology/*.qmd"
+        - "!draft*.qmd"
+    
+
+format:
+  html:
+    toc: false
+---
+
+I share here my notes and thoughts from course, event, workshop, conference related to my research. 
+<!-- 
+*I haven't update for a while but I have many drafts that will come out shortly - community ecology and network analysis of mediterranean microbiome is almost done! I am also cracking a lot of codes for phylogenetic and biogeographic analysis lately. Stay tuned!*
+
+::: {.callout-caution appearance="minimal" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+## [About Me]{style="font-size:1rem;"}
+
+- M.Sc Biology Student {{< iconify mdi:academic-cap >}} at [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) 
+- Interest: 
+{{< iconify humbleicons:arrow-main-split-side >}} Evolution
+{{< iconify carbon:earth-filled >}} Ecology
+{{< iconify streamline:bacteria-virus-cells-biology >}} Microbiology
+{{< iconify mdi:earth >}} Conservation
+- Skills: 
+{{< iconify tabler:microscope >}} Molecular Technology
+{{< iconify file-icons:dna >}} Data Analysis
+- Animals I love: 
+{{< iconify ic:outline-bug-report >}} Isopod and other Crustaceans
+{{< iconify mdi:shark >}} Fishes
+{{< iconify map:whale-watching >}} Marine Mammals
+{{< iconify game-icons:sea-turtle >}} Sea Turtles
+{{< iconify fluent-emoji-high-contrast:lizard >}} Reptiles
+{{< iconify game-icons:kiwi-bird >}} Birds
+- Places dreaming to visit:
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/1600px-Flag_of_Alaska.svg.png?20221128104957){width="20px"}](https://en.wikipedia.org/wiki/Alaska) 
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/1600px-Flag_of_New_Zealand.svg.png?20220924013214){width="20px"}](https://en.wikipedia.org/wiki/New_Zealand)
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2880px-Flag_of_Argentina.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Patagonia)
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/2560px-Flag_of_Ecuador.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Galápagos_Islands)
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/2880px-Flag_of_Costa_Rica.svg.png){width="20px"}](https://de.wikipedia.org/wiki/Costa_Rica)
+[![](https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/2560px-Flag_of_Brazil.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Amazon_rainforest)
+
+:::
+
+::: {.callout-caution appearance="minimal" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [Why am I doing this?]{style="font-size:1rem;"}
+
+I want to share my knowledge and experience to others and promote open science. I had only minimal education on data science -- before our bachelor program was reformed -- so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecture and tried to understand MCMCMC before I even heard of Bayesian statistics. Such gaps are everywhere, especially after I started my master program.
+
+Research is more like a process of self-teaching. More and more online resources for data analysis techniques are available as complement of conventional literature, but I found some of them lack clear introduction, or even proper documentation. Trying to understand and utilize these information can be very frustrating. Using R as an example here, which language I now use in daily basis since three years, is widely used by biologist for data analysis. I started to notice the change in challenging I face when coding with R comparing to the time when I just started - now I am familiar with logics in common R operations and some frequently used packages, but when I try to implement some ideas that have never be done by many people - which means there's no ready-to-use function or package - I need to implement some functionalities from the scratch and it can get frustrating very very quickly. Another challenging is facing error message coming out from a deeply nested function inside a complex package. Both cases require more understanding in R and its ecosystem and a lot of effort and time to try out - which can be avoided for people having the same problem once someone solved them. 
+
+Long story short, my goal here is to put my posts in a way so that the audience, at least those doing similar things, maybe also people in different disciplines with different background, can benefit from the code I cracked, that hopefully inspires for cracking more code and making more cool stuff alive.
+
+::: -->
+
+```{r}
+#| output: asis
+#| echo: false
+suppressMessages(devtools::load_all())
+# forwardMsg("Enjoy.")
+```
+
+<br>
+
+::: {.panel-tabset}
+
+## Latest
+
+::: {#ls-all}
+:::
+
+## Community Ecology
+
+::: {#ls-comeco}
+:::
+
+<!-- ## Deep Sea
+
+::: {#ls-deepsea}
+:::
+
+```{r}
+#| output: asis
+#| echo: false
+forwardMsg("Upcoming ...")
+```
+ -->
+
+
+:::

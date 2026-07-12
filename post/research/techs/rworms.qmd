@@ -1,0 +1,171 @@
+---
+title: "{rworms}: an R package for retrieving information from WoRMS"
+date: 2026-02-09
+image: "https://ik.imagekit.io/zzzhehao/assets/website/Antarcturus_on_anthomastus_S0804.jpg"
+abstract: A taxonomist-friendly R package for automating batch queries on WoRMS.
+# description: "  "
+categories:
+  - Multivariate Analysis
+filters:
+  - openlinksinnewpage
+  - nutshell
+execute:
+  echo: true
+  output: false
+citation: true
+format:
+  html:
+    comments:
+      giscus: 
+        repo: zzzhehao/giscus
+        category: Announcements
+        mapping: url
+        reactions-enabled: true
+        theme: 
+          light: light_tritanopia
+          dark: dark_dimmed
+---
+
+{{< include "/partial/_init.qmd" >}}
+
+::: {.disclaimer}
+This is a by-product extracted from my master thesis that uses the WoRMS API to retrieve data in automation to make the taxonomic work slightly easier. I started writing the functions when doing the work for my thesis, and this is made publicly available first during the Ocean Census Isopod Workshop.
+
+Suggestions, issues, bugs, please let me know!
+:::
+
+The package is available to download from github, it is therefore also open source:
+
+```r
+# install from github
+devtools::install_github("https://github.com/zzzhehao/rworms.git")
+library(rworms)
+```
+
+<br>
+
+```{r}
+#| echo: false
+remove.packages("rworms")
+```
+
+```{r}
+#| label: setup
+#| echo: false
+
+suppressMessages(devtools::load_all())
+pkgs <- c("pacman", "rmarkdown", "knitr", "tidyverse")
+pacman::p_load(pkgs, character.only = TRUE)
+devtools::install_github("https://github.com/zzzhehao/rworms.git", ref = "df84e7820821c74ece835203381f8d7be119146d")
+library(rworms)
+```
+
+It is currently equipped with three functions, the core input for all of them is the AphiaID of the taxon in interest. 
+
+## `get_taxonomy`
+
+`get_taxonomy()` takes a numeric vector of AphiaIDs (of species) and will get the taxonomic informations for all of them, if the AphiaIDs are valid. Personally, I find the `reference_citation` (also `reference_year` and `reference_doi`, if available) fields being the most helpful. As with this, I do not need to open every page on WoRMS to just get the title of publication which described the species.
+
+For example, we want to have look on the Janirellidae Menzies, 1956, whose AphiaID is 118257:
+
+```{r}
+jani <- get_taxonomy(118257)
+jani
+```
+
+```{r}
+#| echo: false
+#| output: true
+paged_table(jani)
+```
+
+A one-row table is returned, as we only supplied with one AphiaID. Should more valid IDs be provided, they will be returned in rows. Different taxon ranks can be mixed here. 
+
+```{r}
+zztax <- get_taxonomy(c(118333, 183189, 175137))
+zztax
+```
+
+```{r}
+#| echo: false
+#| output: true
+paged_table(zztax)
+```
+
+Of course, the function checks if the AphiaID is valid:
+
+```{r}
+#| echo: true
+#| output: true
+error <- tryCatch({
+
+    # Call with invalid AphiaID:
+    get_taxonomy(c(118333, 183189, 175137000))
+
+    }, error = function(e) {e})
+print(error)
+```
+
+## `get_taxonomy_hr`
+
+More commonly is the case, that one would like to have the information from all the species belonging to a higher taxon, such as genus, or a family. For such purpose, `get_taxonomy_hr()` takes **one** AphiaID and returns the taxonomic information from all species belonging to that taxon. 
+
+For instance, we give the ID of the Janirellidae and get all species belonging to that family: 
+
+```{r}
+janis <- get_taxonomy_hr(118257)
+janis
+```
+
+```{r}
+#| echo: false
+#| output: true
+paged_table(janis)
+```
+
+This function also takes additional arguments which can alter the search filter. Run `?get_taxonomy_hr` for details. Since the arguments are passed via `...`, you would have to specify the argument. Options are:
+
+- `recursive`: logical. Whether to loop through children that are not species. If TRUE (default), all species belonging to given taxon is returned, if FALSE, only the direct children are returned.
+- `accept`: logical. Whether to only return the accepted taxa.
+- `marine`: logical. Whether to only return the marine taxa.
+- `extant`: logical. Whether to only return the extant taxa.
+
+A tip: if running search `accept = F`, it might be smart to do it also with `recursive = F` and cherry-pick the taxa that are really interesting for you. Otherwise it might retrieve tons of data that is not needed.
+
+```{r}
+janiroids <- get_taxonomy_hr(155716, accept = F, recursive = F)
+janiroids
+```
+
+```{r}
+#| echo: false
+#| output: true
+paged_table(janiroids)
+```
+
+## `get_distribution`
+
+If one is not satisfied with only the taxonomic informations, it also makes sense to have a look at the distribution records. However, please note that many occurrence records are not landing in WoRMS, but more commonly in other plattforms such as OBIS, and GBIF. They also have their APIs, through which the data can be conveniently retrieved within R, and yes, I have the codes. They are just not written in generalized functions yet. (But they are coming soon).
+
+As we just got all the taxonomic data from Janirellids, this also includes AphiaIDs from all the species, so now we can simply pass that IDs to the function (so yes, this function is vectorized and accepts numeric vector, just like `get_taxonomy`).
+
+```{r}
+janis.dist <- get_distribution(janis$aphiaID)
+janis.dist
+```
+
+```{r}
+#| echo: false
+#| output: true
+paged_table(janis.dist)
+```
+
+As not all species has distribution data available on WoRMS, the function will probably complain about not finding the data. As long as the function run is not aborted, you will get all available result at the end. This might get a few minutes to retrieve and parse the data, so please be patient and don't panic.
+
+At last, since all data returned by these functions are in `data.frame`, you can use the normal R functions to export them in all possible way you like. 
+
+```r
+write.table(janis.dist, "Janirellidae_distribution.csv", sep = ";", row.names = F)
+```
+
+{{< include /partial/_Ref.qmd >}}

@@ -1,0 +1,26 @@
+/* folder-styles.css */
+
+body {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* letter-spacing: 0.06em; */
+}
+
+p {
+    font-size: 1.2em !important;
+    margin-bottom: 1.1em !important;
+}
+
+h2 {
+    margin-bottom: 1.3em;
+}
+
+/* Optional: Target headings specifically
+h1,
+h2,
+h3 {
+    font-family: "Arial", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+} */

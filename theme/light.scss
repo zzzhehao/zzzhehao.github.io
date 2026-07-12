@@ -1,0 +1,59 @@
+/*-- scss:defaults --*/
+@import "vars";
+
+// 1. BOOTSTRAP CONFIGURATION
+$body-bg:       $paper-bg;
+$body-color:    $paper-ink;
+$link-color:    $link-color-default;
+$primary:       $again-3; 
+
+// Bootstrap Overrides
+$code-color:    $light-inline-text; // Sets default text color for code
+$code-bg:       $light-inline-bg;   // Sets default bg for code
+
+/*-- scss:rules --*/
+
+// 2. CSS VARIABLES (MAPPING)
+:root {
+  // Base
+  --bg-body:       #{$paper-bg};
+  --bg-secondary:  #{$white-abs}; 
+  --bg-dropdown:   #{$white-abs}; 
+  
+  // Text & Borders
+  --text-main:     #{$paper-ink};
+  --text-muted:    #{$grey-med};
+  --border-color:  #{$paper-ink};
+  --hr-color:      #{$paper-ink};
+  
+  --accent-main:   #{$again-3};
+  --accent-hover:  #{$redplane-1};
+  
+  // CODE MAPPING
+  --code-block-bg:     #{$light-block-bg};     // Dark Block
+  --code-block-text:   #{$light-block-text};   // Light Text
+  --inline-code-bg:    #{$light-inline-bg};    // Grey Inline Bg
+  --inline-code-color: #{$light-inline-text};  // Brown Inline Text
+  --cell-bg:           #{$light-cell-bg};
+  
+  // Roulette
+  --roulette-bg:   #{$r-bg-light};
+  --roulette-text: #{$r-text-light};
+  --r-thumb-height: #{$r-thumb-height};
+  --r-fade-speed: #{$r-fade-speed};
+  --r-thumb-peek: #{$r-thumb-peek};
+  --r-transition-speed: #{$r-transition-speed};
+
+  // Typography
+  --font-main:     #{$font-main};
+  --font-serif:    #{$font-serif};
+  --fs-body:       #{$type-body-size};
+  --fs-nav:        #{$type-nav-size};
+  --fw-thin:       #{$fw-thin};
+  --fw-light:      #{$fw-light};
+  --fw-body:       #{$fw-body};
+  --fw-medium:     #{$fw-medium};
+  --fw-bold:       #{$fw-bold};
+}
+
+@import "rules";
