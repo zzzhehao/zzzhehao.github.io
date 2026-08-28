@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zzzhehao.github.io/project/fkt250220/species-catalog/index.html</loc>
-    <lastmod>2025-11-19T16:39:30.571Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/project/fkt250220/index.html</loc>
-    <lastmod>2026-02-09T20:02:18.397Z</lastmod>
-  </url>
-  <url>
     <loc>https://zzzhehao.github.io/post/research/techs/rworms.html</loc>
     <lastmod>2026-03-27T11:03:10.851Z</lastmod>
   </url>
@@ -21,32 +13,12 @@
     <lastmod>2026-02-09T20:04:14.141Z</lastmod>
   </url>
   <url>
-    <loc>https://zzzhehao.github.io/photography/gallery/motion-pictures.html</loc>
-    <lastmod>2025-11-13T14:53:38.739Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/photography/color_palette.html</loc>
-    <lastmod>2025-11-13T14:53:50.030Z</lastmod>
+    <loc>https://zzzhehao.github.io/index.html</loc>
+    <lastmod>2026-07-12T18:29:36.456Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/about.html</loc>
-    <lastmod>2026-05-21T05:35:31.848Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/index.html</loc>
-    <lastmod>2026-02-20T23:15:11.795Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/photography/gallery/gallery.html</loc>
-    <lastmod>2026-06-29T15:43:21.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/photography/portfolio.html</loc>
-    <lastmod>2025-11-13T14:53:54.002Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/post/research/community-ecology/MediMicro-NMDS.html</loc>
-    <lastmod>2026-05-21T05:05:48.954Z</lastmod>
+    <lastmod>2026-08-28T14:27:10.466Z</lastmod>
   </url>
   <url>
     <loc>https://zzzhehao.github.io/post/research/index.html</loc>
@@ -55,13 +27,5 @@
   <url>
     <loc>https://zzzhehao.github.io/post/research/techs/proteomics_tsne.html</loc>
     <lastmod>2026-04-27T06:54:30.380Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/project/fkt250220/dive-hl/index.html</loc>
-    <lastmod>2026-04-08T15:14:19.121Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zzzhehao.github.io/project/fkt250220/journals/01_Punta_Arenas.html</loc>
-    <lastmod>2026-01-12T20:20:38.314Z</lastmod>
   </url>
 </urlset>

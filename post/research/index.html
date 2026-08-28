@@ -79,8 +79,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-71445a952711db97053f329dd914fb29.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-69e62460d0e138ff4609d95fdc6d1df2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell.js"></script>
-<script src="../../site_libs/quarto-contrib/nutshell-1.0.7/nutshell_options.js"></script>
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -206,6 +204,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../theme/transparent.css">
 </head>
 
 <body class="nav-fixed">
@@ -242,15 +241,15 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
         <li>
-    <a class="dropdown-item" href="../../photography/gallery/gallery.html">
+    <a class="dropdown-item" href="../../photography/gallery/gallery.qmd">
  <span class="dropdown-text">Gallery</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../photography/gallery/motion-pictures.html">
+    <a class="dropdown-item" href="../../photography/gallery/motion-pictures.qmd">
  <span class="dropdown-text">Motion Picture</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../photography/color_palette.html">
+    <a class="dropdown-item" href="../../photography/color_palette.qmd">
  <span class="dropdown-text">Color palette</span></a>
   </li>  
     </ul>
@@ -278,9 +277,49 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="SW1hZ2UlMjBQcm9jZXNzaW5n">Image Processing</div><div class="category" data-category="TWVkaXRlcnJhbmVhbiUyME1pY29iaW9tZQ==">Mediterranean Micobiome</div><div class="category" data-category="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=">Multivariate Analysis</div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="SW1hZ2UlMjBQcm9jZXNzaW5n">Image Processing</div><div class="category" data-category="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=">Multivariate Analysis</div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<style>
+    /* 1. THE CANVAS */
+    #deep-sea-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* 2. BOOTSTRAP VARIABLE NUKE (High Specificity) */
+    /* Target every possible Swup state to prevent the white flash */
+    html,
+    html.is-changing,
+    html.is-animating,
+    html.is-leaving,
+    :root,
+    body,
+    .quarto-container,
+    #quarto-content {
+        --bs-body-bg: transparent !important;
+        --bs-body-bg-rgb: transparent !important;
+        --bs-light: transparent !important;
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* 3. TEXT LEGIBILITY */
+    main.content {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 8px;
+        padding: 2em;
+    }
+</style>
+
+<canvas id="deep-sea-bg"></canvas>
+
+<script src="../../js/canvas-logic.js"></script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -301,53 +340,49 @@ window.Quarto = {
 </header>
 
 
-<p>I share here my notes and thoughts from course, event, workshop, conference related to my research.</p>
-<p><em>I haven’t update for a while but I have many drafts that will come out shortly - community ecology and network analysis of mediterranean microbiome is almost done! I am also cracking a lot of codes for phylogenetic and biogeographic analysis lately. Stay tuned!</em></p>
-<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span style="font-size:1rem;">About Me</span>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>M.Sc Biology Student <iconify-icon role="img" inline="" icon="mdi:academic-cap" aria-label="Icon academic-cap from mdi Iconify.design set." title="Icon academic-cap from mdi Iconify.design set."></iconify-icon> at <a href="https://www.biologie.uni-hamburg.de/en.html" target="_blank">University of Hamburg</a></li>
-<li>Interest: <iconify-icon role="img" inline="" icon="humbleicons:arrow-main-split-side" aria-label="Icon arrow-main-split-side from humbleicons Iconify.design set." title="Icon arrow-main-split-side from humbleicons Iconify.design set."></iconify-icon> Evolution <iconify-icon role="img" inline="" icon="carbon:earth-filled" aria-label="Icon earth-filled from carbon Iconify.design set." title="Icon earth-filled from carbon Iconify.design set."></iconify-icon> Ecology <iconify-icon role="img" inline="" icon="streamline:bacteria-virus-cells-biology" aria-label="Icon bacteria-virus-cells-biology from streamline Iconify.design set." title="Icon bacteria-virus-cells-biology from streamline Iconify.design set."></iconify-icon> Microbiology <iconify-icon role="img" inline="" icon="mdi:earth" aria-label="Icon earth from mdi Iconify.design set." title="Icon earth from mdi Iconify.design set."></iconify-icon> Conservation</li>
-<li>Skills: <iconify-icon role="img" inline="" icon="tabler:microscope" aria-label="Icon microscope from tabler Iconify.design set." title="Icon microscope from tabler Iconify.design set."></iconify-icon> Molecular Technology <iconify-icon role="img" inline="" icon="file-icons:dna" aria-label="Icon dna from file-icons Iconify.design set." title="Icon dna from file-icons Iconify.design set."></iconify-icon> Data Analysis</li>
-<li>Animals I love: <iconify-icon role="img" inline="" icon="ic:outline-bug-report" aria-label="Icon outline-bug-report from ic Iconify.design set." title="Icon outline-bug-report from ic Iconify.design set."></iconify-icon> Isopod and other Crustaceans <iconify-icon role="img" inline="" icon="mdi:shark" aria-label="Icon shark from mdi Iconify.design set." title="Icon shark from mdi Iconify.design set."></iconify-icon> Fishes <iconify-icon role="img" inline="" icon="map:whale-watching" aria-label="Icon whale-watching from map Iconify.design set." title="Icon whale-watching from map Iconify.design set."></iconify-icon> Marine Mammals <iconify-icon role="img" inline="" icon="game-icons:sea-turtle" aria-label="Icon sea-turtle from game-icons Iconify.design set." title="Icon sea-turtle from game-icons Iconify.design set."></iconify-icon> Sea Turtles <iconify-icon role="img" inline="" icon="fluent-emoji-high-contrast:lizard" aria-label="Icon lizard from fluent-emoji-high-contrast Iconify.design set." title="Icon lizard from fluent-emoji-high-contrast Iconify.design set."></iconify-icon> Reptiles <iconify-icon role="img" inline="" icon="game-icons:kiwi-bird" aria-label="Icon kiwi-bird from game-icons Iconify.design set." title="Icon kiwi-bird from game-icons Iconify.design set."></iconify-icon> Birds</li>
-<li>Places dreaming to visit: <a href="https://en.wikipedia.org/wiki/Alaska" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/1600px-Flag_of_Alaska.svg.png?20221128104957" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/New_Zealand" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/1600px-Flag_of_New_Zealand.svg.png?20220924013214" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Patagonia" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2880px-Flag_of_Argentina.svg.png" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Galápagos_Islands" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/2560px-Flag_of_Ecuador.svg.png" class="img-fluid" width="20"></a> <a href="https://de.wikipedia.org/wiki/Costa_Rica" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/2880px-Flag_of_Costa_Rica.svg.png" class="img-fluid" width="20"></a> <a href="https://en.wikipedia.org/wiki/Amazon_rainforest" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/2560px-Flag_of_Brazil.svg.png" class="img-fluid" width="20"></a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span style="font-size:1rem;">Why am I doing this?</span>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>I want to share my knowledge and experience to others and promote open science. I had only minimal education on data science – before our bachelor program was reformed – so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecture and tried to understand MCMCMC before I even heard of Bayesian statistics. Such gaps are everywhere, especially after I started my master program.</p>
-<p>Research is more like a process of self-teaching. More and more online resources for data analysis techniques are available as complement of conventional literature, but I found some of them lack clear introduction, or even proper documentation. Trying to understand and utilize these information can be very frustrating. Using R as an example here, which language I now use in daily basis since three years, is widely used by biologist for data analysis. I started to notice the change in challenging I face when coding with R comparing to the time when I just started - now I am familiar with logics in common R operations and some frequently used packages, but when I try to implement some ideas that have never be done by many people - which means there’s no ready-to-use function or package - I need to implement some functionalities from the scratch and it can get frustrating very very quickly. Another challenging is facing error message coming out from a deeply nested function inside a complex package. Both cases require more understanding in R and its ecosystem and a lot of effort and time to try out - which can be avoided for people having the same problem once someone solved them.</p>
-<p>Long story short, my goal here is to put my posts in a way so that the audience, at least those doing similar things, maybe also people in different disciplines with different background, can benefit from the code I cracked, that hopefully inspires for cracking more code and making more cool stuff alive.</p>
-</div>
-</div>
-</div>
-<figure class="figure">
-<figcaption class="forward">
-Enjoy.
-</figcaption>
-</figure>
+<p>I share here my notes and thoughts from course, event, workshop, conference related to my research. <!-- 
+*I haven't update for a while but I have many drafts that will come out shortly - community ecology and network analysis of mediterranean microbiome is almost done! I am also cracking a lot of codes for phylogenetic and biogeographic analysis lately. Stay tuned!*
+
+::: {.callout-caution appearance="minimal" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+## [About Me]{style="font-size:1rem;"}
+
+- M.Sc Biology Student  at [University of Hamburg](https://www.biologie.uni-hamburg.de/en.html) 
+- Interest: 
+ Evolution
+ Ecology
+ Microbiology
+ Conservation
+- Skills: 
+ Molecular Technology
+ Data Analysis
+- Animals I love: 
+ Isopod and other Crustaceans
+ Fishes
+ Marine Mammals
+ Sea Turtles
+ Reptiles
+ Birds
+- Places dreaming to visit:
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/1600px-Flag_of_Alaska.svg.png?20221128104957){width="20px"}](https://en.wikipedia.org/wiki/Alaska) 
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/1600px-Flag_of_New_Zealand.svg.png?20220924013214){width="20px"}](https://en.wikipedia.org/wiki/New_Zealand)
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2880px-Flag_of_Argentina.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Patagonia)
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/2560px-Flag_of_Ecuador.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Galápagos_Islands)
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/2880px-Flag_of_Costa_Rica.svg.png){width="20px"}](https://de.wikipedia.org/wiki/Costa_Rica)
+[![](https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/2560px-Flag_of_Brazil.svg.png){width="20px"}](https://en.wikipedia.org/wiki/Amazon_rainforest)
+
+:::
+
+::: {.callout-caution appearance="minimal" title="" style="font-sze:0.9rem; var(--clcolor): #990000; var(--clbg): transparent; border-left: none; border: 1px solid var(--clcolor);" collapse="true"}
+
+## [Why am I doing this?]{style="font-size:1rem;"}
+
+I want to share my knowledge and experience to others and promote open science. I had only minimal education on data science -- before our bachelor program was reformed -- so I had to learn all things on my own, and I just know how hard it is. I once sat in a lecture and tried to understand MCMCMC before I even heard of Bayesian statistics. Such gaps are everywhere, especially after I started my master program.
+
+Research is more like a process of self-teaching. More and more online resources for data analysis techniques are available as complement of conventional literature, but I found some of them lack clear introduction, or even proper documentation. Trying to understand and utilize these information can be very frustrating. Using R as an example here, which language I now use in daily basis since three years, is widely used by biologist for data analysis. I started to notice the change in challenging I face when coding with R comparing to the time when I just started - now I am familiar with logics in common R operations and some frequently used packages, but when I try to implement some ideas that have never be done by many people - which means there's no ready-to-use function or package - I need to implement some functionalities from the scratch and it can get frustrating very very quickly. Another challenging is facing error message coming out from a deeply nested function inside a complex package. Both cases require more understanding in R and its ecosystem and a lot of effort and time to try out - which can be avoided for people having the same problem once someone solved them. 
+
+Long story short, my goal here is to put my posts in a way so that the audience, at least those doing similar things, maybe also people in different disciplines with different background, can benefit from the code I cracked, that hopefully inspires for cracking more code and making more cool stuff alive.
+
+::: --></p>
 <p><br></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Latest</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Community Ecology</a></li></ul>
@@ -377,43 +412,7 @@ Enjoy.
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXMlMkNNZWRpdGVycmFuZWFuJTIwTWljb2Jpb21l" data-listing-date-sort="1779339948000" data-listing-file-modified-sort="1779339948954" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4119">
-<div class="thumbnail">
-<p><a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external"></a></p><a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">
-<p><img loading="lazy" src="../../post/research/community-ecology/assets/medimicro-NMDS.png" class="thumbnail-image" style="height: 120px;"></p>
-</a><p><a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">Descriptive Community Ecology using NMDS</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM='); return false;">
-Multivariate Analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWVkaXRlcnJhbmVhbiUyME1pY29iaW9tZQ=='); return false;">
-Mediterranean Micobiome
-</div>
-</div>
-<div class="listing-description">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">This is the first post of the Mediterranean Microbial Network series. </a>
-</div>
-</div>
-<div class="metadata">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">
-<div class="listing-date">
-2026-05-21
-</div>
-<div class="listing-author">
-Zhehao Hu
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1774566000000" data-listing-file-modified-sort="1777272870380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1489">
+<div class="quarto-post image-right" data-index="0" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1774566000000" data-listing-file-modified-sort="1777272870380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1489">
 <div class="thumbnail">
 <p><a href="../../post/research/techs/proteomics_tsne.html" class="no-external"></a></p><a href="../../post/research/techs/proteomics_tsne.html" class="no-external">
 <p><img loading="lazy" src="https://ik.imagekit.io/zzzhehao/assets/website/association-amphipod2.jpg" class="thumbnail-image" style="height: 120px;"></p>
@@ -446,7 +445,7 @@ Zhehao Hu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="SW1hZ2UlMjBQcm9jZXNzaW5n" data-listing-date-sort="1771628400000" data-listing-file-modified-sort="1774609404539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1923">
+<div class="quarto-post image-right" data-index="1" data-categories="SW1hZ2UlMjBQcm9jZXNzaW5n" data-listing-date-sort="1771628400000" data-listing-file-modified-sort="1774609404539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1923">
 <div class="thumbnail">
 <p><a href="../../post/research/techs/clsm-1.html" class="no-external"></a></p><a href="../../post/research/techs/clsm-1.html" class="no-external">
 <p><img loading="lazy" src="../../post/research/techs/assets/clsm-1/cover.png" class="thumbnail-image" style="height: 120px;"></p>
@@ -479,7 +478,7 @@ Zhehao Hu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1770591600000" data-listing-file-modified-sort="1774609390851" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="706">
+<div class="quarto-post image-right" data-index="2" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1770591600000" data-listing-file-modified-sort="1774609390851" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="706">
 <div class="thumbnail">
 <p><a href="../../post/research/techs/rworms.html" class="no-external"></a></p><a href="../../post/research/techs/rworms.html" class="no-external">
 <p><img loading="lazy" src="https://ik.imagekit.io/zzzhehao/assets/website/Antarcturus_on_anthomastus_S0804.jpg" class="thumbnail-image" style="height: 120px;"></p>
@@ -512,7 +511,7 @@ Zhehao Hu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1770667454141" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3858">
+<div class="quarto-post image-right" data-index="3" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1770667454141" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3858">
 <div class="thumbnail">
 <p><a href="../../post/research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../../post/research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -576,43 +575,7 @@ No matching items
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXMlMkNNZWRpdGVycmFuZWFuJTIwTWljb2Jpb21l" data-listing-date-sort="1779339948000" data-listing-file-modified-sort="1779339948954" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4119">
-<div class="thumbnail">
-<p><a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external"></a></p><a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">
-<p><img loading="lazy" src="../../post/research/community-ecology/assets/medimicro-NMDS.png" class="thumbnail-image" style="height: 120px;"></p>
-</a><p><a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">Descriptive Community Ecology using NMDS</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM='); return false;">
-Multivariate Analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWVkaXRlcnJhbmVhbiUyME1pY29iaW9tZQ=='); return false;">
-Mediterranean Micobiome
-</div>
-</div>
-<div class="listing-description">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">This is the first post of the Mediterranean Microbial Network series. </a>
-</div>
-</div>
-<div class="metadata">
-<a href="../../post/research/community-ecology/MediMicro-NMDS.html" class="no-external">
-<div class="listing-date">
-2026-05-21
-</div>
-<div class="listing-author">
-Zhehao Hu
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1770667454141" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3858">
+<div class="quarto-post image-right" data-index="0" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1770667454141" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3858">
 <div class="thumbnail">
 <p><a href="../../post/research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external"></a></p><a href="../../post/research/community-ecology/nicheROVER-Niche-Overlap.html" class="no-external">
 <p><img loading="lazy" src="https://images.unsplash.com/photo-1577895229852-5e4f6cdeb4fb?q=80&amp;w=3279&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="thumbnail-image" style="height: 120px;"></p>
@@ -659,12 +622,10 @@ No matching items
 
 
 
-
 <figure class="figure">
 <figcaption class="forward"  > Upcoming ... </figcaption>
 </figure>
             
-
 
 
 
@@ -679,76 +640,42 @@ No matching items
 
 
 </main> <!-- /main -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-    body {
-        align-items: center;
-    }
+<script src="https://unpkg.com/swup@4"></script>
+<script src="https://unpkg.com/@swup/head-plugin@2"></script>
 
-    .footer-container {
-        text-align: center;
-        line-height: 1.6; /* Adjust this value to change line spacing */
-    }
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Force transparency on initial load
+        document.body.style.setProperty('background-color', 'transparent', 'important');
+        document.documentElement.style.setProperty('background-color', 'transparent', 'important');
 
-    .contact-links {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: 10px 0; /* Add space above and below contact links */
-    }
+        try {
+            const swup = new Swup({
+                containers: ['#quarto-content'],
+                plugins: [new SwupHeadPlugin()]
+            });
 
-    .contact-links a {
-        margin: 0 10px; /* Add space between links */
-        color: #888;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-    }
+            console.log('[Swup] Initialized successfully. Instant swap mode.');
 
-    .contact-links a:hover {
-        color: #f2a94f;
-    }
+            // Hook: Right before the page transition starts
+            swup.hooks.on('visit:start', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+            });
 
-    .contact-links a i {
-        margin-right: 5px;
-        font-size: 0.8rem;
-    }
+            // Hook: Right after the new content is injected
+            swup.hooks.on('content:replace', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
 
-    .contact-links a span {
-        font-size: 0.8rem;
-    }
-
-    .footer-text {
-        font-size: 0.8rem;
-        text-align: center;
-        margin: 5px 0; /* Add space above and below text */
-    }
-
-    @media (max-width: 720px) {
-        .contact-links a span {
-            display: none;
+                // Re-initialize Quarto features (math, tooltips, etc.)
+                if (window.Quarto) {
+                    window.dispatchEvent(new Event('DOMContentLoaded'));
+                }
+            });
+        } catch (error) {
+            console.error('[Swup] Initialization failed:', error);
         }
-
-        .contact-links a i {
-            margin-right: 0;
-        }
-    }
-</style>
-
-<div class="footer-container">
-    <hr>
-    <a href="https://buymeacoffee.com/huzhehaos" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;"></a>
-    <p class="footer-text">Copyright © 2024 - 2025 Zhehao Hu</p>
-    <!-- | <a href="https://github.com/zzzhehao/zzzhehao.github.io/blob/main/LICENSE">MIT license</a> -->
-    <div class="contact-links">
-        <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
-        <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
-        <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
-        <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
-    </div>
-    <p class="footer-text">Issues on the website? <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
-    <hr>
-</div>
+    });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

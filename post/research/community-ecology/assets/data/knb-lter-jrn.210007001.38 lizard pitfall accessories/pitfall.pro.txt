@@ -1,0 +1,491 @@
+File Name: PITFALL.PRO     Last Update: 12/01/93     By: Kevin La Fleur
+
+     JORNADA LTER II: Protocol for Arthropod-Lizard Pitfalls
+                   Written by David Lightfoot
+
+            
+     I. INTRODUCTION.  In conjunction with net primary production 
+studies, consumer and faunal studies are conducted at or near NPP 
+sites using pitfall traps.  We use live traps, not employing 
+ethylene glycol or other killing/preservative agents, with traps 
+checked once a week at the minimum.  Sampling-with-replacement is 
+used with the lizards but without replacement for the arthropods; 
+thus any released arthropods, when possible, should not be let go 
+in the immediate vicinity of the pitfall grids.
+
+     Lizard-arthropod pitfall studies are conducted quarterly
+over a period of two weeks: in February-March (following winter 
+NPP), in  May-June (following spring NPP), in August, and in 
+October-November (following fall NPP).  
+          
+     A.   LOCATION:   Pitfall grids consist of sixteen stations 
+(four rows of four traps) located at the following ll sites (the 
+old code, no longer used, is given in parentheses following each 
+site*): T-WEST (TBA), T-EAST (TBB), M-RABB-A (MDA), M-RABB-C 
+(MDC), M-WELL (MDB), G-IBPE-A (GLA), G-IBPE-C (GLC), G-BASN 
+(GLB), C-SAND-B (CBB), C-CALI (CBA), and C-GRAV (CBD).  Pitfalls 
+formerly located at MB (mixed basin slope NE of weather trailer) 
+and C-SAND-C (CBC) have been closed.  No pitfalls are directly 
+associated with the following NPP sites: P-COLL, P-SMAL, P-TOBO 
+(because of flooding potential), T-TAYL, or G-SUMM.  The pitfall 
+for C-SAND is located NW of the NPP site (see site map).  The 
+location of each trap is marked by a rebar bearing a numbered 
+aluminum tag.
+* (old codes may still be found in data books and vial labels)
+
+     B.   CONSTRUCTION: The LTER pitfall traps are walled by two        
+large vegetable cans, 6" diameter; size 10 tomato cans (6 lbs, 3 
+oz, ca. 6 l/2" high) are most common. The ends of the cans are 
+cut out and the cans stacked so that the top of the upper can is 
+nearly flush with the ground. Similar-sized coffee cans may be 
+used; the  funnel (see below) should fit the can with little 
+excess space.  The collection container is a slightly tapered 
+plastic beverage  cup 5 l/2" deep with top diameter of 4  l/2"; 
+several small (ca. l/16") holes are drilled in the bottom of each 
+cup to  facilitate drainage.  A polypropylene funnel with top 
+diameter of 5 l/2" is placed in the cup to seal the trap and 
+prevent  escapes; the stem and lower funnel are cut off about 4" 
+below the top, making a lower hole of ca. l l/2- 1 3/4" diameter.  
+The cups are supported on small stones or wooden blocks to raise 
+the top of the funnel nearer the top of the can (it should not be 
+flush);  elevation of cups is especially important in  poorly 
+drained sites. When not in use, the traps are sealed by a ceramic 
+tile with dirt packed along sides (see procedure below).
+     Trap numbers (l-16) originally were stamped on a small 
+aluminum block fastened to a rebar next to each pit.  Many of
+these blocks are now missing.  More recently, sites have been
+numbered with aluminum tags attached to the rebar.  If both the
+block and tag  are missing, the number can be determined by 
+counting from the northeast corner of the grid (l-4 north-south, 
+5-8  next line south-north, etc.).  However, some sites, notably 
+BASN, have a different numbering scheme so always check adjacent 
+trap numbers if unsure.
+
+     A SITE MAP IS INCLUDED WITH THIS PROTOCOL
+
+     II.  PROCEDURE:  Traps are usually opened on a Friday; 
+the tiles are excavated and propped open l to 2" at one end using 
+wooden blocks  or stones.  Be sure the tile covers the trap as 
+completely as possible.  During spring and  summer, collections 
+are made the Tuesday and Friday the week after opening and again 
+Tuesday and Friday (close) of the next week.  In fall and winter, 
+collections on Fridays are sufficient.  Take care to look under 
+the cup; both lizards and arthropods (especially scorpions and 
+crickets) will readily hide there.  Any  lizards found are 
+carefully  grasped (don't grab tail!) and subjected to the 
+measurements detailed in section A below.  Be sure to use forceps
+on venemous arthropods.  Note special procedures for juvenile
+lizards.  Before leaving for the field, make certain that you have 
+the bag with measuring equipment (below) and a box with labelled 
+cups (w/lids) for the eleven pitfall sites plus an additional 
+unlabelled cup for each participant.  The data book should be on 
+a clipboard which has a list of lizard species codes and 
+identification information affixed.  IMPORTANT: the clipboard 
+should also have an updated list of the identification numbers
+previously used in toe marking. 
+     A.  LIZARDS:  Equipment for processing lizards includes a 
+metric ruler, scales, forceps, plastic bags, scissors, pencils, 
+and a reptile  field guide. The scale is a PESOLA (l00  gram) 
+spring-type; it is expensive so should be kept out of the dirt. 
+Equipment kept in a zippered bag either in FH 117 or 236.  The 
+following information is recorded in the Jornada LTER II Lizard 
+Pitfall data book for each lizard:
+
+       l.  Pit number (see above).
+
+       2.  Species code:  Lizard species are recorded using a four 
+           letter  code  (first  two letters  of  generic  and 
+           species names).  Cnemidiphorus tigris is thus CNTI, etc.
+  
+       3.  Sex: record an M, F, or J (juvenile) for each lizard.
+           The  field guide and clipboard information may  assist in 
+           sexing, which differs in different families.
+
+       4.  Rec.: If individuals have been previously toe marked, 
+           record an R (recapture).  Record an N for unmarked adults.
+       5.  Toe  mark: For newly captured adults, toes are clipped 
+           according to the numbering system shown on each page of the 
+           data book.  Note that the ventral side of the lizard is 
+           shown in the diagram.  With scissors, clip the first 2 
+           mm or so of the required toes.  As lizards have only 
+           five toes, numbers 6-9 are not used in the codes.  
+           Upon reaching number "6" one should skip to the next 
+           availble combination (e.g. HOMA "2046" would skip to
+           2050; UTST "56" would skip to 100.  Close attention
+           should be given to avoid toe clipping errors.
+           It is also imperative that accurate and updated records 
+           be kept (on provided clipboard sheet) of numbers used; be 
+           sure this sheet is brought to the field each time.  Severe 
+           problems have occurred in the past with skipped and duplicated 
+           numbers. In general, JUVENILES, especially small ones, should 
+           not be toe clipped as the required handling may injure them.  
+           Put a dash across the "toe mark" space for small juveniles.
+
+       6.  S-V: record length (in mm) from snout apex to vent for each 
+           lizard.  Exercise great care in handling juveniles for any   
+           measurements.  Estimates might be better for very small 
+           juveniles; the handling needed to position the lizard for 
+           measurement may be injurious.  If the juvenile is not 
+           too active it can be measured in the cup.
+
+       7.  Total length: record total length in mm from snout to tail
+           tip for each lizard.  
+
+       8.  Weight: place lizard in plastic bag and clip bag to the
+           scale.  Keeping bag out of wind if possible, note weight in 
+           grams (subtract bag weight) and record in data book.  Very 
+           small to small juveniles can be estimated at l gram.
+ 
+       9.  Tail: record as whole (W) or broken (B).  If tail is 
+           broken and regrown, record as broken and make a note at the
+           bottom of the page.
+
+         A SAMPLE LIZARD DATA BOOK PAGE IS INCLUDED WITH THIS PROTOCOL
+
+     B. ARTHROPODS: Only selected arthropod groups are presently 
+censused in the pitfall studies, with emphasis on terrestrial scavengers,
+detritivores, granivores, and arachnid predators.  In general, the 
+following groups are excluded from the analyses: aerial insects (bees, 
+wasps [except Mutillidae], adult Neuroptera, Lepidoptera), aquatic 
+groups, foliage feeding insects (grasshoppers, walking sticks, most 
+Hemiptera and Homoptera, larvae), nesting spiders, (Latrodectus,
+Filistatidae, Pholcidae, and mites and ticks (except red velvet 
+mite).
+
+     The following groups are emphasized:     
+         Thysanura
+         Microcoryphia            
+         Orthoptera: camel crickets, field crickets, scaly crickets,
+                     sand roaches
+         Hemiptera: Reduviidae, Lygaeidae, Cydnidae, 
+         Thyreocoridae, Alydidae, Pentatomidae
+         Neuroptera: ant lion larvae
+         Coleoptera: Carabidae (+Cicindelidae), Scarabaeidae,
+                     Curculionidae, Phengodidae, Lycidae, 
+                     Elateridae, Silphidae, Meloidae, Histeridae,
+                     Cerambycidae, Ptinidae, Tenebrionidae
+         Scorpions
+         Whip scorpions
+         Millipedes
+         Centipedes
+         Red velvet mites
+         Spiders: Lycosidae, Gnaphosidae, Salticidae, Oxyopidae, 
+                  Clubionidae, Ctenidae, Loxoscelidae, 
+                  Theraphosidae
+
+      1. Releases: The following can be recorded and released
+         (unlike for lizards, pitfall number is not required):
+         tarantulas, whip scorpions, large Lycosa (T-WEST),  
+         Dasymutilla klugii  males or females.  It is hoped that
+         in the future most tenebrionids, carabids, and all large 
+         arachnids can be identified and released in the field.  
+         Note any releases in the comments section at the bottom
+         of page in data book.  Insects brought back to the field
+         from the lab and released can be noted on a slip of
+         paper (use pencil or india ink) for alcohol vials.  This
+         note explains discrepancies in the counts between data
+         books and actual specimens in vials.  ANY TIME ARTHROPODS
+         ARE RELEASED, LOST, SENT ELSEWHERE, OR PLACED IN VOUCHER              
+         COLLECTION, A NOTE SHOULD BE PLACED IN VIAL.
+             Where possible, release arthropods near but not on
+         the pitfall grid where they were captured.  Releases a
+         great distance away and in a different habitat are to be 
+         discouraged; future studies of arthropod distribution 
+         and habitat preferences may be adversely affected.
+
+      2. COLLECTIONS:  Insects captured in the pitfalls are 
+         transferred to plastic cups (with lids) of the same 
+         type used in the traps.  Each person running the 
+         pitfalls needs a cup; one of the cups should have the
+         site labelled on the lid.  Following collections at 
+         each site, consolidate the samples in the labelled cup.
+         Avoid if possible excess dirt, sand, or vegetation in 
+         the samples- these make processing more difficult.   
+         The cups are transported to and from the field in a 
+         large cardboard box, preferably one that will hold the 
+         cups upright.  During warm weather try to keep the 
+         samples out of direct sunlight.  Store the samples in 
+         the walk-in refrigerator in FH 303.  Label the box with
+         project name and name and phone # of persons to be 
+         contacted in case of problems.
+
+      3. PROCESSING: Ideally, processing of arthropod samples 
+         should be done within about two weeks of collection to 
+         avoid dried and deteriorated samples, although some 
+         groups (e.g. tenebrionids) can live for long periods.  
+         To minimize fungal problems, samples that have gotten
+         wet should be processed as soon as possible.  Live
+         insects, especially smaller ones, are much easier to 
+         find; "undersampling" will thus be reduced.
+              To separate arthropods, we presently place the 
+         samples on two stacked round sieves (Tyler or U.S. Std. 
+         type) over a white metal tray.  Sieve mesh sizes of 0.ll0 
+         in. (2.794 mm; #7 U.S. Std.) (top) and 0.0394 in. (1.0 mm;
+         # 18 U.S. Std.) (bottom) seem to work well. The larger
+         insects may be picked directly out of the top sieve
+         and the sample then sifted over the tray to separate/           
+         detect the smaller forms.  As a final step, spread the           
+         entire sample (with as little debris as possible) on the 
+         tray and carefully search for remaining small arthropods.  
+         Very small samples may be placed directly on the tray 
+         without using sieves.  Use of forceps is recommended-
+         there may be a number of venemous arthropods in the
+         sample!   After processing of a site is finished,
+         remaining material may be placed in a box and discarded
+         (soil may be poured in flower beds outside of bldg.).
+               Separated organisms are placed in 70-80% ETOH in 
+         glass vials (3 l/4" tall, l l/4" diameter black plastic  
+         screw cap with liner).  Use more than one vial if 
+         necessary to avoid overcrowding samples.  In samples 
+         with many large insects the alcohol should be drained 
+         and replaced in 2-3 months.  Label each vial with site 
+         and date using a white stick-on label on lid.  As an
+         additional safety factor, also put a site/date label
+         inside the vial, using one of the preprinted labels
+         with date written in insoluble (India) ink.  Place
+         the samples together by date on the shelf in FH-236C.
+              a. Any arthropods from the site that have been or
+                 will be released should be so noted on a piece
+                 of paper in the vial (see above).
+              b. Samples that have been long in storage and 
+                 those with much soil and vegetation should be 
+                 searched carefully several times.  Small 
+                 insects and spiders often appear after repeated 
+                 searches.  
+              c. Use of optical aids (microscope, magnifying 
+                 glass) is not recommended; none has been used 
+                 in the past and no very small microarthropods
+                 (Collembola, Diplura, etc.) are currently 
+                 being counted.  Good lighting is important.
+              d. Don't try to search too much material at once. 
+                 Samples with considerable soil may have to be
+                 processed in two or more lots.
+              e. Take great care not to confuse samples: don't have 
+                 more than one vial open at once, and don't put
+                 a vial where it can be opened by mistake.  Where 
+                 two sites have the same name but different letter
+                 (TARBUSH, RABB, etc.) be especially careful not to 
+                 mix them up.
+
+      4. IDENTIFICATION: samples in glass vials may be poured 
+         into a glass dish (large petri dishes work well).  A
+         microscope will be necessary for smaller species.
+         Identifications and counts are recorded in the Jornada 
+         LTER II Arthropod Data Book.  Each species (identified 
+         as far as possible) is given a unique 8-letter 
+         identification code, consisting of the first two 
+         letters of the order, family, genus, and species names.
+         For example, the tenebrionid beetle Eleodes gracilis 
+         is coded COTEELGR.  In case of duplicate codes, change 
+         one species name (perhaps using first and third 
+         letters) and use this code consistently from then on.
+         Alter family names within an order in a similar manner.
+               In event of partial identifications, code as 
+         follows:  identify and code the species to the lowest 
+         category possible.  When an unknown level is reached,
+         use numbers (0l, 02, l0, etc.) instead of letters to
+         code for that and all following categories.
+             Examples:
+                 If one has an unknown genus (and species) of 
+         carabid beetle, the code for the first such unknown is
+         COCA0l01 (put lines through zeroes to distinguish from 
+         the letter "O".  
+                 The next carabid of unknown (but different) 
+         genus will code COCA0201.
+                 If you find another carabid which obviously 
+         belongs in genus 01, it is coded COCA0102.
+                 The first beetle identifiable only to order 
+         will be coded with three numbers: CO010101.  The 25th 
+         beetle that appears to be in an unknown (but distinct) 
+         family will be CO250101.  The implication is that all 25 
+         beetles are in different families, which may or may not 
+         be true (but see below).
+                 The second beetle that appears to be in the 2nd 
+         (recognizable but un-named) family, but in a different
+         genus, codes CO020201.  The next beetle of family 2 
+         genus 2 but of an apparently different species would 
+         code CO020202.
+                 Use of the code system is a useful bookeeping 
+         process which can preclude the need to immediately know 
+         all arthropods to the species level in order to keep them 
+         separate for counting purposes.  There will be an 
+         amount of uncertainty in some cases but these are the
+         minority and can be resolved through further 
+         identification (see CURATION below).  If in doubt, give
+         each specimen its own family, genus, and species number.
+                Obviously, once a number code is used numbers should 
+         continue in lower categories.  A code such as CO02CA01
+         implies that while the genus is known, the family is 
+         not, a rare situation (the family could be simply looked 
+         up in a checklist or other reference).
+                Keep an updated list of species codes on a special 
+         form kept in a binder on the shelf in 236C.  Species 
+         codes are listed by family for the large groups and by 
+         order for the smaller ones.  The list allows one to note 
+         at a glance which codes have been already used and 
+         permits identification of unfamiliar codes quickly. 
+         Correctly cite the author name for each species- the
+         author is part of the scientific name.
+
+      5. RECORDING DATA:
+              a. Record the species codes and counts for each in 
+                 the data book, listing any problems, 
+                 provisional identifications, etc. at the 
+                 bottom of the page.                     
+              b. If the specimen is a larva, make a note
+                 either to the right side of the line or
+                 at bottom of page.
+              c. If the specimen is rare or unique, note the
+                 record at the bottom of the page.  This will
+                 facilitate finding the record quickly.
+              d. As of this writing (2/93) Orthoptera and 
+                 Arachnida are not being identified to species
+                 but are separated into labelled vials to be sent
+                 to Dave Lightfoot (UNM) (Orthop.) and Dave 
+                 Richman (NMSU) (Arach.) for inspection.
+                 Addresses: Lightfoot- Dept. Biology, UNM,
+                 Albuquerque, NM 87131, l-277-8949.  Richman-
+                 Box 3BE, Dept. Entomol. and Plant Path., 
+                 NMSU, Las Cruces, NM 8800l, 646-3542.  
+                 However, Orthoptera and Arachnids are being
+                 counted, with identification to genus
+                 possible for the Orthoptera.  
+              e. Although precise identifications (even to
+                 family) are not possible at present for
+                 most spiders, scorpions, and sun spiders,
+                 keep an official count of these groups in
+                 the data book for purposes of the data set.
+                 A few spiders (e.g. tarantulas) can be separated
+                 but the genus/species names of our tarantula(s) 
+                 are presently uncertain. 
+              f. Unless the sample is extremely small, with few 
+                 or no arachnids and Orthoptera, keep a separate
+                 page for each site in the data book.  As these
+                 two groups are identified, new names will be 
+                 added to the page for each site.  It is anticipated
+                 that should numerous arachnids be identified,
+                 room in the present data books will be 
+                 insufficient.  There are several new data books
+                 available in the LTER office for use in cataloging
+                 Arachnida in such an event.
+              g. When finished with the sample, return the specimens 
+                 to the proper vial and replace the alcohol.
+              
+        A SAMPLE ARTHROPOD DATA PAGE IS INCLUDED WITH THIS PROTOCOL
+ 
+      6.  CURATION:  A synoptic collection of pinned voucher 
+          specimens is being kept in FH 236C.  One or two 
+          specimens of each unknown should be placed there.
+          Camel crickets and Arachnida require alcohol 
+          preservation and this collection is also in FH 236C.
+          At present (2/93) the alcohol voucher collection
+          is in its formative stages and is incomplete (largely
+          because of lack of identfied material).
+              a. For each new voucher specimen, put the 
+                 identification code (pink card) and site/date label   
+                 white card) on the pin.  ALWAYS LABEL SPECIMENS.
+                 Pre-printed labels for the pitfall sites are now
+                 available (in 236C).
+              b. Store vouchers in unit trays in green cabinet,
+                 grouping by order, family, etc.  Don't crowd 
+                 specimens in unit trays as breakage will
+                 result, and specimens will be difficult to
+                 remove for identification.
+              c. Any specimens not returned to the vial (for 
+                 vouchers, sent to museums, etc.) must be noted on a 
+                 slip of paper, which is placed in vial.  Avoid 
+                 sending rare or unique specimens off as 
+                 donations.  If specimens are later returned
+                 to the vial, be sure to update the note
+              d. Unknowns in any category should be sent to 
+                 specialists (if one is available) for 
+                 identification.  If possible, try not to send
+                 uniques away but this cannot be avoided at 
+                 times.  ALWAYS send labels pinned with the                    
+                 specimen- label data may aid identifications.
+                 Most dates, because of consolidation of
+                 samples, will be month/year only, but 
+                 collection dates (two or four dates) are
+                 listed in lizard data book for reference.
+              e. Shipping protocol for insect specimens:
+                 Pin the specimens into a sturdy entomological        
+                 shipping box (Mason box or Schmitt box) having a            
+                 polyethylene foam bottom.  Place pins closely on 
+                 the sides of large  specimens so they will not
+                 come loose or swivel.  Place the box in a larger                              
+                 mailing carton with plenty of foam packing to 
+                 keep smaller box from jarring.  Put an 
+                 additional shipping label inside the box
+                 (preferably on the lid of the pinning container).
+                      Conspicuously label the carton "fragile"
+                 and be sure to send the recipient a separate
+                 cover letter (never enclose this with specimens).
+                      If the specimens are in alcohol, top off the
+                 the vials to avoid air bubbles, tape the vial
+                 lids, and carefully pack in a separate box
+                 with cotton. 
+                      If you can supply additional geographic and 
+                 ecological data, identifications may be 
+                 facilitated. Attempt to send the specialist 
+                 several examples of each unknown, if such are 
+                 available and can be recognized.  Sometimes what 
+                 is sent as one species may be several species (or 
+                 genera!). The identifier is welcome to duplicates 
+                 (perhaps additional duplicates can be sent) but 
+                 again try to avoid losing unique voucher 
+                 specimens. In some groups (such as small 
+                 tenebrionidae) even identified  material may not 
+                 be of much help in identifying similar specimens.  
+                 For the analyses these may have to be lumped.
+              f. Eventually, the voucher collection should be 
+                 labelled with the pre-printed labels.  The
+                 collection should then be placed in or donated to  
+                 an entomological museum (probably the Entomology 
+                 Dept. at NMSU).
+
+  III.  CLOSING PITFALLS: on the last day of collections, close
+        the pitfalls by lowering the tiles to the ground 
+        surface and covering the pitfall as well as possible, and 
+        then packing soil or sand tightly around the edges and
+        top of the tile.  Soil on top may discourage coyotes and 
+        help assure tight closure.  A shovel or trowel is useful 
+        in closing the traps.  Be sure to place a stone atop the  
+        tile or it may be difficult to find the trap again.
+        Sloppily closed pitfalls will be deathtraps for any 
+        organisms getting in, so take time to seal them.
+
+  IV.   GENERAL PROBLEMS
+             l. Poor drainage (or flooding) is a problem in
+                several areas, especially tarbush and BASN. 
+                If traps and cups are flooded, pour the cup 
+                onto a flat surface and try to recover as many 
+                organisms as possible (note in book any not 
+                kept).  Using the cup, bail as much water out of
+                the trap as possible.
+             2. Broken tiles: this has been a problem at the 
+                RABB sites which are open to grazing.  Tiles
+                from the LTER I transect have been used as 
+                replacements.  An extra tile is usually kept with
+                the pitfall box and a box of tiles has
+                been kept in the annex.
+             3. Broken funnels: plastic funnels eventually
+                begin to crack and must be replaced.  If broken
+                funnels are noticed make a note for immediate     
+                replacement.  Some funnels are available in the
+                FH236 lab.
+             4. Natural toe loss in lizards may affect the toe 
+                marking system.  If new captures have lost toes
+                (usually only one foot will be affected), try
+                to incorporate the digit into the marking scheme.
+                Toe losses in marked recaptures may be told by 
+                reference to the marking lists and should be 
+                noted in the data book.
+             5. Escapees: large, active lizards are easily
+                capable of escaping from one's grip and 
+                occasionally from untended traps with the tile
+                off.  Beware of lizards running up your arm as
+                you attempt to pull them from traps- a quick grab
+                is safer than "slow fishing."  If a lizard 
+                escapes, note as much information as you can 
+                about it and then write "escaped" across the rest 
+                of the row.

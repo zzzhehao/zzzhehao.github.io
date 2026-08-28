@@ -1,0 +1,802 @@
+File: LIZRDPIT.HIS     Last update: 06/23/2005     By: John P. Anderson
+
+HISTORY LOG
+
+Data set: Lizard pitfall trap data (LTER-II, LTER-III)
+Project:  Consumer Pitfall Traps (LTER-II)
+          Lizard Pitfall Traps (LTER-III)
+
+Updates:
+   01/27/1998   John P. Anderson
+   01/26/1998   Stephanie Richmond
+   01/23/1998   John P. Anderson
+   07/31/2003   All zero values (0) changed to "." as per Dave Lightfoot.
+
+Variable Descriptions:
+DATE - MM/DD/YY (MM = month,  DD = Day, YY = Year)
+ZONE - Vegetation zone (C = Creosotebush, G = Grassland,
+                        M = Mesquite dune, T = Tarbush)
+SITE - Site location (GRAV, SAND, CALI, EAST, WEST, RABB, WELL, IBPE,
+                      BASN)
+PLOT - Plot A, B, C, D
+PIT  - Pit number (1 -16)
+SPP  - Species code (4 letter acronym)
+COMMENT - Comments from field data books
+
+         Z      P
+         O      L
+         N      O
+DATE     Z SITE P   PIT SPP   COMMENT
+-------- - ---- -   --- ----  ---------------------------------------------
+06/16/89 C CALI A    07 PEFL  PEFL - SILKY POCKET MOUSE
+06/20/89 C CALI A    02 UTST  HATCHLING
+06/20/89 G BASN B    01 CNTI  DEAD
+06/27/89 G IBPE C    15 UTST  DYING
+06/27/89 M RABB C    15 UTST  DEAD
+07/18/89 C GRAV D    01 UTST  DROWN
+07/18/89 C SAND C    15 UTST  DROPPED EGGS
+07/18/89 G IBPE C    12 UTST  DEAD
+07/18/89 G IBPE C    04 UTST  DEAD
+07/18/89 G IBPE A    12 UTST  ESCAPED
+07/18/89 C GRAV               MOST PITS FLOODED, .85 IN. IN RAIN
+                              GUAGE, 12 FLOODED
+07/18/89 C CALI               A FEW PITS FLOODED
+07/18/89 T EAST B    11 UTST  DROWN
+07/18/89 T EAST               12 PITS FLOODED
+07/18/89 T WEST               8 PITS FLOODED
+07/18/89 M WELL               11.5 MM IN RAIN GUAGE
+07/21/89 C GRAV               1.25 IN. RAIN IN RAIN GAUGE, 13 OF 16
+                              PITS FLOODED
+07/21/89 C CALI               10 PITS FLOODED
+07/21/89 T EAST               9 PITS FLOODED
+07/21/89 T WEST               6 PITS FLOODED
+07/28/89 C SAND B    12 UTST  DEAD
+07/28/89 C GRAV               NEEDS 1 JAR 1 CAN
+07/28/89 M RABB C    10 UTST  UTST 244 ALREADY MARKED AS #4
+08/22/89 C GRAV D    12 UTST  DROWN, DEAD
+08/22/89 C CALI A    15 CNTI  DROWN, DEAD
+08/22/89 G IBPE A    10 UTST  DROWN, DEAD
+08/22/89 G IBPE A    08 UTST  #5 TOE WAS CLIPPED, 200 MAY HAVE BEEN
+                              CLIPPED (WAS RECLIPPED AS 255) ORANGE
+                              MARK = 99 (SEE PAPER)
+08/22/89 M WELL B             16 MM RAIN GAUGE
+08/22/89 C GRAV               12 OF 16 PITS FLOODED
+08/22/89 C CALI               6 OF 16 PITS FLOODED
+08/22/89 T EAST               13 OF 16 PITS FLOODED
+08/22/89 T WEST               14 OF 16 PITS FLOODED
+08/25/89 M WELL B    07 NONE  BLACK HEN SNAKE?
+09/01/89 C GRAV D    02 UTST  DEAD, DROWN
+09/01/89 C SAND B    16 UTST  3 FL
+09/01/89 G BASN B    00 NONE  8 FL
+09/01/89 T WEST A    00 NONE  SCAPHIOPUS
+09/01/89 M WELL               PRECIPITATION 21 MIN.
+09/01/89 T WEST               10 FLOODED
+09/01/89 T EAST               14 FLOODED
+09/01/89 M WEST               9 FLOODED
+09/01/89 G IBPE               3 FLOODED
+09/27/89 G IBPE C    01 UTST  DEAD
+10/05/89 T EAST B    03 UTST  DEAD
+10/05/89 T EAST B    04 UTST  RECAPTURED 433, RENUMBERED TO 1433
+                              BECAUSE ANOTHER 433 HAD BEEN TOE CLIPPED
+10/05/89 G BASN B    00 NONE  GLB
+10/05/89 G IBPE A    10 UTST  DEAD
+10/05/89 G IBPE A    11 UTST  DEAD
+10/05/89 M WELL B    08 UTST  #515 TAIL BROKEN IN PITFALL, TOTAL
+                              LENGTH (96) INCLUDES TAIL BROKEN OFF
+                              IN JAR
+10/05/89 M WELL B    16 UTST  (3,4)01   3 & 4 HUNDRED TOES BOTH CUT
+                              ORANGE MARK = 99 (SEE PAPER)
+10/05/89 M WELL B    16 UTST  DEAD
+10/05/89 M RABB A    04 UTST  50(2,3,4)  500 CUT, NO 10'S, 2,3,4 IN IS
+                              CUT, ORANGE MARK = 99 (SEE PAPER)
+11/08/89 G IBPE C    06 UTST  PREVIOUSLY #4 TOE MISSING, ORANGE MARK
+                              = 99 (SEE PAPER)
+11/08/89 M WELL B    09 UTST  2 TOES CLIPPED, ORANGE MARK = 99
+                              (SEE PAPER)
+11/08/89 M RABB A    10 UTST  PREVIOUS CLIPPED TOE WAS 244 NOW 1244,
+                              ORANGE MARK = 99 (SEE PAPER)
+11/15/89 G IBPE C    12 UTST  TOE #3 ALSO MISSING, ORANGE MARK = 99
+                              (SEE PAPER)
+11/15/89 M WELL B    06 UTST  1000 TOE CUT?  ORANGE MARK = 99
+                              (SEE PAPER)
+11/15/89 M RABB C    04 UTST  DEAD
+11/15/89 M RABB A    08 UTST  DEAD
+03/24/90 T EAST B    03 UTST  # 30 TOE MISSING
+03/24/90 G IBPE A    03 CNIN  BROKEN MIDLINE
+03/24/90 G IBPE C    03 UTST  (500) (400) BOTH CUT OFF
+03/24/90 C GRAV D    07 UTST  3000 TOE MISSING
+04/20/90 G IBPE A    06 UTST  #3 TOE MISSING
+04/27/90 T WEST A    00 NONE  4 LARGE LYCOSA RELEASED
+04/27/90 C CALI A    08 UTST  #4000 TOE WAS MISSING
+04/27/90 C CALI A    13 CNTI  SMALL ESCAPED
+04/27/90 C GRAV D    13 CNIN  ESCAPED
+05/21/90 T EAST B    08 CNTI  ONLY 4 TOES ON FRONT FOOT - NO APPARENT
+                              SCARS
+05/21/90 M WELL C    14 UTST  ESCAPED
+05/24/90 M WELL B    05 UTST  ESCAPED
+05/24/90 C GRAV               #13 FUNNEL BROKEN
+05/28/90 T EAST B    13 UTST  #20
+06/19/90 M RABB C    10 CNTI  #30 & 40 TOES WERE CUT OFF BY MISTAKE
+06/19/90 C SAND C    09 PHMO  PHMO NOT ON SPECIES CODE LIST NEED TO ADD
+06/22/90 T WEST A    03 PHCO  ESCAPED
+06/22/90 M WELL B    13 UTST  ESCAPED
+06/22/90 C SAND B    01 UTST  ESCAPED
+06/22/90 C CALI A    11 CRCO  ESCAPED
+06/26/90 T EAST B    16 CNTI  ESCAPED
+06/26/90 G BASN B    14 HOMA  TARANTULA
+06/26/90 G BASN B    05 CNIN  DEAD
+06/26/90 T EAST B    11 CNTI  ESCAPED
+06/29/90 G BASN B    13 CNTI  ESCAPED
+07/17/90 C CALI A    01 COTE  ESCAPED
+07/27/90 T EAST B    12 UTST  DEAD IN PITFALL
+07/27/90 M RABB C    03 UTST  DEAD IN PITFALL
+08/17/90 M RABB C    08 UTST  DEAD, EATEN BY SOLPUGID
+08/21/90 T EAST B    15 CNTI  BROKEN TAIL IS ACTUALLY 110
+08/21/90 C CALI A    02 UTST  ESCAPED
+08/21/90 M RABB A    15 CNIN  ESCAPED
+09/11/90 T EAST B    13 UTST  DEAD
+09/11/90 T EAST B    12 UTST  DEAD
+09/11/90 T EAST B    06 UTST  DEAD
+09/11/90 T EAST B    05 UTST  DEAD
+09/21/90 T EAST      11       IMMATURE LONGNOSE
+09/21/90 T EAST B    12 UTST  100 TOE HAD BEEN PREVIOUSLY CUT, AND
+                              1000 TOE WAS CUT
+09/21/90 T WEST A    11 UTST  3 AND 4 TOE ARE CUT OFF
+09/21/90 M RABB C    02 UTST  DEAD AND PARTIALLY EATEN
+10/23/90 C SAND C    11 UTST  LYCOSA CAROLINUS ON HALF EATEN UTST
+10/23/90 T EAST B    09 UTST  ALL TOES ON LEFT FRONT FOOT MISSING
+10/30/90 M RABB A    13 UTST  FEMALE UTST RECAPTURE, ORIGINALLY 420
+12/04/90 T WEST A    14 UTST  LARGE
+12/04/90 T EAST B    03 UTST  LARGE
+12/04/90 M RABB C    09 UTST  DEAD
+01/18/91 M RABB C             THREE TILES KNOCKED OFF (COYOTES?)
+03/04/91 T WEST B    09 UTST  #3 & #4 TOES MISSING
+04/12/91 C CALI A    11 COTE  ZEBRA TAIL, GREEN TINGE SIDE OF BODY.
+                              LARGE HEAD, TWO ROWS OF BROWN SPOTS WITH
+                              WHITE TINGE ON BACK.
+04/12/91 G IBPE C    16 UTST  400 TOE DAMAGED (UTST ENTRY NOT FOUND IN
+                              FIELD DATA BOOK.  MJ)
+04/19/91 M RABB A    13 SCUN  #200; 200 TOE NATURALLY MISSING AT BASE
+04/19/91 M WELL B    10 UTST  DEAD
+04/19/91 G IBPE A     8 CNIN  ESCAPED
+04/19/91 C CALI A    14 CNTI  ESCAPED
+04/19/91 C GRAV D     1 CNTI  ESCAPED
+05/28/91 C GRAV C    12 CNIN  DEAD, KILLED BY SCLOEPENDRA IN TRAP
+05/31/91 M RABB A     6 UTST  ESCAPED
+06/18/91 T EAST B    02 UTST  ESCAPED
+06/18/91 T EAST B    03 CNTI  NOT CLIPPED, TOE MISSING
+06/18/91 M WELL B    16 CNIN  TAIL BROKEN IN CAPTURE
+06/21/91 M RABB C    08 UTST  SHOULD BE 1535, AS 1534 IS USED ABOVE
+06/25/91 C CALI A    11 COTE  ESCAPED
+06/28/91 M RABB C    14 EUOB  WAS A 5, IS NOW A 15
+07/09/91 M RABB C    12 SCUN  DEAD IN TRAP
+07/09/91 C GRAV D       PHMO  PHMO FOUND AFTER SAMPLES CONSOLIDATED
+                              PIT # NOT KNOWN
+07/11/91 T EAST B    08 PHMO  DEAD IN PIT
+07/16/91 T EAST B    06 UTST  DEAD
+07/16/91 T EAST B    03 UTST  DEAD
+07/16/91 C CALI A    06 COTE  ORIGINAL # WAS 51, 20 TOE GOT CLIPPED
+                              ACCIDENTLY
+07/16/91 T WEST               ENTIRELY FLOODED, FEW INSECTS RECOVERED
+07/16/91 T EAST               PITS FLOODED
+07/19/91 T EAST      12 CNTE  DEAD IN TRAP
+07/19/91 C GRAV D    02 CNIN  ESCAPED
+08/13/91 G IBPE A    02 UTST  TAIL REGROWN
+08/13/91 M RABB C    15       LARGE TOAD IN PIT
+08/20/91 T EAST B    08 CNTE  DEAD IN PITFALL
+08/20/91 T EAST               1 MILLIPEDE DEAD
+08/20/91 M RABB C             1 CAMEL CRICKET ESCAPED
+08/23/91 C CALI A    04 COTE  DEAD
+08/23/91 G IBPE A    03 CNIN  TAIL BROKE. CNIN TOE MARK 31 WAS USED IN
+                              ERROR FOR IBPE A; # HAD ALREADY BEEN USED
+                              FOR A MALE CNIN OF SIMILAR SIZE ON 6/18/91
+                              AT IBPE C (TAIL WAS WHOLE AT THAT TIME).
+11/07/91 M RABB A    09 UTST  POSSIBLY 123
+11/07/91 M RABB C    08 UTST  DEAD
+03/11/92 T EAST B    04 UTST  #2152, #2 TOE ALREADY MISSING
+03/17/92 T WEST A    01 SCUN  200 TOE CLIPPED BY MISTAKE
+06/16/92 G BASN B    14 HOMA  HOMA IS SHEDDING
+06/16/92 M RABB A             HAD 5 BROKEN TILES FROM COW DAMAGE. WATER
+                              IN THOSE PITS WITH DROWNED UTST, CNTI,
+                              CNIN? LARGE CNTI BIT MY FINGER.
+06/19/92 T WEST A    12 CNTI  ESCAPED
+06/23/92 T EAST B    09       DEAD LIZARD IN #9
+06/26/92 M RABB B    03 UTST  TAIL REGROWN, FORGOT TO MEASURE
+06/26/92 G IBPE C    10 UTST  ESCAPED
+06/26/92 C SAND B    12 CNIN  TAIL REGROWN
+06/26/92 C GRAV D    15 HOMA  ESCAPED
+08/11/92 T EAST B    03 CNIN  ESCAPED
+08/11/92 M RABB C    15 UTST  DEAD IN TRAP
+08/11/92 M RABB A    16 UTST  ESCAPED
+08/14/92 C GRAV D    01 CNIN  ESCAPED
+08/18/92 T EAST B    15 UTST  ESCAPED
+11/13/92 T EAST B    05 UTST  TAIL WHOLE, BUT BROKEN AND REGROWN
+11/13/92 M WELL B    07 UTST  TAIL WHOLE, BUT BROKEN AND REGROWN
+03/19/93 T EAST B    04 UTST  DID NOT TOE MARK, TOO SMALL
+03/19/93 C SAND B    01 UTST  TAIL BROKEN BUT FULL LENGTH
+06/08/93 T EAST B    02 UTST  U. STANSBURIANA 20&30 TOES NATURALLY LOST
+06/08/93 T EAST B    03 CNTE  CNTE #24 IS A DUPLICATE. TOE MARK SHOULD
+                              BEGIN WITH #41 FOR THAT SPECIES
+06/11/93 M RABB A    12 HOMA  #5 TOE TIP MISSING
+06/11/93 M RABB A    15 CNNE  #500 TOE TIP MISSING
+06/11/93 C SAND B    01 CNIN  ESCAPED
+06/15/93 G IBPE A    03 CN??  CNEMIDOPHORUS SP. EATEN BY ANTS
+06/18/93 M RABB C    07 HOMA  DEAD
+06/18/93 G IBPE A    05 CNIN  ESCAPED
+06/18/93 C SAND A    02 UTST  ESCAPED
+08/17/93 G IBPE C    06 CNTI  MORTALLY INJURED BY SOLIFUGID
+08/17/93 C SAND B    03 UTST  ESCAPED
+08/17/93 T EAST B    02 UTST  JUV., NOT MARKED
+08/17/93 M RABB A    14 CNTE  JUV., NOT MARKED
+08/17/93 M RABB A    14 UTST  JUV., NOT MARKED
+08/17/93 M WELL B    01 UTST  JUV., NOT MARKED
+08/17/93 G IBPE A    04 UTST  JUV., NOT MARKED
+08/17/93 G IBPE C    11 UTST  JUV., NOT MARKED
+08/17/93 G IBPE C    06 CNTI  JUV., NOT MARKED
+08/17/93 C SAND B    03 UTST  ESCAPED
+08/17/93 C CALI A    15 UTST  2200 + 300 TOE
+08/17/93 C CALI A    11 COTE  JUV., NOT TOE CLIP
+08/17/93 C GRAV D    10 UTST  JUV., NOT CLIPPED
+08/20/93 M WELL B    12 UTST  JUV., NOT CLIPPED
+08/24/93 M WELL B    15 CNIN  #25 USED BECAUSE ORIGINALLY NAMED AS CNNE
+08/24/93 M RABB A    14 UTST  2300 + 2&3 TOES
+08/24/93 G IBPE C    16 UTST  JUV., NOT MARKED
+08/24/93 C CALI A    06 UTST  JUV., NOT MARKED
+08/24/93 C GRAV D    10 UTST  JUV., NOT MARKED
+08/24/93                      +-JUV., NOT TOE CLIPPED
+08/27/93 M RABB A    12 UTST  NOT MARKED
+08/27/93 G IBPE A    13 SCUN  NOT MARKED
+08/27/93 C GRAV D    11 UTST  ESCAPED, VERY SMALL
+11/05/93 T EAST B    11 UTST  ESCAPED, LEFT HIND TOE MISSING (5000 TOE)
+11/05/93 G IBPE C    03 UTST  FINGERS 2&3 MISSING LEFT FRONT HAND
+                              2330 IS MARKED
+11/05/93 C SAND B    10 UTST  DEAD
+11/05/93 C SAND B    04 UTST  TAIL REGROWN
+11/05/93 C SAND B    13 UTST  50 TOE MISSING
+11/05/93 C CALI A    15 UTST  JUV., NOT CLIPPED
+11/12/93 G IBPE C    13 UTST  "2356" UTST WITH TWO OUTER TOES ON UPPER
+                              LEFT FOOT CUT.
+03/11/94 G IBPE C    09 UTST  ESCAPED, TAIL BROKEN
+03/11/94 C SAND B    11 UTST  FINGER 50 NATURALLY MISSING, SO MADE 2450
+03/11/94 M RABB C     0 NONE  PIT BROKEN
+03/11/94 M RABB A    10 NONE  COVERED BY CATTLE AND COULD NOT BE FOUND
+05/31/94 C GRAV D    05 CNUN  ESCAPED
+06/03/94 T EAST B    10 UTST  DEAD IN TRAP
+06/07/94 G BASN B    01 CNIN  NO HEAD, DEAD
+06/07/94 G BASN B    01 CNIN  DEAD
+06/07/94 T WEST A    00 NONE  4 TRAPS FLOODED
+06/07/94 T EAST               11 TRAPS FLOODED
+06/07/94 G BASN               3 TRAPS FLOODED
+06/10/94 C GRAV D    05 UTST  TAIL BROKE AFTER MEASURING
+06/16/94 M WELL B    07 UTST  DEAD
+06/16/94 M RABB A             1 DEAD JUV. LIZARD (UTA OR SCELOPORUS)
+08/19/94 M RABB A    07       COULDN'T FIND, SO DIDN'T OPEN
+08/19/94 C GRAV D             1 CNEMIDOPHORUS SP. ESCAPED OUT OF PIT
+08/23/94 M RABB A    09 UTST  CHECK FOR RULER
+08/23/94 C CALI A    03 CNUN  ESCAPED, CNEMIDOPHORUS UNIPARCUS
+08/23/94 C GRAV D    07 UTST  FROM DORSAL VIEW, MISSING LEFT FOOT.
+                              DIDN'T WANT TO CLIP ANY MORE
+11/04/94 M WELL B    11 UTST  DEAD
+11/04/94 M WELL B    11       2 UTST KILLED BY ANTS - CLOSED PIT
+11/04/94 M RABB A    10       NOT OPEN
+11/04/94 C CALI A    04 UTST  300 TOE ALREADY BROKEN OFF
+11/11/94 T WEST A    16 UTST  TAIL BROKEN DURING PROCESSING
+11/11/94 M RABB C    10 SCUN  SCUN= EASTERN FENCE LIZARD
+11/11/94 M WELL B    12 UTST  TAIL BROKEN DURING PROCESSING
+06/02/95 M NORT C    13 CNTI  ESCAPED
+06/02/95 C GRAV D    15 PHMO  SEX CODE ENTERED AS U, CHANGED TO -.
+                              IBPE # 14 NOT OPENED DUE TO ANT
+                              INFESTATION SUMM #4.
+06/06/95 G IBPE C    16 CNIN  APPEARED GRAVID AND VERY DEHYDRATED
+06/06/95 C CALI A    16 UTST  TAIL BROKEN OFF DURING CAPTURE
+06/09/95 T WEST A     5 CNIN  ESCAPED
+06/09/95 M WELL B     4 UTST  GRAVID
+06/09/95 C SAND B     4 CNUN  VERY DISTINCT STRIPES ON BACK, ESCAPED
+06/12/95 T EAST B     3 SCUN  GRAVID
+06/12/95 T EAST B    10 UTST  GRAVID
+06/12/95 T EAST B    13 SCUN  GRAVID
+06/12/95 M NORT C     1 CNTI  ESCAPED
+08/08/95 T WEST A    12 UTST  TAIL KINKED
+08/08/95 M RABB A    15 UTST  ESCAPED
+08/08/95 G IBPE C    13 UTST  SHEDDING
+08/08/95 G BASN B     8 UTST  G BASN # 10 NOT OPENED DUE TO ANTS
+08/08/95 G SUMM A     0 NONE  G SUMM NOT OPENED DUE TO ANTS
+08/11/95 T EAST B     3 UTST  ESCAPED
+08/11/95 M WELL B     8 UTST  KINK
+08/11/95 G IBPE C     5 CNIN  ESCAPED
+08/11/95 G IBPE C     3 CNIN  DEAD TOE MARK
+08/15/95 T WEST A     9 UTST  TOE MARK DROWNED, WT. WATER LOGGED
+08/15/95 T EAST B    12 UTST  DEAD
+08/15/95 T EAST B     5 UTST  DROWNED
+08/15/95 G BASN B    11 UTST  DESSICATED
+08/15/95 G BASN B    11 CNIN  DROWNED AND COVERED WITH ANTS
+08/18/95 M WELL B    16 UTST  SHEDDING
+11/20/95 T EAST B     4 UTST  Tail whole with injury
+11/20/95 M WELL B     2 UTST  Old toe mark has #2 smeared
+11/20/95 G IBPE C     4 UTST  TAIL REGROWN
+11/20/95 G IBPE C     4 UTST  TAIL REGROWN
+11/20/95 G IBPE C     2 UTST  TAIL REGROWN
+11/20/95 C CALI A    11 UTST  SEX RECORDED AS BOTH FEMALE AND JUVENILE
+11/28/95 T WEST A    12 UTST  TAIL REGROWN
+11/28/95 T EAST B    16 UTST  TAIL REGROWN
+11/28/95 M WELL B     7 UTST  EATEN (BY ANTS?) IN TRAP
+11/28/95 G IBPE C     3 UTST  TAIL REGROWN
+11/28/95 G BASN C     9 UTST  TAIL REGROWN
+03/08/96 G IBPE C     1 UTST  WEIGHT WAS RECORDED AS 1.5 GRAMS
+03/08/96 M NORT C     1 UTST  M NORT C: PITS 2,3 FULL OF SAND
+                              M NORT C: PITS 5,6,14 ON DUNE UNDER
+                                        CANOPY
+                              M NORT C: PITS 1,12,13 HALF FULL OF SAND
+03/08/96 G BASN B     - NONE  G BASN B: #16 NEED NEW FUNNEL
+03/15/96 T EAST B    14 UTST  TAIL REGROWN
+                              WILL GO AHEAD AND MARK ON LAST DAY SINCE
+                              THERE WAS A RECAPTURE LAST WEEK OF A
+                              NOV. LIZARD (DIDN'T THINK OF IT IN TIME
+                              FOR FIRST 2)
+03/15/96 M NORT C    12 UTST  M-NORT- ALL BUT 1,4,5,11 3/4 FULL OF SAND
+03/15/96 M WELL B     4 UTST  TAIL REGROWN
+03/15/96 G IBPE C     4 UTST  TAIL REGROWN
+03/15/96 G IBPE C     3 UTST  TAIL REGROWN
+03/15/96 G IBPE C    11 UTST  TAIL REGROWN
+03/15/96 G IBPE C    11 UTST  TAIL REGROWN
+03/15/96 C SAND B     1 UTST  TAIL REGROWN
+03/15/96 C SAND B     1 UTST  PREVIOUSLY CALLED FEMALE- DEFINATELY A
+                              MALE; TAIL REGROWN
+03/15/96 C SAND B     9 UTST  TAIL REGROWN
+03/15/96 G SUMM A    12 CNIN  TAIL REGROWN
+03/15/96 C CALI A     1 COTE  TAIL REGROWN
+06/04/96 T WEST A     7 CNIN  TAIL REGROWN
+06/04/96 G IBPE C    16 CNIN  TAIL REGROWN
+06/07/96 M WELL B     1 UTST  TAIL REGROWN
+06/07/96 M NORT C    12 UTST  TAIL REGROWN
+06/11/96 T WEST A    11 CNIN  TAIL REGROWN
+06/14/96 M WELL B    10 UTST  TAIL REGROWN
+02/06/96 G BASN B     9 NONE  escaped from pit, either tigris or tesselatus
+02/06/96 T EAST B    15 UTST  gravid?
+02/06/96 T WEST A     5 HOMA  probably male
+08/09/96 M NORT C     8 UTST  regrown tail
+08/13/96 G BASN B     8 BUDE  bufo. bebilis  dried out and dead
+08/13/96 G BASN B    15 BUDE  bufo. debilis  dried out and dead
+08/13/96 G IBPE C     1 UTST  escaped from cup.
+08/13/96 M WELL B    12 UTST  regrowing
+08/13/96 T WEST A    16 BUDE  bufo. debilis   dried out and dead.
+08/16/96 G SUMM A    12 CNUN  species code is "crat".
+                              baby diamond back, 15-20 cm in length
+                              (never fully extended)
+11/15/96 C CALI A     2 UTST  utst  #6 was shedding at time of capture.
+03/14/97 C CALI A    10 UTST  Tail broken before capture, second break
+                              occurred during capture.
+03/14/97 C CALI A    11 COTE  Lizard is shedding
+03/14/97 G SUMM A     0 NONE  Pitfall #15 at C-CALI was full of ants
+                              so it was not used either week.
+03/21/97 M WELL B    11 UTST  Forgot to check tail.
+06/09/97 T WEST A    15 CNIN  Starting to shed
+06/09/97 T EAST B     6 UTST  Starting to shed
+06/09/97 G BASN B     4 CNIN  Dead in trap, gardex questionable. Trap
+06/09/97 G BASN B     4 CNIN  #13 at GBASN closed on 6/9 for ants
+06/09/97 G BASN B     1 CNIN  Dead in trap, gardex questionable.
+06/09/97 G BASN B    12 CNIN  Dead in trap, gardex questionable.
+06/09/97 G BASN B     2 CNIN  Trap #4 at T-EAST was closed from 6/5-6/9
+06/09/97 G BASN B     2 CNIN  due to ants- reopened 6/9. Trap #6 at M-
+06/09/97 G BASN B     2 CNIN  NORT was closed from 6/5-6/9 due to ants-
+06/09/97 G BASN B     2 CNIN  reopened 6/9. Trap #10 at M-WELL closed
+06/09/97 G BASN B     2 CNIN  on 6/9 due to standing water in can-
+06/09/97 G BASN B     2 CNIN  no holes in can. #15 and 16 at GIBPE
+06/09/97 G BASN B     2 CNIN  closed due to ants 6/5-6/9- reopened 6/9.
+06/09/97 G BASN B    16 CNIN  Trap #13 at G-BASN closed 6/9 due to ants
+06/09/97 C CALI A    16 COTE  Trap #4 and 9 opened 6/9 at C-CALI
+06/09/97 G SUMM A     5 CNUN  Escaped
+06/09/97 C SAND B     5 CNTI  Escaped
+06/09/97 C SAND B    13 CNTI  Shedding
+06/09/97 C GRAV D     0 NONE  Trap #2 at C-GRAV closed due to ants 6/5.
+06/12/97 T WEST A     0 NONE  Trap #12 at T-WEST closed for ants-
+06/12/97 T WEST A     0 NONE  opened 6/16/97.
+06/12/97 M NORT C     3 UTST  Trap #6 at M-NORT opened 6/16; #2 + 10
+                              at M-WELL closed for ants.
+06/12/97 M NORT C    12 UTST  Shedding
+06/12/97 G IBPE C    12 CNIN  Value of 5 was entered as sex code. Trap
+                              #15 at G-IBPE closed due to ants. Shedding.
+06/12/97 M WELL ?     5 NONE  SCCO= Scaphiopus couchii.
+06/12/97 G BASN B    11 UTST  #10 GBASN closed because of ants.
+06/12/97 G SUMM A     0 NONE  #4 G-SUMM closed because of ants.
+06/12/97 C GRAV D     0 NONE  #14 CGRAV closed because of ants. #2
+                              CGRAV opened after ants cleared.
+06/12/97 G SUMM ?     4 NONE  BUPU= Bufo punctatus
+06/09/97 C CALI ?    10 BUDE  BUDE= Bufo debilis
+06/16/97 M RABB ?     6 NONE  Lizard in MRABB trap #6 was eaten by
+                              ants.  Trap closed 6/16.
+06/16/97 G IBPE ?     0 NONE  6/16 G-IBPE #11 and 16 is closed for
+                              ants. #15 is opened.
+06/16/97 M WELL ?     0 NONE  6/16 M-WELL #2 and 10 opened after ants
+                              vacated. #3 closed due to ants.
+06/16/97 G BASN B    14 CNIN  G-BASN #7, 8, 11 closed for ants.  #10
+                              and 12 opened.
+06/16/97 C CALI A    14 CNIN  Species identification not positive.
+                              C-CALI #1 closed due to water- no holes
+                              in can.
+06/16/97 C GRAV D    12 CNUN  C-GRAV #2 closed due to ants.
+06/19/97 G BASN B     3 CNUN  Shedding.
+06/19/97 G BASN B     4 CNIN  Escaped.
+06/19/97 M NORT ?    15 CNNE  Escaped.
+08/19/97 T WEST A    16 UTST  08/15/97 T WEST PIT 9 Left closed due to ants
+08/19/97 T WEST A     6 GAWI  Escaped
+08/19/97 T EAST B    15 UTST  Shedding
+08/19/97 G BASN B    13 BUDE  Dead, eaten by ants
+08/19/97 G BASN B     3 BUDE  Dead, dehydrated in trap
+08/19/97 C SAND B    10 UTST  Escaped
+08/19/97 G BASN B     8 UTST  Died during processing
+08/15/97 C CALI A     2 NONE  Flooded, opened 08/19/97
+08/15/97 C CALI A     4 NONE  Flooded, opened 08/19/97
+08/15/97 C GRAV D     2 NONE  Trap 2 closed due to ants, opened 08/19/97
+08/22/97 T WEST A     9 NONE  Pit 9 closed due to ants, opened 08/25/97
+08/22/97 T EAST B     7 UTST  Shedding
+08/22/97 T EAST B    16 PHCO  ? FOR SEX
+08/22/97 M NORT C     0 NONE  08/22/97 M NORT C Pit 6 Closed due to ants
+08/22/97 C SAND B     3 CNTI  Escaped
+08/22/97 C SAND B     8 UTST  Escaped
+08/22/97 C CALI A    14 COTE  A "Y" was entered in the recapture codes
+08/22/97 C GRAV D    10 UTST  A "Y" was entered in the recapture codes
+08/25/97 G BASN B     0 NONE  Trap #8 closed due to ants, opened 08/25/97
+08/25/97 C SAND B     3 UTST  Escaped
+08/25/97 C CALI A     5 COTE  Shedding
+08/27/97 T WEST A     3 CNIN  Escaped
+08/27/97 G IBPE C    14 UTST  No weight was recorded
+08/27/97 G BASN B     4 NONE  SOSE= Sonora semiannulata=western ground
+                              snake, was approx. 200 mm; SR was unable
+                              to enter in as a new species code
+08/27/97 G BASN B     9 UTST  Dead in trap
+08/27/97 C CALI A    15 BUDE  Dead in trap
+08/27/97 C GRAV D     5 UTST  Escaped
+11/17/97 C GRAV D     1 UTST  Shedding
+11/24/97 M NORT C     0 NONE  Traps 1,8,10,15,4 were disturbed by
+                              coyote or oryx
+01/27/97                      (J. Anderson) Data was entered originally
+                              as it was in data book which included
+                              comments written through data fields for
+                              weight, length, etc.  This information was
+                              moved to this history file and removed from
+                              the data set with a "-" placed in the data
+                              to represent any field that did not have a
+                              valid entry.  Records in the data where this
+                              occurred have a "1" in Problem Code field
+                              which is consistent with method to indicate
+                              history file comments.
+03/20/98 C SAND B     7 UTST  Possibly pregnant
+06/08/98 G BASN B    14 CNIN  Dead in trap.
+06/11/98 G BASN B     1 CNIN  Dead in trap. Eaten by ants, especially
+                              in cloaca so sex could not be
+                              determined. (SR)
+06/15/98 G IBPE C     5 CNUN  No truncated stripe but distinctly
+                              enlarged postatibrachial scales.
+06/15/98 G BASN B     1 CNIN  Dead in trap.
+06/17/98 M RABB A     8 UTST  Escaped.
+06/17/98 T EAST B     9 CNIN  Recently shed skin.
+06/17/98 G BASN B    14 HOMA  Dead in trap.
+08/11/98 T EAST B    15 UTST  escaped
+08/11/98 G IPBE C     1 CNIN  Probably gravid
+08/11/98 G IPBE C     1 CNIN  Highly dehydrated and emaciated
+08/11/98 G BASN B    13 CNIN  dead
+08/11/98 G BASN B    14 CNIN  dead;  no weight
+08/11/98 G BASN B     8 UTST  dead
+08/11/98 G SUMM A    16 CNUN  escaped
+08/12/98 G BASN B     8 BUDE  BUDE = Bufo debilis
+08/14/98 G IBPE C    13 UTST  dead
+08/14/98 C CALI A     7 PIME  PIME = Pituophis melanoleucus
+08/18/98 M WELL B     5 UTST  escaped
+08/18/98 G BASN B     1 UTST  dead
+08/18/98 G BASN B     1 BUDE  dead
+08/18/98 G BASN B     1 BUDE  dead
+08/21/98 G BASN B    12 UTST  dead; too little left for measurements
+08/21/98 G BASN B     1 BUDE  dead
+08/21/98 G SUMM A     4 BUDE  dead
+08/21/98 C CALI A    16 UTST  escaped
+11/16/98 G BASN B     8 UTST  Dead In Trap
+03/19/99 M WELL B    11 UTST  mark made on belly rather than on
+                              tail due to urination
+06/18/99 T EAST B    10 UTST  too wet to mark
+06/18/99 G SUMM A     7 BUDE  BUDE = Bufo debilis
+06/22/99 G BASN B    11 UKCN  UKCN = unknown Cnemidophorus that was
+                              dead in trap
+06/22/99 G BASN B     4 BUDE  BUDE = Bufo debilis
+06/22/99 G BASN B     1 SCCO  Scaphiopus couchii
+06/25/99 G SUMM A     2 CNUN  escaped
+06/25/99 C SAND B    16 BUDE  Dead in trap
+06/25/99 G BASN B     4 UTST  escaped
+08/17/99 T WEST A    11 CNIN  juvenile
+08/17/99 T WEST A     1 BUDE  Bufo debilis; dead in trap
+08/17/99 T EAST B    11 UTST  juvenile
+08/17/99 M NORT A    12 UTST  escaped
+08/17/99 M NORT A    13 UTST  dead in trap
+08/17/99 C CALI A     6 COTE  juvenile
+08/17/99 C SAND B    14 UTST  escaped
+08/20/99 T WEST A    10 CRCO  juvenile
+08/20/99 T EAST B     7 UTST  juvenile
+08/20/99 C SAND B     1 EUOB  juvenile; escaped
+08/24/99 G SUMM A     3 EUOB  juvenile
+08/24/99 T EAST B     8 UTST  juvenile; tail was broken by handling
+08/24/99 M NORT C     3 UKCN  Cnemidophorus tigris or c. tesselatus;
+                              juvenile
+08/24/99 M NORT C     8 UTST  juvenile
+08/24/99 M RABB A     3 UKCN  Cnesmidophorus tigris or C. tesselatus;
+                              escaped
+08/24/99 M WELL B    13 UTST  juvenile
+08/24/99 M WELL B    10 UTST  juvenile; escaped
+08/24/99 G IBPE C    11 UKCN  Cnemidophorus tigris or C. tesselatus;
+                              juvenile
+08/24/99 G BASN B     5 BUDE  Bufo debilis
+08/24/99 G BASN B     1 BUDE  Bufo debilis
+08/24/99 G BASN B     9 BUDE  Bufo debilis
+08/27/99 G IBPE C     4 UTST  escaped
+08/27/99 G BASN B     1 UTST  juvenile
+08/27/99 G BASN B     9 BUDE  Bufo debilis
+08/27/99 G BASN B    16 UKLI  Unknown lizard; ants had eaten lizard
+                              down to bone
+08/27/99 C SAND B     1 EUOB  juvenile
+11/17/99 M NORT C     3 UTST  Dead ONLE (grasshopper mouse) in M-NORT
+                              pit 9
+11/17/99 M RABB A     1 UTST  M-RABB trap #8: lid removed by an
+                              animal; minor digging
+11/17/99 G IBPE C     3 UTST  bad side wound by beetles in trap
+11/17/99 G BASN B    14 PHCO  juvenile
+11/17/99 G BASN B    11 PHCO  juvenile
+11/17/99 G BASN B     3 UTST  juvenile
+03/06/00 M RABB A    11 NONE  Trap not open this trapping period due
+                              to ants.  They have a nest at the lip of
+                              the can.  Do not want to risk lizards
+                              getting eaten by ants.
+03/06/00 G IBPE C    10 NONE  Trap not opened this trapping period due
+                              to ants.  They have a nest at the lip of
+                              the can.  Do not want to risk lizards
+                              getting eaten by ants.
+03/06/00 G IBPE C    16 NONE  Trap not opened this trapping period due
+                              to ants.  They have a nest at the lip of
+                              the can.  Do not want to risk lizards
+                              getting eaten by ants.
+03/06/00 G BASN B    15 NONE  Trap not opened this trapping period due
+                              to ants.  They have a nest at the lip of
+                              the can.  Do not want to risk lizards
+                              getting eaten by ants.
+03/06/00 G BASN B     8 UTST  dead in trap
+03/06/00 G BASN B     8 CNIN  dead in trap
+03/06/00 G BASN B     5 UTST  dead in trap
+03/06/00 C SAND B     2 NONE  Trap not opened this trapping period due
+                              to ants.  They have a nest at the lip of
+                              the can.  Do not want to risk lizards
+                              getting eaten by ants.
+03/06/00 C CALI A    10 UTST  No measurements taken.
+03/13/00 G BASN B     9 NONE  PGFL (grasshopper mouse); dead in trap
+03/20/00 T WEST A     5 CNUN  juvenile
+03/20/00 G IBPE C     2 CNIN  dead in trap
+03/20/00 G IBPE C     4 CNIN  dead in trap
+06/09/00 G BASN B     8 UKLI  species unknown, decomposed;4 dead in trap
+06/13/00 G BASN B     9 CNTE  escaped.
+                              Also, when all traps opened on 06/09/00, the
+                              following unknown lizard species were found
+                              dead in the traps:
+                                       Z      P
+                                       O      L
+                                       N      O
+                              DATE     Z SITE P   PIT SPP   COMMENT
+                              -------- - ---- -   --- ----  --------------
+                              06/09/00 G BASN B     4 UKLI  1 dead in trap
+                              06/09/00 G BASN B     1 UKLI  2 dead in trap
+                              06/09/00 G BASN B    15 UKLI  1 dead in trap
+                              06/09/00 G BASN B    12 UKLI  6 dead in trap
+                              06/09/00 G BASN B    11 UKLI  2 dead in trap
+                              06/09/00 M WELL B    12 UKLI  2 dead in trap
+                              06/09/00 G SUMM A     6 UKLI  1 dead in trap
+                              06/09/00 G SUMM A    14 UKLI  1 dead in trap
+                              06/09/00 T EAST B    10 UKLI  2 dead in trap
+06/16/00 G BASN B     6 CNIN  Not doing well, may die
+06/16/00 G SUMM A     2 CNUN  escaped
+06/16/00 G SUMM A     8 CNUN  dead in trap, being eaten by sun
+                              scorpion
+06/20/00 T EAST B     4 NONE  closed trap due to ants
+06/20/00 M NORT C    11 CNTE  female juvenile; cups 25-100% full of
+                              dirt
+06/20/00 M RABB A     0 NONE  cups 25-100% full of dirt
+06/20/00 M WELL B     0 NONE  cups 25-100% full of dirt
+06/20/00 G IBPE C     0 NONE  cups 25-100% full of dirt
+06/20/00 G BASN B     4 BUDE  dead in trap
+06/20/00 G BASN B     6 BUDE  dead in trap
+06/20/00 G BASN B     3 BUDE  dead in trap
+06/20/00 G BASN B     3 BUDE  dead in trap
+06/20/00 G BASN B    15 BUDE  dead in trap
+06/20/00 G BASN B     8 BUDE  dead in trap
+06/20/00 G BASN B     7 BUDE  dead in trap
+06/20/00 G SUMM A     4 PGFL  mammal
+06/20/00 G SUMM A     3 BUDE  dead in trap
+06/23/00 M NORT C     7 BUCO  Bufo cognatus, a frog
+06/23/00 G BASN B     1 BUDE  dead in trap
+06/23/00 G BASN B     3 BUDE  dead in trap
+06/23/00 G BASN B    12 BUDE  dead in trap
+06/23/00 G BASN B     1 BUDE  Dead in trap
+06/23/00 G BASN B     3 BUDE  Dead in trap
+06/23/00 G BASN B    12 BUDE  Dead in trap
+08/11/00 T EAST B     4 NONE  Trap not opened due to ants
+08/11/00 M NORT C     1 UTST  Escaped
+08/11/00 M RABB A    16 NONE  Closed due to ants
+08/11/00 M WELL B     2 UTST  Escaped
+08/11/00 G IBPE C     6 CNIN  CNIN or CNUN?  Escaped
+08/11/00 C SAND B     8 NONE  Closed due to ants
+08/18/00 G IBPE C    15 NONE  Dead lizard in trap, skeleton is covered
+                              w/ants.
+08/22/00 M WELL B     6 CNTI  juvenile
+08/22/00 M RABB A     8 UTST  escaped
+06/08/01 T EAST B     4 SCUN  escaped
+06/12/01 G IBPE C    16 CNIN  escaped
+06/15/01 T EAST B     7 CRCO  escaped
+06/19/01 G BASN B     4 CNIN  escaped
+06/19/01 G BASN B     6 CNIN  dead
+06/19/01 G SUMM A     8 EUOB  escaped
+08/10/01 M NORT C     4 CNIN  Escaped
+08/10/01 M NORT C    13 NONE  Trap closed due to ant infestation
+08/14/01 G BASN B     3 BUDE  Dead in trap
+08/14/01 G BASN B    10 BUDE  Dead in trap
+08/14/01 G BASN B    10 BUDE  Dead in trap
+08/14/01 G BASN B    10 BUDE  Dead in trap
+08/14/01 G BASN B    16 BUDE  Dead in trap
+08/14/01 G BASN B    15 BUDE  Dead in trap
+08/14/01 G BASN B    13 BUDE  Dead in trap
+08/14/01 G BASN B    13 BUDE  Dead in trap
+08/17/01 G BASN B     6 CNIN  Escaped
+08/17/01 C SAND B    16 BUDE  Dead in trap
+08/17/01 G BASN B     1 BUDE  Dead in trap
+08/17/01 G BASN B     8 BUDE  Dead in trap
+08/17/01 G BASN B    14 BUDE  Dead in trap
+11/14/01 T EAST B     1 UTST  Escaped
+11/14/01 M NORT C     4 UTST  Forgot to mark second lizard
+11/14/01 M RABB A    16 UTST  Molting
+11/14/01 G IBPE C     9 UTST  Killed by black widow
+03/11/02 M NORT C    14 UTST  Recapture from last season
+03/18/02 C SAND B     7 UTST  Escaped
+03/18/02 M WELL B     6 UTST  Old mark illegible
+03/18/02 T EAST B     8 UTST  Old capture, mark illegible
+06/07/02 T WEST A     1 NONE  Closed due to ants
+06/07/02 G BASN B    12 CNIN  Escaped
+06/11/02 T WEST A     1 NONE  Closed due to ants
+06/11/02 T EAST B    15 HOMA  Escaped
+06/11/02 C GRAV C     9 NONE  Lizard escaped when the funnel was taken
+                              off, species not known.
+06/14/02 T WEST A     5 PHCO  Weight not recorded, sex unsure
+                              (question mark was written by the F)
+06/14/02 T WEST A     1 NONE  Closed due to ants
+06/14/02 G SUMM C     2 CNEX  Escaped when the funnel was removed,
+                              could be either CNEX or CNNE.
+06/18/02 T WEST A     4 CNTI  Question mark written in toe column,
+                              assumed to be zero.
+06/18/02 T WEST A     5 CRCO  Nothing written in toe mark column,
+                              assumed to be zero.
+06/18/02 T WEST A     7 CNIN  Nothing recorded in the toe mark column,
+                              assumed to be zero.
+08/15/02 T WEST A     2 CRCO  Escaped
+08/15/02 T WEST A     9 NONE  Closed due to ants
+08/15/02 G IBPE C     3 UTST  Escaped
+08/15/02 C SAND B    12 NONE  Closed by accident, now open
+08/15/02 C SAND B    13 NONE  Closed by accident, now open
+08/19/02 C SAND B     5 UTST  Escaped
+08/19/02 G SUMM A     1 CNTI  Escaped
+08/22/02 M WELL B     6 CNTI  Escaped
+03/14/03 T WEST A    16 UTST  The traps were opened on 3/7/03 by
+                              Andrea Campenella, Dara Parker, and
+                              Jennifer Baker.
+03/14/03 T WEST A     9 NONE  T-WEST Trap 9 remained closed due to
+                              ants.
+03/14/03 M NORT C     5 NONE  This trap was closed.
+03/14/03 C SAND B     2 UTST  Dead in trap, dry, tail broken.
+03/14/03 C SAND B    13 NONE  Tile was off trap and the stone covered
+                              that funnel hole halfway.
+03/14/03 G SUMM A     1 NONE  Trap was closed.
+03/14/03 G SUMM A    15 NONE  Trap was closed.
+03/21/03 M NORT C     4 NONE  Cup filled with sand, lizards probably
+                              were NOT able to escape, but unsure.
+03/21/03 M NORT C    13 NONE  Cup filled with sand and sticks poking
+                              out.  Lizards could have escaped.
+03/21/03 G SUMM A     2 CRCO  Probably male.
+03/21/03 G SUMM A     2 CRCO  Probably male.
+03/21/03 G SUMM A     6 NONE  Tile was off the trap.
+03/21/03 C CALI A    12 CRCO  Juvenile female.
+03/21/03 C GRAV D     1 NONE  Tile was off the trap.
+03/21/03 C GRAV D    13 NONE  Tile was off trap.
+03/21/03 C GRAV D    15 NONE  Tile was off trap.
+03/21/03 C GRAV D    16 NONE  Tile was off trap.
+06/17/03 G SUMM A     2 NONE  Closed due to ants.
+06/17/03 G IBPE C     3 NONE  Closed due to ants.
+06/17/03 G SUMM A     3 NONE  Closed due to ants.
+06/20/03 G BASN B     0 CNIN  Pit number not given.
+06/24/03 M NORT C     1 NONE  Closed due to ants.
+06/24/03 M WELL B     2 UTST  Escaped.
+06/27/03 M NORT C     1 NONE  Trap closed due to ants.
+
+08/12/03 M NORT C     1 UTST  Not marked. Escaped.
+08/12/03 M RABB A    13 UTST  Not marked. Escaped.
+08/12/03 M RABB A     2 UTST  Died while being handled.
+08/12/03 G IBPE C    14 UTST  Found upside-down with a tarantula on
+                              top.
+08/12/03 G IBPE C    16 UTST  Dead. Shriveled body of lizard found in
+                              cup, somewhat pulled apart, probably a
+                              juvenile Cnemidophorus tigris but
+                              couldn't tell.
+08/12/03 G BASN B    13 CNTI  Cnemidophorus spp. Not marked. Escaped.
+08/12/03 G BASN B    16 CNTI  Cnemidophorus spp. Not marked. Escaped.
+08/15/03 G IBPE C     4 UTST  Sex was entered in field book as male
+                              juvenile.
+08/15/03 C GRAV D     3 UTST  Not marked due to rain; markers woul not
+                              work because we couln't dry the lizard
+                              enough.
+08/19/03 G IBPE C    13 UTST  Escaped.
+08/19/03 C SAND B    16 UTST  Escaped.
+08/22/03 T EAST B    14 UTST  Dead and dried in trap. Weight was 1 g.
+08/22/03 M RABB A     4 UTST  Escaped.
+11/04/03 M WELL B     6 UTST  Recorded in field data book as female,
+                              but has note that is was later
+                              determined to be a male when it was
+                              recaptured on 11/21/03, based
+                              onmeasurements and broken tail.
+03/22/04 T WEST A    12 UTST  Lizard pitfalls opened 03/15/04 except
+                              for T-WEST pit# 9 due to ants.
+03/22/04 M RABB A     8 UTST  Killed by us. -- dead.
+03/22/04 M WELL B    10 UTST  Escaped before weighing, but pretty sure
+                              3 g. [3 entered in data book with a 2
+                              next to it circled. Next to the 3 and 2
+                              in wt field a "?" was also entered.]
+03/29/04 G BASN B     1 CNEX  Gular scales only enlarged in center.
+                              PAB slightly enlarged toward outside.
+03/29/04 G SUMM A     0 NONE  Trap 16 - 1/4 trap was open - the rest
+                              was on the ground.
+06/11/04 T WEST A     7 NONE  Closed by wind.
+06/11/04 G BASN B     2 CNIN  Escaped.
+06/11/04 G SUMM A     0 NONE  Pit #4 closed due to wind.
+06/11/04 C GRAV D     0 NONE  Pit #9: twig sticking out of trap.
+06/18/04 M NORT C     0 NONE  Pit #3: stick horizontal in funnel.
+06/22/04 M NORT C    14 CNTI  Either CNTi or CNTE. Escaped.
+06/22/04 G BASN B    13 CNTI  Probably CNTI. Escaped.
+06/22/04 C GRAV D    13 UTST  Escaped. Toe mark was recorded as 29.
+08/13/04 M RABB ?     5 CNIN  Either CNIN or CNUN. Escaped.
+08/13/04 C SAND ?    12 UTST  Tail was whole but broke during
+                              processing. Total length above is for
+                              whole tail. He was 55mm and 27mm for the
+                              broken off tail segment.
+08/13/04 C GRAV ?     3 UTST  Escaped.
+08/13/04 C GRAV ?    13 UTST  Escaped.
+08/20/04 M RABB ?    15 UTST  Killed and partially eaten by scorpion.
+08/20/04 M RABB ?    15 UTST  Killed and partially eaten by scorpion.
+08/20/04 G IBPE ?     8 UTST  Pit #5: BUCO juvenile. Recorded as toe
+                              mark #34.
+08/20/04 C SAND ?     2 UTST  Dead in trap.
+08/20/04 G SUMM ?    14 EUOB  Escaped.
+08/20/04 C CALI ?     3 UTST  Escaped.
+08/20/04 G BASN ?     5 CNTE  Pit #13: BUDE in trap. Given toe mark#39.
+08/24/04 M NORT ?     0 NONE  Pit #9 was not op when checked on
+                              8/24/04. Also, it is on an eroded dune.
+                              When it is open it can only be opened to
+                              the west. Pit #3 needs a cup.
+08/24/04 M RABB ?     3 UTST  Potentially male.
+08/24/04 M RABB ?     8 UTST  Escaped.
+08/24/04 M RABB ?    15 UTST  Escaped.
+08/24/04 G IBPE ?     3 UTST  Escaped. Weight of 2 g had "?" after it.
+08/24/04 G IBPE ?     4 UTST  Killed in processing.
+08/24/04 G BASN ?     2 UKLI  Dead lizard - desiccated -
+                              unidentifiable.
+08/24/04 C SAND ?     9 UTST  Pit #5 tile was laying flat and only
+                              covering half the pitfall. Pit #9: Tail
+                              broken off by handler. Probably 1 g.
+                              Escaped before being weighed.
+08/24/04 C SAND ?    11 EUOB  Whole trap was exposed to sky.
+08/24/04 C CALI ?    10 UKLI  Dead lizard in coffee an. Very old and
+                              not possible to i.d.
+11/17/04 M RABB ?     8 UTST  Tail broke in trap. Total length
+                              recorded in weight field reflects
+                              measurement without tail. Total length
+                              with tail is 107. Weight is the same
+                              with and without tail.
+11/17/04 M WELL ?     2 UTST  Pit #13: Trap was closed due to wind.
+11/17/04 M WELL ?    13 NONE  Trap was closed due to wind.
+11/17/04 C GRAV ?     1 UTST  Dead in trap.
+03/18/05 M RABB ?    13 CNTI  Dead in trap.
+06/07/05 M RABB ?     6 UTST  Escaped.
+06/07/05 C SAND ?     9 UTST  Escaped.
+06/07/05 C SAND ?    12 UTST  Escaped
+06/10/05 C GRAV ?     2 UTST  Traps closed for ants this season:
+                              T-EAST 15; M-RABB 13; M-WELL 9; C-SAND
+                              2; G-BASN 2,3,4,14.

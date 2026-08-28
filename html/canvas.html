@@ -1,0 +1,40 @@
+<style>
+    /* 1. THE CANVAS */
+    #deep-sea-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* 2. BOOTSTRAP VARIABLE NUKE (High Specificity) */
+    /* Target every possible Swup state to prevent the white flash */
+    html,
+    html.is-changing,
+    html.is-animating,
+    html.is-leaving,
+    :root,
+    body,
+    .quarto-container,
+    #quarto-content {
+        --bs-body-bg: transparent !important;
+        --bs-body-bg-rgb: transparent !important;
+        --bs-light: transparent !important;
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* 3. TEXT LEGIBILITY */
+    main.content {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 8px;
+        padding: 2em;
+    }
+</style>
+
+<canvas id="deep-sea-bg"></canvas>
+
+<script src="/js/canvas-logic.js"></script>

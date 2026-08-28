@@ -1,0 +1,44 @@
+/* --- 1. SWUP FADE ANIMATION --- */
+/* This tells Swup how long the transition takes */
+#quarto-content {
+    transition: opacity 0.3s ease-out;
+    opacity: 1;
+}
+
+/* Swup adds this class to the <html> tag while loading the new page */
+html.is-animating #quarto-content {
+    opacity: 0;
+}
+
+/* --- 2. QUARTO TRANSPARENCY (NUKE THE BACKGROUNDS) --- */
+#deep-sea-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* Changed from -9999 to sit above the base HTML */
+    pointer-events: none;
+}
+
+/* Force ALL root elements and Quarto wrapping elements to be transparent */
+html,
+:root,
+body,
+.quarto-container,
+#quarto-content,
+#quarto-document-content,
+.page-columns,
+main.content,
+.quarto-title-block {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Optional: Make the reading area slightly dark so text remains legible over your canvas */
+main.content {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border-radius: 8px;
+    padding: 2em;
+}

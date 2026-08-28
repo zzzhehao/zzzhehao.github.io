@@ -178,6 +178,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="theme/transparent.css">
 </head>
 
 <body class="nav-fixed">
@@ -214,15 +215,15 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
         <li>
-    <a class="dropdown-item" href="./photography/gallery/gallery.html">
+    <a class="dropdown-item" href="./photography/gallery/gallery.qmd">
  <span class="dropdown-text">Gallery</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./photography/gallery/motion-pictures.html">
+    <a class="dropdown-item" href="./photography/gallery/motion-pictures.qmd">
  <span class="dropdown-text">Motion Picture</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./photography/color_palette.html">
+    <a class="dropdown-item" href="./photography/color_palette.qmd">
  <span class="dropdown-text">Color palette</span></a>
   </li>  
     </ul>
@@ -254,15 +255,52 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#news" id="toc-news" class="nav-link active" data-scroll-target="#news"><iconify-icon role="img" inline="" icon="material-symbols:fiber-new-outline" aria-label="Icon fiber-new-outline from material-symbols Iconify.design set." title="Icon fiber-new-outline from material-symbols Iconify.design set."></iconify-icon> News</a></li>
-  <li><a href="#posts" id="toc-posts" class="nav-link" data-scroll-target="#posts"><iconify-icon role="img" inline="" icon="streamline:hand-held-tablet-writing" aria-label="Icon hand-held-tablet-writing from streamline Iconify.design set." title="Icon hand-held-tablet-writing from streamline Iconify.design set."></iconify-icon> Posts</a></li>
-  <li><a href="#hobbies" id="toc-hobbies" class="nav-link" data-scroll-target="#hobbies"><iconify-icon role="img" inline="" icon="ph:film-reel" aria-label="Icon film-reel from ph Iconify.design set." title="Icon film-reel from ph Iconify.design set."></iconify-icon> Hobbies</a></li>
-  <li><a href="#random-facts" id="toc-random-facts" class="nav-link" data-scroll-target="#random-facts"><iconify-icon role="img" inline="" icon="material-symbols:fact-check-outline-rounded" aria-label="Icon fact-check-outline-rounded from material-symbols Iconify.design set." title="Icon fact-check-outline-rounded from material-symbols Iconify.design set."></iconify-icon> Random Facts</a></li>
+  <li><a href="#posts" id="toc-posts" class="nav-link active" data-scroll-target="#posts"><iconify-icon role="img" inline="" icon="streamline:hand-held-tablet-writing" aria-label="Icon hand-held-tablet-writing from streamline Iconify.design set." title="Icon hand-held-tablet-writing from streamline Iconify.design set."></iconify-icon> Posts</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div><header id="title-block-header" class="quarto-title-block"></header>
+<style>
+    /* 1. THE CANVAS */
+    #deep-sea-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* 2. BOOTSTRAP VARIABLE NUKE (High Specificity) */
+    /* Target every possible Swup state to prevent the white flash */
+    html,
+    html.is-changing,
+    html.is-animating,
+    html.is-leaving,
+    :root,
+    body,
+    .quarto-container,
+    #quarto-content {
+        --bs-body-bg: transparent !important;
+        --bs-body-bg-rgb: transparent !important;
+        --bs-light: transparent !important;
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* 3. TEXT LEGIBILITY */
+    main.content {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 8px;
+        padding: 2em;
+    }
+</style>
+
+<canvas id="deep-sea-bg"></canvas>
+
+<script src="./js/canvas-logic.js"></script>
 
 
 
@@ -332,6 +370,11 @@ window.Quarto = {
         height: auto; /* Maintains the image's aspect ratio */
         border-radius: 2%;
     }
+    .ctext {
+        display: flex;              
+        justify-content: center;    
+        align-items: center;    
+    }
 </style>
 <script>
     function initializeDailyPhoto() {
@@ -370,8 +413,7 @@ window.Quarto = {
 </script>
 <div class="image-container">
 <div class="circular-image">
-<!-- ![](/assets/images/hu-in-heath-cropped.jpg) -->
-<p><a href="./assets/images/ZH_profile.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./assets/images/ZH_profile.jpeg" class="img-fluid"></a></p>
+<p><a href="https://ik.imagekit.io/zzzhehao/assets/website/ZH_profile.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://ik.imagekit.io/zzzhehao/assets/website/ZH_profile.jpeg" class="img-fluid"></a></p>
 </div>
 </div>
 <p><br></p>
@@ -381,24 +423,11 @@ window.Quarto = {
 <div class="contact-icon">
 <p><a href="https://zzzhehao.github.io/" target="_blank"><iconify-icon role="img" inline="" icon="mynaui:home" aria-label="Icon home from mynaui Iconify.design set." title="Icon home from mynaui Iconify.design set."></iconify-icon></a> <a href="https://github.com/zzzhehao" target="_blank"><iconify-icon role="img" inline="" icon="mdi:github" aria-label="Icon github from mdi Iconify.design set." title="Icon github from mdi Iconify.design set."></iconify-icon></a> <a href="https://linkedin.com/in/huzhehao" target="_blank"><iconify-icon role="img" inline="" icon="mdi:linkedin" aria-label="Icon linkedin from mdi Iconify.design set." title="Icon linkedin from mdi Iconify.design set."></iconify-icon></a> <a href="https://instagram.com/zhehao.hu_" target="_blank"><iconify-icon role="img" inline="" icon="mdi:instagram" aria-label="Icon instagram from mdi Iconify.design set." title="Icon instagram from mdi Iconify.design set."></iconify-icon></a> <a href="mailto:zhehao.hu@uni-hamburg.de" target="_blank"><iconify-icon role="img" inline="" icon="ic:outline-email" aria-label="Icon outline-email from ic Iconify.design set." title="Icon outline-email from ic Iconify.design set."></iconify-icon></a></p>
 </div>
-<p><span style="font-size: 2.5rem;">About <iconify-icon role="img" inline="" icon="cib:about-me" aria-label="Icon about-me from cib Iconify.design set." title="Icon about-me from cib Iconify.design set."></iconify-icon></span></p>
-<p>Hi! 👋 I am Zhehao. I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak 中文, 日本語, Deutsch, English, y un poquito Español 😉 feel free to write me in any of these!</p>
-<p>I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on molecular ecology and am now entering deep sea research with special focus on isopods. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.</p>
-<p>My strengths are molecular barcoding, evolutionary, community ecology, and biogeography analysis. I started developing my taxonomic expertise around asellote isopods and the swimming Munnopsids are my favourite, despite their taxonomy and biogeography being quite difficult to decipher.</p>
-<p>Beside these, I’m also a heavy R coder! I write a lot of codes to automate my daily works to prevent data lost and avoidable mistakes (typos are horrible when happening to identifiers! And yes it happens a LOT). And I love making pretty plots, maps, and analysis that makes boring data understandable and communicable.</p>
-<section id="news" class="level2">
-<h2 class="anchored" data-anchor-id="news"><iconify-icon role="img" inline="" icon="material-symbols:fiber-new-outline" aria-label="Icon fiber-new-outline from material-symbols Iconify.design set." title="Icon fiber-new-outline from material-symbols Iconify.design set."></iconify-icon> News</h2>
-<p><strong>2026/04</strong> Officially finished my masters!</p>
-<p><strong>2026/02</strong> Isopod power! &gt;100 species discovered during the Ocean Census Species Discovery Workshop in Wilhelmshaven, Germany. <a href="https://oceancensus.org/small-creatures-big-questions-early-career-taxonomists-at-the-isopod-species-discovery-workshop/" target="_blank">&gt;&gt; Read the interview of our yound scientists (including me)</a>, and the <a href="https://oceancensus.org/streamlining-species-discovery-more-than-100-isopods-identified-in-just-two-weeks/" target="_blank">outcome of the workshop</a>.</p>
-<p><strong>2025/10</strong> Backbone for the Peracarida! Helping organizing the workshop in Wilhelmshaven, Germany. Logistics, Instruction on CLSM, etc … <a href="https://www.peracarida.org/workshops/2025-confusing-crustaceans" target="_blank">&gt;&gt; Read more</a></p>
-<p><strong>2025/09</strong> Trip to Iceland! Brought thousands of legacy samples from BIOICE project from Iceland to Germany, which will be used for future workshops.</p>
-<p><strong>2025/08</strong> My first professional workshop! Went back to Punta Arenas to join the Ocean Census species discovery workshop with the samples collected from February expedition!</p>
-<p><strong>2025/07</strong> My first talk on a conference! Just made <em>Acanthocope</em> known by more people on The Crustacean Society Summer Meeting in Paris!</p>
-<p><strong>2025/02</strong> My first expedition! Sailing on <em>R/V Falkor (too)</em> with Ocean Census from Punta Arenas to South Sandwich Island. <a href="./project/fkt250220/index.html" target="_blank">&gt;&gt; Read more</a></p>
-</section>
+<p>We live in a demanding world, and it is sure a never ending discussion on what this reality truly is. Everyone’s got to hang on something to give their lives a meaning. So here we are.</p>
+<p>I don’t do everything but I do a lot of things that I want to do. I am not a perfectionist but I do things as perfectly as I want. I work with deep-sea biology, and I hop around the line of science. I work in the lab, but I also go out on seas and sail. I study little crustaceans crawling on the seafloor that some people would never care, but so I have found my passion that gives me joy.</p>
 <section id="posts" class="level2">
 <h2 class="anchored" data-anchor-id="posts"><iconify-icon role="img" inline="" icon="streamline:hand-held-tablet-writing" aria-label="Icon hand-held-tablet-writing from streamline Iconify.design set." title="Icon hand-held-tablet-writing from streamline Iconify.design set."></iconify-icon> Posts</h2>
-<p>The intention of this website is to share my knowledge and experience with everyone. I do this because I have been helped countless times by the other’s posts on the internet, and I don’t want this kindness to stop with me.</p>
+<p>Sometimes I just overshare.</p>
 <div id="listing-ls-all" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead>
@@ -415,18 +444,7 @@ Section
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXMlMkNNZWRpdGVycmFuZWFuJTIwTWljb2Jpb21l" data-listing-date-sort="1779339948000" data-listing-file-modified-sort="1779339948954" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4119" data-listing-title-sort="Descriptive Community Ecology using NMDS" data-listing-filename-sort="MediMicro-NMDS.qmd">
-<td>
-<span class="listing-date">2026-05-21</span>
-</td>
-<td>
-<a href="./post/research/community-ecology/MediMicro-NMDS.html" class="title listing-title">Descriptive Community Ecology using NMDS</a>
-</td>
-<td>
-<span class="listing-article-type">Research</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1774566000000" data-listing-file-modified-sort="1777272870380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1489" data-listing-title-sort="Simple guide on performing TSNE" data-listing-filename-sort="proteomics_tsne.qmd">
+<tr data-index="0" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1774566000000" data-listing-file-modified-sort="1777272870380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1489" data-listing-title-sort="Simple guide on performing TSNE" data-listing-filename-sort="proteomics_tsne.qmd">
 <td>
 <span class="listing-date">2026-03-27</span>
 </td>
@@ -434,10 +452,10 @@ Section
 <a href="./post/research/techs/proteomics_tsne.html" class="title listing-title">Simple guide on performing TSNE</a>
 </td>
 <td>
-<span class="listing-article-type">Research</span>
+<span class="listing-article-type">&nbsp;</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="SW1hZ2UlMjBQcm9jZXNzaW5n" data-listing-date-sort="1771628400000" data-listing-file-modified-sort="1774609404539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1923" data-listing-title-sort="Fiji: A Guide on Basic Process of CLSM Result" data-listing-filename-sort="clsm-1.qmd">
+<tr data-index="1" data-categories="SW1hZ2UlMjBQcm9jZXNzaW5n" data-listing-date-sort="1771628400000" data-listing-file-modified-sort="1774609404539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1923" data-listing-title-sort="Fiji: A Guide on Basic Process of CLSM Result" data-listing-filename-sort="clsm-1.qmd">
 <td>
 <span class="listing-date">2026-02-21</span>
 </td>
@@ -445,10 +463,10 @@ Section
 <a href="./post/research/techs/clsm-1.html" class="title listing-title">Fiji: A Guide on Basic Process of CLSM Result</a>
 </td>
 <td>
-<span class="listing-article-type">Research</span>
+<span class="listing-article-type">&nbsp;</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1770591600000" data-listing-file-modified-sort="1774609390851" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="706" data-listing-title-sort="{rworms}: an R package for retrieving information from WoRMS" data-listing-filename-sort="rworms.qmd">
+<tr data-index="2" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1770591600000" data-listing-file-modified-sort="1774609390851" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="706" data-listing-title-sort="{rworms}: an R package for retrieving information from WoRMS" data-listing-filename-sort="rworms.qmd">
 <td>
 <span class="listing-date">2026-02-09</span>
 </td>
@@ -456,21 +474,10 @@ Section
 <a href="./post/research/techs/rworms.html" class="title listing-title">{rworms}: an R package for retrieving information from WoRMS</a>
 </td>
 <td>
-<span class="listing-article-type">Research</span>
+<span class="listing-article-type">&nbsp;</span>
 </td>
 </tr>
-<tr data-index="4" data-categories="Sm91cm5hbA==" data-listing-date-sort="1740351600000" data-listing-file-modified-sort="1768249238314" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1862" data-listing-title-sort="旅をする心 (Traveling Heart)" data-listing-filename-sort="01_Punta_Arenas.qmd">
-<td>
-<span class="listing-date">2025-02-24</span>
-</td>
-<td>
-<a href="./project/fkt250220/journals/01_Punta_Arenas.html" class="title listing-title">旅をする心 (Traveling Heart)</a>
-</td>
-<td>
-<span class="listing-article-type">Journal</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1770667454141" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3858" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
+<tr data-index="3" data-categories="TXVsdGl2YXJpYXRlJTIwQW5hbHlzaXM=" data-listing-date-sort="1726610400000" data-listing-file-modified-sort="1770667454141" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3858" data-listing-title-sort="Niche Overlap Analysis Using nicheROVER and Stable Isotope Data" data-listing-filename-sort="nicheROVER-Niche-Overlap.qmd">
 <td>
 <span class="listing-date">2024-09-18</span>
 </td>
@@ -478,7 +485,7 @@ Section
 <a href="./post/research/community-ecology/nicheROVER-Niche-Overlap.html" class="title listing-title">Niche Overlap Analysis Using nicheROVER and Stable Isotope Data</a>
 </td>
 <td>
-<span class="listing-article-type">Research</span>
+<span class="listing-article-type">&nbsp;</span>
 </td>
 </tr>
 </tbody>
@@ -487,55 +494,28 @@ Section
 No matching items
 </div>
 </div>
-</section>
-<section id="hobbies" class="level2">
-<h2 class="anchored" data-anchor-id="hobbies"><iconify-icon role="img" inline="" icon="ph:film-reel" aria-label="Icon film-reel from ph Iconify.design set." title="Icon film-reel from ph Iconify.design set."></iconify-icon> Hobbies</h2>
-<p>I take a lot of photos, simply to treasure the moments that I enjoyed and loved. I don’t limit myself in certain technics or topics - I shoot both analog and digital, still and motion picture, I once tried cyanotype too, and would love to start again. I shoot wonderful nature, starlight, but also urban landscapes, people, but mostly small things in life that have made my day a bit different.</p>
-<p>I use photography as a way to express myself. People say the world is as one sees it. I haven’t experienced excessive grief, but I’ve certainly seen enough. So when I create something back for the world, I want them to be something less hurting.</p>
-<p>You can see all my albums in my <a href="./photography/gallery/gallery.html" target="_blank">gallery</a> and some picked <a href="./photography/gallery/motion-pictures.html" target="_blank">motion pictures</a>. <!-- Also check [a special folder](/photography//gallery/.) for star / astro topics. --></p>
-<p><br></p>
-<div id="daily-photo">
+<!-- 
+<br>
 
-</div>
-<p><br></p>
-<p>One of the fantasy deep inside my heart is the stunning deep sky and the unlimited beauty hidden inside it.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/images/M42_20241224_Sequartor_processed.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="M42, AKA Orion Nebula. Stacked from 2000 frames per 0.5 s exposure. This is probably the best I can get with normal photographic lens without equatorial mount and blowing up my storage."><img src="./assets/images/M42_20241224_Sequartor_processed.png" class="img-fluid figure-img" style="width:65.0%" alt="M42, AKA Orion Nebula. Stacked from 2000 frames per 0.5 s exposure. This is probably the best I can get with normal photographic lens without equatorial mount and blowing up my storage."></a></p>
-<figcaption><strong>M42, AKA Orion Nebula</strong>. Stacked from 2000 frames per 0.5 s exposure. This is probably the best I can get with normal photographic lens without equatorial mount and blowing up my storage.</figcaption>
-</figure>
-</div>
-<p>And I also (finally) started trying out pixel art! Still need to learn a lot but it has been very fun so far!</p>
-<div>
+::: {#daily-photo}
+:::
 
+<br> -->
+<p>I also have two collection sites:</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="ctext">
+<p>Notebook</p>
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://ik.imagekit.io/zzzhehao/assets/website/gingko_leaf.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Ginkgo biloba"><img src="https://ik.imagekit.io/zzzhehao/assets/website/gingko_leaf.png" class="img-fluid figure-img" style="width:60.0%" alt="Ginkgo biloba"></a></p>
-<figcaption><strong><em>Ginkgo biloba</em></strong></figcaption>
-</figure>
+<p><a href="https://zzzhehao.github.io/notebook/" target="_blank"><img src="assets/logo/logo_notebook.png" class="img-fluid" style="clip-path: inset(10% 0 10% 0);margin-top: -10%; margin-bottom: -10%;"></a></p>
 </div>
+<div class="g-col-6">
+<div class="ctext">
+<p>Cookbook</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/images/Acanthocope_rotundispina.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Acanthocope rotundispina"><img src="./assets/images/Acanthocope_rotundispina.png" class="img-fluid figure-img" style="width:60.0%" alt="Acanthocope rotundispina"></a></p>
-<figcaption><strong><em>Acanthocope rotundispina</em></strong></figcaption>
-</figure>
+<p><a href="https://zzzhehao.github.io/cookbook/" target="_blank"><img src="assets/logo/logo_cookbook.png" class="img-fluid" style="clip-path: inset(10% 0 10% 0);margin-top: -10%; margin-bottom: -10%;"></a></p>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="random-facts" class="level2">
-<h2 class="anchored" data-anchor-id="random-facts"><iconify-icon role="img" inline="" icon="material-symbols:fact-check-outline-rounded" aria-label="Icon fact-check-outline-rounded from material-symbols Iconify.design set." title="Icon fact-check-outline-rounded from material-symbols Iconify.design set."></iconify-icon> Random Facts</h2>
-<ul>
-<li>I drank my first beer at the age of 2 🍺 - according to my dad</li>
-<li>I work backstage at classical music concerts from time to time and it’s much more fun than being in the audience (and Elbphilharmonie is really an art work)</li>
-</ul>
 
 
 
@@ -544,6 +524,42 @@ No matching items
 </section>
 
 </main> <!-- /main -->
+<script src="https://unpkg.com/swup@4"></script>
+<script src="https://unpkg.com/@swup/head-plugin@2"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Force transparency on initial load
+        document.body.style.setProperty('background-color', 'transparent', 'important');
+        document.documentElement.style.setProperty('background-color', 'transparent', 'important');
+
+        try {
+            const swup = new Swup({
+                containers: ['#quarto-content'],
+                plugins: [new SwupHeadPlugin()]
+            });
+
+            console.log('[Swup] Initialized successfully. Instant swap mode.');
+
+            // Hook: Right before the page transition starts
+            swup.hooks.on('visit:start', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+            });
+
+            // Hook: Right after the new content is injected
+            swup.hooks.on('content:replace', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+
+                // Re-initialize Quarto features (math, tooltips, etc.)
+                if (window.Quarto) {
+                    window.dispatchEvent(new Event('DOMContentLoaded'));
+                }
+            });
+        } catch (error) {
+            console.error('[Swup] Initialization failed:', error);
+        }
+    });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1263,134 +1279,110 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="in">        height: auto; /* Maintains the image's aspect ratio */</span></span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="in">        border-radius: 2%;</span></span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in">    function initializeDailyPhoto() {</span></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">        fetch('/photography/picked-photo/photos.json')</span></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">        .then(response =&gt; response.json())</span></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">        .then(data =&gt; {</span></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in">            const photos = data.photos;</span></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">            const today = new Date();</span></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">            const seed = today.getFullYear() * 1000 + (today.getMonth()) * 100 + today.getDate();</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">            // Simple pseudo-random number generator</span></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">            function seededRandom(seed) {</span></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">                let x = Math.sin(seed) * 10000;</span></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">                return x - Math.floor(x);</span></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">            }</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">            const randomIndex = Math.floor(seededRandom(seed) * photos.length);</span></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">            const photo = photos[randomIndex];</span></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in">            const photoElement = document.getElementById('daily-photo');</span></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="in">            photoElement.innerHTML = `</span></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="name-title" style="font-size: 2rem"&gt;Today's Pick&lt;/div&gt;</span></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;br&gt;</span></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="image-container"&gt;</span></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;div class="pick-image"&gt;</span></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;a href="https://zzzhehao.github.io/photography/gallery/gallery.html#${photo.name}"&gt;</span></span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">                    &lt;img src="${photo.url}" alt="${photo.name}"&gt;</span></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/a&gt;</span></span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/div&gt;</span></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;/div&gt;</span></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">            `;</span></span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">        });</span></span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in">    document.addEventListener('DOMContentLoaded', initializeDailyPhoto);</span></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>:::: image-container</span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>::: circular-image</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ![](/assets/images/hu-in-heath-cropped.jpg) --&gt;</span></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="al">![](/assets/images/ZH_profile.jpeg)</span></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>::: name-title</span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>Zhehao Hu</span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">    .ctext {</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">        display: flex;              </span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in">        justify-content: center;    </span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">        align-items: center;    </span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">    function initializeDailyPhoto() {</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">        fetch('/photography/picked-photo/photos.json')</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">        .then(response =&gt; response.json())</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">        .then(data =&gt; {</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">            const photos = data.photos;</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">            const today = new Date();</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">            const seed = today.getFullYear() * 1000 + (today.getMonth()) * 100 + today.getDate();</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="in">            // Simple pseudo-random number generator</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">            function seededRandom(seed) {</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">                let x = Math.sin(seed) * 10000;</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">                return x - Math.floor(x);</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in">            }</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">            const randomIndex = Math.floor(seededRandom(seed) * photos.length);</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">            const photo = photos[randomIndex];</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">            const photoElement = document.getElementById('daily-photo');</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">            photoElement.innerHTML = `</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="name-title" style="font-size: 2rem"&gt;Today's Pick&lt;/div&gt;</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;br&gt;</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="image-container"&gt;</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;div class="pick-image"&gt;</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;a href="https://zzzhehao.github.io/photography/gallery/gallery.html#${photo.name}"&gt;</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">                    &lt;img src="${photo.url}" alt="${photo.name}"&gt;</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/a&gt;</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">                &lt;/div&gt;</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;/div&gt;</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in">            `;</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">        });</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">    document.addEventListener('DOMContentLoaded', initializeDailyPhoto);</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>:::: image-container</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>::: circular-image</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://ik.imagekit.io/zzzhehao/assets/website/ZH_profile.jpeg)</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
 <span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>::: contact-icon</span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mynaui:home &gt;}}</span><span class="co">](https://zzzhehao.github.io/)</span> <span class="co">[</span><span class="ot">{{&lt; iconify mdi:github &gt;}}</span><span class="co">](https://github.com/zzzhehao)</span> <span class="co">[</span><span class="ot">{{&lt; iconify mdi:linkedin &gt;}}</span><span class="co">](https://linkedin.com/in/huzhehao)</span> <span class="co">[</span><span class="ot">{{&lt; iconify mdi:instagram &gt;}}</span><span class="co">](https://instagram.com/zhehao.hu_)</span> <span class="co">[</span><span class="ot">{{&lt; iconify ic:outline-email &gt;}}</span><span class="co">](mailto:{{&lt; var email.work &gt;}})</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>::: name-title</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>Zhehao Hu</span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">About {{&lt; iconify cib:about-me &gt;}}</span><span class="co">]</span>{style="font-size: 2.5rem;"}</span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>Hi! 👋 I am Zhehao. I was born and raised in Japan, lived both in Mainland China and Taiwan for some time, and I am currently studying in Hamburg. So I speak 中文, 日本語, Deutsch, English, y un poquito Español 😉 feel free to write me in any of these!</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>::: contact-icon</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">{{&lt; iconify mynaui:home &gt;}}</span><span class="co">](https://zzzhehao.github.io/)</span> <span class="co">[</span><span class="ot">{{&lt; iconify mdi:github &gt;}}</span><span class="co">](https://github.com/zzzhehao)</span> <span class="co">[</span><span class="ot">{{&lt; iconify mdi:linkedin &gt;}}</span><span class="co">](https://linkedin.com/in/huzhehao)</span> <span class="co">[</span><span class="ot">{{&lt; iconify mdi:instagram &gt;}}</span><span class="co">](https://instagram.com/zhehao.hu_)</span> <span class="co">[</span><span class="ot">{{&lt; iconify ic:outline-email &gt;}}</span><span class="co">](mailto:{{&lt; var email.work &gt;}})</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>I am a M.Sc. Biology Student at University of Hamburg. I have received my B.Sc. degree with focus on molecular ecology and am now entering deep sea research with special focus on isopods. I love doing lab works but I love field works a bit more; I have interest in new technologies but I am more interested in biological process happening out there in the wild. I am trying my best to find a balance among all these.</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>We live in a demanding world, and it is sure a never ending discussion on what this reality truly is. Everyone's got to hang on something to give their lives a meaning. So here we are. </span>
 <span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>My strengths are molecular barcoding, evolutionary, community ecology, and biogeography analysis. I started developing my taxonomic expertise around asellote isopods and the swimming Munnopsids are my favourite, despite their taxonomy and biogeography being quite difficult to decipher.</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>I don't do everything but I do a lot of things that I want to do. I am not a perfectionist but I do things as perfectly as I want. I work with deep-sea biology, and I hop around the line of science. I work in the lab, but I also go out on seas and sail. I study little crustaceans crawling on the seafloor that some people would never care, but so I have found my passion that gives me joy. </span>
 <span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>Beside these, I'm also a heavy R coder! I write a lot of codes to automate my daily works to prevent data lost and avoidable mistakes (typos are horrible when happening to identifiers! And yes it happens a LOT). And I love making pretty plots, maps, and analysis that makes boring data understandable and communicable.</span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify material-symbols:fiber-new-outline &gt;}} News</span></span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>**2026/04** Officially finished my masters! </span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>**2026/02** Isopod power! &gt;100 species discovered during the Ocean Census Species Discovery Workshop in Wilhelmshaven, Germany. <span class="co">[</span><span class="ot">\&gt;\&gt; Read the interview of our yound scientists (including me)</span><span class="co">](https://oceancensus.org/small-creatures-big-questions-early-career-taxonomists-at-the-isopod-species-discovery-workshop/)</span>, and the <span class="co">[</span><span class="ot">outcome of the workshop</span><span class="co">](https://oceancensus.org/streamlining-species-discovery-more-than-100-isopods-identified-in-just-two-weeks/)</span>.</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify streamline:hand-held-tablet-writing &gt;}} Posts</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>Sometimes I just overshare.</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>::: {#ls-all}</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>**2025/10** Backbone for the Peracarida! Helping organizing the workshop in Wilhelmshaven, Germany. Logistics, Instruction on CLSM, etc ... <span class="co">[</span><span class="ot">\&gt;\&gt; Read more</span><span class="co">](https://www.peracarida.org/workshops/2025-confusing-crustaceans)</span></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>**2025/09** Trip to Iceland! Brought thousands of legacy samples from BIOICE project from Iceland to Germany, which will be used for future workshops.</span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>**2025/08** My first professional workshop! Went back to Punta Arenas to join the Ocean Census species discovery workshop with the samples collected from February expedition!</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;br&gt;</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="co">::: {#daily-photo}</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
 <span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>**2025/07** My first talk on a conference! Just made *Acanthocope* known by more people on The Crustacean Society Summer Meeting in Paris!</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;br&gt; --&gt;</span></span>
 <span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>**2025/02** My first expedition! Sailing on *R/V Falkor (too)* with Ocean Census from Punta Arenas to South Sandwich Island. <span class="co">[</span><span class="ot">\&gt;\&gt; Read more</span><span class="co">](project/fkt250220/index.qmd)</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- I also have two collection sites:</span></span>
 <span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify streamline:hand-held-tablet-writing &gt;}} Posts</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.grid}</span></span>
 <span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>The intention of this website is to share my knowledge and experience with everyone. I do this because I have been helped countless times by the other's posts on the internet, and I don't want this kindness to stop with me.</span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>::: {#ls-all}</span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify ph:film-reel &gt;}} Hobbies</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.g-col-6}</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="co">:::: {.ctext}</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="co">Notebook</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="co">::::</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="co">[![](assets/logo/logo_notebook.png){style="clip-path: inset(10% 0 10% 0);margin-top: -10%; margin-bottom: -10%;"}](https://zzzhehao.github.io/notebook/)</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
 <span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>I take a lot of photos, simply to treasure the moments that I enjoyed and loved. I don't limit myself in certain technics or topics - I shoot both analog and digital, still and motion picture, I once tried cyanotype too, and would love to start again. I shoot wonderful nature, starlight, but also urban landscapes, people, but mostly small things in life that have made my day a bit different.</span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>I use photography as a way to express myself. People say the world is as one sees it. I haven't experienced excessive grief, but I've certainly seen enough. So when I create something back for the world, I want them to be something less hurting.</span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>You can see all my albums in my <span class="co">[</span><span class="ot">gallery</span><span class="co">](/photography/gallery/gallery.qmd)</span> and some picked <span class="co">[</span><span class="ot">motion pictures</span><span class="co">](/photography/gallery/motion-pictures.qmd)</span>. </span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Also check [a special folder](/photography//gallery/.) for star / astro topics. --&gt;</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="co">::: {.g-col-6}</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="co">:::: {.ctext}</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="co">Cookbook</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="co">::::</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="co">[![](assets/logo/logo_cookbook.png){style="clip-path: inset(10% 0 10% 0);margin-top: -10%; margin-bottom: -10%;"}](https://zzzhehao.github.io/cookbook/)</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="co">:::</span></span>
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>::: {#daily-photo}</span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>One of the fantasy deep inside my heart is the stunning deep sky and the unlimited beauty hidden inside it.</span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="al">![**M42, AKA Orion Nebula**. Stacked from 2000 frames per 0.5 s exposure. This is probably the best I can get with normal photographic lens without equatorial mount and blowing up my storage.](/assets/images/M42_20241224_Sequartor_processed.png)</span>{width="65%"}</span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>And I also (finally) started trying out pixel art! Still need to learn a lot but it has been very fun so far!</span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=2}</span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="al">![***Ginkgo biloba***](https://ik.imagekit.io/zzzhehao/assets/website/gingko_leaf.png)</span>{width="60%"}</span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="al">![***Acanthocope rotundispina***](/assets/images/Acanthocope_rotundispina.png)</span>{width="60%"}</span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## {{&lt; iconify material-symbols:fact-check-outline-rounded &gt;}} Random Facts</span></span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>I drank my first beer at the age of 2 🍺 - according to my dad</span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>I work backstage at classical music concerts from time to time and it's much more fun than being in the audience (and Elbphilharmonie is really an art work)</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="co">::: --&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

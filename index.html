@@ -80,6 +80,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
 
 
+<link rel="stylesheet" href="theme/transparent.css">
 </head>
 
 <body class="fullcontent">
@@ -90,6 +91,46 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
 <!-- main -->
+<style>
+    /* 1. THE CANVAS */
+    #deep-sea-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* 2. BOOTSTRAP VARIABLE NUKE (High Specificity) */
+    /* Target every possible Swup state to prevent the white flash */
+    html,
+    html.is-changing,
+    html.is-animating,
+    html.is-leaving,
+    :root,
+    body,
+    .quarto-container,
+    #quarto-content {
+        --bs-body-bg: transparent !important;
+        --bs-body-bg-rgb: transparent !important;
+        --bs-light: transparent !important;
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* 3. TEXT LEGIBILITY */
+    main.content {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 8px;
+        padding: 2em;
+    }
+</style>
+
+<canvas id="deep-sea-bg"></canvas>
+
+<script src="./js/canvas-logic.js"></script>
 
 
 
@@ -103,10 +144,13 @@ body, html {
     padding: 0;
     /* font-size: 1.6rem; */
 }
-.index-nav p a {
+
+span, .index-nav p a {
     position: relative;
     display: inline-block;
-    color: #F2E6DF;
+    /* color: #F2E6DF; */
+    color: white !important;
+    mix-blend-mode: difference !important;
     text-decoration: none;
     font-size: 1.2rem;
 }
@@ -152,19 +196,19 @@ body, html {
     min-width: 300px;    
     
     /* The Grey Translucent Look */
-    background-color: rgba(74, 74, 74, 0.4); 
-    backdrop-filter: blur(1px);
-    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+    /* background-color: rgba(74, 74, 74, 0.4);  */
+    /* backdrop-filter: blur(1px); */
+    /* border-right: 1px solid rgba(255, 255, 255, 0.1);  */
 
     padding: 3rem;
     box-sizing: border-box; 
     
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centers everything vertically in the sidebar */
+    justify-content: flex-start; /* Changed from center to flex-start to align top-left */
   ">
     
-      <div style="margin-bottom: 3rem;">
+      <div style="margin-bottom: 1rem;">
         <span style="
           font-size: 3rem;
           line-height: 0.9; 
@@ -196,9 +240,9 @@ body, html {
         <p><a href="./post/research/index.html">Research</a></p>
         <!-- <p><a href="/post/journal/index.qmd">Journal</a></p> -->
         <p><a href="./post/research/assets/CV-ZH.pdf">CV</a></p>
-        <p><a href="./photography/gallery/gallery.html">Albums</a></p>
-        <p><a href="./photography/gallery/motion-pictures.html">Motion Picture</a></p>
-        <a href="https://zzzhehao.github.com" style="display:none"></a> 
+        <!-- <p><a href="/photography/gallery/gallery.qmd">Albums</a></p> -->
+        <!-- <p><a href="/photography/gallery/motion-pictures.qmd">Motion Picture</a></p> -->
+        <a href="[https://zzzhehao.github.com](https://zzzhehao.github.com)" style="display:none"></a> 
       </div>
 
   </div> 
@@ -215,7 +259,7 @@ body, html {
     text-align: right;    /* Aligns text to the right */
   ">
     <p style="margin: 0; font-size: 0.7rem;">
-      © 2025 Zhehao Hu. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io" style="color: inherit; text-decoration: underline;">github.com</a>.
+      © 2026 Zhehao Hu. Source code available at <a href="[https://github.com/zzzhehao/zzzhehao.github.io](https://github.com/zzzhehao/zzzhehao.github.io)" style="color: inherit; text-decoration: underline;">github.com</a>.
     </p>
   </footer>
 
@@ -240,6 +284,42 @@ body, html {
 
 
 
+<script src="https://unpkg.com/swup@4"></script>
+<script src="https://unpkg.com/@swup/head-plugin@2"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Force transparency on initial load
+        document.body.style.setProperty('background-color', 'transparent', 'important');
+        document.documentElement.style.setProperty('background-color', 'transparent', 'important');
+
+        try {
+            const swup = new Swup({
+                containers: ['#quarto-content'],
+                plugins: [new SwupHeadPlugin()]
+            });
+
+            console.log('[Swup] Initialized successfully. Instant swap mode.');
+
+            // Hook: Right before the page transition starts
+            swup.hooks.on('visit:start', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+            });
+
+            // Hook: Right after the new content is injected
+            swup.hooks.on('content:replace', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+
+                // Re-initialize Quarto features (math, tooltips, etc.)
+                if (window.Quarto) {
+                    window.dispatchEvent(new Event('DOMContentLoaded'));
+                }
+            });
+        } catch (error) {
+            console.error('[Swup] Initialization failed:', error);
+        }
+    });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

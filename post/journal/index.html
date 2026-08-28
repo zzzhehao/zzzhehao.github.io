@@ -144,6 +144,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../theme/transparent.css">
 <link rel="stylesheet" href="journal.css">
 </head>
 
@@ -181,15 +182,15 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
         <li>
-    <a class="dropdown-item" href="../../photography/gallery/gallery.html">
+    <a class="dropdown-item" href="../../photography/gallery/gallery.qmd">
  <span class="dropdown-text">Gallery</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../photography/gallery/motion-pictures.html">
+    <a class="dropdown-item" href="../../photography/gallery/motion-pictures.qmd">
  <span class="dropdown-text">Motion Picture</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../photography/color_palette.html">
+    <a class="dropdown-item" href="../../photography/color_palette.qmd">
  <span class="dropdown-text">Color palette</span></a>
   </li>  
     </ul>
@@ -220,6 +221,46 @@ window.Quarto = {
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<style>
+    /* 1. THE CANVAS */
+    #deep-sea-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* 2. BOOTSTRAP VARIABLE NUKE (High Specificity) */
+    /* Target every possible Swup state to prevent the white flash */
+    html,
+    html.is-changing,
+    html.is-animating,
+    html.is-leaving,
+    :root,
+    body,
+    .quarto-container,
+    #quarto-content {
+        --bs-body-bg: transparent !important;
+        --bs-body-bg-rgb: transparent !important;
+        --bs-light: transparent !important;
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* 3. TEXT LEGIBILITY */
+    main.content {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 8px;
+        padding: 2em;
+    }
+</style>
+
+<canvas id="deep-sea-bg"></canvas>
+
+<script src="../../js/canvas-logic.js"></script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -242,7 +283,7 @@ window.Quarto = {
 
 <figure class="figure">
 <figcaption class="forward">
-Some of my words along my journey to understand this world.
+Some words along my journey of learning this world.
 </figcaption>
 </figure>
 
@@ -263,6 +304,42 @@ Some of my words along my journey to understand this world.
 No matching items
 </div>
 </div></main> <!-- /main -->
+<script src="https://unpkg.com/swup@4"></script>
+<script src="https://unpkg.com/@swup/head-plugin@2"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Force transparency on initial load
+        document.body.style.setProperty('background-color', 'transparent', 'important');
+        document.documentElement.style.setProperty('background-color', 'transparent', 'important');
+
+        try {
+            const swup = new Swup({
+                containers: ['#quarto-content'],
+                plugins: [new SwupHeadPlugin()]
+            });
+
+            console.log('[Swup] Initialized successfully. Instant swap mode.');
+
+            // Hook: Right before the page transition starts
+            swup.hooks.on('visit:start', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+            });
+
+            // Hook: Right after the new content is injected
+            swup.hooks.on('content:replace', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+
+                // Re-initialize Quarto features (math, tooltips, etc.)
+                if (window.Quarto) {
+                    window.dispatchEvent(new Event('DOMContentLoaded'));
+                }
+            });
+        } catch (error) {
+            console.error('[Swup] Initialization failed:', error);
+        }
+    });
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     body {

@@ -1,0 +1,36 @@
+<script src="https://unpkg.com/swup@4"></script>
+<script src="https://unpkg.com/@swup/head-plugin@2"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Force transparency on initial load
+        document.body.style.setProperty('background-color', 'transparent', 'important');
+        document.documentElement.style.setProperty('background-color', 'transparent', 'important');
+
+        try {
+            const swup = new Swup({
+                containers: ['#quarto-content'],
+                plugins: [new SwupHeadPlugin()]
+            });
+
+            console.log('[Swup] Initialized successfully. Instant swap mode.');
+
+            // Hook: Right before the page transition starts
+            swup.hooks.on('visit:start', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+            });
+
+            // Hook: Right after the new content is injected
+            swup.hooks.on('content:replace', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+
+                // Re-initialize Quarto features (math, tooltips, etc.)
+                if (window.Quarto) {
+                    window.dispatchEvent(new Event('DOMContentLoaded'));
+                }
+            });
+        } catch (error) {
+            console.error('[Swup] Initialization failed:', error);
+        }
+    });
+</script>

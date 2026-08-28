@@ -140,6 +140,7 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </script>
 
 
+<link rel="stylesheet" href="../../../theme/transparent.css">
 </head>
 
 <body class="nav-fixed">
@@ -176,15 +177,15 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-photography">    
         <li>
-    <a class="dropdown-item" href="../../../photography/gallery/gallery.html">
+    <a class="dropdown-item" href="../../../photography/gallery/gallery.qmd">
  <span class="dropdown-text">Gallery</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../photography/gallery/motion-pictures.html">
+    <a class="dropdown-item" href="../../../photography/gallery/motion-pictures.qmd">
  <span class="dropdown-text">Motion Picture</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../photography/color_palette.html">
+    <a class="dropdown-item" href="../../../photography/color_palette.qmd">
  <span class="dropdown-text">Color palette</span></a>
   </li>  
     </ul>
@@ -227,6 +228,46 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
+<style>
+    /* 1. THE CANVAS */
+    #deep-sea-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* 2. BOOTSTRAP VARIABLE NUKE (High Specificity) */
+    /* Target every possible Swup state to prevent the white flash */
+    html,
+    html.is-changing,
+    html.is-animating,
+    html.is-leaving,
+    :root,
+    body,
+    .quarto-container,
+    #quarto-content {
+        --bs-body-bg: transparent !important;
+        --bs-body-bg-rgb: transparent !important;
+        --bs-light: transparent !important;
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* 3. TEXT LEGIBILITY */
+    main.content {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 8px;
+        padding: 2em;
+    }
+</style>
+
+<canvas id="deep-sea-bg"></canvas>
+
+<script src="../../../js/canvas-logic.js"></script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -406,8 +447,8 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </ul>
 <p>and returns a list:</p>
 <ul>
-<li><code>[[matrix]]</code>: TSNE result.</li>
-<li>`[[plot]]``: TSNE visualization with ggplot (2-dim TSNE only).</li>
+<li><code>[["matrix"]]</code>: TSNE result.</li>
+<li><code>[["plot"]]</code>: TSNE visualization with ggplot (2-dim TSNE only).</li>
 </ul>
 </section>
 <section id="perform-tsne" class="level2 page-columns page-full">
@@ -563,15 +604,21 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <section id="r-session" class="level3">
 <h3 class="anchored" data-anchor-id="r-session">R session</h3>
 <hr>
-<p>R version 4.5.0 (2025-04-11) Platform: aarch64-apple-darwin20 Running under: macOS Sequoia 15.7.4</p>
+<p>R version 4.5.0 (2025-04-11) Platform: aarch64-apple-darwin20 Running under: macOS 26.5.1</p>
 <p>Matrix products: default BLAS: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib; LAPACK version 3.12.1</p>
 <p>locale: [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</p>
 <p>time zone: Europe/Berlin tzcode source: internal</p>
 <p>attached base packages: [1] stats graphics grDevices utils datasets methods base</p>
-<p>other attached packages: [1] ggtext_0.1.2 knitr_1.51 rmarkdown_2.30 pacman_0.5.1<br>
-[5] zWeb_0.0.1 cli_3.6.5 paletteer_1.6.0 Rtsne_0.17<br>
-[9] vegan_2.6-8 lattice_0.22-6 permute_0.9-7 lubridate_1.9.5 [13] forcats_1.0.0 stringr_1.6.0 dplyr_1.2.0 purrr_1.2.1<br>
-[17] readr_2.1.5 tidyr_1.3.2 tibble_3.3.1 ggplot2_4.0.2<br>
+<p>other attached packages: [1] ggtext_0.1.2 knitr_1.51<br>
+[3] rmarkdown_2.31 pacman_0.5.1<br>
+[5] zzzhehao.github.io_0.0.0.9000 cli_3.6.6<br>
+[7] paletteer_1.6.0 Rtsne_0.17<br>
+[9] vegan_2.6-8 lattice_0.22-6<br>
+[11] permute_0.9-7 lubridate_1.9.5<br>
+[13] forcats_1.0.0 stringr_1.6.0<br>
+[15] dplyr_1.2.1 purrr_1.2.2<br>
+[17] readr_2.2.0 tidyr_1.3.2<br>
+[19] tibble_3.3.1 ggplot2_4.0.3<br>
 [21] tidyverse_2.0.0</p>
 </section>
 <section id="packages" class="level3">
@@ -579,8 +626,8 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 <hr>
 <section id="cli" class="level4">
 <h4 class="anchored" data-anchor-id="cli">cli</h4>
-<p>Version: 3.6.5</p>
-<p>Csárdi G (2025). <em>cli: Helpers for Developing Command Line Interfaces</em>. doi:10.32614/CRAN.package.cli <a href="https://doi.org/10.32614/CRAN.package.cli" class="uri" target="_blank">https://doi.org/10.32614/CRAN.package.cli</a>, R package version 3.6.5, <a href="https://CRAN.R-project.org/package=cli" class="uri" target="_blank">https://CRAN.R-project.org/package=cli</a>.</p>
+<p>Version: 3.6.6</p>
+<p>Csárdi G (2026). <em>cli: Helpers for Developing Command Line Interfaces</em>. doi:10.32614/CRAN.package.cli <a href="https://doi.org/10.32614/CRAN.package.cli" class="uri" target="_blank">https://doi.org/10.32614/CRAN.package.cli</a>, R package version 3.6.6, <a href="https://CRAN.R-project.org/package=cli" class="uri" target="_blank">https://CRAN.R-project.org/package=cli</a>.</p>
 </section>
 <section id="ggtext" class="level4">
 <h4 class="anchored" data-anchor-id="ggtext">ggtext</h4>
@@ -606,10 +653,10 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 </section>
 <section id="rmarkdown" class="level4">
 <h4 class="anchored" data-anchor-id="rmarkdown">rmarkdown</h4>
-<p>Version: 2.30</p>
-<p>Allaire J, Xie Y, Dervieux C, McPherson J, Luraschi J, Ushey K, Atkins A, Wickham H, Cheng J, Chang W, Iannone R (2025). <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.30, <a href="https://github.com/rstudio/rmarkdown" class="uri" target="_blank">https://github.com/rstudio/rmarkdown</a>.</p>
-<p>Xie Y, Allaire J, Grolemund G (2018). <em>R Markdown: The Definitive Guide</em>. Chapman and Hall/CRC, Boca Raton, Florida. ISBN 9781138359338, <a href="https://bookdown.org/yihui/rmarkdown" class="uri" target="_blank">https://bookdown.org/yihui/rmarkdown</a>.</p>
-<p>Xie Y, Dervieux C, Riederer E (2020). <em>R Markdown Cookbook</em>. Chapman and Hall/CRC, Boca Raton, Florida. ISBN 9780367563837, <a href="https://bookdown.org/yihui/rmarkdown-cookbook" class="uri" target="_blank">https://bookdown.org/yihui/rmarkdown-cookbook</a>.</p>
+<p>Version: 2.31</p>
+<p>Allaire J, Xie Y, Dervieux C, McPherson J, Luraschi J, Ushey K, Atkins A, Wickham H, Cheng J, Chang W, Iannone R (2026). <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.31, <a href="https://github.com/rstudio/rmarkdown" class="uri" target="_blank">https://github.com/rstudio/rmarkdown</a>.</p>
+<p>Xie Y, Allaire J, Grolemund G (2018). <em>R Markdown: The Definitive Guide</em>. Chapman and Hall/CRC, Boca Raton, Florida. ISBN 9781138359338, <a href="https://yihui.org/rmarkdown/" class="uri" target="_blank">https://yihui.org/rmarkdown/</a>.</p>
+<p>Xie Y, Dervieux C, Riederer E (2020). <em>R Markdown Cookbook</em>. Chapman and Hall/CRC, Boca Raton, Florida. ISBN 9780367563837, <a href="https://yihui.org/rmarkdown-cookbook" class="uri" target="_blank">https://yihui.org/rmarkdown-cookbook</a>.</p>
 </section>
 <section id="rtsne" class="level4">
 <h4 class="anchored" data-anchor-id="rtsne">Rtsne</h4>
@@ -650,76 +697,42 @@ gtag('config', 'G-R0FB3TL998', { 'anonymize_ip': true});
 Hu, Zhehao. 2026. <span>“Simple Guide on Performing TSNE.”</span> March
 27, 2026. <a href="https://zzzhehao.github.io/post/research/techs/proteomics_tsne.html">https://zzzhehao.github.io/post/research/techs/proteomics_tsne.html</a>.
 </div></div></section></div></main> <!-- /main -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-    body {
-        align-items: center;
-    }
+<script src="https://unpkg.com/swup@4"></script>
+<script src="https://unpkg.com/@swup/head-plugin@2"></script>
 
-    .footer-container {
-        text-align: center;
-        line-height: 1.6; /* Adjust this value to change line spacing */
-    }
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Force transparency on initial load
+        document.body.style.setProperty('background-color', 'transparent', 'important');
+        document.documentElement.style.setProperty('background-color', 'transparent', 'important');
 
-    .contact-links {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: 10px 0; /* Add space above and below contact links */
-    }
+        try {
+            const swup = new Swup({
+                containers: ['#quarto-content'],
+                plugins: [new SwupHeadPlugin()]
+            });
 
-    .contact-links a {
-        margin: 0 10px; /* Add space between links */
-        color: #888;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-    }
+            console.log('[Swup] Initialized successfully. Instant swap mode.');
 
-    .contact-links a:hover {
-        color: #f2a94f;
-    }
+            // Hook: Right before the page transition starts
+            swup.hooks.on('visit:start', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
+            });
 
-    .contact-links a i {
-        margin-right: 5px;
-        font-size: 0.8rem;
-    }
+            // Hook: Right after the new content is injected
+            swup.hooks.on('content:replace', () => {
+                document.body.style.setProperty('background-color', 'transparent', 'important');
 
-    .contact-links a span {
-        font-size: 0.8rem;
-    }
-
-    .footer-text {
-        font-size: 0.8rem;
-        text-align: center;
-        margin: 5px 0; /* Add space above and below text */
-    }
-
-    @media (max-width: 720px) {
-        .contact-links a span {
-            display: none;
+                // Re-initialize Quarto features (math, tooltips, etc.)
+                if (window.Quarto) {
+                    window.dispatchEvent(new Event('DOMContentLoaded'));
+                }
+            });
+        } catch (error) {
+            console.error('[Swup] Initialization failed:', error);
         }
-
-        .contact-links a i {
-            margin-right: 0;
-        }
-    }
-</style>
-
-<div class="footer-container">
-    <hr>
-    <a href="https://buymeacoffee.com/huzhehaos" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;"></a>
-    <p class="footer-text">Copyright © 2024 - 2025 Zhehao Hu</p>
-    <!-- | <a href="https://github.com/zzzhehao/zzzhehao.github.io/blob/main/LICENSE">MIT license</a> -->
-    <div class="contact-links">
-        <a href="mailto:hu_zhehao@hotmail.com" title="E-Mail"><i class="fas fa-envelope"></i><span> E-Mail</span></a>
-        <a href="https://www.linkedin.com/in/zhehaohu/" title="LinkedIn"><i class="fab fa-linkedin"></i><span> LinkedIn</span></a>
-        <a href="https://github.com/zzzhehao/" title="GitHub"><i class="fab fa-github"></i><span> GitHub</span></a>
-        <a href="https://instagram.com/zhehao.hu_" title="Instagram"><i class="fab fa-instagram"></i><span> Instagram</span></a>
-    </div>
-    <p class="footer-text">Issues on the website? <a href="https://github.com/zzzhehao/zzzhehao.github.io/issues">Report issues</a>. Source code available at <a href="https://github.com/zzzhehao/zzzhehao.github.io/">github.com</a>.</p>
-    <hr>
-</div>
+    });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
