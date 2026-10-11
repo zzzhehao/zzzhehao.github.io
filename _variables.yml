@@ -1,0 +1,15 @@
+email:
+  personal: hu_zhehao@hotmail.com
+  study: zhehao.hu@studium.uni-hamburg.de
+  work: zhehao.hu@uni-hamburg.de
+
+affiliations:
+  - id: izs
+    name: University of Hamburg
+    department: Department of Biology, Institute of Animal Cell and Systems Biology (IZS)
+    address: Martin-Luther-King Platz 3
+    city: Hamburg
+    region: Hamburg
+    country: Germany
+    postal-code: D-20146
+    url: https://www.biologie.uni-hamburg.de/einrichtungen/izs.html
