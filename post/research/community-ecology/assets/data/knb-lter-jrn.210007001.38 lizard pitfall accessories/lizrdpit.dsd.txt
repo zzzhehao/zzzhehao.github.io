@@ -1,0 +1,764 @@
++------------------------------------------------------------------+
+|                             JORNADA LTER                         |
+|                                                                  |
+|                      New Mexico State University                 |
+|                                                                  |
+|                      Data Set Documentation Form                 |
+|                                                                  |
++------------------------------------------------------------------+
+All Jornada Desert Site NSF/LTER data sets must be documented on
+the following form. This applies to any data set intended for
+permanent archiving.  All raw data sets collected under the
+auspices of the Jornada NSF/LTER Program will be described by the
+following standardized form. Information that is not available at
+this time, must be included when available. See data manager for
+any questions regarding this form.
+--------------------------------------------------------------------
+
+Dataset ID: 210007001
+Project ID: 210007000
+
+ 1) Data set access (RESTRICTED or UNRESTRICTED):
+    ---------------------------------------------
+    UNRESTRICTED
+
+ 2) Data set title:
+    ---------------
+    Lizard pitfall trap data (LTER-II, LTER-III)
+
+ 3) Project title:
+    --------------
+    Lizard Pitfall Traps (LTER-III), Consumer Pitfall Traps (LTER-II)
+
+ 4) Responsible investigator(s):
+    ----------------------------
+    John P Anderson
+
+ 5) Date data collection commenced (mm/dd/yyyy):
+    --------------------------------------------
+    06/16/1989
+
+ 6) Date data collection terminated (mm/dd/yyyy or ONGOING):
+    --------------------------------------------------------
+    08/18/2006
+
+ 7) Expected duration of study:
+    ---------------------------
+    12 years
+
+ 8) Frequency of measurement:
+    -------------------------
+    16JUN89 - 23AUG91:  2-week period every month
+    Post-August 1991:   2-week period quarterly (Feb, May, Aug, Oct)
+
+ 9) Researchers: (Personnel who will be obtaining data and who would
+                  need to be contacted directly if there is a
+                  problem in the raw data):
+    ----------------------------------------------------------------
+    C. McGlone, ???;
+    N. Stotz, ???;
+    D. Lightfoot, ???;
+    G. Forbes, ???;
+    C. Sandell, ???;
+    S. Gehlhausen, ???;
+    John Kuehner, ???;
+    Dara Parker, ???;
+    Andrea Campanella ???
+
+10) Methods of recording (field data sheets, instrumental, etc.):
+    ----------------------------------------------------------------
+    field data sheets
+
+11) Site location (Describe in sufficient detail that the site can
+                   be relocated):
+    ----------------------------------------------------------------
+    Pitfall grids consist of sixten stations (four by four row grid
+    with 15 meters between stations) located at the following ll sites
+    (the old code, no longer used, is given in parentheses following each
+    site*): T-WEST (TBA), T-EAST (TBB), M-RABB-A (MDA), M-NORT (formely
+    M-RABB-C (MDC), moved to M-NORT in 1995), M-WELL (MDB), G-IBPE-C (GLC),
+    G-SUMM (formerly G-IBPE-A(GLA), moved to G-SUMM in 1995), G-BASN  (GLB),
+    C-SAND (CBB), C-CALI (CBA), and C-GRAV (CBD). Pitfalls
+    formerly located at MB (mixed basin slope NE of weather
+    trailer) and C-SAND-C (CBC) have been closed.  No pitfalls are
+    directly associated with the following NPP sites: P-COLL, P-
+    SMAL, P-TOBO (because of flooding potential), or T-TAYL.  The pitfall
+    for C-SAND is located NW of the NPP site (see site map).  The location
+    of each trap is marked by a rebar bearing a numbered aluminum tag.
+
+    * (old codes may still be found in data books and vial labels)
+
+12) Data set description (State the hypothesis and / or
+    objectives which collection of data set addresses):
+    ----------------------------------------------------------------
+    In conjunction with net primary production studies, consumer
+    and faunal studies are conducted at or near NPP sites using
+    pitfall traps.  We use live traps, not employing ethylene
+    glycol or other killing/preservative agents, with traps
+    checked once a week at the minimum.  Sampling-with-replacement
+    is used with the lizards. Variables measured include species,
+    sex, recapture status, snout-vent length, total length,
+    weight, and whether tail is broken or whole.
+
+13) Attributes measured:
+    -------------------------------------------------------------------------
+    Variable Name
+       example: AIRMAX                Name used in data set header.
+
+    Variable Format
+       example: C = character         (C3: Three characters [XXX])
+                I = integer           (I2: Integer with two places [##])
+                F = floating point    (F4.2: Total places with decimal
+                                      point = 4, with 2 decimal places.
+                                      [#.##])
+
+    Variable Mask
+       example: mm/dd/yyyy            Date where mm=month, dd=day, yyyy=year
+
+    Exception Value Codes
+       format: [code] = [description]
+       example:     'Q' = questionable data
+                          Code = code (surrounded by single quotes)
+                          Note: Equal signs (=) are used to separate code and
+                                description.
+                          Note: Enter multiple Exception Value Codes on separate
+                                lines.
+
+    Acceptable Value Type
+       examples: defined list
+                 undefined list
+                 range
+                 defined list of ranges
+                 undefined list of ranges
+                 complex
+                 external list
+
+    Acceptable Value Codes
+       format: [code] = [description]
+       example:       C = Creosotebush
+                          Code = code
+                          Note: Equal signs (=) are used to separate code and
+                                description.
+                          Note: Enter multiple Exception Value Codes on separate
+                                lines.
+                                         Note: Equal signs (=) are used to
+                                               separate values and commas (,)
+                                               are used to separate multiple
+                                               value sets. Ranges of acceptable
+                                               values are separated by a dashes.
+                                               Lists of acceptable values are
+                                               separated by commas. Asterick
+                                               symbols (*) are reserved to
+                                               indicate external lookup file
+                                               listing.
+
+    -------------------------------------------------------------------------
+             variable name: DATE
+     attribute description: Date data was collected (mm/dd/yy, where mm=Month, dd=Day, and yy=Year)
+            measured units: N/A
+     start column position: 1
+           variable format: C10
+             variable mask: mm/dd/yy
+     exception value codes: 0 = missing value
+     acceptable value type: N/A
+    acceptable value codes: N/A
+
+             variable name: Z
+     attribute description: Vegetation zone
+            measured units: N/A
+     start column position: 10
+           variable format: C1
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: defined list
+    acceptable value codes: C = Creosotebush
+                            G = Grassland
+                            M = Mesquite dune
+                            T = Tarbush
+
+             variable name: SITE
+     attribute description: Site name
+            measured units:
+     start column position: 12
+           variable format: C4
+             variable mask:
+     exception value codes: 0 = missing value
+     acceptable value type: undefined list
+    acceptable value codes: WEST,EAST,RABB,WELL,IBPE,BASN,SAND,CALI,GRAV,SUMM,NORT
+
+             variable name: PL
+     attribute description: Plot identifier
+            measured units: N/A
+     start column position: 17
+           variable format: C1
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: undefined list
+    acceptable value codes: A,B,C,D
+
+             variable name: PIT
+     attribute description: Pitfall trap number
+            measured units: N/A
+     start column position: 22
+           variable format: I2
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: range
+    acceptable value codes: 1-16
+
+             variable name: SPP
+     attribute description: Species 4-letter code
+            measured units: N/A
+     start column position: 25
+           variable format: C4
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: external list
+    acceptable value codes: see LIZRDSPP.LST file for acceptable values
+
+             variable name: X
+     attribute description: Sex (gender)
+            measured units: N/A
+     start column position: 33
+           variable format: C1
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: defined list
+    acceptable value codes: M = Male
+                            F = Female
+                            J = Juvenile
+
+             variable name: RCAP
+     attribute description: Recapture
+            measured units: N/A
+     start column position: 35
+           variable format: C1
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: defined list
+    acceptable value codes: R = recapture
+                            N = new capture
+
+             variable name: TOE#
+     attribute description: Toe mark number
+                            NOTE: Toe mark number replaced by tail mark beginning 03/16/1995.
+            measured units: N/A
+     start column position: 41
+           variable format: I4
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: N/A
+    acceptable value codes: N/A
+
+             variable name: SV-L
+     attribute description: Snout-vent length
+            measured units: mm
+     start column position: 49
+           variable format: I3
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: N/A
+    acceptable value codes: N/A
+
+
+             variable name: T-L
+     attribute description: Total length
+            measured units: mm
+     start column position: 56
+           variable format: I3
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: N/A
+    acceptable value codes: N/A
+
+             variable name: WT
+     attribute description: Body weight
+            measured units: grams
+     start column position: 62
+           variable format: F4.1
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: N/A
+    acceptable value codes: N/A
+
+             variable name: TAIL
+     attribute description: Tail condition
+            measured units: N/A
+     start column position: 67
+           variable format: C1
+             variable mask: N/A
+     exception value codes: 0 = missing value
+     acceptable value type: defined list
+    acceptable value codes: B = Broken
+                            W = Whole
+
+             variable name: PC
+     attribute description: Problem code
+            measured units: N/A
+     start column position: 77
+           variable format: C1
+             variable mask: N/A
+     exception value codes: N/A
+     acceptable value type: defined list
+    acceptable value codes: 0 = No problem
+                            1 = Problem, see history log: LIZRDPIT.HIS
+
+14) Methodology (Provide sufficient detail such that an unaware
+                reader could repeat the described data collection
+                procedures.)
+    ----------------------------------------------------------------
+     JORNADA LTER II: Protocol for Lizard Pitfalls
+
+     OVERVIEW.
+     A grid of 16 pitfall traps is located at each consumer
+     plot.  Each trap is 40 cm deep and contains an inner plastic
+     container and funnel.  A ceramic tile is placed over each
+     trap. For a 2-week period each sample period, the tiles are
+     raised on one side, and the traps are checked every 3 days in
+     summer and once a week in winter.  Individual lizards are
+     taken from the traps, identified, sexed, measured, and
+     weighed.  Each lizard was clipped with a unique number
+     using the codes on the diagram on the field data sheets. Toe
+     clipping was done from 1989 to 1995. Starting in March 1995
+     toe clipping was terminated and lizards were instead marked
+     with a black sharpie marking pen to provide a temporary mark to
+     determine recapture status over a particular 2-week trapping
+     period. A black mark is made posterior to the cloaca on the
+     ventral base of the tail.  Trapping grid is a 4x4 with 15 meter
+     interval between traps.
+
+     I. INTRODUCTION. In conjunction with net primary production
+        studies, consumer and faunal studies are conducted at or
+        near NPP sites using pitfall traps.  We use live traps,
+        not employing ethylene glycol or other
+        killing/preservative agents, with traps checked once a
+        week at the minimum.  Sampling-with-replacement is used
+        with the lizards but without replacement for the
+        arthropods; thus any released arthropods, when possible,
+        should not be let go in the immediate vicinity of the
+        pitfall grids (Note: separate pitfall traps for
+        arthropods were established in 1995 for LTER-III).
+
+             Lizard pitfall studies are conducted quarterly over
+        a period of two weeks: in February-March (following
+        winter NPP), in  May-June (following spring NPP), in
+        August, and in October-November (following fall NPP).
+
+        A.   LOCATION:   Pitfall grids consist of sixteen
+           stations (four rows of four traps) located at the
+           following ll sites (the old code, no longer used, is
+           given in parentheses following each site*): T-WEST
+           (TBA), T-EAST (TBB), M-RABB-A (MDA), M-NORT (formerly
+           M-RABB-C (MDC), moved to M-NORT in 1995), M-WELL
+           (MDB), G-IBPE-C (GLC), G-SUMM (formerly G-IBPE-A
+           (GLA), moved to G-SUMM in 1995) G-BASN (GLB), C-SAND-B
+           (CBB), C-CALI (CBA), and C-GRAV (CBD).  Pitfalls
+           formerly located at MB (mixed basin slope NE of
+           weather trailer) and C-SAND-C (CBC) have been closed.
+           No pitfalls are directly associated with the following
+           NPP sites: P-COLL, P-SMAL, P-TOBO (because of flooding
+           potential), T-TAYL, or G-SUMM.  The pitfall for C-SAND
+           is located NW of the NPP site (see site map).  The
+           location of each trap is marked by a rebar bearing a
+           numbered aluminum tag.
+     * (old codes may still be found in data books and vial
+     labels)
+
+        B. CONSTRUCTION: The LTER pitfall traps are walled by two
+           large vegetable cans, 6" diameter; size 10 tomato cans
+           (6 lbs, 3 oz, ca. 6 l/2" high) are most common. The
+           ends of the cans are cut out and the cans stacked so
+           that the top of the upper can is nearly flush with the
+           ground. Similar-sized coffee cans may be used; the
+           funnel (see below) should fit the can with little
+           excess space.  The collection container is a slightly
+           tapered plastic beverage  cup 5 l/2" deep with top
+           diameter of 4  l/2"; several small (ca. l/16") holes
+           are drilled in the bottom of each cup to  facilitate
+           drainage.  A polypropylene funnel with top diameter of
+           5 l/2" is placed in the cup to seal the trap and
+           prevent  escapes; the stem and lower funnel are cut
+           off about 4" below the top, making a lower hole of ca.
+           l l/2- 1 3/4" diameter. The cups are supported on
+           small stones or wooden blocks to raise the top of the
+           funnel nearer the top of the can (it should not be
+           flush);  elevation of cups is especially important in
+           poorly drained sites. When not in use, the traps are
+           sealed by a ceramic tile with dirt packed along sides
+           (see procedure below).  Trap numbers (l-16) originally
+           were stamped on a small aluminum block fastened to a
+           rebar next to each pit.  Many of these blocks are now
+           missing.  More recently, sites have been numbered with
+           aluminum tags attached to the rebar.  If both the
+           block and tag  are missing, the number can be
+           determined by counting from the northeast corner of
+           the grid (l-4 north-south, 5-8  next line south-north,
+           etc.).  However, some sites, notably BASN, have a
+           different numbering scheme so always check adjacent
+           trap numbers if unsure.
+
+     A SITE MAP IS INCLUDED WITH THIS PROTOCOL
+
+     II.  PROCEDURE:  Traps are usually opened on a Friday; the
+        tiles are excavated and propped open l to 2" at one end
+        using wooden blocks  or stones.  Be sure the tile covers
+        the trap as completely as possible.  During spring and
+        summer, collections are made the Tuesday and Friday the
+        week after opening and again Tuesday and Friday (close)
+        of the next week.  In fall and winter, collections on
+        Fridays are sufficient.  Take care to look under the cup;
+        both lizards and arthropods (especially scorpions and
+        crickets) will readily hide there.  Any  lizards found
+        are carefully  grasped (don't grab tail!) and subjected
+        to the measurements detailed in section A below.  Be sure
+        to use forceps on venemous arthropods.  Note special
+        procedures for juvenile lizards.  Before leaving for the
+        field, make certain that you have the bag with measuring
+        equipment (below) and a box with labelled cups (w/lids)
+        for the eleven pitfall sites plus an additional
+        unlabelled cup for each participant.  The data book
+        should be on a clipboard which has a list of lizard
+        species codes and identification information affixed.
+        IMPORTANT: the clipboard should also had an updated list
+        of the identification numbers previously used in toe
+        marking for the period prior to 1995.
+             Equipment for processing lizards includes a metric
+        ruler, scales, forceps, plastic bags, black sharpie
+        markers, pencils, and a reptile  field guide. The scale
+        is a PESOLA (l00  gram) spring-type; it is expensive so
+        should be kept out of the dirt. Equipment kept in a
+        zippered bag either in FH 117 or 236.  The following
+        information is recorded in the Jornada LTER II Lizard
+        Pitfall data book for each lizard:
+
+       l.  Pit number (see above).
+
+       2.  Species code:  Lizard species are recorded using a four
+           letter  code  (first  two letters  of  generic  and
+           species names).  Cnemidiphorus tigris is thus CNTI, etc.
+
+       3.  Sex: record an M, F, or J (juvenile) for each lizard.
+           The  field guide and clipboard information may assist in
+           sexing, which differs in different families.
+
+       4.  Rec.: If individuals have been previously marked with
+           a black
+       5.  sharpie marker, record an R (recapture).  Record an N
+           for unmarked adults.
+
+       6.  Markings. Prior to 1995: Toe  mark: For newly captured
+           adults, toes are clipped according to the numbering
+           system shown on each page of the data book.  Note that
+           the ventral side of the lizard is shown in the
+           diagram.  With scissors, clip the first 2 mm or so of
+           the required toes.  As lizards have only five
+           toes, numbers 6-9 are not used in the codes.  Upon
+           reaching number "6" one should skip to the next
+           availble combination (e.g. HOMA "2046" would skip to
+           2050; UTST "56" would skip to 100.  Close attention
+           should be given to avoid toe clipping errors.  It is
+           also imperative that accurate and updated records be
+           kept (on provided clipboard sheet) of numbers used; be
+           sure this sheet is brought to the field each time.
+           Severe problems have occurred in the past with skipped
+           and duplicated numbers. In general, JUVENILES,
+           especially small ones, should not be toe clipped as
+           the required handling may injure them.  Put a dash
+           across the "toe mark" space for small juveniles.
+           After 1995: Each new lizard is marked with a back
+           sharpie marker at the ventral base of the tail
+           posterior to the cloaeca.
+
+       7.  S-V: record length (in mm) from snout apex to vent for
+           each lizard.  Exercise great care in handling juveniles
+           for any measurements.  Estimates might be better for very
+           small juveniles; the handling needed to position the
+           lizard for measurement may be injurious.  If the juvenile
+           is not too active it can be measured in the cup.
+
+       8.  Total length: record total length in mm from snout to tail
+           tip for each lizard.
+
+       9.  Weight: place lizard in plastic bag and clip bag to the
+           scale.  Keeping bag out of wind if possible, note weight
+           in grams (subtract bag weight) and record in data book.
+           Very small to small juveniles can be estimated at l gram.
+
+       10. Tail: record as whole (W) or broken (B).  If tail is
+           broken and regrown, record as broken and make a note at
+           the bottom of the page.
+
+       A SAMPLE LIZARD DATA BOOK PAGE IS INCLUDED WITH THIS PROTOCOL
+
+  III.  CLOSING PITFALLS: on the last day of collections, close
+        the pitfalls by lowering the tiles to the ground
+        surface and covering the pitfall as well as possible, and
+        then packing soil or sand tightly around the edges and
+        top of the tile.  Soil on top may discourage coyotes and
+        help assure tight closure.  A shovel or trowel is useful
+        in closing the traps.  Be sure to place a stone atop the
+        tile or it may be difficult to find the trap again.
+        Sloppily closed pitfalls will be deathtraps for any
+        organisms getting in, so take time to seal them.
+
+  IV.   GENERAL PROBLEMS
+             l. Poor drainage (or flooding) is a problem in
+                several areas, especially tarbush and BASN.
+                If traps and cups are flooded, pour the cup
+                onto a flat surface and try to recover as many
+                organisms as possible (note in book any not
+                kept).  Using the cup, bail as much water out of
+                the trap as possible.
+             2. Broken tiles: this has been a problem at the
+                RABB sites which are open to grazing.  Tiles
+                from the LTER I transect have been used as
+                replacements.  An extra tile is usually kept with
+                the pitfall box and a box of tiles has
+                been kept in the annex.
+             3. Broken funnels: plastic funnels eventually
+                begin to crack and must be replaced.  If broken
+                funnels are noticed make a note for immediate
+                replacement.  Some funnels are available in the
+                FH236 lab.
+             4. Natural toe loss in lizards may have affected the toe
+                marking system.  If new captures had lost toes
+                (usually only one foot will be affected), attempts were
+                made to incorporate the digit into the marking scheme.
+                Toe losses in marked recaptures may be told by
+                reference to the marking lists and should be
+                noted in the data book.
+             5. Escapees: large, active lizards are easily
+                capable of escaping from one's grip and
+                occasionally from untended traps with the tile
+                off.  Beware of lizards running up your arm as
+                you attempt to pull them from traps- a quick grab
+                is safer than "slow fishing."  If a lizard
+                escapes, note as much information as you can
+                about it and then write "escaped" across the rest
+                of the row.
+
+15) Key literature (Citations that describe sampling procedures,
+                    [reference of a published paper, thesis, etc.]):
+    ----------------------------------------------------------------
+    <NONE>
+
+16) Keywords (keywords that describe data set; maximum of 10):
+    ----------------------------------------------------------------
+    lizards, pitfall traps, animals, consumers, populations
+
+17) Treatment of data: (List any programs used in analysis of the data):
+    [Note: Programs should be appended and stored with this form.]
+    ----------------------------------------------------------------
+          Data was entered from field data sheets using LOTUS 123
+     spreadsheet add-in, D.A.V.E., which is a data entry and
+     verification program, prior to 03/16/1995. Beginning 03/16/2000,
+     data is entered and validated from field data sheets using a
+     QuickBasic v4.5 data entry program.
+
+18) Associated computer accounts:
+    ----------------------------------------------------------------
+    <NONE>
+
+19) Files associated with this data set:
+    -------------------------------------------------------------------------
+    File Type Codes:
+             Type
+             Code  Definition
+             ----  ----------
+             MD    Metadata files
+             DS    Data files
+             DE    Data entry, verification, and analysis files
+             OT    Other (Any other related files)
+
+    File Format Codes: ASCII, BINARY
+
+    ------Metadata files------------------------------------
+      file type: MD
+      file name: LIZRDPIT.PRJ
+    description: Project documentation
+    file format: Text file
+    format type: ASCII
+
+      file type: MD
+      file name: LIZRDPIT.DSD
+    description: Data set documentation
+    file format: Text file
+    format type: ASCII
+
+    ------Data files----------------------------------------
+      file type: DS
+      file name: LIZRDPIT.DAT
+    description: Data file
+    file format: Text file
+    format type: ASCII
+
+
+      file type: DS
+      file name: LIZRDPIT.HIS
+    description: Data set history log
+    file format: Text file
+    format type: ASCII
+
+    ------Data entry, verification, and analysis files------
+      file type: DE
+      file name: LIZDATA.BAS
+    description: Main source code module (Used to enter data beginning 03/16/1995.)
+    file format: MS QuickBasic
+    format type:
+
+      file type: DE
+      file name: LIZDATA.DED
+    description: Data entry procedure documentation for the QuickBasic data entry program.
+                 (Used to enter data beginning 03/16/1995.)
+    file format: Text file
+    format type: ASCII
+
+      file type: DE
+      file name: LIZDATA.EXE
+    description: Data entry program (Used to enter data beginning 03/16/1995.)
+    file format:
+    format type: BINARY
+
+      file type: DE
+      file name: LIZDATA.EXT
+    description: External species code list for the QuickBasic data entry program.
+                 (Used to enter data beginning 03/16/1995.)
+    file format: Text file
+    format type: ASCII
+
+      file type: DE
+      file name: LIZDATA.MAK
+    description: QuickBasic make file (Used to enter data beginning 03/16/1995.)
+    file format: Text file
+    format type: ASCII
+
+      file type: DE
+      file name: LIZDATA1.BAS
+    description: QuickBasic sub-module source code (Used to enter data beginning 03/16/1995.)
+    file format: MS QuickBasic
+    format type: BINARY
+
+      file type: DE
+      file name: LIZRDPIT.DED
+    description: Data entry procedure documentation for the LOTUS (D.A.V.E.) data entry
+                 program. (Used to enter data prior to 03/16/1995.)
+    file format: Text file
+    format type: ASCII
+
+      file type: DE
+      file name: LIZRDPIT.WK1
+    description: Copy of pitfall lizard data created during data entry
+                 procedure. (Used to enter data prior to 03/16/1995.)
+    file format: LOTUS 1-2-3 spreadsheet
+    format type: BINARY
+
+      file type: DE
+      file name: LIZRDPIT.IMG
+    description: Data entry template image used to enter data.  Used
+                 by LOTUS add-in D.A.V.E. (Used to enter data prior to 03/16/1995.)
+    file format: LOTUS 1-2-3 D.A.V.E. add-in
+    format type: BINARY
+
+      file type: DE
+      file name: LIZARDSP.EXT
+    description: External species code list for the LOTUS (D.A.V.E.) data
+                 entry program. (Used to enter data prior to 03/16/1995.)
+    file format: Text file
+    format type: ASCII
+
+    ------Other (Any other related files)-------------------
+      file type: OT
+      file name: LIZRDSPP.LST
+    description: Lizard species list
+    file format:
+    format type:
+
+      file type: OT
+      file name: LIZRDKEY.INF
+    description: Field help sheet of lizard characteristics
+    file format: Text file
+    format type: ASCII
+
+
+      file type: OT
+      file name: LIZRDPRO.DOC
+    description: Protocol for Lizard Pitfalls
+    file format: MS Word
+    format type: BINARY
+
+      file type: OT
+      file name: LIZRDPRO.PDF
+    description: Protocol for Lizard Pitfalls
+    file format: Adobe Acrobat
+    format type: BINARY
+
+20) Comments (Include any comments here that more fully describe
+               this data set):
+    ----------------------------------------------------------------
+    Responsible investigator(s):
+    ----------------------------
+    D. C. Lightfoot, Jun1989-Aug2006;
+    W. G. Whitford, Jun1989-2003
+    *********************************
+
+    M-NORT grid installed 03/03/1995. Moved from M-RABB-C site as
+    per Nancy Stotz.
+    G-SUMM grid installed 06/06/1995. Moved from G-IBPE-A site as
+    per Nancy Stotz.
+
+21) Data set documentation history log:
+    ----------------------------------------------------------------
+    Data set title     - Lizard pitfall trap data (LTER-II, LTER-III)
+    Data set file name - LIZRDPIT.DSD
+    ----------------------------------------------------------------
+         mm/dd/yyyy         - Date of Comment
+         Int                - Initials of person making Comment
+                              KJL  =  Kevin J. La Fleur
+                              JPA  =  John P. Anderson
+                              DCL  =  David C. Lightfoot
+                              KR   =  Ken Ramsey
+                              JL   =  Jim Lenz
+         Changes/Updates    - List any changes made to document
+
+    mm/dd/yyyy  Int  Changes/Updates
+    ----------  ---  -----------------------------------------------
+    02/13/1990  JPA  Form completed by investigator
+    12/04/1996  JPA  Converted data set document file to new format.
+    03/08/1997  DCL  Updated LTER-II setup to LTER-III;
+                     establishment of sites and M-NORT and G-
+                     SUMM, establishment of separate pitfall
+                     traps for arthropods.
+    09/20/1999  JPA  Clarified site description.
+    10/12/2000  KR   Updated the attributes measured, treatment of
+                     data, and data entry files sections to reflect
+                     that data is entered using the QuickBasic
+                     program and uses tail marking instead of toe
+                     marking beginning 03/16/95.
+    11/10/2000  JPA  Added protocol file names
+    06/13/2002  JL   Added Dataset ID and Project ID sections.
+    07/08/2003  JPA  Received cleaned dataset from DCL.
+    07/08/2003  JPA  Corrected misalignment of some records in data set
+                     and added header information to revised data set
+                     received from DCL.
+    07/11/2003  JPA  Updated lizard species list file name.
+    02/27/2004  KR   Changed format for Attributes and Associated
+                     Files section.
+                     Moved Dataset and Project IDs to top of form.
+                     Removed Missing/Questionable data section and
+                     incorporated into Attributes section.
+    07/26/2007  KR   Updated Responsible Investigators and Researchers
+                     sections to reflect dates associated with dataset.
+    09/26/2009  KR   Changed access to UNRESTRICTED per Deb Peters.
+    09/26/2009  KR   Changed dataset to terminated per Deb Peters
+                     and assigned termination date. Reformatted
+                     Responsible Investigator sectin to reflect
+                     time periods associated with data set.
+    11/15/2011  JPA  Changed responsible investigator for contact person
+                     to John P Anderson per Deb Peters
+    12/08/2011  JPA  Updated variable names to match dataset
+    11/24/2014  JPA  Changed project and dataset i.d.:
+                     Dataset ID: DSL2002038 to 210007001
+                     Project ID: PRL2002034 to 210007000
+ -------------------------------------------------------------------
+                         END OF DATA SET FILE
+ -------------------------------------------------------------------

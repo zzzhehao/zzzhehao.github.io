@@ -1,0 +1,48 @@
+<style>
+    .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: -2;
+    }
+
+    body {
+        color: #e9e5df;
+        position: relative;
+    }
+
+    figcaption {
+        color: #cecece;
+    }
+
+    .contact-links a {
+        color: var(--mute-color-dark);
+    }
+
+    .cus-footer {
+        color: var(--ink1);
+    }
+
+    .sourceCode {
+    background-color: transparent !important;
+    border: none !important;
+    }
+</style>
+
+<div class="background-container"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var backgroundContainer = document.querySelector('.background-container');
+        var currentPath = window.location.pathname;
+        var depth = currentPath.split('/').length - 2; // Adjust based on your site structure
+        var relativePath = '../'.repeat(depth) + 'assets/images/red-plane-2.jpg';
+        backgroundContainer.style.backgroundImage = 'url(' + relativePath + ')';
+    });
+</script>
